@@ -93,7 +93,6 @@ import com.baidu.tieba.lf5;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.lp5;
 import com.baidu.tieba.mh5;
-import com.baidu.tieba.n69;
 import com.baidu.tieba.nr4;
 import com.baidu.tieba.p05;
 import com.baidu.tieba.p35;
@@ -101,6 +100,7 @@ import com.baidu.tieba.pj5;
 import com.baidu.tieba.pw4;
 import com.baidu.tieba.qr4;
 import com.baidu.tieba.qv4;
+import com.baidu.tieba.r79;
 import com.baidu.tieba.s35;
 import com.baidu.tieba.sj5;
 import com.baidu.tieba.tf5;
@@ -2115,7 +2115,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             g15.n(false);
             qr4.a(motionEvent, getPageId(), getMissionTid());
-            n69.getInstance().behaviorRecordEvent(motionEvent, this);
+            r79.getInstance().behaviorRecordEvent(motionEvent, this);
             wx5.K().H();
             try {
                 return super.dispatchTouchEvent(motionEvent);
@@ -2184,7 +2184,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                         j05Var.setCanceledOnTouchOutside(false);
                         j05Var.setTitle(R.string.request_permission_default_title);
                         j05Var.setMessageId(R.string.request_window_permission_default_text);
-                        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a26, new k(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new j(this)).create(getPageContext());
+                        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a30, new k(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new j(this)).create(getPageContext());
                         j05Var.show();
                         p35.m().w("key_is_window_permission_dialog_shown", true);
                     } else {
@@ -2362,7 +2362,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
-            n69.getInstance().onPause(this);
+            r79.getInstance().onPause(this);
             super.onPause();
             if (PermissionUtil.isAgreePrivacyPolicy() && TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -2403,7 +2403,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (interceptable == null || interceptable.invokeV(1048658, this) == null) {
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            n69.getInstance().onResume(this);
+            r79.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {

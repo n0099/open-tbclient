@@ -31,21 +31,20 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a48;
-import com.baidu.tieba.aa9;
+import com.baidu.tieba.cb9;
 import com.baidu.tieba.e48;
+import com.baidu.tieba.eb9;
 import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.ga9;
-import com.baidu.tieba.ha9;
-import com.baidu.tieba.ia9;
-import com.baidu.tieba.la9;
-import com.baidu.tieba.m99;
-import com.baidu.tieba.ma9;
-import com.baidu.tieba.n99;
+import com.baidu.tieba.kb9;
+import com.baidu.tieba.lb9;
+import com.baidu.tieba.mb9;
+import com.baidu.tieba.pb9;
+import com.baidu.tieba.qa9;
+import com.baidu.tieba.qb9;
 import com.baidu.tieba.qv4;
+import com.baidu.tieba.ra9;
 import com.baidu.tieba.s35;
-import com.baidu.tieba.t99;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.u99;
 import com.baidu.tieba.video.EditVideoData;
 import com.baidu.tieba.video.VideoTitleData;
 import com.baidu.tieba.video.editvideo.data.MusicData;
@@ -53,7 +52,8 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import com.baidu.tieba.video.editvideo.model.SelectCoverModel;
 import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
 import com.baidu.tieba.video.editvideo.view.MaskVideoView;
-import com.baidu.tieba.y99;
+import com.baidu.tieba.xa9;
+import com.baidu.tieba.ya9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVideoView.f {
+public class EditVideoActivity extends BaseActivity implements xa9, ya9, MaskVideoView.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -76,32 +76,32 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
     public VideoInfo e;
     public VideoTitleData f;
     public List<VideoTitleData> g;
-    public la9 h;
+    public pb9 h;
     public SelectCoverModel i;
     public SelectMusicModel j;
     public String k;
     public boolean l;
     public boolean m;
     public s35 n;
-    public y99 o;
+    public cb9 o;
     public String p;
     public int q;
     public String r;
     public String s;
     public a48 t;
-    public ma9 u;
-    public m99 v;
+    public qb9 u;
+    public qa9 v;
     public HttpMessageListener w;
     public CustomMessageListener x;
 
-    @Override // com.baidu.tieba.u99
+    @Override // com.baidu.tieba.ya9
     public void o1(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048592, this, str, i, str2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
@@ -151,12 +151,12 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
     }
 
     /* loaded from: classes6.dex */
-    public class b extends m99 {
+    public class b extends qa9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditVideoActivity i;
 
-        @Override // com.baidu.tieba.m99
+        @Override // com.baidu.tieba.qa9
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -185,7 +185,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             this.i = editVideoActivity;
         }
 
-        @Override // com.baidu.tieba.m99
+        @Override // com.baidu.tieba.qa9
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -194,7 +194,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             }
         }
 
-        @Override // com.baidu.tieba.m99
+        @Override // com.baidu.tieba.qa9
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -204,7 +204,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             }
         }
 
-        @Override // com.baidu.tieba.m99
+        @Override // com.baidu.tieba.qa9
         public void d(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -213,7 +213,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             }
         }
 
-        @Override // com.baidu.tieba.m99
+        @Override // com.baidu.tieba.qa9
         public void g(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
@@ -222,14 +222,14 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             }
         }
 
-        @Override // com.baidu.tieba.m99
+        @Override // com.baidu.tieba.qa9
         public void f(VideoInfo videoInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoInfo) == null) {
                 super.f(videoInfo);
                 if (!this.i.l) {
                     File file = new File(videoInfo.getVideoPath());
-                    String str = n99.g + file.getName();
+                    String str = ra9.g + file.getName();
                     if (!str.equals(file.getAbsolutePath())) {
                         FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str);
                     }
@@ -307,14 +307,14 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
 
     public final void K1() {
         VideoInfo videoInfo;
-        la9 la9Var;
+        pb9 pb9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (videoInfo = this.e) != null && videoInfo.getEditVideoData() != null && (la9Var = this.h) != null) {
-            ga9 z = la9Var.z(this.e.getEditVideoData().filterName);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (videoInfo = this.e) != null && videoInfo.getEditVideoData() != null && (pb9Var = this.h) != null) {
+            kb9 z = pb9Var.z(this.e.getEditVideoData().filterName);
             if (z != null) {
-                y99 y99Var = this.o;
-                if (y99Var != null) {
-                    y99Var.h(z);
+                cb9 cb9Var = this.o;
+                if (cb9Var != null) {
+                    cb9Var.h(z);
                 }
                 this.h.d0(z);
             }
@@ -323,7 +323,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void onNext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -336,9 +336,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
                 } else {
                     this.l = true;
                     this.m = false;
-                    ma9 ma9Var = this.u;
-                    if (ma9Var != null) {
-                        ma9Var.cancel();
+                    qb9 qb9Var = this.u;
+                    if (qb9Var != null) {
+                        qb9Var.cancel();
                     }
                     this.k = null;
                     this.h.O();
@@ -357,9 +357,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onPause();
-            la9 la9Var = this.h;
-            if (la9Var != null) {
-                la9Var.O();
+            pb9 pb9Var = this.h;
+            if (pb9Var != null) {
+                pb9Var.O();
                 this.h.Q();
                 this.h.R();
                 this.h.D().q();
@@ -369,9 +369,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             }
             this.l = false;
             this.m = true;
-            ma9 ma9Var = this.u;
-            if (ma9Var != null) {
-                ma9Var.cancel();
+            qb9 qb9Var = this.u;
+            if (qb9Var != null) {
+                qb9Var.cancel();
             }
             D1();
         }
@@ -382,7 +382,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveImage(str);
-                aa9.c(this, str);
+                eb9.c(this, str);
             } catch (Exception unused) {
                 H1();
                 this.l = false;
@@ -395,7 +395,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveVideo(str);
-                aa9.c(this, str);
+                eb9.c(this, str);
             } catch (Exception unused) {
                 H1();
                 this.l = false;
@@ -403,7 +403,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void h0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -417,7 +417,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void n1(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bitmap) == null) {
@@ -425,7 +425,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void s(List<PendantData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, list) == null) {
@@ -444,9 +444,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ma9 ma9Var = this.u;
-            if (ma9Var != null) {
-                ma9Var.cancel();
+            qb9 qb9Var = this.u;
+            if (qb9Var != null) {
+                qb9Var.cancel();
             }
             this.m = true;
             this.k = null;
@@ -482,18 +482,18 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void S() {
         SelectCoverModel selectCoverModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            la9 la9Var = this.h;
-            if (la9Var != null && (selectCoverModel = this.i) != null) {
+            pb9 pb9Var = this.h;
+            if (pb9Var != null && (selectCoverModel = this.i) != null) {
                 if (this.m) {
                     this.m = false;
                     return;
                 } else {
-                    selectCoverModel.M(this.d, la9Var.getCurrentPosition());
+                    selectCoverModel.M(this.d, pb9Var.getCurrentPosition());
                     return;
                 }
             }
@@ -504,10 +504,10 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        la9 la9Var;
+        pb9 pb9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (la9Var = this.h) != null) {
-            la9Var.g0();
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (pb9Var = this.h) != null) {
+            pb9Var.g0();
         }
     }
 
@@ -516,9 +516,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onDestroy();
-            la9 la9Var = this.h;
-            if (la9Var != null) {
-                la9Var.S();
+            pb9 pb9Var = this.h;
+            if (pb9Var != null) {
+                pb9Var.S();
             }
             SelectCoverModel selectCoverModel = this.i;
             if (selectCoverModel != null) {
@@ -537,8 +537,8 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onRestart();
-            ha9.g().d();
-            ia9.g().d();
+            lb9.g().d();
+            mb9.g().d();
         }
     }
 
@@ -547,9 +547,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             super.onResume();
-            la9 la9Var = this.h;
-            if (la9Var != null) {
-                la9Var.P();
+            pb9 pb9Var = this.h;
+            if (pb9Var != null) {
+                pb9Var.P();
             }
         }
     }
@@ -557,17 +557,17 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
     public final void G1(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-            la9 la9Var = this.h;
-            if (la9Var != null && this.i != null) {
+            pb9 pb9Var = this.h;
+            if (pb9Var != null && this.i != null) {
                 if (this.m) {
                     this.m = false;
                     return;
                 }
-                if (!TextUtils.isEmpty(la9Var.C())) {
+                if (!TextUtils.isEmpty(pb9Var.C())) {
                     bitmap = this.h.w(bitmap);
                 }
                 if (bitmap != null) {
-                    this.i.K(bitmap, n99.b);
+                    this.i.K(bitmap, ra9.b);
                     return;
                 }
                 return;
@@ -588,9 +588,9 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             }
             layoutMode.l(z);
             getLayoutMode().k(this.h.B());
-            la9 la9Var = this.h;
-            if (la9Var != null) {
-                la9Var.M(getPageContext(), i);
+            pb9 pb9Var = this.h;
+            if (pb9Var != null) {
+                pb9Var.M(getPageContext(), i);
             }
         }
     }
@@ -639,18 +639,18 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             H1();
             this.l = false;
-            ma9 ma9Var = this.u;
-            if (ma9Var != null) {
-                ma9Var.cancel();
+            qb9 qb9Var = this.u;
+            if (qb9Var != null) {
+                qb9Var.cancel();
             }
-            la9 la9Var = this.h;
-            if (la9Var != null && la9Var.D() != null) {
+            pb9 pb9Var = this.h;
+            if (pb9Var != null && pb9Var.D() != null) {
                 this.h.D().pause();
                 this.h.D().q();
             }
@@ -659,17 +659,17 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.m = false;
             this.l = false;
             this.v.i(false);
-            m99 m99Var = this.v;
-            m99Var.c = this.k;
-            m99Var.b = this.d;
-            m99Var.d = this.h.A();
+            qa9 qa9Var = this.v;
+            qa9Var.c = this.k;
+            qa9Var.b = this.d;
+            qa9Var.d = this.h.A();
             this.v.e = this.h.J();
             this.v.f = this.o.b();
             this.u.b();
@@ -679,7 +679,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15, types: [com.baidu.tbadk.core.data.PostPrefixData] */
     /* JADX WARN: Type inference failed for: r7v13 */
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.xa9
     public void n0(String str) {
         String str2;
         PostPrefixData postPrefixData;
@@ -742,7 +742,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
                     String stringExtra = intent.getStringExtra(CloudMusicActivityConfig.MUSIC_RESOURCE);
                     String stringExtra2 = intent.getStringExtra(CloudMusicActivityConfig.MUSIC_ID);
                     if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                        String f = ha9.g().f(stringExtra);
+                        String f = lb9.g().f(stringExtra);
                         if (this.h != null && !TextUtils.isEmpty(f)) {
                             this.h.N(f, stringExtra2);
                         }
@@ -783,13 +783,13 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             if (!TextUtils.isEmpty(this.d) && !new File(this.d).exists()) {
                 h();
             }
-            new File(n99.g).mkdirs();
+            new File(ra9.g).mkdirs();
             this.i = new SelectCoverModel(getPageContext(), this, this.t);
             this.j = new SelectMusicModel(getPageContext(), this);
-            this.o = new y99(this);
-            la9 la9Var = new la9(getPageContext(), this, findViewById(R.id.root_layout), this.t);
-            this.h = la9Var;
-            la9Var.V(this.d);
+            this.o = new cb9(this);
+            pb9 pb9Var = new pb9(getPageContext(), this, findViewById(R.id.root_layout), this.t);
+            this.h = pb9Var;
+            pb9Var.V(this.d);
             this.h.b0(getIntent());
             this.h.W(this.o);
             this.h.X(this);
@@ -797,7 +797,7 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             this.j.H();
             s35 s35Var = new s35(getPageContext());
             this.n = s35Var;
-            s35Var.i(R.string.obfuscated_res_0x7f0f0b8b);
+            s35Var.i(R.string.obfuscated_res_0x7f0f0b95);
             registerListener(this.x);
             I1();
             registerListener(this.w);
@@ -805,20 +805,20 @@ public class EditVideoActivity extends BaseActivity implements t99, u99, MaskVid
             TiebaStatic.log("c12303");
             b bVar = new b(this, this, this.d, this.k);
             this.v = bVar;
-            this.u = new ma9(bVar);
+            this.u = new qb9(bVar);
             K1();
         }
     }
 
-    @Override // com.baidu.tieba.u99
+    @Override // com.baidu.tieba.ya9
     public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, list) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0bd7)));
-            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0bd5)));
+            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0be1)));
+            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0bdf)));
             this.h.Y(list);
         }
     }

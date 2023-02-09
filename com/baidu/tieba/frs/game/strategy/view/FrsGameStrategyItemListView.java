@@ -34,9 +34,9 @@ import com.baidu.tieba.da;
 import com.baidu.tieba.ey6;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.fy6;
-import com.baidu.tieba.h29;
 import com.baidu.tieba.iy6;
 import com.baidu.tieba.kf5;
+import com.baidu.tieba.l39;
 import com.baidu.tieba.ly6;
 import com.baidu.tieba.no;
 import com.baidu.tieba.y35;
@@ -84,12 +84,12 @@ public class FrsGameStrategyItemListView extends FrameLayout implements fy6 {
 
         /* renamed from: com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0282a implements Runnable {
+        public class RunnableC0281a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
-            public RunnableC0282a(a aVar, String str) {
+            public RunnableC0281a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -162,14 +162,14 @@ public class FrsGameStrategyItemListView extends FrameLayout implements fy6 {
             if (threadData.getActInfoType() == 1 && !ViewHelper.checkUpIsLogin(this.a.a.getPageActivity())) {
                 return;
             }
-            h29 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            l39 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && !readThreadHistory.d(threadData.getId())) {
                 readThreadHistory.a(threadData.getId());
                 this.a.h.b();
             }
             String ad_url = threadData.getAd_url();
             if (ad_url != null && !ad_url.equals("")) {
-                new Thread(new RunnableC0282a(this, ad_url)).start();
+                new Thread(new RunnableC0281a(this, ad_url)).start();
                 z = true;
             } else {
                 z = false;
@@ -489,7 +489,7 @@ public class FrsGameStrategyItemListView extends FrameLayout implements fy6 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.n = true;
             this.d.setNextPage(this.g);
-            this.g.S();
+            this.g.T();
         }
     }
 

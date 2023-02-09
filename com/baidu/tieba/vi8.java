@@ -1,70 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CustomGrid;
 /* loaded from: classes6.dex */
-public class vi8 {
+public class vi8 extends qn<ri8, PersonCenterIntervalHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public int e;
-    public long f;
-    public String g;
-    public String h;
 
-    public vi8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vi8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(CustomGrid customGrid) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
-            this.a = customGrid.title;
-            this.b = customGrid.action_uri;
-            this.c = customGrid.action_type.intValue();
-            this.d = customGrid.icon;
-            this.e = customGrid.type.intValue();
-            this.g = customGrid.desc;
-            this.h = customGrid.mark_text;
-            this.f = customGrid.red_point_version.longValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0412, viewGroup, false));
         }
+        return (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
-    public ej8 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ri8 ri8Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        t(i, view2, viewGroup, ri8Var, personCenterIntervalHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, ri8 ri8Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ej8 ej8Var = new ej8();
-            ej8Var.e = this.a;
-            ej8Var.n = true;
-            ej8Var.l = this.d;
-            ej8Var.g = this.b;
-            ej8Var.a = this.e;
-            ej8Var.m = this.c;
-            gj8 gj8Var = new gj8();
-            gj8Var.b = this.g;
-            gj8Var.i = this.h;
-            ej8Var.i = gj8Var;
-            return ej8Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ri8Var, personCenterIntervalHolder})) == null) {
+            if (ri8Var != null && personCenterIntervalHolder != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (personCenterIntervalHolder.a != skinType) {
+                    personCenterIntervalHolder.a = skinType;
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, ri8Var.c);
+                }
+                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
+                int i2 = ri8Var.a;
+                if (i2 > 0) {
+                    layoutParams.height = i2;
+                }
+                int i3 = ri8Var.b;
+                if (i3 > 0) {
+                    layoutParams.width = i3;
+                }
+                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
+                personCenterIntervalHolder.b.setOnClickListener(null);
+            }
+            return view2;
         }
-        return (ej8) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

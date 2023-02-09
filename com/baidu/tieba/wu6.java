@@ -48,7 +48,7 @@ public class wu6 extends BaseCardInfo implements IVideoData {
     public c n;
     public BaijiahaoData o;
     public sz4 p;
-    public List<g19> q;
+    public List<k29> q;
     public WorksInfoData r;
     public boolean s;
     public AgreeData t;
@@ -433,9 +433,9 @@ public class wu6 extends BaseCardInfo implements IVideoData {
             if (optJSONArray != null) {
                 this.q = new ArrayList();
                 for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                    g19 g19Var = new g19();
-                    g19Var.a(optJSONArray.getJSONObject(i4));
-                    this.q.add(g19Var);
+                    k29 k29Var = new k29();
+                    k29Var.a(optJSONArray.getJSONObject(i4));
+                    this.q.add(k29Var);
                 }
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("works_info");

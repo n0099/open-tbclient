@@ -242,8 +242,8 @@ public class e98 {
             shareThreadView.setDesc(h98Var.getThreadInfo()._abstract);
             shareThreadView.c(str4, false);
             j05Var.setContentView(shareThreadView);
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f11e9, new c(h98Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(pbChosenActivity, shareThreadView));
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f11ff, new c(h98Var, pbChosenActivity, shareThreadView, j, str, str2, str3, str4));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(pbChosenActivity, shareThreadView));
             j05Var.setCanceledOnTouchOutside(false);
             j05Var.create(pbChosenActivity.getPageContext()).show();
         }
@@ -257,7 +257,7 @@ public class e98 {
             String str4 = h98Var.getThreadInfo()._abstract;
             Resources resources = this.a.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(R.string.share_content_tpl), str3, str4);
-            resources.getString(R.string.obfuscated_res_0x7f0f0402, str3);
+            resources.getString(R.string.obfuscated_res_0x7f0f0403, str3);
             ShareItem shareItem = new ShareItem();
             shareItem.v = str3;
             shareItem.w = format;

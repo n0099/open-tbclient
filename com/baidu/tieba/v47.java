@@ -203,9 +203,9 @@ public class v47 implements vw6, h37 {
         this.a = frsFragment;
         this.b = noPressedRelativeLayout;
         i();
-        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090c8b);
-        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090c8a);
-        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090c8c);
+        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090c9c);
+        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090c9b);
+        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090c9d);
         this.j.setOnClickListener(this.l);
         this.i.setOnClickListener(this.l);
         onChangeSkinType(this.f);

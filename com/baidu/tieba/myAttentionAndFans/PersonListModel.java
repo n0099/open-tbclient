@@ -187,7 +187,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 }
             } else if (this.a.d != null) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }

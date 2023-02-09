@@ -50,16 +50,16 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh9;
 import com.baidu.tieba.ci9;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fi9;
+import com.baidu.tieba.gj9;
 import com.baidu.tieba.ho;
 import com.baidu.tieba.kl5;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.write.write.AtSelectFriendList;
-import com.baidu.tieba.yg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 /* loaded from: classes6.dex */
-public class AtListActivity extends SuspendedActivity implements kl5, AdapterView.OnItemClickListener, ci9.c {
+public class AtListActivity extends SuspendedActivity implements kl5, AdapterView.OnItemClickListener, gj9.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
@@ -110,8 +110,8 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
     public LinearLayout t;
     public Button u;
     public l v;
-    public bh9 w;
-    public ci9 x;
+    public fi9 w;
+    public gj9 x;
     public String y;
     public RelativeLayout z;
 
@@ -130,12 +130,12 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0481a implements View.OnClickListener {
+        public class View$OnClickListenerC0479a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0481a(a aVar) {
+            public View$OnClickListenerC0479a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,7 +191,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                 this.a.C.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.m.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0515), new View$OnClickListenerC0481a(this));
+                    atListActivity.e = atListActivity.m.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0518), new View$OnClickListenerC0479a(this));
                 }
             }
         }
@@ -619,7 +619,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
     }
 
     /* loaded from: classes6.dex */
-    public class l extends BdAsyncTask<String, Integer, yg9> {
+    public class l extends BdAsyncTask<String, Integer, ci9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -651,7 +651,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public yg9 doInBackground(String... strArr) {
+        public ci9 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -690,21 +690,21 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    yg9 yg9Var = new yg9();
-                    yg9Var.d(postNetData);
-                    return yg9Var;
+                    ci9 ci9Var = new ci9();
+                    ci9Var.d(postNetData);
+                    return ci9Var;
                 }
                 return null;
             }
-            return (yg9) invokeL.objValue;
+            return (ci9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(yg9 yg9Var) {
+        public void onPostExecute(ci9 ci9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yg9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ci9Var) == null) {
                 this.b.v = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.I);
@@ -712,14 +712,14 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                     this.b.A.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.w.b(yg9Var);
+                    this.b.w.b(ci9Var);
                     if (this.b.x == null) {
                         return;
                     }
-                    if (yg9Var != null) {
+                    if (ci9Var != null) {
                         AtListActivity atListActivity2 = this.b;
-                        atListActivity2.k = atListActivity2.v2(yg9Var);
-                        this.b.l = yg9Var.b();
+                        atListActivity2.k = atListActivity2.v2(ci9Var);
+                        this.b.l = ci9Var.b();
                     }
                     this.b.x.h(this.b.k);
                     this.b.x.notifyDataSetInvalidated();
@@ -729,7 +729,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                     AtListActivity atListActivity3 = this.b;
                     atListActivity3.showNetRefreshView(atListActivity3.I, this.b.getString(R.string.refresh_view_title_text), null, this.b.getString(R.string.refresh_view_button_text), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(yg9Var);
+                super.onPostExecute(ci9Var);
             }
         }
 
@@ -850,8 +850,8 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
         }
     }
 
-    @Override // com.baidu.tieba.ci9.c
-    public void O0(View view2, MetaData metaData) {
+    @Override // com.baidu.tieba.gj9.c
+    public void P0(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048579, this, view2, metaData) != null) || metaData == null) {
             return;
@@ -866,7 +866,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, linearLayout, navigationBar)) == null) {
             this.p = linearLayout;
             this.m = navigationBar;
-            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0123, (ViewGroup) this.p, true);
+            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0124, (ViewGroup) this.p, true);
             return this;
         }
         return (kl5) invokeLL.objValue;
@@ -922,7 +922,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                 this.r.setVisibility(8);
                 hideNetRefreshView(this.I);
                 this.H.setVisibility(0);
-                this.H.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0d48)));
+                this.H.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0d53)));
                 this.t.setVisibility(8);
             } else if (i2 == 0) {
                 this.r.setVisibility(0);
@@ -934,14 +934,14 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
         }
     }
 
-    public final ArrayList<MetaData> v2(@NonNull yg9 yg9Var) {
+    public final ArrayList<MetaData> v2(@NonNull ci9 ci9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, yg9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, ci9Var)) == null) {
             ArrayList<MetaData> arrayList = new ArrayList<>();
-            if (!ListUtils.isEmpty(yg9Var.c()) && !ListUtils.isEmpty(yg9Var.a())) {
-                ArrayList<MetaData> a2 = yg9Var.a();
-                ArrayList<MetaData> c2 = yg9Var.c();
+            if (!ListUtils.isEmpty(ci9Var.c()) && !ListUtils.isEmpty(ci9Var.a())) {
+                ArrayList<MetaData> a2 = ci9Var.a();
+                ArrayList<MetaData> c2 = ci9Var.c();
                 if (this.R) {
                     arrayList.addAll(a2);
                 }
@@ -950,11 +950,11 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                 }
                 arrayList.addAll(c2);
             } else {
-                if (!ListUtils.isEmpty(yg9Var.c())) {
+                if (!ListUtils.isEmpty(ci9Var.c())) {
                     if (this.M && this.S != 0) {
                         arrayList.add(q2());
                     }
-                    arrayList.addAll(yg9Var.c());
+                    arrayList.addAll(ci9Var.c());
                 }
                 return arrayList;
             }
@@ -1073,7 +1073,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
     }
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -1135,7 +1135,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
     public final void s2(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
-            this.w = new bh9();
+            this.w = new fi9();
             if (bundle != null) {
                 this.J = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.K = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -1255,17 +1255,17 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
     public final void t2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091883);
+            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09189e);
             this.H = NoDataViewFactory.b(getPageContext().getContext(), this.z, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07029f)), NoDataViewFactory.e.d(null, getResources().getString(R.string.no_chat_friends)), null, true);
-            this.A = findViewById(R.id.obfuscated_res_0x7f0902ca);
+            this.A = findViewById(R.id.obfuscated_res_0x7f0902d0);
             this.H.setOnTouchListener(new d(this));
             v1();
             this.q = (LinearLayout) findViewById(R.id.bt_search_left);
-            this.I = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
-            this.r = (BdListView) findViewById(R.id.obfuscated_res_0x7f091408);
-            ci9 ci9Var = new ci9(this, this.J);
-            this.x = ci9Var;
-            ci9Var.i(this);
+            this.I = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090718);
+            this.r = (BdListView) findViewById(R.id.obfuscated_res_0x7f09141d);
+            gj9 gj9Var = new gj9(this, this.J);
+            this.x = gj9Var;
+            gj9Var.i(this);
             this.x.g(new e(this));
             this.r.setAdapter((ListAdapter) this.x);
             this.r.setOnItemClickListener(this);
@@ -1274,12 +1274,12 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
                 ((View) this.n.getParent()).setFocusable(true);
                 ((View) this.n.getParent()).setFocusableInTouchMode(true);
             }
-            this.t = (LinearLayout) this.z.findViewById(R.id.obfuscated_res_0x7f091069);
-            Button button = (Button) this.z.findViewById(R.id.obfuscated_res_0x7f090499);
+            this.t = (LinearLayout) this.z.findViewById(R.id.obfuscated_res_0x7f09107b);
+            Button button = (Button) this.z.findViewById(R.id.obfuscated_res_0x7f0904a4);
             this.u = button;
             button.setOnClickListener(new g(this));
             z2(0);
-            AtSelectFriendList atSelectFriendList = (AtSelectFriendList) this.z.findViewById(R.id.obfuscated_res_0x7f0904bd);
+            AtSelectFriendList atSelectFriendList = (AtSelectFriendList) this.z.findViewById(R.id.obfuscated_res_0x7f0904c8);
             this.s = atSelectFriendList;
             atSelectFriendList.setMaxCount(5);
             this.s.setItemOPerationHandler(new h(this));
@@ -1343,7 +1343,7 @@ public class AtListActivity extends SuspendedActivity implements kl5, AdapterVie
     public final void z2(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.u.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f02ae), Integer.valueOf(i2), 5));
+            this.u.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f02af), Integer.valueOf(i2), 5));
         }
     }
 }

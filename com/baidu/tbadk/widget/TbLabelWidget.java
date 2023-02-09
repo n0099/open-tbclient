@@ -24,7 +24,7 @@ import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ap5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lz8;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.sw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -256,7 +256,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public void m(ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, themeElement) == null) && j(themeElement)) {
-            this.n.setTextColor(lz8.f(themeElement.common_color));
+            this.n.setTextColor(p09.f(themeElement.common_color));
         }
     }
 
@@ -343,7 +343,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 this.l.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.d.b) && !TextUtils.isEmpty(this.d.e)) {
-                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ad) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
+                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b6) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
             } else if (!TextUtils.isEmpty(this.d.e)) {
                 this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, StringHelper.STRING_MORE));
             }
@@ -513,16 +513,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (j(themeElement)) {
-                this.g.setTextColor(lz8.f(themeElement.common_color));
+                this.g.setTextColor(p09.f(themeElement.common_color));
             }
             if (j(themeElement2)) {
-                this.h.setBackgroundColor(lz8.f(themeElement2.common_color));
+                this.h.setBackgroundColor(p09.f(themeElement2.common_color));
             }
             if (j(themeElement3)) {
-                this.i.setTextColor(lz8.f(themeElement3.common_color));
+                this.i.setTextColor(p09.f(themeElement3.common_color));
             }
             if (j(themeElement4)) {
-                this.r.g(lz8.f(themeElement4.common_color));
+                this.r.g(p09.f(themeElement4.common_color));
             }
         }
     }

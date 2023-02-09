@@ -45,14 +45,14 @@ public class ry1 extends ny1 {
 
         /* renamed from: com.baidu.tieba.ry1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0423a implements lc3.e {
+        public class C0422a implements lc3.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ w83 b;
             public final /* synthetic */ a c;
 
-            public C0423a(a aVar, Activity activity, w83 w83Var) {
+            public C0422a(a aVar, Activity activity, w83 w83Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -138,7 +138,7 @@ public class ry1 extends ny1 {
                         return;
                     }
                     this.a.a();
-                    lc3.g(M, this.c, "", new C0423a(this, activity, M), this.d);
+                    lc3.g(M, this.c, "", new C0422a(this, activity, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new w02(1001, "swan activity is null"));

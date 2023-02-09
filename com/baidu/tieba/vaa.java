@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeMap;
 /* loaded from: classes6.dex */
-public class vaa implements raa {
+public final class vaa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public TreeMap<String, String> b;
+    public int a;
+    public int[] b;
+    public int[] c;
 
     public vaa() {
         Interceptable interceptable = $ic;
@@ -26,61 +22,29 @@ public class vaa implements raa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    @Override // com.baidu.tieba.uaa
-    public Iterator<String> g() {
-        InterceptResult invokeV;
+    public static void a(vaa vaaVar, paa paaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Collections.unmodifiableSet(this.b.keySet()).iterator();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uaa
-    public byte[] getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uaa
-    public String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.b.get(str);
-            if (str2 == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(65537, null, vaaVar, paaVar) == null) {
+            int length = vaaVar.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                vaaVar.c[i2] = i;
+                saa.n(vaaVar.a, vaaVar.b, i, paaVar);
+                i += 1080;
             }
-            return str2;
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uaa
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    public static void b(vaa vaaVar, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.b.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.raa
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.b.put(str, str2);
+        if (interceptable == null || interceptable.invokeLII(65538, null, vaaVar, i, i2) == null) {
+            vaaVar.a = i;
+            vaaVar.b = new int[i2 * 1080];
+            vaaVar.c = new int[i2];
         }
     }
 }

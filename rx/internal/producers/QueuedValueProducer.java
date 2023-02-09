@@ -1,13 +1,13 @@
 package rx.internal.producers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fda;
-import com.baidu.tieba.jfa;
-import com.baidu.tieba.jga;
-import com.baidu.tieba.oda;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.jea;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.nha;
+import com.baidu.tieba.sea;
+import com.baidu.tieba.uha;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +19,12 @@ import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements vca {
+public final class QueuedValueProducer<T> extends AtomicLong implements zda {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
     public static final long serialVersionUID = 7277121710709137047L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zca<? super T> child;
+    public final dea<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -48,38 +48,38 @@ public final class QueuedValueProducer<T> extends AtomicLong implements vca {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedValueProducer(zca<? super T> zcaVar) {
-        this(zcaVar, r0);
-        Queue jfaVar;
+    public QueuedValueProducer(dea<? super T> deaVar) {
+        this(deaVar, r0);
+        Queue ngaVar;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zcaVar};
+            Object[] objArr = {deaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((zca) objArr2[0], (Queue) objArr2[1]);
+                this((dea) objArr2[0], (Queue) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (qga.b()) {
-            jfaVar = new jga();
+        if (uha.b()) {
+            ngaVar = new nha();
         } else {
-            jfaVar = new jfa();
+            ngaVar = new nga();
         }
     }
 
-    public QueuedValueProducer(zca<? super T> zcaVar, Queue<Object> queue) {
+    public QueuedValueProducer(dea<? super T> deaVar, Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zcaVar, queue};
+            Object[] objArr = {deaVar, queue};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements vca {
                 return;
             }
         }
-        this.child = zcaVar;
+        this.child = deaVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -98,20 +98,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements vca {
         Object poll;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.wip.getAndIncrement() == 0) {
-            zca<? super T> zcaVar = this.child;
+            dea<? super T> deaVar = this.child;
             Queue<Object> queue = this.queue;
-            while (!zcaVar.isUnsubscribed()) {
+            while (!deaVar.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            zcaVar.onNext(null);
+                            deaVar.onNext(null);
                         } else {
-                            zcaVar.onNext(poll);
+                            deaVar.onNext(poll);
                         }
-                        if (zcaVar.isUnsubscribed()) {
+                        if (deaVar.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -120,7 +120,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements vca {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        fda.g(th, zcaVar, poll);
+                        jea.g(th, deaVar, poll);
                         return;
                     }
                 }
@@ -151,14 +151,14 @@ public final class QueuedValueProducer<T> extends AtomicLong implements vca {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vca
+    @Override // com.baidu.tieba.zda
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    oda.b(this, j);
+                    sea.b(this, j);
                     drain();
                     return;
                 }

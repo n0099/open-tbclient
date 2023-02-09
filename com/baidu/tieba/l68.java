@@ -142,8 +142,8 @@ public class l68 extends BaseAdapter {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f65);
-                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907d3);
+                this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
+                this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907df);
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
                 layoutParams.width = this.c.d;
                 layoutParams.height = this.c.d;
@@ -337,7 +337,7 @@ public class l68 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 dVar = new d(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0547, (ViewGroup) null);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d054b, (ViewGroup) null);
                 dVar.b(view3);
                 view3.setTag(dVar);
             } else {

@@ -8,9 +8,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.cr9;
 import com.baidu.tieba.dk1;
-import com.baidu.tieba.jp9;
-import com.baidu.tieba.yp9;
+import com.baidu.tieba.nq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class IPCService implements yp9 {
+public class IPCService implements cr9 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements yp9 {
                 return;
             }
         }
-        a = jp9.m();
+        a = nq9.m();
     }
 
     public IPCService() {
@@ -60,7 +60,7 @@ public class IPCService implements yp9 {
         }
     }
 
-    @Override // com.baidu.tieba.yp9
+    @Override // com.baidu.tieba.cr9
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -253,7 +253,7 @@ public class IPCService implements yp9 {
         }
     }
 
-    @Override // com.baidu.tieba.yp9
+    @Override // com.baidu.tieba.cr9
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

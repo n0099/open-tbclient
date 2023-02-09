@@ -170,7 +170,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
             int c0 = qm3.c0(this);
             super.onCreate(bundle);
             qm3.g(this, c0);
-            setContentView(R.layout.obfuscated_res_0x7f0d00a0);
+            setContentView(R.layout.obfuscated_res_0x7f0d00a1);
             A(getIntent());
             y();
         }
@@ -237,7 +237,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
             } else {
                 d82Var = new d82();
             }
-            a.a(R.id.obfuscated_res_0x7f090174, d82Var);
+            a.a(R.id.obfuscated_res_0x7f090176, d82Var);
             a.e();
         }
     }

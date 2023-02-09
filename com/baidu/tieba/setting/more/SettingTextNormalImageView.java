@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bv8;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.xt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +57,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, xt8.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, bv8.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -110,11 +110,11 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07dc, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ee5);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b8);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07ee, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ef6);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
         }
     }
 

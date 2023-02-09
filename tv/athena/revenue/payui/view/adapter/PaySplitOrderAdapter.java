@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nla;
+import com.baidu.tieba.rma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -241,7 +241,7 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, nla.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
+            return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, rma.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

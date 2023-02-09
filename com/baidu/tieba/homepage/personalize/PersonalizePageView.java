@@ -69,12 +69,12 @@ import com.baidu.tieba.e85;
 import com.baidu.tieba.ed6;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.gz8;
 import com.baidu.tieba.hc7;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.adapter.HomePageCardVideoViewHolder;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
 import com.baidu.tieba.je7;
+import com.baidu.tieba.k09;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.kh;
 import com.baidu.tieba.kw5;
@@ -88,13 +88,13 @@ import com.baidu.tieba.p35;
 import com.baidu.tieba.pr4;
 import com.baidu.tieba.py4;
 import com.baidu.tieba.q97;
-import com.baidu.tieba.qv8;
 import com.baidu.tieba.s97;
 import com.baidu.tieba.t97;
 import com.baidu.tieba.td7;
 import com.baidu.tieba.u97;
 import com.baidu.tieba.ud7;
 import com.baidu.tieba.uk5;
+import com.baidu.tieba.uw8;
 import com.baidu.tieba.vd7;
 import com.baidu.tieba.wk5;
 import com.baidu.tieba.wn5;
@@ -339,7 +339,7 @@ public class PersonalizePageView extends FrameLayout {
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.f != null) {
                     this.a.b.f.F(this.a.b.getContext().getString(R.string.recommend_no_more_data));
                     this.a.b.f.g();
-                    this.a.b.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    this.a.b.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 }
             }
         }
@@ -377,7 +377,7 @@ public class PersonalizePageView extends FrameLayout {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), wn5Var, Integer.valueOf(i2)}) == null) {
                 if (this.b.i == null) {
                     PersonalizePageView personalizePageView = this.b;
-                    personalizePageView.F0(personalizePageView, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe), true);
+                    personalizePageView.F0(personalizePageView, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d08), true);
                     this.b.a0();
                     return;
                 }
@@ -586,7 +586,7 @@ public class PersonalizePageView extends FrameLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue() && xf5.f().b() && this.a.f != null && this.a.f.k() == 0) {
-                this.a.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
         }
     }
@@ -728,7 +728,7 @@ public class PersonalizePageView extends FrameLayout {
             }
             Object tag = view2.getTag();
             if (tag instanceof ThreadData) {
-                TiebaStatic.log(gz8.j("c13696", (ThreadData) tag));
+                TiebaStatic.log(k09.j("c13696", (ThreadData) tag));
             }
         }
     }
@@ -1437,7 +1437,7 @@ public class PersonalizePageView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
                 this.a.f.F(this.a.getContext().getString(R.string.pb_load_more));
                 this.a.f.g();
-                this.a.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
         }
     }
@@ -1472,7 +1472,7 @@ public class PersonalizePageView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.f != null) {
                 this.a.f.F(this.a.getContext().getString(R.string.pb_load_more));
                 this.a.f.g();
-                this.a.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
         }
     }
@@ -2457,7 +2457,7 @@ public class PersonalizePageView extends FrameLayout {
                 this.b.setNextPage(this.f);
                 this.f.F(getContext().getString(R.string.pb_load_more));
                 this.f.g();
-                this.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921440, Boolean.TRUE));
             BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = this.a;
@@ -2617,7 +2617,7 @@ public class PersonalizePageView extends FrameLayout {
             }
             this.o.attachView(view2, z2);
             this.o.p();
-            qv8.a("main", false);
+            uw8.a("main", false);
         }
     }
 
@@ -2743,7 +2743,7 @@ public class PersonalizePageView extends FrameLayout {
             this.w.a().setOnClickListener(this.c0);
             q97 q97Var = new q97(this, this.b);
             this.F = q97Var;
-            q97Var.p(context.getString(R.string.obfuscated_res_0x7f0f141d));
+            q97Var.p(context.getString(R.string.obfuscated_res_0x7f0f1434));
             BigdaySwipeRefreshLayout bigdaySwipeRefreshLayout = new BigdaySwipeRefreshLayout(context);
             this.a = bigdaySwipeRefreshLayout;
             bigdaySwipeRefreshLayout.addView(this.b);
@@ -2834,8 +2834,8 @@ public class PersonalizePageView extends FrameLayout {
             s97.d().j(System.currentTimeMillis(), 1);
             PbListView pbListView = this.f;
             if (pbListView != null && !pbListView.o()) {
-                this.f.S();
-                this.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.f.T();
+                this.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             }
             this.j.u0();
         }

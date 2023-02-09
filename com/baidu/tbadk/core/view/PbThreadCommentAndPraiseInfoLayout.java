@@ -297,7 +297,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             textView.setLayoutParams(layoutParams4);
             float f3 = g2;
             textView.setTextSize(0, f3);
-            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f11e9));
+            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f11ff));
             if (T()) {
                 this.K = true;
                 setNeedAddReplyIcon(true);

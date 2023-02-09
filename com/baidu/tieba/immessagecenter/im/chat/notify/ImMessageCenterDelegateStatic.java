@@ -19,7 +19,7 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterFragment;
-import com.baidu.tieba.lt8;
+import com.baidu.tieba.pu8;
 import com.baidu.tieba.qf5;
 import com.baidu.tieba.rf5;
 import com.baidu.tieba.sf5;
@@ -135,7 +135,7 @@ public class ImMessageCenterDelegateStatic extends qf5 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return lt8.a(tbPageContext, strArr);
+                return pu8.a(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }

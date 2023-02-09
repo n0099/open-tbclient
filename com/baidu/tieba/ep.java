@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ep implements x29 {
+public class ep implements b49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public uj a;
@@ -69,7 +69,7 @@ public class ep implements x29 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     ep epVar = this.a.c;
-                    epVar.a.onShowErr(4, epVar.g.getString(R.string.obfuscated_res_0x7f0f1679));
+                    epVar.a.onShowErr(4, epVar.g.getString(R.string.obfuscated_res_0x7f0f1691));
                     wj.a = 1;
                 }
             }
@@ -77,13 +77,13 @@ public class ep implements x29 {
 
         /* renamed from: com.baidu.tieba.ep$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0262b implements Runnable {
+        public class RunnableC0260b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0262b(b bVar, String str) {
+            public RunnableC0260b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class ep implements x29 {
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0262b(this, d));
+                        this.c.b.post(new RunnableC0260b(this, d));
                     }
                 }
             }
@@ -273,7 +273,7 @@ public class ep implements x29 {
                         return;
                     }
                     if (i <= 1000) {
-                        ujVar.onShowErr(2, wj.a(R.string.obfuscated_res_0x7f0f167e));
+                        ujVar.onShowErr(2, wj.a(R.string.obfuscated_res_0x7f0f1696));
                         FieldBuilder fieldBuilder = new FieldBuilder();
                         fieldBuilder.append("file", str);
                         fieldBuilder.append("dur", Integer.valueOf(i));
@@ -329,13 +329,13 @@ public class ep implements x29 {
                         this.a.c = null;
                         if (this.a.d == sj.b) {
                             ep epVar3 = this.a;
-                            epVar3.a.onShowErr(3, epVar3.g.getString(R.string.obfuscated_res_0x7f0f1680));
+                            epVar3.a.onShowErr(3, epVar3.g.getString(R.string.obfuscated_res_0x7f0f1698));
                         } else if (this.a.d == sj.c) {
                             ep epVar4 = this.a;
-                            epVar4.a.onShowErr(3, epVar4.g.getString(R.string.obfuscated_res_0x7f0f167f));
+                            epVar4.a.onShowErr(3, epVar4.g.getString(R.string.obfuscated_res_0x7f0f1697));
                         } else {
                             ep epVar5 = this.a;
-                            epVar5.a.onShowErr(3, epVar5.g.getString(R.string.obfuscated_res_0x7f0f1681));
+                            epVar5.a.onShowErr(3, epVar5.g.getString(R.string.obfuscated_res_0x7f0f1699));
                         }
                     }
                 } else {
@@ -375,7 +375,7 @@ public class ep implements x29 {
         return (ep) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class ep implements x29 {
         }
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class ep implements x29 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class ep implements x29 {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class ep implements x29 {
         }
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class ep implements x29 {
         }
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class ep implements x29 {
         }
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class ep implements x29 {
         }
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public void e(uj ujVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, ujVar) == null) {
@@ -509,7 +509,7 @@ public class ep implements x29 {
         }
     }
 
-    @Override // com.baidu.tieba.x29
+    @Override // com.baidu.tieba.b49
     public boolean c(uj ujVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;

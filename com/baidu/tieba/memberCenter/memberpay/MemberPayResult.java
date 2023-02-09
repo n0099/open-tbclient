@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.lz8;
+import com.baidu.tieba.p09;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -131,12 +131,12 @@ public class MemberPayResult {
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
                 if (skinType == 1) {
-                    return lz8.f(this.dynamicColorNight);
+                    return p09.f(this.dynamicColorNight);
                 }
                 if (skinType == 4) {
-                    return lz8.f(this.dynamicColorDark);
+                    return p09.f(this.dynamicColorDark);
                 }
-                return lz8.f(this.dynamicColor);
+                return p09.f(this.dynamicColor);
             }
             return invokeV.intValue;
         }

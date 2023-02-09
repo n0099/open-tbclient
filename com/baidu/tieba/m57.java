@@ -54,13 +54,13 @@ public class m57 extends ef5 {
 
         /* renamed from: com.baidu.tieba.m57$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0342a implements View.OnClickListener {
+        public class View$OnClickListenerC0344a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0342a(a aVar, int i) {
+            public View$OnClickListenerC0344a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,18 +136,18 @@ public class m57 extends ef5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079d, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07af, (ViewGroup) null);
                     bVar = new b();
-                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091d75);
+                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091db7);
                     bVar.a = (TextView) view2.findViewById(R.id.forum_name);
-                    bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab9);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922bd);
-                    bVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902bf);
-                    bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e3d);
-                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab8);
+                    bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac9);
+                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092304);
+                    bVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c5);
+                    bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4e);
+                    bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac8);
                     bVar.h = (TextView) view2.findViewById(R.id.thread_title);
-                    bVar.i = view2.findViewById(R.id.obfuscated_res_0x7f090855);
-                    bVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09072c);
+                    bVar.i = view2.findViewById(R.id.obfuscated_res_0x7f090863);
+                    bVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090737);
                     view2.setTag(bVar);
                 } else {
                     bVar = (b) view2.getTag();
@@ -157,7 +157,7 @@ public class m57 extends ef5 {
                     bVar.e.K(getItem(i).avatar, 10, false);
                     bVar.c.setText(StringHelper.numberUniformFormat(getItem(i).member_count.intValue()));
                     bVar.b.setText(StringHelper.numberUniformFormat(getItem(i).post_num.intValue()));
-                    bVar.f.setOnClickListener(new View$OnClickListenerC0342a(this, i));
+                    bVar.f.setOnClickListener(new View$OnClickListenerC0344a(this, i));
                     SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0105);
                     SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
                     SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0109);
@@ -206,7 +206,7 @@ public class m57 extends ef5 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m57(x9 x9Var, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(x9Var.getContext()).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null));
+        super(LayoutInflater.from(x9Var.getContext()).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,11 +225,11 @@ public class m57 extends ef5 {
         this.e = x9Var;
         this.a = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.b = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.f = this.attachedView.findViewById(R.id.obfuscated_res_0x7f090842);
-        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091c66);
+        this.f = this.attachedView.findViewById(R.id.obfuscated_res_0x7f090850);
+        this.c = (BdListView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091ca7);
         this.attachedView.setOnClickListener(null);
-        this.g = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090735);
-        this.h = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091515);
+        this.g = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090740);
+        this.h = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09152a);
     }
 
     public void b(List<RecmForumInfo> list) {

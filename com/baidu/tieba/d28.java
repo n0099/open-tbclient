@@ -75,17 +75,17 @@ public class d28 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d5e);
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09070d);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f5);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f7);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f4);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924f6);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924cc);
-            this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b56);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091db4);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090718);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092540);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092542);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09253f);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092541);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092516);
+            this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b91);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091df6);
             this.h.setRoundLayoutRadius(new float[]{d28Var.g, d28Var.g, d28Var.g, d28Var.g, d28Var.g, d28Var.g, 0.0f, d28Var.g});
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b55);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b90);
         }
     }
 
@@ -266,7 +266,7 @@ public class d28 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d059b, (ViewGroup) null);
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05a0, (ViewGroup) null);
                 view2.setTag(new a(this, view2));
             }
             d(i, getItem(i), (a) view2.getTag());

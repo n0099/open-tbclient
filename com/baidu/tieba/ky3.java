@@ -18,7 +18,7 @@ import rx.subjects.PublishSubject;
 public final class ky3 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
-    public static final hda b;
+    public static final lea b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -27,7 +27,7 @@ public final class ky3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class a implements hda<Pair<Runnable, String>> {
+    public static class a implements lea<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,7 +46,7 @@ public final class ky3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hda
+        @Override // com.baidu.tieba.lea
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -63,7 +63,7 @@ public final class ky3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements lda<Pair<Runnable, String>, tca<?>> {
+    public static class b implements pea<Pair<Runnable, String>, xda<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,35 +82,35 @@ public final class ky3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lda
-        public tca<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.pea
+        public xda<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return xca.g(pair).h(Schedulers.io()).f(ky3.b).l();
+                return bea.g(pair).h(Schedulers.io()).f(ky3.b).l();
             }
-            return (tca) invokeL.objValue;
+            return (xda) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends kha<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+    public static class d extends oia<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(lha lhaVar) {
-            super(lhaVar);
+        public d(pia piaVar) {
+            super(piaVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lhaVar};
+                Object[] objArr = {piaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((lha) newInitContext.callArgs[0]);
+                    super((pia) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

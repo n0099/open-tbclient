@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hr9;
-import com.baidu.tieba.kr9;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public final class jr9 implements hr9.a {
+public class jr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public bk1<dr9> a;
 
-    @Override // com.baidu.tieba.hr9.a
-    public final void U() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.hr9.a
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zj1 b = zj1.b();
+            this.a = b;
+            b.a(new er9());
         }
     }
 
@@ -38,27 +33,18 @@ public final class jr9 implements hr9.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    @Override // com.baidu.tieba.hr9.a
-    public final void a(Activity activity) {
-        kr9 kr9Var;
+    public dr9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            kr9Var = kr9.a.a;
-            kr9Var.c(new WeakReference<>(activity));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-    }
-
-    @Override // com.baidu.tieba.hr9.a
-    public final void onActivityDestroyed(Activity activity) {
-        kr9 kr9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            kr9Var = kr9.a.a;
-            kr9Var.d(activity);
-        }
+        return (dr9) invokeV.objValue;
     }
 }

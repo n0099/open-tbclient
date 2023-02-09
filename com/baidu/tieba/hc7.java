@@ -218,7 +218,7 @@ public class hc7 {
         this.d = tbPageContext;
         tbPageContext.registerListener(this.g);
         tbPageContext.registerListener(this.h);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, o09.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_UNREAD_TIP, s19.a(TbConfig.URL_CONCERN_UNREAD_TIP, 309541));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernUnreadTipHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

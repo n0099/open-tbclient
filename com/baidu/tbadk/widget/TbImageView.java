@@ -37,9 +37,9 @@ import com.baidu.tieba.el;
 import com.baidu.tieba.fl;
 import com.baidu.tieba.mq5;
 import com.baidu.tieba.on;
-import com.baidu.tieba.ua8;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.xa8;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +77,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public f R;
     public h S;
     public View.OnClickListener T;
-    public ua8 U;
+    public xa8 U;
     public TbRichTextView.y V;
     public boolean W;
     public RectF a0;
@@ -91,7 +91,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     public int i0;
     public int j0;
     public BdUniqueId r;
-    public ua8 r0;
+    public xa8 r0;
     public boolean s;
     public final yg<on> s0;
     public HashMap<String, e> t;
@@ -261,12 +261,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ua8.a {
+    public class c implements xa8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             this.a = tbImageView;
         }
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -318,7 +318,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -334,12 +334,12 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
     }
 
     /* loaded from: classes3.dex */
-    public class d implements ua8.a {
+    public class d implements xa8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -367,7 +367,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             this.a = tbImageView;
         }
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -391,7 +391,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -832,7 +832,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, onClickListener) == null) {
             if (this.r0 == null) {
-                this.r0 = new ua8(new c(this));
+                this.r0 = new xa8(new c(this));
             }
             super.setOnTouchListener(this.r0);
             if (!isClickable()) {
@@ -923,14 +923,14 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setTbGestureDetector(ua8 ua8Var) {
+    public void setTbGestureDetector(xa8 xa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, ua8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048645, this, xa8Var) == null) {
             if (this.r0 == null) {
-                this.r0 = new ua8(new d(this));
+                this.r0 = new xa8(new d(this));
             }
             super.setOnTouchListener(this.r0);
-            this.U = ua8Var;
+            this.U = xa8Var;
         }
     }
 

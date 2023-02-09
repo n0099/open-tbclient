@@ -429,7 +429,7 @@ public class dw5 extends Dialog {
             this.r = (ImageView) findViewById(R.id.img_close);
             this.o.setOnClickListener(this.G);
             this.r.setOnClickListener(this.G);
-            this.q = findViewById(R.id.obfuscated_res_0x7f090855);
+            this.q = findViewById(R.id.obfuscated_res_0x7f090863);
             this.k = (TextView) findViewById(R.id.download_process);
             this.s = (TextView) findViewById(R.id.incremental_download_button);
             this.t = (TextView) findViewById(R.id.not_install_as_tip);
@@ -440,7 +440,7 @@ public class dw5 extends Dialog {
             this.l = this.k.getText().toString();
             this.v = (LinearLayout) findViewById(R.id.cancel_dialog);
             this.x = (TextView) findViewById(R.id.sure_cancel);
-            this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f0904af);
+            this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ba);
             this.w = (TextView) findViewById(R.id.cancel_tip);
             this.x.setOnClickListener(this.C);
             this.y.setOnClickListener(this.D);
@@ -464,7 +464,7 @@ public class dw5 extends Dialog {
             this.j.setText(newVersionDesc);
             if (this.b.forceUpdate()) {
                 this.g = true;
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1034));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1048));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             } else {
@@ -475,7 +475,7 @@ public class dw5 extends Dialog {
             CombineDownload combineDownload = this.c;
             if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.c.getApkMD5RSA())) {
                 this.m.setText(this.c.getAppName());
-                if (!k09.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
+                if (!o19.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
                     this.m.setVisibility(0);
                     Drawable drawable = this.a.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());

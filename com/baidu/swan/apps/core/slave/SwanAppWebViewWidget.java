@@ -998,7 +998,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements fv1<NgW
             EfficientProgressBar efficientProgressBar = new EfficientProgressBar(context);
             this.a = efficientProgressBar;
             efficientProgressBar.setProgressDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b3));
-            this.a.setId(R.id.obfuscated_res_0x7f0901a0);
+            this.a.setId(R.id.obfuscated_res_0x7f0901a2);
             this.a.setVisibility(4);
             this.a.setFocusable(false);
             this.a.setClickable(false);
@@ -1328,12 +1328,12 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements fv1<NgW
                 if (((e82) m).o3().k() == null) {
                     return;
                 }
-                view2 = m.V().findViewById(R.id.obfuscated_res_0x7f090177);
+                view2 = m.V().findViewById(R.id.obfuscated_res_0x7f090179);
             } else if (m instanceof k82) {
                 if (((k82) m).k() == null || m.V() == null) {
                     return;
                 }
-                view2 = m.V().findViewById(R.id.obfuscated_res_0x7f0920cd);
+                view2 = m.V().findViewById(R.id.obfuscated_res_0x7f092113);
             }
             if (view2 == null) {
                 return;

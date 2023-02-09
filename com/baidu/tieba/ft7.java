@@ -84,9 +84,9 @@ public class ft7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null && this.a.m != null) {
-                this.a.i.N(0);
+                this.a.i.O(0);
                 this.a.i.E(null);
-                this.a.i.S();
+                this.a.i.T();
                 this.a.m.b();
             }
         }
@@ -193,9 +193,9 @@ public class ft7 {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.i != null && this.a.m != null) {
-                this.a.i.N(0);
+                this.a.i.O(0);
                 this.a.i.E(null);
-                this.a.i.P();
+                this.a.i.Q();
                 this.a.m.b();
             }
         }
@@ -219,7 +219,7 @@ public class ft7 {
         this.n = new a(this);
         this.o = new b(this);
         this.a = tbPageContext;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090152);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f090154);
         g(tbPageContext);
         this.l = new ot7(tbPageContext, this.g);
     }
@@ -351,19 +351,19 @@ public class ft7 {
         this.i.H(SkinManager.getColor(R.color.CAM_X0109));
         this.i.D(R.color.CAM_X0110);
         this.i.E(this.n);
-        NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0917cf);
+        NoNetworkView noNetworkView = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0917e8);
         this.d = noNetworkView;
         noNetworkView.d(this.a, TbadkCoreApplication.getInst().getSkinType());
-        this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09070d);
+        this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090718);
         NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
         this.c = navigationBar;
         navigationBar.showBottomLine();
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f00e4));
-        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090154);
+        BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090156);
         this.f = bdSwipeRefreshLayout;
         bdSwipeRefreshLayout.setProgressView(this.h);
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090155);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090157);
         this.g = bdTypeRecyclerView;
         ((DefaultItemAnimator) bdTypeRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
         this.g.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
@@ -381,11 +381,11 @@ public class ft7 {
         if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, arrayList) == null) && (bdSwipeRefreshLayout = this.f) != null && this.i != null && this.g != null && this.l != null) {
             bdSwipeRefreshLayout.setRefreshing(false);
             if (z) {
-                this.i.N(0);
+                this.i.O(0);
                 this.i.g();
                 this.i.E(this.n);
             } else {
-                this.i.N(0);
+                this.i.O(0);
                 this.i.g();
                 this.i.F(this.a.getResources().getString(R.string.list_no_more));
                 this.i.E(null);

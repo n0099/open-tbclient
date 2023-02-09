@@ -238,12 +238,12 @@ public class SelectTopicListLayout extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07d6, this);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f1);
-            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f0923bf);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906db);
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f0923db);
-            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f0923de);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07e8, this);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091506);
+            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f092409);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906e6);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092425);
+            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092428);
             this.d.setmFromType(2);
             this.d.h(false);
             c();
@@ -260,7 +260,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment C1 = VideoTopicListFragment.C1();
             rf5Var.a = C1;
             C1.setArguments(bundle);
-            rf5Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11bc);
+            rf5Var.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11d2);
             rf5Var.e = 1;
             this.f.add(rf5Var);
             Bundle bundle2 = new Bundle();
@@ -269,7 +269,7 @@ public class SelectTopicListLayout extends LinearLayout {
             VideoTopicListFragment C12 = VideoTopicListFragment.C1();
             rf5Var2.a = C12;
             C12.setArguments(bundle2);
-            rf5Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11b6);
+            rf5Var2.c = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11cc);
             rf5Var2.e = 2;
             this.f.add(rf5Var2);
             this.c.setOffscreenPageLimit(this.f.size());

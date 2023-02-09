@@ -124,7 +124,7 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f11be);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f11d4);
                 } else {
                     this.a.d.setText(R.string.obfuscated_res_0x7f0f0275);
                 }
@@ -517,18 +517,18 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01f3, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0909d6);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909d7);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915f4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fd);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09026b);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d01f4, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0909e4);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909e5);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09160a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091613);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09026f);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f11be);
-                this.e.setText(R.string.obfuscated_res_0x7f0f11be);
+                this.d.setText(R.string.obfuscated_res_0x7f0f11d4);
+                this.e.setText(R.string.obfuscated_res_0x7f0f11d4);
             }
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0908b0);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09107f);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0908be);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091092);
             this.b.setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.f.setOnClickListener(new c(this));

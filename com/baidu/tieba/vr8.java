@@ -1,75 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.GoodsInfo;
 /* loaded from: classes6.dex */
 public class vr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
 
-    public vr8() {
+    @NonNull
+    public static String a(@NonNull App app) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            String str = "";
+            if (list == null) {
+                return "";
             }
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject != null) {
+                            str = optJSONObject.optString("id");
+                        }
+                        return str;
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return str;
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = false;
+        return (String) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static int b(@NonNull App app) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return -1;
+            }
+            Iterator<GoodsInfo> it = list.iterator();
+            while (it.hasNext()) {
+                GoodsInfo next = it.next();
+                if (next != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject == null) {
+                            return -1;
+                        }
+                        return dh.e(optJSONObject.optString("pos"), -1);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return -1;
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void c(@NonNull App.Builder builder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
+        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
+            GoodsInfo goodsInfo = (GoodsInfo) mv7.d(builder.goods_info, i2);
+            if (goodsInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
+                    if (optJSONObject != null) {
+                        optJSONObject.put("pos", String.valueOf(dh.e(optJSONObject.optString("pos"), 0) + i));
+                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
+                        builder2.lego_card = jSONObject.toString();
+                        builder.goods_info.set(i2, builder2.build(false));
+                    }
+                } catch (JSONException unused) {
+                }
+            }
         }
     }
 }

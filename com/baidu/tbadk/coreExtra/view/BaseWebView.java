@@ -34,8 +34,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ih;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.qu4;
-import com.baidu.tieba.s19;
-import com.baidu.tieba.u19;
+import com.baidu.tieba.w29;
+import com.baidu.tieba.y29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,11 +52,11 @@ public class BaseWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public long initFinishedTime;
     public final long initStartTime;
-    public u19 jsCallback;
+    public y29 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public boolean mIsLoaded;
-    public s19 mJsBridge;
+    public w29 mJsBridge;
     public c mOnLoadUrlListener;
     public d mOnPageFinishedListener;
     public e mOnPageStartedListener;
@@ -112,7 +112,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements u19 {
+    public class a implements y29 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -135,15 +135,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.u19
+        @Override // com.baidu.tieba.y29
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                s19 s19Var = baseWebView.mJsBridge;
-                if (s19Var != null) {
-                    return s19Var.c(baseWebView.getWebView(), str, jsPromptResult);
+                w29 w29Var = baseWebView.mJsBridge;
+                if (w29Var != null) {
+                    return w29Var.c(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -512,10 +512,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(u19 u19Var) {
+    public void setOnJsPromptCallback(y29 y29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, u19Var) == null) {
-            this.jsCallback = u19Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, y29Var) == null) {
+            this.jsCallback = y29Var;
         }
     }
 
@@ -608,10 +608,10 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        s19 s19Var;
+        w29 w29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (s19Var = this.mJsBridge) != null) {
-            s19Var.i(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (w29Var = this.mJsBridge) != null) {
+            w29Var.i(getWebView(), str, hashMap);
         }
     }
 
@@ -664,10 +664,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        s19 s19Var;
+        w29 w29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (s19Var = this.mJsBridge) != null) {
-            s19Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (w29Var = this.mJsBridge) != null) {
+            w29Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -681,7 +681,7 @@ public class BaseWebView extends WebView {
             BrowserHelper.a(getSettings());
             this.mWebViewClient = new b(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new s19();
+            this.mJsBridge = new w29();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {

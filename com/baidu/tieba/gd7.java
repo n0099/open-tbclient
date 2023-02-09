@@ -403,7 +403,7 @@ public class gd7 extends qn<ae6, ThreadCardViewHolder<ae6>> implements mw5 {
     public final void w(ThreadData threadData, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048582, this, threadData, i) == null) && threadData != null && threadData.getSmartApp() != null) {
-            iz8.g().c(this.a, gz8.g(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
+            m09.g().c(this.a, k09.g(threadData, "a002", "common_click", 1, i, threadData.getSmartApp().id));
         }
     }
 
@@ -411,7 +411,7 @@ public class gd7 extends qn<ae6, ThreadCardViewHolder<ae6>> implements mw5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, threadData, i) == null) && threadData != null && threadData.getSmartApp() != null) {
             String str = threadData.getSmartApp().id;
-            iz8.g().d(this.a, gz8.b(threadData.getTid(), "", str, null), gz8.h(threadData, "a002", "common_exp", i, str));
+            m09.g().d(this.a, k09.b(threadData.getTid(), "", str, null), k09.h(threadData, "a002", "common_exp", i, str));
         }
     }
 

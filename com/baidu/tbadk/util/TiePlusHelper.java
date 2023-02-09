@@ -58,7 +58,7 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.et5;
 import com.baidu.tieba.mi6;
 import com.baidu.tieba.ns5;
-import com.baidu.tieba.o89;
+import com.baidu.tieba.s99;
 import com.baidu.tieba.va5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
@@ -1015,7 +1015,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 if (h) {
                     i2 = R.string.immediately_install;
                 } else {
-                    i2 = R.string.obfuscated_res_0x7f0f09a2;
+                    i2 = R.string.obfuscated_res_0x7f0f09ac;
                 }
                 progressButton.setText(context.getString(i2));
             } else if (!eb5.q().t(str) && !eb5.q().r(str)) {
@@ -1028,7 +1028,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     if (h) {
                         i = R.string.go_on_download;
                     } else {
-                        i = R.string.obfuscated_res_0x7f0f0828;
+                        i = R.string.obfuscated_res_0x7f0f0831;
                     }
                     progressButton.setText(context.getString(i));
                     if (this.o) {
@@ -1044,7 +1044,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 } else if (!StringUtils.isNull(this.s)) {
                     progressButton.setText(this.s);
                 } else {
-                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0530));
+                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0533));
                 }
             } else {
                 SharedPreferences sharedPreferences2 = this.n;
@@ -1082,7 +1082,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("need_scheme_blacklist", true);
-                o89.b(this.b, str, bundle);
+                s99.b(this.b, str, bundle);
             }
         }
     }

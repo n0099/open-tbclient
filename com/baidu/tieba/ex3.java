@@ -293,13 +293,13 @@ public class ex3 implements cx3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.b = new SwanAdDownloadButtonView(this.a);
-            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1342);
+            String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1359);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 81;
             layoutParams.bottomMargin = (int) (this.a.getResources().getDisplayMetrics().heightPixels * 0.14d);
             this.b.setLayoutParams(layoutParams);
             float n = n(this.a, R.dimen.obfuscated_res_0x7f070666);
-            int color = this.a.getResources().getColor(R.color.obfuscated_res_0x7f060aa7);
+            int color = this.a.getResources().getColor(R.color.obfuscated_res_0x7f060aa8);
             u(this.b);
             SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
             swanAdDownloadButtonView.j(m(n));
@@ -356,17 +356,17 @@ public class ex3 implements cx3 {
             switch (b.a[downloadState.ordinal()]) {
                 case 1:
                 default:
-                    return R.string.obfuscated_res_0x7f0f1342;
+                    return R.string.obfuscated_res_0x7f0f1359;
                 case 2:
-                    return R.string.obfuscated_res_0x7f0f1347;
+                    return R.string.obfuscated_res_0x7f0f135e;
                 case 3:
-                    return R.string.obfuscated_res_0x7f0f1343;
+                    return R.string.obfuscated_res_0x7f0f135a;
                 case 4:
-                    return R.string.obfuscated_res_0x7f0f1345;
+                    return R.string.obfuscated_res_0x7f0f135c;
                 case 5:
-                    return R.string.obfuscated_res_0x7f0f1344;
+                    return R.string.obfuscated_res_0x7f0f135b;
                 case 6:
-                    return R.string.obfuscated_res_0x7f0f1346;
+                    return R.string.obfuscated_res_0x7f0f135d;
             }
         }
         return invokeL.intValue;
@@ -402,10 +402,10 @@ public class ex3 implements cx3 {
                 SwanAdDownloadButtonView swanAdDownloadButtonView = this.b;
                 if (swanAdDownloadButtonView != null && swanAdDownloadButtonView.getVisibility() != 8) {
                     if (this.c.c < this.b.getMax()) {
-                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1341);
+                        String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1358);
                         string = String.format(string2, this.c.c + "%");
                     } else {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1345);
+                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f135c);
                     }
                     this.b.setText(string);
                     this.b.setProgress(this.c.c);

@@ -78,9 +78,9 @@ public class qx6 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) != null) || this.b != null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c3, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c5, (ViewGroup) null);
         this.b = inflate;
-        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b31);
+        this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b42);
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 }

@@ -278,7 +278,7 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
     }
 
     /* loaded from: classes4.dex */
-    public class e extends od9 {
+    public class e extends se9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cd6 b;
@@ -301,7 +301,7 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
             this.b = cd6Var;
         }
 
-        @Override // com.baidu.tieba.od9
+        @Override // com.baidu.tieba.se9
         public void a(TextPaint textPaint, boolean z) {
             int color;
             Interceptable interceptable = $ic;
@@ -583,7 +583,7 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
         this.H = (TextView) this.k.findViewById(R.id.video_duration);
         this.I = (TextView) this.k.findViewById(R.id.video_play_count);
         this.J = (TextView) this.k.findViewById(R.id.audience_count);
-        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.k.findViewById(R.id.obfuscated_res_0x7f090222);
+        TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.k.findViewById(R.id.obfuscated_res_0x7f090226);
         this.K = tBLottieAnimationView;
         tBLottieAnimationView.loop(true);
         SkinManager.setLottieAnimation(this.K, R.raw.obfuscated_res_0x7f110007);
@@ -922,8 +922,8 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
                     sb.append(StringHelper.cutChineseAndEnglishWithSuffix(multipleForumArr2[i6].forum_name, 14, StringHelper.STRING_MORE));
                     if (i6 < cardPersonDynamicThreadData.B.length - 1) {
                         sb.append("吧、");
-                    } else if (sb.lastIndexOf(this.c.getString(R.string.obfuscated_res_0x7f0f06ad)) != sb.length() - 1) {
-                        sb.append(this.c.getString(R.string.obfuscated_res_0x7f0f06ad));
+                    } else if (sb.lastIndexOf(this.c.getString(R.string.obfuscated_res_0x7f0f06b6)) != sb.length() - 1) {
+                        sb.append(this.c.getString(R.string.obfuscated_res_0x7f0f06b6));
                     }
                     i6++;
                 }
@@ -1018,8 +1018,8 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
                                 CardPersonDynamicThreadData cardPersonDynamicThreadData2 = this.m;
                                 if (cardPersonDynamicThreadData2.k == 60) {
                                     String str = cardPersonDynamicThreadData2.p.getThreadAlaInfo().user_info.user_name;
-                                    if (rp5.e(str) > 14) {
-                                        str = rp5.m(str, 14) + StringHelper.STRING_MORE;
+                                    if (rp5.f(str) > 14) {
+                                        str = rp5.n(str, 14) + StringHelper.STRING_MORE;
                                     }
                                     this.E.setText(xc6.d(str + ":", this.m.p.getTitle()));
                                     this.E.setVisibility(0);
@@ -1111,7 +1111,7 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
             return;
         }
         if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f0fac);
+            textView.setText(R.string.obfuscated_res_0x7f0f0fc0);
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_card_privacy);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
             this.t.setCompoundDrawables(drawable, null, null, null);
@@ -1134,7 +1134,7 @@ public class cd6 extends mc6<CardPersonDynamicThreadData> {
             SpannableStringBuilder parseTitleOrAbstractForFrs = threadData.parseTitleOrAbstractForFrs(false, true, this.R);
             if (parseTitleOrAbstractForFrs != null && !StringUtils.isNull(parseTitleOrAbstractForFrs.toString())) {
                 this.w.setVisibility(0);
-                this.w.setOnTouchListener(new qd9(parseTitleOrAbstractForFrs));
+                this.w.setOnTouchListener(new ue9(parseTitleOrAbstractForFrs));
                 this.w.setText(parseTitleOrAbstractForFrs);
                 if (!H()) {
                     xc6.l(this.w, cardPersonDynamicThreadData.b, R.color.CAM_X0105, R.color.CAM_X0109);

@@ -49,12 +49,12 @@ public class lq3 extends yz2 {
 
         /* renamed from: com.baidu.tieba.lq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0336a implements pn3<String> {
+        public class C0339a implements pn3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0336a(a aVar) {
+            public C0339a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public class lq3 extends yz2 {
                 if (!ud3.h(zd3Var)) {
                     ud3.q(zd3Var, this.a, this.b);
                 } else {
-                    lq3.z(this.c, new C0336a(this));
+                    lq3.z(this.c, new C0339a(this));
                 }
             }
         }

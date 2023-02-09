@@ -116,13 +116,13 @@ public class a95 {
             if (i != 3 && i != 2) {
                 if (i != 8 && i != 4) {
                     if (i == 6) {
-                        return k09.b(context, "com.sina.weibo");
+                        return o19.b(context, "com.sina.weibo");
                     }
                     return true;
                 }
-                return k09.b(context, "com.tencent.mobileqq");
+                return o19.b(context, "com.tencent.mobileqq");
             }
-            return k09.b(context, "com.tencent.mm");
+            return o19.b(context, "com.tencent.mm");
         }
         return invokeLI.booleanValue;
     }
@@ -134,13 +134,13 @@ public class a95 {
             if (i != 3 && i != 2) {
                 if (i != 8 && i != 4) {
                     if (i == 6) {
-                        return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1262));
+                        return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1278));
                     }
                     return null;
                 }
-                return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f101d));
+                return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1031));
             }
-            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f16ab));
+            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f16c3));
         }
         return (String) invokeIL.objValue;
     }
@@ -203,7 +203,7 @@ public class a95 {
         j05Var.setCancelable(true);
         j05Var.setTitleShowCenter(true);
         j05Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
-        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(onCancelListener)).create(da.a(activity));
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(onCancelListener)).create(da.a(activity));
         if (onCancelListener != null) {
             j05Var.setOnCalcelListener(onCancelListener);
         }

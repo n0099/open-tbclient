@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.tn9;
+import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,7 +58,7 @@ public class ContextUtils {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             Context context2 = a;
             if (context2 != null && context2 != context) {
-                tn9.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
+                xo9.a(org.webrtc.ContextUtils.TAG, "Multiple contexts detected, ignoring new application context.");
             } else {
                 d(context);
             }

@@ -187,7 +187,7 @@ public class ii7 {
             this.d = hz4Var;
             hz4Var.floorPosition = 2;
             if (TextUtils.isEmpty(dataRes.relate_forum_title)) {
-                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0914);
+                this.d.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f091e);
             } else {
                 this.d.d = dataRes.relate_forum_title;
             }

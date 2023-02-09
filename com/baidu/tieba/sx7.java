@@ -83,7 +83,7 @@ public class sx7 extends BaseAdapter {
         this.a = context;
         this.b = arrayList;
         this.d = true;
-        this.c = context.getText(R.string.obfuscated_res_0x7f0f06ad).toString();
+        this.c = context.getText(R.string.obfuscated_res_0x7f0f06b6).toString();
     }
 
     public void a(ArrayList<String> arrayList) {
@@ -136,10 +136,10 @@ public class sx7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03a4, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03a6, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e72);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090e69);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e83);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090e7a);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

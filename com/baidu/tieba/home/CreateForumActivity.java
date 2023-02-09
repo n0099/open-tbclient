@@ -372,7 +372,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0203);
+            setContentView(R.layout.obfuscated_res_0x7f0d0204);
             initData();
             I1();
             H1();
@@ -430,28 +430,28 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.setTitleText(R.string.create_bar);
             this.g = (NoNetworkView) this.e.findViewById(R.id.view_no_network);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0908bd);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0908cb);
             this.h = editText;
             editText.setText(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0908ce);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0908dc);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ca0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce1);
             this.k = textView;
             textView.setOnClickListener(this.a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f65);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f76);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09222b);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092271);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
-            findViewById(R.id.obfuscated_res_0x7f0903bb).setOnTouchListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f0903c3).setOnTouchListener(new b(this));
         }
     }
 

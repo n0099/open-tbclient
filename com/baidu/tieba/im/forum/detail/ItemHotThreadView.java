@@ -164,7 +164,7 @@ public class ItemHotThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ab, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ac, (ViewGroup) this, true);
             setVisibility(8);
         }
     }
@@ -177,13 +177,13 @@ public class ItemHotThreadView extends LinearLayout {
             return;
         }
         if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ac, (ViewGroup) this, false);
+            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922ae);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed8);
-            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed6);
-            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed7);
-            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ed5);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922f4);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee9);
+            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee7);
+            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee8);
+            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee6);
             view2.setTag(bVar);
             this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
             addView(view2);

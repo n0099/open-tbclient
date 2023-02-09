@@ -348,12 +348,12 @@ public class ac4 {
         this.i = new a(this);
         this.j = new b(this);
         this.k = new c(this);
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0094, (ViewGroup) null);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0095, (ViewGroup) null);
         this.a = relativeLayout;
-        this.b = (EditText) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090186);
-        this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090184);
-        this.c = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090185);
-        Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f090181);
+        this.b = (EditText) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090188);
+        this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090186);
+        this.c = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090187);
+        Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f090183);
         this.e = button;
         button.setOnClickListener(this.i);
         this.c.addTextChangedListener(this.j);

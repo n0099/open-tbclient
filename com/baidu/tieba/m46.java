@@ -135,8 +135,8 @@ public class m46 {
             this.g = false;
             this.i = new a(this);
             this.b = view2;
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09146e);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091490);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091483);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914a5);
             this.d = textView;
             textView.setVisibility(8);
             this.d.setOnClickListener(this);
@@ -252,7 +252,7 @@ public class m46 {
         public void i(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.c != null) {
-                this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12a6, StringHelper.numberUniformFormatExtra(i)));
+                this.c.setText(this.j.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12bc, StringHelper.numberUniformFormatExtra(i)));
                 this.b.setVisibility(0);
             }
         }
@@ -276,7 +276,7 @@ public class m46 {
                                 zf.n().k(false, this.i);
                                 return;
                             } else {
-                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f12a3);
+                                this.j.a.showToast(R.string.obfuscated_res_0x7f0f12b9);
                                 return;
                             }
                         }
@@ -343,15 +343,15 @@ public class m46 {
         this.d = BdUniqueId.gen();
         this.o = new ArrayList();
         this.a = tbPageContext;
-        this.e = (LinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0674, (ViewGroup) null);
-        this.k = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0110, (ViewGroup) null);
-        this.f = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091424);
-        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f09209e);
+        this.e = (LinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d067a, (ViewGroup) null);
+        this.k = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) null);
+        this.f = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091439);
+        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f0920e4);
         this.g = findViewById;
         b bVar = new b(this, findViewById);
         this.r = bVar;
         bVar.g(8);
-        this.h = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f09140a);
+        this.h = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f09141f);
         z35 z35Var = new z35(this.a);
         this.i = z35Var;
         z35Var.a0(this.d);
@@ -583,7 +583,7 @@ public class m46 {
             if (pbListView.c().getParent() == null) {
                 this.h.setNextPage(this.m);
             }
-            this.m.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0abc));
+            this.m.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ac6));
             this.m.g();
         }
     }

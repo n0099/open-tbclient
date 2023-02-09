@@ -282,11 +282,11 @@ public class cv6 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qn<?, ?> d = mr8.l().d(this.a, AdvertAppInfo.w);
-            qn<?, ?> d2 = mr8.l().d(this.a, AdvertAppInfo.z);
-            qn<?, ?> d3 = mr8.l().d(this.a, AdvertAppInfo.A);
-            qn<?, ?> d4 = mr8.l().d(this.a, AdvertAppInfo.B);
-            qn<?, ?> d5 = mr8.l().d(this.a, AdvertAppInfo.C);
+            qn<?, ?> d = qs8.l().d(this.a, AdvertAppInfo.w);
+            qn<?, ?> d2 = qs8.l().d(this.a, AdvertAppInfo.z);
+            qn<?, ?> d3 = qs8.l().d(this.a, AdvertAppInfo.A);
+            qn<?, ?> d4 = qs8.l().d(this.a, AdvertAppInfo.B);
+            qn<?, ?> d5 = qs8.l().d(this.a, AdvertAppInfo.C);
             this.d.add(d);
             this.d.add(d2);
             this.d.add(d3);
@@ -337,8 +337,8 @@ public class cv6 {
             for (qn qnVar : this.d) {
                 if (qnVar instanceof as6) {
                     ((as6) qnVar).v();
-                } else if (qnVar instanceof dr8) {
-                    ((dr8) qnVar).onDestroy();
+                } else if (qnVar instanceof hs8) {
+                    ((hs8) qnVar).onDestroy();
                 }
             }
         }

@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.g09;
+import com.baidu.tieba.k19;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yb;
@@ -47,7 +47,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
         void e(String str);
 
-        void l1(ForumDetailHttpResponse forumDetailHttpResponse);
+        void m1(ForumDetailHttpResponse forumDetailHttpResponse);
 
         void q1(boolean z);
     }
@@ -93,9 +93,9 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g09)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k19)) {
                 boolean z = true;
-                if (((g09) customResponsedMessage.getData()).n() != 1) {
+                if (((k19) customResponsedMessage.getData()).n() != 1) {
                     z = false;
                 }
                 this.a.a.J1(z);
@@ -145,7 +145,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.b.l1((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.m1((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
                         this.a.b.P0((ForumDetailSocketResponse) responsedMessage);
@@ -202,7 +202,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }

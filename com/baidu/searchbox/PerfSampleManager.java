@@ -10,7 +10,7 @@ import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionPerfSampleCa
 import com.baidu.searchbox.ruka.ubc.LooperPerfSampleCallback;
 import com.baidu.tieba.ak1;
 import com.baidu.tieba.ck1;
-import com.baidu.tieba.lw8;
+import com.baidu.tieba.px8;
 import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +61,7 @@ public class PerfSampleManager {
                 arrayList.add(new FpsPerfSampleCallback());
                 arrayList.add(new ExceptionPerfSampleCallback());
                 arrayList.add(new LooperPerfSampleCallback());
-                arrayList.add(new lw8());
+                arrayList.add(new px8());
                 return arrayList;
             }
             return invokeV.objValue;

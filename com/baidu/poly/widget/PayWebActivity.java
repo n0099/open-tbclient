@@ -238,10 +238,10 @@ public class PayWebActivity extends Activity {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fe);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091112);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09274b);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0927ac);
             this.a = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.a.setHorizontalScrollBarEnabled(false);

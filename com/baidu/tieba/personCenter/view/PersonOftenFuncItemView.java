@@ -34,11 +34,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ej8;
+import com.baidu.tieba.ik8;
 import com.baidu.tieba.lj5;
-import com.baidu.tieba.oj8;
 import com.baidu.tieba.ot4;
 import com.baidu.tieba.qz5;
+import com.baidu.tieba.sk8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -51,7 +51,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
     public TextView b;
-    public ej8 c;
+    public ik8 c;
     public boolean d;
 
     /* loaded from: classes5.dex */
@@ -134,10 +134,10 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0721, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0732, this);
             inflate.setOnClickListener(this);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091551);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091552);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091567);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091568);
         }
     }
 
@@ -185,11 +185,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         b(context);
     }
 
-    public void a(ej8 ej8Var) {
+    public void a(ik8 ik8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ej8Var) == null) {
-            this.c = ej8Var;
-            this.b.setText(ej8Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ik8Var) == null) {
+            this.c = ik8Var;
+            this.b.setText(ik8Var.e);
             f();
         }
     }
@@ -203,12 +203,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        ej8 ej8Var;
+        ik8 ik8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (ej8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (ik8Var = this.c) == null) {
             return;
         }
-        int i = ej8Var.a;
+        int i = ik8Var.a;
         if (this.d) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
@@ -241,11 +241,11 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ej8 ej8Var = this.c;
-            if (ej8Var.b > 0) {
+            ik8 ik8Var = this.c;
+            if (ik8Var.b > 0) {
                 this.a.setVisibility(0);
                 SkinManager.setImageResource(this.a, this.c.b);
-            } else if (ej8Var.n && !TextUtils.isEmpty(ej8Var.l)) {
+            } else if (ik8Var.n && !TextUtils.isEmpty(ik8Var.l)) {
                 this.a.setVisibility(0);
                 this.a.K(this.c.l, 10, false);
             } else {
@@ -256,14 +256,14 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        ej8 ej8Var;
+        ik8 ik8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (ej8Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, view2) != null) || (ik8Var = this.c) == null) {
             return;
         }
-        if (ej8Var.n && ej8Var.m != 0) {
+        if (ik8Var.n && ik8Var.m != 0) {
             if (TbadkApplication.getInst().getCurrentActivity() instanceof TbPageContextSupport) {
-                oj8.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
+                sk8.a(this.c, ((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext());
                 return;
             }
             return;

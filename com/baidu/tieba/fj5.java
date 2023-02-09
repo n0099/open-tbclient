@@ -24,7 +24,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class fj5<D, S extends zi5, H extends ej5<D, S>> extends BaseAdapter implements d09 {
+public abstract class fj5<D, S extends zi5, H extends ej5<D, S>> extends BaseAdapter implements h19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<D> a;
@@ -63,7 +63,7 @@ public abstract class fj5<D, S extends zi5, H extends ej5<D, S>> extends BaseAda
         this.f = viewEventCenter;
     }
 
-    @Override // com.baidu.tieba.d09
+    @Override // com.baidu.tieba.h19
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

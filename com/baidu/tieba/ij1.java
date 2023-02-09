@@ -54,12 +54,12 @@ public class ij1 {
 
         /* renamed from: com.baidu.tieba.ij1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0308a implements vs0.b {
+        public class C0310a implements vs0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0308a(a aVar) {
+            public C0310a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class ij1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    vs0.a(this.a, this.b, new C0308a(this));
+                    vs0.a(this.a, this.b, new C0310a(this));
                 } catch (Exception e) {
                     n21.b(new p21(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

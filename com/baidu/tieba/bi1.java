@@ -135,11 +135,11 @@ public class bi1 {
         public void onOptionClick(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (i == R.id.obfuscated_res_0x7f091ae2) {
+                if (i == R.id.obfuscated_res_0x7f091b1d) {
                     ch1.h().f();
                     this.a.b0(6, "支付结果查询失败，请重试", "0");
                     this.c.d.dismiss();
-                } else if (i == R.id.obfuscated_res_0x7f091ae4) {
+                } else if (i == R.id.obfuscated_res_0x7f091b1f) {
                     kh1.e(new hh1("111"));
                     this.c.d.d(false);
                     this.c.d.h();
@@ -198,10 +198,10 @@ public class bi1 {
                 String string2 = this.a.getString("tradeType");
                 th1.g("onWindowFocusChanged panelType=" + string + ", tradeType=" + string2);
                 if (TextUtils.equals(string, HlsPlaylistParser.METHOD_NONE) && TextUtils.equals(string2, "DIRECTPAY")) {
-                    this.c.S(ph1.c(xh1.a().getString(R.string.obfuscated_res_0x7f0f0e30) + str2), str);
+                    this.c.S(ph1.c(xh1.a().getString(R.string.obfuscated_res_0x7f0f0e3c) + str2), str);
                 } else {
                     ChannelListView channelListView = this.c;
-                    channelListView.S(xh1.a().getString(R.string.obfuscated_res_0x7f0f0e30) + str2, str);
+                    channelListView.S(xh1.a().getString(R.string.obfuscated_res_0x7f0f0e3c) + str2, str);
                 }
                 hh1 hh1Var = new hh1("1");
                 hh1Var.b(new SdkException("launchpayment error --> " + str, th).getStackMessage());
@@ -607,7 +607,7 @@ public class bi1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048580, this, dg1Var, bundle, payChannelEntity, channelListView, str) == null) {
             if (payChannelEntity != null && payChannelEntity.isNeedAgreementGuide() && payChannelEntity.isAlreadySigned()) {
-                ri1.e(channelListView.getContext(), R.drawable.obfuscated_res_0x7f080663, "小额免密扣款中");
+                ri1.e(channelListView.getContext(), R.drawable.obfuscated_res_0x7f08066c, "小额免密扣款中");
             }
             jg1.j().v(dg1Var, bundle, new a(this, bundle, payChannelEntity, channelListView, str), payChannelEntity, str);
         }
@@ -623,7 +623,7 @@ public class bi1 {
                     return;
                 } else if (4 == Integer.parseInt(str2)) {
                     String a2 = qh1.a(0, map.get("orderId"), "Successful payment");
-                    PopupWindow popupWindow = new PopupWindow(View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d06c9, null), -1, -1, true);
+                    PopupWindow popupWindow = new PopupWindow(View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d06cf, null), -1, -1, true);
                     popupWindow.w(false);
                     popupWindow.y(false);
                     popupWindow.B(false);

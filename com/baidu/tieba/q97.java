@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q97 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
@@ -50,7 +50,7 @@ public class q97 {
     public int l;
     public ha5 m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements BdListView.m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class q97 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!this.d.getString(R.string.obfuscated_res_0x7f0f1417).equals(this.b) && !this.d.getString(R.string.obfuscated_res_0x7f0f141a).equals(this.b)) {
+            if (!this.d.getString(R.string.obfuscated_res_0x7f0f142e).equals(this.b) && !this.d.getString(R.string.obfuscated_res_0x7f0f1431).equals(this.b)) {
                 return false;
             }
             return true;
@@ -216,7 +216,7 @@ public class q97 {
         if (!StringUtils.isNull(c)) {
             view2.setVisibility(0);
             tbImageView.setVisibility(8);
-            view2.setBackgroundColor(lz8.f(c));
+            view2.setBackgroundColor(p09.f(c));
         }
     }
 

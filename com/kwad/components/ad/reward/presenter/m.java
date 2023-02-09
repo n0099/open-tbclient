@@ -181,7 +181,7 @@ public final class m extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f091300);
             this.qh = ksToastView;
             ksToastView.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.reward.presenter.m.2
                 public static /* synthetic */ Interceptable $ic;

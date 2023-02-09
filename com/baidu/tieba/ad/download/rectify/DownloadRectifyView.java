@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.ix5;
-import com.baidu.tieba.nr8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,7 +69,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 uw4.b bVar = this.a;
-                nr8.a(context, bVar.b, null, null, bVar.c);
+                rs8.a(context, bVar.b, null, null, bVar.c);
             }
         }
     }
@@ -106,7 +106,7 @@ public class DownloadRectifyView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.b.getContext();
                 uw4.a aVar = this.a;
-                nr8.a(context, aVar.b, null, null, aVar.c);
+                rs8.a(context, aVar.b, null, null, aVar.c);
             }
         }
     }
@@ -191,20 +191,20 @@ public class DownloadRectifyView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0937, this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f34);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910d5);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d094c, this);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f45);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910e8);
             this.b = tbImageView;
             tbImageView.setRadius(ej.d(context, 9.0f));
             this.b.setConrers(15);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09246a);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09246c);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09252d);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09247e);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924f8);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924e8);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092492);
-            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09088e);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b4);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092578);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924c8);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092543);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092533);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924dc);
+            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09089c);
         }
     }
 

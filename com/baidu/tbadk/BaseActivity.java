@@ -83,7 +83,6 @@ import com.baidu.tieba.lf5;
 import com.baidu.tieba.lh5;
 import com.baidu.tieba.lp5;
 import com.baidu.tieba.mh5;
-import com.baidu.tieba.n69;
 import com.baidu.tieba.nr4;
 import com.baidu.tieba.ov4;
 import com.baidu.tieba.p05;
@@ -92,6 +91,7 @@ import com.baidu.tieba.pj5;
 import com.baidu.tieba.pw4;
 import com.baidu.tieba.qr4;
 import com.baidu.tieba.qv4;
+import com.baidu.tieba.r79;
 import com.baidu.tieba.s35;
 import com.baidu.tieba.sj5;
 import com.baidu.tieba.tf5;
@@ -1891,7 +1891,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, strArr, cVar)) == null) {
             l05 l05Var = new l05(getPageContext().getPageActivity());
             this.mListMenu = l05Var;
-            l05Var.l(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dc6));
+            l05Var.l(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0dd2));
             this.mListMenu.j(strArr, cVar);
             this.mListMenu.c(getPageContext());
             return this.mListMenu;
@@ -1917,7 +1917,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             g15.n(false);
             qr4.a(motionEvent, getPageId(), getMissionTid());
-            n69.getInstance().behaviorRecordEvent(motionEvent, this);
+            r79.getInstance().behaviorRecordEvent(motionEvent, this);
             wx5.K().H();
             try {
                 if (this.mProgressBar != null && this.mProgressBar.isShown()) {
@@ -2084,7 +2084,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                         j05Var.setCanceledOnTouchOutside(false);
                         j05Var.setTitle(R.string.request_permission_default_title);
                         j05Var.setMessageId(R.string.request_window_permission_default_text);
-                        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a26, new j05.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
+                        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a30, new j05.e(this) { // from class: com.baidu.tbadk.BaseActivity.8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ BaseActivity this$0;
@@ -2124,7 +2124,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
                                     }
                                 }
                             }
-                        }).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new j05.e(this) { // from class: com.baidu.tbadk.BaseActivity.7
+                        }).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new j05.e(this) { // from class: com.baidu.tbadk.BaseActivity.7
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ BaseActivity this$0;
@@ -2394,7 +2394,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048657, this) == null) {
-            n69.getInstance().onPause(this);
+            r79.getInstance().onPause(this);
             super.onPause();
             if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
                 hideFloatingWindow();
@@ -2423,7 +2423,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (interceptable == null || interceptable.invokeV(1048662, this) == null) {
             MenuKeyUtils.hideSoftMenuKey(getWindow());
             super.onResume();
-            n69.getInstance().onResume(this);
+            r79.getInstance().onResume(this);
             if (this.isInterceptStimeStat) {
                 setInterceptStimeStat(false);
             } else {

@@ -224,21 +224,21 @@ public class zl6 extends ej5<qx4, sj6> {
             }
         }
         this.q = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091d76);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091db8);
         this.f = findViewById;
-        this.g = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091710);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09146a);
-        this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091ab9);
-        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092435);
-        this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0908b5);
-        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc9);
-        this.m = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090d7d);
-        this.n = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091871);
-        this.r = this.f.findViewById(R.id.obfuscated_res_0x7f090958);
-        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09245f);
+        this.g = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091727);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09147f);
+        this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091af2);
+        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09247f);
+        this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0908c3);
+        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09200d);
+        this.m = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090d8e);
+        this.n = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09188b);
+        this.r = this.f.findViewById(R.id.obfuscated_res_0x7f090966);
+        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0924a9);
         this.o = (BarImageView) this.f.findViewById(R.id.forum_avatar);
-        this.t = this.f.findViewById(R.id.obfuscated_res_0x7f090b41);
-        this.p = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090b00);
+        this.t = this.f.findViewById(R.id.obfuscated_res_0x7f090b52);
+        this.p = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090b11);
         this.o.setPlaceHolder(1);
         this.o.setStrokeColorResId(R.color.CAM_X0201);
     }
@@ -282,7 +282,7 @@ public class zl6 extends ej5<qx4, sj6> {
         }
     }
 
-    @Override // com.baidu.tieba.d09
+    @Override // com.baidu.tieba.h19
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -356,7 +356,7 @@ public class zl6 extends ej5<qx4, sj6> {
             } else {
                 SkinManager.setBackgroundColor(this.t, R.color.transparent);
             }
-            this.p.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0923), StringHelper.numberUniformFormatExtraWithRoundInt(vj6Var.r())));
+            this.p.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f092d), StringHelper.numberUniformFormatExtraWithRoundInt(vj6Var.r())));
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
             if (YYLiveUtil.isLiveRoom(vj6Var.o())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -372,7 +372,7 @@ public class zl6 extends ej5<qx4, sj6> {
             textView.setVisibility(i2);
             if (vj6Var.s() == 1) {
                 this.i.setVisibility(0);
-                this.i.setText(R.string.obfuscated_res_0x7f0f034d);
+                this.i.setText(R.string.obfuscated_res_0x7f0f034e);
                 SkinManager.setBackgroundResource(this.i, R.drawable.enter_forum_brand_label_bg_shape);
                 SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
                 this.h.setVisibility(8);
@@ -381,7 +381,7 @@ public class zl6 extends ej5<qx4, sj6> {
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.h.setVisibility(0);
                     this.h.setText("");
-                    SkinManager.setBackgroundResource(this.h, R.drawable.obfuscated_res_0x7f0806bc);
+                    SkinManager.setBackgroundResource(this.h, R.drawable.obfuscated_res_0x7f0806c5);
                     SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0111);
                 } else {
                     this.h.setVisibility(8);
@@ -414,7 +414,7 @@ public class zl6 extends ej5<qx4, sj6> {
                 TiebaStatic.log(statisticItem2);
             }
         }
-        SkinManager.setBackgroundResource(this.n, R.drawable.obfuscated_res_0x7f0808ef);
+        SkinManager.setBackgroundResource(this.n, R.drawable.obfuscated_res_0x7f0808fb);
         SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
         this.s.setVisibility(8);

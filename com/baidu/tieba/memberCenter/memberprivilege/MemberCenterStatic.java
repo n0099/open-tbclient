@@ -59,7 +59,7 @@ import com.baidu.tieba.memberCenter.tail.message.SetTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.SetTailSocketResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailHttpResponseMessage;
 import com.baidu.tieba.memberCenter.tail.message.UpdateTailSocketResponseMessage;
-import com.baidu.tieba.o09;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.wb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -605,7 +605,7 @@ public class MemberCenterStatic {
                         UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                         return;
                     } else {
-                        ej.P(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f83);
+                        ej.P(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0f97);
                         return;
                     }
                 }
@@ -617,8 +617,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            o09.h(i3, cls2, false, false);
-            o09.c(i3, i2, str, cls, false, false, false, false);
+            s19.h(i3, cls2, false, false);
+            s19.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

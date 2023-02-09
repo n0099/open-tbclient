@@ -24,7 +24,7 @@ import com.baidu.tieba.jx6;
 import com.baidu.tieba.lx6;
 import com.baidu.tieba.mx6;
 import com.baidu.tieba.nx6;
-import com.baidu.tieba.o09;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -344,8 +344,8 @@ public class ForumRulesShowModel extends BdBaseModel<ForumRulesShowActivity> {
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o09.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, o09.a(TbConfig.FORUM_RULES_SHOW, 309690));
+            s19.h(309690, ForumRuleDetailScoketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FORUM_RULES_SHOW, s19.a(TbConfig.FORUM_RULES_SHOW, 309690));
             tbHttpMessageTask.setResponsedClass(ForumRuleDetailHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

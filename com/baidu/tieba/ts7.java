@@ -653,9 +653,9 @@ public class ts7 extends v9 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && this.a.a != null) {
-                this.a.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.a.b.E(null);
-                this.a.b.S();
+                this.a.b.T();
                 this.a.a.W1();
             }
         }
@@ -776,11 +776,11 @@ public class ts7 extends v9 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && view2 != null && (baseCardInfo instanceof it7)) {
                 it7 it7Var = (it7) baseCardInfo;
-                if (it7Var.C() && view2.getId() != R.id.obfuscated_res_0x7f091a9b && view2.getId() != R.id.user_name) {
+                if (it7Var.C() && view2.getId() != R.id.obfuscated_res_0x7f091ad3 && view2.getId() != R.id.user_name) {
                     it7Var.J(false);
                     this.b.X();
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f091605) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09161b) {
                     this.b.v = it7Var;
                     if (it7Var.G()) {
                         g = dh.g(it7Var.r(), 0L);
@@ -796,7 +796,7 @@ public class ts7 extends v9 {
                                 if (it7Var.m().size() > 1 && it7Var.m().get(1) != null) {
                                     str2 = xs5.G(it7Var.m().get(1).content).toString();
                                 } else {
-                                    str2 = this.b.mContext.getString(R.string.obfuscated_res_0x7f0f1485);
+                                    str2 = this.b.mContext.getString(R.string.obfuscated_res_0x7f0f149c);
                                     i2 = 1;
                                 }
                             } else if (it7Var.m().get(2) != null) {
@@ -804,7 +804,7 @@ public class ts7 extends v9 {
                             } else {
                                 str2 = null;
                             }
-                            this.b.u.q(this.b.mContext.getString(R.string.obfuscated_res_0x7f0f10a2) + userName + this.b.mContext.getString(R.string.obfuscated_res_0x7f0f1483) + str2);
+                            this.b.u.q(this.b.mContext.getString(R.string.obfuscated_res_0x7f0f10b6) + userName + this.b.mContext.getString(R.string.obfuscated_res_0x7f0f149a) + str2);
                         }
                         this.b.u.U(this.b.v.q());
                         sd5 sd5Var = this.b.u;
@@ -830,7 +830,7 @@ public class ts7 extends v9 {
                         baijiahaoData = null;
                     }
                     this.b.D.J(j, i, it7Var.c(), it7Var.z(), baijiahaoData);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090572) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f09057d) {
                     Object tag = view2.getTag(R.id.item_data);
                     if (tag instanceof Boolean) {
                         String r = it7Var.r();
@@ -905,9 +905,9 @@ public class ts7 extends v9 {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.a.b.E(null);
-                this.a.b.P();
+                this.a.b.Q();
                 this.a.a.W1();
             }
         }
@@ -1300,7 +1300,7 @@ public class ts7 extends v9 {
                 return null;
             }
             this.h = viewGroup;
-            this.g = (NavigationBarShadowView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091731);
+            this.g = (NavigationBarShadowView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091748);
             if (this.i == null) {
                 z35 z35Var = new z35(this.a.getPageContext());
                 this.i = z35Var;
@@ -1320,10 +1320,10 @@ public class ts7 extends v9 {
             this.b.H(SkinManager.getColor(R.color.CAM_X0109));
             this.b.D(R.color.CAM_X0110);
             this.b.E(this.p);
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0902d0);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0902d6);
             this.e = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.i);
-            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f0902d3);
+            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f0902d9);
             ht7 ht7Var = new ht7(this.a.getPageContext(), this.f);
             this.d = ht7Var;
             ht7Var.g(new k(this));
@@ -1355,18 +1355,18 @@ public class ts7 extends v9 {
         this.e.setVisibility(0);
         h0(false);
         if (z) {
-            this.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.g();
             this.b.E(this.p);
         } else {
-            this.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.g();
             this.b.F(this.mContext.getResources().getString(R.string.list_no_more));
             this.b.E(null);
         }
         if (ListUtils.isEmpty(arrayList)) {
             if (this.c == null) {
-                this.c = NoDataViewFactory.a(this.mContext.getContext(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275)), NoDataViewFactory.e.d(null, this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0b72)), null);
+                this.c = NoDataViewFactory.a(this.mContext.getContext(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275)), NoDataViewFactory.e.d(null, this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0b7c)), null);
                 this.c.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
             }

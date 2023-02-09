@@ -8,15 +8,15 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ar8;
+import com.baidu.tieba.as8;
+import com.baidu.tieba.cs8;
+import com.baidu.tieba.es8;
 import com.baidu.tieba.ev5;
-import com.baidu.tieba.mr8;
-import com.baidu.tieba.or8;
+import com.baidu.tieba.qs8;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.uq8;
-import com.baidu.tieba.wq8;
-import com.baidu.tieba.yq8;
+import com.baidu.tieba.ss8;
+import com.baidu.tieba.yr8;
 import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class RecAppStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements ar8.a {
+    public static class a implements es8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +52,7 @@ public class RecAppStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ar8.a
+        @Override // com.baidu.tieba.es8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -142,19 +142,19 @@ public class RecAppStatic {
                 return;
             }
         }
-        mr8.a.set(new or8());
+        qs8.a.set(new ss8());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         yw5.l().e(new a());
-        ev5.b().c(1, new yq8());
-        ev5.b().c(2, new wq8());
+        ev5.b().c(1, new cs8());
+        ev5.b().c(2, new as8());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(AdWebVideoActivityConfig.class, AdWebVideoActivity.class);
         b bVar = new b(inst);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.tieba.baidu.notifyprocess");
         inst.registerReceiver(bVar, intentFilter);
-        uq8.t().b();
-        uq8.t().f();
+        yr8.t().b();
+        yr8.t().f();
     }
 
     public RecAppStatic() {

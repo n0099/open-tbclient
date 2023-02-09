@@ -28,7 +28,7 @@ public class f36 extends mc6<d26> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d086c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d087e : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -80,7 +80,7 @@ public class f36 extends mc6<d26> {
             int[] b = u16.b(getContext());
             int i = b[0];
             int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f09206f);
+            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f0920b3);
             this.j = tabLiveStageLiveView;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
             if (layoutParams == null) {

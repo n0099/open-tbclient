@@ -128,7 +128,7 @@ public class py6 extends as6<v67, GameRankListViewHolder> implements d37 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0379, (ViewGroup) null));
+            return new GameRankListViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d037b, (ViewGroup) null));
         }
         return (GameRankListViewHolder) invokeL.objValue;
     }

@@ -718,20 +718,20 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09081f);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09082c);
             this.b = (TextView) findViewById(R.id.dialog_message);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090815);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090822);
             this.d = (TextView) findViewById(R.id.positive_button);
             this.e = (TextView) findViewById(R.id.negative_button);
             this.f = (TextView) findViewById(R.id.neutral_button);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090845);
-            this.i = findViewById(R.id.obfuscated_res_0x7f090846);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090853);
+            this.i = findViewById(R.id.obfuscated_res_0x7f090854);
             this.j = (FrameLayout) findViewById(R.id.dialog_custom_content);
             this.k = (ImageView) findViewById(R.id.dialog_icon);
             this.l = (RelativeLayout) findViewById(R.id.searchbox_alert_dialog);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090844);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090852);
             this.n = (SwanAppScrollView) findViewById(R.id.message_scrollview);
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09045b);
+            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090464);
             this.p = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070123);
             if (this.m.p > 0) {
                 this.n.getLayoutParams().height = this.m.p;
@@ -756,7 +756,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             }
             linearLayout.setVisibility(i);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.p);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090815);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f090822);
             this.o.setLayoutParams(layoutParams);
         }
     }
@@ -821,7 +821,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0095);
+            setContentView(R.layout.obfuscated_res_0x7f0d0096);
             getWindow().setLayout(-1, -1);
             e r = e.r(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
             this.m = r;

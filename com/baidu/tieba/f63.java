@@ -237,8 +237,8 @@ public final class f63 extends ta3 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             a83.a aVar = new a83.a(context);
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f13aa);
-            aVar.v(R.string.obfuscated_res_0x7f0f13ae);
+            aVar.U(R.string.obfuscated_res_0x7f0f13c1);
+            aVar.v(R.string.obfuscated_res_0x7f0f13c5);
             aVar.O(R.string.obfuscated_res_0x7f0f011c, b.a);
             aVar.X();
         }

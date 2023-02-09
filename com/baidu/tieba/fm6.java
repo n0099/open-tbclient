@@ -40,12 +40,12 @@ public class fm6 {
             }
         }
         this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d068c, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0692, (ViewGroup) null);
         this.b = inflate;
-        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091083);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f65);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e48);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e49);
+        this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091096);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f76);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e59);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e5a);
         this.e.setText(R.string.no_like_forum_hint_1);
         this.f.setText(R.string.no_like_forum_hint_2);
     }

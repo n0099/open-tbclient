@@ -121,7 +121,7 @@ public final class a extends d implements View.OnClickListener {
                             bd.a(new Runnable(this) { // from class: com.kwad.components.ad.reward.a.a.1.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
-                                public final /* synthetic */ C05671 ot;
+                                public final /* synthetic */ C05681 ot;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -159,7 +159,7 @@ public final class a extends d implements View.OnClickListener {
 
     /* renamed from: com.kwad.components.ad.reward.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0569a {
+    public static class C0570a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CharSequence ov;
@@ -167,7 +167,7 @@ public final class a extends d implements View.OnClickListener {
         public CharSequence ox;
         public CharSequence title;
 
-        public C0569a(@NonNull CouponInfo couponInfo) {
+        public C0570a(@NonNull CouponInfo couponInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,20 +189,20 @@ public final class a extends d implements View.OnClickListener {
         }
 
         @Nullable
-        public static C0569a a(CouponInfo couponInfo) {
+        public static C0570a a(CouponInfo couponInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, couponInfo)) == null) {
                 if (couponInfo == null) {
                     return null;
                 }
-                return new C0569a(couponInfo);
+                return new C0570a(couponInfo);
             }
-            return (C0569a) invokeL.objValue;
+            return (C0570a) invokeL.objValue;
         }
 
         @Nullable
-        public static C0569a u(AdTemplate adTemplate) {
+        public static C0570a u(AdTemplate adTemplate) {
             InterceptResult invokeL;
             List<CouponInfo> list;
             Interceptable interceptable = $ic;
@@ -213,7 +213,7 @@ public final class a extends d implements View.OnClickListener {
                 }
                 return a(bN.couponList.get(0));
             }
-            return (C0569a) invokeL.objValue;
+            return (C0570a) invokeL.objValue;
         }
 
         public final CharSequence N(Context context) {
@@ -270,7 +270,7 @@ public final class a extends d implements View.OnClickListener {
             }
         }
         this.oi = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d046e, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0470, viewGroup, false);
         this.es = viewGroup2;
         d(viewGroup2);
     }
@@ -294,38 +294,38 @@ public final class a extends d implements View.OnClickListener {
         return a(imageView, j);
     }
 
-    private void a(C0569a c0569a) {
+    private void a(C0570a c0570a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, this, c0569a) == null) || c0569a == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, this, c0570a) == null) || c0570a == null) {
             return;
         }
         TextView textView = this.eQ;
         if (textView != null) {
-            textView.setText(c0569a.getTitle());
+            textView.setText(c0570a.getTitle());
         }
         TextView textView2 = this.ol;
         if (textView2 != null) {
-            textView2.setText(c0569a.N(this.es.getContext()));
+            textView2.setText(c0570a.N(this.es.getContext()));
         }
         TextView textView3 = this.iu;
         if (textView3 != null) {
-            textView3.setText(c0569a.gl());
+            textView3.setText(c0570a.gl());
         }
         Button button = this.om;
         if (button != null) {
-            button.setText(c0569a.gm());
+            button.setText(c0570a.gm());
         }
     }
 
     private void d(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, viewGroup) == null) {
-            this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f09116f);
-            this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09116d);
-            this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091172);
-            this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091170);
-            this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091171);
-            Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f09116e);
+            this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f091183);
+            this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091181);
+            this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091186);
+            this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091184);
+            this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091185);
+            Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091182);
             this.om = button;
             button.setOnClickListener(this);
         }
@@ -443,7 +443,7 @@ public final class a extends d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uVar) == null) {
             super.a(uVar);
-            a(C0569a.u(uVar.getAdTemplate()));
+            a(C0570a.u(uVar.getAdTemplate()));
             this.es.post(new AnonymousClass1(this, uVar, com.kwad.components.ad.reward.kwai.b.ge()));
         }
     }

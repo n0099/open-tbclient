@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.ju9;
+import com.baidu.tieba.nv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,19 +100,19 @@ public abstract class pm6 implements sm6 {
             if (!vm6Var.g && !vm6Var.e) {
                 float f = vm6Var.d;
                 if (f != 0.0f) {
-                    ju9.a e = ju9.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    nv9.a e = nv9.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
                     iArr[0] = e.b();
                     iArr[1] = e.a();
                 }
             } else {
-                ju9.a e2 = e();
+                nv9.a e2 = e();
                 float f2 = this.a.d;
                 if (f2 != 0.0f) {
-                    ju9.a f3 = ju9.f(f2, e2.b(), e2.a());
+                    nv9.a f3 = nv9.f(f2, e2.b(), e2.a());
                     iArr[0] = f3.b();
                     iArr[1] = f3.a();
                 }
-                ju9.a d = ju9.d(iArr[0], iArr[1]);
+                nv9.a d = nv9.d(iArr[0], iArr[1]);
                 iArr[0] = d.b();
                 iArr[1] = d.a();
             }
@@ -171,13 +171,13 @@ public abstract class pm6 implements sm6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
             if (i != 0 && i2 != 0) {
-                Bitmap h = dw9.h(bitmap, i, i2, z);
+                Bitmap h = hx9.h(bitmap, i, i2, z);
                 if (this.d) {
-                    a2 = sf9.b();
+                    a2 = wg9.b();
                 } else {
-                    a2 = sf9.a();
+                    a2 = wg9.a();
                 }
-                String c = sf9.c(a2, h, System.currentTimeMillis() + ".jpg");
+                String c = wg9.c(a2, h, System.currentTimeMillis() + ".jpg");
                 if (h != null) {
                     h.recycle();
                     return c;
@@ -189,7 +189,7 @@ public abstract class pm6 implements sm6 {
         return (String) invokeCommon.objValue;
     }
 
-    public ju9.a e() {
+    public nv9.a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -197,7 +197,7 @@ public abstract class pm6 implements sm6 {
             int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
             int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
             if (multiMediaData == null) {
-                return new ju9.a(i, i2);
+                return new nv9.a(i, i2);
             }
             if (multiMediaData.type == 1) {
                 float f = multiMediaData.angle;
@@ -210,9 +210,9 @@ public abstract class pm6 implements sm6 {
                     i2 = multiMediaData.width;
                 }
             }
-            return new ju9.a(i, i2);
+            return new nv9.a(i, i2);
         }
-        return (ju9.a) invokeV.objValue;
+        return (nv9.a) invokeV.objValue;
     }
 
     public void g(um6 um6Var, Bitmap bitmap) {

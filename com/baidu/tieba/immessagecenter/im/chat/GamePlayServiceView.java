@@ -134,10 +134,10 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0753, (ViewGroup) this, true);
-            findViewById(R.id.obfuscated_res_0x7f0914c4).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
-            findViewById(R.id.obfuscated_res_0x7f0914de).setOnClickListener(this.b);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f0924a8)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0764, (ViewGroup) this, true);
+            findViewById(R.id.obfuscated_res_0x7f0914d9).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
+            findViewById(R.id.obfuscated_res_0x7f0914f3).setOnClickListener(this.b);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f0924f2)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 }

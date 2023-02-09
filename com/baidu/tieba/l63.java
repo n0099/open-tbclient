@@ -117,8 +117,8 @@ public class l63 {
                 if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                     File v = sr2.v(str2, str3, false, null, null);
                     j63.c().f(v.getAbsolutePath() + File.separator + str);
-                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908da);
-                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908d9);
+                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908e8);
+                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908e7);
                     if (imageView != null) {
                         imageView.setImageBitmap(j63.c().d());
                     }

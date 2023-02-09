@@ -30,7 +30,7 @@ public class f48 implements e48 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return hp8.m();
+            return lq8.m();
         }
         return (a48) invokeV.objValue;
     }

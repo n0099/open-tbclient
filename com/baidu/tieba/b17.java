@@ -405,14 +405,14 @@ public class b17 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.a != null && this.a.a.Q0() != null && this.a.a.Q0().o0() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && this.a.a != null && this.a.a.P0() != null && this.a.a.P0().o0() != null) {
                 String str = (String) customResponsedMessage.getData();
-                this.a.n(str, this.a.a.Q0().o0().getForum().getBannerListData().getAllAdvertList());
+                this.a.n(str, this.a.a.P0().o0().getForum().getBannerListData().getAllAdvertList());
                 b17 b17Var = this.a;
                 b17Var.m(str, b17Var.a.u1().g0().getData());
                 b17 b17Var2 = this.a;
-                b17Var2.m(str, b17Var2.a.j1().f().J());
-                this.a.a.Q0().S(str);
+                b17Var2.m(str, b17Var2.a.i1().f().J());
+                this.a.a.P0().S(str);
                 if (this.a.a.u1() != null && this.a.a.u1().a0() != null) {
                     this.a.a.u1().a0().notifyDataSetChanged();
                 }
@@ -533,11 +533,11 @@ public class b17 {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
             return;
         }
-        ArrayList<Cdo> threadList = this.a.Q0().o0().getThreadList();
+        ArrayList<Cdo> threadList = this.a.P0().o0().getThreadList();
         s(str, threadList);
         s(str, this.a.u1().g0().getData());
-        s(str, this.a.j1().e());
-        this.a.Q0().U(str);
+        s(str, this.a.i1().e());
+        this.a.P0().U(str);
         if (threadList != null && threadList.size() < 5) {
             this.a.b();
         }
@@ -546,13 +546,13 @@ public class b17 {
     public final void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            ArrayList<Cdo> threadList = this.a.Q0().o0().getThreadList();
+            ArrayList<Cdo> threadList = this.a.P0().o0().getThreadList();
             t(str, str2, threadList);
             t(str, str2, this.a.u1().g0().getData());
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
-                this.a.Q0().T(str2);
+                this.a.P0().T(str2);
             } else if (str.equals("ala_frs_demo_hell_live_feed_back_type")) {
-                this.a.Q0().U(str2);
+                this.a.P0().U(str2);
             }
             if (threadList != null && threadList.size() < 5) {
                 this.a.b();
@@ -642,7 +642,7 @@ public class b17 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ArrayList<AdvertAppInfo> allAdvertList = this.a.Q0().o0().getForum().getBannerListData().getAllAdvertList();
+            ArrayList<AdvertAppInfo> allAdvertList = this.a.P0().o0().getForum().getBannerListData().getAllAdvertList();
             if (!ListUtils.isEmpty(allAdvertList)) {
                 allAdvertList.clear();
             }
@@ -651,10 +651,10 @@ public class b17 {
                 p(this.a.u1().g0().getData());
             }
             i17 i17Var2 = this.a;
-            if (i17Var2 != null && i17Var2.j1() != null && this.a.j1().f() != null) {
-                p(this.a.j1().f().J());
+            if (i17Var2 != null && i17Var2.i1() != null && this.a.i1().f() != null) {
+                p(this.a.i1().f().J());
             }
-            this.a.Q0().S(null);
+            this.a.P0().S(null);
             i17 i17Var3 = this.a;
             if (i17Var3 != null && i17Var3.u1() != null && this.a.u1().a0() != null) {
                 this.a.u1().a0().notifyDataSetChanged();
@@ -679,7 +679,7 @@ public class b17 {
     public final void q(CustomResponsedMessage<?> customResponsedMessage) {
         i17 i17Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && (i17Var = this.a) != null && i17Var.Q0() != null && this.a.Q0().o0() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048583, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && (i17Var = this.a) != null && i17Var.P0() != null && this.a.P0().o0() != null) {
             JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
             String optString = jSONObject.optString("type");
             if (StringUtils.isNull(optString)) {
@@ -706,8 +706,8 @@ public class b17 {
         ArrayList arrayList = new ArrayList();
         for (Cdo cdo : list) {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
-                if (cdo instanceof pz8) {
-                    arrayList.add((pz8) cdo);
+                if (cdo instanceof t09) {
+                    arrayList.add((t09) cdo);
                 }
             } else if (str.equals("ala_frs_demo_hell_live_feed_back_type") && (cdo instanceof wz4)) {
                 ThreadData threadData = ((wz4) cdo).t;
@@ -734,7 +734,7 @@ public class b17 {
             if (str.equals("ala_frs_stage_live_feed_back_type")) {
                 i2 = 0;
                 while (i3 < bdTypeRecyclerView.getAdapter().getItemCount()) {
-                    if (bdTypeRecyclerView.E(i3) instanceof pz8) {
+                    if (bdTypeRecyclerView.E(i3) instanceof t09) {
                         i2 = i3;
                     }
                     i3++;
@@ -764,7 +764,7 @@ public class b17 {
     public final void w(CustomResponsedMessage<?> customResponsedMessage, boolean z) {
         i17 i17Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048589, this, customResponsedMessage, z) == null) && (i17Var = this.a) != null && i17Var.Q0() != null && this.a.Q0().o0() != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048589, this, customResponsedMessage, z) == null) && (i17Var = this.a) != null && i17Var.P0() != null && this.a.P0().o0() != null) {
             String x = x(customResponsedMessage);
             if (!StringUtils.isNull(x) && this.a.u1() != null && this.a.u1().a0() != null) {
                 View childAt = this.a.u1().g0().getChildAt(u(x, this.a.u1().g0()));

@@ -188,17 +188,17 @@ public class b18 {
         Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
         String dateStringDay = dj.getDateStringDay(date);
         String dateStringDay2 = dj.getDateStringDay(date2);
-        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f036b), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
+        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f036c), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
         View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ea);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922eb);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092331);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092332);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
         textView.setText(format);
-        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f14f7) + dateStringDay2);
+        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f150e) + dateStringDay2);
         j05Var.setContentView(inflate);
         j05Var.setPositiveButton(R.string.use_immediately, new a(eVar, bubbleData));
-        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(eVar));
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(eVar));
         j05Var.create(tbPageContext);
         j05Var.show();
     }
@@ -210,9 +210,9 @@ public class b18 {
         }
         j05 j05Var = new j05(tbPageContext.getPageActivity());
         j05Var.setCanceledOnTouchOutside(false);
-        j05Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f036d), bubbleData.getLevel_name()));
+        j05Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f036e), bubbleData.getLevel_name()));
         j05Var.setPositiveButton(R.string.open_now, new c(eVar, bubbleData));
-        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(eVar));
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(eVar));
         j05Var.create(tbPageContext);
         j05Var.show();
     }

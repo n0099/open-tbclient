@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.kt8;
+import com.baidu.tieba.ou8;
 import com.baidu.tieba.uo5;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
@@ -18,7 +18,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class VideoPlayDispatcher implements kt8 {
+public class VideoPlayDispatcher implements ou8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -36,7 +36,7 @@ public class VideoPlayDispatcher implements kt8 {
         }
     }
 
-    @Override // com.baidu.tieba.kt8
+    @Override // com.baidu.tieba.ou8
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         boolean z2;

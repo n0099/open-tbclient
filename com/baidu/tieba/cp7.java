@@ -228,18 +228,18 @@ public class cp7 implements ImagePagerAdapter.a {
             if (!TextUtils.isEmpty(str) && !str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d078a, viewGroup, false);
-            WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09038e), R.drawable.icon_pure_datuwei_live_more, R.color.CAM_X0101, null);
-            p15 d = p15.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09038f));
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d079c, viewGroup, false);
+            WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090396), R.drawable.icon_pure_datuwei_live_more, R.color.CAM_X0101, null);
+            p15 d = p15.d((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090397));
             d.v(R.color.CAM_X0101);
             d.z(R.dimen.T_X08);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09038d).setOnClickListener(new a(this));
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090391);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090395).setOnClickListener(new a(this));
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090399);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
             layoutParams.topMargin = this.b;
             linearLayout.setLayoutParams(layoutParams);
             viewGroup.addView(inflate);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f090394);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f09039c);
             bdRecyclerView.setLayoutManager(new b(this, 2, 1));
             bdRecyclerView.addItemDecoration(new LiveRoomRecommendListAdapter.LiveRoomItemDecoration());
             bdRecyclerView.setAdapter(this.a);

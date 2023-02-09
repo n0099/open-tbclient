@@ -164,11 +164,11 @@ public class wx7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07c4, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07d6, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091d76);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ece);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091ecd);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091db8);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f11);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091f10);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

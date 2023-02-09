@@ -28,11 +28,11 @@ import com.baidu.tbadk.data.QmFilterItem;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bf6;
-import com.baidu.tieba.df9;
-import com.baidu.tieba.e99;
 import com.baidu.tieba.ff6;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.hf6;
+import com.baidu.tieba.hg9;
+import com.baidu.tieba.ia9;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.s05;
@@ -208,7 +208,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                     this.a.f.end = j2;
                 } else if (this.a.h == 2) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", e99.a(this.a.l));
+                    intent.putExtra("enter_anim_values", ia9.a(this.a.l));
                     intent.putExtra(TbEditVideoActivityConfig.KEY_EDIT_VIDEO_DATA, (Parcelable) this.a.f);
                     this.a.setResult(-1, intent);
                     this.a.finish();
@@ -249,7 +249,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, u05Var, i, view2) == null) {
                 if (i == 0) {
                     Intent intent = new Intent();
-                    intent.putExtra("enter_anim_values", e99.a(this.b.l));
+                    intent.putExtra("enter_anim_values", ia9.a(this.b.l));
                     this.b.setResult(0, intent);
                     this.b.finish();
                     return;
@@ -321,12 +321,12 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             ff6 ff6Var = this.e;
             if (ff6Var != null && ff6Var.g()) {
                 s05 s05Var = new s05(getPageContext(), new u05(getPageContext().getPageActivity()));
-                s05Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f055f), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f1034)}, new e(this, s05Var));
+                s05Var.i(getResources().getString(R.string.obfuscated_res_0x7f0f0562), new String[]{getResources().getString(R.string.obfuscated_res_0x7f0f1048)}, new e(this, s05Var));
                 s05Var.k();
                 return;
             }
             Intent intent = new Intent();
-            intent.putExtra("enter_anim_values", e99.a(this.l));
+            intent.putExtra("enter_anim_values", ia9.a(this.l));
             setResult(0, intent);
             finish();
         }
@@ -335,12 +335,12 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
     public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbGLMediaPreviewView tbGLMediaPreviewView = (TbGLMediaPreviewView) findViewById(R.id.obfuscated_res_0x7f090a37);
+            TbGLMediaPreviewView tbGLMediaPreviewView = (TbGLMediaPreviewView) findViewById(R.id.obfuscated_res_0x7f090a45);
             this.l = tbGLMediaPreviewView;
             tbGLMediaPreviewView.setOnClickListener(this);
             int color = getResources().getColor(R.color.CAM_X0105);
             this.l.setGlClearColor((Color.red(color) * 1.0f) / 255.0f, (Color.green(color) * 1.0f) / 255.0f, (Color.blue(color) * 1.0f) / 255.0f, (Color.alpha(color) * 1.0f) / 255.0f);
-            this.b = (MultiMediaEditLayout) findViewById(R.id.obfuscated_res_0x7f09169a);
+            this.b = (MultiMediaEditLayout) findViewById(R.id.obfuscated_res_0x7f0916b0);
             hf6 hf6Var = new hf6(getPageContext(), this.l, this.b, this.f, this.h, getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false));
             this.e = hf6Var;
             hf6Var.a(this.i);
@@ -360,26 +360,26 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0668)).setTextColor(getResources().getColor(R.color.CAM_X0101));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0671)).setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a6c));
+            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a7b));
             addSystemImageButton.setOnClickListener(new c(this));
             NavigationBar navigationBar2 = this.a;
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;
             if (this.h == 2) {
                 resources = getResources();
-                i = R.string.obfuscated_res_0x7f0f1142;
+                i = R.string.obfuscated_res_0x7f0f1156;
             } else {
                 resources = getResources();
-                i = R.string.obfuscated_res_0x7f0f0d09;
+                i = R.string.obfuscated_res_0x7f0f0d13;
             }
             navigationBar2.addTextButton(controlAlign, resources.getString(i), new d(this)).setTextColor(getResources().getColor(R.color.CAM_X0101));
-            this.d = findViewById(R.id.obfuscated_res_0x7f091b51);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091104);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091b8c);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091118);
             this.c = imageView;
             imageView.setOnClickListener(this);
             if (!p35.m().i("key_file_video_clip_tail_tip_show", false)) {
-                G1(R.string.obfuscated_res_0x7f0f066a);
+                G1(R.string.obfuscated_res_0x7f0f0673);
                 p35.m().w("key_file_video_clip_tail_tip_show", true);
             }
         }
@@ -408,9 +408,9 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f091104 || view2.getId() == R.id.obfuscated_res_0x7f090a37) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091118 || view2.getId() == R.id.obfuscated_res_0x7f090a45) {
                 if (!p35.m().i("key_file_video_clip_play_pause_show", false)) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f091104) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f091118) {
                         H1(R.raw.obfuscated_res_0x7f11000e);
                     }
                     p35.m().w("key_file_video_clip_play_pause_show", true);
@@ -419,11 +419,11 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 if (ff6Var != null) {
                     if (ff6Var.isPlaying()) {
                         this.e.pause();
-                        this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a84));
+                        this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a93));
                         return;
                     }
                     this.e.start();
-                    this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a8c));
+                    this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a9b));
                 }
             }
         }
@@ -440,7 +440,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
                 VideoInfo videoInfo = (VideoInfo) getIntent().getSerializableExtra(WriteActivityConfig.VIDEO_INFO);
                 this.g = videoInfo;
                 if (videoInfo != null) {
-                    this.f = df9.a(videoInfo);
+                    this.f = hg9.a(videoInfo);
                 } else {
                     this.f = (TbMultiMediaData) getIntent().getParcelableExtra(TbFileVideoActivityConfig.MULTI_MEDIA_DATA);
                 }
@@ -457,14 +457,14 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (this.k == null) {
-                RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904c9);
+                RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d4);
                 this.k = relativeLayout;
                 p15 d2 = p15.d(relativeLayout);
                 d2.e(R.string.A_X09);
                 d2.f(R.color.CAM_X0611);
             }
             if (this.j == null) {
-                this.j = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0904c8);
+                this.j = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0904d3);
             }
             this.k.setVisibility(0);
             this.j.setAnimation(i);
@@ -501,7 +501,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             ff6 ff6Var = this.e;
             if (ff6Var != null) {
                 ff6Var.onResume();
-                this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a84));
+                this.c.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a93));
             }
         }
     }

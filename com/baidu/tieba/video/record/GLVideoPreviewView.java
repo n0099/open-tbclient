@@ -26,11 +26,11 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.a48;
 import com.baidu.tieba.e48;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ib9;
-import com.baidu.tieba.jb9;
-import com.baidu.tieba.kb9;
-import com.baidu.tieba.l99;
-import com.baidu.tieba.n99;
+import com.baidu.tieba.mc9;
+import com.baidu.tieba.nc9;
+import com.baidu.tieba.oc9;
+import com.baidu.tieba.pa9;
+import com.baidu.tieba.ra9;
 import com.baidu.tieba.u38;
 import com.baidu.tieba.um;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -53,19 +53,19 @@ import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes6.dex */
-public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
+public class GLVideoPreviewView extends GLSurfaceView implements nc9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int j = 720;
     public static int k = 960;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public kb9 a;
+    public oc9 a;
     public c b;
     public TextureMovieEncoder c;
     public b d;
     public int e;
     public int f;
-    public jb9.a g;
+    public nc9.a g;
     public boolean h;
     public a48 i;
 
@@ -185,7 +185,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
                         if (this.b.d.getContext() != null) {
                             bitmap = BitmapHelper.getClipBitmap(bitmap, (ej.j(context) * 1.0f) / ej.l(context));
                         }
-                        this.b.H = FileHelper.saveFileAsPic(n99.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
+                        this.b.H = FileHelper.saveFileAsPic(ra9.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
                         return null;
                     } finally {
                         if (bitmap != null && !bitmap.isRecycled()) {
@@ -309,7 +309,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
                                 } else {
                                     bArr2 = new byte[1];
                                 }
-                                faceunity.fuSetup(bArr2, null, ib9.a());
+                                faceunity.fuSetup(bArr2, null, mc9.a());
                                 this.b.C = true;
                             } catch (Throwable th) {
                                 th.printStackTrace();
@@ -435,19 +435,19 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
             this.o = handlerThread;
             handlerThread.start();
             this.p = new HandlerC0459c(this, this.o.getLooper(), context);
-            D(l99.b(2));
+            D(pa9.b(2));
         }
 
-        public void D(l99 l99Var) {
+        public void D(pa9 pa9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, l99Var) != null) || l99Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, pa9Var) != null) || pa9Var == null) {
                 return;
             }
-            this.s = l99Var.b;
-            this.t = l99Var.c;
-            this.u = l99Var.d;
-            this.v = l99Var.e;
-            this.w = l99Var.f;
+            this.s = pa9Var.b;
+            this.t = pa9Var.c;
+            this.u = pa9Var.d;
+            this.v = pa9Var.e;
+            this.w = pa9Var.f;
         }
 
         public void E(String str) {
@@ -782,14 +782,14 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GLVideoPreviewView(Context context, kb9 kb9Var) {
+    public GLVideoPreviewView(Context context, oc9 oc9Var) {
         super(context);
         e48 e48Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, kb9Var};
+            Object[] objArr = {context, oc9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -809,7 +809,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         if (e48Var != null) {
             this.i = e48Var.get();
         }
-        this.a = kb9Var;
+        this.a = oc9Var;
         this.b = new c(context, this, this.i);
         setEGLContextClientVersion(2);
         setRenderer(this.b);
@@ -854,7 +854,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
+    @Override // com.baidu.tieba.nc9
     public void b(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, camera) == null) {
@@ -870,8 +870,8 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
-    public void c(jb9.a aVar) {
+    @Override // com.baidu.tieba.nc9
+    public void c(nc9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.g = aVar;
@@ -880,7 +880,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
+    @Override // com.baidu.tieba.nc9
     public void d(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, camera) == null) {
@@ -899,7 +899,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
+    @Override // com.baidu.tieba.nc9
     public void e(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, camera) == null) {
@@ -922,20 +922,20 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            kb9 kb9Var = this.a;
-            if (kb9Var == null) {
+            oc9 oc9Var = this.a;
+            if (oc9Var == null) {
                 return false;
             }
-            return kb9Var.w(motionEvent, getParent());
+            return oc9Var.w(motionEvent, getParent());
         }
         return invokeL.booleanValue;
     }
 
-    public void setBeautyLevel(l99 l99Var) {
+    public void setBeautyLevel(pa9 pa9Var) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, l99Var) == null) && (cVar = this.b) != null) {
-            cVar.D(l99Var);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, pa9Var) == null) && (cVar = this.b) != null) {
+            cVar.D(pa9Var);
         }
     }
 
@@ -961,7 +961,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
+    @Override // com.baidu.tieba.nc9
     public void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener) {
         TextureMovieEncoder textureMovieEncoder;
         Interceptable interceptable = $ic;
@@ -978,7 +978,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
+    @Override // com.baidu.tieba.nc9
     public void a(Camera camera) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) && camera != null) {
@@ -997,7 +997,7 @@ public class GLVideoPreviewView extends GLSurfaceView implements jb9 {
         }
     }
 
-    @Override // com.baidu.tieba.jb9
+    @Override // com.baidu.tieba.nc9
     public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) && i > 0 && i2 > 0) {

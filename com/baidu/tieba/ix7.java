@@ -30,7 +30,7 @@ public class ix7 extends wb5 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809bc;
+        this.d = R.drawable.obfuscated_res_0x7f0809cb;
         this.i = true;
         this.p = new int[]{18};
     }

@@ -192,10 +192,10 @@ public class ConcernRecommendLayout extends LinearLayout implements ay {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f2, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f3, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092314);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09235b);
             this.d = (RecyclerView) findViewById(R.id.thread_card_list);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
@@ -234,7 +234,7 @@ public class ConcernRecommendLayout extends LinearLayout implements ay {
                 this.g = lz4Var.b;
             } else {
                 this.c.setTextSize(0, ej.g(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0454);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0456);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
                 this.g = R.color.CAM_X0105;
             }

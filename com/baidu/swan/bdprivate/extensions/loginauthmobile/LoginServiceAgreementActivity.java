@@ -79,15 +79,15 @@ public class LoginServiceAgreementActivity extends BaseActivity {
             }
             Bundle extras = intent.getExtras();
             setContentView(R.layout.obfuscated_res_0x7f0d0042);
-            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901a8);
+            NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901aa);
             if (extras != null) {
                 ngWebView.loadUrl(extras.getString("url"));
             }
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017c);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017e);
             this.b = swanAppActionBar;
             swanAppActionBar.setLeftBackViewVisibility(true);
             this.b.setLeftBackViewClickListener(new a(this));
-            this.b.setTitle(R.string.obfuscated_res_0x7f0f13c1);
+            this.b.setTitle(R.string.obfuscated_res_0x7f0f13d8);
             this.b.setRightZoneVisibility(false);
         }
     }

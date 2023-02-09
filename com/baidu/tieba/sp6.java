@@ -47,7 +47,7 @@ public class sp6 extends as6<tp6, ManitoHeaderItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ManitoHeaderItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0590, (ViewGroup) null));
+            return new ManitoHeaderItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0595, (ViewGroup) null));
         }
         return (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
@@ -61,7 +61,7 @@ public class sp6 extends as6<tp6, ManitoHeaderItemViewHolder> {
                 SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
                 SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
             }
-            manitoHeaderItemViewHolder.a.setText(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06d9), Integer.valueOf(tp6Var.a())));
+            manitoHeaderItemViewHolder.a.setText(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06e2), Integer.valueOf(tp6Var.a())));
             manitoHeaderItemViewHolder.b = this.f;
             return view2;
         }

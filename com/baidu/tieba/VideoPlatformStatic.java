@@ -79,8 +79,8 @@ public class VideoPlatformStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                j89.h().o();
-                g89.d().k();
+                n99.h().o();
+                k99.d().k();
             }
         }
     }
@@ -261,21 +261,21 @@ public class VideoPlatformStatic {
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
             switch (i) {
                 case 101:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f94);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa8);
                 case 102:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f93);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa7);
                 case 103:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f90);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa4);
                 case 104:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f8f);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa3);
                 case 105:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f95);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa9);
                 case 106:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f91);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa5);
                 case 107:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f92);
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fa6);
                 default:
-                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05dc) + i;
+                    return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05e3) + i;
             }
         }
         return (String) invokeI.objValue;

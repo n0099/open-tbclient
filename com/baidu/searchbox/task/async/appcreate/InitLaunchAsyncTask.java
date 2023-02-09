@@ -21,14 +21,14 @@ import com.baidu.tieba.bb5;
 import com.baidu.tieba.cw4;
 import com.baidu.tieba.eg;
 import com.baidu.tieba.f65;
-import com.baidu.tieba.g29;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.h29;
 import com.baidu.tieba.ho5;
+import com.baidu.tieba.k39;
 import com.baidu.tieba.kb;
-import com.baidu.tieba.kq8;
-import com.baidu.tieba.pq8;
+import com.baidu.tieba.l39;
+import com.baidu.tieba.or8;
 import com.baidu.tieba.t9;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.uk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -74,7 +74,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initQuickWebViewManager() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            kq8.q().u();
+            or8.q().u();
         }
     }
 
@@ -216,7 +216,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
-            pq8.g().j();
+            tr8.g().j();
             bb5.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
             f65.c();
@@ -275,8 +275,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
     public void intReadThreadHistory() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new h29(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new g29(300);
+            TbadkApplication.getInst().mReadThreadHistory = new l39(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new k39(300);
             t9.f().s(TbadkApplication.getInst());
         }
     }

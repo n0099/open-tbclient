@@ -43,11 +43,11 @@ public class dm6 implements View.OnClickListener {
                 return;
             }
         }
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0272, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0273, (ViewGroup) null);
         this.a = inflate;
-        this.b = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09076a);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910df);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090778);
+        this.b = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090775);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f2);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090783);
         this.e = ej.g(tbPageContext.getPageActivity(), R.dimen.tbds52);
         this.b.setOnClickListener(this);
         this.c.setOnClickListener(this);
@@ -63,7 +63,7 @@ public class dm6 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0205).defaultStrokeColor(R.color.cp_cont_b_alpha42).strokeWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1)).radius(this.e).into(this.b);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080629, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080632, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 

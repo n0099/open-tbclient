@@ -52,8 +52,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091bd4);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bd3);
+            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f091c15);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c14);
             this.f = textView;
             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e1));
             setState(ILoadingLayout$State.RESET);
@@ -87,7 +87,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View b = g33.a().b(R.layout.obfuscated_res_0x7f0d00c3, viewGroup, false);
+            View b = g33.a().b(R.layout.obfuscated_res_0x7f0d00c4, viewGroup, false);
             b.setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603e9));
             return b;
         }
@@ -117,7 +117,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091bd2);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c13);
             if (findViewById != null) {
                 return findViewById.getHeight();
             }

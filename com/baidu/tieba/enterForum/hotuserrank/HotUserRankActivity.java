@@ -168,7 +168,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
                         return;
                     }
                     HotUserRankActivity hotUserRankActivity2 = this.a;
-                    hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0cfe), true);
+                    hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.a.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0d08), true);
                 }
             }
         }
@@ -228,7 +228,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             if (!TextUtils.isEmpty(this.c)) {
                 this.b.i(this.c);
             } else if (this.d > 0) {
-                this.a.n(getString(R.string.obfuscated_res_0x7f0f06d3));
+                this.a.n(getString(R.string.obfuscated_res_0x7f0f06dc));
                 this.b.h(this.d);
             }
             this.a.m(this.h);

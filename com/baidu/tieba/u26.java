@@ -257,7 +257,7 @@ public class u26 {
         this.m = "";
         this.n = new e(this);
         this.a = tbPageContext;
-        this.b = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00fe, (ViewGroup) null);
+        this.b = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ff, (ViewGroup) null);
         this.m = str;
         j();
     }
@@ -330,9 +330,9 @@ public class u26 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0901f7);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0901fb);
             this.c = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ac3));
+            navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0acd));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
         }
     }
@@ -412,9 +412,9 @@ public class u26 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             i();
-            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0901f6);
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f090862);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f0901f9);
+            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0901fa);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f090870);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f0901fd);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.e.setFadingEdgeLength(0);
@@ -424,7 +424,7 @@ public class u26 {
             z35 z35Var = new z35(this.a);
             this.g = z35Var;
             z35Var.f(new b(this));
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0901f8);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0901fc);
             this.f = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.g);
             i26 i26Var = new i26(this.a, this.m);

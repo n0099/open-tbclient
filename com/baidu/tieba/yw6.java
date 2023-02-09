@@ -65,28 +65,28 @@ public class yw6 {
                 boolean z = false;
                 if (!rr6.f().i() && !qr6.h().j()) {
                     if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0d08);
                         return false;
-                    } else if (this.a.b.Q0() != null && this.a.b.u1() != null) {
+                    } else if (this.a.b.P0() != null && this.a.b.u1() != null) {
                         z = true;
                         if (this.a.f == i) {
                             return true;
                         }
-                        this.a.b.Q0().Z0(this.a.d.w(this.a.f));
+                        this.a.b.P0().Z0(this.a.d.w(this.a.f));
                         this.a.f = i;
                         if (this.a.f != 7) {
                             gp5.c();
-                            i29.a();
+                            m39.a();
                         } else {
-                            i29.b();
+                            m39.b();
                         }
-                        this.a.b.Q0().V0(this.a.d.w(this.a.f));
+                        this.a.b.P0().V0(this.a.d.w(this.a.f));
                         if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
                             FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.f));
                         }
-                        this.a.b.Q0().Y0(true);
+                        this.a.b.P0().Y0(true);
                         this.a.b.u1().b2();
-                        this.a.b.Q0().X0(true);
+                        this.a.b.P0().X0(true);
                         this.a.f();
                     }
                 }
@@ -115,11 +115,11 @@ public class yw6 {
         this.g = new a(this);
         if (frsFragment != null && relativeLayout != null) {
             this.b = frsFragment;
-            View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0352, relativeLayout);
+            View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0354, relativeLayout);
             this.a = inflate;
             inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092015);
-            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092016);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092059);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f09205a);
             this.d = frsTabSortSwitchButton;
             frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
             this.f = this.d.getState();

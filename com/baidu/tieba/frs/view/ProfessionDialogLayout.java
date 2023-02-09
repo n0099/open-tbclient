@@ -196,18 +196,18 @@ public class ProfessionDialogLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.c = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0776, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0788, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fa8);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907e1), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907e2), (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090496), (int) R.color.CAM_X0302);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fb9);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907ed), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0907ee), (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0904a1), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c41);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c52);
             TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
             SkinManager.setImageResource(tbImageView2, R.drawable.icon_prefession_popup_close_n);
             tbImageView2.setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f090496).setOnClickListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f0904a1).setOnClickListener(new b(this));
         }
     }
 }

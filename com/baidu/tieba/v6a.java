@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.util.Log;
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,36 +7,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.regex.Pattern;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
 /* loaded from: classes6.dex */
 public class v6a {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static long b;
+    public static final d7a<Reporter> a;
+    public static final d7a<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948194120, "Lcom/baidu/tieba/v6a;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194120, "Lcom/baidu/tieba/v6a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948194120, "Lcom/baidu/tieba/v6a;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948194120, "Lcom/baidu/tieba/v6a;");
-        }
+        a = new a();
+        b = new b();
     }
 
     /* loaded from: classes6.dex */
-    public class a implements FileFilter {
+    public static class a extends d7a<Reporter> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,108 +51,66 @@ public class v6a {
             }
         }
 
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.d7a
+        public Reporter a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                return Pattern.matches("cpu[0-9]", file.getName());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new a7a("https://rpe.xdplt.com/evt/", true);
             }
-            return invokeL.booleanValue;
+            return invokeV.objValue;
         }
     }
 
-    public static long a() {
+    /* loaded from: classes6.dex */
+    public static class b extends d7a<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.d7a
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new y6a("https://rpd.xdplt.com/evt/");
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
+    public static Reporter a() {
         InterceptResult invokeV;
+        Reporter reporter;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) n6a.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo.availMem / 1024;
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == 0) {
-                try {
-                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
-                } catch (Exception e) {
-                    Log.e("PerformanceUtils", "getNumCores exception", e);
-                    a = 1;
+            d7a<Reporter> d7aVar = a;
+            synchronized (d7aVar) {
+                if (d7aVar.a == null) {
+                    d7aVar.a = d7aVar.a();
                 }
+                reporter = d7aVar.a;
             }
-            return a;
+            return reporter;
         }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static long c() {
-        InterceptResult invokeV;
-        FileReader fileReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == 0) {
-                long j = -1;
-                FileReader fileReader2 = null;
-                try {
-                    try {
-                        try {
-                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                        } catch (IOException e) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
-                    String readLine = bufferedReader.readLine();
-                    String str = readLine;
-                    if (readLine != null) {
-                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
-                        j = valueOf.intValue();
-                        str = valueOf;
-                    }
-                    bufferedReader.close();
-                    fileReader.close();
-                    fileReader2 = str;
-                } catch (IOException e3) {
-                    e = e3;
-                    fileReader2 = fileReader;
-                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
-                    if (fileReader2 != null) {
-                        fileReader2.close();
-                        fileReader2 = fileReader2;
-                    }
-                    b = j;
-                    return b;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    if (fileReader2 != null) {
-                        try {
-                            fileReader2.close();
-                        } catch (IOException e4) {
-                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
-                        }
-                    }
-                    throw th;
-                }
-                b = j;
-            }
-            return b;
-        }
-        return invokeV.longValue;
+        return (Reporter) invokeV.objValue;
     }
 }

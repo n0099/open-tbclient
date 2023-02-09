@@ -76,7 +76,7 @@ public class NewHotTipLabelView extends EMTextView {
         }
         String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(h75Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0d04);
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0d0e);
         }
         setText(cutChineseAndEnglishWithSuffix);
         setVisibility(0);

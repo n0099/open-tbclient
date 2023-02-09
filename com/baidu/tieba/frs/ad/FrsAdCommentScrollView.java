@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rz8;
+import com.baidu.tieba.v09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<rz8> g;
+    public List<v09> g;
     public int h;
     public Runnable i;
 
@@ -268,7 +268,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<rz8> list) {
+    public void m(List<v09> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -290,13 +290,13 @@ public class FrsAdCommentScrollView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = new LinkedList();
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02f5, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090783);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a7);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090782);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02f7, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09078e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0917c0);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09078d);
             this.c = frameLayout;
             frameLayout.setTag(this.a);
-            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0917a6);
+            FrameLayout frameLayout2 = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0917bf);
             this.d = frameLayout2;
             frameLayout2.setTag(this.b);
         }
@@ -324,26 +324,26 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        rz8 rz8Var;
+        v09 v09Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            rz8 rz8Var2 = (rz8) ListUtils.getItem(this.g, this.h);
+            v09 v09Var2 = (v09) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                rz8Var = (rz8) ListUtils.getItem(this.g, 0);
+                v09Var = (v09) ListUtils.getItem(this.g, 0);
             } else {
-                rz8Var = (rz8) ListUtils.getItem(this.g, this.h + 1);
+                v09Var = (v09) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && rz8Var2 != null) {
-                String a2 = rz8Var2.a();
-                if (rz8Var2.b()) {
-                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f07ae, a2);
+            if ((this.c.getTag() instanceof TextView) && v09Var2 != null) {
+                String a2 = v09Var2.a();
+                if (v09Var2.b()) {
+                    a2 = getContext().getString(R.string.obfuscated_res_0x7f0f07b7, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if ((this.d.getTag() instanceof TextView) && rz8Var != null) {
-                String a3 = rz8Var.a();
-                if (rz8Var.b()) {
-                    a3 = getContext().getString(R.string.obfuscated_res_0x7f0f07ae, a3);
+            if ((this.d.getTag() instanceof TextView) && v09Var != null) {
+                String a3 = v09Var.a();
+                if (v09Var.b()) {
+                    a3 = getContext().getString(R.string.obfuscated_res_0x7f0f07b7, a3);
                 }
                 ((TextView) this.d.getTag()).setText(a3);
             }

@@ -181,10 +181,10 @@ public class ComplianceTextView extends TextView {
         if (interceptable == null || interceptable.invokeLL(65544, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ComplianceTextView);
             this.OH = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
-            this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060778));
+            this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060779));
             this.OK = obtainStyledAttributes.getBoolean(1, true);
             if (getBackground() == null) {
-                setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c5d));
+                setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c6e));
             }
             obtainStyledAttributes.recycle();
         }
@@ -227,7 +227,7 @@ public class ComplianceTextView extends TextView {
                     public final void onClick(@NonNull View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0604a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0605a().ao(this.OM).ap(this.OL.OF).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
@@ -277,7 +277,7 @@ public class ComplianceTextView extends TextView {
                     public final void onClick(@NonNull View view2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0604a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
+                            AdWebViewActivityProxy.launch(this.OL.getContext(), new AdWebViewActivityProxy.a.C0605a().ao(this.ON).ap(this.OL.OG).N(this.OL.mAdTemplate).nx());
                         }
                     }
 
@@ -294,7 +294,7 @@ public class ComplianceTextView extends TextView {
             }
             spannableStringBuilder.append((CharSequence) " ");
             setMovementMethod(LinkMovementMethod.getInstance());
-            setHighlightColor(ContextCompat.getColor(getContext(), com.baidu.tieba.R.color.obfuscated_res_0x7f06078a));
+            setHighlightColor(ContextCompat.getColor(getContext(), com.baidu.tieba.R.color.obfuscated_res_0x7f06078b));
             setText(spannableStringBuilder);
         }
     }

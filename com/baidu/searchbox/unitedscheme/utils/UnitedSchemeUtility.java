@@ -344,26 +344,26 @@ public final class UnitedSchemeUtility {
                                 if (i != 302) {
                                     switch (i) {
                                         case 401:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c1);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15d8);
                                         case 402:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15be);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15d5);
                                         case 403:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15bf);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15d6);
                                         default:
-                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c6);
+                                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15dd);
                                     }
                                 }
-                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c0);
+                                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15d7);
                             }
-                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c2);
+                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15d9);
                         }
-                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c5);
+                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15dc);
                     }
-                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c6);
+                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15dd);
                 }
-                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c3);
+                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15da);
             }
-            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15c4);
+            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15db);
         }
         return (String) invokeI.objValue;
     }

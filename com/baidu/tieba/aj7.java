@@ -240,10 +240,10 @@ public class aj7 extends BaseExpandableListAdapter {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1519));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1530));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1518));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f152f));
         } else {
             textView.setVisibility(8);
         }
@@ -305,10 +305,10 @@ public class aj7 extends BaseExpandableListAdapter {
             if (view2 != null && (view2.getTag() instanceof a)) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03ad, (ViewGroup) null);
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03af, (ViewGroup) null);
                 aVar = new a();
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ecb);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eca);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090edc);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090edb);
                 aVar.d = view2.findViewById(R.id.divider_line_top);
                 aVar.e = view2.findViewById(R.id.divider_line_bottom);
                 view2.setTag(aVar);
@@ -333,11 +333,11 @@ public class aj7 extends BaseExpandableListAdapter {
             if (view2 != null && (view2.getTag() instanceof b)) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03ae, (ViewGroup) null);
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d03b0, (ViewGroup) null);
                 bVar = new b();
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e22);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090855);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090dc1);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e33);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090863);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090dd2);
                 view2.setTag(bVar);
                 view2.setClickable(false);
             }

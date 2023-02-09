@@ -274,7 +274,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (i > 0 && i < 100) {
-                    ej.N(this.b.b.getPageActivity(), wj.a(R.string.obfuscated_res_0x7f0f0dee));
+                    ej.N(this.b.b.getPageActivity(), wj.a(R.string.obfuscated_res_0x7f0f0dfa));
                 } else if (i >= 100) {
                     ej.M(this.b.b.getPageActivity(), R.string.down_state_success);
                 }
@@ -352,7 +352,7 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                             if (i == 4) {
                                 downLoadView.setBackgroundDrawable(null);
                                 SkinManager.setViewTextColor(downLoadView, (int) R.color.CAM_X0109);
-                                downLoadView.setText(R.string.obfuscated_res_0x7f0f0644);
+                                downLoadView.setText(R.string.obfuscated_res_0x7f0f064d);
                                 downLoadView.setEnabled(false);
                                 return;
                             }
@@ -365,14 +365,14 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                         return;
                     }
                 } else {
-                    downLoadView.setText(R.string.obfuscated_res_0x7f0f0530);
+                    downLoadView.setText(R.string.obfuscated_res_0x7f0f0533);
                     SkinManager.setViewTextColor(downLoadView, (int) R.color.CAM_X0302);
                     SkinManager.setBackgroundResource(downLoadView, R.drawable.bg_emotion_download);
                     downLoadView.setEnabled(true);
                     return;
                 }
             }
-            downLoadView.setText(R.string.obfuscated_res_0x7f0f0530);
+            downLoadView.setText(R.string.obfuscated_res_0x7f0f0533);
             SkinManager.setViewTextColor(downLoadView, (int) R.color.CAM_X0302);
             SkinManager.setBackgroundResource(downLoadView, R.drawable.bg_emotion_download);
             downLoadView.setEnabled(true);
@@ -421,9 +421,9 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                 this.a.getHeaderView().setVisibility(0);
                 filterDropDownView.setVisibility(0);
                 if (vo6Var.a() == 0) {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f06c6);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f06cf);
                 } else {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f06c7);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f06d0);
                 }
                 filterView.setText(string);
                 if (vo6Var.b()) {
@@ -458,8 +458,8 @@ public class ForumEmotionViewHolder extends TypeAdapter.ViewHolder {
                 } else {
                     this.a.getTitleView().setText(forumEmotionPackageData.name);
                 }
-                this.a.getDownloadNumView().setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f06c5), StringHelper.numberUniform(forumEmotionPackageData.download)));
-                this.a.getShareNumView().setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f06c8), StringHelper.numberUniform(forumEmotionPackageData.share)));
+                this.a.getDownloadNumView().setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f06ce), StringHelper.numberUniform(forumEmotionPackageData.download)));
+                this.a.getShareNumView().setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f06d1), StringHelper.numberUniform(forumEmotionPackageData.share)));
             } else {
                 this.a.getTitleView().setVisibility(4);
                 this.a.getDownloadNumView().setVisibility(4);

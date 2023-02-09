@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.a85;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.oh9;
-import com.baidu.tieba.ph9;
-import com.baidu.tieba.qh9;
-import com.baidu.tieba.rh9;
+import com.baidu.tieba.si9;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.ti9;
+import com.baidu.tieba.ui9;
+import com.baidu.tieba.vi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public NewWriteModel a;
     public NewVcodeView b;
-    public ph9 c;
+    public ti9 c;
     public WriteData d;
     public int e;
     public NewWriteModel.d f;
@@ -149,22 +149,22 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
         }
     }
 
-    public final ph9 G1() {
+    public final ti9 G1() {
         InterceptResult invokeV;
-        ph9 qh9Var;
+        ti9 ui9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.e == dh.e("5", 0)) {
-                qh9Var = new oh9(this.b, this.a);
+                ui9Var = new si9(this.b, this.a);
             } else if (this.e == dh.e("4", 0)) {
-                qh9Var = new rh9(this.b, this.a);
+                ui9Var = new vi9(this.b, this.a);
             } else {
-                qh9Var = new qh9(this.b, this.a);
+                ui9Var = new ui9(this.b, this.a);
             }
-            qh9Var.c(this.f);
-            return qh9Var;
+            ui9Var.c(this.f);
+            return ui9Var;
         }
-        return (ph9) invokeV.objValue;
+        return (ti9) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -214,7 +214,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                 }
                 newWriteModel2.c0(z);
             }
-            ph9 G1 = G1();
+            ti9 G1 = G1();
             this.c = G1;
             this.b.setPresenter(G1);
             this.c.a(this.g);

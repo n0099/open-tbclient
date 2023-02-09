@@ -175,7 +175,7 @@ public class bd6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 if (this.a.g.q == 1) {
@@ -311,7 +311,7 @@ public class bd6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 if (this.a.g.o) {
@@ -365,7 +365,7 @@ public class bd6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 TiebaPlusConfigData tiebaPlusConfigData = TbSingleton.getInstance().getTiebaPlusConfigData();
@@ -408,7 +408,7 @@ public class bd6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.b, R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 if (this.a.g != null && this.a.n != null) {
@@ -577,7 +577,7 @@ public class bd6 {
             q05Var3.m(this.q);
             this.h.add(this.j);
         }
-        q05 q05Var4 = new q05(this.b.getString(R.string.obfuscated_res_0x7f0f04d5), this.d);
+        q05 q05Var4 = new q05(this.b.getString(R.string.obfuscated_res_0x7f0f04d8), this.d);
         this.k = q05Var4;
         q05Var4.m(this.u);
         this.h.add(this.k);
@@ -604,8 +604,8 @@ public class bd6 {
                 this.e.setMessageId(R.string.del_thread_confirm);
             }
         }
-        this.e.setPositiveButton(R.string.obfuscated_res_0x7f0f051d, new c(this));
-        this.e.setNegativeButton(R.string.obfuscated_res_0x7f0f0515, new d(this));
+        this.e.setPositiveButton(R.string.obfuscated_res_0x7f0f0520, new c(this));
+        this.e.setNegativeButton(R.string.obfuscated_res_0x7f0f0518, new d(this));
         this.e.setCancelable(true);
         this.e.create(this.a);
     }

@@ -380,13 +380,13 @@ public class ia7 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0380, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0382, (ViewGroup) null);
             this.b = inflate;
-            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090f05);
-            this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090f03);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f01);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f02);
-            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.b.findViewById(R.id.obfuscated_res_0x7f090f04);
+            this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090f16);
+            this.g = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090f14);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f12);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f13);
+            GameVideoGridView gameVideoGridView = (GameVideoGridView) this.b.findViewById(R.id.obfuscated_res_0x7f090f15);
             this.d = gameVideoGridView;
             gameVideoGridView.setMaxHeight(ej.l(this.a.getPageActivity()));
             this.d.setNumColumns(4);

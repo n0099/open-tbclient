@@ -1,83 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ot9 implements nt9 {
+public class ot9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ot9() {
+    public static void a(String str, st9 st9Var, rt9 rt9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, st9Var, rt9Var) == null) {
+            if (gx9.a) {
+                gx9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + rt9Var.toString());
+            }
+            mt9 g = jt9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (rt9Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", rt9Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", rt9Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", rt9Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", rt9Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", rt9Var.d + ""));
+                }
+                g.a("perf_record_arperf", str, st9Var.a, st9Var.b, st9Var.c, st9Var.d, st9Var.e, null, arrayList);
             }
         }
     }
 
-    @Override // com.baidu.tieba.nt9
-    public String a(Object obj) {
-        InterceptResult invokeL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (fs9.c().d() != null && fs9.c().d().c() != null) {
-                    return fs9.c().d().c().a(obj);
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (gx9.a) {
+                gx9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+            }
+            mt9 g = jt9.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", ex9.a(jt9.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(ex9.b(jt9.c().getContext()))));
                 }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                iw9.b(e.getMessage());
-                return "";
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nt9
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (fs9.c().d() != null && fs9.c().d().c() != null) {
-                    return (T) fs9.c().d().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                iw9.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nt9
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (fs9.c().d() != null && fs9.c().d().c() != null) {
-                    return (T) fs9.c().d().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                iw9.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
     }
 }

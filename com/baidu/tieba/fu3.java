@@ -247,7 +247,7 @@ public class fu3 extends or1 {
     public final void r(List<ef4> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) && list != null && qm3.Q() && cx1.y(AppRuntime.getAppContext())) {
-            list.add(new ef4(45, R.string.obfuscated_res_0x7f0f1314, R.drawable.obfuscated_res_0x7f0800df, true));
+            list.add(new ef4(45, R.string.obfuscated_res_0x7f0f132b, R.drawable.obfuscated_res_0x7f0800df, true));
         }
     }
 

@@ -47,13 +47,13 @@ public class ks2 implements fg4 {
 
         /* renamed from: com.baidu.tieba.ks2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0326a extends qb2 {
+        public class C0331a extends qb2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0326a(a aVar, AtomicInteger atomicInteger) {
+            public C0331a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,7 +134,7 @@ public class ks2 implements fg4 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                m72.b(arrayList, "3", new C0326a(this, atomicInteger));
+                m72.b(arrayList, "3", new C0331a(this, atomicInteger));
             }
         }
     }

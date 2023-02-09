@@ -37,7 +37,7 @@ public class zp6 implements ht6 {
     public BdUniqueId a;
     public String b;
     public String c;
-    public g09 d;
+    public k19 d;
     public List<MemberGroupInfo> e;
     public MemberGodInfo f;
     public ManagerApplyInfo g;
@@ -229,7 +229,7 @@ public class zp6 implements ht6 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g09)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k19)) {
                 this.a.m.e = customResponsedMessage.getError();
                 this.a.m.f = customResponsedMessage.getErrorString();
                 this.a.m.g = false;
@@ -238,12 +238,12 @@ public class zp6 implements ht6 {
                 this.a.m.b = this.a.b;
                 this.a.m.a = this.a.c;
                 this.a.m.c = 1;
-                g09 g09Var = (g09) customResponsedMessage.getData();
-                if (g09Var != null && g09Var.n() == 0 && this.a.d != null) {
-                    g09Var.u(this.a.d.c());
-                    g09Var.x(this.a.d.i());
+                k19 k19Var = (k19) customResponsedMessage.getData();
+                if (k19Var != null && k19Var.n() == 0 && this.a.d != null) {
+                    k19Var.u(this.a.d.c());
+                    k19Var.x(this.a.d.i());
                 }
-                this.a.d = g09Var;
+                this.a.d = k19Var;
                 if (this.a.k != null) {
                     lt6 lt6Var = this.a.k;
                     wt6 wt6Var = this.a.m;
@@ -404,9 +404,9 @@ public class zp6 implements ht6 {
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            o09.h(301004, ForumMemberSocketResponseMessage.class, false, false);
-            o09.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
-            o09.b(2003009, aq6.class);
+            s19.h(301004, ForumMemberSocketResponseMessage.class, false, false);
+            s19.c(301004, CmdConfigHttp.FRS_MEMBER_TAB_CMD, TbConfig.GET_MEMBER_INFO, ForumMemberHttpResponseMessage.class, false, false, false, false);
+            s19.b(2003009, aq6.class);
         }
     }
 
@@ -475,17 +475,17 @@ public class zp6 implements ht6 {
         }
     }
 
-    public ArrayList<Cdo> y(g09 g09Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
+    public ArrayList<Cdo> y(k19 k19Var, List<MemberGroupInfo> list, MemberGodInfo memberGodInfo, ManagerApplyInfo managerApplyInfo, boolean z, boolean z2, PriManagerApplyInfo priManagerApplyInfo) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{g09Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
-            if (g09Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{k19Var, list, memberGodInfo, managerApplyInfo, Boolean.valueOf(z), Boolean.valueOf(z2), priManagerApplyInfo})) == null) {
+            if (k19Var == null) {
                 return null;
             }
             ArrayList<Cdo> arrayList = new ArrayList<>();
-            if (g09Var.n() == 1) {
+            if (k19Var.n() == 1) {
                 dq6 dq6Var = new dq6();
-                dq6Var.h(g09Var);
+                dq6Var.h(k19Var);
                 dq6Var.f(this.b);
                 dq6Var.g(this.c);
                 arrayList.add(dq6Var);
@@ -526,7 +526,7 @@ public class zp6 implements ht6 {
                 }
                 arrayList.add(hq6Var);
                 xp6 xp6Var = new xp6();
-                xp6Var.a = R.string.obfuscated_res_0x7f0f0449;
+                xp6Var.a = R.string.obfuscated_res_0x7f0f044b;
                 xp6Var.b = "https://tieba.baidu.com/tb/cms/redpacket/page/complain.html?id=" + this.b;
                 arrayList.add(xp6Var);
             }

@@ -112,7 +112,7 @@ public class v27 {
             if (i > 0) {
                 string = String.format(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_refresh_return), Integer.valueOf(i));
             } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f126f);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1285);
             }
             this.c.setText(string);
         }

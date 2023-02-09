@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bs8;
+import com.baidu.tieba.ft8;
 import com.baidu.tieba.t25;
 import com.baidu.tieba.v25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,13 +74,13 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
             return;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0cfe);
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0d08);
             return;
         }
         if (StringUtils.isNull(optString2)) {
             jumpAppMarket(optString);
         } else {
-            bs8.n().E(optString, optString2, optString, 0, bs8.o(optString).intValue(), null, true, false, true, optString3, null, null);
+            ft8.n().E(optString, optString2, optString, 0, ft8.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
         StatisticItem statisticItem = new StatisticItem("c12775");
         if (StringUtils.isNull(this.mFid)) {

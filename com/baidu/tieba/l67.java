@@ -136,10 +136,10 @@ public class l67 {
                         break;
                     }
                     ThreadData threadData = new ThreadData();
-                    e19 e19Var = new e19();
-                    e19Var.n(true);
-                    threadData.funAdData = e19Var;
-                    e19Var.m(str);
+                    i29 i29Var = new i29();
+                    i29Var.n(true);
+                    threadData.funAdData = i29Var;
+                    i29Var.m(str);
                     list.add(i, threadData);
                     if (i5 == 0) {
                         i5 = i + 1;
@@ -181,10 +181,10 @@ public class l67 {
                 AdMixFloor adMixFloor = list2.get(i4);
                 if (adMixFloor.ad_type.intValue() != 1) {
                     ThreadData threadData = new ThreadData();
-                    e19 e19Var = new e19();
-                    e19Var.n(true);
-                    threadData.funAdData = e19Var;
-                    e19Var.m(str);
+                    i29 i29Var = new i29();
+                    i29Var.n(true);
+                    threadData.funAdData = i29Var;
+                    i29Var.m(str);
                     ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
                     if (i3 == 0) {
                         i3 = adMixFloor.floor_num.intValue() + i;

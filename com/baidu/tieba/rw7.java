@@ -57,14 +57,14 @@ public class rw7 extends ok1<bg5> {
 
             /* renamed from: com.baidu.tieba.rw7$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0419a implements IChatRoomEnterListener {
+            public class C0418a implements IChatRoomEnterListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
                 public final /* synthetic */ hp5.c b;
                 public final /* synthetic */ b c;
 
-                public C0419a(b bVar, boolean z, hp5.c cVar) {
+                public C0418a(b bVar, boolean z, hp5.c cVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class rw7 extends ok1<bg5> {
             public void call(boolean z, hp5.c<Void> cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
-                    BIMManager.enterChatRoom(this.a, this.b.longValue(), new C0419a(this, z, cVar));
+                    BIMManager.enterChatRoom(this.a, this.b.longValue(), new C0418a(this, z, cVar));
                 }
             }
         }
@@ -149,14 +149,14 @@ public class rw7 extends ok1<bg5> {
 
             /* renamed from: com.baidu.tieba.rw7$a$c$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0420a implements IChatRoomExitListener {
+            public class C0419a implements IChatRoomExitListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean a;
                 public final /* synthetic */ hp5.c b;
                 public final /* synthetic */ c c;
 
-                public C0420a(c cVar, boolean z, hp5.c cVar2) {
+                public C0419a(c cVar, boolean z, hp5.c cVar2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -225,19 +225,19 @@ public class rw7 extends ok1<bg5> {
             public void call(boolean z, hp5.c<Void> cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, cVar) == null) {
-                    BIMManager.exitChatRoom(this.a, this.b.longValue(), new C0420a(this, z, cVar));
+                    BIMManager.exitChatRoom(this.a, this.b.longValue(), new C0419a(this, z, cVar));
                 }
             }
         }
 
         /* renamed from: com.baidu.tieba.rw7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0418a implements IChatRoomMsgReceiveListener {
+        public class C0417a implements IChatRoomMsgReceiveListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0418a(a aVar) {
+            public C0417a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -390,7 +390,7 @@ public class rw7 extends ok1<bg5> {
             AlaLiveSdkStatic.k();
             this.c = new ArrayList();
             this.d = new HashMap();
-            this.e = new C0418a(this);
+            this.e = new C0417a(this);
             this.f = new HashMap();
             this.g = new HashMap();
             this.h = new HashMap();

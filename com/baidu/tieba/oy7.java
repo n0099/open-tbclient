@@ -239,7 +239,7 @@ public class oy7 implements ly7 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e29.o(this.a);
+                i39.o(this.a);
                 return Boolean.TRUE;
             }
             return (Boolean) invokeV.objValue;
@@ -690,7 +690,7 @@ public class oy7 implements ly7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
             } else if (StringUtils.isNull(str)) {
             } else {
                 u(str);
@@ -787,7 +787,7 @@ public class oy7 implements ly7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             try {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d066a, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0670, (ViewGroup) null);
                 this.c = inflate;
                 this.a.setContentView(inflate);
             } catch (Exception e2) {
@@ -799,7 +799,7 @@ public class oy7 implements ly7 {
                     for (String str : a2.keySet()) {
                         ky7.b(str);
                         try {
-                            View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d066a, (ViewGroup) null);
+                            View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0670, (ViewGroup) null);
                             this.c = inflate2;
                             this.a.setContentView(inflate2);
                             break;
@@ -845,7 +845,7 @@ public class oy7 implements ly7 {
             HotSearchInfoData hotSearchInfoData = this.e;
             if (hotSearchInfoData == null) {
                 BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f16e3));
+                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f16fb));
                 return;
             }
             int i2 = 1;

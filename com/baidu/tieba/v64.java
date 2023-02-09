@@ -326,7 +326,7 @@ public class v64 extends fu2 {
             if (activity == null) {
                 return null;
             }
-            if (this.g == null && (viewGroup = (ViewGroup) activity.findViewById(R.id.obfuscated_res_0x7f09016d)) != null) {
+            if (this.g == null && (viewGroup = (ViewGroup) activity.findViewById(R.id.obfuscated_res_0x7f09016f)) != null) {
                 SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
                 this.g = swanAppPropertyWindow;
                 swanAppPropertyWindow.setVisibility(8);

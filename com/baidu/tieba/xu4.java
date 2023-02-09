@@ -134,13 +134,13 @@ public class xu4 implements vb6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public x19 e(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, long j, int i5, int i6, long j2, String str11) {
+    public b39 e(WebView webView, int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9, int i4, String str10, long j, int i5, int i6, long j2, String str11) {
         InterceptResult invokeCommon;
         CustomResponsedMessage runTask;
         GroupInfoData groupInfoData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{webView, Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9, Integer.valueOf(i4), str10, Long.valueOf(j), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2), str11})) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             Activity a2 = pb6.a(webView.getContext());
             JSONObject jSONObject = new JSONObject();
             try {
@@ -177,8 +177,8 @@ public class xu4 implements vb6 {
                 }
                 if (shareItem != null && (groupInfoData = shareItem.M0) != null && groupInfoData.getGroupId() > 0) {
                     h(a2, shareItem, i5);
-                    x19Var.o("");
-                    return x19Var;
+                    b39Var.o("");
+                    return b39Var;
                 } else if ("1".equals(str2) && shareItem != null) {
                     shareItem.A = str;
                     shareItem.x = str3;
@@ -190,8 +190,8 @@ public class xu4 implements vb6 {
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) a2, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
                     cf6.c().l(shareDialogConfig);
-                    x19Var.o("");
-                    return x19Var;
+                    b39Var.o("");
+                    return b39Var;
                 } else if (i == 0) {
                     if (shareItem != null && !dj.isEmpty(str) && i2 == 1) {
                         d(shareItem);
@@ -210,14 +210,14 @@ public class xu4 implements vb6 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i7);
-                x19Var.o(jSONObject3.toString());
-                return x19Var;
+                b39Var.o(jSONObject3.toString());
+                return b39Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return x19Var;
+                return b39Var;
             }
         }
-        return (x19) invokeCommon.objValue;
+        return (b39) invokeCommon.objValue;
     }
 
     public final void f(Context context, String str, int i) {
@@ -239,7 +239,7 @@ public class xu4 implements vb6 {
         insertGalleryAsyncTask.execute(new String[0]);
     }
 
-    public x19 g(WebView webView, HashMap hashMap) {
+    public b39 g(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
@@ -261,11 +261,11 @@ public class xu4 implements vb6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-            x19 x19Var = new x19();
-            x19Var.o(jSONObject.toString());
-            return x19Var;
+            b39 b39Var = new b39();
+            b39Var.o(jSONObject.toString());
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 
     public void h(Context context, ShareItem shareItem, int i) {

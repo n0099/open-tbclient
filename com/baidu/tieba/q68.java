@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q68 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static int c = 3;
@@ -64,7 +64,7 @@ public class q68 extends BaseAdapter {
         return invokeI.longValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,8 +93,8 @@ public class q68 extends BaseAdapter {
             if (view2 == null) {
                 return;
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09242f);
-            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09242c);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092479);
+            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092476);
             this.c = (BarImageView) view2.findViewById(R.id.forum_avatar);
         }
 
@@ -175,7 +175,7 @@ public class q68 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             a aVar = null;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0526, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d052a, (ViewGroup) null);
                 aVar = new a(view2);
                 view2.setTag(aVar);
             } else {

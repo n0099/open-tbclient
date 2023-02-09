@@ -230,11 +230,11 @@ public final class LiveExpandTabView extends ConstraintLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0555, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d055a, (ViewGroup) this, true);
         setClickable(true);
         setDescendantFocusability(393216);
-        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091433);
-        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0607a1));
+        this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091448);
+        setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0607a2));
         setOnClickListener(new a(this));
     }
 

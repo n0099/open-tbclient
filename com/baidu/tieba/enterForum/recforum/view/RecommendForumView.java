@@ -417,7 +417,7 @@ public class RecommendForumView extends LinearLayout {
     public final void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0798, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d07aa, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
         }
@@ -444,9 +444,9 @@ public class RecommendForumView extends LinearLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
-            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091c71);
-            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0922b7);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
+            this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091cb2);
+            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0922fd);
         }
     }
 

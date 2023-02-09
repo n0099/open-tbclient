@@ -6,8 +6,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fs9;
-import com.baidu.tieba.gs9;
+import com.baidu.tieba.jt9;
+import com.baidu.tieba.kt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,7 +45,7 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 return;
             }
         }
-        gs9 d = fs9.c().d();
+        kt9 d = jt9.c().d();
         if (d != null) {
             this.mInnerMediaPlayer = d.a();
         }

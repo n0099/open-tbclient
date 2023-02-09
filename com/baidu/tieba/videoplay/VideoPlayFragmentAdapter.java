@@ -23,15 +23,17 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.switchs.VideoMiddleAdSwitch;
-import com.baidu.tieba.ac9;
 import com.baidu.tieba.ad9;
-import com.baidu.tieba.bd9;
-import com.baidu.tieba.cc9;
+import com.baidu.tieba.cp8;
 import com.baidu.tieba.e67;
+import com.baidu.tieba.ed9;
+import com.baidu.tieba.ee9;
+import com.baidu.tieba.fe9;
 import com.baidu.tieba.gd9;
+import com.baidu.tieba.ke9;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.q99;
 import com.baidu.tieba.sh7;
+import com.baidu.tieba.ua9;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.video.VideoItemModel;
@@ -42,8 +44,6 @@ import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
 import com.baidu.tieba.videoplay.nad.AdVideoFlowFragment;
 import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoAttentionNotLoginFragment;
 import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
-import com.baidu.tieba.wb9;
-import com.baidu.tieba.yn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     public final BdUniqueId a;
     public int b;
     public boolean c;
-    public cc9 d;
+    public gd9 d;
     public boolean e;
     public Rect f;
     public String g;
@@ -72,12 +72,12 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     public boolean m;
     public BaseFragment n;
     public BdUniqueId o;
-    public bd9 p;
-    public wb9 q;
-    public final SparseArray<gd9> r;
-    public yn8.c s;
+    public fe9 p;
+    public ad9 q;
+    public final SparseArray<ke9> r;
+    public cp8.c s;
     public VideoPlayFragment.i1 t;
-    public ad9 u;
+    public ee9 u;
     public final int v;
     public boolean w;
     public boolean x;
@@ -161,7 +161,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         this.a = bdUniqueId;
         this.n = baseFragment;
         this.o = bdUniqueId2;
-        new ac9();
+        new ed9();
         this.k = activity;
         this.v = i;
         this.b = i2;
@@ -173,9 +173,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            gd9 gd9Var = this.r.get(i);
-            if (gd9Var instanceof VideoAttentionListPageFragment) {
-                return (VideoAttentionListPageFragment) gd9Var;
+            ke9 ke9Var = this.r.get(i);
+            if (ke9Var instanceof VideoAttentionListPageFragment) {
+                return (VideoAttentionListPageFragment) ke9Var;
             }
             return null;
         }
@@ -186,9 +186,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            gd9 gd9Var = this.r.get(i);
-            if (gd9Var instanceof VideoPlayFragment) {
-                return (VideoPlayFragment) gd9Var;
+            ke9 ke9Var = this.r.get(i);
+            if (ke9Var instanceof VideoPlayFragment) {
+                return (VideoPlayFragment) ke9Var;
             }
             return null;
         }
@@ -199,11 +199,11 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            cc9 cc9Var = this.d;
-            if (cc9Var == null) {
+            gd9 gd9Var = this.d;
+            if (gd9Var == null) {
                 return null;
             }
-            return cc9Var.s(i);
+            return gd9Var.s(i);
         }
         return (VideoItemData) invokeI.objValue;
     }
@@ -212,40 +212,40 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            gd9 gd9Var = this.r.get(i);
-            if (gd9Var instanceof VideoAdFragment) {
-                return (VideoAdFragment) gd9Var;
+            ke9 ke9Var = this.r.get(i);
+            if (ke9Var instanceof VideoAdFragment) {
+                return (VideoAdFragment) ke9Var;
             }
             return null;
         }
         return (VideoAdFragment) invokeI.objValue;
     }
 
-    public void k(wb9 wb9Var) {
+    public void k(ad9 ad9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, wb9Var) == null) {
-            this.q = wb9Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ad9Var) == null) {
+            this.q = ad9Var;
         }
     }
 
-    public void n(ad9 ad9Var) {
+    public void n(ee9 ee9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ad9Var) == null) {
-            this.u = ad9Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, ee9Var) == null) {
+            this.u = ee9Var;
         }
     }
 
-    public void o(yn8.c cVar) {
+    public void o(cp8.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, cVar) == null) {
             this.s = cVar;
         }
     }
 
-    public void p(bd9 bd9Var) {
+    public void p(fe9 fe9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bd9Var) == null) {
-            this.p = bd9Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, fe9Var) == null) {
+            this.p = fe9Var;
         }
     }
 
@@ -270,11 +270,11 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            cc9 cc9Var = this.d;
-            if (cc9Var == null) {
+            gd9 gd9Var = this.d;
+            if (gd9Var == null) {
                 return 0;
             }
-            return cc9Var.k();
+            return gd9Var.k();
         }
         return invokeV.intValue;
     }
@@ -310,9 +310,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) {
             super.destroyItem(viewGroup, i, obj);
             this.r.remove(i);
-            ad9 ad9Var = this.u;
-            if (ad9Var != null) {
-                ad9Var.f(i);
+            ee9 ee9Var = this.u;
+            if (ee9Var != null) {
+                ee9Var.f(i);
             }
         }
     }
@@ -320,7 +320,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
     @Override // androidx.fragment.app.FragmentStatePagerAdapter
     public Fragment getItem(int i) {
         InterceptResult invokeI;
-        ad9 ad9Var;
+        ee9 ee9Var;
         AdVideoFlowFragment g;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
@@ -356,7 +356,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
             } else if (VideoMiddleAdSwitch.isOnAndHitVideoAdDrawTest() && m != null && m.isFunAdType()) {
                 VideoAdFragment videoAdFragment = new VideoAdFragment();
                 if (m.getVideoAdData() == null) {
-                    m.setVideoAdData(new q99(sh7.a(10, 500)));
+                    m.setVideoAdData(new ua9(sh7.a(10, 500)));
                 }
                 videoAdFragment.W1(this.d.n());
                 videoAdFragment.X1(this.d.o());
@@ -369,7 +369,7 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
                 bundle4.putSerializable("obj_id", this.j);
                 videoAdFragment.setArguments(bundle4);
                 return videoAdFragment;
-            } else if (m != null && m.isNADType() && (ad9Var = this.u) != null && (g = ad9Var.g(i)) != null) {
+            } else if (m != null && m.isNADType() && (ee9Var = this.u) != null && (g = ee9Var.g(i)) != null) {
                 Bundle bundle5 = new Bundle();
                 bundle5.putSerializable("video_data", m);
                 bundle5.putInt(VideoPlayActivityConfig.CURRENT_TYPE, this.b);
@@ -419,11 +419,11 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-            if (obj instanceof gd9) {
-                gd9 gd9Var = (gd9) obj;
-                VideoItemModel J0 = gd9Var.J0();
-                VideoItemModel m = this.d.m(gd9Var.s());
-                if (Objects.equals(J0, m) && (J0 == null || J0.getDataType() == m.getDataType())) {
+            if (obj instanceof ke9) {
+                ke9 ke9Var = (ke9) obj;
+                VideoItemModel I0 = ke9Var.I0();
+                VideoItemModel m = this.d.m(ke9Var.s());
+                if (Objects.equals(I0, m) && (I0 == null || I0.getDataType() == m.getDataType())) {
                     z = true;
                 } else {
                     z = false;
@@ -447,10 +447,10 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         VideoPlayFragment e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            gd9 gd9Var = this.r.get(i);
+            ke9 ke9Var = this.r.get(i);
             String str3 = null;
-            if (gd9Var instanceof VideoPlayFragment) {
-                videoPlayFragment = (VideoPlayFragment) gd9Var;
+            if (ke9Var instanceof VideoPlayFragment) {
+                videoPlayFragment = (VideoPlayFragment) ke9Var;
             } else {
                 videoPlayFragment = null;
             }
@@ -513,18 +513,18 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, viewGroup, i)) == null) {
-            gd9 gd9Var = (gd9) super.instantiateItem(viewGroup, i);
-            gd9Var.r0(i);
-            this.r.put(i, gd9Var);
-            return gd9Var;
+            ke9 ke9Var = (ke9) super.instantiateItem(viewGroup, i);
+            ke9Var.r0(i);
+            this.r.put(i, ke9Var);
+            return ke9Var;
         }
         return invokeLI.objValue;
     }
 
-    public void m(cc9 cc9Var, Rect rect) {
+    public void m(gd9 gd9Var, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, cc9Var, rect) == null) {
-            this.d = cc9Var;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, gd9Var, rect) == null) {
+            this.d = gd9Var;
             this.e = true;
             int i = this.b;
             if (i == 3 || i == 1 || i == 7) {
@@ -543,9 +543,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
                     e(this.l).setUserVisibleHint(z);
                     return;
                 }
-                gd9 gd9Var = this.r.get(this.l);
-                if (gd9Var instanceof AdVideoFlowFragment) {
-                    ((BaseFragment) gd9Var).setUserVisibleHint(z);
+                ke9 ke9Var = this.r.get(this.l);
+                if (ke9Var instanceof AdVideoFlowFragment) {
+                    ((BaseFragment) ke9Var).setUserVisibleHint(z);
                 }
             }
         }
@@ -562,9 +562,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
                     e(this.l).setPrimary(false);
                     e(this.l).setUserVisibleHint(false);
                 } else {
-                    gd9 gd9Var = this.r.get(this.l);
-                    if (gd9Var instanceof AdVideoFlowFragment) {
-                        BaseFragment baseFragment = (BaseFragment) gd9Var;
+                    ke9 ke9Var = this.r.get(this.l);
+                    if (ke9Var instanceof AdVideoFlowFragment) {
+                        BaseFragment baseFragment = (BaseFragment) ke9Var;
                         baseFragment.setPrimary(false);
                         baseFragment.setUserVisibleHint(false);
                     }
@@ -580,9 +580,9 @@ public class VideoPlayFragmentAdapter extends FragmentStatePagerAdapter {
                             e(this.l).setUserVisibleHint(true);
                             return;
                         }
-                        gd9 gd9Var2 = this.r.get(this.l);
-                        if (gd9Var2 instanceof AdVideoFlowFragment) {
-                            ((BaseFragment) gd9Var2).setUserVisibleHint(true);
+                        ke9 ke9Var2 = this.r.get(this.l);
+                        if (ke9Var2 instanceof AdVideoFlowFragment) {
+                            ((BaseFragment) ke9Var2).setUserVisibleHint(true);
                         }
                     }
                 }

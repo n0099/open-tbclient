@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kx extends hx<sw4> implements zf9 {
+public class kx extends hx<sw4> implements dh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
@@ -168,7 +168,7 @@ public class kx extends hx<sw4> implements zf9 {
         }
     }
 
-    @Override // com.baidu.tieba.zf9
+    @Override // com.baidu.tieba.dh9
     public void b() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -177,7 +177,7 @@ public class kx extends hx<sw4> implements zf9 {
         }
     }
 
-    @Override // com.baidu.tieba.zf9
+    @Override // com.baidu.tieba.dh9
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -191,7 +191,7 @@ public class kx extends hx<sw4> implements zf9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zf9
+    @Override // com.baidu.tieba.dh9
     public void d() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class kx extends hx<sw4> implements zf9 {
         }
     }
 
-    @Override // com.baidu.tieba.zf9
+    @Override // com.baidu.tieba.dh9
     public void e() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -223,7 +223,7 @@ public class kx extends hx<sw4> implements zf9 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zf9
+    @Override // com.baidu.tieba.dh9
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;

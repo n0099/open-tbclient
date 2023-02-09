@@ -93,8 +93,8 @@ public class jx7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
             b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09151b);
-            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f09151c);
+            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091530);
+            bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091531);
             return bVar;
         }
         return (b) invokeL.objValue;
@@ -112,7 +112,7 @@ public class jx7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1482), null);
+            NoDataView a2 = NoDataViewFactory.a(this.b.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1499), null);
             this.d = a2;
             a2.f(this.b.getPageContext(), skinType);
             this.d.setVisibility(0);
@@ -173,7 +173,7 @@ public class jx7 extends BaseAdapter {
                 bVar = (b) view2.getTag();
             }
             if (bVar == null) {
-                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0582, viewGroup, false);
+                view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0587, viewGroup, false);
                 bVar = b(view2);
                 view2.setTag(bVar);
             }

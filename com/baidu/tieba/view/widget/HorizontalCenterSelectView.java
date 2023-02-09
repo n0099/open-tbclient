@@ -118,8 +118,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0924e0);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092447);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09252b);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092491);
             }
         }
 
@@ -385,7 +385,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         this.a = new ArrayList();
         this.b = new Paint();
         this.h = false;
-        this.k = R.layout.obfuscated_res_0x7f0d040a;
+        this.k = R.layout.obfuscated_res_0x7f0d040c;
         this.l = new a(this);
         o();
     }

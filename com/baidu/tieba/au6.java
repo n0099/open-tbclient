@@ -26,8 +26,8 @@ public class au6 {
     public transient /* synthetic */ FieldHolder $fh;
     public FrsFragment a;
     public AcceleratorNetModel b;
-    public cg9 c;
-    public bg9 d;
+    public gh9 c;
+    public fh9 d;
     public AcceleratorNetModel.b e;
     public bu6 f;
     public u05.f g;
@@ -37,19 +37,19 @@ public class au6 {
     public boolean k;
 
     /* loaded from: classes3.dex */
-    public class a implements bg9 {
+    public class a implements fh9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ au6 a;
 
         /* renamed from: com.baidu.tieba.au6$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0227a implements View.OnClickListener {
+        public class View$OnClickListenerC0228a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0227a(a aVar) {
+            public View$OnClickListenerC0228a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class au6 {
             this.a = au6Var;
         }
 
-        @Override // com.baidu.tieba.bg9
+        @Override // com.baidu.tieba.fh9
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -139,11 +139,11 @@ public class au6 {
             }
         }
 
-        @Override // com.baidu.tieba.bg9
+        @Override // com.baidu.tieba.fh9
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                s47.h(this.a.a.getActivity(), new View$OnClickListenerC0227a(this), new b(this));
+                s47.h(this.a.a.getActivity(), new View$OnClickListenerC0228a(this), new b(this));
             }
         }
     }
@@ -304,7 +304,7 @@ public class au6 {
         this.i = 0;
         this.a = frsFragment;
         this.b = new AcceleratorNetModel();
-        this.c = cg9.c(this.a);
+        this.c = gh9.c(this.a);
         w();
         y();
     }
@@ -312,9 +312,9 @@ public class au6 {
     public final void A() {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsFragment = this.a) != null && frsFragment.Y0() != null && this.a.Y0().itemInfo != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsFragment = this.a) != null && frsFragment.X0() != null && this.a.X0().itemInfo != null) {
             C();
-            this.b.I(this.a.Y0().itemInfo.id.intValue());
+            this.b.I(this.a.X0().itemInfo.id.intValue());
         }
     }
 
@@ -389,13 +389,13 @@ public class au6 {
         }
     }
 
-    public cg9 v() {
+    public gh9 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.c;
         }
-        return (cg9) invokeV.objValue;
+        return (gh9) invokeV.objValue;
     }
 
     public final void w() {
@@ -426,12 +426,12 @@ public class au6 {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.j = i;
             FrsFragment frsFragment = this.a;
-            if (frsFragment != null && frsFragment.Y0() != null && this.a.Y0().itemInfo != null) {
+            if (frsFragment != null && frsFragment.X0() != null && this.a.X0().itemInfo != null) {
                 if (!TbadkCoreApplication.isLogin()) {
                     BdToast.b(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0066)).k();
-                } else if (TbSingleton.getInstance().acceleratorItemId != this.a.Y0().itemInfo.id.intValue() && TbSingleton.getInstance().acceleratorItemId != -1) {
+                } else if (TbSingleton.getInstance().acceleratorItemId != this.a.X0().itemInfo.id.intValue() && TbSingleton.getInstance().acceleratorItemId != -1) {
                     s47.e(this.a.getActivity(), new d(this));
-                } else if (TbSingleton.getInstance().acceleratorItemId == this.a.Y0().itemInfo.id.intValue()) {
+                } else if (TbSingleton.getInstance().acceleratorItemId == this.a.X0().itemInfo.id.intValue()) {
                     this.k = false;
                     u();
                 } else if (TbSingleton.getInstance().acceleratorItemId == -1) {

@@ -243,8 +243,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
                     }
                 }
             });
-            int color = resources.getColor(R.color.obfuscated_res_0x7f060788);
-            int color2 = resources.getColor(R.color.obfuscated_res_0x7f060784);
+            int color = resources.getColor(R.color.obfuscated_res_0x7f060789);
+            int color2 = resources.getColor(R.color.obfuscated_res_0x7f060785);
             int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070369);
             ValueAnimator ofArgb = com.kwad.sdk.widget.a.ofArgb(color, color2);
             ofArgb.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, color2, dimensionPixelSize) { // from class: com.kwad.components.ad.fullscreen.b.kwai.f.10
@@ -561,8 +561,8 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void bW() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b6);
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d047f, (ViewGroup) adBaseFrameLayout, false);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ca);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0481, (ViewGroup) adBaseFrameLayout, false);
             this.eP = viewGroup;
             viewGroup.setVisibility(0);
             Resources resources = this.eP.getResources();
@@ -570,9 +570,9 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
             int dimensionPixelSize2 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070365);
             int dimensionPixelSize3 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07036a);
             int dimensionPixelSize4 = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070364);
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0480, (ViewGroup) adBaseFrameLayout, false);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0482, (ViewGroup) adBaseFrameLayout, false);
             this.eV = frameLayout;
-            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0912c6);
+            this.eW = (TextView) frameLayout.findViewById(R.id.obfuscated_res_0x7f0912da);
             this.eV.setVisibility(4);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, dimensionPixelSize4);
             layoutParams.leftMargin = dimensionPixelSize;
@@ -631,11 +631,11 @@ public final class f extends com.kwad.components.ad.reward.presenter.a implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912c3);
-            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912c2);
-            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912c0);
-            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0912be);
-            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912bf);
+            this.eQ = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912d7);
+            this.eR = (TextView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912d6);
+            this.eS = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912d4);
+            this.eT = (FrameLayout) this.eP.findViewById(R.id.obfuscated_res_0x7f0912d2);
+            this.eU = (ImageView) this.eP.findViewById(R.id.obfuscated_res_0x7f0912d3);
             this.eQ.setOnClickListener(this);
             this.eR.setOnClickListener(this);
             this.eT.setOnClickListener(this);

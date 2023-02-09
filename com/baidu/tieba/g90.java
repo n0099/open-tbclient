@@ -103,13 +103,13 @@ public final class g90 extends Observable {
 
         /* renamed from: com.baidu.tieba.g90$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0290a implements c90.d {
+        public class C0288a implements c90.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
             public final /* synthetic */ a b;
 
-            public C0290a(a aVar, long j) {
+            public C0288a(a aVar, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -183,7 +183,7 @@ public final class g90 extends Observable {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 o80.h(this.d.p).g(601110).c("dns_begin", System.currentTimeMillis());
-                c90.c(this.d.p).b(this.a, new C0290a(this, currentTimeMillis));
+                c90.c(this.d.p).b(this.a, new C0288a(this, currentTimeMillis));
             }
         }
     }

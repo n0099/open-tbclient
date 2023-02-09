@@ -73,7 +73,7 @@ public class hw4 {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    u89.b(true);
+                    y99.b(true);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class hw4 {
                     TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(currentActivity);
                     tBAlertBuilder.w(R.string.delete_success);
                     tBAlertBuilder.m(R.string.delete_all_user_data_hint);
-                    tBAlertBuilder.u(new TBAlertConfig.a(currentActivity.getString(R.string.obfuscated_res_0x7f0f0f7a), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                    tBAlertBuilder.u(new TBAlertConfig.a(currentActivity.getString(R.string.obfuscated_res_0x7f0f0f8e), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
                     tBAlertBuilder.z();
                     return;
                 }
@@ -153,7 +153,7 @@ public class hw4 {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
                     k85.h0().X(true);
                     NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
-                    j09.y("");
+                    n19.y("");
                     cw4.s().f(currentAccount, false);
                     BdCacheService.n().a(currentAccount);
                     p35.m().e(currentAccount);

@@ -499,8 +499,8 @@ public class za6 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            o09.h(309485, OfflineResourceResSocketMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, o09.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
+            s19.h(309485, OfflineResourceResSocketMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, s19.a(TbConfig.WEBVIEW_CACHE_URL, 309485));
             tbHttpMessageTask.setResponsedClass(OfflineResourceResHttpMsg.class);
             if (TbSingleton.getInstance().isDebugToolMode()) {
                 if (MessageManager.getInstance().findTask(tbHttpMessageTask.getCmd()) == null) {

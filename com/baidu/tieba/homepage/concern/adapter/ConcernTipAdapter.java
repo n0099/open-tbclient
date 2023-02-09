@@ -53,8 +53,8 @@ public class ConcernTipAdapter extends qn<h97, ConcernTipViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906f3);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0906f2);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906fe);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0906fd);
         }
 
         public void a(int i) {
@@ -97,7 +97,7 @@ public class ConcernTipAdapter extends qn<h97, ConcernTipViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = View.inflate(viewGroup.getContext(), R.layout.obfuscated_res_0x7f0d01f5, null);
+            View inflate = View.inflate(viewGroup.getContext(), R.layout.obfuscated_res_0x7f0d01f6, null);
             SkinManager.setBackgroundColor(inflate, R.color.CAM_X0205);
             ConcernTipViewHolder concernTipViewHolder = new ConcernTipViewHolder(inflate);
             ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);

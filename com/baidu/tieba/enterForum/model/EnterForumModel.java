@@ -29,9 +29,9 @@ import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.kp5;
 import com.baidu.tieba.lj6;
-import com.baidu.tieba.m19;
 import com.baidu.tieba.op5;
 import com.baidu.tieba.p35;
+import com.baidu.tieba.q29;
 import com.baidu.tieba.tj6;
 import com.baidu.tieba.vj6;
 import com.baidu.tieba.x9;
@@ -61,7 +61,7 @@ public class EnterForumModel extends BdBaseModel {
     public tj6 a;
     public RecentlyVisitedForumData b;
     public f c;
-    public m19 d;
+    public q29 d;
     public long e;
     public long f;
     public long g;
@@ -496,10 +496,10 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public final void T() {
-        m19 m19Var;
+        q29 q29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (m19Var = this.d) != null) {
-            m19Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (q29Var = this.d) != null) {
+            q29Var.a();
             this.d = null;
         }
     }
@@ -577,7 +577,7 @@ public class EnterForumModel extends BdBaseModel {
             forumGuideRequestMessage.setSortType(Integer.valueOf(i2));
             this.e = System.currentTimeMillis();
             if (this.d == null) {
-                this.d = new m19("forumrecommendStat");
+                this.d = new q29("forumrecommendStat");
             }
             sendMessage(forumGuideRequestMessage);
             return true;
@@ -630,7 +630,7 @@ public class EnterForumModel extends BdBaseModel {
             int downSize = forumGuideHttpResponseMessage.getDownSize();
             long costTime = forumGuideHttpResponseMessage.getCostTime();
             if (StringUtils.isNull(forumGuideHttpResponseMessage.getErrorString())) {
-                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
             } else {
                 errorString = forumGuideHttpResponseMessage.getErrorString();
             }
@@ -645,7 +645,7 @@ public class EnterForumModel extends BdBaseModel {
             int downSize = forumGuideSocketResponseMessage.getDownSize();
             long costTime = forumGuideSocketResponseMessage.getCostTime();
             if (StringUtils.isNull(forumGuideSocketResponseMessage.getErrorString())) {
-                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                errorString = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
             } else {
                 errorString = forumGuideSocketResponseMessage.getErrorString();
             }
@@ -675,9 +675,9 @@ public class EnterForumModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             e eVar = new e(this);
             boolean z3 = !z;
-            m19 m19Var = this.d;
-            if (m19Var != null) {
-                m19Var.b(z2, z3, i, str, i2, j, j2);
+            q29 q29Var = this.d;
+            if (q29Var != null) {
+                q29Var.b(z2, z3, i, str, i2, j, j2);
                 this.d = null;
             }
             if (!z && this.a.h()) {

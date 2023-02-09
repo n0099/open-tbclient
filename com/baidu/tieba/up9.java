@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes6.dex */
 public class up9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tp9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static zo9 a() {
+    public static synchronized tp9 a() {
         InterceptResult invokeV;
+        tp9 tp9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return rw8.a();
+            synchronized (up9.class) {
+                if (a == null) {
+                    a = new tp9();
+                }
+                tp9Var = a;
+            }
+            return tp9Var;
         }
-        return (zo9) invokeV.objValue;
-    }
-
-    @Inject
-    public static yo9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return pw8.a();
-        }
-        return (yo9) invokeV.objValue;
-    }
-
-    @Inject
-    public static cp9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return qo9.a();
-        }
-        return (cp9) invokeV.objValue;
+        return (tp9) invokeV.objValue;
     }
 }

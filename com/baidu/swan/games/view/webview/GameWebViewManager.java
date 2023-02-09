@@ -444,7 +444,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements gv1<NgW
         layoutParams.leftMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f07073e);
         this.A.setLayoutParams(layoutParams);
         this.A.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        this.A.setImageResource(R.drawable.obfuscated_res_0x7f08126b);
+        this.A.setImageResource(R.drawable.obfuscated_res_0x7f081281);
         this.A.setClickable(true);
         this.A.setOnClickListener(new a(this));
         this.w.addView(this.A);
@@ -472,7 +472,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements gv1<NgW
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.gravity = 17;
             this.z.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.z.setImageResource(R.drawable.obfuscated_res_0x7f08126c);
+            this.z.setImageResource(R.drawable.obfuscated_res_0x7f081282);
             this.w.addView(this.z, layoutParams);
         }
     }

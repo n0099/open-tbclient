@@ -339,11 +339,11 @@ public class jw3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Resources resources = this.a.getResources();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0684, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068a, (ViewGroup) null);
             this.c = inflate;
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09032a);
-            this.j = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09031c);
-            AdImageVIew adImageVIew = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f09032c);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090332);
+            this.j = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090324);
+            AdImageVIew adImageVIew = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f090334);
             this.g = adImageVIew;
             AdElementInfo adElementInfo = this.b;
             if (adElementInfo != null) {
@@ -352,37 +352,37 @@ public class jw3 {
             AdImageVIew adImageVIew2 = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f090101);
             this.h = adImageVIew2;
             adImageVIew2.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
-            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09031d);
-            this.k = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090327);
-            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090328);
-            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09031f);
+            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090325);
+            this.k = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09032f);
+            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090330);
+            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090327);
             AdElementInfo adElementInfo2 = this.b;
             if (adElementInfo2 != null) {
                 this.l.setText(adElementInfo2.getTitle());
                 this.m.setText(this.b.getAppName());
             }
-            Button button = (Button) this.c.findViewById(R.id.obfuscated_res_0x7f09031b);
+            Button button = (Button) this.c.findViewById(R.id.obfuscated_res_0x7f090323);
             this.n = button;
             button.setVisibility(8);
             AdElementInfo adElementInfo3 = this.b;
             if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f119e));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f11b4));
             }
             AdElementInfo adElementInfo4 = this.b;
             if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1342));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1359));
             }
             if (this.b == null) {
                 this.j.setVisibility(8);
                 this.i.setVisibility(8);
-                this.c.findViewById(R.id.obfuscated_res_0x7f0917b9).setVisibility(0);
+                this.c.findViewById(R.id.obfuscated_res_0x7f0917d2).setVisibility(0);
                 return;
             }
             this.j.setVisibility(0);
             this.i.setVisibility(0);
-            this.c.findViewById(R.id.obfuscated_res_0x7f0917b9).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f0917d2).setVisibility(8);
             if (this.t) {
                 this.n.setOnClickListener(this.w);
                 this.d.setOnClickListener(this.w);
@@ -392,7 +392,7 @@ public class jw3 {
             }
             this.c.setVisibility(4);
             if (this.p) {
-                ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09068c);
+                ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090697);
                 this.o = imageView;
                 imageView.setVisibility(0);
                 this.o.setOnClickListener(new b(this));

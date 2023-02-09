@@ -36,12 +36,12 @@ public class gy1 {
 
         /* renamed from: com.baidu.tieba.gy1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0293a implements Runnable {
+        public class RunnableC0291a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0293a(a aVar) {
+            public RunnableC0291a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class gy1 {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0293a(this));
+                this.a.runOnJSThread(new RunnableC0291a(this));
             }
         }
     }

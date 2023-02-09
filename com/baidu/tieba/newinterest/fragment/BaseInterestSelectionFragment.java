@@ -107,7 +107,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
                 this.b.setText(getString(R.string.next_step));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11ae));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11c4));
             }
         }
     }

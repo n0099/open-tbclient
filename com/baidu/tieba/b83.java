@@ -288,16 +288,16 @@ public class b83 extends v73 {
             }
             this.l = viewGroup;
             this.j = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092335);
+            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237e);
             this.a = (TextView) viewGroup.findViewById(R.id.positive_button);
             this.b = (TextView) viewGroup.findViewById(R.id.negative_button);
             this.d = viewGroup.findViewById(R.id.dialog_customPanel);
             this.e = (FrameLayout) viewGroup.findViewById(R.id.dialog_custom_content);
             this.m = (RelativeLayout) viewGroup.findViewById(R.id.searchbox_alert_dialog);
-            this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09045b);
+            this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090464);
             this.o = viewGroup.findViewById(R.id.dialog_customPanel);
             this.i = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.k = viewGroup.findViewById(R.id.obfuscated_res_0x7f0917b4);
+            this.k = viewGroup.findViewById(R.id.obfuscated_res_0x7f0917cd);
         }
     }
 
@@ -335,7 +335,7 @@ public class b83 extends v73 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0852);
+            setContentView(R.layout.obfuscated_res_0x7f0d0864);
             getWindow().setLayout(-1, -2);
             getWindow().setGravity(80);
             a(false);

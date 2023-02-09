@@ -85,17 +85,17 @@ public class x56 implements View.OnClickListener {
             }
         }
         this.l = new a(this);
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02fb, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02fd, (ViewGroup) null);
         this.a = inflate;
         this.b = (RelativeLayout) inflate.findViewById(R.id.layout_root);
-        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09051d);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090528);
         this.c = threadUserInfoLayout;
         threadUserInfoLayout.setFrom(3);
         this.d = (TextView) this.a.findViewById(R.id.text_title);
-        this.g = (AlaVideoContainer) this.a.findViewById(R.id.obfuscated_res_0x7f090234);
+        this.g = (AlaVideoContainer) this.a.findViewById(R.id.obfuscated_res_0x7f090238);
         this.f = this.a.findViewById(R.id.divider_below_reply_number_layout);
         this.e = (ThreadCommentAndPraiseInfoLayout) this.a.findViewById(R.id.text_bottom);
-        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f090855);
+        this.h = this.a.findViewById(R.id.obfuscated_res_0x7f090863);
         this.b.setOnClickListener(this);
         this.e.setOnClickListener(this);
         this.e.getCommentContainer().setOnClickListener(this);

@@ -81,14 +81,14 @@ import com.baidu.tieba.cq5;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.hda;
 import com.baidu.tieba.hw4;
 import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.tieba.jc6;
-import com.baidu.tieba.jq8;
 import com.baidu.tieba.kb6;
 import com.baidu.tieba.l05;
+import com.baidu.tieba.lea;
 import com.baidu.tieba.mh5;
+import com.baidu.tieba.nr8;
 import com.baidu.tieba.oa6;
 import com.baidu.tieba.ou4;
 import com.baidu.tieba.qu4;
@@ -142,7 +142,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity {
     public ShareItem k;
     public PermissionJudgePolicy l;
     public o m;
-    public jq8 n;
+    public nr8 n;
     public boolean o;
     public WebViewBroadcastReceiver p;
     public boolean q;
@@ -181,7 +181,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class m implements hda<WebView> {
+    public class m implements lea<WebView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBWebContainerActivity a;
@@ -288,7 +288,7 @@ public class TBWebContainerActivity extends BaseWebViewActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hda
+        @Override // com.baidu.tieba.lea
         public void call(WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
@@ -1622,9 +1622,9 @@ public class TBWebContainerActivity extends BaseWebViewActivity {
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             sendFinishMessage();
             super.onDestroy();
-            jq8 jq8Var = this.n;
-            if (jq8Var != null) {
-                jq8Var.h();
+            nr8 nr8Var = this.n;
+            if (nr8Var != null) {
+                nr8Var.h();
                 this.n = null;
             }
             if (this.G != null) {

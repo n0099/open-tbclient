@@ -30,7 +30,7 @@ public class n08 implements LiveCustomSettingService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return s99.c().d();
+            return wa9.c().d();
         }
         return invokeV.booleanValue;
     }

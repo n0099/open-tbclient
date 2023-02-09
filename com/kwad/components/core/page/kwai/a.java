@@ -73,7 +73,7 @@ public final class a extends Presenter {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         if (com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(this.Ge.adTemplate))) {
                             if (this.Ge.DV != null) {
-                                this.Ge.DV.m(new a.C0597a(this.Gf.getActivity()).aj(false).ak(false).L(this.Ge.adTemplate).am(false));
+                                this.Ge.DV.m(new a.C0598a(this.Gf.getActivity()).aj(false).ak(false).L(this.Ge.adTemplate).am(false));
                                 return;
                             }
                             return;

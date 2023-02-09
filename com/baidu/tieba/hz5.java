@@ -328,7 +328,7 @@ public class hz5 {
                             if (String.valueOf((int) e(next)).equals(nz5.c)) {
                                 BaseVM.m(28);
                             }
-                            q39.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            u49.a(MainTabScheduleStrategy.UNSCHEDULE);
                             if (this.f != null) {
                                 String str = null;
                                 if (next instanceof sy5) {

@@ -188,9 +188,9 @@ public class qk1 {
             c("tbadkcore", "INetExperiment", NetExperimentFetcher.class);
             c("tbadkcore", "ISoProcess", hi5.class);
             c("tbadkcore", "tbadkcore", ew5.class);
-            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, op9.class);
-            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, ey9.class);
-            c("yaLog", "yaLogConfig", dz9.class);
+            c(UBCCloudControlProcessor.UBC_KEY, UBC.TAG, sq9.class);
+            c("voyager", StatConstants.VALUE_TYPE_UPLOAD, iz9.class);
+            c("yaLog", "yaLogConfig", h0a.class);
         }
     }
 }

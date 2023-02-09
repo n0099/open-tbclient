@@ -1,36 +1,50 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.os9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public abstract class ws9 {
+public final class ws9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public ws9 c;
-    public ts9 d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
+    public final LinkedHashMap<String, Long> a;
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(ws9 ws9Var);
+    public class a extends at9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
 
-        void b(ws9 ws9Var);
+        public a(ws9 ws9Var, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ws9Var, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lVar;
+        }
 
-        void c(int i, int i2);
-
-        void d(String str, ws9 ws9Var);
+        @Override // com.baidu.tieba.at9
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new gs9().c(this.a);
+            }
+        }
     }
 
     public ws9() {
@@ -43,141 +57,45 @@ public abstract class ws9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new LinkedHashMap<>();
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    public final void a(String str) {
+        os9 os9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            if (str2 == null) {
-                str2 = "";
-            }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public abstract void b();
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public abstract void d(ts9 ts9Var);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(ws9 ws9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ws9Var) == null) {
-            this.c = ws9Var;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(ts9 ts9Var) {
-        InterceptResult invokeL;
-        List<rs9> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ts9Var)) == null) {
-            if (ts9Var != null && ts9Var.c() != null && ts9Var.c().size() == 1 && ts9Var.c().get(0).a() != null && (a2 = ts9Var.c().get(0).a()) != null && a2.size() == 1) {
-                rs9 rs9Var = a2.get(0);
-                if (rs9Var.b() != null && !rs9Var.b().isNeedEdit()) {
-                    return false;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+            synchronized (this.a) {
+                Long remove = this.a.remove(str);
+                if (remove == null) {
+                    return;
                 }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(ts9 ts9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ts9Var) == null) {
-            this.d = ts9Var;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            ws9 ws9Var = this.c;
-            if (ws9Var != null) {
-                ws9Var.d(ts9Var);
+                try {
+                    lVar.setStartTime(String.valueOf(remove));
+                    lVar.t(str);
+                    lVar.z(String.valueOf(System.currentTimeMillis()));
+                    os9Var = os9.a.a;
+                    lVar.setPath(os9Var.b());
+                    lVar.x(xs9.e().I());
+                } catch (Exception e) {
+                    gt9.a(e.toString());
+                    ys9.b(e.toString());
+                }
+                zs9.c(new a(this, lVar));
             }
         }
     }
 
-    public boolean m() {
-        InterceptResult invokeV;
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public ts9 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (ts9) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.a) {
+                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                String.valueOf(System.currentTimeMillis());
+            }
         }
-        aVar.a(this);
     }
 }

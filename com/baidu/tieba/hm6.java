@@ -86,10 +86,10 @@ public class hm6 {
             }
         }
         this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0796, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d07a8, (ViewGroup) null);
         this.b = inflate;
         this.c = (TextView) inflate.findViewById(R.id.text_title);
-        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090eef);
+        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f00);
         this.d = imageView;
         imageView.setOnClickListener(new a(this));
     }

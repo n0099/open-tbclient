@@ -116,7 +116,7 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090db8);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090dc9);
             chatShareCard.setCurrentCardType((short) 32);
             return new ViewHolder(chatShareCard);
         }

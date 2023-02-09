@@ -32,7 +32,7 @@ public class pr6 extends mc6<kr6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02cc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02ce : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,8 +56,8 @@ public class pr6 extends mc6<kr6> {
         this.m = 3;
         this.i = (BarImageView) h().findViewById(R.id.forum_avatar);
         this.j = (TextView) h().findViewById(R.id.forum_name);
-        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090acc);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090b39);
+        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090add);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090b4a);
         h().setOnClickListener(this);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
@@ -73,8 +73,8 @@ public class pr6 extends mc6<kr6> {
         this.n = kr6Var;
         this.i.K(kr6Var.c(), 10, false);
         this.j.setText(s(kr6Var.i(), kr6Var.o()));
-        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f044c), kr6Var.f()));
-        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1176), kr6Var.m()));
+        this.k.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f044e), kr6Var.f()));
+        this.l.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f118a), kr6Var.m()));
         j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 

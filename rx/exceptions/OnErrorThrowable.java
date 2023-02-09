@@ -2,8 +2,8 @@ package rx.exceptions;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dha;
-import com.baidu.tieba.fda;
+import com.baidu.tieba.hia;
+import com.baidu.tieba.jea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +114,7 @@ public final class OnErrorThrowable extends RuntimeException {
                 if (obj instanceof Enum) {
                     return ((Enum) obj).name();
                 }
-                String b = dha.c().b().b(obj);
+                String b = hia.c().b().b(obj);
                 if (b != null) {
                     return b;
                 }
@@ -162,7 +162,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b = fda.b(th);
+            Throwable b = jea.b(th);
             if (b instanceof OnNextValue) {
                 return new OnErrorThrowable(th, ((OnNextValue) b).getValue());
             }
@@ -207,11 +207,11 @@ public final class OnErrorThrowable extends RuntimeException {
             if (th == null) {
                 th = new NullPointerException();
             }
-            Throwable b = fda.b(th);
+            Throwable b = jea.b(th);
             if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
                 return th;
             }
-            fda.a(th, new OnNextValue(obj));
+            jea.a(th, new OnNextValue(obj));
             return th;
         }
         return (Throwable) invokeLL.objValue;

@@ -323,7 +323,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.rW || view2 == this.rX) {
-                com.kwad.components.core.c.a.a.a(new a.C0597a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
+                com.kwad.components.core.c.a.a.a(new a.C0598a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a sb;
@@ -363,10 +363,10 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ff);
-            this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117a);
-            this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f091247);
-            this.rX = findViewById(R.id.obfuscated_res_0x7f091178);
+            this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091313);
+            this.rW = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118e);
+            this.rV = (TextView) findViewById(R.id.obfuscated_res_0x7f09125b);
+            this.rX = findViewById(R.id.obfuscated_res_0x7f09118c);
         }
     }
 

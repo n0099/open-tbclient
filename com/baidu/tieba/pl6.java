@@ -84,7 +84,7 @@ public class pl6 extends qn<nz4, CardViewHolder<b>> {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b7 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b8 : invokeV.intValue;
         }
 
         @Override // com.baidu.tieba.mc6
@@ -114,7 +114,7 @@ public class pl6 extends qn<nz4, CardViewHolder<b>> {
                 }
             }
             this.i = tbPageContext;
-            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f65);
+            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f76);
             this.j = tbImageView;
             tbImageView.setOnClickListener(this);
             this.j.setConrers(15);

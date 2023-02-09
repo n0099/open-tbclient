@@ -86,7 +86,7 @@ public class y37 {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            bs8.n().w(arrayList);
+            ft8.n().w(arrayList);
         }
     }
 }

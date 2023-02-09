@@ -79,14 +79,14 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                             this.a.showToast(bubbleListData.getError_msg());
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
             }
         }
 
@@ -182,14 +182,14 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
                             this.a.showToast(setBubbleResultData.getError_msg());
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
             }
         }
     }
@@ -433,7 +433,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             super.onClick(view2);
             if (view2 == this.a.l()) {
                 Activity pageActivity = getPageContext().getPageActivity();
-                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f16a7);
+                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f16bf);
                 BrowserHelper.t(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
             }
         }

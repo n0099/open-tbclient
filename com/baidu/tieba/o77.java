@@ -146,21 +146,21 @@ public class o77 {
         }
         this.n = new a(this, 2016458);
         this.a = createBarGuideActivity;
-        View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0201, (ViewGroup) null);
+        View inflate = LayoutInflater.from(createBarGuideActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0202, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903bb);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903c3);
         NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
         this.f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setTitleText(R.string.create_bar);
         this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092233);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092232);
-        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09208c);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092279);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092278);
+        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920d2);
         this.g.setOnClickListener(new b(this));
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09222d);
-        this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091760);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092273);
+        this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091779);
         MessageManager.getInstance().registerListener(this.n);
     }
 
@@ -220,7 +220,7 @@ public class o77 {
             this.l = userBfbInfo;
             if (this.e == null) {
                 int g = ej.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0908f8), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g), null, null);
+                NoDataView a2 = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090906), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.CREATE, g), null, null);
                 this.e = a2;
                 a2.setVisibility(0);
                 f();

@@ -77,13 +77,13 @@ public class HeaderComponentSingleView extends FrameLayout implements qz6 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0284a implements View.OnClickListener {
+        public class View$OnClickListenerC0283a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0284a(a aVar, int i) {
+            public View$OnClickListenerC0283a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class HeaderComponentSingleView extends FrameLayout implements qz6 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.K((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0284a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0283a(this, i));
             }
         }
 
@@ -417,24 +417,24 @@ public class HeaderComponentSingleView extends FrameLayout implements qz6 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031e, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0320, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906de);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906e9);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906e8);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906e0);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906df);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906e3);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906f3);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f0906eb);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ea);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ee);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906e6);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906f1);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -442,7 +442,7 @@ public class HeaderComponentSingleView extends FrameLayout implements qz6 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906e2);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f0906ed);
             this.h = tbImageAutoSwitch;
             int i = n;
             tbImageAutoSwitch.l(4, i, i, o);

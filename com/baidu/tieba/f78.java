@@ -108,11 +108,11 @@ public class f78 extends e78 {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091038);
-            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09102e);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09103a);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f46);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f09102f);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09104a);
+            this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091040);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09104c);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f89);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f091041);
             int l = ej.l(TbadkCoreApplication.getInst()) / 5;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l, l);
             this.b.setLayoutParams(layoutParams);
@@ -165,7 +165,7 @@ public class f78 extends e78 {
             if (view2 != null && b()) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0546, viewGroup, false);
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d054a, viewGroup, false);
                 bVar = new b(view2);
                 view2.setTag(bVar);
             }

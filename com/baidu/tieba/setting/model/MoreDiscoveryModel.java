@@ -16,10 +16,10 @@ import com.baidu.tieba.dh;
 import com.baidu.tieba.he5;
 import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.m19;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.q29;
 import com.baidu.tieba.setting.more.MoreActivity;
 import com.baidu.tieba.setting.person.PersonPostListData;
 import com.baidu.tieba.wb;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public m19 e;
+    public q29 e;
     public boolean f;
     public wb g;
 
@@ -240,7 +240,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new m19("profileStat");
+        this.e = new q29("profileStat");
         registerListener(this.g);
     }
 
@@ -326,9 +326,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void W() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
-            m19 m19Var = new m19("profileStat");
-            this.e = m19Var;
-            m19Var.f();
+            q29 q29Var = new q29("profileStat");
+            this.e = q29Var;
+            q29Var.f();
         }
     }
 
@@ -384,7 +384,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0d08));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);

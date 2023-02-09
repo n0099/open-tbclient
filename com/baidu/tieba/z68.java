@@ -38,14 +38,14 @@ public class z68 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0259, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025a, (ViewGroup) null, false);
         this.d = inflate;
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0908ff);
+        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09090d);
         this.e = linearLayout;
         linearLayout.setVisibility(8);
-        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f090902);
-        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090908);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f0908fc);
+        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f090910);
+        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090916);
+        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f09090a);
         this.c = findViewById;
         findViewById.setVisibility(8);
     }
@@ -103,7 +103,7 @@ public class z68 {
         if (num.intValue() == 0) {
             this.e.setVisibility(8);
         } else {
-            this.b.setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f0592), num));
+            this.b.setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f0599), num));
             this.e.setVisibility(0);
         }
         if (r68.b().a()) {

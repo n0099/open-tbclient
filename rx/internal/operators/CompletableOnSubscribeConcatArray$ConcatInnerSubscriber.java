@@ -1,31 +1,31 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.pha;
-import com.baidu.tieba.rca;
-import com.baidu.tieba.sca;
+import com.baidu.tieba.eea;
+import com.baidu.tieba.tia;
+import com.baidu.tieba.vda;
+import com.baidu.tieba.wda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements sca {
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements wda {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7965400327305809232L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sca actual;
+    public final wda actual;
     public int index;
-    public final pha sd;
-    public final rca[] sources;
+    public final tia sd;
+    public final vda[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(sca scaVar, rca[] rcaVarArr) {
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(wda wdaVar, vda[] vdaVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {scaVar, rcaVarArr};
+            Object[] objArr = {wdaVar, vdaVarArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,9 +35,9 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
                 return;
             }
         }
-        this.actual = scaVar;
-        this.sources = rcaVarArr;
-        this.sd = new pha();
+        this.actual = wdaVar;
+        this.sources = vdaVarArr;
+        this.sd = new tia();
     }
 
     public void next() {
@@ -45,22 +45,22 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.sd.isUnsubscribed() || getAndIncrement() != 0) {
             return;
         }
-        rca[] rcaVarArr = this.sources;
+        vda[] vdaVarArr = this.sources;
         while (!this.sd.isUnsubscribed()) {
             int i = this.index;
             this.index = i + 1;
-            if (i == rcaVarArr.length) {
+            if (i == vdaVarArr.length) {
                 this.actual.onCompleted();
                 return;
             }
-            rcaVarArr[i].j(this);
+            vdaVarArr[i].j(this);
             if (decrementAndGet() == 0) {
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.sca
+    @Override // com.baidu.tieba.wda
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -68,7 +68,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.sca
+    @Override // com.baidu.tieba.wda
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -76,11 +76,11 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.sca
-    public void onSubscribe(ada adaVar) {
+    @Override // com.baidu.tieba.wda
+    public void onSubscribe(eea eeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, adaVar) == null) {
-            this.sd.a(adaVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, eeaVar) == null) {
+            this.sd.a(eeaVar);
         }
     }
 }

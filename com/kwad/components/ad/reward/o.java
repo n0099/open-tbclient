@@ -168,7 +168,7 @@ public final class o extends com.kwad.components.core.i.e {
                     return;
                 }
             }
-            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0456, viewGroup, false);
+            this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0458, viewGroup, false);
             initView();
         }
 
@@ -180,7 +180,7 @@ public final class o extends com.kwad.components.core.i.e {
                 String gE = aVar.gE();
                 if (!TextUtils.isEmpty(gE)) {
                     String format = String.format("当前已经有%s预约", gE);
-                    int color = this.nL.getResources().getColor(R.color.obfuscated_res_0x7f060784);
+                    int color = this.nL.getResources().getColor(R.color.obfuscated_res_0x7f060785);
                     int indexOf = format.indexOf(gE);
                     SpannableString spannableString = new SpannableString(format);
                     spannableString.setSpan(new ForegroundColorSpan(color), indexOf, gE.length() + indexOf, 17);
@@ -188,7 +188,7 @@ public final class o extends com.kwad.components.core.i.e {
                 }
                 this.nA.setText(aVar.gF());
                 this.nB.setText(aVar.gG());
-                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c72));
+                KSImageLoader.loadCircleIcon(this.nC, aVar.eL(), this.nC.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c83));
             }
         }
 
@@ -198,13 +198,13 @@ public final class o extends com.kwad.components.core.i.e {
             if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (viewGroup = this.nL) == null) {
                 return;
             }
-            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f0911d8);
-            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911d9);
-            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911da);
-            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911db);
-            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911dd);
-            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911df);
-            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911de);
+            this.kP = viewGroup.findViewById(R.id.obfuscated_res_0x7f0911ec);
+            this.nA = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911ed);
+            this.nB = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911ee);
+            this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911ef);
+            this.nD = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911f1);
+            this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911f3);
+            this.nE = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0911f2);
             this.kP.setOnClickListener(this);
             this.nB.setOnClickListener(this);
             this.nA.setOnClickListener(this);
@@ -308,13 +308,13 @@ public final class o extends com.kwad.components.core.i.e {
         private void initView() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-                this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f091288);
-                this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09128c);
-                this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09128a);
-                this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f091289);
-                this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09128b);
-                this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f091285);
-                this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f091286);
+                this.nL = (ViewGroup) this.es.findViewById(R.id.obfuscated_res_0x7f09129c);
+                this.eQ = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f0912a0);
+                this.nG = (KSCornerImageView) this.es.findViewById(R.id.obfuscated_res_0x7f09129e);
+                this.nH = (TextView) this.es.findViewById(R.id.obfuscated_res_0x7f09129d);
+                this.nI = (KsPriceView) this.es.findViewById(R.id.obfuscated_res_0x7f09129f);
+                this.nJ = (KsStyledTextButton) this.es.findViewById(R.id.obfuscated_res_0x7f091299);
+                this.nK = this.es.findViewById(R.id.obfuscated_res_0x7f09129a);
                 this.nJ.setOnClickListener(this);
                 this.nK.setOnClickListener(this);
                 this.nH.setOnClickListener(this);
@@ -465,7 +465,7 @@ public final class o extends com.kwad.components.core.i.e {
                 com.kwad.sdk.core.e.b.printStackTraceOnly(th);
             }
             if (r(this.mAdTemplate) != 2) {
-                fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0476, viewGroup, false);
+                fR = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0478, viewGroup, false);
                 d dVar = new d((ViewGroup) fR);
                 dVar.a(new b(this, this.nv));
                 this.nw = dVar;

@@ -90,7 +90,7 @@ public class i82 extends c82 implements View.OnClickListener {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f1315));
+            v2(G(R.string.obfuscated_res_0x7f0f132c));
             x2(true);
             J2(false);
         }
@@ -100,9 +100,9 @@ public class i82 extends c82 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09160a) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091620) {
                 ds2.t0().a();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902f5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902fd) {
                 W2();
             }
         }
@@ -111,13 +111,13 @@ public class i82 extends c82 implements View.OnClickListener {
     public final void U2(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09160a);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091620);
             this.G0 = relativeLayout;
             relativeLayout.setOnClickListener(this);
             if (ds2.y0().d() || !qm3.G()) {
                 this.G0.setVisibility(8);
             }
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902f5);
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902fd);
             this.H0 = relativeLayout2;
             relativeLayout2.setOnClickListener(this);
         }
@@ -147,7 +147,7 @@ public class i82 extends c82 implements View.OnClickListener {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0841, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0853, viewGroup, false);
             U1(inflate);
             U2(inflate);
             if (T1()) {

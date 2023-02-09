@@ -54,7 +54,7 @@ public class InitBearAdViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                tf5.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0807, (ViewGroup) null, false));
+                tf5.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0819, (ViewGroup) null, false));
             } catch (Exception e) {
                 BdLog.e(e);
             }

@@ -79,7 +79,7 @@ public class wg7 extends mc6<og7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d08be : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d08d1 : invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
@@ -356,11 +356,11 @@ public class wg7 extends mc6<og7> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             View h = h();
-            this.k = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f090596);
-            this.m = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f09059a);
-            this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090597);
-            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090594);
-            TbRichTextView tbRichTextView = (TbRichTextView) h.findViewById(R.id.obfuscated_res_0x7f090598);
+            this.k = (ClickableHeaderImageView) h.findViewById(R.id.obfuscated_res_0x7f0905a1);
+            this.m = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0905a5);
+            this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905a2);
+            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09059f);
+            TbRichTextView tbRichTextView = (TbRichTextView) h.findViewById(R.id.obfuscated_res_0x7f0905a3);
             this.r = tbRichTextView;
             tbRichTextView.setClickable(true);
             this.r.setTextEllipsize(TextUtils.TruncateAt.END);
@@ -369,25 +369,25 @@ public class wg7 extends mc6<og7> {
             ts5Var.x(ej.g(getContext(), R.dimen.tbds44));
             ts5Var.p(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
             this.r.setLayoutStrategy(ts5Var);
-            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0923cb);
-            this.s = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f090595);
+            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f092415);
+            this.s = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0905a0);
             this.s.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
             qr5 qr5Var = new qr5(3);
             qr5Var.d(1.0d);
             this.s.setImageProcessor(qr5Var);
-            AgreeView agreeView = (AgreeView) h.findViewById(R.id.obfuscated_res_0x7f090591);
+            AgreeView agreeView = (AgreeView) h.findViewById(R.id.obfuscated_res_0x7f09059c);
             this.o = agreeView;
             agreeView.z();
-            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923bd);
-            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0923be);
-            this.u = h.findViewById(R.id.obfuscated_res_0x7f090593);
-            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09059c);
+            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092407);
+            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092408);
+            this.u = h.findViewById(R.id.obfuscated_res_0x7f09059e);
+            TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905a7);
             this.v = tbImageView;
             tbImageView.setRadius(ej.g(getContext(), R.dimen.tbds6));
             this.v.setConrers(5);
             this.v.setDrawCorner(true);
-            this.w = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09059d);
-            this.x = h.findViewById(R.id.obfuscated_res_0x7f090592);
+            this.w = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905a8);
+            this.x = h.findViewById(R.id.obfuscated_res_0x7f09059d);
             this.l.setOnClickListener(this);
             this.p.setOnClickListener(this);
             this.q.setOnClickListener(this);
@@ -517,7 +517,7 @@ public class wg7 extends mc6<og7> {
             if (StringUtils.isNull(threadData.getForum_name())) {
                 this.n.setText(formatTime);
             } else {
-                this.n.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04ad), StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 10, StringHelper.STRING_MORE), formatTime));
+                this.n.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04b0), StringHelper.cutChineseAndEnglishWithSuffix(threadData.getForum_name(), 10, StringHelper.STRING_MORE), formatTime));
             }
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.icon_pure_topic_reply16_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             String numFormatOverWan = StringHelper.numFormatOverWan(reply_num);

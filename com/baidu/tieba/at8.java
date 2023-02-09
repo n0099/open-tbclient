@@ -1,179 +1,84 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.hx5;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.ApkDownloadView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class at8 extends ft8 {
+public class at8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HeadImageView h;
-    public TextView i;
-    public ApkDownloadView j;
-    public boolean k;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at8 a;
-
-        public a(at8 at8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static int a(int i, zs8 zs8Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, zs8Var)) == null) {
+            if (i <= 0) {
+                return zs8Var.a();
             }
-            this.a = at8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.j.performClick();
+            if (zs8Var.c()) {
+                return i + zs8Var.b();
             }
+            return i + zs8Var.b() + 1;
         }
+        return invokeIL.intValue;
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements hx5.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ps8 a;
-        public final /* synthetic */ at8 b;
-
-        public b(at8 at8Var, ps8 ps8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at8Var, ps8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = at8Var;
-            this.a = ps8Var;
-        }
-
-        @Override // com.baidu.tieba.hx5.a
-        public boolean a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                at8 at8Var = this.b;
-                if (at8Var.k) {
-                    xw5.a(this.a.j);
-                } else {
-                    AdCard adCard = at8Var.f;
-                    if (adCard != null) {
-                        xw5.a(adCard.getButtonCmdScheme());
+    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull zs8 zs8Var, int i2, @Nullable T t, @Nullable bt8 bt8Var, @Nullable ct8 ct8Var) {
+        InterceptResult invokeCommon;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), zs8Var, Integer.valueOf(i2), t, bt8Var, ct8Var})) == null) {
+            if (zs8Var.a() != -1 && zs8Var.b() != -1) {
+                int a = a(i2, zs8Var);
+                if (bt8Var != null && t != null) {
+                    if (i <= i2) {
+                        if (ct8Var != 0) {
+                            ct8Var.a(i, a);
+                        }
+                        return false;
                     }
-                }
-                hv7.c(this.b.c);
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at8(View view2, String str) {
-        super(view2, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        l();
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ft8
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.b();
-            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
-            this.j.setTextColorInitSkin(R.color.CAM_X0101);
-            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081275);
-            this.j.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.ft8
-    public void c(ps8 ps8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ps8Var) == null) {
-            super.c(ps8Var);
-            this.h.K(ps8Var.c, 10, false);
-            this.i.setText(ps8Var.b);
-            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
-            this.j.setInitText(ps8Var.e);
-            if (this.c != null) {
-                this.b.setOnClickListener(new a(this));
-                this.j.setOnClickInterceptListener(new b(this, ps8Var));
-                AdCard adCard = this.f;
-                if (adCard != null) {
-                    new gx5(this.j, qs8.d(adCard));
+                    int i4 = i + 1;
+                    if (i4 < a) {
+                        if (ct8Var != 0) {
+                            ct8Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    if (i > a) {
+                        i3 = i4;
+                    } else {
+                        i3 = a;
+                    }
+                    int i5 = mv7.i(list);
+                    if (i3 >= i5 && (bt8Var.b() || i3 > i5)) {
+                        if (ct8Var != 0) {
+                            ct8Var.d(i, i3, i5, bt8Var, t);
+                        }
+                        return false;
+                    }
+                    bt8Var.a(i3);
+                    if (!bt8Var.b()) {
+                        mv7.b(list, t, i3);
+                        if (ct8Var != 0) {
+                            ct8Var.c(i, i3, bt8Var, t);
+                            return true;
+                        }
+                        return true;
+                    } else if (ct8Var != 0) {
+                        ct8Var.e(i, i3, mv7.d(list, i3), bt8Var, t);
+                        return true;
+                    } else {
+                        return true;
+                    }
+                } else if (ct8Var != 0) {
+                    ct8Var.a(i, a);
                 }
             }
-            b();
+            return false;
         }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f0925cb);
-            this.h = headImageView;
-            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
-            this.h.setDefaultBgResource(R.color.CAM_X0205);
-            this.h.setIsRound(true);
-            this.i = (TextView) a(R.id.user_name);
-            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f09088d);
-        }
+        return invokeCommon.booleanValue;
     }
 }

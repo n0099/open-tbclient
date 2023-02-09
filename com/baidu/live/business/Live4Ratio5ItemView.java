@@ -155,20 +155,20 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
             setNeedRatio(true);
             setAspectRatio(1.25f);
             this.y = context;
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d054d, this);
-            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09143a);
-            this.p = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
-            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09143e);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091443);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091436);
-            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091440);
-            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091437);
-            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09143f);
-            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091442);
-            this.t = inflate.findViewById(R.id.obfuscated_res_0x7f09142c);
-            this.u = inflate.findViewById(R.id.obfuscated_res_0x7f0914af);
-            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b0);
-            this.w = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b7);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0552, this);
+            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144f);
+            this.p = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146c);
+            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091453);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091458);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09144b);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091455);
+            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144c);
+            this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
+            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
+            this.t = inflate.findViewById(R.id.obfuscated_res_0x7f091441);
+            this.u = inflate.findViewById(R.id.obfuscated_res_0x7f0914c4);
+            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914c5);
+            this.w = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914cc);
         }
     }
 
@@ -260,7 +260,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.m.setVisibility(8);
                 }
                 this.t.getLayoutParams().height = oa0.b(getContext(), 61.0f);
-                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d4e));
+                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d60));
                 LiveFeedConfig liveFeedConfig = this.d;
                 if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
                     this.x = true;
@@ -278,7 +278,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.k.setVisibility(8);
                     this.n.setTypeface(Typeface.defaultFromStyle(1));
                     this.t.getLayoutParams().height = oa0.b(getContext(), 35.0f);
-                    this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d48));
+                    this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d5a));
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
                 if (rightLableInfo != null && rightLableInfo.canShowLabel()) {
@@ -327,7 +327,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                 if (view2 == null) {
                     View inflate = this.p.inflate();
                     this.q = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091456);
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f09146b);
                     this.r = liveBaseLottieView;
                     liveBaseLottieView.setRepeatCount(-1);
                     this.r.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");

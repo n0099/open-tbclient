@@ -67,7 +67,7 @@ public class gx6 extends qn<lx6, ForumRuleDetailBottomVH> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c1, viewGroup, false));
+            ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c3, viewGroup, false));
             t(forumRuleDetailBottomVH);
             this.viewholder = forumRuleDetailBottomVH;
             return forumRuleDetailBottomVH;
@@ -89,7 +89,7 @@ public class gx6 extends qn<lx6, ForumRuleDetailBottomVH> {
         }
         forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.img_default_100);
         forumRuleDetailBottomVH.b.K(lx6Var.a(), 10, false);
-        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0703);
+        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f070c);
         EMTextView eMTextView = forumRuleDetailBottomVH.d;
         eMTextView.setText(lx6Var.b() + string);
         forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.img_default_100);
@@ -98,8 +98,8 @@ public class gx6 extends qn<lx6, ForumRuleDetailBottomVH> {
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
             forumRuleDetailBottomVH.a(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070a), lx6Var.g()));
-            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070a), lx6Var.g()));
+            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0713), lx6Var.g()));
+            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0713), lx6Var.g()));
         }
         forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
     }

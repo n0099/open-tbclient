@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class c17 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class c17 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class c17 {
         if (interceptable == null || interceptable.invokeLL(1048586, this, arrayList, frsViewData) == null) {
             s(frsViewData);
             r();
-            f09.f(arrayList, 1);
+            j19.f(arrayList, 1);
             i(arrayList);
             this.b.setData(arrayList);
             this.g = arrayList;
@@ -169,7 +169,7 @@ public class c17 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeRecyclerView)) == null) {
             if (this.a != null && bdTypeRecyclerView != null) {
                 this.d = new ArrayList();
-                ArrayList<BdUniqueId> g = f09.g();
+                ArrayList<BdUniqueId> g = j19.g();
                 if (g != null && g.size() > 0) {
                     int size = g.size();
                     for (int i = 0; i < size; i++) {
@@ -315,8 +315,8 @@ public class c17 {
             hs6Var.A(bdTypeRecyclerView);
             qn<? extends wz4, ? extends TypeAdapter.ViewHolder> a2 = ur6.e().a(frsNewAreaFragment.getPageContext(), this.a.getUniqueId(), true);
             qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d = ur6.e().d(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_LOTTERY, this.a.getUniqueId());
-            qn<?, ?> d2 = mr8.l().d(this.a, AdvertAppInfo.w);
-            qn<?, ?> d3 = mr8.l().d(this.a, AdvertAppInfo.z);
+            qn<?, ?> d2 = qs8.l().d(this.a, AdvertAppInfo.w);
+            qn<?, ?> d3 = qs8.l().d(this.a, AdvertAppInfo.z);
             kw6 kw6Var = new kw6(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_SHARE_THREAD, this.a.getUniqueId());
             kw6Var.A(bdTypeRecyclerView);
             qv6 qv6Var = new qv6(frsNewAreaFragment.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId());
@@ -393,8 +393,8 @@ public class c17 {
             for (qn qnVar : this.e) {
                 if (qnVar instanceof as6) {
                     ((as6) qnVar).v();
-                } else if (qnVar instanceof dr8) {
-                    ((dr8) qnVar).onDestroy();
+                } else if (qnVar instanceof hs8) {
+                    ((hs8) qnVar).onDestroy();
                 }
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.kl5;
-import com.baidu.tieba.tl9;
+import com.baidu.tieba.xm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tl9 k;
+    public xm9 k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void y1() {
@@ -78,9 +78,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onDestroy();
-            tl9 tl9Var = this.k;
-            if (tl9Var != null) {
-                tl9Var.onDestroy();
+            xm9 xm9Var = this.k;
+            if (xm9Var != null) {
+                xm9Var.onDestroy();
             }
         }
     }
@@ -109,7 +109,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (str == null) {
                     str = "";
                 }
-                this.k = new tl9(linearLayout, navigationBar, this, str);
+                this.k = new xm9(linearLayout, navigationBar, this, str);
             }
             return this.k;
         }

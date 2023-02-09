@@ -62,7 +62,7 @@ public class MsgReplyCardView extends mj7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05c2);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05c7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,12 +87,12 @@ public class MsgReplyCardView extends mj7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i == 1) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f08d2);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f08db);
             }
             if (i == 2) {
-                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1236);
+                return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f124c);
             }
-            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1410);
+            return this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1427);
         }
         return (String) invokeI.objValue;
     }
@@ -116,7 +116,7 @@ public class MsgReplyCardView extends mj7 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, str)) == null) {
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                b0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f0b55);
+                b0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f0b5f);
             } else {
                 b0 = b0(aVar.a);
             }
@@ -140,9 +140,9 @@ public class MsgReplyCardView extends mj7 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
                 string = b0(aVar.a);
-                b0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f171c);
+                b0 = this.mContext.getString(R.string.obfuscated_res_0x7f0f1734);
             } else {
-                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f171c);
+                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f1734);
                 b0 = b0(aVar.a);
             }
             return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00c7), string, getType(aVar.h), b0);
@@ -153,11 +153,11 @@ public class MsgReplyCardView extends mj7 {
     public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.G = (LinearLayout) k(R.id.obfuscated_res_0x7f091cc7);
-            this.H = (TextView) k(R.id.obfuscated_res_0x7f091cda);
-            this.I = (TextView) k(R.id.obfuscated_res_0x7f091cc9);
-            this.J = (TextView) k(R.id.obfuscated_res_0x7f091cd7);
-            this.K = (TextView) k(R.id.obfuscated_res_0x7f091ccc);
+            this.G = (LinearLayout) k(R.id.obfuscated_res_0x7f091d08);
+            this.H = (TextView) k(R.id.obfuscated_res_0x7f091d1c);
+            this.I = (TextView) k(R.id.obfuscated_res_0x7f091d0a);
+            this.J = (TextView) k(R.id.obfuscated_res_0x7f091d19);
+            this.K = (TextView) k(R.id.obfuscated_res_0x7f091d0d);
             this.G.setOnClickListener(new a(this));
         }
     }
@@ -173,6 +173,6 @@ public class MsgReplyCardView extends mj7 {
         this.I.setText(a2.b);
         this.J.setText(Z(a2, valueOf));
         TextView textView = this.K;
-        textView.setText(a2.d + this.mContext.getString(R.string.obfuscated_res_0x7f0f06ad));
+        textView.setText(a2.d + this.mContext.getString(R.string.obfuscated_res_0x7f0f06b6));
     }
 }

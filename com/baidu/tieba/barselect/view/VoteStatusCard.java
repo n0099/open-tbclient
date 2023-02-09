@@ -121,12 +121,12 @@ public class VoteStatusCard extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 j05 j05Var = new j05((Activity) this.a.a);
-                View inflate = LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d013f, (ViewGroup) null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090367);
+                View inflate = LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d0140, (ViewGroup) null);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09036f);
                 textView.setText(this.a.a.getResources().getString(R.string.vote_ueg_tip_detail_1) + "\n" + this.a.a.getResources().getString(R.string.vote_ueg_tip_detail_2));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 j05Var.setContentView(inflate);
-                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a46, new a(this));
+                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a50, new a(this));
                 j05Var.create(((BaseActivity) this.a.a).getPageContext());
                 SkinManager.setBackgroundShapeDrawable(j05Var.getRealView(), ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
                 j05Var.show();
@@ -222,25 +222,25 @@ public class VoteStatusCard extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09033f);
-            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092731);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b6);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b1);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b5);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b2);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090347);
+            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092792);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902bc);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b7);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0902bb);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0902b8);
             this.k = (TextView) findViewById(R.id.vote_title);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09272f);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091bba);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb9);
-            this.p = findViewById(R.id.obfuscated_res_0x7f09271e);
-            this.o = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f09271f);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09273c);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092790);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf5);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf4);
+            this.p = findViewById(R.id.obfuscated_res_0x7f09277f);
+            this.o = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f092780);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09279d);
             this.q = findViewById;
             if (findViewById != null) {
                 findViewById.setOnClickListener(new b(this));
             }
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09273e);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f09273d);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09279f);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f09279e);
         }
     }
 
@@ -259,7 +259,7 @@ public class VoteStatusCard extends LinearLayout {
             int g = ej.g(this.a, R.dimen.tbds56);
             int g2 = ej.g(this.a, R.dimen.tbds52);
             setPadding(g, g2, g, g2);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0933, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0948, (ViewGroup) this, true);
             c();
         }
     }

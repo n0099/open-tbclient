@@ -13,10 +13,10 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int livesdk_not_support_msg_type = 0x7f0f0acf;
-        public static final int livesdk_pic = 0x7f0f0ad0;
-        public static final int livesdk_reply = 0x7f0f0ad1;
-        public static final int livesdk_voice = 0x7f0f0ad2;
+        public static final int livesdk_not_support_msg_type = 0x7f0f0ad9;
+        public static final int livesdk_pic = 0x7f0f0ada;
+        public static final int livesdk_reply = 0x7f0f0adb;
+        public static final int livesdk_voice = 0x7f0f0adc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

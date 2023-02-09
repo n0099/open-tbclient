@@ -36,13 +36,13 @@ public class zz1 extends vz1 {
 
         /* renamed from: com.baidu.tieba.zz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0509a implements pn3<zd3<be3.e>> {
+        public class C0510a implements pn3<zd3<be3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yw1.b a;
             public final /* synthetic */ a b;
 
-            public C0509a(a aVar, yw1.b bVar) {
+            public C0510a(a aVar, yw1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class zz1 extends vz1 {
                 if (b0 == null) {
                     return new w02(1001, "null swan runtime");
                 }
-                b0.e0().g(v83.K(), "mapp_i_get_common_sys_info", new C0509a(this, bVar));
+                b0.e0().g(v83.K(), "mapp_i_get_common_sys_info", new C0510a(this, bVar));
                 return new w02(0);
             }
             return (w02) invokeLL.objValue;

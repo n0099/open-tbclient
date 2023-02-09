@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.v19;
+import com.baidu.tieba.b39;
+import com.baidu.tieba.d39;
 import com.baidu.tieba.vu4;
-import com.baidu.tieba.x19;
-import com.baidu.tieba.z19;
+import com.baidu.tieba.z29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OfflineDebugJsBridge_Proxy extends v19 {
+public class OfflineDebugJsBridge_Proxy extends z29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public vu4 mJsBridge;
@@ -45,86 +45,86 @@ public class OfflineDebugJsBridge_Proxy extends v19 {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.v19
-    public x19 dispatch(WebView webView, z19 z19Var, x19 x19Var) {
+    @Override // com.baidu.tieba.z29
+    public b39 dispatch(WebView webView, d39 d39Var, b39 b39Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, z19Var, x19Var)) == null) {
-            if (x19Var == null) {
-                x19Var = new x19();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, d39Var, b39Var)) == null) {
+            if (b39Var == null) {
+                b39Var = new b39();
             }
-            String b = z19Var.b();
-            JSONObject e = z19Var.e();
+            String b = d39Var.b();
+            JSONObject e = d39Var.e();
             if (b.equals("hybridDebug/getOfflineUserInfo")) {
-                x19Var.r(true);
-                x19 d = this.mJsBridge.d(webView);
+                b39Var.r(true);
+                b39 d = this.mJsBridge.d(webView);
                 if (d != null) {
-                    x19Var.x(d.f());
-                    x19Var.t(d.b());
-                    x19Var.o(d.a());
-                    x19Var.w(d.e());
+                    b39Var.x(d.f());
+                    b39Var.t(d.b());
+                    b39Var.o(d.a());
+                    b39Var.w(d.e());
                 }
-                x19Var.y(0);
+                b39Var.y(0);
             } else if (b.equals("hybridDebug/deleteOfflineBundle")) {
-                x19Var.r(true);
-                x19 c = this.mJsBridge.c(webView);
+                b39Var.r(true);
+                b39 c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    x19Var.x(c.f());
-                    x19Var.t(c.b());
-                    x19Var.o(c.a());
-                    x19Var.w(c.e());
+                    b39Var.x(c.f());
+                    b39Var.t(c.b());
+                    b39Var.o(c.a());
+                    b39Var.w(c.e());
                 }
-                x19Var.y(0);
+                b39Var.y(0);
             } else if (b.equals("hybridDebug/updateOfflineBundle")) {
-                x19Var.r(true);
-                x19 i = this.mJsBridge.i(webView);
+                b39Var.r(true);
+                b39 i = this.mJsBridge.i(webView);
                 if (i != null) {
-                    x19Var.x(i.f());
-                    x19Var.t(i.b());
-                    x19Var.o(i.a());
-                    x19Var.w(i.e());
+                    b39Var.x(i.f());
+                    b39Var.t(i.b());
+                    b39Var.o(i.a());
+                    b39Var.w(i.e());
                 }
-                x19Var.y(0);
+                b39Var.y(0);
             } else if (b.equals("hybridDebug/switchOfflineInterface")) {
-                x19Var.r(true);
-                x19 g = this.mJsBridge.g(webView, e.optString("host"));
+                b39Var.r(true);
+                b39 g = this.mJsBridge.g(webView, e.optString("host"));
                 if (g != null) {
-                    x19Var.x(g.f());
-                    x19Var.t(g.b());
-                    x19Var.o(g.a());
-                    x19Var.w(g.e());
+                    b39Var.x(g.f());
+                    b39Var.t(g.b());
+                    b39Var.o(g.a());
+                    b39Var.w(g.e());
                 }
-                x19Var.y(0);
+                b39Var.y(0);
             } else if (b.equals("hybridDebug/switchOfflineBundleStatus")) {
-                x19Var.r(true);
-                x19 f = this.mJsBridge.f(webView, e.optInt("isOn"));
+                b39Var.r(true);
+                b39 f = this.mJsBridge.f(webView, e.optInt("isOn"));
                 if (f != null) {
-                    x19Var.x(f.f());
-                    x19Var.t(f.b());
-                    x19Var.o(f.a());
-                    x19Var.w(f.e());
+                    b39Var.x(f.f());
+                    b39Var.t(f.b());
+                    b39Var.o(f.a());
+                    b39Var.w(f.e());
                 }
-                x19Var.y(0);
+                b39Var.y(0);
             } else if (b.equals("hybridDebug/switchUrlHost")) {
-                x19Var.r(true);
+                b39Var.r(true);
                 ArrayList<JSONObject> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("hostArr"));
-                x19 h = this.mJsBridge.h(webView, arrayList);
+                b39 h = this.mJsBridge.h(webView, arrayList);
                 if (h != null) {
-                    x19Var.x(h.f());
-                    x19Var.t(h.b());
-                    x19Var.o(h.a());
-                    x19Var.w(h.e());
+                    b39Var.x(h.f());
+                    b39Var.t(h.b());
+                    b39Var.o(h.a());
+                    b39Var.w(h.e());
                 }
-                x19Var.y(0);
+                b39Var.y(0);
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLLL.objValue;
+        return (b39) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.v19
-    public List<x19> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.z29
+    public List<b39> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {

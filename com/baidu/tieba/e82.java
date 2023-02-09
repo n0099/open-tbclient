@@ -899,7 +899,7 @@ public class e82 extends c82 implements d83.a {
                 if (this.O0 == null) {
                     return null;
                 }
-                this.N0 = new d83(this, (LinearLayout) this.O0.findViewById(R.id.obfuscated_res_0x7f090177), J1().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070159));
+                this.N0 = new d83(this, (LinearLayout) this.O0.findViewById(R.id.obfuscated_res_0x7f090179), J1().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070159));
             }
             return this.N0;
         }
@@ -1386,7 +1386,7 @@ public class e82 extends c82 implements d83.a {
             View b2 = s73.b();
             if (b2 != null) {
                 b2.setVisibility(0);
-                b2.findViewById(R.id.obfuscated_res_0x7f09233a).setVisibility(8);
+                b2.findViewById(R.id.obfuscated_res_0x7f092383).setVisibility(8);
             }
             SwanAppActionBar K1 = K1();
             if (K1 != null) {
@@ -1396,8 +1396,8 @@ public class e82 extends c82 implements d83.a {
             }
             View V = V();
             if (V != null) {
-                V.findViewById(R.id.obfuscated_res_0x7f090ff8).setBackgroundColor(0);
-                FrameLayout frameLayout = (FrameLayout) V.findViewById(R.id.obfuscated_res_0x7f090178);
+                V.findViewById(R.id.obfuscated_res_0x7f091009).setBackgroundColor(0);
+                FrameLayout frameLayout = (FrameLayout) V.findViewById(R.id.obfuscated_res_0x7f09017a);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
                 layoutParams.topMargin = 0;
                 frameLayout.setLayoutParams(layoutParams);
@@ -1900,8 +1900,8 @@ public class e82 extends c82 implements d83.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048643, this, layoutInflater, viewGroup, bundle)) == null) {
             a23.a("route", "fragment onCreateView.");
-            View b2 = g33.a().b(R.layout.obfuscated_res_0x7f0d00a5, viewGroup, false);
-            this.K0 = (FrameLayout) b2.findViewById(R.id.obfuscated_res_0x7f090178);
+            View b2 = g33.a().b(R.layout.obfuscated_res_0x7f0d00a6, viewGroup, false);
+            this.K0 = (FrameLayout) b2.findViewById(R.id.obfuscated_res_0x7f09017a);
             U1(b2);
             T2(b2);
             this.M0 = new ik3(this);

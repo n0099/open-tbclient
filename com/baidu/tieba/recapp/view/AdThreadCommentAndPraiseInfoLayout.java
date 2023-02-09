@@ -34,8 +34,8 @@ import com.baidu.tbadk.switchs.WindowGreySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.g95;
-import com.baidu.tieba.gs8;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
+import com.baidu.tieba.kt8;
 import com.baidu.tieba.n21;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.ui;
@@ -58,7 +58,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int v0;
     public int w0;
     public int x0;
-    public gs8 y0;
+    public kt8 y0;
 
     static {
         InterceptResult invokeClinit;
@@ -231,11 +231,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(gs8 gs8Var) {
+    public void setShareData(kt8 kt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, gs8Var) == null) {
-            this.y0 = gs8Var;
-            setData(gs8Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, kt8Var) == null) {
+            this.y0 = kt8Var;
+            setData(kt8Var.getThreadData());
         }
     }
 
@@ -269,11 +269,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void C(View view2) {
-        gs8 gs8Var;
+        kt8 kt8Var;
         Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (gs8Var = this.y0) != null) {
-            j0(gs8Var.getThreadData(), "share", 0);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.D != null && this.E != null && (kt8Var = this.y0) != null) {
+            j0(kt8Var.getThreadData(), "share", 0);
             k0(this.y0.getThreadData(), "2", "1");
             if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.E)) {
                 return;

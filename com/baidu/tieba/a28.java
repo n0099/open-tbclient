@@ -123,8 +123,8 @@ public class a28 {
             }
         }
         this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        o09.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        o09.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
+        s19.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
+        s19.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
         MessageManager.getInstance().registerListener(this.e);
     }
 

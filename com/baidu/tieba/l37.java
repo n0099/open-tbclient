@@ -107,10 +107,10 @@ public class l37 implements f37 {
             this.a = context;
             this.g = j37Var;
             this.b = j37Var.d();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d086e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0880, (ViewGroup) null);
             this.d = inflate;
             this.e = inflate.findViewById(R.id.top_line);
-            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905be);
+            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905c9);
             this.f = tabMenuPopView;
             tabMenuPopView.setOnItemClickCallBack(this.h);
         }

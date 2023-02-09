@@ -27,7 +27,7 @@ public class xk2 {
     public eg2 b;
     public bl2 c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,14 +39,14 @@ public class xk2 {
         public final /* synthetic */ xk2 f;
 
         /* renamed from: com.baidu.tieba.xk2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0491a implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC0489a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ vk2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0491a(a aVar, vk2 vk2Var) {
+            public RunnableC0489a(a aVar, vk2 vk2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,12 +111,12 @@ public class xk2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0491a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0489a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class xk2 {
         public final /* synthetic */ il2 f;
         public final /* synthetic */ xk2 g;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

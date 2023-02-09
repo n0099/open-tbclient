@@ -1,14 +1,14 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.oda;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.sea;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorZip$ZipProducer<R> extends AtomicLong implements vca {
+public final class OperatorZip$ZipProducer<R> extends AtomicLong implements zda {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1216676403723546796L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,11 +32,11 @@ public final class OperatorZip$ZipProducer<R> extends AtomicLong implements vca 
         this.zipper = operatorZip$Zip;
     }
 
-    @Override // com.baidu.tieba.vca
+    @Override // com.baidu.tieba.zda
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            oda.b(this, j);
+            sea.b(this, j);
             this.zipper.tick();
         }
     }

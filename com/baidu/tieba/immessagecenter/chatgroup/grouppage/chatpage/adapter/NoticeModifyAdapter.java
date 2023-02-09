@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917f4);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f28);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2d);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dc8);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917f7);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917f6);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09180e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f39);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f3e);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dd9);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091811);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091810);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -106,7 +106,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d3, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d4, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -156,12 +156,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                 holder.c.setText(noticeModifySysMsg.getUserFrom().getUsername());
                 int role = noticeModifySysMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f087f);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0888);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0881);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f088a);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0878);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f1650);
+                holder.d.setText(R.string.obfuscated_res_0x7f0f0881);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f1667);
                 pr7.a("c15095", 2, this.f, this.g, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();

@@ -732,7 +732,7 @@ public class AntiHelper {
         if (!isHas_chance) {
             j05Var.setNegativeButton(context.getString(R.string.anti_vcode_pos), new i(context, pageType));
         } else {
-            j05Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f0459), new j());
+            j05Var.setNegativeButton(context.getString(R.string.obfuscated_res_0x7f0f045b), new j());
         }
         j05Var.setPositiveButton(context.getString(R.string.anti_vcode_neg), new a());
         if (context instanceof Activity) {
@@ -894,7 +894,7 @@ public class AntiHelper {
                 string = context.getString(R.string.anti_no_chance_com_tip);
             }
             j05Var.setMessage(string);
-            j05Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f0459), new h());
+            j05Var.setPositiveButton(context.getString(R.string.obfuscated_res_0x7f0f045b), new h());
             if (context instanceof Activity) {
                 j05Var.create(da.a(context)).show();
             }

@@ -123,7 +123,7 @@ public class ws7 {
         this.h = new b(this);
         this.a = x9Var;
         this.c = new u05(x9Var.getPageActivity());
-        q05 q05Var = new q05(x9Var.getString(R.string.obfuscated_res_0x7f0f04d5), this.c);
+        q05 q05Var = new q05(x9Var.getString(R.string.obfuscated_res_0x7f0f04d8), this.c);
         this.e = q05Var;
         q05Var.m(this.h);
         ArrayList arrayList = new ArrayList();

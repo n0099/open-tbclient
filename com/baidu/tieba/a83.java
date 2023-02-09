@@ -74,13 +74,13 @@ public class a83 extends v73 {
 
         /* renamed from: com.baidu.tieba.a83$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0222a implements View.OnClickListener {
+        public class View$OnClickListenerC0221a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0222a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0221a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,7 +260,7 @@ public class a83 extends v73 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090815);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090822);
                 this.a.t.setLayoutParams(layoutParams);
             }
         }
@@ -425,7 +425,7 @@ public class a83 extends v73 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0222a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0221a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -690,7 +690,7 @@ public class a83 extends v73 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, i);
-                layoutParams.addRule(2, R.id.obfuscated_res_0x7f09045b);
+                layoutParams.addRule(2, R.id.obfuscated_res_0x7f090464);
                 this.a.h.setLayoutParams(layoutParams);
                 return this;
             }
@@ -1050,24 +1050,24 @@ public class a83 extends v73 {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092334);
-            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09081f);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09082c);
             this.c = (TextView) viewGroup.findViewById(R.id.dialog_message);
-            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090815);
+            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090822);
             this.e = (TextView) viewGroup.findViewById(R.id.positive_button);
             this.f = (TextView) viewGroup.findViewById(R.id.negative_button);
             this.g = (TextView) viewGroup.findViewById(R.id.neutral_button);
-            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090845);
-            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f090846);
+            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090853);
+            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f090854);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.dialog_custom_content);
             this.q = (ImageView) viewGroup.findViewById(R.id.dialog_icon);
             this.r = (RelativeLayout) viewGroup.findViewById(R.id.searchbox_alert_dialog);
-            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f090844);
+            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f090852);
             this.s = (SwanAppScrollView) viewGroup.findViewById(R.id.message_scrollview);
-            this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09045b);
+            this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090464);
             this.u = viewGroup.findViewById(R.id.dialog_customPanel);
             this.A = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f0917b4);
+            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f0917cd);
             if (dl3.k() || dl3.l()) {
                 int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
                 this.c.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
@@ -1119,7 +1119,7 @@ public class a83 extends v73 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0095);
+            setContentView(R.layout.obfuscated_res_0x7f0d0096);
             getWindow().setLayout(-1, -1);
         }
     }

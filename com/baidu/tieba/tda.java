@@ -1,52 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.webrtc.CalledByNative;
+import org.webrtc.VideoEncoder;
+/* compiled from: VideoEncoder.java */
 /* loaded from: classes6.dex */
-public final class tda<T, R> implements tca.a<R> {
+public final /* synthetic */ class tda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tca.a<T> a;
-    public final tca.b<? extends R, ? super T> b;
 
-    public tda(tca.a<T> aVar, tca.b<? extends R, ? super T> bVar) {
+    @CalledByNative
+    public static long $default$createNativeVideoEncoder(VideoEncoder videoEncoder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoEncoder)) == null) {
+            return 0L;
         }
-        this.a = aVar;
-        this.b = bVar;
+        return invokeL.longValue;
     }
 
-    public void call(zca<? super R> zcaVar) {
+    @CalledByNative
+    public static boolean $default$isHardwareEncoder(VideoEncoder videoEncoder) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
-            try {
-                zca zcaVar2 = (zca) aha.n(this.b).call(zcaVar);
-                zcaVar2.d();
-                this.a.call(zcaVar2);
-            } catch (Throwable th) {
-                fda.e(th);
-                zcaVar.onError(th);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoEncoder)) == null) {
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((zca) ((zca) obj));
+        return invokeL.booleanValue;
     }
 }

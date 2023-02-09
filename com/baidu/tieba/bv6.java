@@ -114,7 +114,7 @@ public class bv6 {
                     screenTopToast.m(this.b.a.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip));
                     screenTopToast.k(this.b.a.getString(R.string.frs_recommend_fail_tip_btn));
                     screenTopToast.j(new a(this));
-                    screenTopToast.n((ViewGroup) this.b.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090b61));
+                    screenTopToast.n((ViewGroup) this.b.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090b72));
                     return;
                 }
                 ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.b.a.getPageActivity());
@@ -366,9 +366,9 @@ public class bv6 {
             } else if (i2 == 2) {
                 this.f.setTitle(R.string.set_good_success);
             }
-            this.f.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06b2), Integer.valueOf(i)));
+            this.f.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06bb), Integer.valueOf(i)));
             this.f.setContentViewSize(1);
-            this.f.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f11c4), new c(this, i));
+            this.f.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f11da), new c(this, i));
             this.f.setNegativeButton(this.a.getString(R.string.next_time), new d(this));
             this.f.setOnDismissListener(this.h);
             this.f.create(this.a).show();

@@ -3,8 +3,8 @@ package com.baidu.tieba.filedownloader;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.dp6;
-import com.baidu.tieba.ds8;
 import com.baidu.tieba.ep6;
+import com.baidu.tieba.ht8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ public final class TbFileDownloaderImpl implements dp6 {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
     public static final Lazy<TbFileDownloaderImpl> b;
-    public static final ds8 c;
+    public static final ht8 c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public /* synthetic */ TbFileDownloaderImpl(DefaultConstructorMarker defaultConstructorMarker) {
@@ -81,7 +81,7 @@ public final class TbFileDownloaderImpl implements dp6 {
         }
         a = new a(null);
         b = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) TbFileDownloaderImpl$Companion$sInstance$2.INSTANCE);
-        ds8 o = ds8.o();
+        ht8 o = ht8.o();
         Intrinsics.checkNotNullExpressionValue(o, "getInstance()");
         c = o;
     }
@@ -124,7 +124,7 @@ public final class TbFileDownloaderImpl implements dp6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            return ds8.q(data);
+            return ht8.q(data);
         }
         return invokeL.intValue;
     }

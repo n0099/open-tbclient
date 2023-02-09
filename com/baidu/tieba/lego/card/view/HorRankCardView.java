@@ -14,8 +14,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f09;
 import com.baidu.tieba.il5;
+import com.baidu.tieba.j19;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.lego.view.HorizontalScrollListView;
 import com.baidu.tieba.lego.view.MoreButton;
@@ -74,7 +74,7 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
                 return;
             }
             pu7.e(this.a).d(TiebaStatic.Params.OBJ_URL, this.a.getScheme()).b("obj_locate", this.b.getStatPosition()).a(this.a);
-            f09.c(this.b.i, this.a.getScheme());
+            j19.c(this.b.i, this.a.getScheme());
         }
     }
 
@@ -201,15 +201,15 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d019c, (ViewGroup) null, false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) null, false);
             this.m = linearLayout;
-            this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090e86);
-            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d30);
-            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f09139d);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090e81);
+            this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090e97);
+            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d72);
+            this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0913b2);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090e92);
             this.r = (MoreButton) l(this.m, R.id.right_textview);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091d07);
-            this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f090842);
+            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091d49);
+            this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f090850);
             return this.m;
         }
         return (View) invokeV.objValue;

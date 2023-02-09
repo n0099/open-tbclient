@@ -1,243 +1,255 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.java_websocket.WebSocket;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class y9a extends z9a {
+public final class y9a<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int connectionLostTimeout;
-    public Timer connectionLostTimer;
-    public TimerTask connectionLostTimerTask;
-    public boolean reuseAddr;
-    public boolean tcpNoDelay;
-    public boolean websocketRunning;
+    public final Class<M> a;
+    public final Class<B> b;
+    public final Map<Integer, t9a<M, B>> c;
 
-    public abstract Collection<WebSocket> getConnections();
-
-    /* loaded from: classes7.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<WebSocket> a;
-        public final /* synthetic */ y9a b;
-
-        public a(y9a y9aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y9aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = y9aVar;
-            this.a = new ArrayList<>();
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.clear();
-                try {
-                    this.a.addAll(this.b.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (this.b.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        WebSocket next = it.next();
-                        if (next instanceof aaa) {
-                            aaa aaaVar = (aaa) next;
-                            if (aaaVar.r() < currentTimeMillis) {
-                                if (aaa.u) {
-                                    PrintStream printStream = System.out;
-                                    printStream.println("Closing connection due to no pong received: " + next.toString());
-                                }
-                                aaaVar.f(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
-                            } else if (aaaVar.B()) {
-                                aaaVar.J();
-                            } else if (aaa.u) {
-                                PrintStream printStream2 = System.out;
-                                printStream2.println("Trying to ping a non open connection: " + next.toString());
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    if (aaa.u) {
-                        PrintStream printStream3 = System.out;
-                        printStream3.println("Exception during connection lost ping: " + e.getMessage());
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public y9a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y9a(Class<M> cls, Class<B> cls2, Map<Integer, t9a<M, B>> map) {
+        super(FieldEncoding.LENGTH_DELIMITED, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, cls2, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.connectionLostTimeout = 60;
-        this.websocketRunning = false;
+        this.a = cls;
+        this.b = cls2;
+        this.c = map;
     }
 
-    private void cancelConnectionLostTimer() {
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> y9a<M, B> a(Class<M> cls) {
+        InterceptResult invokeL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            Timer timer = this.connectionLostTimer;
-            if (timer != null) {
-                timer.cancel();
-                this.connectionLostTimer = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+            Class e = e(cls);
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (Field field : cls.getDeclaredFields()) {
+                WireField wireField = (WireField) field.getAnnotation(WireField.class);
+                if (wireField != null) {
+                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new t9a(wireField, field, e));
+                }
             }
-            TimerTask timerTask = this.connectionLostTimerTask;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.connectionLostTimerTask = null;
+            return new y9a<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
+        }
+        return (y9a) invokeL.objValue;
+    }
+
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            try {
+                return (Class<B>) Class.forName(cls.getName() + "$Builder");
+            } catch (ClassNotFoundException unused) {
+                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
             }
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: d */
+    public int encodedSize(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
+            int i = m.cachedSerializedSize;
+            if (i != 0) {
+                return i;
+            }
+            int i2 = 0;
+            for (t9a<M, B> t9aVar : this.c.values()) {
+                Object b = t9aVar.b(m);
+                if (b != null) {
+                    i2 += t9aVar.a().encodedSizeWithTag(t9aVar.c, b);
+                }
+            }
+            int size = i2 + m.unknownFields().size();
+            m.cachedSerializedSize = size;
+            return size;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public M decode(v9a v9aVar) throws IOException {
+        InterceptResult invokeL;
+        ProtoAdapter<?> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v9aVar)) == null) {
+            B f = f();
+            long c = v9aVar.c();
+            while (true) {
+                int f2 = v9aVar.f();
+                if (f2 != -1) {
+                    t9a<M, B> t9aVar = this.c.get(Integer.valueOf(f2));
+                    if (t9aVar != null) {
+                        try {
+                            if (t9aVar.f()) {
+                                i = t9aVar.a();
+                            } else {
+                                i = t9aVar.i();
+                            }
+                            t9aVar.j(f, i.decode(v9aVar));
+                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
+                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        }
+                    } else {
+                        FieldEncoding g = v9aVar.g();
+                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(v9aVar));
+                    }
+                } else {
+                    v9aVar.d(c);
+                    return (M) f.build();
+                }
+            }
+        } else {
+            return (M) invokeL.objValue;
         }
     }
 
-    private void restartConnectionLostTimer() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: h */
+    public String toString(M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            cancelConnectionLostTimer();
-            this.connectionLostTimer = new Timer("WebSocketTimer");
-            a aVar = new a(this);
-            this.connectionLostTimerTask = aVar;
-            Timer timer = this.connectionLostTimer;
-            int i = this.connectionLostTimeout;
-            timer.scheduleAtFixedRate(aVar, i * 1000, i * 1000);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (t9a<M, B> t9aVar : this.c.values()) {
+                Object b = t9aVar.b(m);
+                if (b != null) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(t9aVar.b);
+                    sb.append(com.alipay.sdk.encrypt.a.h);
+                    if (t9aVar.f) {
+                        b = "██";
+                    }
+                    sb.append(b);
+                }
+            }
+            sb.replace(0, 2, this.a.getSimpleName() + '{');
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public void encode(w9a w9aVar, M m) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w9aVar, m) == null) {
+            for (t9a<M, B> t9aVar : this.c.values()) {
+                Object b = t9aVar.b(m);
+                if (b != null) {
+                    t9aVar.a().encodeWithTag(w9aVar, t9aVar.c, b);
+                }
+            }
+            w9aVar.k(m.unknownFields());
         }
     }
 
-    public int getConnectionLostTimeout() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if ((obj instanceof y9a) && ((y9a) obj).a == this.a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public B f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.connectionLostTimeout;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.b.newInstance();
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (B) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.hashCode();
         }
         return invokeV.intValue;
     }
 
-    public boolean isReuseAddr() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: g */
+    public M redact(M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.reuseAddr;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean isTcpNoDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.tcpNoDelay;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void startConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.connectionLostTimeout <= 0) {
-                if (aaa.u) {
-                    System.out.println("Connection lost timer deactivated");
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
+            Message.a<M, B> newBuilder = m.newBuilder();
+            for (t9a<M, B> t9aVar : this.c.values()) {
+                if (t9aVar.f && t9aVar.a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", t9aVar.b, this.javaType.getName()));
                 }
-                return;
-            }
-            if (aaa.u) {
-                System.out.println("Connection lost timer started");
-            }
-            this.websocketRunning = true;
-            restartConnectionLostTimer();
-        }
-    }
-
-    public void stopConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.connectionLostTimer != null || this.connectionLostTimerTask != null) {
-                this.websocketRunning = false;
-                if (aaa.u) {
-                    System.out.println("Connection lost timer stopped");
-                }
-                cancelConnectionLostTimer();
-            }
-        }
-    }
-
-    public void setReuseAddr(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.reuseAddr = z;
-        }
-    }
-
-    public void setTcpNoDelay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.tcpNoDelay = z;
-        }
-    }
-
-    public void setConnectionLostTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.connectionLostTimeout = i;
-            if (i <= 0) {
-                if (aaa.u) {
-                    System.out.println("Connection lost timer stopped");
-                }
-                cancelConnectionLostTimer();
-            } else if (this.websocketRunning) {
-                if (aaa.u) {
-                    System.out.println("Connection lost timer restarted");
-                }
-                try {
-                    Iterator it = new ArrayList(getConnections()).iterator();
-                    while (it.hasNext()) {
-                        WebSocket webSocket = (WebSocket) it.next();
-                        if (webSocket instanceof aaa) {
-                            ((aaa) webSocket).N();
-                        }
+                boolean isAssignableFrom = Message.class.isAssignableFrom(t9aVar.i().javaType);
+                if (!t9aVar.f && (!isAssignableFrom || t9aVar.a.isRepeated())) {
+                    if (isAssignableFrom && t9aVar.a.isRepeated()) {
+                        aaa.k((List) t9aVar.e(newBuilder), t9aVar.i());
                     }
-                } catch (Exception e) {
-                    if (aaa.u) {
-                        PrintStream printStream = System.out;
-                        printStream.println("Exception during connection lost restart: " + e.getMessage());
+                } else {
+                    Object e = t9aVar.e(newBuilder);
+                    if (e != null) {
+                        t9aVar.h(newBuilder, t9aVar.a().redact(e));
                     }
                 }
-                restartConnectionLostTimer();
             }
+            newBuilder.clearUnknownFields();
+            return newBuilder.build();
         }
+        return (M) invokeL.objValue;
     }
 }

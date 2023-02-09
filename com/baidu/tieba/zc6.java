@@ -76,7 +76,7 @@ public class zc6 extends mc6<ee6> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                s89.b();
+                w99.b();
             }
         }
     }

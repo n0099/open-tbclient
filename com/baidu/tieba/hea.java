@@ -1,107 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xca;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.CompositeException;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public final class hea<T> implements xca.c<T> {
+public final class hea {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<hea> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xca<T> a;
-    public final hda<? super T> b;
-    public final hda<Throwable> c;
+    public final aea a;
 
-    /* loaded from: classes4.dex */
-    public static final class a<T> extends yca<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final yca<? super T> b;
-        public final hda<? super T> c;
-        public final hda<Throwable> d;
-
-        public a(yca<? super T> ycaVar, hda<? super T> hdaVar, hda<Throwable> hdaVar2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947822213, "Lcom/baidu/tieba/hea;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ycaVar, hdaVar, hdaVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = ycaVar;
-            this.c = hdaVar;
-            this.d = hdaVar2;
-        }
-
-        @Override // com.baidu.tieba.yca
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                try {
-                    this.d.call(th);
-                    this.b.b(th);
-                } catch (Throwable th2) {
-                    fda.e(th2);
-                    this.b.b(new CompositeException(th, th2));
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947822213, "Lcom/baidu/tieba/hea;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.yca
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                    this.b.c(t);
-                } catch (Throwable th) {
-                    fda.h(th, this, t);
-                }
-            }
-        }
+        b = new AtomicReference<>();
     }
 
-    public hea(xca<T> xcaVar, hda<? super T> hdaVar, hda<Throwable> hdaVar2) {
+    public static hea a() {
+        hea heaVar;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                hea heaVar2 = b.get();
+                if (heaVar2 != null) {
+                    return heaVar2;
+                }
+                heaVar = new hea();
+            } while (!b.compareAndSet(null, heaVar));
+            return heaVar;
+        }
+        return (hea) invokeV.objValue;
+    }
+
+    public static aea b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a().a;
+        }
+        return (aea) invokeV.objValue;
+    }
+
+    public hea() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xcaVar, hdaVar, hdaVar2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = xcaVar;
-        this.b = hdaVar;
-        this.c = hdaVar2;
-    }
-
-    public void call(yca<? super T> ycaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ycaVar) == null) {
-            a aVar = new a(ycaVar, this.b, this.c);
-            ycaVar.a(aVar);
-            this.a.j(aVar);
+        aea b2 = fea.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new iea(Looper.getMainLooper());
         }
-    }
-
-    @Override // com.baidu.tieba.xca.c, com.baidu.tieba.hda
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yca) ((yca) obj));
     }
 }

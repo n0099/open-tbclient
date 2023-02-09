@@ -122,10 +122,10 @@ public class GroupChatFragment extends BaseFragment {
                     if (this.a != 0) {
                         this.b.a.j2();
                         if (this.a == 430) {
-                            ej.N(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f0859));
+                            ej.N(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f0862));
                             return;
                         } else {
-                            ej.N(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f085a, Integer.valueOf(this.a)));
+                            ej.N(this.b.a.getContext(), this.b.a.getStringSafely(R.string.obfuscated_res_0x7f0f0863, Integer.valueOf(this.a)));
                             return;
                         }
                     }
@@ -455,8 +455,8 @@ public class GroupChatFragment extends BaseFragment {
                 this.a.c.N(false);
                 this.a.c.n();
                 GroupChatFragment groupChatFragment = this.a;
-                groupChatFragment.h2(false, groupChatFragment.getStringSafely(R.string.obfuscated_res_0x7f0f0862));
-                this.a.l2(R.string.obfuscated_res_0x7f0f0858, R.string.obfuscated_res_0x7f0f0857, R.string.obfuscated_res_0x7f0f0879);
+                groupChatFragment.h2(false, groupChatFragment.getStringSafely(R.string.obfuscated_res_0x7f0f086b));
+                this.a.l2(R.string.obfuscated_res_0x7f0f0861, R.string.obfuscated_res_0x7f0f0860, R.string.obfuscated_res_0x7f0f0882);
             }
         }
 
@@ -472,8 +472,8 @@ public class GroupChatFragment extends BaseFragment {
                     if (this.a.h != null && this.a.h.getUserInfo() != null && this.a.h.getUserInfo().getIdentityRole() < chatroomViewType) {
                         this.a.c.n();
                         GroupChatFragment groupChatFragment = this.a;
-                        groupChatFragment.h2(false, groupChatFragment.getStringSafely(R.string.obfuscated_res_0x7f0f0864));
-                        this.a.l2(R.string.obfuscated_res_0x7f0f0a69, R.string.obfuscated_res_0x7f0f0a6a, R.string.obfuscated_res_0x7f0f0879);
+                        groupChatFragment.h2(false, groupChatFragment.getStringSafely(R.string.obfuscated_res_0x7f0f086d));
+                        this.a.l2(R.string.obfuscated_res_0x7f0f0a73, R.string.obfuscated_res_0x7f0f0a74, R.string.obfuscated_res_0x7f0f0882);
                     }
                 }
                 if (this.a.h != null && this.a.h.getExtraInfo() != null && this.a.h.getUserInfo() != null) {
@@ -519,7 +519,7 @@ public class GroupChatFragment extends BaseFragment {
                     } else if (noUISysMsg.getMsgType() == 7013 && noUISysMsg.getChatroomInfo().getTalkType() == 1 && this.a.h.getUserInfo().getIdentityRole() != 2 && this.a.h.getUserInfo().getIdentityRole() != 3) {
                         this.a.h.getExtraInfo().setTalkType(1);
                         GroupChatFragment groupChatFragment9 = this.a;
-                        groupChatFragment9.h2(false, groupChatFragment9.getStringSafely(R.string.obfuscated_res_0x7f0f087a));
+                        groupChatFragment9.h2(false, groupChatFragment9.getStringSafely(R.string.obfuscated_res_0x7f0f0883));
                     }
                 }
             }
@@ -625,8 +625,8 @@ public class GroupChatFragment extends BaseFragment {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 k kVar = new k();
                 kVar.a = view2;
-                kVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090da4);
-                kVar.c = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0917c5);
+                kVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090db5);
+                kVar.c = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0917de);
                 return kVar;
             }
             return (k) invokeL.objValue;
@@ -727,7 +727,7 @@ public class GroupChatFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048600, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02dc, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02de, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -946,9 +946,9 @@ public class GroupChatFragment extends BaseFragment {
             } else if (chatRoomDetail.getUserInfo().getIsBeenTalkBanned() == 1) {
                 h2(false, getStringSafely(R.string.group_chat_no_speak_person));
             } else if (chatRoomDetail.getExtraInfo().getTalkType() == 1 && chatRoomDetail.getUserInfo().getIdentityRole() != 2 && chatRoomDetail.getUserInfo().getIdentityRole() != 3) {
-                h2(false, getStringSafely(R.string.obfuscated_res_0x7f0f087a));
+                h2(false, getStringSafely(R.string.obfuscated_res_0x7f0f0883));
             } else if (this.g.Z(chatRoomDetail.getExtraInfo().getTalkThresholdLevel(), chatRoomDetail.getUserInfo().getForumLevel())) {
-                h2(false, String.format(getStringSafely(R.string.obfuscated_res_0x7f0f086f), Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel())));
+                h2(false, String.format(getStringSafely(R.string.obfuscated_res_0x7f0f0878), Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel())));
             } else if (chatRoomDetail.getBots() != null && !dj.isEmpty(chatRoomDetail.getBots().getGuide())) {
                 h2(true, chatRoomDetail.getBots().getGuide());
             } else {
@@ -1055,7 +1055,7 @@ public class GroupChatFragment extends BaseFragment {
         if (UtilHelper.isNightOrDarkMode()) {
             this.m.a.setBackground(null);
         } else {
-            this.m.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080461);
+            this.m.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080465);
         }
     }
 

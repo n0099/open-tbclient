@@ -92,20 +92,20 @@ public class IdentityReviewActivity extends BaseActivity {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090f2b) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090f3c) {
                     IdentityReviewActivity identityReviewActivity = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity, identityReviewActivity.e, CameraActivityConfig.CONTENT_TYPE_ID_CARD_FRONT, 101)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090f29) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090f3a) {
                     IdentityReviewActivity identityReviewActivity2 = this.a;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(identityReviewActivity2, identityReviewActivity2.f, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0903f9) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090402) {
                     IdentityReviewActivity identityReviewActivity3 = this.a;
                     new t86(identityReviewActivity3.e, 1, identityReviewActivity3.a).execute(new Void[0]);
                     this.a.d = true;
                     this.a.q = new c96(this.a);
                     this.a.q.setCancelable(true);
                     this.a.q.setCanceledOnTouchOutside(false);
-                    this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03d4));
+                    this.a.q.setMessage(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03d5));
                     ih.i(this.a.q, this.a);
                 }
             }
@@ -369,27 +369,27 @@ public class IdentityReviewActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d03cc);
+            setContentView(R.layout.obfuscated_res_0x7f0d03ce);
             this.c = getIntent().getLongExtra("fid", 0L);
             this.a = new p86(getPageContext());
             this.b = new o86(getPageContext());
             this.e = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
             this.f = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
-            this.g = findViewById(R.id.obfuscated_res_0x7f090efd);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090f16);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090f0e);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090f27);
             this.h = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02f2));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02f3));
             this.h.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0903f9);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090402);
             this.i = textView;
             textView.setEnabled(false);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090f2f);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091b17);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f091763);
-            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f2b);
-            this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f29);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090f2c);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090f2a);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090f40);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091b52);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09177c);
+            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f3c);
+            this.n = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f3a);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090f3d);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090f3b);
             MessageManager.getInstance().registerListener(this.v);
             MessageManager.getInstance().registerListener(this.w);
             this.m.setOnClickListener(this.t);

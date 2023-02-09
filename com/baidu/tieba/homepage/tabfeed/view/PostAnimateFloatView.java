@@ -411,10 +411,10 @@ public class PostAnimateFloatView extends FrameLayout implements ay {
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04df, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d5e);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b22);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b3a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e3, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b5d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091b75);
             this.c = textView;
             this.f = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
             j();
@@ -466,7 +466,7 @@ public class PostAnimateFloatView extends FrameLayout implements ay {
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809b3, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809c2, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {

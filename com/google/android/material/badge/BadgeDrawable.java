@@ -244,9 +244,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             this.alpha = 255;
             this.number = -1;
             this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f100207).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bac);
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bb6);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bae;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bb8;
         }
 
         public SavedState(@NonNull Parcel parcel) {
@@ -630,7 +630,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             if (context == null) {
                 return "";
             }
-            return context.getString(R.string.obfuscated_res_0x7f0f0baf, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+            return context.getString(R.string.obfuscated_res_0x7f0f0bb9, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
         }
         return (String) invokeV.objValue;
     }

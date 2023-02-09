@@ -71,12 +71,12 @@ public class u64 extends UnitedSchemeBaseInterceptor {
 
         /* renamed from: com.baidu.tieba.u64$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0439a implements Runnable {
+        public class RunnableC0441a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0439a(a aVar) {
+            public RunnableC0441a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -193,7 +193,7 @@ public class u64 extends UnitedSchemeBaseInterceptor {
                 if (u64.a) {
                     Log.d("SwanGameLaunchAction", "onSuccess");
                 }
-                qm3.e0(new RunnableC0439a(this));
+                qm3.e0(new RunnableC0441a(this));
                 this.b.a1("1.6.0");
                 this.b.A0(true);
                 tt2 d = this.e.d(this.b);

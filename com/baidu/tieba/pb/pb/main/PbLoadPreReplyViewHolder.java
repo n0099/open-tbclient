@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,13 +22,13 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
     public ImageView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbLoadPreReplyViewHolder(View view2) {
+    public PbLoadPreReplyViewHolder(Context context, View view2) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,15 +43,15 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c1);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fc8);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09250b);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd9);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             p15.d(this.b).v(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080a9d, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080aac, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -60,17 +61,17 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.b.setText(R.string.obfuscated_res_0x7f0f0ae9);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0af3);
                         this.c.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                this.b.setText(R.string.obfuscated_res_0x7f0f0aeb);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0af5);
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f103f);
+            this.b.setText(R.string.obfuscated_res_0x7f0f1053);
             this.c.setVisibility(0);
         }
     }

@@ -26,11 +26,10 @@ import com.baidu.tieba.frs.aggregation.VideoAggregationActivity;
 import com.baidu.tieba.frs.professional.FrsProfessionIntroActivity;
 import com.baidu.tieba.iz6;
 import com.baidu.tieba.jz4;
-import com.baidu.tieba.p09;
 import com.baidu.tieba.py6;
 import com.baidu.tieba.qy6;
 import com.baidu.tieba.rf5;
-import com.baidu.tieba.tz8;
+import com.baidu.tieba.t19;
 import com.baidu.tieba.ur6;
 import com.baidu.tieba.v67;
 import com.baidu.tieba.video.UserItemData;
@@ -38,6 +37,7 @@ import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoEasterEgg.VideoEasterEggActivity;
 import com.baidu.tieba.vt6;
 import com.baidu.tieba.vx6;
+import com.baidu.tieba.x09;
 import com.baidu.tieba.xx6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -89,7 +89,7 @@ public class FRSExtraStatic {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 absDelegateAdapterList.add(new FrsSchoolRecommendAdapter(null, jz4.c, null));
                 absDelegateAdapterList.add(new dx6(null, ee6.g, true));
-                absDelegateAdapterList.add(new ex6(null, p09.d, null));
+                absDelegateAdapterList.add(new ex6(null, t19.d, null));
                 absDelegateAdapterList.add(new py6(null, v67.e, null));
             }
         }
@@ -291,7 +291,7 @@ public class FRSExtraStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new xx6(null, tz8.c, true));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new xx6(null, x09.c, true));
             }
         }
     }

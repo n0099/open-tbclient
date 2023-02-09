@@ -141,7 +141,7 @@ public class qu7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                f09.c(this.b.k.getPageContext(), this.a);
+                j19.c(this.b.k.getPageContext(), this.a);
             }
         }
     }
@@ -236,15 +236,15 @@ public class qu7 {
         NavigationBar navigationBar = (NavigationBar) legoListActivity.findViewById(R.id.view_navigation_bar);
         this.a = navigationBar;
         this.e = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, legoListActivity.v);
-        this.b = (RelativeLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d08ba, (View.OnClickListener) null);
+        this.b = (RelativeLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d08cd, (View.OnClickListener) null);
         ((LinearLayout) this.a.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_CENTER)).setGravity(17);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913c2);
-        this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913c3);
-        LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0914ed);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913d7);
+        this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913d8);
+        LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091502);
         this.f = linearLayout;
-        this.g = (TbImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0910c8);
-        this.h = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0910c9);
-        this.i = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0910ca);
+        this.g = (TbImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0910de);
+        this.h = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0910df);
+        this.i = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0910e0);
         ArrayList arrayList = new ArrayList();
         this.j = arrayList;
         arrayList.add(this.g);

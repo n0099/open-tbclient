@@ -128,10 +128,10 @@ public class e28 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915e0);
-            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e4);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915e3);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915e2);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915f6);
+            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915fa);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915f9);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915f8);
         }
     }
 
@@ -268,7 +268,7 @@ public class e28 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d059c, (ViewGroup) null);
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05a1, (ViewGroup) null);
                 view2.setTag(new c(this, view2));
             }
             g(getItem(i), (c) view2.getTag());

@@ -312,8 +312,8 @@ public class v36 {
             if (pbListView.c().getParent() == null) {
                 this.e.setNextPage(this.g);
             }
-            this.g.Q();
-            this.g.S();
+            this.g.R();
+            this.g.T();
         }
     }
 
@@ -337,11 +337,11 @@ public class v36 {
         ColorDrawable colorDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d081c, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d082e, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275), 0, 0);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09205f);
-            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f092060);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0920a3);
+            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a4);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 colorDrawable = new ColorDrawable(this.a.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
             } else {
@@ -349,7 +349,7 @@ public class v36 {
             }
             this.e.setDivider(colorDrawable);
             this.e.setDividerHeight(this.a.getActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f092061);
+            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a5);
             z35 z35Var = new z35(this.b);
             this.h = z35Var;
             z35Var.a0(this.a.getUniqueId());

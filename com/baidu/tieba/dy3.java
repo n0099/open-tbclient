@@ -1119,7 +1119,7 @@ public class dy3 implements ix3, jx3, gx3, kx3 {
                     if (this.g != null && this.g.isShowing()) {
                         return;
                     }
-                    if (view2 != null && R.id.obfuscated_res_0x7f09068b != view2.getId()) {
+                    if (view2 != null && R.id.obfuscated_res_0x7f090696 != view2.getId()) {
                         U();
                         return;
                     }
@@ -1141,11 +1141,11 @@ public class dy3 implements ix3, jx3, gx3, kx3 {
                         i2 = 0;
                     }
                     i0();
-                    this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13f9);
+                    this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1410);
                     if (this.x) {
-                        format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13fa), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
+                        format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1411), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
                     } else {
-                        format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13fc), Integer.valueOf(min2 - currentPosition));
+                        format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1413), Integer.valueOf(min2 - currentPosition));
                     }
                     if (this.g != null) {
                         this.g.d(format);
@@ -1156,7 +1156,7 @@ public class dy3 implements ix3, jx3, gx3, kx3 {
                         aVar.i(R.string.obfuscated_res_0x7f0f00a7, new d(this));
                         aVar.g(format);
                         aVar.l(R.string.obfuscated_res_0x7f0f00aa, new c(this));
-                        aVar.n(R.color.obfuscated_res_0x7f060a6c);
+                        aVar.n(R.color.obfuscated_res_0x7f060a6d);
                         aVar.k(new b(this));
                         aVar.f(min, 0, i, i2);
                         this.g = aVar.p();

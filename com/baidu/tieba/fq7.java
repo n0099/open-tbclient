@@ -117,14 +117,14 @@ public class fq7 extends BaseAdapter {
                 }
             }
             this.f = new a(this, 2001304);
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09062e);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090639);
             this.a = headImageView;
             headImageView.setIsRound(true);
             this.a.setPlaceHolder(1);
             this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.L_X04));
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090636);
-            this.c = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f090624);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09061d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090641);
+            this.c = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f09062f);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090628);
             this.c.setMaxLines(1);
             this.c.setTextEllipsize(TextUtils.TruncateAt.END);
             this.c.setAddTruncateListener(true);
@@ -175,7 +175,7 @@ public class fq7 extends BaseAdapter {
                         this.c.setVisibility(0);
                         String str = "";
                         if (!TextUtils.isEmpty(chatroomMEMsgInfoData.getFromName())) {
-                            str = "" + chatroomMEMsgInfoData.getFromName() + tbPageContext.getString(R.string.obfuscated_res_0x7f0f03c7);
+                            str = "" + chatroomMEMsgInfoData.getFromName() + tbPageContext.getString(R.string.obfuscated_res_0x7f0f03c8);
                         }
                         if (!TextUtils.isEmpty(chatroomMEMsgInfoData.getContent())) {
                             str = str + chatroomMEMsgInfoData.getContent();
@@ -184,7 +184,7 @@ public class fq7 extends BaseAdapter {
                     }
                     if (chatRoomInfoData.getAtInfoData() != null && chatRoomInfoData.getAtInfoData().getAtCountAll() > 0) {
                         this.e.setVisibility(0);
-                        this.e.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0868));
+                        this.e.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0871));
                         return;
                     }
                     this.e.setVisibility(8);
@@ -327,7 +327,7 @@ public class fq7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c4, viewGroup, false);
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c5, viewGroup, false);
                 cVar = new c(view2);
                 view2.setTag(cVar);
             } else {

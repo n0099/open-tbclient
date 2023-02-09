@@ -40,7 +40,7 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.mutiprocess.event.CollectEmotionEvent;
 import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.c89;
+import com.baidu.tieba.g99;
 import com.baidu.tieba.image.ImageViewerActivity;
 import com.baidu.tieba.j05;
 import com.baidu.tieba.u05;
@@ -63,7 +63,7 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
     public PermissionJudgePolicy c;
     public k d;
     public String e;
-    public c89 f;
+    public g99 f;
     public s05 g;
     public u05 h;
     public List<q05> i;
@@ -98,7 +98,7 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
         public final /* synthetic */ vo7 a;
 
         /* loaded from: classes6.dex */
-        public class a implements c89.a {
+        public class a implements g99.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -219,7 +219,7 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 this.a = str;
             }
 
-            @Override // com.baidu.tieba.c89.a
+            @Override // com.baidu.tieba.g99.a
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -234,7 +234,7 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 }
             }
 
-            @Override // com.baidu.tieba.c89.a
+            @Override // com.baidu.tieba.g99.a
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -243,15 +243,15 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     j05Var.setTitle(this.b.a.v(R.string.qr_url_jump_external_title));
                     j05Var.setMessageShowCenter(true);
                     j05Var.setMessage(this.b.a.v(R.string.qr_url_jump_external_message));
-                    j05Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f0459), new C0463a(this));
-                    j05Var.setNegativeButton(this.b.a.v(R.string.obfuscated_res_0x7f0f038b), new b(this));
+                    j05Var.setPositiveButton(this.b.a.v(R.string.obfuscated_res_0x7f0f045b), new C0463a(this));
+                    j05Var.setNegativeButton(this.b.a.v(R.string.obfuscated_res_0x7f0f038c), new b(this));
                     j05Var.setCancelable(false);
                     j05Var.setCanceledOnTouchOutside(false);
                     j05Var.create(this.b.a.a.getPageContext()).show();
                 }
             }
 
-            @Override // com.baidu.tieba.c89.a
+            @Override // com.baidu.tieba.g99.a
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -259,7 +259,7 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 }
             }
 
-            @Override // com.baidu.tieba.c89.a
+            @Override // com.baidu.tieba.g99.a
             public void onError(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -299,7 +299,7 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                     if (this.a.f != null && !this.a.f.isCancelled()) {
                         this.a.f.cancel();
                     }
-                    this.a.f = new c89(currentImageQRInfo, new a(this, currentImageQRInfo));
+                    this.a.f = new g99(currentImageQRInfo, new a(this, currentImageQRInfo));
                     this.a.f.setPriority(3);
                     this.a.f.execute(new String[0]);
                     this.a.w();
@@ -410,15 +410,15 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            h19 h19Var;
+            l29 l29Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof h19) || this.a.a.isFinishing() || (h19Var = (h19) customResponsedMessage.getData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof l29) || this.a.a.isFinishing() || (l29Var = (l29) customResponsedMessage.getData()) == null) {
                 return;
             }
-            h19Var.c = null;
-            if (!TextUtils.isEmpty(h19Var.e) && !TextUtils.isEmpty(h19Var.b) && h19Var.b.equals(this.a.e)) {
-                this.a.b.setCurrentImageQRInfo(h19Var.e);
-                this.a.u(h19Var.e);
+            l29Var.c = null;
+            if (!TextUtils.isEmpty(l29Var.e) && !TextUtils.isEmpty(l29Var.b) && l29Var.b.equals(this.a.e)) {
+                this.a.b.setCurrentImageQRInfo(l29Var.e);
+                this.a.u(l29Var.e);
             }
         }
     }
@@ -868,17 +868,17 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
         DragImageView dragImageView = (DragImageView) view2;
         ImageUrlData imageUrlData = dragImageView.getImageUrlData();
         if ((imageUrlData == null || TextUtils.isEmpty(imageUrlData.qrInfo)) && (imageBitmap = dragImageView.getImageBitmap()) != null && !imageBitmap.isRecycled()) {
-            h19 h19Var = new h19();
-            h19Var.a = 0;
-            h19Var.c = imageBitmap;
+            l29 l29Var = new l29();
+            l29Var.a = 0;
+            l29Var.c = imageBitmap;
             String currentImageUrl = this.b.getCurrentImageUrl();
             if (!TextUtils.isEmpty(currentImageUrl)) {
-                h19Var.b = String.valueOf(System.currentTimeMillis()) + TbMd5.getNameMd5FromUrl(currentImageUrl);
+                l29Var.b = String.valueOf(System.currentTimeMillis()) + TbMd5.getNameMd5FromUrl(currentImageUrl);
             } else {
-                h19Var.b = String.valueOf(BdUniqueId.gen().getId());
+                l29Var.b = String.valueOf(BdUniqueId.gen().getId());
             }
-            this.e = h19Var.b;
-            this.a.sendMessage(new CustomMessage(2921403, h19Var));
+            this.e = l29Var.b;
+            this.a.sendMessage(new CustomMessage(2921403, l29Var));
         }
     }
 
@@ -1023,9 +1023,9 @@ public class vo7 implements ImageViewerBottomLayout.c, ImageViewerBottomLayout.b
                 kVar.cancel();
                 this.d = null;
             }
-            c89 c89Var = this.f;
-            if (c89Var != null) {
-                c89Var.cancel();
+            g99 g99Var = this.f;
+            if (g99Var != null) {
+                g99Var.cancel();
                 this.f = null;
             }
             so7 so7Var = this.p;

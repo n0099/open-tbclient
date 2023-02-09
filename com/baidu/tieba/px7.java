@@ -180,16 +180,16 @@ public class px7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
             boolean z = false;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d080c, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d081e, (ViewGroup) null);
                 bVar = new b(this, null);
                 BarImageView barImageView = (BarImageView) view2.findViewById(R.id.forum_avatar);
                 bVar.c = barImageView;
                 barImageView.setGifIconSupport(false);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091710);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b0d);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b39);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092005);
-                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f09180f);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b1e);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b4a);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092049);
+                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091829);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();
@@ -211,7 +211,7 @@ public class px7 extends BaseAdapter {
             c(bVar.b, str);
             bVar.c.setTag(item.avatar);
             TextView textView = bVar.d;
-            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02b9) + " " + b(item.member_num));
+            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ba) + " " + b(item.member_num));
             TextView textView2 = bVar.e;
             textView2.setText(this.a.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
             if (!this.b && TextUtils.isEmpty(item.slogan)) {

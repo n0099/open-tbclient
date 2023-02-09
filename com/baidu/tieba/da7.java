@@ -169,33 +169,33 @@ public class da7 extends qn<be6, AutoVideoCardViewHolder<be6>> {
         }
     }
 
-    public final lo8 u(be6 be6Var) {
+    public final pp8 u(be6 be6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, be6Var)) == null) {
             if (be6Var != null) {
-                lo8 lo8Var = new lo8();
-                lo8Var.a = "17";
-                lo8Var.c = be6Var.g;
+                pp8 pp8Var = new pp8();
+                pp8Var.a = "17";
+                pp8Var.c = be6Var.g;
                 if (be6Var.getThreadData() != null) {
-                    lo8Var.d = String.valueOf(be6Var.getThreadData().getFid());
+                    pp8Var.d = String.valueOf(be6Var.getThreadData().getFid());
                     if (be6Var.getThreadData().getThreadVideoInfo() != null) {
-                        lo8Var.m = be6Var.getThreadData().getThreadVideoInfo().video_md5;
-                        lo8Var.p = String.valueOf(be6Var.getThreadData().getThreadVideoInfo().is_vertical);
+                        pp8Var.m = be6Var.getThreadData().getThreadVideoInfo().video_md5;
+                        pp8Var.p = String.valueOf(be6Var.getThreadData().getThreadVideoInfo().is_vertical);
                     }
                 }
-                lo8Var.k = be6Var.h();
-                lo8Var.f = be6Var.o();
-                lo8Var.l = be6Var.c();
-                lo8Var.h = be6Var.z();
-                lo8Var.e = TbadkCoreApplication.getCurrentAccount();
-                lo8Var.q = String.valueOf(be6Var.m());
-                lo8Var.r = String.valueOf(this.e);
-                return lo8Var;
+                pp8Var.k = be6Var.h();
+                pp8Var.f = be6Var.o();
+                pp8Var.l = be6Var.c();
+                pp8Var.h = be6Var.z();
+                pp8Var.e = TbadkCoreApplication.getCurrentAccount();
+                pp8Var.q = String.valueOf(be6Var.m());
+                pp8Var.r = String.valueOf(this.e);
+                return pp8Var;
             }
             return null;
         }
-        return (lo8) invokeL.objValue;
+        return (pp8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

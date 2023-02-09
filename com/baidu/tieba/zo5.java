@@ -142,7 +142,7 @@ public class zo5 {
                 if (isNetWorkAvailable) {
                     if (BdNetTypeUtil.isWifiNet()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        vs8.e().f();
+                        zt8.e().f();
                     } else if (BdNetTypeUtil.isMobileNet()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(false);
                     }

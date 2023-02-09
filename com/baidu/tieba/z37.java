@@ -69,14 +69,14 @@ public class z37 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ vz8 b;
+        public final /* synthetic */ z09 b;
 
-        public b(AlertDialog alertDialog, vz8 vz8Var) {
+        public b(AlertDialog alertDialog, z09 z09Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {alertDialog, vz8Var};
+                Object[] objArr = {alertDialog, z09Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,7 +87,7 @@ public class z37 {
                 }
             }
             this.a = alertDialog;
-            this.b = vz8Var;
+            this.b = z09Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -278,29 +278,29 @@ public class z37 {
         }
     }
 
-    public static boolean a(vz8 vz8Var, FrsFragment frsFragment) {
+    public static boolean a(z09 z09Var, FrsFragment frsFragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, vz8Var, frsFragment)) == null) {
-            if (vz8Var != null && vz8Var.getUserData() != null && frsFragment != null) {
-                int is_manager = vz8Var.getUserData().getIs_manager();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, z09Var, frsFragment)) == null) {
+            if (z09Var != null && z09Var.getUserData() != null && frsFragment != null) {
+                int is_manager = z09Var.getUserData().getIs_manager();
                 boolean i = p35.m().i("key_forum_tool_find_dialog_show", false);
                 if (is_manager == 1 && !i) {
-                    c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f071c), String.valueOf((int) R.drawable.obfuscated_res_0x7f080fdc), "", frsFragment);
+                    c(1, frsFragment.getString(R.string.obfuscated_res_0x7f0f0725), String.valueOf((int) R.drawable.obfuscated_res_0x7f080ff1), "", frsFragment);
                     p35.m().w("key_forum_tool_find_dialog_show", true);
                     if (frsFragment != null) {
                         frsFragment.I4(true);
                     }
                     return true;
                 } else if (!i && is_manager == 2) {
-                    c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f071b), String.valueOf((int) R.drawable.obfuscated_res_0x7f080fdc), "", frsFragment);
+                    c(2, frsFragment.getString(R.string.obfuscated_res_0x7f0f0724), String.valueOf((int) R.drawable.obfuscated_res_0x7f080ff1), "", frsFragment);
                     p35.m().w("key_forum_tool_find_dialog_show", true);
                     if (frsFragment != null) {
                         frsFragment.I4(true);
                     }
                     return true;
                 } else {
-                    AddBawuPopInfo addBawuPopInfo = vz8Var.bawuPopInfo;
+                    AddBawuPopInfo addBawuPopInfo = z09Var.bawuPopInfo;
                     if (addBawuPopInfo != null) {
                         c(3, addBawuPopInfo.content, addBawuPopInfo.img_url, addBawuPopInfo.jump_url, frsFragment);
                         if (frsFragment != null) {
@@ -363,33 +363,33 @@ public class z37 {
         g15.o("frsForumManage");
     }
 
-    public static boolean d(vz8 vz8Var, FrsFragment frsFragment) {
+    public static boolean d(z09 z09Var, FrsFragment frsFragment) {
         InterceptResult invokeLL;
         PopInfo popInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, vz8Var, frsFragment)) == null) {
-            if (frsFragment == null || p35.m().i(p35.q("key_frs_shield_thread_dialog"), false) || vz8Var.getUserData() == null || vz8Var.getUserData().getIs_manager() <= 0 || (popInfo = vz8Var.frsMaskPopInfo) == null || popInfo.if_pop.intValue() != 1) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, z09Var, frsFragment)) == null) {
+            if (frsFragment == null || p35.m().i(p35.q("key_frs_shield_thread_dialog"), false) || z09Var.getUserData() == null || z09Var.getUserData().getIs_manager() <= 0 || (popInfo = z09Var.frsMaskPopInfo) == null || popInfo.if_pop.intValue() != 1) {
                 return false;
             }
             ImageView imageView = new ImageView(frsFragment.getActivity());
             imageView.setImageResource(SkinManager.getResourceId(R.drawable.pic_frs_popup_shield));
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0434, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0436, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(frsFragment.getActivity());
-            tBAlertBuilder.x(vz8Var.frsMaskPopInfo.title);
-            tBAlertBuilder.q(vz8Var.frsMaskPopInfo.v_title);
+            tBAlertBuilder.x(z09Var.frsMaskPopInfo.title);
+            tBAlertBuilder.q(z09Var.frsMaskPopInfo.v_title);
             tBAlertBuilder.o(true);
             tBAlertBuilder.k(imageView);
             tBAlertBuilder.u(aVar);
             tBAlertBuilder.j(false);
             AlertDialog z = tBAlertBuilder.z();
             z.setOnDismissListener(new a());
-            aVar.a(new b(z, vz8Var));
+            aVar.a(new b(z, z09Var));
             p35.m().w(p35.q("key_frs_shield_thread_dialog"), true);
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_BAWU_TIP_DIALOG_SHOW);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (vz8Var.getForum() != null) {
-                statisticItem.param("fid", vz8Var.getForum().getId());
-                statisticItem.param("fname", vz8Var.getForum().getName());
+            if (z09Var.getForum() != null) {
+                statisticItem.param("fid", z09Var.getForum().getId());
+                statisticItem.param("fname", z09Var.getForum().getName());
             }
             TiebaStatic.log(statisticItem);
             if (frsFragment != null) {

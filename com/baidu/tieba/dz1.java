@@ -36,14 +36,14 @@ public class dz1 extends cz1 {
 
         /* renamed from: com.baidu.tieba.dz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0252a implements ii3.a {
+        public class C0250a implements ii3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ oz1 b;
             public final /* synthetic */ a c;
 
-            public C0252a(a aVar, String str, oz1 oz1Var) {
+            public C0250a(a aVar, String str, oz1 oz1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class dz1 extends cz1 {
                 oz1 oz1Var = new oz1("accelerometerChange", jSONObject, str);
                 ii3 a = ii3.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0252a(this, str, oz1Var));
+                a.e(new C0250a(this, str, oz1Var));
                 a.f();
                 oz1Var.b(this.a);
                 return w02.f();

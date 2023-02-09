@@ -12,14 +12,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.e29;
+import com.baidu.tieba.b39;
 import com.baidu.tieba.gj;
+import com.baidu.tieba.i39;
 import com.baidu.tieba.kp5;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.op5;
-import com.baidu.tieba.t19;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
-import com.baidu.tieba.x19;
+import com.baidu.tieba.x29;
 import com.baidu.tieba.yo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @yo
 /* loaded from: classes3.dex */
-public class SearchJsBridge implements t19 {
+public class SearchJsBridge implements x29 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -94,7 +94,7 @@ public class SearchJsBridge implements t19 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                e29.h(this.a);
+                i39.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -159,7 +159,7 @@ public class SearchJsBridge implements t19 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e29.b();
+                i39.b();
                 return null;
             }
             return invokeV.objValue;
@@ -218,26 +218,26 @@ public class SearchJsBridge implements t19 {
         this.mHistoryDatas = new ArrayList();
     }
 
-    public x19 deleteAllSearchHistory() {
+    public b39 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             op5.b(new c(this), new d(this));
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeV.objValue;
+        return (b39) invokeV.objValue;
     }
 
-    public x19 getSearchAdCookie() {
+    public b39 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            x19 x19Var = new x19();
-            x19Var.o(initCookies());
-            return x19Var;
+            b39 b39Var = new b39();
+            b39Var.o(initCookies());
+            return b39Var;
         }
-        return (x19) invokeV.objValue;
+        return (b39) invokeV.objValue;
     }
 
     public SearchJsBridge(List<String> list) {
@@ -259,15 +259,15 @@ public class SearchJsBridge implements t19 {
         this.mHistoryDatas = list;
     }
 
-    public x19 deleteSearchHistory(String str) {
+    public b39 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             op5.b(new a(this, str), new b(this));
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeL.objValue;
+        return (b39) invokeL.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {
@@ -321,7 +321,7 @@ public class SearchJsBridge implements t19 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t19
+    @Override // com.baidu.tieba.x29
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -361,31 +361,31 @@ public class SearchJsBridge implements t19 {
         return invokeLLLL.booleanValue;
     }
 
-    public x19 getSearchHistoryJson() {
+    public b39 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                x19Var.o("");
+                b39Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            x19Var.o(jSONArray.toString());
+            b39Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeV.objValue;
+        return (b39) invokeV.objValue;
     }
 
-    public x19 openSearchPage(String str, int i) {
+    public b39 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -394,8 +394,8 @@ public class SearchJsBridge implements t19 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLI.objValue;
+        return (b39) invokeLI.objValue;
     }
 }

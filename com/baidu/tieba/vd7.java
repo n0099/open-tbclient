@@ -114,9 +114,9 @@ public class vd7 extends sn implements BigdaySwipeRefreshLayout.k, PersonalizePa
         this.s = null;
         if (context != null) {
             this.l = context.getText(R.string.obfuscated_res_0x7f0f00de).toString();
-            this.m = context.getText(R.string.obfuscated_res_0x7f0f031c).toString();
-            this.n = context.getText(R.string.obfuscated_res_0x7f0f031e).toString();
-            this.o = context.getText(R.string.obfuscated_res_0x7f0f031d).toString();
+            this.m = context.getText(R.string.obfuscated_res_0x7f0f031d).toString();
+            this.n = context.getText(R.string.obfuscated_res_0x7f0f031f).toString();
+            this.o = context.getText(R.string.obfuscated_res_0x7f0f031e).toString();
         }
     }
 
@@ -128,11 +128,11 @@ public class vd7 extends sn implements BigdaySwipeRefreshLayout.k, PersonalizePa
             }
             if (lw4Var.c == 1) {
                 this.j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0101));
-                this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080315);
+                this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080318);
                 this.h.setAnimation(R.raw.obfuscated_res_0x7f110055);
             } else {
                 this.j.setTextColor(getContext().getResources().getColor(R.color.cp_cont_b_alpha40));
-                this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080316);
+                this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080319);
                 this.h.setAnimation(R.raw.obfuscated_res_0x7f110054);
             }
             this.h.setFrame(0);
@@ -247,9 +247,9 @@ public class vd7 extends sn implements BigdaySwipeRefreshLayout.k, PersonalizePa
             this.i.setAlpha(f);
             if (this.i.getBackground() == null && (lw4Var = this.k) != null) {
                 if (lw4Var.c == 1) {
-                    this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080315);
+                    this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080318);
                 } else {
-                    this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080316);
+                    this.i.setBackgroundResource(R.drawable.obfuscated_res_0x7f080319);
                 }
             }
         }
@@ -337,12 +337,12 @@ public class vd7 extends sn implements BigdaySwipeRefreshLayout.k, PersonalizePa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015b, (ViewGroup) null, false);
-            this.g = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bca);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090398);
-            this.h = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09039a);
-            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09223a);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092084);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015c, (ViewGroup) null, false);
+            this.g = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c0b);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a0);
+            this.h = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0903a2);
+            this.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092280);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c8);
             if (UtilHelper.canUseStyleImmersiveSticky() && (imageView.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
                 ((RelativeLayout.LayoutParams) imageView.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070288));
             }

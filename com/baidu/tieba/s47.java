@@ -71,7 +71,7 @@ public class s47 {
             int g = ej.g(activity, R.dimen.tbds53);
             linearLayout.addView(imageView, new LinearLayout.LayoutParams(g, g));
             TextView textView = new TextView(activity);
-            textView.setText(R.string.obfuscated_res_0x7f0f033f);
+            textView.setText(R.string.obfuscated_res_0x7f0f0340);
             textView.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
             linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
@@ -107,21 +107,21 @@ public class s47 {
     public static void e(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, onClickListener) == null) {
-            a(b(activity, R.string.obfuscated_res_0x7f0f033b, R.string.obfuscated_res_0x7f0f0339, null), R.string.obfuscated_res_0x7f0f0459, R.string.obfuscated_res_0x7f0f038b, onClickListener, null).z();
+            a(b(activity, R.string.obfuscated_res_0x7f0f033c, R.string.obfuscated_res_0x7f0f033a, null), R.string.obfuscated_res_0x7f0f045b, R.string.obfuscated_res_0x7f0f038c, onClickListener, null).z();
         }
     }
 
     public static void f(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, activity, onClickListener) == null) {
-            a(b(activity, R.string.obfuscated_res_0x7f0f033b, R.string.obfuscated_res_0x7f0f033a, null), R.string.obfuscated_res_0x7f0f0459, R.string.obfuscated_res_0x7f0f038b, onClickListener, null).z();
+            a(b(activity, R.string.obfuscated_res_0x7f0f033c, R.string.obfuscated_res_0x7f0f033b, null), R.string.obfuscated_res_0x7f0f045b, R.string.obfuscated_res_0x7f0f038c, onClickListener, null).z();
         }
     }
 
     public static void i(Activity activity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, activity, onClickListener) == null) {
-            a(b(activity, R.string.obfuscated_res_0x7f0f0349, R.string.obfuscated_res_0x7f0f0348, null), R.string.obfuscated_res_0x7f0f0347, R.string.obfuscated_res_0x7f0f038b, onClickListener, null).z();
+            a(b(activity, R.string.obfuscated_res_0x7f0f034a, R.string.obfuscated_res_0x7f0f0349, null), R.string.obfuscated_res_0x7f0f0348, R.string.obfuscated_res_0x7f0f038c, onClickListener, null).z();
         }
     }
 
@@ -130,13 +130,13 @@ public class s47 {
         if ((interceptable != null && interceptable.invokeLL(65542, null, activity, onClickListener) != null) || !p35.m().i("key_vpb_booster_disconnect_alert", true)) {
             return;
         }
-        a(b(activity, R.string.obfuscated_res_0x7f0f0340, R.string.obfuscated_res_0x7f0f033e, c(activity)), R.string.obfuscated_res_0x7f0f033d, R.string.obfuscated_res_0x7f0f033c, onClickListener, null).z();
+        a(b(activity, R.string.obfuscated_res_0x7f0f0341, R.string.obfuscated_res_0x7f0f033f, c(activity)), R.string.obfuscated_res_0x7f0f033e, R.string.obfuscated_res_0x7f0f033d, onClickListener, null).z();
     }
 
     public static void h(Activity activity, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, activity, onClickListener, onClickListener2) == null) {
-            a(b(activity, R.string.obfuscated_res_0x7f0f0344, R.string.obfuscated_res_0x7f0f0341, null), R.string.obfuscated_res_0x7f0f0343, R.string.obfuscated_res_0x7f0f0342, onClickListener, onClickListener2).z();
+            a(b(activity, R.string.obfuscated_res_0x7f0f0345, R.string.obfuscated_res_0x7f0f0342, null), R.string.obfuscated_res_0x7f0f0344, R.string.obfuscated_res_0x7f0f0343, onClickListener, onClickListener2).z();
         }
     }
 }

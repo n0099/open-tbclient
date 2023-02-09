@@ -283,7 +283,7 @@ public class TopicListView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.e.setNextPage(this.k);
             this.k.g();
-            this.k.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.k.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.k.v(ej.g(this.b.getPageActivity(), R.dimen.tbds150));
             this.k.F(getResources().getString(R.string.really_great));
         }

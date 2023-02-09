@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.uca;
+import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -126,22 +126,22 @@ public final class NotificationLite {
         return invokeV.objValue;
     }
 
-    public static <T> boolean a(uca<? super T> ucaVar, Object obj) {
+    public static <T> boolean a(yda<? super T> ydaVar, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ucaVar, obj)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ydaVar, obj)) == null) {
             if (obj == a) {
-                ucaVar.onCompleted();
+                ydaVar.onCompleted();
                 return true;
             } else if (obj == b) {
-                ucaVar.onNext(null);
+                ydaVar.onNext(null);
                 return false;
             } else if (obj != null) {
                 if (obj.getClass() == OnErrorSentinel.class) {
-                    ucaVar.onError(((OnErrorSentinel) obj).e);
+                    ydaVar.onError(((OnErrorSentinel) obj).e);
                     return true;
                 }
-                ucaVar.onNext(obj);
+                ydaVar.onNext(obj);
                 return false;
             } else {
                 throw new IllegalArgumentException("The lite notification can not be null");

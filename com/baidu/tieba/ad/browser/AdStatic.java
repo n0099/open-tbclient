@@ -35,9 +35,9 @@ import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ap5;
-import com.baidu.tieba.ar8;
 import com.baidu.tieba.cq5;
 import com.baidu.tieba.dx5;
+import com.baidu.tieba.es8;
 import com.baidu.tieba.rf;
 import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -105,7 +105,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements ar8.c {
+    public static class b implements es8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -123,8 +123,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ar8.c
-        public int a(Context context, String str, String str2, boolean z, ar8.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.baidu.tieba.es8.c
+        public int a(Context context, String str, String str2, boolean z, es8.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -140,7 +140,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements ar8.a {
+    public static class c implements es8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -158,7 +158,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ar8.a
+        @Override // com.baidu.tieba.es8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             String str;
@@ -253,7 +253,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements ar8.a {
+    public static class d implements es8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,7 +271,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ar8.a
+        @Override // com.baidu.tieba.es8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -366,7 +366,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements ar8.a {
+    public static class e implements es8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -384,7 +384,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.baidu.tieba.ar8.a
+        @Override // com.baidu.tieba.es8.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

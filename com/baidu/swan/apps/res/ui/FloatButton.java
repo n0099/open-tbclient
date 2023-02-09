@@ -51,7 +51,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090a77).setBottom(nm3.O(191.0f));
+            findViewById(R.id.obfuscated_res_0x7f090a85).setBottom(nm3.O(191.0f));
         }
     }
 
@@ -203,7 +203,7 @@ public class FloatButton extends FullScreenFloatView {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) != null) || drawable == null) {
             return;
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090a77);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090a85);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
@@ -212,7 +212,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonStyle(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a77);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a85);
             String str = "#4E4E4E";
             if (jSONObject != null) {
                 str = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "#4E4E4E");

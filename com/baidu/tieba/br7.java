@@ -44,10 +44,10 @@ public class br7 implements rp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
             if (i == 5) {
-                return new RobotSkillItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0390, viewGroup, false), this.a);
+                return new RobotSkillItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0392, viewGroup, false), this.a);
             }
             if (i == 4) {
-                return new RobotItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, viewGroup, false));
+                return new RobotItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0390, viewGroup, false));
             }
             return null;
         }

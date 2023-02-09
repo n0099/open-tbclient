@@ -120,7 +120,7 @@ public class by7 extends qn<gy7, SearchSuggestItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new SearchSuggestItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c5, viewGroup, false));
+            return new SearchSuggestItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d7, viewGroup, false));
         }
         return (SearchSuggestItemViewHolder) invokeL.objValue;
     }

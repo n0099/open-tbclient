@@ -165,18 +165,18 @@ public class fd0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             if ("recommend".equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d98;
+                return R.drawable.obfuscated_res_0x7f080daa;
             }
             if (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d99;
+                return R.drawable.obfuscated_res_0x7f080dab;
             }
             if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d9a;
+                return R.drawable.obfuscated_res_0x7f080dac;
             }
             if (!"dark".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d98;
+                return R.drawable.obfuscated_res_0x7f080daa;
             }
-            return R.drawable.obfuscated_res_0x7f080d99;
+            return R.drawable.obfuscated_res_0x7f080dab;
         }
         return invokeL.intValue;
     }
@@ -372,15 +372,15 @@ public class fd0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d4a;
+                return R.drawable.obfuscated_res_0x7f080d5c;
             }
             if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d4b;
+                return R.drawable.obfuscated_res_0x7f080d5d;
             }
             if ("dark".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d4a;
+                return R.drawable.obfuscated_res_0x7f080d5c;
             }
-            return R.drawable.obfuscated_res_0x7f080d49;
+            return R.drawable.obfuscated_res_0x7f080d5b;
         }
         return invokeL.intValue;
     }
@@ -390,14 +390,14 @@ public class fd0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d5b;
+                return R.drawable.obfuscated_res_0x7f080d6d;
             }
             if ("night".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d5c;
+                return R.drawable.obfuscated_res_0x7f080d6e;
             }
             if ("dark".equals(this.b)) {
             }
-            return R.drawable.obfuscated_res_0x7f080d5a;
+            return R.drawable.obfuscated_res_0x7f080d6c;
         }
         return invokeL.intValue;
     }

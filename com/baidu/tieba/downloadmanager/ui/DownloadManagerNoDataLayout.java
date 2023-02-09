@@ -105,7 +105,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             layoutParams2.setMargins(0, ej.g(context, R.dimen.tbds34), 0, 0);
             this.b.setGravity(17);
             addView(this.b, layoutParams2);
-            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f046d);
+            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0470);
             b();
         }
     }

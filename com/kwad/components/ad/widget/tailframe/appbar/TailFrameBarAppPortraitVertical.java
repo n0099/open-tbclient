@@ -88,7 +88,7 @@ public class TailFrameBarAppPortraitVertical extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adTemplate) == null) {
             if (d.p(adTemplate)) {
-                this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06078a));
+                this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06078b));
                 this.hG.setTextColor(Color.parseColor("#FFFFFF"));
                 this.CI.setTextColor(Color.parseColor("#FFFFFF"));
             } else {
@@ -102,6 +102,6 @@ public class TailFrameBarAppPortraitVertical extends a {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0495 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0497 : invokeV.intValue;
     }
 }

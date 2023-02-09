@@ -79,17 +79,17 @@ public class cq6 extends as6<dq6, FrsMemberHeaderViewHolder> {
                     return;
                 }
                 dq6 dq6Var = (dq6) item;
-                if (view2.getId() == R.id.obfuscated_res_0x7f0913e3) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0913f8) {
                     if (!ViewHelper.checkUpIsLogin(this.a.c.getPageActivity())) {
                         return;
                     }
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        this.a.c.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        this.a.c.showToast(R.string.obfuscated_res_0x7f0f0d08);
                         return;
                     }
                     String a = dq6Var.a();
                     this.a.l.Y(dq6Var.b(), a);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f0925ba) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092608) {
                     String a2 = dq6Var.a();
                     this.a.c.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.mContext, dq6Var.b(), a2)));
                 }
@@ -125,10 +125,10 @@ public class cq6 extends as6<dq6, FrsMemberHeaderViewHolder> {
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if ((obj instanceof g09) && this.a.l.getErrorCode() == 0) {
-                    g09 g09Var = (g09) obj;
-                    g09Var.y(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, g09Var));
+                if ((obj instanceof k19) && this.a.l.getErrorCode() == 0) {
+                    k19 k19Var = (k19) obj;
+                    k19Var.y(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, k19Var));
                 } else if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
                     AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
                 } else {
@@ -172,7 +172,7 @@ public class cq6 extends as6<dq6, FrsMemberHeaderViewHolder> {
             if (this.l == null) {
                 N();
             }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02bc, (ViewGroup) null), this.o);
+            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02be, (ViewGroup) null), this.o);
         }
         return (FrsMemberHeaderViewHolder) invokeL.objValue;
     }
@@ -215,12 +215,12 @@ public class cq6 extends as6<dq6, FrsMemberHeaderViewHolder> {
             if (dq6Var != null && dq6Var.c() != null) {
                 int parseColor = Color.parseColor("#56cfa1");
                 int color = SkinManager.getColor(R.color.CAM_X0109);
-                g09 c = dq6Var.c();
+                k19 c = dq6Var.c();
                 if (TbadkCoreApplication.isLogin()) {
                     if (c.n() == 1) {
                         frsMemberHeaderViewHolder.a.setVisibility(8);
                         frsMemberHeaderViewHolder.b.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0c06);
+                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0c10);
                         SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.m()));
                         if (StringUtils.isNull(c.h())) {
                             frsMemberHeaderViewHolder.d.setVisibility(8);
@@ -268,7 +268,7 @@ public class cq6 extends as6<dq6, FrsMemberHeaderViewHolder> {
                 SkinManager.setViewTextColor(frsMemberHeaderViewHolder.b, R.color.CAM_X0105, 1);
                 SkinManager.setViewTextColor(frsMemberHeaderViewHolder.d, R.color.CAM_X0109, 1);
                 SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f08059e);
+                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f0805a3);
                 SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
                 if (this.m != c.m() || this.n != c.c()) {
                     this.m = c.m();
@@ -290,7 +290,7 @@ public class cq6 extends as6<dq6, FrsMemberHeaderViewHolder> {
                     ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                     scaleAnimation.setFillAfter(true);
                     scaleAnimation.setDuration(1000L);
-                    jz8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
+                    n09.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
                 }
             }
             return view2;

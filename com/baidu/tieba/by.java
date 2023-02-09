@@ -76,7 +76,7 @@ public class by extends dz {
             this.A = (TextView) this.f.findViewById(R.id.video_seg_abstract);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.frame_interview_no_video);
-            qo8 t = t();
+            up8 t = t();
             this.j = t;
             t.getMainView().setBackgroundResource(R.color.transparent);
         }
@@ -108,15 +108,15 @@ public class by extends dz {
     }
 
     @Override // com.baidu.tieba.dz
-    public qo8 t() {
+    public up8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ro8 ro8Var = new ro8(this.b, this.i);
-            ro8Var.setStageType("2003");
-            return ro8Var;
+            vp8 vp8Var = new vp8(this.b, this.i);
+            vp8Var.setStageType("2003");
+            return vp8Var;
         }
-        return (qo8) invokeV.objValue;
+        return (up8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.dz, com.baidu.tieba.ay

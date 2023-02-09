@@ -182,13 +182,13 @@ public class y77 {
                 return;
             }
             this.I = new ArrayList<>();
-            qn<?, ?> g = mr8.l().g(this.c, AdvertAppInfo.y, "CONCERN");
-            qn<?, ?> g2 = mr8.l().g(this.c, AdvertAppInfo.z, "CONCERN");
-            qn<?, ?> g3 = mr8.l().g(this.c, AdvertAppInfo.A, "CONCERN");
-            qn<?, ?> g4 = mr8.l().g(this.c, AdvertAppInfo.B, "CONCERN");
-            qn<?, ?> g5 = mr8.l().g(this.c, AdvertAppInfo.C, "CONCERN");
-            qn<?, ?> g6 = mr8.l().g(this.c, AdvertAppInfo.E, "CONCERN");
-            qn<?, ?> g7 = mr8.l().g(this.c, AdvertAppInfo.D, "CONCERN");
+            qn<?, ?> g = qs8.l().g(this.c, AdvertAppInfo.y, "CONCERN");
+            qn<?, ?> g2 = qs8.l().g(this.c, AdvertAppInfo.z, "CONCERN");
+            qn<?, ?> g3 = qs8.l().g(this.c, AdvertAppInfo.A, "CONCERN");
+            qn<?, ?> g4 = qs8.l().g(this.c, AdvertAppInfo.B, "CONCERN");
+            qn<?, ?> g5 = qs8.l().g(this.c, AdvertAppInfo.C, "CONCERN");
+            qn<?, ?> g6 = qs8.l().g(this.c, AdvertAppInfo.E, "CONCERN");
+            qn<?, ?> g7 = qs8.l().g(this.c, AdvertAppInfo.D, "CONCERN");
             this.I.add(g);
             this.I.add(g2);
             this.I.add(g3);
@@ -237,8 +237,8 @@ public class y77 {
         Iterator<qn> it = this.I.iterator();
         while (it.hasNext()) {
             qn next = it.next();
-            if (next instanceof dr8) {
-                ((dr8) next).onDestroy();
+            if (next instanceof hs8) {
+                ((hs8) next).onDestroy();
             }
         }
     }

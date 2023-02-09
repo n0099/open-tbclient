@@ -197,9 +197,9 @@ public class wt5<T> {
         this.h = true;
         this.i = z;
         this.a = view2;
-        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09183b);
-        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09183c);
-        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09183d);
+        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091855);
+        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091856);
+        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091857);
     }
 
     public void B(int i) {

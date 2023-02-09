@@ -95,7 +95,7 @@ public class MenuKeyboardView extends LinearLayout implements xb5 {
             }
         }
         this.b = 0;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06af, this);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d06b5, this);
         RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a), -2);
         ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
         setLayoutParams(layoutParams);

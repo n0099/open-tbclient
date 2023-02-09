@@ -188,13 +188,13 @@ public class my6 {
             this.c = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, ej.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
-            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d093f, (View.OnClickListener) null);
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0954, (View.OnClickListener) null);
             this.f = imageView;
             imageView.setLayoutParams(layoutParams);
             this.f.setOnClickListener(new a(this));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090bbf);
+            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090bd0);
             this.e = scrollLabelTabHost;
             scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());
         }

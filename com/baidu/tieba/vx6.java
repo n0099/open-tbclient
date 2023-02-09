@@ -70,15 +70,15 @@ public class vx6 {
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ g09 a;
+            public final /* synthetic */ k19 a;
             public final /* synthetic */ d b;
 
-            public a(d dVar, g09 g09Var) {
+            public a(d dVar, k19 k19Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, g09Var};
+                    Object[] objArr = {dVar, k19Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class vx6 {
                     }
                 }
                 this.b = dVar;
-                this.a = g09Var;
+                this.a = k19Var;
             }
 
             @Override // java.lang.Runnable
@@ -141,8 +141,8 @@ public class vx6 {
                 if (AntiHelper.m(this.a.k.getErrorCode(), this.a.k.getErrorString())) {
                     AntiHelper.u(this.a.a.getPageActivity(), this.a.k.getErrorString());
                 } else if (obj != null) {
-                    g09 g09Var = (g09) obj;
-                    if (ListUtils.getCount(this.a.j) > 0 && g09Var != null) {
+                    k19 k19Var = (k19) obj;
+                    if (ListUtils.getCount(this.a.j) > 0 && k19Var != null) {
                         Iterator it = this.a.i.iterator();
                         while (true) {
                             if (!it.hasNext()) {
@@ -150,14 +150,14 @@ public class vx6 {
                             }
                             wx6 wx6Var = (wx6) it.next();
                             FeedForumData feedForumData = (FeedForumData) wx6Var.f.getTag();
-                            if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(g09Var.g())) {
+                            if (feedForumData != null && feedForumData.getForumId() != null && feedForumData.getForumId().equals(k19Var.g())) {
                                 feedForumData.setIsLike(1);
                                 this.a.l(wx6Var);
                                 break;
                             }
                         }
                         if (this.a.m == 1) {
-                            this.a.l.postDelayed(new a(this, g09Var), 1000L);
+                            this.a.l.postDelayed(new a(this, k19Var), 1000L);
                         }
                     }
                 } else if (!StringUtils.isNull(this.a.k.getErrorString())) {
@@ -199,7 +199,7 @@ public class vx6 {
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090b9a) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090bab) {
                     if (ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && (feedForumData = (FeedForumData) view2.getTag()) != null) {
                         this.a.k.Y(feedForumData.getForumName(), feedForumData.getForumId());
                         if (this.a.m == 1) {
@@ -209,8 +209,8 @@ public class vx6 {
                         }
                         TiebaStatic.log(new StatisticItem(str3).param("fid", feedForumData.getForumId()));
                     }
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f0913e6) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f090c09) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f0913fb) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f090c1a) {
                         FeedForumData feedForumData2 = (FeedForumData) view2.getTag();
                         if (feedForumData2 != null) {
                             if (this.a.m == 1) {
@@ -331,9 +331,9 @@ public class vx6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             j05 j05Var = new j05(this.a.getPageActivity());
-            j05Var.setMessage(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d64));
+            j05Var.setMessage(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d6f));
             j05Var.setPositiveButton(R.string.alert_yes_button, new b(this));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new c(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new c(this));
             j05Var.create(this.a).show();
         }
     }
@@ -412,15 +412,15 @@ public class vx6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tbPageContext, view2, Integer.valueOf(i), Boolean.valueOf(z), bdUniqueId}) == null) {
             this.a = tbPageContext;
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bda);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090bdb);
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f091377);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913e7);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913e6);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090beb);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090bec);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f09138c);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913fc);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0913fb);
             this.e = imageView;
             imageView.setOnClickListener(this.q);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a2a);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090a29);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a38);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090a37);
             this.f.setOnClickListener(this.q);
             LikeModel likeModel = new LikeModel(tbPageContext);
             this.k = likeModel;
@@ -463,9 +463,9 @@ public class vx6 {
             if (size2 > 0) {
                 for (int i2 = 0; i2 < size2; i2++) {
                     if (this.m == 1) {
-                        i = R.layout.obfuscated_res_0x7f0d0321;
+                        i = R.layout.obfuscated_res_0x7f0d0323;
                     } else {
-                        i = R.layout.obfuscated_res_0x7f0d0309;
+                        i = R.layout.obfuscated_res_0x7f0d030b;
                     }
                     View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(i, (ViewGroup) null);
                     this.b.addView(inflate);
@@ -488,7 +488,7 @@ public class vx6 {
                     wx6Var.b.setPlaceHolder(1);
                     wx6Var.b.K(feedForumData.getAvatar(), 15, false);
                     wx6Var.c.setText(feedForumData.getForumName());
-                    wx6Var.d.setText(String.format(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f02c6), k(feedForumData.getMemberCount()), k(feedForumData.getPostNum())));
+                    wx6Var.d.setText(String.format(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f02c7), k(feedForumData.getMemberCount()), k(feedForumData.getPostNum())));
                     wx6Var.e.setText(feedForumData.getReason());
                     if (feedForumData.getIsLike() == 0) {
                         wx6Var.f.setClickable(true);

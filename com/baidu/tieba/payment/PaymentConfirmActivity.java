@@ -173,7 +173,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
                 j05Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getPageContext().getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0e5f), this.a, true, true, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getPageContext().getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0e6b), this.a, true, true, true)));
             }
         }
     }
@@ -346,7 +346,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                     } else {
                         String errorString = responsePaymentConfirmInfoMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                         }
                         this.a.showToast(errorString);
                     }
@@ -463,7 +463,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                 }
             }
         }
@@ -829,7 +829,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         PaymentConfirmInfoData.OrderInfo order_info;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z)}) == null) && (paymentConfirmInfoData = this.d) != null && (order_info = paymentConfirmInfoData.getOrder_info()) != null) {
-            showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f0e5b));
+            showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f0e67));
             this.a.o(false);
             PayRequestData payRequestData = new PayRequestData();
             payRequestData.setOrderId(order_info.getOrder_id());
@@ -865,7 +865,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     public final void j2(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
-            new j05(getPageContext().getPageActivity()).setMessage(str).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this)).setPositiveButton(R.string.obfuscated_res_0x7f0f0e5f, new c(this, str2)).create(getPageContext()).show();
+            new j05(getPageContext().getPageActivity()).setMessage(str).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(this)).setPositiveButton(R.string.obfuscated_res_0x7f0f0e6b, new c(this, str2)).create(getPageContext()).show();
         }
     }
 
@@ -913,7 +913,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 this.b.J(this.c);
                 return;
             }
-            showNetRefreshViewNoClick(this.a.q(), getResources().getString(R.string.obfuscated_res_0x7f0f0cfe));
+            showNetRefreshViewNoClick(this.a.q(), getResources().getString(R.string.obfuscated_res_0x7f0f0d08));
         }
     }
 
@@ -924,7 +924,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             this.a.A();
             this.a.C(i2);
             this.a.l();
-            j05 create = new j05(getPageContext().getPageActivity()).setContentView(v).setPositiveButton(R.string.push_commit, new k(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new j(this)).create(getPageContext());
+            j05 create = new j05(getPageContext().getPageActivity()).setContentView(v).setPositiveButton(R.string.push_commit, new k(this, str)).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new j(this)).create(getPageContext());
             if (i2 <= 0) {
                 create.setYesBtnClickable(false);
                 this.a.n(false);
@@ -957,41 +957,41 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 switch (i2) {
                     case 2270040:
                         if (CurrencySwitchUtil.isYyIsConvert(this.m)) {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e6e);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e7a);
                         } else {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e61);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e6d);
                         }
                         string2 = getResources().getString(R.string.bunding_phone);
                         break;
                     case 2270041:
                         if (CurrencySwitchUtil.isYyIsConvert(this.m)) {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e6d);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e79);
                         } else {
-                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e5e);
+                            str = getResources().getString(R.string.obfuscated_res_0x7f0f0e6a);
                         }
                         string2 = getResources().getString(R.string.bunding_phone);
                         break;
                     case 2270042:
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f0e60);
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f0e6c);
                         string2 = getResources().getString(R.string.msg_validate);
                         break;
                     default:
                         str2 = "";
                         break;
                 }
-                new j05(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
+                new j05(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
             }
             if (CurrencySwitchUtil.isYyIsConvert(this.m)) {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0e6c);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0e78);
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f0e5d);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f0e69);
             }
             str = string;
             string2 = getResources().getString(R.string.setup_password);
             String str4 = str;
             str3 = string2;
             str2 = str4;
-            new j05(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
+            new j05(getPageContext().getPageActivity()).setMessage(str2).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this)).setPositiveButton(str3, new a(this, i2, str3)).create(getPageContext()).show();
         }
     }
 }

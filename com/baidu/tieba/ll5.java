@@ -199,10 +199,10 @@ public class ll5 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             int itemViewType = getItemViewType(i);
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d079c, viewGroup, false);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ae, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a9d);
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a9b);
+                bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ad5);
+                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ad3);
             } else {
                 bVar = (b) view2.getTag();
             }

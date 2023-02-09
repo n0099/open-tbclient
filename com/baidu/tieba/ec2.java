@@ -9,7 +9,7 @@ import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.model.PMSException;
 import com.baidu.tieba.sb2;
-import com.baidu.tieba.tca;
+import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,13 @@ public abstract class ec2 extends ac2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public zca<? super th4> c;
-    public zca<? super rh4> d;
+    public dea<? super th4> c;
+    public dea<? super rh4> d;
     public em4 e;
     public pn3<Exception> f;
     public ng4<th4> g;
     public ng4<rh4> h;
-    public zca<uh4> i;
+    public dea<uh4> i;
 
     public abstract int U();
 
@@ -390,7 +390,7 @@ public abstract class ec2 extends ac2 {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements tca.a<th4> {
+    public class e implements xda.a<th4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ec2 a;
@@ -414,18 +414,18 @@ public abstract class ec2 extends ac2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
-        public void call(zca<? super th4> zcaVar) {
+        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+        public void call(dea<? super th4> deaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, zcaVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, deaVar) != null) {
                 return;
             }
-            this.a.c = zcaVar;
+            this.a.c = deaVar;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class f implements tca.a<rh4> {
+    public class f implements xda.a<rh4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ec2 a;
@@ -449,18 +449,18 @@ public abstract class ec2 extends ac2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
-        public void call(zca<? super rh4> zcaVar) {
+        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+        public void call(dea<? super rh4> deaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, zcaVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, deaVar) != null) {
                 return;
             }
-            this.a.d = zcaVar;
+            this.a.d = deaVar;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class g extends zca<uh4> {
+    public class g extends dea<uh4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ec2 e;
@@ -484,7 +484,7 @@ public abstract class ec2 extends ac2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         /* renamed from: g */
         public void onNext(uh4 uh4Var) {
             Interceptable interceptable = $ic;
@@ -493,7 +493,7 @@ public abstract class ec2 extends ac2 {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -502,7 +502,7 @@ public abstract class ec2 extends ac2 {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -549,7 +549,7 @@ public abstract class ec2 extends ac2 {
         }
     }
 
-    public final zca<uh4> Y() {
+    public final dea<uh4> Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -558,7 +558,7 @@ public abstract class ec2 extends ac2 {
             }
             return this.i;
         }
-        return (zca) invokeV.objValue;
+        return (dea) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.rg4
@@ -675,13 +675,13 @@ public abstract class ec2 extends ac2 {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.e.e()) {
-                arrayList.add(tca.a(new e(this)));
+                arrayList.add(xda.a(new e(this)));
             }
             if (this.e.d()) {
-                arrayList.add(tca.a(new f(this)));
+                arrayList.add(xda.a(new f(this)));
             }
             if (!arrayList.isEmpty()) {
-                tca.i(arrayList).u(Y());
+                xda.i(arrayList).u(Y());
             }
         }
     }

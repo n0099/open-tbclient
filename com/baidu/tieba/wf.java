@@ -184,6 +184,22 @@ public class wf {
         return (wf) invokeL.objValue;
     }
 
+    public wf l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            if (!this.b) {
+                if (i > 0) {
+                    this.a.mTargetViewId = i;
+                    return this;
+                }
+                throw new BuildException("Illegal view id.");
+            }
+            throw new BuildException("Already created. rebuild a new one.");
+        }
+        return (wf) invokeI.objValue;
+    }
+
     public vf b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

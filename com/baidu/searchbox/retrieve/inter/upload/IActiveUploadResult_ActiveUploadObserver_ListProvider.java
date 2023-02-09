@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.inter.upload;
 
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
-import com.baidu.tieba.kn9;
+import com.baidu.tieba.oo9;
 import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public class IActiveUploadResult_ActiveUploadObserver_ListProvider implements yj
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new DebugActiveUploadResult());
-            arrayList.add(new kn9());
+            arrayList.add(new oo9());
             return arrayList;
         }
         return invokeV.objValue;

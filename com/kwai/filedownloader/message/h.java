@@ -580,13 +580,13 @@ public abstract class h extends MessageSnapshot {
 
     /* renamed from: com.kwai.filedownloader.message.h$h  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0657h extends d {
+    public static class C0658h extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int avw;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0657h(int i, int i2, Throwable th, int i3) {
+        public C0658h(int i, int i2, Throwable th, int i3) {
             super(i, i2, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -608,7 +608,7 @@ public abstract class h extends MessageSnapshot {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0657h(Parcel parcel) {
+        public C0658h(Parcel parcel) {
             super(parcel);
             Interceptable interceptable = $ic;
             if (interceptable != null) {

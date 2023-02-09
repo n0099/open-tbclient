@@ -28,14 +28,14 @@ public class a72 implements x62.c {
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public final x62.b a;
-    public caa b;
+    public gba b;
     public InspectorNativeClient c;
     public eg2 d;
     public LinkedBlockingQueue<String> e;
     public String f;
 
     /* loaded from: classes3.dex */
-    public class b extends caa {
+    public class b extends gba {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a72 a;
@@ -81,12 +81,12 @@ public class a72 implements x62.c {
 
         /* renamed from: com.baidu.tieba.a72$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0221b implements Runnable {
+        public class RunnableC0220b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0221b(b bVar) {
+            public RunnableC0220b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -142,7 +142,7 @@ public class a72 implements x62.c {
                         v83 K = v83.K();
                         SwanAppActivity w = K.w();
                         if (K.E() && w != null) {
-                            w.runOnUiThread(new RunnableC0221b(this));
+                            w.runOnUiThread(new RunnableC0220b(this));
                         }
                     }
                 } catch (JSONException e) {
@@ -153,10 +153,10 @@ public class a72 implements x62.c {
             }
         }
 
-        @Override // com.baidu.tieba.caa
-        public void onOpen(waa waaVar) {
+        @Override // com.baidu.tieba.gba
+        public void onOpen(aca acaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, waaVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, acaVar) == null) {
                 w52.i("V8InspectorClient", "V8 inspector opened");
                 sa2 W = qf2.U().W();
                 if (W instanceof wa2) {
@@ -223,7 +223,7 @@ public class a72 implements x62.c {
             }
         }
 
-        @Override // com.baidu.tieba.caa
+        @Override // com.baidu.tieba.gba
         public void onClose(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
@@ -231,7 +231,7 @@ public class a72 implements x62.c {
             }
         }
 
-        @Override // com.baidu.tieba.caa
+        @Override // com.baidu.tieba.gba
         public void onError(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
@@ -239,7 +239,7 @@ public class a72 implements x62.c {
             }
         }
 
-        @Override // com.baidu.tieba.caa
+        @Override // com.baidu.tieba.gba
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -343,10 +343,10 @@ public class a72 implements x62.c {
 
     @Override // com.baidu.tieba.x62.c
     public void stop() {
-        caa caaVar;
+        gba gbaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (caaVar = this.b) != null) {
-            caaVar.close();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (gbaVar = this.b) != null) {
+            gbaVar.close();
             this.b = null;
         }
     }

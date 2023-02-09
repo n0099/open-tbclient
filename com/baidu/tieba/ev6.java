@@ -170,11 +170,11 @@ public class ev6 implements NetModel.k {
         }
         ArrayList arrayList = new ArrayList();
         for (Cdo cdo : list) {
-            if ((cdo instanceof ThreadData) && (b = ys8.b(((ThreadData) cdo).getRawThreadInfo())) != null) {
+            if ((cdo instanceof ThreadData) && (b = cu8.b(((ThreadData) cdo).getRawThreadInfo())) != null) {
                 arrayList.add(b);
             }
         }
-        ys8.f().h(this.n, arrayList);
+        cu8.f().h(this.n, arrayList);
     }
 
     public void k(int i) {
@@ -217,12 +217,12 @@ public class ev6 implements NetModel.k {
             if (this.h) {
                 b = 0;
             } else {
-                b = qq8.b(this.b.c);
+                b = ur8.b(this.b.c);
             }
             if (this.h) {
                 d = "";
             } else {
-                d = ys8.f().d(this.n);
+                d = cu8.f().d(this.n);
             }
             fv6 fv6Var = this.b;
             if (fv6Var == null) {
@@ -230,7 +230,7 @@ public class ev6 implements NetModel.k {
             } else {
                 arrayList = fv6Var.c;
             }
-            String e = qq8.e(arrayList, this.h);
+            String e = ur8.e(arrayList, this.h);
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(b);
             b2.e(e);
@@ -298,8 +298,8 @@ public class ev6 implements NetModel.k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             b(list2);
-            qq8.i(qq8.h(list, "FRS_GENERAL_TAB"), list2, 0);
-            qq8.a(list2, this.j, "FRS_GENERAL_TAB");
+            ur8.i(ur8.h(list, "FRS_GENERAL_TAB"), list2, 0);
+            ur8.a(list2, this.j, "FRS_GENERAL_TAB");
         }
     }
 
@@ -321,7 +321,7 @@ public class ev6 implements NetModel.k {
         fv6 fv6Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && (fv6Var = this.b) != null && !mv7.e(fv6Var.c)) {
-            qq8.d(str, this.b.c);
+            ur8.d(str, this.b.c);
             this.a.Y1(this.b);
         }
     }

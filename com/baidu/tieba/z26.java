@@ -32,7 +32,7 @@ public class z26 extends mc6<q26> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0874 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0886 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,10 +55,10 @@ public class z26 extends mc6<q26> {
             }
         }
         this.m = h();
-        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090f26);
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f24);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f23);
-        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090f22);
+        this.o = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090f37);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f35);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f34);
+        HeadImageView headImageView = (HeadImageView) h().findViewById(R.id.obfuscated_res_0x7f090f33);
         this.k = headImageView;
         headImageView.setAutoChangeStyle(true);
         this.k.setIsRound(true);
@@ -66,7 +66,7 @@ public class z26 extends mc6<q26> {
         this.k.setPlaceHolder(1);
         this.k.setBorderWidth(ej.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f25);
+        this.l = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f36);
         this.o.setOnClickListener(this);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

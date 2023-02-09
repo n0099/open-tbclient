@@ -144,7 +144,7 @@ public class SelectBarView extends LinearLayout {
                     if (!z2) {
                         getMCenterContent().setVisibility(0);
                         getMCenterContentTips().setVisibility(8);
-                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f06ad)));
+                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f06b6)));
                         return;
                     }
                 }
@@ -157,30 +157,30 @@ public class SelectBarView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0917, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0913bd);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d092c, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0913d2);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0905fa);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090605);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905f8);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090603);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById3);
             getMCenterContent().setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X002));
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905f9);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090604);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content_pos)");
             setMCenterContentPos((TextView) findViewById4);
             getMCenterContentPos().setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X002));
             getMCenterContentPos().setVisibility(8);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091d0c);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091d4e);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bn9
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fo9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

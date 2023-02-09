@@ -293,7 +293,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         tBAlertBuilder.w(R.string.game_back_tip);
         tBAlertBuilder.m(R.string.cancel_game_match);
         tBAlertBuilder.o(true);
-        tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0515, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1034, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+        tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0518, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1048, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
         tBAlertBuilder.i();
         tBAlertBuilder.j(false);
         tBAlertBuilder.z();

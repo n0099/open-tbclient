@@ -534,8 +534,8 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             j05 j05Var = new j05(getPageContext().getPageActivity());
             j05Var.setMessageId(R.string.enter_forum_cancel_change_tip);
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new e(this));
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new f(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new e(this));
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new f(this));
             j05Var.create(getPageContext()).show();
         }
     }
@@ -553,7 +553,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01cf);
+            setContentView(R.layout.obfuscated_res_0x7f0d01d0);
             K1();
             initData();
         }
@@ -614,14 +614,14 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09060c);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090617);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new a(this));
             this.a.setTitleText(R.string.choose_system_photo);
-            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f052c));
+            TextView addTextButton = this.a.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f052f));
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
             layoutParams.rightMargin = ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
@@ -632,7 +632,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             SkinManager.setBackgroundResource(this.b, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.b, R.color.navbar_btn_color, 1);
             this.b.setOnClickListener(new b(this));
-            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091c82);
+            this.d = (BdGridView) findViewById(R.id.obfuscated_res_0x7f091cc3);
             ll5 ll5Var = new ll5(getPageContext());
             this.f = ll5Var;
             this.d.setAdapter((ListAdapter) ll5Var);

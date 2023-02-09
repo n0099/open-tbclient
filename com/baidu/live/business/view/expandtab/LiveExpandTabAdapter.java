@@ -91,9 +91,9 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
             }
             this.d = view2;
             this.e = str;
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091431);
-            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091430);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091432);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f091446);
+            this.b = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091445);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091447);
             a();
         }
 
@@ -109,7 +109,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
                 }
                 View view2 = this.a;
                 if (view2 != null && (context = view2.getContext()) != null && (resources = context.getResources()) != null) {
-                    drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080d61);
+                    drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080d73);
                 } else {
                     drawable = null;
                 }
@@ -287,7 +287,7 @@ public final class LiveExpandTabAdapter extends RecyclerView.Adapter<ExpandTabVi
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0554, viewGroup, false);
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0559, viewGroup, false);
             Intrinsics.checkExpressionValueIsNotNull(inflate, "LayoutInflater.from(pare…rent, false\n            )");
             return new ExpandTabViewHolder(inflate, this.d);
         }

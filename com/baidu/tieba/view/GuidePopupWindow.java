@@ -35,9 +35,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.he5;
 import com.baidu.tieba.o45;
-import com.baidu.tieba.t89;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.view.GuideScrollView;
+import com.baidu.tieba.x99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -634,7 +634,7 @@ public class GuidePopupWindow extends Dialog {
             super.onCreate(bundle);
             setContentView(this.b);
             getWindow().setLayout(-1, -1);
-            t89.b(1, getWindow().getAttributes(), getWindow());
+            x99.b(1, getWindow().getAttributes(), getWindow());
             GreyUtil.grey(this);
         }
     }

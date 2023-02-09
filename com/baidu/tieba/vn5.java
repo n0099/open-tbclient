@@ -75,7 +75,7 @@ public class vn5 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if ((this.b.a.b instanceof o39) && ((o39) this.b.a.b).p0().l()) {
+                    if ((this.b.a.b instanceof s49) && ((s49) this.b.a.b).p0().l()) {
                         return;
                     }
                     this.b.a.s(this.a);
@@ -115,7 +115,7 @@ public class vn5 {
                 if (TbSingleton.getExceptInsertAdDiaShow()) {
                     return null;
                 }
-                if ((this.a.b instanceof o39) && ((o39) this.a.b).p0().l()) {
+                if ((this.a.b instanceof s49) && ((s49) this.a.b).p0().l()) {
                     return null;
                 }
                 Iterator it = this.a.a.iterator();

@@ -36,7 +36,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public interface b {
         void a(String str, List<EmotionImageData> list);
 
-        void onFail();
+        void onFail(int i, String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,7 +93,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 }
                 return;
             }
-            this.a.a.onFail();
+            this.a.a.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
         }
     }
 

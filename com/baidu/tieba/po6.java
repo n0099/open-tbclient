@@ -149,14 +149,14 @@ public class po6 implements View.OnClickListener, oo6 {
         this.v = 0;
         this.w = "";
         this.a = tbPageContext;
-        this.d = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d8, (ViewGroup) null);
+        this.d = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02da, (ViewGroup) null);
         this.e = new NoNetworkView(tbPageContext.getPageActivity());
         this.e.setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             this.e.setVisibility(8);
         }
         this.d.addView(this.e);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f0908dd);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f0908eb);
         this.b = bdTypeListView;
         bdTypeListView.setDivider(null);
         z35 z35Var = new z35(this.a);
@@ -179,17 +179,17 @@ public class po6 implements View.OnClickListener, oo6 {
         this.b.addHeaderView(this.k.c());
         this.b.addHeaderView(this.l);
         this.b.addHeaderView(this.m);
-        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0908db);
-        this.h = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0908db);
+        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f0908e9);
+        this.h = (RelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0908e9);
         this.i = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090116);
-        this.j = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ee9);
+        this.j = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090efa);
         this.g.setOnClickListener(this);
-        LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090923);
+        LinearLayout linearLayout = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090931);
         this.q = linearLayout;
         linearLayout.setClickable(false);
         this.q.setOnClickListener(this);
         this.q.setVisibility(8);
-        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09258d);
+        this.r = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0925d8);
         this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090118);
         u();
     }
@@ -293,8 +293,8 @@ public class po6 implements View.OnClickListener, oo6 {
             if (pbListView.c().getParent() == null) {
                 this.b.setNextPage(this.f);
             }
-            this.f.Q();
-            this.f.S();
+            this.f.R();
+            this.f.T();
         }
     }
 
@@ -326,8 +326,8 @@ public class po6 implements View.OnClickListener, oo6 {
             } else if (!TextUtils.isEmpty(this.w)) {
                 j05 j05Var = new j05(this.a.getPageActivity());
                 j05Var.setMessage(this.w);
-                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new a(this));
-                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
+                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new a(this));
+                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
                 j05Var.create(this.a).show();
             }
         }
@@ -536,7 +536,7 @@ public class po6 implements View.OnClickListener, oo6 {
             SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
             SkinManager.setImageResource(this.r, R.drawable.emotion_uploading_bar_refresh);
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0302);
-            this.s.setText(R.string.obfuscated_res_0x7f0f059e);
+            this.s.setText(R.string.obfuscated_res_0x7f0f05a5);
             this.q.setClickable(false);
         }
     }
@@ -554,7 +554,7 @@ public class po6 implements View.OnClickListener, oo6 {
             SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
             SkinManager.setImageResource(this.r, R.drawable.emotion_update_fail);
             SkinManager.setViewTextColor(this.s, (int) R.color.common_color_10037);
-            this.s.setText(R.string.obfuscated_res_0x7f0f057b);
+            this.s.setText(R.string.obfuscated_res_0x7f0f057e);
             this.q.setClickable(true);
         }
     }

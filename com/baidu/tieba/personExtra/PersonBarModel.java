@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dk8;
+import com.baidu.tieba.hl8;
 import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.x9;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public dk8 a;
+    public hl8 a;
     public boolean b;
     public String c;
     public int d;
@@ -99,17 +99,17 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new dk8();
+        this.a = new hl8();
         this.b = z;
     }
 
-    public dk8 G() {
+    public hl8 G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (dk8) invokeV.objValue;
+        return (hl8) invokeV.objValue;
     }
 
     public boolean H() {

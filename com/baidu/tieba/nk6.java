@@ -66,7 +66,7 @@ public class nk6 {
             if (user.influence == null) {
                 mk6Var.e = "";
             } else {
-                mk6Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f098f), StringHelper.numFormatOverWanNa(user.influence.intValue()));
+                mk6Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0999), StringHelper.numFormatOverWanNa(user.influence.intValue()));
             }
             MetaData metaData = new MetaData();
             metaData.parserProtobuf(user);

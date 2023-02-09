@@ -106,10 +106,10 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06eb), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ea));
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f7), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f6));
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ef), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ee));
-            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e4), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e3));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f4), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f3));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0700), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ff));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f8), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06f7));
+            a(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ed), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06ec));
         }
     }
 }

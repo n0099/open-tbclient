@@ -13,7 +13,7 @@ public class ob5 extends wb5 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ob5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043a), 33, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043c), 33, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

@@ -902,13 +902,13 @@ public class BannerView extends FrameLayout {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d056f, this);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0574, this);
             this.n = oa0.b(context, 8.0f);
             this.o = oa0.b(context, 6.0f);
             this.p = oa0.b(getContext(), 4.0f);
-            this.j = (BannerViewPager) findViewById(R.id.obfuscated_res_0x7f09032b);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090322);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090323);
+            this.j = (BannerViewPager) findViewById(R.id.obfuscated_res_0x7f090333);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09032a);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f09032b);
             this.j.setAdapter(new a(this));
             this.j.setOnPageChangeListener(new b(this));
         }
@@ -953,7 +953,7 @@ public class BannerView extends FrameLayout {
                 z = false;
             }
             view2.setSelected(z);
-            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d5e);
+            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d70);
             if (i2 == i3) {
                 layoutParams = new LinearLayout.LayoutParams(this.n, this.o);
             } else {
@@ -983,7 +983,7 @@ public class BannerView extends FrameLayout {
                     new l(this).a(oa0.b(getContext(), this.b));
                     this.b = 0;
                 }
-                this.l.setImageResource(R.drawable.obfuscated_res_0x7f080d43);
+                this.l.setImageResource(R.drawable.obfuscated_res_0x7f080d55);
             }
         }
     }

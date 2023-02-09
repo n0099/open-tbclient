@@ -151,16 +151,16 @@ public class du7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d003f);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0926c9);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f092085);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092001);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092728);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0920ca);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092045);
             this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09209d);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920e3);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
             }
             l(0, 0);
-            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091416);
+            this.g = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09142b);
             yt7 yt7Var = new yt7(this.a.getPageContext().getPageActivity());
             this.h = yt7Var;
             yt7Var.b(this.m);
@@ -224,7 +224,7 @@ public class du7 {
                 z = false;
             }
             textView.setEnabled(z);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12b8, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
+            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f12ce, new Object[]{Integer.valueOf(i), Integer.valueOf(i2)}));
             TextView textView2 = this.f;
             if (i > 0) {
                 onClickListener = this.j;

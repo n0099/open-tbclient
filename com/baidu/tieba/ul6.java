@@ -103,18 +103,18 @@ public class ul6 {
         }
         this.a = 3;
         this.b = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01b9, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01ba, (ViewGroup) null);
         this.c = inflate;
-        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0926a9);
-        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090ee1);
-        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090ee2);
-        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c26);
-        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c27);
+        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092708);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090ef2);
+        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090ef3);
+        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c67);
+        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c68);
         this.i = (TextView) this.c.findViewById(R.id.forum_text);
-        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917b7);
-        this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f090f7b);
-        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0910e0);
-        this.m = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090eea);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0917d0);
+        this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f090f8c);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0910f3);
+        this.m = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090efb);
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds114);
         this.l.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2_6), R.color.CAM_X0501, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62));
         this.l.setStrokeStyle(1);
@@ -150,12 +150,12 @@ public class ul6 {
             if (this.h.getVisibility() == 0) {
                 SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080674, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080fc7);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f08067d, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080fdc);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0311);
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080613, null);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f08061b, null);
             this.l.d();
         }
     }

@@ -218,7 +218,7 @@ public class et5 extends Dialog {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f090842);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090850);
             this.c = (TbImageView) findViewById(R.id.app_icon);
             this.d = (TextView) findViewById(R.id.app_title);
             this.e = (TextView) findViewById(R.id.app_version);

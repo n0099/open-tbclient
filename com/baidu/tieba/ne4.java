@@ -369,7 +369,7 @@ public class ne4 extends c82 implements ie4, OnGetPoiSearchResultListener, View.
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0904b6) {
+        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0904c1) {
             X2();
         }
     }
@@ -429,10 +429,10 @@ public class ne4 extends c82 implements ie4, OnGetPoiSearchResultListener, View.
                 }
                 this.U0 = string;
             }
-            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091f04);
-            this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09151a);
-            this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f0917d3);
-            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904b6);
+            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091f47);
+            this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09152f);
+            this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f0917ec);
+            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904c1);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ju2.U().getActivity());
             this.L0 = linearLayoutManager;
             this.J0.setLayoutManager(linearLayoutManager);
@@ -547,7 +547,7 @@ public class ne4 extends c82 implements ie4, OnGetPoiSearchResultListener, View.
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048606, this, layoutInflater, viewGroup, bundle)) == null) {
             dd4.a();
             SDKInitializer.setCoordType(CoordType.GCJ02);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0086, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0087, viewGroup, false);
             b3(inflate);
             if (T1()) {
                 inflate = W1(inflate);

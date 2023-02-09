@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tieba.mt8;
+import com.baidu.tieba.qu8;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
@@ -78,9 +78,9 @@ public class wu4 implements vb6 {
                 return;
             }
             for (Class<?> cls2 : cls.getInterfaces()) {
-                if (cls2.isAssignableFrom(kt8.class)) {
+                if (cls2.isAssignableFrom(ou8.class)) {
                     try {
-                        ((kt8) cls.newInstance()).dispatch(jSONObject, a);
+                        ((ou8) cls.newInstance()).dispatch(jSONObject, a);
                         return;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -111,11 +111,11 @@ public class wu4 implements vb6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public x19 c(WebView webView, String str, String str2) {
+    public b39 c(WebView webView, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             Activity a = pb6.a(webView.getContext());
             if (a != null) {
                 a.finish();
@@ -126,18 +126,18 @@ public class wu4 implements vb6 {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(a, "FictionalCharacterDetailsPage", hashMap)));
                 }
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLLL.objValue;
+        return (b39) invokeLLL.objValue;
     }
 
-    public x19 d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+    public b39 d(WebView webView, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
         InterceptResult invokeCommon;
         String str18;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{webView, str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.thread_id = str;
@@ -167,21 +167,21 @@ public class wu4 implements vb6 {
             videoItemData.forum_name = str16;
             arrayList.add(videoItemData);
             uo5.d(pb6.a(webView.getContext()), arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false, dh.g(str15, 0L));
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeCommon.objValue;
+        return (b39) invokeCommon.objValue;
     }
 
-    public x19 e(final WebView webView, final String str, final String str2, final String str3) {
+    public b39 e(final WebView webView, final String str, final String str2, final String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, str3)) == null) {
-            x19 x19Var = new x19();
-            mt8.c().b(new mt8.c() { // from class: com.baidu.tieba.su4
+            b39 b39Var = new b39();
+            qu8.c().b(new qu8.c() { // from class: com.baidu.tieba.su4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.mt8.c
+                @Override // com.baidu.tieba.qu8.c
                 public final void a(HashMap hashMap) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, hashMap) == null) {
@@ -189,8 +189,8 @@ public class wu4 implements vb6 {
                     }
                 }
             });
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLLLL.objValue;
+        return (b39) invokeLLLL.objValue;
     }
 }

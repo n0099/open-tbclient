@@ -190,7 +190,7 @@ public class HotTopicTabFragment extends BaseFragment implements gt6, sa7 {
 
     public final void H1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.b.t()) {
                 this.b.m();
                 J1();
@@ -338,9 +338,9 @@ public class HotTopicTabFragment extends BaseFragment implements gt6, sa7 {
     }
 
     @Override // com.baidu.tieba.sa7
-    public void I0(int i, kb7 kb7Var) {
+    public void H0(int i, kb7 kb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, kb7Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, kb7Var) == null) {
             this.b.m();
             this.b.n();
             this.b.D();

@@ -1,8 +1,8 @@
 package rx.internal.operators;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class EmptyObservableHolder implements tca.a<Object> {
+public final class EmptyObservableHolder implements xda.a<Object> {
     public static final /* synthetic */ EmptyObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
-    public static final tca<Object> EMPTY;
+    public static final xda<Object> EMPTY;
     public static final EmptyObservableHolder INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public final class EmptyObservableHolder implements tca.a<Object> {
         EmptyObservableHolder emptyObservableHolder = new EmptyObservableHolder("INSTANCE", 0);
         INSTANCE = emptyObservableHolder;
         $VALUES = new EmptyObservableHolder[]{emptyObservableHolder};
-        EMPTY = tca.a(emptyObservableHolder);
+        EMPTY = xda.a(emptyObservableHolder);
     }
 
     public EmptyObservableHolder(String str, int i) {
@@ -57,13 +57,13 @@ public final class EmptyObservableHolder implements tca.a<Object> {
         }
     }
 
-    public static <T> tca<T> instance() {
+    public static <T> xda<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return (tca<T>) EMPTY;
+            return (xda<T>) EMPTY;
         }
-        return (tca) invokeV.objValue;
+        return (xda) invokeV.objValue;
     }
 
     public static EmptyObservableHolder[] values() {
@@ -85,11 +85,11 @@ public final class EmptyObservableHolder implements tca.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
-    public void call(zca<? super Object> zcaVar) {
+    @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+    public void call(dea<? super Object> deaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
-            zcaVar.onCompleted();
+        if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
+            deaVar.onCompleted();
         }
     }
 }

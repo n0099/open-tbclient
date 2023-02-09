@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d29;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gx7;
+import com.baidu.tieba.h39;
 import com.baidu.tieba.jx7;
 import com.baidu.tieba.location.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.location.data.LocationSearchNetRequestMessage;
@@ -112,7 +112,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 return;
             }
             if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
             } else {
                 errorString = responsedMessage.getErrorString();
             }
@@ -398,7 +398,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.f = new gx7();
-            LocationData b2 = d29.a().b();
+            LocationData b2 = h39.a().b();
             if (b2 != null) {
                 this.f.c(H1(b2.getPoi_info(), b2.getFormatted_address(), b2.getSn()));
             }
@@ -414,7 +414,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
             super.onCreate(bundle);
             registerListener(this.m);
             SearchLocationActivityStatic.a();
-            setContentView(R.layout.obfuscated_res_0x7f0d07bf);
+            setContentView(R.layout.obfuscated_res_0x7f0d07d1);
             G1();
             initData();
         }
@@ -447,18 +447,18 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07be, (View.OnClickListener) null);
+            LinearLayout linearLayout = (LinearLayout) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07d0, (View.OnClickListener) null);
             this.i = linearLayout;
-            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091ed2);
-            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f091ef4);
+            this.l = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f15);
+            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f091f37);
             this.j = editText;
             editText.addTextChangedListener(new c(this));
             this.j.setOnEditorActionListener(new d(this));
-            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091ef3);
+            TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091f36);
             this.k = textView;
             textView.setEnabled(false);
             this.k.setOnClickListener(new e(this));
-            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f091ef8);
+            this.h = (BdListView) findViewById(R.id.obfuscated_res_0x7f091f3b);
             jx7 jx7Var = new jx7(this);
             this.g = jx7Var;
             this.h.setAdapter((ListAdapter) jx7Var);

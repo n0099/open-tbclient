@@ -589,7 +589,7 @@ public class un extends BaseAdapter implements eo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             TextView textView = new TextView(this.a);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ae5));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0aef));
             int d = ej.d(this.a, 15.0f);
             textView.setPadding(d, d, d, d);
             return textView;

@@ -72,7 +72,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0865, viewGroup, false));
+            return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0877, viewGroup, false));
         }
         return (ListRecommendViewHolder) invokeLI.objValue;
     }

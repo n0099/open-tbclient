@@ -30,8 +30,8 @@ import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fm8;
-import com.baidu.tieba.gm8;
+import com.baidu.tieba.jn8;
+import com.baidu.tieba.kn8;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public fm8 mCardNullPolymericData;
+    public jn8 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -91,7 +91,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     /* loaded from: classes5.dex */
     public interface d {
-        void w0(PersonPostModel personPostModel, boolean z);
+        void t0(PersonPostModel personPostModel, boolean z);
     }
 
     static {
@@ -908,7 +908,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 }
                 return;
             }
-            this.a.mOnResult.w0(null, this.a.mIsReset);
+            this.a.mOnResult.t0(null, this.a.mIsReset);
         }
     }
 
@@ -959,7 +959,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 }
                 return;
             }
-            this.a.mOnResult.w0(null, this.a.mIsReset);
+            this.a.mOnResult.t0(null, this.a.mIsReset);
         }
     }
 
@@ -1110,15 +1110,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new gm8());
+            this.postList.add(new kn8());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            fm8 fm8Var = new fm8();
-            this.mCardNullPolymericData = fm8Var;
-            this.postList.add(fm8Var);
+            jn8 jn8Var = new jn8();
+            this.mCardNullPolymericData = jn8Var;
+            this.postList.add(jn8Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

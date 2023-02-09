@@ -31,8 +31,8 @@ import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.k29;
 import com.baidu.tieba.n86;
+import com.baidu.tieba.o39;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.y86;
@@ -251,10 +251,10 @@ public class CandidateSearchActivity extends BaseActivity {
                     }
                 }
             } else if (error == 3250023) {
-                k29.b(error, "", null);
+                o39.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    k29.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    o39.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 ej.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -267,7 +267,7 @@ public class CandidateSearchActivity extends BaseActivity {
                 }
                 blockPopInfoData.block_info = errorString;
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
-                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a46);
+                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a50);
                 blockPopInfoData.ahead_url = AntiHelper.a;
                 AntiHelper.s(this.a, blockPopInfoData);
             }
@@ -398,16 +398,16 @@ public class CandidateSearchActivity extends BaseActivity {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.showBottomLine();
-            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0172, (View.OnClickListener) null);
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0173, (View.OnClickListener) null);
             this.g = addCustomView;
-            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091ed2);
-            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090e6a);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090e5a);
+            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091f15);
+            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090e7b);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090e6b);
             this.j = imageView;
             imageView.setOnClickListener(this.m);
-            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090e59);
+            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090e6a);
             I1(false);
-            this.k.setText(getString(R.string.obfuscated_res_0x7f0f038b));
+            this.k.setText(getString(R.string.obfuscated_res_0x7f0f038c));
             this.k.setOnClickListener(this.m);
             this.i.setOnEditorActionListener(this.o);
             this.i.addTextChangedListener(this.q);
@@ -442,7 +442,7 @@ public class CandidateSearchActivity extends BaseActivity {
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f09223e);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092284);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
             this.c = candidateSearchAdapter;
             this.b.setAdapter(candidateSearchAdapter);

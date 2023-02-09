@@ -55,8 +55,8 @@ public class ManagerTipsAdapter extends BaseSysAdapter<ManagerTipsSysMsg, Holder
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092310);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091586);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092357);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09159c);
         }
     }
 
@@ -90,7 +90,7 @@ public class ManagerTipsAdapter extends BaseSysAdapter<ManagerTipsSysMsg, Holder
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d058f, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0594, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }

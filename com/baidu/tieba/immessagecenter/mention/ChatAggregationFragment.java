@@ -38,7 +38,7 @@ public class ChatAggregationFragment extends BaseFragment implements wi5, NoNetw
     public CustomMessageListener f;
 
     @Override // com.baidu.tieba.wi5
-    public boolean b1() {
+    public boolean a1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -48,7 +48,7 @@ public class ChatAggregationFragment extends BaseFragment implements wi5, NoNetw
     }
 
     @Override // com.baidu.tieba.wi5
-    public boolean y0(xi5 xi5Var) {
+    public boolean w0(xi5 xi5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, xi5Var)) == null) ? xi5Var == null : invokeL.booleanValue;

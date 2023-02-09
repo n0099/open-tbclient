@@ -28,10 +28,10 @@ import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.af7;
 import com.baidu.tieba.bg7;
-import com.baidu.tieba.bo8;
 import com.baidu.tieba.cf7;
 import com.baidu.tieba.ed6;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fp8;
 import com.baidu.tieba.homepage.channel.model.ChannelTabNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
 import com.baidu.tieba.q97;
@@ -60,7 +60,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public z35 g;
     public PublishProgressView h;
     public HomePageTabFeedHeaderView i;
-    public bo8 j;
+    public fp8 j;
     public PostAnimateFloatView k;
     public ze7 l;
     public String m;
@@ -195,10 +195,10 @@ public class HomePageTabFeedView implements LifecycleObserver {
                     this.a.e.stopScroll();
                 }
                 if (this.a.f != null && this.a.b != null && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    this.a.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     this.a.f.E(null);
                     if (this.a.n) {
-                        this.a.f.P();
+                        this.a.f.Q();
                         this.a.b.j();
                     }
                 }
@@ -300,10 +300,10 @@ public class HomePageTabFeedView implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null && this.b != null) {
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 this.e.setNextPage(this.f);
-                this.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.f.E(null);
                 if (this.n) {
-                    this.f.P();
+                    this.f.Q();
                     this.b.j();
                     return;
                 }
@@ -371,9 +371,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            bo8 bo8Var = this.j;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.j;
+            if (fp8Var != null) {
+                fp8Var.h();
                 this.j.v(null);
             }
             z35 z35Var = this.g;
@@ -416,9 +416,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            bo8 bo8Var = this.j;
-            if (bo8Var != null) {
-                bo8Var.z();
+            fp8 fp8Var = this.j;
+            if (fp8Var != null) {
+                fp8Var.z();
                 this.j.r(false);
             }
             HomePageTabFeedHeaderView homePageTabFeedHeaderView = this.i;
@@ -490,7 +490,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
             this.c = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092118);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215e);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.e.setFadingEdgeLength(0);
@@ -517,18 +517,18 @@ public class HomePageTabFeedView implements LifecycleObserver {
             this.f.u();
             this.f.E(this.t);
             if (this.d == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092117);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215d);
                 this.d = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.g);
             }
             if (this.j == null) {
-                bo8 bo8Var = new bo8(this.a.getPageContext(), this.e);
-                this.j = bo8Var;
-                bo8Var.p(2);
+                fp8 fp8Var = new fp8(this.a.getPageContext(), this.e);
+                this.j = fp8Var;
+                fp8Var.p(2);
                 this.j.u(this.a.getUniqueId());
             }
-            this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921e1);
-            this.k = (PostAnimateFloatView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091b19);
+            this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f092227);
+            this.k = (PostAnimateFloatView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091b54);
         }
     }
 
@@ -574,9 +574,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 this.l.e(bg7Var.a);
                 this.l.d();
                 q();
-                bo8 bo8Var = this.j;
-                if (bo8Var != null) {
-                    bo8Var.n(this.e.getFirstVisiblePosition(), this.e.getLastVisiblePosition(), false, true);
+                fp8 fp8Var = this.j;
+                if (fp8Var != null) {
+                    fp8Var.n(this.e.getFirstVisiblePosition(), this.e.getLastVisiblePosition(), false, true);
                 }
                 if ("local".equals(this.m) && (postAnimateFloatView = this.k) != null && postAnimateFloatView.getVisibility() != 0) {
                     this.k.setVisibility(0);
@@ -624,9 +624,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            bo8 bo8Var = this.j;
-            if (bo8Var != null) {
-                bo8Var.r(true);
+            fp8 fp8Var = this.j;
+            if (fp8Var != null) {
+                fp8Var.r(true);
                 BdTypeRecyclerView bdTypeRecyclerView = this.e;
                 if (bdTypeRecyclerView != null) {
                     this.j.v(bdTypeRecyclerView);

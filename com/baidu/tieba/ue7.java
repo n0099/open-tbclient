@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ue7 extends ro8 {
+public class ue7 extends vp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadData R0;
 
-    @Override // com.baidu.tieba.to8
+    @Override // com.baidu.tieba.xp8
     public int b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,10 +45,10 @@ public class ue7 extends ro8 {
                 return;
             }
         }
-        l0(true);
+        m0(true);
     }
 
-    @Override // com.baidu.tieba.to8, com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.xp8, com.baidu.tieba.up8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,7 +58,7 @@ public class ue7 extends ro8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ro8, com.baidu.tieba.to8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    @Override // com.baidu.tieba.vp8, com.baidu.tieba.xp8, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -66,7 +66,7 @@ public class ue7 extends ro8 {
         }
     }
 
-    @Override // com.baidu.tieba.to8, com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.xp8, com.baidu.tieba.up8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -74,7 +74,7 @@ public class ue7 extends ro8 {
         }
     }
 
-    @Override // com.baidu.tieba.to8, com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.xp8, com.baidu.tieba.up8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -82,7 +82,7 @@ public class ue7 extends ro8 {
         }
     }
 
-    @Override // com.baidu.tieba.to8, com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.xp8, com.baidu.tieba.up8
     public boolean onBackground(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class ue7 extends ro8 {
         return invokeZ.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ro8, com.baidu.tieba.to8, com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.vp8, com.baidu.tieba.xp8, com.baidu.tieba.up8
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || threadData == null) {
@@ -103,7 +103,7 @@ public class ue7 extends ro8 {
         this.R0 = threadData;
     }
 
-    @Override // com.baidu.tieba.to8, com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.xp8, com.baidu.tieba.up8
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {

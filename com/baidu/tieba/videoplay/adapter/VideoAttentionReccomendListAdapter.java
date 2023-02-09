@@ -68,13 +68,13 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff2);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ad3);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ad5);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092243);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091003);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b0e);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091b10);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092289);
             this.f = (EMTextView) view2.findViewById(R.id.text_title);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090fca);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fec);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090fdb);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
             p15.d(this.h).s(R.array.Mask_X003);
@@ -179,7 +179,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08eb, viewGroup, false);
+            this.c = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08fe, viewGroup, false);
             return new ForumViewHolder(this.c);
         }
         return (ForumViewHolder) invokeLI.objValue;

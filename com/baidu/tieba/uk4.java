@@ -60,8 +60,8 @@ public class uk4 {
             }
         }
         this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1339);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f133a);
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1350);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1351);
     }
 
     public static uk4 b() {

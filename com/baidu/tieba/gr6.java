@@ -50,17 +50,17 @@ public class gr6 {
         }
         this.i = 3;
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ca, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02cc, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ecf);
-        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ed2);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090e6a);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e5a);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f1177);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e59);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091f12);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f15);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090e7b);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e6b);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f118b);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e6a);
         this.f = textView;
-        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f038b));
-        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091ed3);
+        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f038c));
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091f16);
         a();
         b(TbadkCoreApplication.getInst().getSkinType());
     }

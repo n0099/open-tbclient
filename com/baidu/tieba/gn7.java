@@ -129,14 +129,14 @@ public class gn7 extends jn7<ForumData> {
             super.o(forumData, metaData);
             if (forumData != null && !TextUtils.isEmpty(forumData.getId())) {
                 this.o.K(forumData.getImage_url(), 10, false);
-                this.p.setText("" + forumData.getName() + this.m.getResources().getString(R.string.obfuscated_res_0x7f0f06ad));
+                this.p.setText("" + forumData.getName() + this.m.getResources().getString(R.string.obfuscated_res_0x7f0f06b6));
                 if (!TextUtils.isEmpty(forumData.getSlogan())) {
                     this.q.setVisibility(0);
                     this.q.setText(forumData.getSlogan());
                 } else {
                     this.q.setVisibility(8);
                 }
-                this.r.setText(String.format(this.m.getString(R.string.obfuscated_res_0x7f0f044c), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
+                this.r.setText(String.format(this.m.getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtra(forumData.getMember_num())));
                 this.s.setText(String.format(this.m.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(forumData.getThread_num())));
             }
         }

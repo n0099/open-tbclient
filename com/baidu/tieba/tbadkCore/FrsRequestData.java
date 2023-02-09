@@ -5,16 +5,16 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.k67;
 import com.baidu.tieba.qi5;
 import com.baidu.tieba.ti5;
 import com.baidu.tieba.tn5;
-import com.baidu.tieba.vs8;
 import com.baidu.tieba.yn5;
 import com.baidu.tieba.yo5;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -529,7 +529,7 @@ public class FrsRequestData extends OrmObject implements ti5, qi5 {
             builder.yuelaou_locate = this.s;
             builder.sort_type = Integer.valueOf(this.y);
             builder.last_click_tid = Long.valueOf(this.x);
-            builder.app_pos = vs8.e().a();
+            builder.app_pos = zt8.e().a();
             builder.load_type = Integer.valueOf(this.z);
             builder.obj_locate = this.C;
             builder.obj_source = this.D;
@@ -549,7 +549,7 @@ public class FrsRequestData extends OrmObject implements ti5, qi5 {
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.I);
             if (this.z != 1) {
-                str = ys8.f().d("FRS");
+                str = cu8.f().d("FRS");
             }
             builder.ad_context_list = str;
             builder.up_schema = this.J;

@@ -285,7 +285,7 @@ public class ItemCardViewWrapperAdapter extends qn<mi6, ItemCardViewWrapperViewH
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.setMargins(0, ej.g(this.mContext, R.dimen.tbds21), 0, 0);
             eMTextView.setPadding(ej.g(this.mContext, R.dimen.M_W_X007), ej.g(this.mContext, R.dimen.tbds44), 0, 0);
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f1069);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f107d);
             frameLayout.addView(eMTextView, layoutParams2);
             frameLayout.addView(new View(this.mContext), new ViewGroup.LayoutParams(-1, ej.g(this.mContext, R.dimen.tbds21)));
             View view2 = new View(this.mContext);

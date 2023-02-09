@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tieba.g79;
 import com.baidu.tieba.he5;
+import com.baidu.tieba.k89;
 import com.baidu.tieba.themeCenter.background.BackgroundPreviewModel;
 import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundPreviewModel a;
-    public g79 b;
+    public k89 b;
     public int c;
     public int d;
     public int e;
@@ -161,19 +161,19 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            g79 g79Var = this.b;
-            if (g79Var != null) {
-                g79Var.h();
+            k89 k89Var = this.b;
+            if (k89Var != null) {
+                k89Var.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        g79 g79Var;
+        k89 k89Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (g79Var = this.b) != null) {
-            showLoadingView(g79Var.f());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (k89Var = this.b) != null) {
+            showLoadingView(k89Var.f());
             this.a.loadData();
         }
     }
@@ -192,9 +192,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            g79 g79Var = this.b;
-            if (g79Var != null) {
-                g79Var.g();
+            k89 k89Var = this.b;
+            if (k89Var != null) {
+                k89Var.g();
             }
         }
     }
@@ -225,9 +225,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.c, this.d);
             this.a = backgroundPreviewModel;
             backgroundPreviewModel.L(this.f);
-            g79 g79Var = new g79(this);
-            this.b = g79Var;
-            showLoadingView(g79Var.f());
+            k89 k89Var = new k89(this);
+            this.b = k89Var;
+            showLoadingView(k89Var.f());
             this.b.j(new b(this));
             this.a.loadData();
         }

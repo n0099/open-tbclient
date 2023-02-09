@@ -511,7 +511,7 @@ public final class d extends b {
             float a = a(cB, av);
             com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
             this.gh.gj.setRatio(a);
-            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0911ba);
+            ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0911ce);
             viewGroup.setVisibility(0);
             viewGroup.post(new Runnable(this, cB, av, viewGroup) { // from class: com.kwad.components.ad.interstitial.b.d.22
                 public static /* synthetic */ Interceptable $ic;
@@ -671,7 +671,7 @@ public final class d extends b {
             com.kwad.components.ad.f.kwai.kwai.b j = com.kwad.components.ad.f.kwai.kwai.b.j(this.mAdTemplate);
             this.gY = j;
             if (j != null) {
-                j.a(new b.InterfaceC0552b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
+                j.a(new b.InterfaceC0553b(this) { // from class: com.kwad.components.ad.interstitial.b.d.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ d hc;
@@ -694,7 +694,7 @@ public final class d extends b {
                         this.hc = this;
                     }
 
-                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0552b
+                    @Override // com.kwad.components.ad.f.kwai.kwai.b.InterfaceC0553b
                     public final void C(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
@@ -717,7 +717,7 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
             com.kwad.components.ad.f.kwai.kwai.a aVar = new com.kwad.components.ad.f.kwai.kwai.a();
-            this.gh.gs.add(new c.InterfaceC0561c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
+            this.gh.gs.add(new c.InterfaceC0562c(this, aVar) { // from class: com.kwad.components.ad.interstitial.b.d.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ d hc;
@@ -742,7 +742,7 @@ public final class d extends b {
                     this.hd = aVar;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0561c
+                @Override // com.kwad.components.ad.interstitial.b.c.InterfaceC0562c
                 public final void cH() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -1473,7 +1473,7 @@ public final class d extends b {
             public final void a(com.kwad.components.core.webview.a.b bVar) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) {
-                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0604a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
+                    AdWebViewActivityProxy.launch(this.hc.mContext, new AdWebViewActivityProxy.a.C0605a().ao(bVar.title).ap(bVar.url).N(this.hc.mAdTemplate).nx());
                 }
             }
         } : (w.a) invokeV.objValue;
@@ -1706,15 +1706,15 @@ public final class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09131e);
+            KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091332);
             this.gT = ksAdWebView;
             ksAdWebView.setBackgroundColor(0);
             this.gT.setVisibility(4);
             this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09116b);
-            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912f5);
-            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091305);
-            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0911c2);
+            this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09117f);
+            this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091309);
+            this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091319);
+            this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0911d6);
             Context context = getContext();
             this.mContext = context;
             if (context != null) {

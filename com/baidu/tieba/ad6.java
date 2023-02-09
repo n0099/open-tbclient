@@ -77,15 +77,15 @@ public class ad6 implements View.OnClickListener {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a4, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null);
             this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091d75);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091db7);
             this.c = findViewById;
             findViewById.setOnClickListener(this);
-            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090feb);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0926c6);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092324);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090689);
+            this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ffc);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092725);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09236b);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090694);
             this.g = imageView;
             imageView.setClickable(true);
             d(TbadkCoreApplication.getInst().getSkinType());
@@ -105,11 +105,11 @@ public class ad6 implements View.OnClickListener {
                 p15.d(this.f).v(R.color.CAM_X0108);
                 this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_close22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (i == 4) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081002, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081017, WebPManager.ResourceStateType.NORMAL);
                 } else if (i == 1) {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081001, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081016, WebPManager.ResourceStateType.NORMAL);
                 } else {
-                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081000, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setMaskDrawable(this.d, R.drawable.obfuscated_res_0x7f081015, WebPManager.ResourceStateType.NORMAL);
                 }
             }
             this.h = i;

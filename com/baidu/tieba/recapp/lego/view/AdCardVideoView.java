@@ -8,12 +8,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr8;
-import com.baidu.tieba.gr8;
-import com.baidu.tieba.os8;
-import com.baidu.tieba.qs8;
+import com.baidu.tieba.gs8;
+import com.baidu.tieba.ks8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
+import com.baidu.tieba.st8;
+import com.baidu.tieba.ut8;
 import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class AdCardVideoView extends AdCardBaseView implements gr8 {
+public class AdCardVideoView extends AdCardBaseView implements ks8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView b0;
@@ -37,7 +37,7 @@ public class AdCardVideoView extends AdCardBaseView implements gr8 {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0177 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0178 : invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
@@ -131,22 +131,22 @@ public class AdCardVideoView extends AdCardBaseView implements gr8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gr8
-    public cr8 getVideoOrVrView() {
+    @Override // com.baidu.tieba.ks8
+    public gs8 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b0;
         }
-        return (cr8) invokeV.objValue;
+        return (gs8) invokeV.objValue;
     }
 
     public boolean q0(AdCard adCard) {
         InterceptResult invokeL;
-        os8 os8Var;
+        st8 st8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (os8Var = adCard.verticalVideoStyle) == null || !os8Var.a()) {
+            if (adCard == null || adCard.goodsStyle != 14 || (st8Var = adCard.verticalVideoStyle) == null || !st8Var.a()) {
                 return false;
             }
             return true;
@@ -192,11 +192,11 @@ public class AdCardVideoView extends AdCardBaseView implements gr8 {
             if (adCard.goodsStyle == 14) {
                 int i = this.B / 2;
                 this.d0 = i;
-                this.e0 = qs8.b(i);
+                this.e0 = ut8.b(i);
             } else {
                 int i2 = this.B;
                 this.d0 = i2;
-                this.e0 = qs8.a(i2);
+                this.e0 = ut8.a(i2);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b0.getLayoutParams();
             layoutParams.height = this.e0;
@@ -204,11 +204,11 @@ public class AdCardVideoView extends AdCardBaseView implements gr8 {
             if (adCard.goodsStyle == 14 && !q0(adCard)) {
                 int i3 = this.B / 2;
                 this.f0 = i3;
-                this.g0 = qs8.b(i3);
+                this.g0 = ut8.b(i3);
             } else {
                 int i4 = this.B;
                 this.f0 = i4;
-                this.g0 = qs8.a(i4);
+                this.g0 = ut8.a(i4);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams2.width = this.f0;
@@ -227,6 +227,6 @@ public class AdCardVideoView extends AdCardBaseView implements gr8 {
         XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view2;
         xfremodeRoundLayout.setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
         xfremodeRoundLayout.setLayerType(2, null);
-        this.b0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f090146);
+        this.b0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f090148);
     }
 }

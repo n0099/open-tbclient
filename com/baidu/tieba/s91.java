@@ -118,7 +118,7 @@ public class s91 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091cab);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091cec);
             TextView textView = (TextView) inflate.findViewById(R.id.message_text);
             this.b = textView;
             textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));

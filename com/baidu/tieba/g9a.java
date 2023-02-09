@@ -1,126 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.util.SparseArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapShader;
+import android.graphics.Canvas;
+import android.graphics.DashPathEffect;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.Shader;
+import android.media.SoundPool;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.frame.IntentData;
+import com.baidu.tieba.f9a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.open.activity.AssistActivity;
-import com.yy.open.activity.BridgeActivity;
-import org.json.JSONObject;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import java.util.HashMap;
+import kotlin.TypeCastException;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function4;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes4.dex */
-public final class g9a {
+public final class g9a extends f9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<c> a;
-    public Handler b;
-    public Context c;
-    public String d;
-    public k9a e;
-
-    public final void h(int i, Intent intent, d9a d9aVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, d9aVar, Long.valueOf(j)}) == null) {
-        }
-    }
+    public final b c;
+    public final HashMap<String, Bitmap> d;
+    public final a e;
+    public final float[] f;
+    public final c9a g;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ d9a b;
-        public final /* synthetic */ Intent c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ g9a e;
+        public int a;
+        public int b;
+        public final HashMap<SVGAVideoShapeEntity, Path> c;
 
-        public a(g9a g9aVar, int i, d9a d9aVar, Intent intent, long j) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g9aVar, Integer.valueOf(i), d9aVar, intent, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = g9aVar;
-            this.a = i;
-            this.b = d9aVar;
-            this.c = intent;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String str;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a == 0) {
-                        this.b.onCancel();
-                        return;
-                    }
-                    String stringExtra = this.c.getStringExtra("resjson");
-                    this.e.e.a(stringExtra);
-                    JSONObject jSONObject = new JSONObject(stringExtra);
-                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
-                        String optString = jSONObject.optString("resMsg");
-                        int optInt = jSONObject.optInt("resCode");
-                        if (optInt != 1000006 && optInt != 1290001) {
-                            optInt = this.a;
-                            this.e.f(this.c, this.b, this.d, optInt, optString);
-                            return;
-                        }
-                        Log.e("chenqiang", "resCode:" + optInt);
-                        this.e.f(this.c, this.b, this.d, optInt, optString);
-                        return;
-                    }
-                    Log.e("chenqiang", "please update yy new version！");
-                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                        i = this.a;
-                        str = "success";
-                    } else {
-                        str = "handleAuthLoginResult--default error!";
-                        i = 444222199;
-                    }
-                    this.e.f(this.c, this.b, this.d, i, str);
-                } catch (Exception unused) {
-                    this.b.onError(new e9a(444222105, j9a.h(444222105)));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d9a a;
-        public final /* synthetic */ e9a b;
-
-        public b(g9a g9aVar, d9a d9aVar, e9a e9aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g9aVar, d9aVar, e9aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,32 +60,53 @@ public final class g9a {
                     return;
                 }
             }
-            this.a = d9aVar;
-            this.b = e9aVar;
+            this.c = new HashMap<>();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public final Path a(SVGAVideoShapeEntity sVGAVideoShapeEntity) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onError(this.b);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sVGAVideoShapeEntity)) == null) {
+                if (!this.c.containsKey(sVGAVideoShapeEntity)) {
+                    Path path = new Path();
+                    path.set(sVGAVideoShapeEntity.b());
+                    this.c.put(sVGAVideoShapeEntity, path);
+                }
+                Path path2 = this.c.get(sVGAVideoShapeEntity);
+                if (path2 == null) {
+                    Intrinsics.throwNpe();
+                }
+                return path2;
+            }
+            return (Path) invokeL.objValue;
+        }
+
+        public final void b(Canvas canvas) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+                if (this.a != canvas.getWidth() || this.b != canvas.getHeight()) {
+                    this.c.clear();
+                }
+                this.a = canvas.getWidth();
+                this.b = canvas.getHeight();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public final class c {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public d9a a;
-        public long b;
+        public final Paint a;
+        public final Path b;
+        public final Path c;
+        public final Matrix d;
+        public final Matrix e;
 
-        public c(g9a g9aVar, d9a d9aVar) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g9aVar, d9aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -165,209 +116,438 @@ public final class g9a {
                     return;
                 }
             }
-            this.a = d9aVar;
-            this.b = System.currentTimeMillis();
+            this.a = new Paint();
+            this.b = new Path();
+            this.c = new Path();
+            this.d = new Matrix();
+            this.e = new Matrix();
+        }
+
+        public final Matrix a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.d.reset();
+                return this.d;
+            }
+            return (Matrix) invokeV.objValue;
+        }
+
+        public final Matrix b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                this.e.reset();
+                return this.e;
+            }
+            return (Matrix) invokeV.objValue;
+        }
+
+        public final Paint c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                this.a.reset();
+                return this.a;
+            }
+            return (Paint) invokeV.objValue;
+        }
+
+        public final Path d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                this.b.reset();
+                return this.b;
+            }
+            return (Path) invokeV.objValue;
+        }
+
+        public final Path e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                this.c.reset();
+                return this.c;
+            }
+            return (Path) invokeV.objValue;
         }
     }
 
-    public g9a(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g9a(SVGAVideoEntity sVGAVideoEntity, c9a c9aVar) {
+        super(sVGAVideoEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {sVGAVideoEntity, c9aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((SVGAVideoEntity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = k9a.b();
-        this.c = context;
-        this.d = str;
-        this.a = new SparseArray<>();
-        this.b = new Handler(Looper.getMainLooper());
+        this.g = c9aVar;
+        this.c = new b();
+        this.d = new HashMap<>();
+        this.e = new a();
+        this.f = new float[16];
     }
 
-    public final void c(Activity activity, String str, d9a d9aVar) {
+    @Override // com.baidu.tieba.f9a
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, d9aVar) == null) {
-            if (i9a.d(activity, BridgeActivity.class) && i9a.d(activity, AssistActivity.class)) {
-                int a2 = j9a.a(activity);
-                if (a2 != 0) {
-                    try {
-                        this.a.put(62345, new c(this, d9aVar));
-                        String c2 = j9a.c(this.c, this.d, str, true);
-                        Intent intent = new Intent(activity, AssistActivity.class);
-                        intent.putExtra("type", "type_web");
-                        intent.putExtra("url", c2);
-                        activity.startActivityForResult(intent, 62345);
-                        return;
-                    } catch (Exception unused) {
-                        g(new e9a(a2), d9aVar);
-                        return;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            super.a(canvas, i, scaleType);
+            this.e.b(canvas);
+            for (f9a.a aVar : d(i)) {
+                h(aVar, canvas, i);
+            }
+            k(i);
+        }
+    }
+
+    public final void h(f9a.a aVar, Canvas canvas, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, aVar, canvas, i) == null) {
+            f(aVar, canvas);
+            g(aVar, canvas);
+            e(aVar, canvas, i);
+        }
+    }
+
+    public final void e(f9a.a aVar, Canvas canvas, int i) {
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, canvas, i) == null) && (b2 = aVar.b()) != null) {
+            Function2<Canvas, Integer, Boolean> function2 = this.g.a().get(b2);
+            if (function2 != null) {
+                Matrix l = l(aVar.a().e());
+                canvas.save();
+                canvas.concat(l);
+                function2.invoke(canvas, Integer.valueOf(i));
+                canvas.restore();
+            }
+            Function4<Canvas, Integer, Integer, Integer, Boolean> function4 = this.g.b().get(b2);
+            if (function4 != null) {
+                Matrix l2 = l(aVar.a().e());
+                canvas.save();
+                canvas.concat(l2);
+                function4.invoke(canvas, Integer.valueOf(i), Integer.valueOf((int) aVar.a().b().b()), Integer.valueOf((int) aVar.a().b().a()));
+                canvas.restore();
+            }
+        }
+    }
+
+    public final void f(f9a.a aVar, Canvas canvas) {
+        String b2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, canvas) != null) || (b2 = aVar.b()) == null || Intrinsics.areEqual(this.g.c().get(b2), Boolean.TRUE)) {
+            return;
+        }
+        Bitmap bitmap = this.g.d().get(b2);
+        if (bitmap == null) {
+            bitmap = c().e().get(b2);
+        }
+        if (bitmap != null) {
+            Matrix l = l(aVar.a().e());
+            Paint c = this.c.c();
+            c.setAntiAlias(c().a());
+            c.setFilterBitmap(c().a());
+            c.setAlpha((int) (aVar.a().a() * 255));
+            if (aVar.a().c() != null) {
+                i9a c2 = aVar.a().c();
+                if (c2 != null) {
+                    canvas.save();
+                    c.reset();
+                    Path d = this.c.d();
+                    c2.a(d);
+                    d.transform(l);
+                    canvas.clipPath(d);
+                    l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
+                    canvas.drawBitmap(bitmap, l, c);
+                    canvas.restore();
+                } else {
+                    return;
+                }
+            } else {
+                l.preScale((float) (aVar.a().b().b() / bitmap.getWidth()), (float) (aVar.a().b().b() / bitmap.getWidth()));
+                canvas.drawBitmap(bitmap, l, c);
+            }
+            i(canvas, bitmap, aVar, l);
+        }
+    }
+
+    public final void g(f9a.a aVar, Canvas canvas) {
+        SVGAVideoShapeEntity.a c;
+        float[] c2;
+        String d;
+        String b2;
+        int a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, canvas) == null) {
+            Matrix l = l(aVar.a().e());
+            for (SVGAVideoShapeEntity sVGAVideoShapeEntity : aVar.a().d()) {
+                sVGAVideoShapeEntity.a();
+                if (sVGAVideoShapeEntity.b() != null) {
+                    Paint c3 = this.c.c();
+                    c3.reset();
+                    c3.setAntiAlias(c().a());
+                    double d2 = 255;
+                    c3.setAlpha((int) (aVar.a().a() * d2));
+                    Path d3 = this.c.d();
+                    d3.reset();
+                    d3.addPath(this.e.a(sVGAVideoShapeEntity));
+                    Matrix b3 = this.c.b();
+                    b3.reset();
+                    Matrix d4 = sVGAVideoShapeEntity.d();
+                    if (d4 != null) {
+                        b3.postConcat(d4);
+                    }
+                    b3.postConcat(l);
+                    d3.transform(b3);
+                    SVGAVideoShapeEntity.a c4 = sVGAVideoShapeEntity.c();
+                    if (c4 != null && (a2 = c4.a()) != 0) {
+                        c3.setStyle(Paint.Style.FILL);
+                        c3.setColor(a2);
+                        c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
+                        if (aVar.a().c() != null) {
+                            canvas.save();
+                        }
+                        i9a c5 = aVar.a().c();
+                        if (c5 != null) {
+                            Path e = this.c.e();
+                            c5.a(e);
+                            e.transform(l);
+                            canvas.clipPath(e);
+                        }
+                        canvas.drawPath(d3, c3);
+                        if (aVar.a().c() != null) {
+                            canvas.restore();
+                        }
+                    }
+                    SVGAVideoShapeEntity.a c6 = sVGAVideoShapeEntity.c();
+                    if (c6 != null) {
+                        float f = 0;
+                        if (c6.g() > f) {
+                            c3.setStyle(Paint.Style.STROKE);
+                            SVGAVideoShapeEntity.a c7 = sVGAVideoShapeEntity.c();
+                            if (c7 != null) {
+                                c3.setColor(c7.f());
+                                c3.setAlpha(Math.min(255, Math.max(0, (int) (aVar.a().a() * d2))));
+                            }
+                            float j = j(l);
+                            SVGAVideoShapeEntity.a c8 = sVGAVideoShapeEntity.c();
+                            if (c8 != null) {
+                                c3.setStrokeWidth(c8.g() * j);
+                            }
+                            SVGAVideoShapeEntity.a c9 = sVGAVideoShapeEntity.c();
+                            if (c9 != null && (b2 = c9.b()) != null) {
+                                if (StringsKt__StringsJVMKt.equals(b2, "butt", true)) {
+                                    c3.setStrokeCap(Paint.Cap.BUTT);
+                                } else if (StringsKt__StringsJVMKt.equals(b2, "round", true)) {
+                                    c3.setStrokeCap(Paint.Cap.ROUND);
+                                } else if (StringsKt__StringsJVMKt.equals(b2, "square", true)) {
+                                    c3.setStrokeCap(Paint.Cap.SQUARE);
+                                }
+                            }
+                            SVGAVideoShapeEntity.a c10 = sVGAVideoShapeEntity.c();
+                            if (c10 != null && (d = c10.d()) != null) {
+                                if (StringsKt__StringsJVMKt.equals(d, "miter", true)) {
+                                    c3.setStrokeJoin(Paint.Join.MITER);
+                                } else if (StringsKt__StringsJVMKt.equals(d, "round", true)) {
+                                    c3.setStrokeJoin(Paint.Join.ROUND);
+                                } else if (StringsKt__StringsJVMKt.equals(d, "bevel", true)) {
+                                    c3.setStrokeJoin(Paint.Join.BEVEL);
+                                }
+                            }
+                            if (sVGAVideoShapeEntity.c() != null) {
+                                c3.setStrokeMiter(c.e() * j);
+                            }
+                            SVGAVideoShapeEntity.a c11 = sVGAVideoShapeEntity.c();
+                            if (c11 != null && (c2 = c11.c()) != null && c2.length == 3 && (c2[0] > f || c2[1] > f)) {
+                                float[] fArr = new float[2];
+                                float f2 = 1.0f;
+                                if (c2[0] >= 1.0f) {
+                                    f2 = c2[0];
+                                }
+                                fArr[0] = f2 * j;
+                                float f3 = 0.1f;
+                                if (c2[1] >= 0.1f) {
+                                    f3 = c2[1];
+                                }
+                                fArr[1] = f3 * j;
+                                c3.setPathEffect(new DashPathEffect(fArr, c2[2] * j));
+                            }
+                            if (aVar.a().c() != null) {
+                                canvas.save();
+                            }
+                            i9a c12 = aVar.a().c();
+                            if (c12 != null) {
+                                Path e2 = this.c.e();
+                                c12.a(e2);
+                                e2.transform(l);
+                                canvas.clipPath(e2);
+                            }
+                            canvas.drawPath(d3, c3);
+                            if (aVar.a().c() != null) {
+                                canvas.restore();
+                            }
+                        }
                     }
                 }
-                Intent e = j9a.e(activity);
-                this.a.put(62345, new c(this, d9aVar));
-                Bundle d = j9a.d(activity, this.d);
-                e.putExtra("action", "action_login");
-                e.putExtra("bundle", d);
-                i(activity, e, 62345);
-                return;
             }
-            g(new e9a(3), d9aVar);
         }
     }
 
-    public final boolean d(int i, int i2, Intent intent, d9a d9aVar) {
-        InterceptResult invokeCommon;
-        long currentTimeMillis;
-        d9a d9aVar2;
+    public final void i(Canvas canvas, Bitmap bitmap, f9a.a aVar, Matrix matrix) {
+        TextPaint drawingTextPaint;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, d9aVar})) == null) {
-            if (i != 62345 && i != 62347) {
-                return false;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, canvas, bitmap, aVar, matrix) == null) {
+            if (this.g.h()) {
+                this.d.clear();
+                this.g.i(false);
             }
-            c cVar = this.a.get(i);
-            if (cVar != null) {
-                currentTimeMillis = cVar.b;
-                d9aVar2 = cVar.a;
-                this.a.remove(i);
-            } else {
-                currentTimeMillis = System.currentTimeMillis();
-                d9aVar2 = d9aVar;
-            }
-            if (i == 62345) {
-                e(i2, intent, d9aVar2, currentTimeMillis);
-                return true;
-            } else if (i != 62347) {
-                return false;
-            } else {
-                h(i2, intent, d9aVar2, currentTimeMillis);
-                return true;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void e(int i, Intent intent, d9a d9aVar, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, d9aVar, Long.valueOf(j)}) == null) {
-            this.b.postDelayed(new a(this, i, d9aVar, intent, j), 10L);
-        }
-    }
-
-    public final void f(Intent intent, d9a d9aVar, long j, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, d9aVar, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            switch (i) {
-                case 1000006:
-                    d9aVar.onError(new e9a(1000006, str));
-                    return;
-                case 1290001:
-                    d9aVar.onError(new e9a(1290001, str));
-                    return;
-                case 444111001:
-                    try {
-                        String stringExtra = intent.getStringExtra("resjson");
-                        this.e.a(stringExtra);
-                        JSONObject jSONObject = new JSONObject(stringExtra);
-                        jSONObject.optString("openid");
-                        jSONObject.optString("uid");
-                        jSONObject.optString("access_code");
-                        d9aVar.onComplete(jSONObject);
-                        return;
-                    } catch (Exception unused) {
-                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
-                        return;
+            String b2 = aVar.b();
+            if (b2 != null) {
+                Bitmap bitmap2 = null;
+                String str = this.g.f().get(b2);
+                if (str != null && (drawingTextPaint = this.g.g().get(b2)) != null && (bitmap2 = this.d.get(b2)) == null) {
+                    bitmap2 = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas2 = new Canvas(bitmap2);
+                    Intrinsics.checkExpressionValueIsNotNull(drawingTextPaint, "drawingTextPaint");
+                    drawingTextPaint.setAntiAlias(true);
+                    Rect rect = new Rect();
+                    drawingTextPaint.getTextBounds(str, 0, str.length(), rect);
+                    canvas2.drawText(str, (float) ((bitmap.getWidth() - rect.width()) / 2.0d), (((bitmap.getHeight() + 0) - drawingTextPaint.getFontMetrics().bottom) - drawingTextPaint.getFontMetrics().top) / 2, drawingTextPaint);
+                    HashMap<String, Bitmap> hashMap = this.d;
+                    if (bitmap2 != null) {
+                        hashMap.put(b2, bitmap2);
+                    } else {
+                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
                     }
-                case 444111002:
-                    d9aVar.onCancel();
-                    return;
-                case 444111003:
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
-                        if ("1".equals(jSONObject2.optString("appType"))) {
-                            jSONObject2.optString("uid");
-                        } else {
-                            jSONObject2.optString("openid");
+                }
+                StaticLayout it = this.g.e().get(b2);
+                if (it != null && (bitmap2 = this.d.get(b2)) == null) {
+                    Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                    TextPaint paint = it.getPaint();
+                    Intrinsics.checkExpressionValueIsNotNull(paint, "it.paint");
+                    paint.setAntiAlias(true);
+                    StaticLayout staticLayout = new StaticLayout(it.getText(), 0, it.getText().length(), it.getPaint(), bitmap.getWidth(), it.getAlignment(), it.getSpacingMultiplier(), it.getSpacingAdd(), false);
+                    Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+                    Canvas canvas3 = new Canvas(createBitmap);
+                    canvas3.translate(0.0f, (bitmap.getHeight() - staticLayout.getHeight()) / 2);
+                    staticLayout.draw(canvas3);
+                    HashMap<String, Bitmap> hashMap2 = this.d;
+                    if (createBitmap != null) {
+                        hashMap2.put(b2, createBitmap);
+                        bitmap2 = createBitmap;
+                    } else {
+                        throw new TypeCastException("null cannot be cast to non-null type android.graphics.Bitmap");
+                    }
+                }
+                if (bitmap2 != null) {
+                    Paint c = this.c.c();
+                    c.setAntiAlias(c().a());
+                    if (aVar.a().c() != null) {
+                        i9a c2 = aVar.a().c();
+                        if (c2 != null) {
+                            canvas.save();
+                            canvas.concat(matrix);
+                            canvas.clipRect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                            Shader.TileMode tileMode = Shader.TileMode.REPEAT;
+                            c.setShader(new BitmapShader(bitmap2, tileMode, tileMode));
+                            Path d = this.c.d();
+                            c2.a(d);
+                            canvas.drawPath(d, c);
+                            canvas.restore();
+                            return;
                         }
-                        d9aVar.onComplete(jSONObject2);
-                        return;
-                    } catch (Exception unused2) {
-                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
                         return;
                     }
-                case 444222000:
-                    d9aVar.onError(new e9a(444222000, str));
-                    return;
-                case 444222001:
-                    d9aVar.onError(new e9a(444222001, str));
-                    return;
-                case 444222002:
-                    d9aVar.onError(new e9a(444222002, str));
-                    return;
-                case 444222003:
-                    d9aVar.onError(new e9a(444222003, str));
-                    return;
-                case 444222104:
-                    d9aVar.onError(new e9a(444222104, str));
-                    return;
-                case 444222105:
-                    d9aVar.onError(new e9a(444222105, str));
-                    return;
-                case 444222106:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        d9aVar.onError(new e9a(444222106, str));
-                        return;
-                    } catch (Exception unused3) {
-                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
-                        return;
-                    }
-                case 444222108:
-                    try {
-                        d9aVar.onComplete(new JSONObject(intent.getStringExtra("resjson")));
-                        return;
-                    } catch (Exception unused4) {
-                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
-                        return;
-                    }
-                case 444222110:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        d9aVar.onError(new e9a(444222110, str));
-                        return;
-                    } catch (Exception unused5) {
-                        d9aVar.onError(new e9a(444222105, j9a.h(444222105)));
-                        return;
-                    }
-                default:
-                    Log.e("chenqiang", "default  error");
-                    d9aVar.onError(new e9a(i, j9a.h(i)));
-                    return;
+                    c.setFilterBitmap(c().a());
+                    canvas.drawBitmap(bitmap2, matrix, c);
+                }
             }
         }
     }
 
-    public final void g(e9a e9aVar, d9a d9aVar) {
+    public final float j(Matrix matrix) {
+        InterceptResult invokeL;
+        float f;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, e9aVar, d9aVar) == null) && d9aVar != null) {
-            this.b.postDelayed(new b(this, d9aVar, e9aVar), 50L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, matrix)) == null) {
+            matrix.getValues(this.f);
+            float[] fArr = this.f;
+            if (fArr[0] == 0.0f) {
+                return 0.0f;
+            }
+            double d = fArr[0];
+            double d2 = fArr[3];
+            double d3 = fArr[1];
+            double d4 = fArr[4];
+            if (d * d4 == d2 * d3) {
+                return 0.0f;
+            }
+            double sqrt = Math.sqrt((d * d) + (d2 * d2));
+            double d5 = d / sqrt;
+            double d6 = d2 / sqrt;
+            double d7 = (d5 * d3) + (d6 * d4);
+            double d8 = d3 - (d5 * d7);
+            double d9 = d4 - (d7 * d6);
+            double sqrt2 = Math.sqrt((d8 * d8) + (d9 * d9));
+            if (d5 * (d9 / sqrt2) < d6 * (d8 / sqrt2)) {
+                sqrt = -sqrt;
+            }
+            if (b().a()) {
+                f = (float) sqrt;
+            } else {
+                f = (float) sqrt2;
+            }
+            return Math.abs(f);
+        }
+        return invokeL.floatValue;
+    }
+
+    public final void k(int i) {
+        SoundPool f;
+        Integer c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            for (h9a h9aVar : c().b()) {
+                if (h9aVar.d() == i && (f = c().f()) != null && (c = h9aVar.c()) != null) {
+                    h9aVar.e(Integer.valueOf(f.play(c.intValue(), 1.0f, 1.0f, 1, 0, 1.0f)));
+                }
+                if (h9aVar.a() <= i) {
+                    Integer b2 = h9aVar.b();
+                    if (b2 != null) {
+                        int intValue = b2.intValue();
+                        SoundPool f2 = c().f();
+                        if (f2 != null) {
+                            f2.stop(intValue);
+                        }
+                    }
+                    h9aVar.e(null);
+                }
+            }
         }
     }
 
-    public final void i(Activity activity, Intent intent, int i) {
+    public final Matrix l(Matrix matrix) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
-            intent.putExtra("request_code", i);
-            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
-            intent2.putExtra(IntentData.KEY, intent);
-            activity.startActivityForResult(intent2, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, matrix)) == null) {
+            Matrix a2 = this.c.a();
+            a2.postScale(b().b(), b().c());
+            a2.postTranslate(b().d(), b().e());
+            a2.preConcat(matrix);
+            return a2;
         }
+        return (Matrix) invokeL.objValue;
     }
 }

@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.my8;
-import com.baidu.tieba.ny8;
+import com.baidu.tieba.qz8;
+import com.baidu.tieba.rz8;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(boolean z, int i, ny8 ny8Var, String str, boolean z2);
+        void a(boolean z, int i, rz8 rz8Var, String str, boolean z2);
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, Integer, my8> {
+    public class b extends BdAsyncTask<Object, Integer, qz8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public my8 b;
+        public qz8 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new my8();
+            this.b = new qz8();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +90,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public my8 doInBackground(Object... objArr) {
+        public qz8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (my8) invokeL.objValue;
+            return (qz8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(my8 my8Var) {
+        public void onPostExecute(qz8 qz8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, my8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qz8Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, my8Var.b(), this.c.g);
-                } else if (my8Var.h() != null) {
-                    this.c.b.a(true, my8Var.a(), my8Var.h(), my8Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, qz8Var.b(), this.c.g);
+                } else if (qz8Var.h() != null) {
+                    this.c.b.a(true, qz8Var.a(), qz8Var.h(), qz8Var.b(), this.c.g);
                 }
             }
         }

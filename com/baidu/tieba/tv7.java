@@ -74,7 +74,7 @@ public class tv7 {
     public int S;
     public int T;
     public int U;
-    public co8 V;
+    public gp8 V;
     public int W;
     public int X;
     public int Y;
@@ -88,7 +88,7 @@ public class tv7 {
     public View d;
     public boolean d0;
     public View e;
-    public qo8 e0;
+    public up8 e0;
     public TbVideoViewContainer f;
     public Runnable f0;
     public View g;
@@ -309,19 +309,19 @@ public class tv7 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements qo8 {
+    public class e implements up8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tv7 a;
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -331,7 +331,7 @@ public class tv7 {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -341,7 +341,7 @@ public class tv7 {
             return (View) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -351,7 +351,7 @@ public class tv7 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class tv7 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -371,7 +371,7 @@ public class tv7 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -398,7 +398,7 @@ public class tv7 {
             return invokeIIL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -419,7 +419,7 @@ public class tv7 {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -429,63 +429,63 @@ public class tv7 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
-        public void setStatistic(lo8 lo8Var) {
+        @Override // com.baidu.tieba.up8
+        public void setStatistic(pp8 pp8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, lo8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, pp8Var) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -760,19 +760,19 @@ public class tv7 {
                         if (!tv7Var2.s) {
                             if (tv7Var2.b0) {
                                 this.a.f.getControl().setVolume(0.0f, 0.0f);
-                                this.a.m.setImageResource(R.drawable.obfuscated_res_0x7f08044b);
+                                this.a.m.setImageResource(R.drawable.obfuscated_res_0x7f08044f);
                                 yp5.e(this.a.c0, false);
                                 this.a.b0 = false;
                                 return;
                             }
                             this.a.f.getControl().setVolume(1.0f, 1.0f);
-                            this.a.m.setImageResource(R.drawable.obfuscated_res_0x7f08044c);
+                            this.a.m.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                             yp5.e(this.a.c0, true);
                             this.a.b0 = true;
                         }
                     }
                 } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    ej.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                    ej.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0d08));
                 } else if (this.a.f.getControl().isPlaying()) {
                     this.a.m0();
                 } else if (this.a.B) {
@@ -1009,10 +1009,10 @@ public class tv7 {
         if (view2 instanceof FrameLayout) {
             ((FrameLayout) view2).addView(e0);
         }
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.d.findViewById(R.id.obfuscated_res_0x7f092602);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.d.findViewById(R.id.obfuscated_res_0x7f092651);
         this.f = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
-        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f092640);
+        this.g = this.d.findViewById(R.id.obfuscated_res_0x7f092695);
         VideoListMediaControllerView videoListMediaControllerView = (VideoListMediaControllerView) this.d.findViewById(R.id.media_controller);
         this.h = videoListMediaControllerView;
         videoListMediaControllerView.setPlayer(this.f.getControl());
@@ -1021,17 +1021,17 @@ public class tv7 {
         this.j = findViewById;
         findViewById.setOnClickListener(this.i0);
         this.k = (FrameLayout) this.d.findViewById(R.id.danmu_container);
-        ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090fda);
+        ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090feb);
         this.n = imageView;
         imageView.setOnClickListener(this.i0);
-        ImageView imageView2 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090fe4);
+        ImageView imageView2 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ff5);
         this.m = imageView2;
         imageView2.setOnClickListener(this.i0);
-        ImageView imageView3 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090568);
+        ImageView imageView3 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090573);
         this.o = imageView3;
         imageView3.setOnClickListener(this.i0);
-        this.p = this.d.findViewById(R.id.obfuscated_res_0x7f09056b);
-        this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091d38);
+        this.p = this.d.findViewById(R.id.obfuscated_res_0x7f090576);
+        this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091d7a);
         this.f.getControl().setOperableVideoContainer(this.e0);
         this.f.getControl().setOnSurfaceDestroyedListener(this.h0);
         ImageView imageView4 = (ImageView) this.d.findViewById(R.id.img_play);
@@ -1059,9 +1059,9 @@ public class tv7 {
         this.a0 = this.Q.getStreamVolume(3);
         o0 = 100 / this.S;
         this.d.setOnTouchListener(new d(this));
-        co8 co8Var = new co8(this.a.getPageActivity());
-        this.V = co8Var;
-        co8Var.j();
+        gp8 gp8Var = new gp8(this.a.getPageActivity());
+        this.V = gp8Var;
+        gp8Var.j();
         this.Y = ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
         if (p0 == null) {
             p0 = new CallStateReceiver();
@@ -1144,7 +1144,7 @@ public class tv7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, tbPageContext)) == null) {
-            return LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0182, (ViewGroup) null);
+            return LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0183, (ViewGroup) null);
         }
         return (View) invokeL.objValue;
     }
@@ -1239,10 +1239,10 @@ public class tv7 {
     }
 
     public void O0() {
-        co8 co8Var;
+        gp8 gp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (co8Var = this.V) != null) {
-            co8Var.l();
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (gp8Var = this.V) != null) {
+            gp8Var.l();
         }
     }
 
@@ -1313,13 +1313,13 @@ public class tv7 {
         return invokeV.booleanValue;
     }
 
-    public xn8 d0() {
+    public bp8 d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.f.getControl();
         }
-        return (xn8) invokeV.objValue;
+        return (bp8) invokeV.objValue;
     }
 
     public VideoListMediaControllerView f0() {
@@ -1379,7 +1379,7 @@ public class tv7 {
             if (layoutParams2 != null) {
                 layoutParams2.alignWithParent = false;
                 layoutParams2.addRule(11, 0);
-                layoutParams2.addRule(0, R.id.obfuscated_res_0x7f090568);
+                layoutParams2.addRule(0, R.id.obfuscated_res_0x7f090573);
                 int dimension = (int) (this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be) + 0.5f);
                 this.m.setPadding((int) (this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07027a) + 0.5f), (int) (this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be) + 0.5f), (int) (this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701be) + 0.5f), dimension);
                 this.m.setLayoutParams(layoutParams2);
@@ -1390,11 +1390,11 @@ public class tv7 {
     public void M0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            jo8 jo8Var = new jo8();
-            jo8Var.e = "ad_feed";
-            jo8Var.d = jo8Var.a("ad_feed");
-            jo8Var.f = jo8Var.c("1");
-            this.f.getControl().setVideoModel(jo8Var);
+            np8 np8Var = new np8();
+            np8Var.e = "ad_feed";
+            np8Var.d = np8Var.a("ad_feed");
+            np8Var.f = np8Var.c("1");
+            this.f.getControl().setVideoModel(np8Var);
             this.f.getControl().setVideoPath(str);
             this.f.getControl().start();
             this.g.setVisibility(0);
@@ -1646,8 +1646,8 @@ public class tv7 {
             if (BdNetTypeUtil.isMobileNet() && !this.j0) {
                 j05 j05Var = new j05(this.a.getPageActivity());
                 j05Var.setMessage(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
-                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new j(this));
-                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new k(this));
+                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new j(this));
+                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new k(this));
                 j05Var.create(this.a).show();
                 return;
             }

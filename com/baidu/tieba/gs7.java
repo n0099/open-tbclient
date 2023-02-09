@@ -53,43 +53,43 @@ public class gs7 {
             }
         }
         this.a = invatateAnswerSettingActivity;
-        invatateAnswerSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06c2);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091a61);
+        invatateAnswerSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06c8);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091a99);
         this.c = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
         this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f143b));
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1452));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091f61);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa4);
         this.n = personalTalkSettingViewSettingView;
         personalTalkSettingViewSettingView.a.setVisibility(0);
         c(p35.m().i("key_question_msg_no_remind", false));
         this.n.b.setVisibility(8);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925b4);
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09206e);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092602);
+        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b2);
         this.j = tbSettingTextTipView;
         tbSettingTextTipView.setVisibility(8);
-        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09012b);
+        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09012d);
         this.k = tbSettingTextTipView2;
         tbSettingTextTipView2.setVisibility(8);
-        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09206d);
+        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b1);
         this.i = tbSettingTextTipView3;
         tbSettingTextTipView3.setVisibility(8);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091a9b);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091ad3);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setGodIconWidth(R.dimen.tbds47);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f38);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f49);
         this.e = textView;
-        textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f09f5));
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f36);
+        textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f09ff));
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f47);
         this.h = imageView;
         imageView.setVisibility(8);
         this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092598);
+        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925e4);
         this.g = textView2;
-        textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d97));
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09086a);
+        textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0da3));
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f090878);
     }
 
     public void a(int i) {
@@ -97,7 +97,7 @@ public class gs7 {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.a.getLayoutMode().k(this.c);
             this.b.onChangeSkinType(this.a.getPageContext(), i);
-            this.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080833));
+            this.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08083f));
             p15 d = p15.d(this.e);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X04);

@@ -59,11 +59,11 @@ public class u60 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.baidu.tieba.u60$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0438a implements b70 {
+        public class C0440a implements b70 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0438a(a aVar, Request request) {
+            public C0440a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class u60 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new w60(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0438a(this, e));
+                        Dns a = this.c.d.a(e, new C0440a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new y60(a));
                     }

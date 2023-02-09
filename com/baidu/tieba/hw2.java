@@ -456,14 +456,14 @@ public class hw2 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090240);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090242);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090244);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090245);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090243);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090247);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090246);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090241);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090244);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090246);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090248);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090249);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090247);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09024b);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f09024a);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090245);
         }
     }
 
@@ -501,9 +501,9 @@ public class hw2 extends BaseAdapter {
             String format = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 / 60));
             String format2 = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 % 60));
             if (j4 == 0) {
-                return this.a.getString(R.string.obfuscated_res_0x7f0f13e3, new Object[]{format, format2});
+                return this.a.getString(R.string.obfuscated_res_0x7f0f13fa, new Object[]{format, format2});
             }
-            return this.a.getString(R.string.obfuscated_res_0x7f0f13e4, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
+            return this.a.getString(R.string.obfuscated_res_0x7f0f13fb, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
         }
         return (String) invokeJ.objValue;
     }
@@ -539,7 +539,7 @@ public class hw2 extends BaseAdapter {
                 }
                 if (TextUtils.isEmpty(str2)) {
                 }
-                o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1364)).G();
+                o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f137b)).G();
                 return false;
             }
             if (mediaMetadataRetriever != null) {
@@ -557,7 +557,7 @@ public class hw2 extends BaseAdapter {
                 }
                 return true;
             }
-            o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1364)).G();
+            o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f137b)).G();
             return false;
         }
         return invokeL.booleanValue;
@@ -630,11 +630,11 @@ public class hw2 extends BaseAdapter {
         if (interceptable == null || interceptable.invokeLL(1048576, this, jVar, view2) == null) {
             Resources resources = this.a.getResources();
             view2.setBackgroundColor(-1);
-            jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060ab7));
-            jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060ac2));
-            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0811f6));
+            jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060ab8));
+            jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060ac3));
+            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08120c));
             jVar.g.setTextColor(-1);
-            jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060ac5));
+            jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060ac6));
             jVar.a.setLayoutParams(this.f);
             jVar.b.setLayoutParams(this.f);
             jVar.b.setVisibility(8);
@@ -642,7 +642,7 @@ public class hw2 extends BaseAdapter {
             jVar.f.setVisibility(8);
             jVar.h.setVisibility(8);
             jVar.f.setVisibility(0);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081204);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08121a);
             jVar.h.setVisibility(0);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
             layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706c6);
@@ -660,13 +660,13 @@ public class hw2 extends BaseAdapter {
                     mw2.j(mw2.d);
                     return;
                 } else if (d2 > 0 && TextUtils.equals(mw2.d, "single") && !TextUtils.equals(nw2.b(), mediaModel.getType())) {
-                    o83.f(this.a, R.string.obfuscated_res_0x7f0f135d).G();
+                    o83.f(this.a, R.string.obfuscated_res_0x7f0f1374).G();
                     return;
                 } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
-                    o83.f(this.a, R.string.obfuscated_res_0x7f0f135c).G();
+                    o83.f(this.a, R.string.obfuscated_res_0x7f0f1373).G();
                     return;
                 } else {
-                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081202);
+                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081218);
                     jVar.c.setVisibility(0);
                     jVar.c.setText(String.valueOf(nw2.c(mediaModel) + 1));
                     nw2.i(mediaModel);
@@ -680,7 +680,7 @@ public class hw2 extends BaseAdapter {
                 }
             }
             nw2.h(mediaModel);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081204);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08121a);
             jVar.c.setVisibility(8);
             tw2 tw2Var2 = this.c;
             if (tw2Var2 != null) {
@@ -735,12 +735,12 @@ public class hw2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i2, view2, viewGroup)) == null) {
             if (getItemViewType(i2) == 0) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0847, (ViewGroup) null, false);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0859, (ViewGroup) null, false);
                 r(inflate);
                 return inflate;
             }
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d084d, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d085f, (ViewGroup) null);
                 jVar = new j(this, view2);
                 view2.setTag(jVar);
             } else {
@@ -800,7 +800,7 @@ public class hw2 extends BaseAdapter {
             if (nw2.d() >= mw2.c) {
                 mw2.j(mw2.d);
             } else if (km3.c() < 52428800) {
-                o83.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1355)).G();
+                o83.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f136c)).G();
             } else {
                 p(this.a);
             }
@@ -812,10 +812,10 @@ public class hw2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
             if (j2 < 3000) {
-                o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1363)).G();
+                o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f137a)).G();
                 return true;
             } else if (j2 > 300000) {
-                o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1362)).G();
+                o83.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1379)).G();
                 return true;
             } else {
                 return false;
@@ -827,16 +827,16 @@ public class hw2 extends BaseAdapter {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            view2.findViewById(R.id.obfuscated_res_0x7f090239).setLayoutParams(this.f);
+            view2.findViewById(R.id.obfuscated_res_0x7f09023d).setLayoutParams(this.f);
             view2.setTag(null);
             view2.setClickable(true);
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09023a);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09023e);
             if (TextUtils.equals(mw2.b, "Image")) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811ec);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081202);
                 view2.setOnClickListener(new a(this));
                 return;
             }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0811f0);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081206);
             view2.setOnClickListener(new b(this));
         }
     }
@@ -845,7 +845,7 @@ public class hw2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
             if (nw2.f(mediaModel)) {
-                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081202);
+                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081218);
                 jVar.c.setVisibility(0);
                 jVar.c.setText(String.valueOf(nw2.c(mediaModel) + 1));
             }
@@ -856,9 +856,9 @@ public class hw2 extends BaseAdapter {
             }
             if (lw2.d) {
                 if (mw2.d(mediaModel.getPath())) {
-                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1359));
+                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1370));
                 } else if (mw2.e(mediaModel.getPath())) {
-                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f135a));
+                    jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1371));
                 } else {
                     jVar.h.setVisibility(8);
                 }

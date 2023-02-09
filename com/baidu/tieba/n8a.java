@@ -1,23 +1,42 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class n8a {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+public final class n8a extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ InstallActivity a;
 
-    static {
-        int[] iArr = new int[ImageView.ScaleType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_START.ordinal()] = 5;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_END.ordinal()] = 6;
-        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
+    public n8a(InstallActivity installActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {installActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = installActivity;
+    }
+
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+            return;
+        }
+        this.a.m();
     }
 }

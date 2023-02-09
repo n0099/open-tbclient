@@ -180,7 +180,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(viewGroup.getContext());
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090d9c);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090dad);
             return new Holder(chatImageWithTailView);
         }
         return (Holder) invokeL.objValue;
@@ -196,7 +196,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(viewGroup.getContext());
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090d9c);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090dad);
             return new Holder(chatImageWithTailView);
         }
         return (Holder) invokeL.objValue;

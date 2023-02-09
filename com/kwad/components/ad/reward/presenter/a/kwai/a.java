@@ -124,7 +124,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                 com.kwad.components.core.page.c cVar = new com.kwad.components.core.page.c(getContext(), this.mAdTemplate, 4, false);
                 this.landingPageViewHelper = cVar;
                 cVar.a(this);
-                this.landingPageViewHelper.a(new c.C0605c().at(false).as(true).aq("").ar(com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate)).nI());
+                this.landingPageViewHelper.a(new c.C0606c().at(false).as(true).aq("").ar(com.kwad.sdk.core.response.a.b.bf(this.mAdTemplate)).nI());
                 this.sr.addView(this.landingPageViewHelper.getRootView());
             }
             this.ss = 0L;
@@ -168,8 +168,8 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onCreate();
-            this.sr = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911aa);
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09116a);
+            this.sr = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911be);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09117e);
         }
     }
 

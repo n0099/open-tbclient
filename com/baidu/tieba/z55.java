@@ -151,7 +151,7 @@ public class z55 implements ah<x55> {
             byte[] downloadCommonBytes = webClient.downloadCommonBytes(str);
             if (!webClient.IsRequestSuccess()) {
                 x55Var.f(3);
-                x55Var.g(wj.a(R.string.obfuscated_res_0x7f0f0cfe));
+                x55Var.g(wj.a(R.string.obfuscated_res_0x7f0f0d08));
                 return x55Var;
             } else if (downloadCommonBytes != null && downloadCommonBytes.length != 0) {
                 if (str4 == null) {

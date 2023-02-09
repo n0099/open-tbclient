@@ -162,14 +162,14 @@ public class ha7 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037f, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0381, (ViewGroup) null);
             this.b = inflate;
-            this.c = (GameVideoGridView) inflate.findViewById(R.id.obfuscated_res_0x7f090eff);
+            this.c = (GameVideoGridView) inflate.findViewById(R.id.obfuscated_res_0x7f090f10);
             this.d = new ca7(this.a, 101, this.g);
             this.c.setNumColumns(4);
             this.c.setAdapter((ListAdapter) this.d);
             this.c.setOnItemClickListener(this.h);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f00);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f11);
             f();
         }
     }

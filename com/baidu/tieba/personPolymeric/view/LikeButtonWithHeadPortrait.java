@@ -205,13 +205,13 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements p55 {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0910, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090dfe);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0925, this);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090e0f);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09044e);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09269f);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091d15);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090457);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0926fe);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091d57);
         }
     }
 

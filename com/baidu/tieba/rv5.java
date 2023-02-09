@@ -61,7 +61,7 @@ public class rv5 {
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     rv5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    ej.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f0d08);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class rv5 {
                 if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                     rv5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    ej.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f0d08);
                 }
             }
         }

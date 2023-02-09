@@ -23,9 +23,9 @@ import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ly9;
+import com.baidu.tieba.pz9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.ty9;
+import com.baidu.tieba.xz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -1377,9 +1377,9 @@ public class DebugYaLogActivity extends Activity {
                 if (jSONObject2.length() > 0) {
                     jSONObject.put("set", jSONObject2);
                 }
-                ty9 ty9Var = (ty9) ServiceManager.getService(ty9.a);
-                if (ty9Var != null) {
-                    ty9Var.a(jSONObject);
+                xz9 xz9Var = (xz9) ServiceManager.getService(xz9.a);
+                if (xz9Var != null) {
+                    xz9Var.a(jSONObject);
                     Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                     return;
                 }
@@ -1538,9 +1538,9 @@ public class DebugYaLogActivity extends Activity {
                 jSONObject4.put("only_wifi", str2);
                 jSONObject2.put(str20, jSONObject4);
                 jSONObject.put("set", jSONObject2);
-                ly9 ly9Var = (ly9) ServiceManager.getService(ly9.a);
-                if (ly9Var != null) {
-                    ly9Var.d(jSONObject);
+                pz9 pz9Var = (pz9) ServiceManager.getService(pz9.a);
+                if (pz9Var != null) {
+                    pz9Var.d(jSONObject);
                     Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
                 } else {
                     Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -1610,9 +1610,9 @@ public class DebugYaLogActivity extends Activity {
                     Toast.makeText(this, "无id配置", 0).show();
                     return;
                 }
-                ty9 ty9Var = (ty9) ServiceManager.getService(ty9.a);
-                if (ty9Var != null) {
-                    ty9Var.b(jSONObject, true);
+                xz9 xz9Var = (xz9) ServiceManager.getService(xz9.a);
+                if (xz9Var != null) {
+                    xz9Var.b(jSONObject, true);
                     Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                     return;
                 }

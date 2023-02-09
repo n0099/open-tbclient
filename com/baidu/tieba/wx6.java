@@ -36,11 +36,11 @@ public class wx6 {
             }
         }
         this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b9c);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b9f);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b9d);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b9e);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090b9a);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090b9b);
+        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bad);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bb0);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bae);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090baf);
+        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090bab);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090bac);
     }
 }

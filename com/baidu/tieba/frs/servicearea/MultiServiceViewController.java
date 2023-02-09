@@ -30,8 +30,8 @@ import com.baidu.tieba.dh;
 import com.baidu.tieba.e27;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.g27;
-import com.baidu.tieba.l09;
-import com.baidu.tieba.m09;
+import com.baidu.tieba.p19;
+import com.baidu.tieba.q19;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,7 +46,7 @@ public class MultiServiceViewController implements e27 {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<m09> c;
+    public List<q19> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -58,7 +58,7 @@ public class MultiServiceViewController implements e27 {
         public FrameLayout b;
         public TbClipImageView c;
         public TextView d;
-        public m09 e;
+        public q19 e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -98,7 +98,7 @@ public class MultiServiceViewController implements e27 {
                         customResponsedMessage.setOrginalMessage(customMessage);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
-                    if (TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0933), this.a.e.b) && this.a.g != null && this.a.g.getForum() != null && !TextUtils.isEmpty(this.a.g.getForum().getId())) {
+                    if (TextUtils.equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f093d), this.a.e.b) && this.a.g != null && this.a.g.getForum() != null && !TextUtils.isEmpty(this.a.g.getForum().getId())) {
                         HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
                         hotUserRankActivityConfig.setForumId(Long.valueOf(dh.g(this.a.g.getForum().getId(), 0L)));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
@@ -165,25 +165,25 @@ public class MultiServiceViewController implements e27 {
             view2.setOnClickListener(this.h);
         }
 
-        public void c(m09 m09Var) {
+        public void c(q19 q19Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, m09Var) != null) || m09Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, q19Var) != null) || q19Var == null) {
                 return;
             }
-            this.e = m09Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0933), m09Var.b)) {
+            this.e = q19Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f093d), q19Var.b)) {
                 this.c.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
                 layoutParams.width = ej.g(this.c.getContext(), R.dimen.tbds62);
                 layoutParams.height = ej.g(this.c.getContext(), R.dimen.tbds62);
             } else {
-                this.c.K(m09Var.b, 10, false);
+                this.c.K(q19Var.b, 10, false);
             }
-            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(m09Var.c, 10, ""));
+            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(q19Var.c, 10, ""));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            if (!this.f.contains(m09Var.c)) {
-                g27.d(m09Var);
-                this.f.add(m09Var.c);
+            if (!this.f.contains(q19Var.c)) {
+                g27.d(q19Var);
+                this.f.add(q19Var.c);
             }
         }
     }
@@ -218,7 +218,7 @@ public class MultiServiceViewController implements e27 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.c((m09) this.a.c.get(i));
+                serviceViewHolder.c((q19) this.a.c.get(i));
             }
         }
 
@@ -279,10 +279,10 @@ public class MultiServiceViewController implements e27 {
     }
 
     @Override // com.baidu.tieba.e27
-    public void a(l09 l09Var, FrsViewData frsViewData) {
+    public void a(p19 p19Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, l09Var, frsViewData) == null) && l09Var != null && !ListUtils.isEmpty(l09Var.b)) {
-            this.c = l09Var.b;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, p19Var, frsViewData) == null) && p19Var != null && !ListUtils.isEmpty(p19Var.b)) {
+            this.c = p19Var.b;
             this.d = frsViewData;
             this.e.notifyDataSetChanged();
             RecyclerView recyclerView = this.b;

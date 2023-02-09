@@ -54,8 +54,8 @@ public class zq5 implements jl5 {
     public boolean j;
     public boolean k;
     public String l;
-    public final s19 m;
-    public final u19 n;
+    public final w29 m;
+    public final y29 n;
 
     @Override // com.baidu.tieba.jl5
     public void L(float f) {
@@ -65,7 +65,7 @@ public class zq5 implements jl5 {
     }
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -92,7 +92,7 @@ public class zq5 implements jl5 {
     }
 
     /* loaded from: classes7.dex */
-    public class a implements u19 {
+    public class a implements y29 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zq5 a;
@@ -115,7 +115,7 @@ public class zq5 implements jl5 {
             this.a = zq5Var;
         }
 
-        @Override // com.baidu.tieba.u19
+        @Override // com.baidu.tieba.y29
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -158,7 +158,7 @@ public class zq5 implements jl5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    ej.P(this.a.a, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.a, R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     this.a.t();
                 }
@@ -348,11 +348,11 @@ public class zq5 implements jl5 {
         this.b = linearLayout;
         this.c = floatWebLayout;
         View inflate = LayoutInflater.from(context).inflate(R.layout.layout_float_web_content_view, (ViewGroup) linearLayout, true);
-        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f09274b);
+        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0927ac);
         this.e = (FrameLayout) inflate.findViewById(R.id.load_state_container);
-        s19 s19Var = new s19();
-        this.m = s19Var;
-        s19Var.a(new CommonTbJsBridge(context));
+        w29 w29Var = new w29();
+        this.m = w29Var;
+        w29Var.a(new CommonTbJsBridge(context));
         this.m.a(new UegTbJsBridge(context));
         BrowserHelper.h(context);
         y();
@@ -403,17 +403,17 @@ public class zq5 implements jl5 {
             e.printStackTrace();
         }
         r(MissionEvent.MESSAGE_PAUSE);
-        s19 s19Var = this.m;
-        if (s19Var != null) {
-            s19Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
+        w29 w29Var = this.m;
+        if (w29Var != null) {
+            w29Var.i(this.d, CommonTbJsBridge.RE_HIDE, null);
         }
     }
 
     public void onDestroy() {
-        s19 s19Var;
+        w29 w29Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (s19Var = this.m) != null) {
-            s19Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (w29Var = this.m) != null) {
+            w29Var.h();
         }
     }
 
@@ -484,7 +484,7 @@ public class zq5 implements jl5 {
                 this.f = new lf5(this.a, new b(this));
             }
             this.f.n(this.a.getString(R.string.url_not_found));
-            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f1076));
+            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f108a));
             this.f.i(R.drawable.new_pic_emotion_08);
             this.f.attachView(this.e, false);
             this.f.p();
@@ -503,9 +503,9 @@ public class zq5 implements jl5 {
             e.printStackTrace();
         }
         r("onResume");
-        s19 s19Var = this.m;
-        if (s19Var != null) {
-            s19Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
+        w29 w29Var = this.m;
+        if (w29Var != null) {
+            w29Var.i(this.d, CommonTbJsBridge.RE_SHOW, null);
             if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
                 this.m.i(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
             }

@@ -108,14 +108,14 @@ public final class zv5 {
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65536, null, tbPageContext, listener, i, i2)) == null) {
             Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
             Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0773, (ViewGroup) null);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0785, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092314);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
             eMTextView.setText(R.string.secret_hint_head);
             p15 d = p15.d(eMTextView);
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X05);
-            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09071d);
+            EMTextView eMTextView2 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090728);
             eMTextView2.setHighlightColor(0);
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             String string = tbPageContext.getString(i);
@@ -128,11 +128,11 @@ public final class zv5 {
             eMTextView2.setMovementMethod(LinkMovementMethod.getInstance());
             eMTextView2.setText(d2);
             p15.d(eMTextView2).z(R.dimen.T_X07);
-            EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090416);
+            EMTextView eMTextView3 = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09041f);
             eMTextView3.setText(i2);
             p15.d(eMTextView3).z(R.dimen.T_X08);
             eMTextView3.setOnClickListener(listener);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f0927ce);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09282f);
             tBSpecificationBtn.setText(tbPageContext.getString(R.string.secret_hint_agree_and_go_on));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
             n45 n45Var = new n45();
@@ -157,7 +157,7 @@ public final class zv5 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbPageContext, listener)) == null) {
             Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
             Intrinsics.checkNotNullParameter(listener, "listener");
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0774, (ViewGroup) null);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0786, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…rivate_hint_dialog, null)");
             ((TextView) inflate.findViewById(R.id.private_title)).setText(R.string.secret_hint_head);
             inflate.findViewById(R.id.protocol_layout).setVisibility(0);

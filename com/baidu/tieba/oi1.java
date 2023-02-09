@@ -55,9 +55,9 @@ public class oi1 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aea);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091aee);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aef);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b25);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b29);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b2a);
         }
     }
 
@@ -126,7 +126,7 @@ public class oi1 extends BaseAdapter {
                 return view2;
             }
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) null, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d023a, (ViewGroup) null, false);
                 view2.setTag(new a(view2));
             }
             if (view2.getTag() != null && (view2.getTag() instanceof a)) {
@@ -134,9 +134,9 @@ public class oi1 extends BaseAdapter {
                 og1.b().a(aVar.a, item.getIcon());
                 aVar.b.setText(item.getDisplayName());
                 if (item.getIsSelected() == 1) {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080455);
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f080459);
                 } else {
-                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f0812e0);
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f0812f6);
                 }
             }
             return view2;

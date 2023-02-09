@@ -67,24 +67,24 @@ import com.baidu.tieba.bt5;
 import com.baidu.tieba.ca;
 import com.baidu.tieba.da;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ld9;
 import com.baidu.tieba.ll;
-import com.baidu.tieba.n39;
 import com.baidu.tieba.on;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.re9;
+import com.baidu.tieba.pe9;
+import com.baidu.tieba.r49;
 import com.baidu.tieba.t88;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.te9;
 import com.baidu.tieba.ts5;
-import com.baidu.tieba.ua8;
 import com.baidu.tieba.ug;
+import com.baidu.tieba.vf9;
 import com.baidu.tieba.vg;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
 import com.baidu.tieba.w45;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.xa8;
+import com.baidu.tieba.xf9;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.ys5;
 import com.baidu.tieba.zg;
@@ -141,7 +141,7 @@ public class TbRichTextView extends LinearLayout implements ll {
     public ug<View> e;
     public final View.OnClickListener e0;
     public ug<LinearLayout> f;
-    public final ua8 f0;
+    public final xa8 f0;
     public ug<RelativeLayout> g;
     public final View.OnClickListener g0;
     public ug<GifView> h;
@@ -156,7 +156,7 @@ public class TbRichTextView extends LinearLayout implements ll {
     public TextUtils.TruncateAt n;
     public c0 o;
     public a0 p;
-    public ua8 q;
+    public xa8 q;
     public b0 r;
     public String r0;
     public View.OnClickListener s;
@@ -931,12 +931,12 @@ public class TbRichTextView extends LinearLayout implements ll {
     }
 
     /* loaded from: classes3.dex */
-    public class l implements ua8.a {
+    public class l implements xa8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextView a;
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -964,7 +964,7 @@ public class TbRichTextView extends LinearLayout implements ll {
             this.a = tbRichTextView;
         }
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -978,7 +978,7 @@ public class TbRichTextView extends LinearLayout implements ll {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ua8.a
+        @Override // com.baidu.tieba.xa8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -1336,7 +1336,7 @@ public class TbRichTextView extends LinearLayout implements ll {
     }
 
     /* loaded from: classes3.dex */
-    public class q implements re9 {
+    public class q implements vf9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbRichTextData a;
@@ -1361,7 +1361,7 @@ public class TbRichTextView extends LinearLayout implements ll {
             this.a = tbRichTextData;
         }
 
-        @Override // com.baidu.tieba.re9
+        @Override // com.baidu.tieba.vf9
         public void onClick(@NonNull View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -1372,7 +1372,7 @@ public class TbRichTextView extends LinearLayout implements ll {
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{this.a.L().c()});
                 }
-                te9.a(this.b.V, this.b.W, this.b.a0);
+                xf9.a(this.b.V, this.b.W, this.b.a0);
             }
         }
     }
@@ -1803,7 +1803,7 @@ public class TbRichTextView extends LinearLayout implements ll {
         this.U = false;
         this.b0 = new j(this, 2, null);
         this.e0 = new k(this);
-        this.f0 = new ua8(new l(this));
+        this.f0 = new xa8(new l(this));
         this.g0 = new m(this);
         this.h0 = new e(this);
         this.t0 = new f(this);
@@ -1872,13 +1872,13 @@ public class TbRichTextView extends LinearLayout implements ll {
         this.U = false;
         this.b0 = new j(this, 2, null);
         this.e0 = new k(this);
-        this.f0 = new ua8(new l(this));
+        this.f0 = new xa8(new l(this));
         this.g0 = new m(this);
         this.h0 = new e(this);
         this.t0 = new f(this);
         this.u0 = new g(this, 2004018);
         M();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n39.TbRichTextView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r49.TbRichTextView);
         this.a.c(obtainStyledAttributes);
         obtainStyledAttributes.recycle();
         N();
@@ -2087,10 +2087,10 @@ public class TbRichTextView extends LinearLayout implements ll {
         }
     }
 
-    public void setOnImageTouchListener(ua8 ua8Var) {
+    public void setOnImageTouchListener(xa8 xa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, ua8Var) == null) {
-            this.q = ua8Var;
+        if (interceptable == null || interceptable.invokeL(1048641, this, xa8Var) == null) {
+            this.q = xa8Var;
         }
     }
 
@@ -3102,7 +3102,7 @@ public class TbRichTextView extends LinearLayout implements ll {
             }
             if (this.I) {
                 if (tbRichTextData.Z()) {
-                    textView.setMovementMethod(ld9.a());
+                    textView.setMovementMethod(pe9.a());
                 } else {
                     textView.setMovementMethod(LinkMovementMethod.getInstance());
                 }

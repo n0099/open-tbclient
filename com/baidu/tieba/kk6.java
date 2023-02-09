@@ -97,11 +97,11 @@ public class kk6 {
         this.h = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f0925e6));
+        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f092634));
         this.c = rankListViewHolder;
         rankListViewHolder.i(1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d30);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c2a);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d41);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c6b);
         this.e = textView;
         textView.setTextSize(0, ej.g(this.a.getPageActivity(), R.dimen.tbfontsize46));
         this.d.setOnClickListener(this.h);

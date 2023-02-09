@@ -33,11 +33,11 @@ public class im1 {
 
         /* renamed from: com.baidu.tieba.im1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0315a implements Thread.UncaughtExceptionHandler {
+        public class C0317a implements Thread.UncaughtExceptionHandler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0315a(a aVar) {
+            public C0317a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class im1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
                 Thread thread = new Thread(runnable, "TaskScheduler #" + this.a.getAndIncrement());
-                thread.setUncaughtExceptionHandler(new C0315a(this));
+                thread.setUncaughtExceptionHandler(new C0317a(this));
                 return thread;
             }
             return (Thread) invokeL.objValue;

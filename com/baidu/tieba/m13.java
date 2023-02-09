@@ -109,14 +109,14 @@ public class m13 extends k82 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09017d).setVisibility(8);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f09017f).setVisibility(8);
             fv1 k = k();
             this.G0 = k;
             k.Y(Z2());
             this.H0 = this.G0.r();
             this.G0.loadUrl(this.I0);
-            this.G0.j((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a8), this.H0.covertToView());
+            this.G0.j((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901aa), this.H0.covertToView());
             if (T1()) {
                 inflate = W1(inflate);
             }

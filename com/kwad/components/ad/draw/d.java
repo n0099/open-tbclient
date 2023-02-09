@@ -29,7 +29,7 @@ public final class d {
             boolean a = m.oF().a(ksScene, "loadDrawAd");
             ksScene.setAdStyle(6);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0602a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(drawAdListener) { // from class: com.kwad.components.ad.draw.d.1
+            KsAdLoadManager.a(new a.C0603a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(drawAdListener) { // from class: com.kwad.components.ad.draw.d.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsLoadManager.DrawAdListener aV;

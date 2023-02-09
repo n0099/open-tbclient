@@ -352,7 +352,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
     }
 
     @Override // com.baidu.tieba.jt6
-    public NavigationBar T0() {
+    public NavigationBar S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -446,7 +446,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0314, (ViewGroup) null);
             my6 my6Var = new my6(this, inflate);
             this.d = my6Var;
             my6Var.j(this.c);
@@ -454,7 +454,7 @@ public class FrsGameStrategyMainFragment extends BaseFragment implements Activit
             this.d.h(TbadkCoreApplication.getInst().getSkinType());
             if ("from_single_act".equals(this.c)) {
                 I1();
-                T0().setCenterTextTitle(this.b);
+                S0().setCenterTextTitle(this.b);
             }
             return inflate;
         }

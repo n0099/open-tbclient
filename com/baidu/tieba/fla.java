@@ -1,48 +1,133 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.impl.YYPayAmountView;
+import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
+import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
+import tv.athena.revenue.payui.view.impl.YYPayGiftView;
+import tv.athena.revenue.payui.view.impl.YYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPaySignView;
+import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
+import tv.athena.revenue.payui.view.impl.YYPayWayView;
 /* loaded from: classes4.dex */
-public class fla {
+public class fla implements zja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
 
-    public static void a(int i, View view2, GridView gridView) {
-        int i2;
+    public fla(int i, int i2, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
-            if (i >= 3) {
-                i2 = 82;
-            } else {
-                i2 = 110;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            gridView.setNumColumns(3);
-                            layoutParams.width = xka.a((i2 * 3) + 14);
-                        } else {
-                            gridView.setNumColumns(2);
-                            layoutParams.width = xka.a((i2 * 2) + 7);
-                        }
-                    } else {
-                        gridView.setNumColumns(3);
-                        layoutParams.width = xka.a((i2 * 3) + 14);
-                    }
-                } else {
-                    gridView.setNumColumns(2);
-                    layoutParams.width = xka.a((i2 * 2) + 7);
-                }
-            } else {
-                gridView.setNumColumns(1);
-                layoutParams.width = xka.a(i2);
-            }
-            view2.setLayoutParams(layoutParams);
         }
+        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, xja xjaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, xjaVar)) == null) {
+            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, xjaVar);
+        }
+        return (IYYPayAmountView) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, xja xjaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, xjaVar)) == null) {
+            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, xjaVar);
+        }
+        return (IYYPayResultView) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public yma f(Activity activity, yma.b bVar, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
+            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
+        }
+        return (yma) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public IYYPayWayView g(Activity activity, IYYPayWayView.b bVar, bka bkaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, bkaVar)) == null) {
+            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, bkaVar);
+        }
+        return (IYYPayWayView) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public wma b(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        }
+        return (wma) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public vma c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        }
+        return (vma) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public xma d(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            return new YYPayGiftView(activity, this.a, this.b, this.c);
+        }
+        return (xma) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zja
+    public zma h(Activity activity, PayUIKitConfig payUIKitConfig, zma.b bVar, bka bkaVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, bkaVar)) == null) {
+            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, bkaVar);
+        }
+        return (zma) invokeLLLL.objValue;
     }
 }

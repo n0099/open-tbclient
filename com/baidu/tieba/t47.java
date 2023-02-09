@@ -114,11 +114,11 @@ public class t47 {
                 if (Build.VERSION.SDK_INT < 21) {
                     j05 j05Var = new j05(tbPageContext.getPageActivity());
                     j05Var.setAutoNight(false);
-                    j05Var.setTitle(R.string.obfuscated_res_0x7f0f0fe9);
+                    j05Var.setTitle(R.string.obfuscated_res_0x7f0f0ffd);
                     j05Var.setMessage(tbPageContext.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
                     j05Var.setTitleShowCenter(true);
                     j05Var.setMessageShowCenter(true);
-                    j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a46, new a());
+                    j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a50, new a());
                     j05Var.create(tbPageContext).show();
                 } else if (!TbadkCoreApplication.isLogin()) {
                     if (frsViewData != null && frsViewData.getAnti() != null) {

@@ -48,18 +48,18 @@ public class a18 extends v9<BubbleChooseActivity> {
         }
         BubbleChooseActivity orignalPage = tbPageContext.getOrignalPage();
         this.f = orignalPage;
-        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0164);
+        orignalPage.setContentView(R.layout.obfuscated_res_0x7f0d0165);
         NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.lay_title_bar);
         this.a = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.setTitleText(R.string.editor_privilege);
-        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0165, this.f);
-        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f09070d);
-        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090ddd);
+        this.d = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0166, this.f);
+        this.b = (ViewGroup) this.f.findViewById(R.id.obfuscated_res_0x7f090718);
+        this.c = (GridView) this.f.findViewById(R.id.obfuscated_res_0x7f090dee);
         z08 z08Var = new z08(tbPageContext);
         this.e = z08Var;
         this.c.setAdapter((ListAdapter) z08Var);
-        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09048e);
+        this.g = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f090499);
     }
 
     public z08 k() {

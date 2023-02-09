@@ -29,7 +29,7 @@ public class AlaFrsLiveListGatherRecommendTitleView extends mc6<d56> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f4 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -85,9 +85,9 @@ public class AlaFrsLiveListGatherRecommendTitleView extends mc6<d56> {
         }
         this.m = 3;
         View h = h();
-        this.i = h.findViewById(R.id.obfuscated_res_0x7f090bb4);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bb3);
-        this.k = h.findViewById(R.id.obfuscated_res_0x7f090bb5);
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f090bc5);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bc4);
+        this.k = h.findViewById(R.id.obfuscated_res_0x7f090bc6);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

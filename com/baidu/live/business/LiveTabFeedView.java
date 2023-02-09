@@ -2312,30 +2312,30 @@ public final class LiveTabFeedView extends FrameLayout {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0569, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09156a);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091628);
-            this.d = (MinorView) findViewById(R.id.obfuscated_res_0x7f09149d);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09149f);
-            this.f = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f091495);
-            this.o = (Space) findViewById(R.id.obfuscated_res_0x7f091498);
-            this.p = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091497);
-            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914a8);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0914a6);
-            this.k = (SmartTabLayout) findViewById(R.id.obfuscated_res_0x7f0914a5);
-            this.l = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0914aa);
-            this.m = (LiveFeedFollowView) findViewById(R.id.obfuscated_res_0x7f0914a0);
-            this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091496);
-            this.u = findViewById(R.id.obfuscated_res_0x7f0914a1);
-            this.v = findViewById(R.id.obfuscated_res_0x7f0914a7);
-            this.w = findViewById(R.id.obfuscated_res_0x7f0914a9);
-            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914a2);
-            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0914a3);
-            this.B = findViewById(R.id.obfuscated_res_0x7f0914a4);
-            this.A = (FakeStartLiveButton) findViewById(R.id.obfuscated_res_0x7f091434);
-            this.r = (LoadingView) findViewById(R.id.obfuscated_res_0x7f09149c);
-            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f09149a);
-            this.x = (LiveExpandTabView) findViewById(R.id.obfuscated_res_0x7f09142b);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056e, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091580);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09163e);
+            this.d = (MinorView) findViewById(R.id.obfuscated_res_0x7f0914b2);
+            this.e = findViewById(R.id.obfuscated_res_0x7f0914b4);
+            this.f = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0914aa);
+            this.o = (Space) findViewById(R.id.obfuscated_res_0x7f0914ad);
+            this.p = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0914ac);
+            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914bd);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0914bb);
+            this.k = (SmartTabLayout) findViewById(R.id.obfuscated_res_0x7f0914ba);
+            this.l = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0914bf);
+            this.m = (LiveFeedFollowView) findViewById(R.id.obfuscated_res_0x7f0914b5);
+            this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914ab);
+            this.u = findViewById(R.id.obfuscated_res_0x7f0914b6);
+            this.v = findViewById(R.id.obfuscated_res_0x7f0914bc);
+            this.w = findViewById(R.id.obfuscated_res_0x7f0914be);
+            this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914b7);
+            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f0914b8);
+            this.B = findViewById(R.id.obfuscated_res_0x7f0914b9);
+            this.A = (FakeStartLiveButton) findViewById(R.id.obfuscated_res_0x7f091449);
+            this.r = (LoadingView) findViewById(R.id.obfuscated_res_0x7f0914b1);
+            this.E = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914af);
+            this.x = (LiveExpandTabView) findViewById(R.id.obfuscated_res_0x7f091440);
             MinorView minorView = this.d;
             if (minorView != null) {
                 minorView.c(this.F);
@@ -2348,7 +2348,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (fakeStartLiveButton != null) {
                 fakeStartLiveButton.setOnClickListener(new k(this));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091435);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144a);
             this.C = imageView;
             if (imageView != null) {
                 imageView.setOnClickListener(new l(this));
@@ -2378,7 +2378,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (imageView3 != null) {
                 imageView3.setOnClickListener(new m(this));
             }
-            LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = (LiveFeedPageToolFloatLayout) findViewById(R.id.obfuscated_res_0x7f091451);
+            LiveFeedPageToolFloatLayout liveFeedPageToolFloatLayout = (LiveFeedPageToolFloatLayout) findViewById(R.id.obfuscated_res_0x7f091466);
             this.D = liveFeedPageToolFloatLayout;
             if (liveFeedPageToolFloatLayout != null) {
                 liveFeedPageToolFloatLayout.setCallback(new n(this));
@@ -2393,7 +2393,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (recyclerView != null) {
                 recyclerView.setLayoutManager(staggeredGridLayoutManager);
             }
-            NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f0914ab);
+            NestedNoScrollViewPager nestedNoScrollViewPager = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f0914c0);
             LiveFeedPageSdk liveFeedPageSdk = LiveFeedPageSdk.getInstance();
             Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
             if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_HAOKAN, liveFeedPageSdk.getHost())) {
@@ -2542,7 +2542,7 @@ public final class LiveTabFeedView extends FrameLayout {
             if (smartTabLayout5 != null) {
                 smartTabLayout5.setOnScrollChangeListener(new h(this));
             }
-            ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f091499);
+            ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f0914ae);
             this.s = errorView;
             if (errorView != null) {
                 errorView.setActionCallback(new i(this));

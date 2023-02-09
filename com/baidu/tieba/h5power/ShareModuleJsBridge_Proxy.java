@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.v19;
-import com.baidu.tieba.w19;
-import com.baidu.tieba.x19;
+import com.baidu.tieba.a39;
+import com.baidu.tieba.b39;
+import com.baidu.tieba.d39;
 import com.baidu.tieba.xu4;
-import com.baidu.tieba.z19;
+import com.baidu.tieba.z29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ShareModuleJsBridge_Proxy extends v19 {
+public class ShareModuleJsBridge_Proxy extends z29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public xu4 mJsBridge;
@@ -49,65 +49,65 @@ public class ShareModuleJsBridge_Proxy extends v19 {
         hashSet.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
     }
 
-    @Override // com.baidu.tieba.v19
-    public x19 dispatch(WebView webView, z19 z19Var, x19 x19Var) {
+    @Override // com.baidu.tieba.z29
+    public b39 dispatch(WebView webView, d39 d39Var, b39 b39Var) {
         InterceptResult invokeLLL;
-        x19 x19Var2;
+        b39 b39Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, z19Var, x19Var)) == null) {
-            if (x19Var == null) {
-                x19Var2 = new x19();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, d39Var, b39Var)) == null) {
+            if (b39Var == null) {
+                b39Var2 = new b39();
             } else {
-                x19Var2 = x19Var;
+                b39Var2 = b39Var;
             }
-            String b = z19Var.b();
-            JSONObject e = z19Var.e();
+            String b = d39Var.b();
+            JSONObject e = d39Var.e();
             if (b.equals("share/share")) {
-                x19Var2.r(true);
-                x19 e2 = this.mJsBridge.e(webView, e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"), e.optInt("source"), e.optString("topicId"), e.optLong("roomId"), e.optInt("filterRooms"), e.optInt("roomMemberCount"), e.optLong("fid"), e.optString("forumName"));
+                b39Var2.r(true);
+                b39 e2 = this.mJsBridge.e(webView, e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"), e.optInt("source"), e.optString("topicId"), e.optLong("roomId"), e.optInt("filterRooms"), e.optInt("roomMemberCount"), e.optLong("fid"), e.optString("forumName"));
                 if (e2 != null) {
-                    x19Var2.x(e2.f());
-                    x19Var2.t(e2.b());
-                    x19Var2.o(e2.a());
-                    x19Var2.w(e2.e());
+                    b39Var2.x(e2.f());
+                    b39Var2.t(e2.b());
+                    b39Var2.o(e2.a());
+                    b39Var2.w(e2.e());
                 }
-                x19Var2.y(0);
+                b39Var2.y(0);
             }
-            return x19Var2;
+            return b39Var2;
         }
-        return (x19) invokeLLL.objValue;
+        return (b39) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.v19
-    public List<x19> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.z29
+    public List<b39> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {
-            x19 x19Var = null;
+            b39 b39Var = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION)) {
-                x19Var = this.mJsBridge.g(webView, hashMap);
+                b39Var = this.mJsBridge.g(webView, hashMap);
             }
-            if (x19Var != null) {
-                x19Var.y(0);
+            if (b39Var != null) {
+                b39Var.y(0);
             }
-            List<w19> list = this.mAsyncCallBackMethodList.get(str);
-            if (x19Var != null && list != null) {
-                Iterator<w19> it = list.iterator();
-                if (!TextUtils.isEmpty(x19Var.e())) {
+            List<a39> list = this.mAsyncCallBackMethodList.get(str);
+            if (b39Var != null && list != null) {
+                Iterator<a39> it = list.iterator();
+                if (!TextUtils.isEmpty(b39Var.e())) {
                     while (it.hasNext()) {
-                        w19 next = it.next();
-                        if (next.b().equals(x19Var.e())) {
-                            x19 x19Var2 = new x19();
-                            x19Var2.v(next.a());
-                            x19Var2.x(x19Var.f());
-                            x19Var2.t(x19Var.b());
-                            x19Var2.o(x19Var.a());
-                            x19Var2.z(x19Var.l());
-                            arrayList.add(x19Var2);
+                        a39 next = it.next();
+                        if (next.b().equals(b39Var.e())) {
+                            b39 b39Var2 = new b39();
+                            b39Var2.v(next.a());
+                            b39Var2.x(b39Var.f());
+                            b39Var2.t(b39Var.b());
+                            b39Var2.o(b39Var.a());
+                            b39Var2.z(b39Var.l());
+                            arrayList.add(b39Var2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -115,14 +115,14 @@ public class ShareModuleJsBridge_Proxy extends v19 {
                     }
                 } else {
                     while (it.hasNext()) {
-                        w19 next2 = it.next();
-                        x19 x19Var3 = new x19();
-                        x19Var3.v(next2.a());
-                        x19Var3.x(x19Var.f());
-                        x19Var3.t(x19Var.b());
-                        x19Var3.o(x19Var.a());
-                        x19Var3.z(x19Var.l());
-                        arrayList.add(x19Var3);
+                        a39 next2 = it.next();
+                        b39 b39Var3 = new b39();
+                        b39Var3.v(next2.a());
+                        b39Var3.x(b39Var.f());
+                        b39Var3.t(b39Var.b());
+                        b39Var3.o(b39Var.a());
+                        b39Var3.z(b39Var.l());
+                        arrayList.add(b39Var3);
                         if (!next2.c()) {
                             it.remove();
                         }

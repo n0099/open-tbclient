@@ -25,7 +25,7 @@ public class g86 extends mc6<w66> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0106 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0107 : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -83,8 +83,8 @@ public class g86 extends mc6<w66> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090220);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09021f);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090224);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090223);
             this.j = textView;
             textView.setOnClickListener(this);
         }

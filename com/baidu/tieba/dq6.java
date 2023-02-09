@@ -14,7 +14,7 @@ public class dq6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public g09 a;
+    public k19 a;
     public String b;
     public String c;
 
@@ -66,13 +66,13 @@ public class dq6 implements Cdo {
         return (String) invokeV.objValue;
     }
 
-    public g09 c() {
+    public k19 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (g09) invokeV.objValue;
+        return (k19) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.Cdo
@@ -99,10 +99,10 @@ public class dq6 implements Cdo {
         }
     }
 
-    public void h(g09 g09Var) {
+    public void h(k19 k19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, g09Var) == null) {
-            this.a = g09Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, k19Var) == null) {
+            this.a = k19Var;
         }
     }
 }

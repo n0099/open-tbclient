@@ -384,7 +384,7 @@ public class vc6 extends lc6<zd6> implements lw5 {
             this.I = (TbLiveContainer) view2.findViewById(R.id.tb_live_container);
             this.F.setOnClickListener(this);
             this.u = view2.findViewById(R.id.card_bottom_margin);
-            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090f66));
+            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090f77));
         }
     }
 
@@ -564,7 +564,7 @@ public class vc6 extends lc6<zd6> implements lw5 {
                         String latitude = ((zd6) this.k).a.getLatitude();
                         String longtitude = ((zd6) this.k).a.getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c = vs8.e().c();
+                            AppPosInfo c = zt8.e().c();
                             String str2 = c.latitude;
                             String str3 = c.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && ej.h(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {

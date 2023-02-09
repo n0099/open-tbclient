@@ -81,7 +81,7 @@ public class pk6 {
             if (responsedMessage.getError() == 0) {
                 if (this.a.b == 1 && (nk6Var == null || ListUtils.isEmpty(nk6Var.b))) {
                     if (this.a.d != null) {
-                        this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe));
+                        this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d08));
                     }
                 } else if (nk6Var != null) {
                     this.a.c.a = nk6Var.a;
@@ -218,7 +218,7 @@ public class pk6 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, o09.a(TbConfig.HOT_USER_RANK_URL, 309652));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, s19.a(TbConfig.HOT_USER_RANK_URL, 309652));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);

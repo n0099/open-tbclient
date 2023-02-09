@@ -545,7 +545,7 @@ public class nm3 {
     public static void Q(Activity activity) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65553, null, activity) != null) || !fl3.d(activity) || (frameLayout = (FrameLayout) activity.getWindow().getDecorView().getRootView().findViewById(R.id.obfuscated_res_0x7f09016d)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65553, null, activity) != null) || !fl3.d(activity) || (frameLayout = (FrameLayout) activity.getWindow().getDecorView().getRootView().findViewById(R.id.obfuscated_res_0x7f09016f)) == null) {
             return;
         }
         frameLayout.setBackgroundColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f0603cd));
@@ -750,13 +750,13 @@ public class nm3 {
     public static void i(Activity activity) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65562, null, activity) != null) || !fl3.d(activity) || (frameLayout = (FrameLayout) activity.getWindow().getDecorView().getRootView().findViewById(R.id.obfuscated_res_0x7f09016d)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65562, null, activity) != null) || !fl3.d(activity) || (frameLayout = (FrameLayout) activity.getWindow().getDecorView().getRootView().findViewById(R.id.obfuscated_res_0x7f09016f)) == null) {
             return;
         }
         frameLayout.setBackgroundColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f0603cd));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(bp4.a(activity), -1);
         layoutParams.gravity = 17;
-        ((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f09016f)).setLayoutParams(new FrameLayout.LayoutParams(layoutParams));
+        ((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090171)).setLayoutParams(new FrameLayout.LayoutParams(layoutParams));
     }
 
     public static int k(Context context) {

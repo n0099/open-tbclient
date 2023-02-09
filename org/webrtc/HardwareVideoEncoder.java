@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pca;
+import com.baidu.tieba.tda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,7 +84,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoEncoder() {
-        return pca.$default$createNativeVideoEncoder(this);
+        return tda.$default$createNativeVideoEncoder(this);
     }
 
     @Override // org.webrtc.VideoEncoder
@@ -97,7 +97,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ boolean isHardwareEncoder() {
-        return pca.$default$isHardwareEncoder(this);
+        return tda.$default$isHardwareEncoder(this);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */

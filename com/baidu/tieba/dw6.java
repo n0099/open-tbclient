@@ -182,10 +182,10 @@ public class dw6 implements rw6 {
                     i.d = this.f.getForum().getName();
                 }
                 FrsFragment frsFragment = this.a;
-                if (frsFragment != null && frsFragment.Q0() != null) {
-                    int b0 = this.a.Q0().b0();
+                if (frsFragment != null && frsFragment.P0() != null) {
+                    int b0 = this.a.P0().b0();
                     if (b0 == -1) {
-                        b0 = this.a.Q0().a0();
+                        b0 = this.a.P0().a0();
                     }
                     i.b = b0;
                 }
@@ -199,7 +199,7 @@ public class dw6 implements rw6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.j != null) {
-                return R.id.obfuscated_res_0x7f090ba4;
+                return R.id.obfuscated_res_0x7f090bb5;
             }
             return 0;
         }
@@ -236,7 +236,7 @@ public class dw6 implements rw6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.j != null) {
-                return R.id.obfuscated_res_0x7f090b7f;
+                return R.id.obfuscated_res_0x7f090b90;
             }
             return 0;
         }
@@ -249,7 +249,7 @@ public class dw6 implements rw6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.j != null) {
-                return R.id.obfuscated_res_0x7f090c49;
+                return R.id.obfuscated_res_0x7f090c5a;
             }
             return 0;
         }
@@ -353,7 +353,7 @@ public class dw6 implements rw6 {
         if (interceptable == null || interceptable.invokeLL(1048582, this, arrayList, frsViewData) == null) {
             v(frsViewData);
             u();
-            f09.f(arrayList, 1);
+            j19.f(arrayList, 1);
             n(arrayList);
             x(arrayList);
             r(arrayList);
@@ -418,7 +418,7 @@ public class dw6 implements rw6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, frsFragment, joVar) == null) {
             this.a = frsFragment;
-            this.j = ur6.e().c(frsFragment.getPageContext(), i09.d, this.a.getUniqueId(), false);
+            this.j = ur6.e().c(frsFragment.getPageContext(), m19.d, this.a.getUniqueId(), false);
             lw6 lw6Var = new lw6(frsFragment.p(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId());
             this.k = lw6Var;
             lw6Var.A(joVar);
@@ -479,7 +479,7 @@ public class dw6 implements rw6 {
             bw6Var.A(joVar);
             aw6 aw6Var = new aw6(frsFragment.getPageContext(), ThreadData.TYPE_FRS_HOTTOPIC, this.a.getUniqueId());
             aw6Var.A(joVar);
-            this.i = new qw6(frsFragment.getPageContext(), a09.c, this.a.getUniqueId());
+            this.i = new qw6(frsFragment.getPageContext(), e19.c, this.a.getUniqueId());
             gw6 gw6Var = new gw6(frsFragment.getPageContext(), ThreadData.TYPE_GOD_NORMAL, this.a.getUniqueId());
             this.w = gw6Var;
             gw6Var.A(joVar);
@@ -569,8 +569,8 @@ public class dw6 implements rw6 {
             for (qn qnVar : this.c) {
                 if (qnVar instanceof as6) {
                     ((as6) qnVar).v();
-                } else if (qnVar instanceof dr8) {
-                    ((dr8) qnVar).onDestroy();
+                } else if (qnVar instanceof hs8) {
+                    ((hs8) qnVar).onDestroy();
                 }
             }
         }

@@ -119,7 +119,7 @@ public class ThreadDelegateStatic extends qf5 {
             rf5 rf5Var = new rf5();
             rf5Var.a = ThreadFragment.Q1();
             rf5Var.e = 1;
-            rf5Var.b = R.string.obfuscated_res_0x7f0f0424;
+            rf5Var.b = R.string.obfuscated_res_0x7f0f0426;
             return rf5Var;
         }
         return (rf5) invokeV.objValue;

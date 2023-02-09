@@ -360,12 +360,12 @@ public class xd3 implements xs1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f0811da);
+                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f0811f0);
                 }
                 SwanAppRoundedImageView swanAppRoundedImageView = this.b;
                 if (swanAppRoundedImageView != null) {
                     swanAppRoundedImageView.setImageBitmap(bitmap);
-                    this.b.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a79));
+                    this.b.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a7a));
                 }
             }
         }
@@ -473,20 +473,20 @@ public class xd3 implements xs1 {
             }
         }
         l = gp1.a;
-        m = new int[]{R.id.obfuscated_res_0x7f09015d, R.id.obfuscated_res_0x7f090164, R.id.obfuscated_res_0x7f090166, R.id.obfuscated_res_0x7f09015e};
-        n = new int[]{R.id.obfuscated_res_0x7f090160, R.id.obfuscated_res_0x7f090162, R.id.obfuscated_res_0x7f090163, R.id.obfuscated_res_0x7f090161};
+        m = new int[]{R.id.obfuscated_res_0x7f09015f, R.id.obfuscated_res_0x7f090166, R.id.obfuscated_res_0x7f090168, R.id.obfuscated_res_0x7f090160};
+        n = new int[]{R.id.obfuscated_res_0x7f090162, R.id.obfuscated_res_0x7f090164, R.id.obfuscated_res_0x7f090165, R.id.obfuscated_res_0x7f090163};
     }
 
     public final void k() {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (frameLayout = (FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0902e9)) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (frameLayout = (FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0902f1)) == null) {
             return;
         }
-        this.g.findViewById(R.id.obfuscated_res_0x7f091691).setVisibility(8);
-        this.g.findViewById(R.id.obfuscated_res_0x7f091690).setVisibility(8);
-        this.g.findViewById(R.id.obfuscated_res_0x7f0902e9).setVisibility(0);
-        this.i = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0833, null);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0916a7).setVisibility(8);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0916a6).setVisibility(8);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0902f1).setVisibility(0);
+        this.i = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0845, null);
         this.d.h();
         v(false, this.i, this.k, this.d);
         frameLayout.addView(this.i);
@@ -510,7 +510,7 @@ public class xd3 implements xs1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            this.g = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d082e, null);
+            this.g = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0840, null);
             q();
             r();
             s();
@@ -575,7 +575,7 @@ public class xd3 implements xs1 {
     public final void A(Context context, View view2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, view2, jSONObject) == null) && context != null && view2 != null && jSONObject != null) {
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925ac);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925f9);
             TextView textView = (TextView) view2.findViewById(R.id.user_name);
             Pair<String, String> o = o(jSONObject);
             if (o != null) {
@@ -597,9 +597,9 @@ public class xd3 implements xs1 {
             textView2.setText(Html.fromHtml(str));
         }
         textView.setText(wd3Var.f);
-        ((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919a4)).setVisibility(0);
+        ((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919dc)).setVisibility(0);
         if (((TextUtils.equals(wd3Var.b, "snsapi_userinfo") && jSONObject != null) || TextUtils.equals(wd3Var.b, "mobile")) && view3 != null) {
-            view3.findViewById(R.id.obfuscated_res_0x7f0902ea).setVisibility(8);
+            view3.findViewById(R.id.obfuscated_res_0x7f0902f2).setVisibility(8);
         }
     }
 
@@ -621,7 +621,7 @@ public class xd3 implements xs1 {
     public final void w(View view2, wd3 wd3Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048592, this, view2, wd3Var) == null) && view2 != null && wd3Var != null) {
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c7);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092615);
             StringBuilder sb = new StringBuilder();
             for (String str : wd3Var.i) {
                 sb.append(str);
@@ -662,15 +662,15 @@ public class xd3 implements xs1 {
     public final void l() {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || ((FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091691)) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || ((FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0916a7)) == null) {
             return;
         }
-        this.g.findViewById(R.id.obfuscated_res_0x7f091691).setVisibility(0);
-        this.g.findViewById(R.id.obfuscated_res_0x7f091690).setVisibility(0);
-        this.g.findViewById(R.id.obfuscated_res_0x7f0902e9).setVisibility(8);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0916a7).setVisibility(0);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0916a6).setVisibility(0);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0902f1).setVisibility(8);
         this.d.h();
-        y(true, this.g.findViewById(R.id.obfuscated_res_0x7f0902f1), this.k, this.d);
-        TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091690);
+        y(true, this.g.findViewById(R.id.obfuscated_res_0x7f0902f9), this.k, this.d);
+        TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0916a6);
         textView.setVisibility(0);
         wd3.a aVar = this.d.n;
         String str = aVar.e;
@@ -728,7 +728,7 @@ public class xd3 implements xs1 {
             } else {
                 z = false;
             }
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f0920c7);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f09210d);
             if (swanAppRoundedImageView != null) {
                 if (z) {
                     i2 = qm3.j(this.d.q, "SwanAppAuthDialog", false);
@@ -736,20 +736,20 @@ public class xd3 implements xs1 {
                     i2 = qm3.i(this.b.Y(), "SwanAppAuthDialog", false);
                 }
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), i2));
-                swanAppRoundedImageView.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a79));
+                swanAppRoundedImageView.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a7a));
             }
-            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0920c9);
+            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09210f);
             if (z) {
                 Z = this.d.p;
             } else {
                 Z = this.b.Z();
             }
             textView.setText(Z);
-            TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0919a8);
+            TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0919e0);
             this.h = textView2;
             if (textView2 != null) {
                 if (u(this.d)) {
-                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f0920c6);
+                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f09210c);
                     if (findViewById != null) {
                         findViewById.setVisibility(8);
                     }
@@ -767,8 +767,8 @@ public class xd3 implements xs1 {
                     }
                 }
             }
-            this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0902ee);
-            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0902ef);
+            this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0902f6);
+            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0902f7);
             this.f.l(this.j, -2, this.c);
             this.f.l(this.k, -1, this.c);
         }
@@ -783,14 +783,14 @@ public class xd3 implements xs1 {
     public final void m() {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (frameLayout = (FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0902e9)) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (frameLayout = (FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0902f1)) == null) {
             return;
         }
-        this.g.findViewById(R.id.obfuscated_res_0x7f091691).setVisibility(8);
-        this.g.findViewById(R.id.obfuscated_res_0x7f091690).setVisibility(8);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0916a7).setVisibility(8);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0916a6).setVisibility(8);
         char c2 = 0;
-        this.g.findViewById(R.id.obfuscated_res_0x7f0902e9).setVisibility(0);
-        ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091690)).setVisibility(8);
+        this.g.findViewById(R.id.obfuscated_res_0x7f0902f1).setVisibility(0);
+        ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0916a6)).setVisibility(8);
         this.i = p(this.a, this.d, this.e);
         String str = this.d.b;
         int hashCode = str.hashCode();
@@ -824,7 +824,7 @@ public class xd3 implements xs1 {
     public void s() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || TextUtils.isEmpty(this.d.l) || (textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0919a3)) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || TextUtils.isEmpty(this.d.l) || (textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0919db)) == null) {
             return;
         }
         w83 w83Var = this.b;
@@ -834,7 +834,7 @@ public class xd3 implements xs1 {
             return;
         }
         if (!u(this.d)) {
-            un3 un3Var = new un3(this.a, R.drawable.obfuscated_res_0x7f0811b7);
+            un3 un3Var = new un3(this.a, R.drawable.obfuscated_res_0x7f0811cd);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(un3Var, 1, 2, 33);
             spannableString.setSpan(new f(this, textView), 0, spannableString.length(), 33);
@@ -862,13 +862,13 @@ public class xd3 implements xs1 {
             } else if (str.equals("mobile")) {
                 c2 = 1;
             }
-            int i2 = R.layout.obfuscated_res_0x7f0d0832;
+            int i2 = R.layout.obfuscated_res_0x7f0d0844;
             if (c2 != 0) {
                 if (c2 == 1) {
-                    i2 = R.layout.obfuscated_res_0x7f0d0830;
+                    i2 = R.layout.obfuscated_res_0x7f0d0842;
                 }
             } else if (jSONObject != null) {
-                i2 = R.layout.obfuscated_res_0x7f0d0831;
+                i2 = R.layout.obfuscated_res_0x7f0d0843;
             }
             return View.inflate(context, i2, null);
         }
@@ -881,7 +881,7 @@ public class xd3 implements xs1 {
         Drawable drawable;
         int length;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), view2, textView, wd3Var}) == null) && view2 != null && wd3Var != null && (aVar = wd3Var.n) != null && (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902f0)) != null && !TextUtils.isEmpty(aVar.a)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), view2, textView, wd3Var}) == null) && view2 != null && wd3Var != null && (aVar = wd3Var.n) != null && (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902f8)) != null && !TextUtils.isEmpty(aVar.a)) {
             if (!aVar.a.startsWith("XXXX   ")) {
                 aVar.a = "XXXX   " + aVar.a;
             }
@@ -896,9 +896,9 @@ public class xd3 implements xs1 {
             SpannableString spannableString = new SpannableString(textView2.getText());
             textView.setEnabled(z);
             if (z) {
-                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081230);
+                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081246);
             } else {
-                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081231);
+                drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081247);
             }
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             spannableString.setSpan(new b(this, drawable), 0, 4, 33);
@@ -930,7 +930,7 @@ public class xd3 implements xs1 {
         SwanAppConfigData.f fVar;
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048593, this, view2, wd3Var) != null) || view2 == null || wd3Var == null || (textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919a5)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048593, this, view2, wd3Var) != null) || view2 == null || wd3Var == null || (textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919dd)) == null) {
             return;
         }
         if (TextUtils.equals(wd3Var.b, "mapp_location") && (s = ju2.U().s()) != null && (fVar = s.p) != null && (map = fVar.a.get("scope.userLocation")) != null) {
@@ -946,15 +946,15 @@ public class xd3 implements xs1 {
         TextView textView2;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), view2, textView, wd3Var}) != null) || view2 == null || wd3Var == null || wd3Var.n == null || (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902f0)) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), view2, textView, wd3Var}) != null) || view2 == null || wd3Var == null || wd3Var.n == null || (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902f8)) == null) {
             return;
         }
-        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f139c));
+        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f13b3));
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081230);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081246);
         } else {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081231);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081247);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         h hVar = new h(this, drawable);

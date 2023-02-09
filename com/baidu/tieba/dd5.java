@@ -41,7 +41,7 @@ public class dd5 implements ad5 {
         if (attributeSet != null) {
             TypedArray typedArray = null;
             try {
-                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, n39.KPSwitchPanelLayout);
+                typedArray = view2.getContext().obtainStyledAttributes(attributeSet, r49.KPSwitchPanelLayout);
                 this.c = typedArray.getBoolean(0, false);
             } finally {
                 if (typedArray != null) {

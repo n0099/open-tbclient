@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q55 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,12 +46,12 @@ public class q55 implements View.OnClickListener {
     public CustomMessageListener n;
     public CustomMessageListener o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface f {
         void a(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,7 +92,7 @@ public class q55 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class q55 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public class q55 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements u05.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -291,7 +291,7 @@ public class q55 implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -446,7 +446,7 @@ public class q55 implements View.OnClickListener {
                 return;
             }
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.c.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.c.showToast(R.string.obfuscated_res_0x7f0f0d08);
                 return;
             }
             p55 p55Var = this.b.get();
@@ -472,7 +472,7 @@ public class q55 implements View.OnClickListener {
                 u05 u05Var = new u05(TbadkCoreApplication.getInst().getCurrentActivity());
                 u05Var.s(TbadkCoreApplication.getInst().getString(R.string.confirm_unlike));
                 ArrayList arrayList = new ArrayList();
-                q05 q05Var = new q05(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0459), u05Var);
+                q05 q05Var = new q05(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f045b), u05Var);
                 q05Var.m(new c(this));
                 arrayList.add(q05Var);
                 u05Var.n(new d(this));

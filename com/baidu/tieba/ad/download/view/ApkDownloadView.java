@@ -146,7 +146,7 @@ public class ApkDownloadView extends FrameLayout implements hx5 {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (kx5) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011e, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090a25);
+            this.a = (kx5) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d011f, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090a33);
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }

@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.b87;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.wn5;
 import com.baidu.tieba.yo5;
-import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,14 +56,14 @@ public class ConcernPageRequestMessage extends NetMessage {
             if (isEmpty) {
                 e = 0;
             } else {
-                e = ys8.f().e("CONCERN");
+                e = cu8.f().e("CONCERN");
             }
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
             if (isEmpty) {
                 d = "";
             } else {
-                d = ys8.f().d("CONCERN");
+                d = cu8.f().d("CONCERN");
             }
             wn5 wn5Var = this.adInfo;
             if (wn5Var != null && !isEmpty) {

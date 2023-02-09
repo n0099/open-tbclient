@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.l19;
+import com.baidu.tieba.p29;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class q47 {
                     for (Cdo cdo : list2) {
                         for (Cdo cdo2 : list) {
                             if (cdo == cdo2 && (cdo2 instanceof ThreadData)) {
-                                l19.c cVar = new l19.c();
+                                p29.c cVar = new p29.c();
                                 ((ThreadData) cdo2).getTid();
                                 arrayList.add(cVar);
                             }
@@ -80,7 +80,7 @@ public class q47 {
                             ThreadData threadData2 = (ThreadData) cdo3;
                             if (threadData2.showStatus == 1 && !TextUtils.isEmpty(threadData2.getTid())) {
                                 threadData2.showStatus = 2;
-                                l19.c cVar2 = new l19.c();
+                                p29.c cVar2 = new p29.c();
                                 threadData2.getTid();
                                 arrayList.add(cVar2);
                             }
@@ -108,16 +108,16 @@ public class q47 {
         String b = uz4Var.b();
         String c = uz4Var.c();
         String i = uz4Var.i();
-        l19.c("frs", "CLICK", b, c, i, "tieba.baidu.com/p/" + uz4Var.i(), str);
+        p29.c("frs", "CLICK", b, c, i, "tieba.baidu.com/p/" + uz4Var.i(), str);
     }
 
     public static void d(FrsFragment frsFragment, FrsViewData frsViewData, ThreadData threadData) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65539, null, frsFragment, frsViewData, threadData) == null) && threadData != null && frsViewData != null) {
-            FrsModelController Q0 = frsFragment.Q0();
+            FrsModelController P0 = frsFragment.P0();
             gs6 u1 = frsFragment.u1();
-            if (u1 != null && Q0 != null) {
+            if (u1 != null && P0 != null) {
                 if (threadData.getAuthor() != null && threadData.getAuthor().getGodInfo() != null) {
                     TiebaStatic.log(new StatisticItem("c10806").param("obj_locate", 3).param("tid", threadData.getId()));
                 }
@@ -131,7 +131,7 @@ public class q47 {
                     b37Var.a = z;
                     b37Var.c = frsViewData.getForum().getId();
                     b37Var.d = frsViewData.getForum().getName();
-                    b37Var.b = Q0.b0();
+                    b37Var.b = P0.b0();
                     b37 b37Var2 = d37.q0;
                     if (b37Var2 != null) {
                         b37Var.e = b37Var2.e;

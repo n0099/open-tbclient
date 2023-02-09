@@ -304,15 +304,15 @@ public class z77 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03a7, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d03a9, (ViewGroup) null);
             this.c = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d6f);
-            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092559);
-            this.f = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0914c9);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091db1);
+            this.g = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0925a4);
+            this.f = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0914de);
             this.d = this.c.findViewById(R.id.mask_view);
-            this.h = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0903e1);
-            this.i = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f090433);
-            this.j = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f090463);
+            this.h = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0903e9);
+            this.i = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09043c);
+            this.j = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09046c);
             this.i.setTextSize(R.dimen.tbds34);
             this.i.setText(TbadkCoreApplication.getInst().getString(R.string.attention_all));
             this.j.setTextSize(R.dimen.tbds34);

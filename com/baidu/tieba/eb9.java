@@ -1,263 +1,239 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.FeatureInfo;
-import android.content.pm.PackageManager;
-import android.hardware.Camera;
-import android.os.Build;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Comparator;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class eb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public int a;
+        public int b;
+        public int c;
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements Comparator<Camera.Size> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Camera.Size size, Camera.Size size2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
-                int i = size.width;
-                int i2 = size2.width;
-                if (i != i2) {
-                    return i - i2;
-                }
-                return size.height - size2.height;
-            }
-            return invokeLL.intValue;
+            this.a = i;
+            this.b = i2;
         }
     }
 
-    public static int b(Activity activity, int i) {
-        InterceptResult invokeLI;
+    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, activity, i)) == null) {
-            if (Build.VERSION.SDK_INT > 8) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                int e = e(activity);
-                if (cameraInfo.facing == 1) {
-                    return (360 - ((cameraInfo.orientation + e) % 360)) % 360;
-                }
-                return ((cameraInfo.orientation - e) + 360) % 360;
-            }
-            return 0;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static int c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
-            for (int i = 0; i < numberOfCameras; i++) {
-                cameraInfoArr[i] = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfoArr[i]);
-            }
-            int i2 = -1;
-            int i3 = -1;
-            for (int i4 = 0; i4 < numberOfCameras; i4++) {
-                if (i3 == -1 && cameraInfoArr[i4].facing == 0) {
-                    i3 = i4;
-                } else if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
-                    i2 = i4;
-                }
-            }
-            if (i2 != -1 && z) {
-                return i2;
-            }
-            if (i3 != -1 && !z) {
-                return i3;
-            }
-            if (z && i2 == -1) {
-                return i3;
-            }
-            if (i2 != -1) {
-                return i2;
-            }
-            if (i3 == -1) {
-                return -1;
-            }
-            return i3;
-        }
-        return invokeZ.intValue;
-    }
-
-    public static boolean f(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
-            try {
-                int numberOfCameras = Camera.getNumberOfCameras();
-                Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
-                for (int i3 = 0; i3 < numberOfCameras; i3++) {
-                    cameraInfoArr[i3] = new Camera.CameraInfo();
-                    Camera.getCameraInfo(i3, cameraInfoArr[i3]);
-                }
-                i = -1;
-                i2 = -1;
-                for (int i4 = 0; i4 < numberOfCameras; i4++) {
-                    if (i == -1) {
-                        try {
-                            if (cameraInfoArr[i4].facing == 0) {
-                                i = i4;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                                throw e;
-                            }
-                            if (i2 == -1) {
-                            }
-                            if (i != -1) {
-                            }
-                            return false;
-                        }
-                    }
-                    if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
-                        i2 = i4;
-                    }
-                }
-            } catch (Exception e2) {
-                e = e2;
-                i = -1;
-                i2 = -1;
-            }
-            if (i2 == -1 && z) {
-                return true;
-            }
-            if (i != -1 || z) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
                 return false;
+            }
+            SparseArray sparseArray = new SparseArray();
+            Iterator<a> it = arrayList.iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                int i = next.a;
+                int i2 = next.b;
+                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
+                    return false;
+                }
+                int pixel = bitmap.getPixel(i, i2);
+                if (sparseArray.get(pixel) != null) {
+                    return false;
+                }
+                next.c = pixel;
+                sparseArray.put(pixel, next);
             }
             return true;
         }
-        return invokeZ.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public static Camera.Size d(Camera camera, int i, int i2) {
+    public static Bitmap b(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, camera, i, i2)) == null) {
-            List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-            Camera.Size size = null;
-            Collections.sort(supportedPreviewSizes, new b(null));
-            if (supportedPreviewSizes != null && supportedPreviewSizes.size() > 0) {
-                boolean z = false;
-                Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
-                int i3 = -1;
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    Camera.Size next = it.next();
-                    i3++;
-                    if (next != null && next.width >= i2 && next.height >= i) {
-                        size = next;
-                        z = true;
-                        break;
-                    }
-                }
-                if (!z) {
-                    i3 = supportedPreviewSizes.size() - 1;
-                    size = supportedPreviewSizes.get(i3);
-                }
-                int i4 = ((int) (1080 * ((i2 * 1.0f) / i))) * 1080;
-                while (size.width * size.height > i4 && i3 > 0) {
-                    i3--;
-                    size = supportedPreviewSizes.get(i3);
-                }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            Bitmap bitmap = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
+                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                byteArrayOutputStream.close();
+                return bitmap;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return bitmap;
             }
-            return size;
         }
-        return (Camera.Size) invokeLII.objValue;
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public static int e(Activity activity) {
-        InterceptResult invokeL;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation == 0) {
-                return 0;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
+                context.sendBroadcast(intent);
+            } catch (Exception unused) {
             }
-            if (rotation != 1) {
-                if (rotation != 2) {
-                    if (rotation != 3) {
-                        return 0;
-                    }
-                    return 270;
-                }
-                return 180;
-            }
-            return 90;
         }
-        return invokeL.intValue;
     }
 
-    public static boolean g(PackageManager packageManager) {
-        InterceptResult invokeL;
-        FeatureInfo[] systemAvailableFeatures;
+    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, packageManager)) == null) {
-            if (packageManager != null && (systemAvailableFeatures = packageManager.getSystemAvailableFeatures()) != null) {
-                for (FeatureInfo featureInfo : systemAvailableFeatures) {
-                    if (featureInfo != null && "android.hardware.camera.flash".equals(featureInfo.name)) {
-                        return true;
+        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
+            int i3 = i * i2;
+            int i4 = 0;
+            int i5 = 0;
+            for (int i6 = 0; i6 < i2; i6++) {
+                int i7 = 0;
+                while (i7 < i) {
+                    int i8 = iArr[i5];
+                    int i9 = (iArr[i5] & 16711680) >> 16;
+                    int i10 = (iArr[i5] & 65280) >> 8;
+                    int i11 = 255;
+                    int i12 = (iArr[i5] & 255) >> 0;
+                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
+                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
+                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
+                    int i16 = i4 + 1;
+                    if (i13 < 0) {
+                        i13 = 0;
+                    } else if (i13 > 255) {
+                        i13 = 255;
                     }
+                    bArr[i4] = (byte) i13;
+                    if (i6 % 2 == 0 && i5 % 2 == 0) {
+                        int i17 = i3 + 1;
+                        if (i15 < 0) {
+                            i15 = 0;
+                        } else if (i15 > 255) {
+                            i15 = 255;
+                        }
+                        bArr[i3] = (byte) i15;
+                        i3 = i17 + 1;
+                        if (i14 < 0) {
+                            i11 = 0;
+                        } else if (i14 <= 255) {
+                            i11 = i14;
+                        }
+                        bArr[i17] = (byte) i11;
+                    }
+                    i5++;
+                    i7++;
+                    i4 = i16;
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static byte[] e(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) {
+            return g(bitmap.getWidth(), bitmap.getHeight(), bitmap);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.baidu.tieba.eb9$a> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<a> f(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                SparseArray sparseArray = new SparseArray();
+                int i = 0;
+                loop0: for (int i2 = 0; i2 < width; i2++) {
+                    for (int i3 = 0; i3 < height; i3++) {
+                        int pixel = bitmap.getPixel(i2, i3);
+                        a aVar = new a(i2, i3);
+                        if (sparseArray.get(pixel) == null) {
+                            sparseArray.put(pixel, aVar);
+                            i++;
+                        }
+                        if (i == 3) {
+                            break loop0;
+                        }
+                    }
+                }
+                ArrayList<a> arrayList = new ArrayList<>();
+                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
+                    arrayList.add(sparseArray.valueAt(i4));
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public static byte[] g(int i, int i2, Bitmap bitmap) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
+            int i3 = i * i2;
+            try {
+                int[] iArr = new int[i3];
+                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
+                byte[] bArr = new byte[(i3 * 3) / 2];
+                d(bArr, iArr, i, i2);
+                return bArr;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (byte[]) invokeIIL.objValue;
+    }
+
+    public static Bitmap h(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                Matrix matrix = new Matrix();
+                matrix.postRotate(f);
+                return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            }
+            return null;
+        }
+        return (Bitmap) invokeLF.objValue;
     }
 }

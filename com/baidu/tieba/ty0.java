@@ -96,7 +96,7 @@ public class ty0 extends qy0 implements View.OnClickListener {
             if (this.i == null) {
                 LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_kernel_error, null);
                 this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091acf);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b0a);
                 this.j = textView;
                 textView.setOnClickListener(this);
                 this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
@@ -115,8 +115,8 @@ public class ty0 extends qy0 implements View.OnClickListener {
         if (this.f == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_net_error, null);
             this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092498);
-            Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f09041e);
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924e2);
+            Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090427);
             this.h = button;
             button.setOnClickListener(this);
             this.e.addView(this.f, new FrameLayout.LayoutParams(-1, -1));
@@ -198,7 +198,7 @@ public class ty0 extends qy0 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09041e || view2.getId() == R.id.obfuscated_res_0x7f091acf) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090427 || view2.getId() == R.id.obfuscated_res_0x7f091b0a) {
                 if (!BdNetUtils.f()) {
                     ViewGroup n = u().n();
                     if (n != null && u().n1().a()) {

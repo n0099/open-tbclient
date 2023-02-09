@@ -47,13 +47,13 @@ public class MyEmotionManagerFragment extends BaseFragment implements w68<Pair<L
 
         /* renamed from: com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0360a implements Runnable {
+        public class RunnableC0359a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
             public final /* synthetic */ a b;
 
-            public RunnableC0360a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0359a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements w68<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                z58.b().a(new RunnableC0360a(this, customResponsedMessage));
+                z58.b().a(new RunnableC0359a(this, customResponsedMessage));
             }
         }
     }
@@ -368,7 +368,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements w68<Pair<L
     }
 
     @Override // com.baidu.tieba.w68
-    public void R0() {
+    public void Q0() {
         a78 a78Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (a78Var = this.a) != null) {

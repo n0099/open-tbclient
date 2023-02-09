@@ -39,12 +39,12 @@ public class eq5 {
     }
 
     /* loaded from: classes4.dex */
-    public static class a implements js9 {
+    public static class a implements nt9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.nt9
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -69,7 +69,7 @@ public class eq5 {
             this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.nt9
         public void a(int i) {
             b bVar;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class eq5 {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.nt9
         public void e(String str) {
             b bVar;
             Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class eq5 {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.nt9
         public void f(String str) {
             b bVar;
             Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class eq5 {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.nt9
         public void b() {
             b bVar;
             Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class eq5 {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.nt9
         public void d() {
             b bVar;
             Interceptable interceptable = $ic;
@@ -158,45 +158,45 @@ public class eq5 {
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public static VideoMuxer d(dg9 dg9Var, b bVar) {
+    public static VideoMuxer d(hh9 hh9Var, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dg9Var, bVar)) == null) {
-            if (dg9Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, hh9Var, bVar)) == null) {
+            if (hh9Var == null) {
                 return null;
             }
-            int f = dg9Var.f();
-            int e = dg9Var.e();
+            int f = hh9Var.f();
+            int e = hh9Var.e();
             VideoMuxerData videoMuxerData = new VideoMuxerData();
             videoMuxerData.setCompat(true);
             videoMuxerData.setRecordConfigEncodeHevcVideo(true);
             videoMuxerData.setCurrentEncodeHevcVideo(true);
             ArrayList arrayList = new ArrayList();
-            if (dg9Var.c() != null) {
-                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) dg9Var.c().clone();
+            if (hh9Var.c() != null) {
+                TbMultiMediaData tbMultiMediaData = (TbMultiMediaData) hh9Var.c().clone();
                 tbMultiMediaData.textureId = 0;
                 arrayList.add(tbMultiMediaData);
                 videoMuxerData.setPhotoDataList(arrayList);
                 videoMuxerData.setVideoPath(tbMultiMediaData.path);
                 videoMuxerData.setPreviewWidth(f);
                 videoMuxerData.setPreviewHeight(e);
-                videoMuxerData.setVideoRatio(dg9Var.g());
+                videoMuxerData.setVideoRatio(hh9Var.g());
                 videoMuxerData.setOutWidth(f);
                 videoMuxerData.setOutHeight(e);
                 videoMuxerData.setOutBitRate(f * e * 6);
             }
-            if (dg9Var.a() != null) {
-                videoMuxerData.setFilterValue(dg9Var.a());
+            if (hh9Var.a() != null) {
+                videoMuxerData.setFilterValue(hh9Var.a());
             }
-            if (dg9Var.b() != null) {
-                videoMuxerData.setCurrThemeEffect(dg9Var.b());
+            if (hh9Var.b() != null) {
+                videoMuxerData.setCurrThemeEffect(hh9Var.b());
             }
             videoMuxerData.setUserNewAudioMixture(true);
-            if (dg9Var.d() != null) {
-                videoMuxerData.setMusicData(dg9Var.d());
+            if (hh9Var.d() != null) {
+                videoMuxerData.setMusicData(hh9Var.d());
                 ArrayList arrayList2 = new ArrayList();
                 AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
-                AudioPlayData audioPlayData = new AudioPlayData(dg9Var.d().localPath, 0, nw9.f(dg9Var.d().localPath), 1.0f);
+                AudioPlayData audioPlayData = new AudioPlayData(hh9Var.d().localPath, 0, rx9.f(hh9Var.d().localPath), 1.0f);
                 ArrayList arrayList3 = new ArrayList();
                 audioPlayTrackData.mAudioPlayDataList = arrayList3;
                 arrayList3.add(audioPlayData);

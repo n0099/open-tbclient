@@ -185,7 +185,7 @@ public class f57 {
             this.d = frsViewData;
             this.c = view2;
             View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_tips_blue_twice_line_down, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092311)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, StringHelper.STRING_MORE));
             ((TextView) inflate.findViewById(R.id.tips_content)).setText(R.string.topic_join);
             inflate.setOnClickListener(this.h);
             PopupWindow popupWindow = new PopupWindow(inflate, -2, -2);

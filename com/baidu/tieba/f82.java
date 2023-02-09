@@ -98,12 +98,12 @@ public final class f82 {
 
         /* renamed from: com.baidu.tieba.f82$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0268b implements Runnable {
+        public class RunnableC0267b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c82 a;
 
-            public RunnableC0268b(b bVar, c82 c82Var) {
+            public RunnableC0267b(b bVar, c82 c82Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,7 +244,7 @@ public final class f82 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0268b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0267b(this, this.c.m()));
             }
         }
 
@@ -389,7 +389,7 @@ public final class f82 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, c82Var)) == null) {
                 s(c82Var);
-                this.a.b(R.id.obfuscated_res_0x7f09016f, c82Var, "SwanAppFragment");
+                this.a.b(R.id.obfuscated_res_0x7f090171, c82Var, "SwanAppFragment");
                 this.c.b.add(c82Var);
                 for (a aVar : this.c.d) {
                     if (aVar != null) {

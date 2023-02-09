@@ -1,47 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tieba.z1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-/* loaded from: classes4.dex */
-public class c2a extends y1a<TTNativeExpressAd> {
+import com.fun.ad.sdk.FunAdLoader;
+/* loaded from: classes3.dex */
+public class c2a implements z1a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ w1a a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c2a(TTNativeExpressAd tTNativeExpressAd) {
-        super(tTNativeExpressAd);
+    public c2a(e2a e2aVar, w1a w1aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tTNativeExpressAd};
+            Object[] objArr = {e2aVar, w1aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = w1aVar;
     }
 
-    @Override // com.baidu.tieba.y1a
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z1a.a
+    public FunAdLoader a(k1a k1aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b.isEmpty()) {
-                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k1aVar)) == null) ? new k7a(this.a, k1aVar) : (FunAdLoader) invokeL.objValue;
     }
 }

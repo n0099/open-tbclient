@@ -108,13 +108,13 @@ public class HotUserRankFragment extends BaseFragment {
                         if (this.a.d <= 0 && !TextUtils.isEmpty(this.a.c)) {
                             if (nk6Var.a != null) {
                                 if (this.a.e) {
-                                    nk6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0840), this.a.c);
+                                    nk6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0849), this.a.c);
                                 } else {
-                                    nk6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0934), this.a.c);
+                                    nk6Var.a.a = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093e), this.a.c);
                                 }
                             }
                         } else {
-                            nk6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06d3);
+                            nk6Var.a.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06dc);
                         }
                         this.a.b.f(nk6Var.a, !dj.isEmpty(this.a.c));
                         if (this.a.isResumed() || this.a.getBaseFragmentActivity() != null) {
@@ -255,9 +255,9 @@ public class HotUserRankFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02de, (ViewGroup) null);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e0, (ViewGroup) null);
                 this.a = inflate;
-                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091c28), this.c, this.d);
+                RankListViewController rankListViewController = new RankListViewController(inflate.findViewById(R.id.obfuscated_res_0x7f091c69), this.c, this.d);
                 this.b = rankListViewController;
                 rankListViewController.g(this.g);
             }

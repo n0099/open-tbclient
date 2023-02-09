@@ -1,6 +1,6 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.vca;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes9.dex */
-public final class OnSubscribeDetach$TerminatedProducer implements vca {
+public final class OnSubscribeDetach$TerminatedProducer implements zda {
     public static final /* synthetic */ OnSubscribeDetach$TerminatedProducer[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final OnSubscribeDetach$TerminatedProducer INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vca
+    @Override // com.baidu.tieba.zda
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

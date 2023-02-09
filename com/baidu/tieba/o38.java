@@ -45,13 +45,13 @@ public class o38 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1431));
+            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1448));
             boolean z = false;
             int i = 0;
             while (!z && i < 1000) {
                 Matcher matcher = compile.matcher(str);
                 if (matcher.find()) {
-                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1432));
+                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1449));
                     i++;
                 } else {
                     z = true;
@@ -83,10 +83,10 @@ public class o38 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             String c = c(str);
             if (StringUtils.isNull(c)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142c);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1443);
             }
             if (!e(c)) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f142d);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1444);
             }
             return "";
         }

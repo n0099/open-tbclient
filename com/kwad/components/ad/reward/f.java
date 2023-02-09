@@ -59,7 +59,7 @@ public final class f {
             boolean a = com.kwad.components.core.m.m.oF().a(ksScene, "loadRewardVideoAd");
             ksScene.setAdStyle(2);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0602a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(rewardVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.reward.f.1
+            KsAdLoadManager.a(new a.C0603a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c(rewardVideoAdListener, ksScene, elapsedRealtime) { // from class: com.kwad.components.ad.reward.f.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ KsScene cU;

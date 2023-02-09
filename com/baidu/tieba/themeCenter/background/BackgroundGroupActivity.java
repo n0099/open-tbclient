@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.a79;
+import com.baidu.tieba.c89;
+import com.baidu.tieba.d89;
+import com.baidu.tieba.e89;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
-import com.baidu.tieba.v79;
-import com.baidu.tieba.y69;
 import com.baidu.tieba.yj5;
-import com.baidu.tieba.z69;
+import com.baidu.tieba.z89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public z69 c;
-    public a79 d;
+    public d89 c;
+    public e89 d;
     public BackgroundGroupModel.c e;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vj5
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, v79 v79Var, List<y69> list) {
+        public void a(int i, String str, z89 z89Var, List<c89> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, v79Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, z89Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(v79Var, list, this.a.b.P());
+                this.a.c.k(z89Var, list, this.a.b.P());
             }
         }
     }
@@ -115,10 +115,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        z69 z69Var;
+        d89 d89Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (z69Var = this.c) != null) {
-            showLoadingView(z69Var.d());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (d89Var = this.c) != null) {
+            showLoadingView(d89Var.d());
             this.b.loadData();
         }
     }
@@ -137,9 +137,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            z69 z69Var = this.c;
-            if (z69Var != null) {
-                z69Var.f();
+            d89 d89Var = this.c;
+            if (d89Var != null) {
+                d89Var.f();
             }
         }
     }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
             backgroundGroupModel.S(this.e);
-            a79 a79Var = new a79(this.a, this.b.getUniqueId());
-            this.d = a79Var;
-            a79Var.c(1);
-            z69 z69Var = new z69(this, this.d);
-            this.c = z69Var;
-            z69Var.e();
+            e89 e89Var = new e89(this.a, this.b.getUniqueId());
+            this.d = e89Var;
+            e89Var.c(1);
+            d89 d89Var = new d89(this, this.d);
+            this.c = d89Var;
+            d89Var.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }

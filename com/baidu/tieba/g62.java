@@ -114,7 +114,7 @@ public class g62 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0850, (ViewGroup) null);
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0862, (ViewGroup) null);
             inflate.setOnTouchListener(new b());
             ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
             viewGroup.removeView(inflate);

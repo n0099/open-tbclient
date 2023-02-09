@@ -31,7 +31,7 @@ public class d38 extends wb5 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b58);
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b62);
         this.m = new PrivilegeDeskView(context);
         this.o = true;
         this.i = false;

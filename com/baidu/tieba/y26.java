@@ -28,7 +28,7 @@ public class y26 extends mc6<p26> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0875 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0887 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -51,10 +51,10 @@ public class y26 extends mc6<p26> {
             }
         }
         this.m = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f21);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f20);
-        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f1f);
-        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f1e);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f32);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090f31);
+        this.k = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f30);
+        TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f090f2f);
         this.l = tbImageView;
         tbImageView.setAutoChangeStyle(true);
         this.l.setDefaultResource(17170445);
@@ -91,7 +91,7 @@ public class y26 extends mc6<p26> {
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
             SkinManager.setImageResource(this.k, R.drawable.icon_tab_live_close_n);
             SkinManager.setBackgroundResource(this.j, R.drawable.tab_sub_notification_btn_bg_selecor);
-            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ec);
+            SkinManager.setImageResource(this.l, R.drawable.obfuscated_res_0x7f0802ef);
         }
     }
 }

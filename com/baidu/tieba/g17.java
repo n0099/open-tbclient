@@ -38,9 +38,9 @@ public class g17 {
             this.d = frsFragment.s0();
             this.a = this.b.u1();
             this.c = this.b.N3();
-            this.e = this.b.Q0();
+            this.e = this.b.P0();
             this.f = this.b.H3();
-            this.g = this.b.j1();
+            this.g = this.b.i1();
             return;
         }
         throw new NullPointerException("FrsActivity is NullPointerException");

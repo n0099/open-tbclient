@@ -89,12 +89,12 @@ public class a36 {
         }
         this.i = new a(this);
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0876, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0888, (ViewGroup) null);
         this.b = inflate;
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092124);
-        this.c = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d2);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092465);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924c0);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09216a);
+        this.c = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910e5);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924af);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09250a);
         this.b.setOnClickListener(this.i);
         this.c.setBorderWidth(ej.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.c.setIsRound(true);
@@ -138,7 +138,7 @@ public class a36 {
                     this.d.setText(name_show);
                 }
                 if (q16Var.d.getThreadAlaInfo() != null) {
-                    this.e.setText(String.format(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ac2), StringHelper.numberUniformFormatExtraWithRound(q16Var.d.getThreadAlaInfo().audience_count)));
+                    this.e.setText(String.format(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0acc), StringHelper.numberUniformFormatExtraWithRound(q16Var.d.getThreadAlaInfo().audience_count)));
                 }
                 g(this.a, TbadkCoreApplication.getInst().getSkinType());
                 return;

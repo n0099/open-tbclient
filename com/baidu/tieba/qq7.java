@@ -202,8 +202,8 @@ public class qq7 extends rn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0916, (ViewGroup) this.c, false);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092216);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d092b, (ViewGroup) this.c, false);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09225c);
             h(TbadkCoreApplication.getInst().getSkinType());
             return inflate;
         }

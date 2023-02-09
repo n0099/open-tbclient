@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q60 {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] f;
@@ -40,7 +40,7 @@ public class q60 {
     public ZipFile d;
     public PackageManager e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class q60 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

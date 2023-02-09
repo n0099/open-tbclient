@@ -587,7 +587,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             View view2 = new View(getContext());
             view2.setLayoutParams(layoutParams);
             SkinManager.setBackgroundResource(view2, R.drawable.icon_news_red_dot);
-            view2.setTag(Integer.valueOf((int) R.id.obfuscated_res_0x7f090ecc));
+            view2.setTag(Integer.valueOf((int) R.id.obfuscated_res_0x7f090edd));
             view2.setVisibility(8);
             viewGroup.addView(view2);
             return view2;
@@ -599,8 +599,8 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4008);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ab, (ViewGroup) this, true);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090e75);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03ad, (ViewGroup) this, true);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090e86);
             this.a = pagerSlidingTabStrip;
             pagerSlidingTabStrip.A(ej.g(context, R.dimen.T_X06), ej.g(context, R.dimen.T_X04), ej.g(context, R.dimen.tbds10), true);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));

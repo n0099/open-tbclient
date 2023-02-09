@@ -146,11 +146,11 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905dd);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905e0);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905df);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905de);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905e1);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905e8);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905eb);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905ea);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905e9);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905ec);
         }
     }
 
@@ -265,7 +265,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01cd, viewGroup, false));
+            return new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ce, viewGroup, false));
         }
         return (c) invokeLI.objValue;
     }

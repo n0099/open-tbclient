@@ -30,7 +30,7 @@ public class z13 implements pn3<HybridUbcFlow> {
 
         /* renamed from: com.baidu.tieba.z13$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0500a {
+        public static class C0501a {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class z13 implements pn3<HybridUbcFlow> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0500a.a;
+                return C0501a.a;
             }
             return (a) invokeV.objValue;
         }

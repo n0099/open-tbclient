@@ -144,7 +144,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
                 if (this.pK == null) {
                     this.pK = new com.kwad.components.ad.reward.k.g(this.nM);
                 }
-                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b6));
+                this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ca));
                 this.pK.b(u.D(adTemplate));
             }
             AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -165,7 +165,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091136);
+            this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09114a);
         }
     }
 

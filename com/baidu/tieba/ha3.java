@@ -241,7 +241,7 @@ public class ha3 extends ta3 {
                 c.a("invoke", optString3, null, optString2);
                 if (optString2.startsWith(BaiduIdentityManager.VALUE_OSNAME)) {
                     if (!ds2.a().c()) {
-                        o83.f(context, R.string.obfuscated_res_0x7f0f12f9).G();
+                        o83.f(context, R.string.obfuscated_res_0x7f0f1310).G();
                         return false;
                     }
                     l(context, a2, callbackHandler, optString, optString3);

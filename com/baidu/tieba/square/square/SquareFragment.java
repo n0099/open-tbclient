@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.py8;
-import com.baidu.tieba.ry8;
 import com.baidu.tieba.square.square.SquareModel;
+import com.baidu.tieba.tz8;
+import com.baidu.tieba.vz8;
 import com.baidu.tieba.y35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -30,7 +30,7 @@ public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry8 a;
+    public vz8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -82,13 +82,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, py8 py8Var) {
+        public void a(boolean z, String str, tz8 tz8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, py8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, tz8Var}) == null) {
                 this.a.a.n(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.o());
-                if (z && py8Var != null && !py8Var.g()) {
+                if (z && tz8Var != null && !tz8Var.g()) {
                     this.a.a.r(this.a.b.P());
                     this.a.c = true;
                     this.a.a.p();
@@ -289,9 +289,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            ry8 ry8Var = this.a;
-            if (ry8Var != null) {
-                ry8Var.onChangeSkinType(i);
+            vz8 vz8Var = this.a;
+            if (vz8Var != null) {
+                vz8Var.onChangeSkinType(i);
             }
         }
     }
@@ -313,9 +313,9 @@ public class SquareFragment extends BaseFragment {
     public final void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ry8 ry8Var = new ry8(this.f, getUniqueId(), this.g, this.j);
-            this.a = ry8Var;
-            ry8Var.t(this.k);
+            vz8 vz8Var = new vz8(this.f, getUniqueId(), this.g, this.j);
+            this.a = vz8Var;
+            vz8Var.t(this.k);
         }
     }
 
@@ -411,7 +411,7 @@ public class SquareFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0814, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0826, (ViewGroup) null);
             this.g = inflate;
             return inflate;
         }

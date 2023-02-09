@@ -287,9 +287,9 @@ public class qp6 extends BaseAdapter {
                 if (view2 != null && (view2.getTag() instanceof f)) {
                     fVar = (f) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0146, viewGroup, false);
+                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0147, viewGroup, false);
                     fVar = new f(this);
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225a);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a0);
                     view2.setTag(fVar);
                 }
                 fVar.a.setText(((lp6) getItem(i)).b());
@@ -303,13 +303,13 @@ public class qp6 extends BaseAdapter {
                     eVar.d.setVisibility(8);
                     eVar.e.setVisibility(8);
                 } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0145, viewGroup, false);
+                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0146, viewGroup, false);
                     eVar = new e(this);
-                    eVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090350);
-                    eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0913b6);
-                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d1f);
-                    eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0913b5);
-                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d1e);
+                    eVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090358);
+                    eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0913cb);
+                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d61);
+                    eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0913ca);
+                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d60);
                     view2.setTag(eVar);
                 }
                 kp6 kp6Var = (kp6) getItem(i);
@@ -363,9 +363,9 @@ public class qp6 extends BaseAdapter {
                 if (view2 != null && (view2.getTag() instanceof c)) {
                     c cVar = (c) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0144, viewGroup, false);
+                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0145, viewGroup, false);
                     c cVar2 = new c(this);
-                    cVar2.a = view2.findViewById(R.id.obfuscated_res_0x7f09086a);
+                    cVar2.a = view2.findViewById(R.id.obfuscated_res_0x7f090878);
                     view2.setTag(cVar2);
                 }
                 p15.d(view2).f(R.color.CAM_X0204);

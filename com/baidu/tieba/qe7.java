@@ -18,7 +18,7 @@ public class qe7 {
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(String str, List<Cdo> list) {
-        e19 e19Var;
+        i29 i29Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
             Iterator<Cdo> it = list.iterator();
@@ -39,7 +39,7 @@ public class qe7 {
                     if (iy4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
                         advertAppInfo = ((AdvertAppInfo.ILegoAdvert) iy4Var.c()).getAdvertAppInfo();
                     }
-                } else if ((next instanceof ThreadData) && (e19Var = ((ThreadData) next).funAdData) != null && e19Var.i()) {
+                } else if ((next instanceof ThreadData) && (i29Var = ((ThreadData) next).funAdData) != null && i29Var.i()) {
                     it.remove();
                     i3 = i;
                 }
@@ -53,7 +53,7 @@ public class qe7 {
     }
 
     public static void b(List<Cdo> list, DataRes.Builder builder, ic7 ic7Var, td7 td7Var) {
-        e19 e19Var;
+        i29 i29Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, ic7Var, td7Var) == null) {
             if (list != null && list.size() > 0) {
@@ -61,8 +61,8 @@ public class qe7 {
                 while (it.hasNext()) {
                     Cdo next = it.next();
                     if (!(next instanceof wd7) && !(next instanceof iy4) && !(next instanceof sx5)) {
-                        if ((next instanceof ThreadData) && (e19Var = ((ThreadData) next).funAdData) != null) {
-                            e19Var.p(true);
+                        if ((next instanceof ThreadData) && (i29Var = ((ThreadData) next).funAdData) != null) {
+                            i29Var.p(true);
                             it.remove();
                         }
                     } else {
@@ -96,7 +96,7 @@ public class qe7 {
         if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, ic7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList();
             for (App app : builder.banner_list.app) {
-                if (app != null && str.equals(rq8.a(app))) {
+                if (app != null && str.equals(vr8.a(app))) {
                     arrayList.add(app);
                 }
             }

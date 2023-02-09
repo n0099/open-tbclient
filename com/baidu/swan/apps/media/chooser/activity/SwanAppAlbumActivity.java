@@ -188,7 +188,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             this.a.z = false;
             this.a.u.setVisibility(8);
             this.a.v.setVisibility(8);
-            Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081205);
+            Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08121b);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.a.p.setCompoundDrawables(null, null, drawable, null);
         }
@@ -240,7 +240,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             }
             this.a.y = true;
             this.a.z = false;
-            Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f3);
+            Drawable drawable = this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081209);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.a.p.setCompoundDrawables(null, null, drawable, null);
         }
@@ -391,14 +391,14 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (nw2.d() > 0) {
-                this.q.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ac0));
-                this.r.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ab1));
-                this.q.setText(getResources().getString(R.string.obfuscated_res_0x7f0f135e, Integer.valueOf(nw2.d())));
+                this.q.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ac1));
+                this.r.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ab2));
+                this.q.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1375, Integer.valueOf(nw2.d())));
                 return;
             }
-            this.q.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ac1));
-            this.r.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ab2));
-            this.q.setText(getString(R.string.obfuscated_res_0x7f0f136e));
+            this.q.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ac2));
+            this.r.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ab3));
+            this.q.setText(getString(R.string.obfuscated_res_0x7f0f1385));
         }
     }
 
@@ -481,16 +481,16 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
     public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.n = (GridView) findViewById(R.id.obfuscated_res_0x7f09023d);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f09024c);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f090262);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f090237);
-            this.s = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090236);
-            this.u = findViewById(R.id.obfuscated_res_0x7f090253);
-            this.v = findViewById(R.id.obfuscated_res_0x7f090252);
-            this.w = (HeightListView) findViewById(R.id.obfuscated_res_0x7f090251);
-            this.x = (LoadingLayout) findViewById(R.id.obfuscated_res_0x7f09023c);
-            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f090248);
+            this.n = (GridView) findViewById(R.id.obfuscated_res_0x7f090241);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090250);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f090266);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09023b);
+            this.s = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09023a);
+            this.u = findViewById(R.id.obfuscated_res_0x7f090257);
+            this.v = findViewById(R.id.obfuscated_res_0x7f090256);
+            this.w = (HeightListView) findViewById(R.id.obfuscated_res_0x7f090255);
+            this.x = (LoadingLayout) findViewById(R.id.obfuscated_res_0x7f090240);
+            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f09024c);
             this.w.setListViewHeight(nm3.f(this, 400.0f));
             this.p.setOnClickListener(this);
             this.t.setOnClickListener(this);
@@ -512,7 +512,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
                 if (this.A.get(0).f() == null || this.A.get(0).f().size() == 0) {
                     this.s.setVisibility(8);
                 }
-                Drawable drawable = getResources().getDrawable(R.drawable.obfuscated_res_0x7f081205);
+                Drawable drawable = getResources().getDrawable(R.drawable.obfuscated_res_0x7f08121b);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 this.p.setCompoundDrawables(null, null, drawable, null);
                 this.p.setCompoundDrawablePadding(nm3.f(this, 4.0f));
@@ -591,7 +591,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             super.onCreate(bundle);
             this.m = new ActivityResultDispatcher(this, 1);
             qm3.g(this, c0);
-            setContentView(R.layout.obfuscated_res_0x7f0d0848);
+            setContentView(R.layout.obfuscated_res_0x7f0d085a);
             nm3.a(this);
             P();
             T();

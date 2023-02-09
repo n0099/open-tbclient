@@ -117,7 +117,7 @@ public class ay7 extends qn<fy7, SearchSuggestForumViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c3, viewGroup, false));
+            return new SearchSuggestForumViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d5, viewGroup, false));
         }
         return (SearchSuggestForumViewHolder) invokeL.objValue;
     }
@@ -149,14 +149,14 @@ public class ay7 extends qn<fy7, SearchSuggestForumViewHolder> {
             searchSuggestForumViewHolder.b.setConrers(15);
             searchSuggestForumViewHolder.b.setRadiusById(R.string.J_X06);
             searchSuggestForumViewHolder.b.K(fy7Var.a(), 10, false);
-            searchSuggestForumViewHolder.c.setText(fy7Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f06ad));
+            searchSuggestForumViewHolder.c.setText(fy7Var.c() + this.a.getString(R.string.obfuscated_res_0x7f0f06b6));
             if (!StringUtils.isNull(fy7Var.g())) {
-                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1179, fy7Var.g()));
+                searchSuggestForumViewHolder.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f118e, fy7Var.g()));
             } else {
                 Context context = this.a;
-                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f1179, context.getString(R.string.obfuscated_res_0x7f0f117a)));
+                searchSuggestForumViewHolder.d.setText(context.getString(R.string.obfuscated_res_0x7f0f118e, context.getString(R.string.obfuscated_res_0x7f0f118f)));
             }
-            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f044c), StringHelper.numberUniformFormatExtraWithRoundInt(fy7Var.f().intValue())));
+            searchSuggestForumViewHolder.e.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtraWithRoundInt(fy7Var.f().intValue())));
             searchSuggestForumViewHolder.f.setText(String.format(this.a.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(fy7Var.h().intValue())));
             y(fy7Var);
             return view2;

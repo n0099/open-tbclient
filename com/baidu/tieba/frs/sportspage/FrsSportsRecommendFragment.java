@@ -84,7 +84,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public int S1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0353 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0355 : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vj5
@@ -468,14 +468,14 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (this.X != null) {
                 if (this.Z) {
                     if (i > 0) {
-                        string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a5);
+                        string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ae);
                     } else {
                         return;
                     }
                 } else if (i > 0) {
-                    string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a6), Integer.valueOf(i));
+                    string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07af), Integer.valueOf(i));
                 } else {
-                    string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a7);
+                    string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07b0);
                 }
                 this.X.setText(string);
             }
@@ -490,7 +490,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.kt6
-    public void g1() {
+    public void f1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             s2();
@@ -498,7 +498,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (ev6Var != null) {
                 ev6Var.p(this.Y);
             }
-            super.g1();
+            super.f1();
         }
     }
 
@@ -532,10 +532,10 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             super.onCreateView(layoutInflater, viewGroup, bundle);
             this.a.w(true);
             u2();
-            this.T = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b96);
-            this.I = this.c.findViewById(R.id.obfuscated_res_0x7f092085);
-            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f092086);
-            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b74);
+            this.T = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090ba7);
+            this.I = this.c.findViewById(R.id.obfuscated_res_0x7f0920ca);
+            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f0920cb);
+            AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b85);
             this.U = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.d0);
             t2();
@@ -547,7 +547,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             if (ev6Var != null) {
                 ev6Var.p(0L);
             }
-            this.V = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c7c);
+            this.V = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c8d);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return this.c;
         }
@@ -613,15 +613,15 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 navigationBar.getBarBgView().setAlpha(0.0f);
             }
             if (this.J == null) {
-                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091751);
+                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091769);
                 this.J = observedChangeLinearLayout;
                 observedChangeLinearLayout.setOnSizeChangeListener(new a(this));
             }
             if (this.L == null) {
-                this.L = this.c.findViewById(R.id.obfuscated_res_0x7f09171e);
+                this.L = this.c.findViewById(R.id.obfuscated_res_0x7f091735);
             }
             if (this.M == null) {
-                this.M = this.c.findViewById(R.id.obfuscated_res_0x7f090a2f);
+                this.M = this.c.findViewById(R.id.obfuscated_res_0x7f090a3d);
             }
             if (this.N == null) {
                 View addSystemImageButton = this.K.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -630,7 +630,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 this.O = (ImageView) this.N.findViewById(R.id.widget_navi_back_button);
             }
             if (this.P == null) {
-                this.P = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091720);
+                this.P = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091737);
             }
             if (this.Q == null) {
                 this.Q = new NoNetworkView(getContext());
@@ -647,7 +647,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                 if (StringHelper.getChineseAndEnglishLength(name) > 14) {
                     name = StringHelper.cutForumNameWithSuffix(name, 14, StringHelper.STRING_MORE);
                 }
-                this.K.setCenterTextTitle(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a4), name));
+                this.K.setCenterTextTitle(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ad), name));
             }
         }
     }

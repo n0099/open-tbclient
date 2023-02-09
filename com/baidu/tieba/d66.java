@@ -47,7 +47,7 @@ public class d66 extends mc6<ThreadData> implements jd6 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fd : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d02ff : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -119,14 +119,14 @@ public class d66 extends mc6<ThreadData> implements jd6 {
         this.s = new a(this);
         this.i = tbPageContext;
         View h = h();
-        this.l = h.findViewById(R.id.obfuscated_res_0x7f090842);
-        this.m = h.findViewById(R.id.obfuscated_res_0x7f091c81);
-        this.n = h.findViewById(R.id.obfuscated_res_0x7f091c83);
-        this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901e3);
-        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901fb);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09207e);
-        this.r = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901bf);
-        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09022b);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f090850);
+        this.m = h.findViewById(R.id.obfuscated_res_0x7f091cc2);
+        this.n = h.findViewById(R.id.obfuscated_res_0x7f091cc4);
+        this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901e6);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901ff);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920c2);
+        this.r = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901c1);
+        this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09022f);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

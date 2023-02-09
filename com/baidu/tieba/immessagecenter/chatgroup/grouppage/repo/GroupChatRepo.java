@@ -577,7 +577,7 @@ public class GroupChatRepo implements LifecycleObserver {
                     return;
                 }
                 this.b.j = chatRoomInfo;
-                ChatMsg k = this.b.g.k(j, this.b.a.getString(R.string.obfuscated_res_0x7f0f0865));
+                ChatMsg k = this.b.g.k(j, this.b.a.getString(R.string.obfuscated_res_0x7f0f086e));
                 GroupChatRepo groupChatRepo = this.b;
                 groupChatRepo.x(groupChatRepo.n, k);
             }

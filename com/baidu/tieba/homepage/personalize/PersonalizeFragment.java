@@ -24,9 +24,9 @@ import com.baidu.tieba.br4;
 import com.baidu.tieba.cr4;
 import com.baidu.tieba.gt6;
 import com.baidu.tieba.ho;
-import com.baidu.tieba.iz8;
 import com.baidu.tieba.kc7;
 import com.baidu.tieba.kw5;
+import com.baidu.tieba.m09;
 import com.baidu.tieba.nc;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.t97;
@@ -310,7 +310,7 @@ public class PersonalizeFragment extends BaseFragment implements gt6, VoiceManag
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            iz8.g().k(getUniqueId());
+            m09.g().k(getUniqueId());
             MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.h);
@@ -447,7 +447,7 @@ public class PersonalizeFragment extends BaseFragment implements gt6, VoiceManag
         if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            iz8.g().i(getUniqueId());
+            m09.g().i(getUniqueId());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
@@ -544,7 +544,7 @@ public class PersonalizeFragment extends BaseFragment implements gt6, VoiceManag
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             super.onStop();
-            iz8.g().h(getUniqueId(), false);
+            m09.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());

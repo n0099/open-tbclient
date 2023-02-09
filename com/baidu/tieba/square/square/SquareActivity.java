@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.k35;
-import com.baidu.tieba.py8;
-import com.baidu.tieba.ry8;
 import com.baidu.tieba.square.square.SquareModel;
+import com.baidu.tieba.tz8;
+import com.baidu.tieba.vz8;
 import com.baidu.tieba.y35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public static /* synthetic */ Interceptable $ic;
     public static boolean m;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry8 a;
+    public vz8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -120,13 +120,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, py8 py8Var) {
+        public void a(boolean z, String str, tz8 tz8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, py8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, tz8Var}) == null) {
                 this.a.a.n(true, "");
                 SquareActivity squareActivity = this.a;
                 squareActivity.hideLoadingView(squareActivity.a.o());
-                if (z && py8Var != null && !py8Var.g()) {
+                if (z && tz8Var != null && !tz8Var.g()) {
                     this.a.a.r(this.a.b.P());
                     this.a.c = true;
                     this.a.a.p();
@@ -313,13 +313,13 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
     public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ry8 ry8Var = new ry8(getPageContext(), this.h, this.k);
-            this.a = ry8Var;
-            ry8Var.t(this.l);
+            vz8 vz8Var = new vz8(getPageContext(), this.h, this.k);
+            this.a = vz8Var;
+            vz8Var.t(this.l);
             NavigationBar navigationBar = (NavigationBar) this.g.getPageActivity().findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02d6));
+            this.f.setTitleText(this.g.getString(R.string.obfuscated_res_0x7f0f02d7));
         }
     }
 
@@ -328,9 +328,9 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            ry8 ry8Var = this.a;
-            if (ry8Var != null) {
-                ry8Var.onChangeSkinType(i);
+            vz8 vz8Var = this.a;
+            if (vz8Var != null) {
+                vz8Var.onChangeSkinType(i);
                 this.f.onChangeSkinType(getPageContext(), i);
             }
         }
@@ -453,7 +453,7 @@ public class SquareActivity extends BaseActivity<Object> implements SwipeBackLay
             super.onCreate(bundle);
             this.g = getPageContext();
             this.e = System.currentTimeMillis();
-            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0824, (ViewGroup) null);
+            this.h = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0836, (ViewGroup) null);
             getPageContext().getPageActivity().setContentView(this.h);
             L1();
             initData();

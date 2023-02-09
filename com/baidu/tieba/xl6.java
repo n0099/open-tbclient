@@ -79,7 +79,7 @@ public class xl6 extends ej5<qj6, sj6> {
                     return;
                 }
                 HashMap hashMap = new HashMap();
-                hashMap.put(this.a.f.getString(R.string.obfuscated_res_0x7f0f070f), list.get(i).b());
+                hashMap.put(this.a.f.getString(R.string.obfuscated_res_0x7f0f0718), list.get(i).b());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921678, hashMap));
                 TiebaStatic.log(new StatisticItem("c14583").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", i + 1));
             }
@@ -107,9 +107,9 @@ public class xl6 extends ej5<qj6, sj6> {
         }
         this.m = false;
         this.f = tbPageContext;
-        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092314);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902be);
-        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904a9);
+        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c4);
+        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904b4);
         RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.recycler_view);
         this.h = recyclerView;
         recyclerView.setNestedScrollingEnabled(false);
@@ -129,13 +129,13 @@ public class xl6 extends ej5<qj6, sj6> {
             if (this.m) {
                 if (this.l.size() >= 14) {
                     List<pj6> subList = arrayList.subList(0, 14);
-                    subList.add(new pj6(this.f.getString(R.string.obfuscated_res_0x7f0f068e), R.drawable.obfuscated_res_0x7f080818));
+                    subList.add(new pj6(this.f.getString(R.string.obfuscated_res_0x7f0f0697), R.drawable.obfuscated_res_0x7f080824));
                     return subList;
                 }
                 return arrayList;
             } else if (this.l.size() >= 9) {
                 List<pj6> subList2 = arrayList.subList(0, 9);
-                subList2.add(new pj6(this.f.getString(R.string.obfuscated_res_0x7f0f0b90), R.drawable.obfuscated_res_0x7f08086f));
+                subList2.add(new pj6(this.f.getString(R.string.obfuscated_res_0x7f0f0b9a), R.drawable.obfuscated_res_0x7f08087c));
                 return subList2;
             } else {
                 return arrayList;
@@ -144,7 +144,7 @@ public class xl6 extends ej5<qj6, sj6> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.d09
+    @Override // com.baidu.tieba.h19
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

@@ -92,7 +92,7 @@ public class a57 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData Y0;
+            FrsViewData X0;
             ForumData forum;
             String name;
             SignData signData;
@@ -102,7 +102,7 @@ public class a57 {
             gs6 u1;
             int i;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.a == null || !(customResponsedMessage instanceof SignMessage) || (Y0 = this.a.a.Y0()) == null || Y0.getForum() == null || (name = (forum = Y0.getForum()).getName()) == null || !name.equals(FrsActivityStatic.c) || customResponsedMessage.getOrginalMessage().getTag() != this.a.d) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.a == null || !(customResponsedMessage instanceof SignMessage) || (X0 = this.a.a.X0()) == null || X0.getForum() == null || (name = (forum = X0.getForum()).getName()) == null || !name.equals(FrsActivityStatic.c) || customResponsedMessage.getOrginalMessage().getTag() != this.a.d) {
                 return;
             }
             TiebaStatic.eventStat(this.a.a.getActivity(), "sign_end_time", System.currentTimeMillis() + "");
@@ -125,7 +125,7 @@ public class a57 {
                     if (s0 != null) {
                         s0.c0(name2);
                     }
-                    Y0.updateSignData(signData);
+                    X0.updateSignData(signData);
                     signData.forumId = forum.getId();
                     signData.forumName = forum.getName();
                     z = true;
@@ -194,9 +194,9 @@ public class a57 {
                     } else {
                         o85.c().i(null);
                         if (s0 == null && !s0.A()) {
-                            this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a3, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
+                            this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ac, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
                         } else {
-                            this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a2, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
+                            this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ab, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                         }
                         u1 = this.a.a.u1();
                         Date m = this.a.m();
@@ -222,7 +222,7 @@ public class a57 {
                 o85.c().i(null);
                 if (s0 == null) {
                 }
-                this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a2, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
+                this.a.a.showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ab, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                 u1 = this.a.a.u1();
                 Date m2 = this.a.m();
                 boolean areNotificationsEnabled2 = NotificationManagerCompat.from(this.a.a.p().getContext()).areNotificationsEnabled();
@@ -353,19 +353,19 @@ public class a57 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData Y0;
+            FrsViewData X0;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (Y0 = this.a.a.Y0()) != null && Y0.getForum() != null) {
-                ForumData forum = Y0.getForum();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (X0 = this.a.a.X0()) != null && X0.getForum() != null) {
+                ForumData forum = X0.getForum();
                 SignData signData = (SignData) customResponsedMessage.getData();
                 int user_level = forum.getUser_level();
                 String str = signData.forumId;
                 if (str != null && str.equals(forum.getId())) {
-                    Y0.updateSignData(signData);
+                    X0.updateSignData(signData);
                     b57 s0 = this.a.a.s0();
                     boolean z = false;
                     if (s0 != null) {
-                        s0.m0(Y0);
+                        s0.m0(X0);
                         z = s0.H();
                     }
                     if (z) {
@@ -419,11 +419,11 @@ public class a57 {
             if (frsFragment == null) {
                 return;
             }
-            FrsViewData Y0 = frsFragment.Y0();
+            FrsViewData X0 = frsFragment.X0();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                if (Y0 != null && Y0.getForum() != null) {
-                    ForumData forum = Y0.getForum();
+                if (X0 != null && X0.getForum() != null) {
+                    ForumData forum = X0.getForum();
                     forum.setFromPage("frs");
                     if (forum.getName() == null) {
                         name = "";
@@ -528,12 +528,12 @@ public class a57 {
                 next.getLayoutParams().width = -2;
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1241));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1257));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.f(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
                 styleConfig.p(TBSpecificationButtonConfig.WebpType.MASK);
-                styleConfig.i(R.drawable.obfuscated_res_0x7f08081c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                styleConfig.i(R.drawable.obfuscated_res_0x7f080828, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 next.k();
             }
         }
@@ -549,10 +549,10 @@ public class a57 {
                 next.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1241));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1257));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
-                styleConfig.i(R.drawable.obfuscated_res_0x7f08099c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                styleConfig.i(R.drawable.obfuscated_res_0x7f0809ab, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 styleConfig.p(TBSpecificationButtonConfig.WebpType.PURE);
                 next.k();
             }
@@ -569,12 +569,12 @@ public class a57 {
                 next.getLayoutParams().width = -2;
                 next.setPadding(0, 0, 0, 0);
                 next.setTextSize(R.dimen.T_X08);
-                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1241));
+                next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1257));
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 styleConfig.f(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
                 styleConfig.p(TBSpecificationButtonConfig.WebpType.MASK);
-                styleConfig.i(R.drawable.obfuscated_res_0x7f08081d, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                styleConfig.i(R.drawable.obfuscated_res_0x7f080829, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 next.k();
             }
         }
@@ -638,17 +638,17 @@ public class a57 {
                 TBSpecificationButtonConfig styleConfig = next.getStyleConfig();
                 styleConfig.g(dimenPixelSize);
                 if (i > 0) {
-                    next.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b83), Integer.valueOf(i)));
-                    styleConfig.i(R.drawable.obfuscated_res_0x7f08099d, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    next.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b8d), Integer.valueOf(i)));
+                    styleConfig.i(R.drawable.obfuscated_res_0x7f0809ac, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 } else {
-                    next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1260));
-                    styleConfig.i(R.drawable.obfuscated_res_0x7f08099c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    next.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1276));
+                    styleConfig.i(R.drawable.obfuscated_res_0x7f0809ab, 0, TBSpecificationButtonConfig.IconType.WEBP);
                 }
                 styleConfig.p(TBSpecificationButtonConfig.WebpType.PURE);
                 next.setTextSize(R.dimen.T_X08);
                 next.k();
                 next.setVisibility(0);
-                next.setTag(R.id.obfuscated_res_0x7f0910b5, Boolean.TRUE);
+                next.setTag(R.id.obfuscated_res_0x7f0910c8, Boolean.TRUE);
             }
         }
     }
@@ -672,17 +672,17 @@ public class a57 {
 
     public void y(int i, int i2, int i3) {
         FrsFragment frsFragment;
-        FrsViewData Y0;
+        FrsViewData X0;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) && (frsFragment = this.a) != null && i > 0 && i2 > 0 && (Y0 = frsFragment.Y0()) != null && Y0.getForum() != null && Y0.getSignData() != null) {
-            ForumData forum = Y0.getForum();
-            SignData signData = Y0.getSignData();
+        if ((interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) && (frsFragment = this.a) != null && i > 0 && i2 > 0 && (X0 = frsFragment.X0()) != null && X0.getForum() != null && X0.getSignData() != null) {
+            ForumData forum = X0.getForum();
+            SignData signData = X0.getSignData();
             signData.levelup_score = forum.getLevelupScore();
             signData.sign_bonus_point = i3;
             signData.miss_sign_num -= i2;
             signData.count_sign_num = i;
-            Y0.updateSignData(signData);
+            X0.updateSignData(signData);
             signData.forumId = forum.getId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001222, signData));
             b57 s0 = this.a.s0();

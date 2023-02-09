@@ -120,4 +120,11 @@ public class TriangleShapeView extends View {
             }
         }
     }
+
+    public void setColorId(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
 }

@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.he5;
-import com.baidu.tieba.q69;
-import com.baidu.tieba.q79;
-import com.baidu.tieba.r69;
-import com.baidu.tieba.s69;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
+import com.baidu.tieba.u79;
+import com.baidu.tieba.u89;
+import com.baidu.tieba.v79;
+import com.baidu.tieba.w79;
 import com.baidu.tieba.yj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,9 +28,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalCardDetailModel a;
     public SetPersonalCardModel b;
-    public q79 c;
+    public u89 c;
     public long d;
-    public q69 e;
+    public u79 e;
     public PersonalCardDetailModel.b f;
     public SetPersonalCardModel.b g;
     public View.OnClickListener h;
@@ -67,16 +67,16 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
 
         @Override // com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.b
-        public void a(int i, String str, q69 q69Var) {
+        public void a(int i, String str, u79 u79Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, q69Var) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, u79Var) == null) {
                 PersonalCardDetailActivity personalCardDetailActivity = this.a;
                 personalCardDetailActivity.hideLoadingView(personalCardDetailActivity.c.c());
                 if (i != 0) {
                     this.a.showToast(str);
                 }
-                this.a.e = q69Var;
-                this.a.c.h(i, q69Var);
+                this.a.e = u79Var;
+                this.a.c.h(i, u79Var);
             }
         }
     }
@@ -199,9 +199,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            q79 q79Var = this.c;
-            if (q79Var != null) {
-                q79Var.a();
+            u89 u89Var = this.c;
+            if (u89Var != null) {
+                u89Var.a();
             }
         }
     }
@@ -219,22 +219,22 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
     }
 
-    public void D1(int i, String str, q69 q69Var) {
+    public void D1(int i, String str, u79 u79Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(1048576, this, i, str, q69Var) != null) || q69Var == null) {
+        if ((interceptable != null && interceptable.invokeILL(1048576, this, i, str, u79Var) != null) || u79Var == null) {
             return;
         }
-        if (q69Var.f() == 101) {
+        if (u79Var.f() == 101) {
             i2 = 9;
         } else {
             i2 = 0;
         }
         if (!StringUtils.isNull(str)) {
-            if (i == s69.a) {
-                r69.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-            } else if (i == s69.b) {
-                r69.c(getPageContext(), 6, str, i2);
+            if (i == w79.a) {
+                v79.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+            } else if (i == w79.b) {
+                v79.c(getPageContext(), 6, str, i2);
             }
         }
     }
@@ -272,10 +272,10 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        q79 q79Var;
+        u89 u89Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (q79Var = this.c) != null) {
-            showLoadingView(q79Var.c(), false);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && (u89Var = this.c) != null) {
+            showLoadingView(u89Var.c(), false);
             this.a.J(this.d);
         }
     }
@@ -286,7 +286,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             this.d = getIntent().getLongExtra(PersonalCardDetailActivityConfig.CARD_ID, 0L);
-            this.c = new q79(this, this.h);
+            this.c = new u89(this, this.h);
             PersonalCardDetailModel personalCardDetailModel = new PersonalCardDetailModel();
             this.a = personalCardDetailModel;
             personalCardDetailModel.K(this.f);

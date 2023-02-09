@@ -64,9 +64,9 @@ public final class rl2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.size() > 0) {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0811b6));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0811cc));
                 } else {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0811b5));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f0811cb));
                 }
             }
         }
@@ -249,18 +249,18 @@ public final class rl2 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{activity, w83Var, str, list, fVar, onCancelListener})) == null) {
-            View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d0843, null);
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c7);
+            View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d0855, null);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09210d);
             Resources resources = activity.getResources();
             if (swanAppRoundedImageView != null) {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, qm3.i(w83Var.W(), "SwanSubscribeMsgDialog", false)));
-                swanAppRoundedImageView.setBorderColor(resources.getColor(R.color.obfuscated_res_0x7f060a79));
+                swanAppRoundedImageView.setBorderColor(resources.getColor(R.color.obfuscated_res_0x7f060a7a));
             }
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ee);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902ef);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920c9)).setText(w83Var.Z());
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092311)).setText(str);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092208);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f6);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f7);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09210f)).setText(w83Var.Z());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(str);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09224e);
             ArrayList arrayList = new ArrayList(list);
             if (list.size() > 0) {
                 for (sl2 sl2Var : list) {
@@ -302,7 +302,7 @@ public final class rl2 {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, 16, 0, 16);
             textView.setLayoutParams(layoutParams);
-            textView.setTextColor(zm4.b(activity, R.color.obfuscated_res_0x7f060a92));
+            textView.setTextColor(zm4.b(activity, R.color.obfuscated_res_0x7f060a93));
             textView.setText(sl2Var.b);
             Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c2);
             Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c1);

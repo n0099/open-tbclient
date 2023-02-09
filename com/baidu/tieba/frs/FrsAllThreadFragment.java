@@ -125,7 +125,7 @@ public class FrsAllThreadFragment extends BaseFragment implements it6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c31);
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c42);
             D1();
         }
     }

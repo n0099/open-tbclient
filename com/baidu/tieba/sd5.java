@@ -34,7 +34,7 @@ import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.j09;
+import com.baidu.tieba.n19;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -64,7 +64,7 @@ public class sd5 extends pb5 {
     public String o;
     public pd5 p;
     public ThreadData q;
-    public j09.g r;
+    public n19.g r;
     public boolean s;
     public int t;
     public int u;
@@ -156,8 +156,8 @@ public class sd5 extends pb5 {
                         if (writeData != null) {
                             str2 = writeData.getContent();
                         }
-                        if (rp5.e(str2) > 40) {
-                            str2 = rp5.m(str2, 40);
+                        if (rp5.f(str2) > 40) {
+                            str2 = rp5.n(str2, 40);
                         }
                         statisticItem.param(TiebaStatic.Params.POST_CONTENT, str2);
                     }
@@ -203,7 +203,7 @@ public class sd5 extends pb5 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !k89.d(i)) {
+                    } else if (i != 238010 && !o99.d(i)) {
                         this.a.getContext().showToast(str);
                     }
                 } else {
@@ -252,7 +252,7 @@ public class sd5 extends pb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements j09.g {
+    public class c implements n19.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sd5 a;
@@ -275,7 +275,7 @@ public class sd5 extends pb5 {
             this.a = sd5Var;
         }
 
-        @Override // com.baidu.tieba.j09.g
+        @Override // com.baidu.tieba.n19.g
         public void a(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -408,7 +408,7 @@ public class sd5 extends pb5 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.e0(this.v);
-        j09.r(this.j.I(), new c(this));
+        n19.r(this.j.I(), new c(this));
     }
 
     public final void K(ArrayList<AtSelectData> arrayList) {
@@ -467,7 +467,7 @@ public class sd5 extends pb5 {
         }
     }
 
-    public void S(j09.g gVar) {
+    public void S(n19.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, gVar) == null) {
             this.r = gVar;
@@ -632,7 +632,7 @@ public class sd5 extends pb5 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            j09.B(this.e, null);
+            n19.B(this.e, null);
         }
     }
 
@@ -724,7 +724,7 @@ public class sd5 extends pb5 {
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             j05 j05Var = new j05(getContext().getPageActivity());
             j05Var.setMessage(str);
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a46, new e(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a50, new e(this));
             j05Var.create(getContext()).show();
         }
     }
@@ -846,7 +846,7 @@ public class sd5 extends pb5 {
             writeData.onSaveDrafDataParse(this.i);
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            j09.B(this.e, writeData);
+            n19.B(this.e, writeData);
         }
     }
 

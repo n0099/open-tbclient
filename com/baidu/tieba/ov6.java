@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ov6 extends as6<i09, a> implements View.OnClickListener {
+public class ov6 extends as6<m19, a> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
@@ -63,16 +63,16 @@ public class ov6 extends as6<i09, a> implements View.OnClickListener {
                 }
             }
             this.k = new ArrayList();
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba2);
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090ba4);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090c49);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c47);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090c28);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090b7f);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b80);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f091813);
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091814);
-            this.j = view2.findViewById(R.id.obfuscated_res_0x7f091812);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bb3);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090bb5);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090c5a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c58);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090c39);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090b90);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b91);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f09182d);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09182e);
+            this.j = view2.findViewById(R.id.obfuscated_res_0x7f09182c);
             this.k.add(this.h);
             this.k.add(this.i);
             this.k.add(this.j);
@@ -120,7 +120,7 @@ public class ov6 extends as6<i09, a> implements View.OnClickListener {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new a(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0307, (ViewGroup) null));
+            return new a(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0309, (ViewGroup) null));
         }
         return (a) invokeL.objValue;
     }
@@ -128,16 +128,16 @@ public class ov6 extends as6<i09, a> implements View.OnClickListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
     /* renamed from: G */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i09 i09Var, a aVar) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, m19 m19Var, a aVar) {
         InterceptResult invokeCommon;
         boolean z;
         String name;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i09Var, aVar})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) i09Var, (i09) aVar);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m19Var, aVar})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) m19Var, (m19) aVar);
             boolean z2 = true;
-            if (i09Var.h()) {
-                String c = i09Var.c();
+            if (m19Var.h()) {
+                String c = m19Var.c();
                 if (c != null) {
                     aVar.b.setText(c);
                 } else {
@@ -153,7 +153,7 @@ public class ov6 extends as6<i09, a> implements View.OnClickListener {
                             name = frsViewData2.getForum().getName();
                         }
                         objArr[0] = name;
-                        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f080a, objArr));
+                        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0813, objArr));
                     }
                 }
                 aVar.a.setTag(Integer.valueOf(i));
@@ -163,7 +163,7 @@ public class ov6 extends as6<i09, a> implements View.OnClickListener {
                 aVar.a.setVisibility(8);
                 aVar.h.setVisibility(8);
             }
-            b09 f = i09Var.f();
+            f19 f = m19Var.f();
             if (f != null && f.b() && !TextUtils.isEmpty(f.a())) {
                 aVar.d.setText(f.a());
                 aVar.c.setTag(Integer.valueOf(i));
@@ -198,7 +198,7 @@ public class ov6 extends as6<i09, a> implements View.OnClickListener {
                 aVar.f.setVisibility(8);
                 aVar.j.setVisibility(8);
             }
-            if (!this.l && !i09Var.h()) {
+            if (!this.l && !m19Var.h()) {
                 if (z2) {
                     aVar.a.setVisibility(8);
                     aVar.c.setVisibility(8);

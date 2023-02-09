@@ -149,12 +149,12 @@ public class ScrollFragmentTabHost extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0539, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d053d, (ViewGroup) this, true);
             this.d = (NoNetworkView) findViewById(R.id.view_no_network);
-            fw7 fw7Var = new fw7(context, findViewById(R.id.obfuscated_res_0x7f092110));
+            fw7 fw7Var = new fw7(context, findViewById(R.id.obfuscated_res_0x7f092156));
             this.c = fw7Var;
             fw7Var.h(this.j);
-            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092127);
+            this.g = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09216d);
         }
     }
 
@@ -249,7 +249,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     public void h(ku7 ku7Var, ju7 ju7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, ku7Var, ju7Var) == null) {
-            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f09212b);
+            this.b = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092171);
             ScrollFragmentAdapter scrollFragmentAdapter = new ScrollFragmentAdapter(this.a, ku7Var, ju7Var, this.i);
             this.e = scrollFragmentAdapter;
             this.b.setAdapter(scrollFragmentAdapter);

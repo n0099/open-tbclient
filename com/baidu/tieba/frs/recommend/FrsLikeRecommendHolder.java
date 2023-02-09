@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.n45;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.uz8;
 import com.baidu.tieba.view.SymbolEMTextView;
+import com.baidu.tieba.y09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,17 +53,17 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = themeColorInfo;
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c0b);
+        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c1c);
         this.a = linearLayout;
         this.b = (BarImageView) linearLayout.findViewById(R.id.forum_head_image);
-        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b13);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b0e);
-        this.e = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f090b03);
+        this.c = (SymbolEMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b24);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b1f);
+        this.e = (TBSpecificationBtn) this.a.findViewById(R.id.obfuscated_res_0x7f090b14);
         BarImageView barImageView = this.b;
         if (barImageView != null) {
             barImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             BarImageView barImageView2 = this.b;
-            barImageView2.setContentDescription(barImageView2.getResources().getString(R.string.obfuscated_res_0x7f0f02ef));
+            barImageView2.setContentDescription(barImageView2.getResources().getString(R.string.obfuscated_res_0x7f0f02f0));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             BarImageView barImageView3 = this.b;
             barImageView3.setStrokeWith(ej.g(barImageView3.getContext(), R.dimen.tbds3));
@@ -77,28 +77,28 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void a(uz8 uz8Var) {
+    public void a(y09 y09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, uz8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, y09Var) == null) {
             BarImageView barImageView = this.b;
             if (barImageView != null) {
-                barImageView.K(uz8Var.a, 10, false);
+                barImageView.K(y09Var.a, 10, false);
             }
             SymbolEMTextView symbolEMTextView = this.c;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(uz8Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f06ad));
+                symbolEMTextView.setText(y09Var.b + this.c.getContext().getString(R.string.obfuscated_res_0x7f0f06b6));
             }
             TextView textView = this.d;
             if (textView != null) {
-                textView.setText(uz8Var.c);
+                textView.setText(y09Var.c);
             }
             if (this.e != null) {
-                if (uz8Var.d) {
+                if (y09Var.d) {
                     n45 n45Var = new n45();
                     n45Var.r(R.color.CAM_X0903, R.color.CAM_X0109);
                     this.e.setConfig(n45Var);
                     TBSpecificationBtn tBSpecificationBtn = this.e;
-                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.obfuscated_res_0x7f0f0698));
+                    tBSpecificationBtn.setText(tBSpecificationBtn.getContext().getString(R.string.obfuscated_res_0x7f0f06a1));
                     return;
                 }
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
@@ -118,10 +118,10 @@ public class FrsLikeRecommendHolder extends TypeAdapter.ViewHolder {
                     }
                 }
                 n45 n45Var2 = new n45();
-                n45Var2.u(lz8.f(str));
+                n45Var2.u(p09.f(str));
                 this.e.setConfig(n45Var2);
                 TBSpecificationBtn tBSpecificationBtn2 = this.e;
-                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f0774));
+                tBSpecificationBtn2.setText(tBSpecificationBtn2.getContext().getString(R.string.obfuscated_res_0x7f0f077d));
             }
         }
     }

@@ -17,7 +17,7 @@ public class pe4 extends qe4 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pe4(@NonNull Context context) {
-        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0dbf), "com.autonavi.minimap");
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0dcb), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

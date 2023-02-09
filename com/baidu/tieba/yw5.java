@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.ar8;
+import com.baidu.tieba.es8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,23 +23,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public final class yw5 implements ar8 {
+public final class yw5 implements es8 {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern d;
     public static yw5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ar8.a> a;
-    public final ConcurrentHashMap<String, ar8.b> b;
-    public ar8.c c;
+    public final List<es8.a> a;
+    public final ConcurrentHashMap<String, es8.b> b;
+    public es8.c c;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ar8.a a;
+        public final /* synthetic */ es8.a a;
         public final /* synthetic */ yw5 b;
 
-        public a(yw5 yw5Var, ar8.a aVar) {
+        public a(yw5 yw5Var, es8.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public final class yw5 implements ar8 {
         this.c = null;
     }
 
-    @Override // com.baidu.tieba.ar8
+    @Override // com.baidu.tieba.es8
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public final class yw5 implements ar8 {
         return invokeL.booleanValue;
     }
 
-    public void e(ar8.a aVar) {
+    public void e(es8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (ej.E()) {
@@ -136,7 +136,7 @@ public final class yw5 implements ar8 {
         }
     }
 
-    public final void f(ar8.a aVar) {
+    public final void f(es8.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && !this.a.contains(aVar)) {
             this.a.add(aVar);
@@ -171,14 +171,14 @@ public final class yw5 implements ar8 {
         return (String) invokeL.objValue;
     }
 
-    public void o(ar8.c cVar) {
+    public void o(es8.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.c = cVar;
         }
     }
 
-    @Override // com.baidu.tieba.ar8
+    @Override // com.baidu.tieba.es8
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -186,7 +186,7 @@ public final class yw5 implements ar8 {
         }
     }
 
-    @Override // com.baidu.tieba.ar8
+    @Override // com.baidu.tieba.es8
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -196,7 +196,7 @@ public final class yw5 implements ar8 {
         return invokeLLL.booleanValue;
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, ar8.d dVar, boolean z2, Bundle bundle) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, es8.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z3;
         Interceptable interceptable = $ic;
@@ -205,15 +205,15 @@ public final class yw5 implements ar8 {
                 return false;
             }
             String str2 = strArr[0];
-            ar8.b bVar = this.b.get(m(str2));
+            es8.b bVar = this.b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
             }
-            Iterator<ar8.a> it = this.a.iterator();
+            Iterator<es8.a> it = this.a.iterator();
             while (true) {
                 if (it.hasNext()) {
-                    ar8.a next = it.next();
+                    es8.a next = it.next();
                     if (next != null && next.a(context, strArr) != 3) {
                         z3 = true;
                         break;
@@ -234,7 +234,7 @@ public final class yw5 implements ar8 {
         return invokeCommon.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, ar8.d dVar, boolean z2, Bundle bundle) {
+    public boolean h(Context context, String[] strArr, boolean z, es8.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -249,7 +249,7 @@ public final class yw5 implements ar8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
             if (strArr != null && strArr.length != 0) {
-                for (ar8.a aVar : this.a) {
+                for (es8.a aVar : this.a) {
                     if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                         return a2;
                     }
@@ -284,7 +284,7 @@ public final class yw5 implements ar8 {
         return (Map) invokeL.objValue;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, ar8.d dVar, boolean z2, Bundle bundle) {
+    public final void n(Context context, String str, String str2, boolean z, es8.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
             this.c.a(context, str, str2, z, dVar, z2, bundle);

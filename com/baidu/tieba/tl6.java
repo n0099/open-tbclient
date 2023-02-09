@@ -55,7 +55,7 @@ public class tl6 {
     public TextView m;
     public RecommendForumLayout n;
     public boolean o;
-    public bo8 p;
+    public fp8 p;
     public bl6 q;
     public BdListView.p r;
     public RecyclerView.OnScrollListener s;
@@ -98,10 +98,10 @@ public class tl6 {
                 if (this.a.g != null && this.a.b != null) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
                         this.a.f.setNextPage(this.a.g);
-                        this.a.g.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                        this.a.g.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                         this.a.g.E(null);
                         if (this.a.o) {
-                            this.a.g.P();
+                            this.a.g.Q();
                             this.a.b.j();
                             return;
                         }
@@ -197,10 +197,10 @@ public class tl6 {
                     this.a.f.stopScroll();
                 }
                 if (this.a.g != null && this.a.b != null && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.g.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    this.a.g.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     this.a.g.E(null);
                     if (this.a.o) {
-                        this.a.g.P();
+                        this.a.g.Q();
                         this.a.b.j();
                     }
                 }
@@ -484,7 +484,7 @@ public class tl6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
             this.d = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092118);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215e);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.f.setFadingEdgeLength(0);
@@ -507,7 +507,7 @@ public class tl6 {
             this.g.u();
             this.g.E(this.t);
             if (this.e == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092117);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215d);
                 this.e = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.h);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();
@@ -519,9 +519,9 @@ public class tl6 {
             this.j = smartBubbleAnimatedView;
             smartBubbleAnimatedView.setLayoutParams(new FrameLayout.LayoutParams(-1, ej.g(this.a.getContext(), R.dimen.tbds83)));
             if (this.p == null) {
-                bo8 bo8Var = new bo8(this.a.getPageContext(), this.f);
-                this.p = bo8Var;
-                bo8Var.p(2);
+                fp8 fp8Var = new fp8(this.a.getPageContext(), this.f);
+                this.p = fp8Var;
+                fp8Var.p(2);
                 this.p.u(this.a.getUniqueId());
             }
             ul6 ul6Var = new ul6(this.a.getPageContext());
@@ -536,7 +536,7 @@ public class tl6 {
             TextView textView = new TextView(this.a.getContext());
             this.m = textView;
             textView.setPadding(ej.g(this.a.getContext(), R.dimen.tbds44), ej.g(this.a.getContext(), R.dimen.tbds60), 0, ej.g(this.a.getContext(), R.dimen.tbds24));
-            this.m.setText(R.string.obfuscated_res_0x7f0f1413);
+            this.m.setText(R.string.obfuscated_res_0x7f0f142a);
             this.m.setTextSize(0, ej.g(this.a.getContext(), R.dimen.tbds46));
             this.m.setTypeface(Typeface.DEFAULT_BOLD);
             this.f.removeHeaderView(this.m);
@@ -559,19 +559,19 @@ public class tl6 {
     }
 
     public void n() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (bo8Var = this.p) != null) {
-            bo8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (fp8Var = this.p) != null) {
+            fp8Var.z();
             this.p.r(false);
         }
     }
 
     public void p() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bo8Var = this.p) != null) {
-            bo8Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (fp8Var = this.p) != null) {
+            fp8Var.r(true);
             BdTypeRecyclerView bdTypeRecyclerView = this.f;
             if (bdTypeRecyclerView != null) {
                 this.p.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
@@ -657,9 +657,9 @@ public class tl6 {
                 if (rl6Var.h) {
                     s(rl6Var.f);
                 }
-                bo8 bo8Var = this.p;
-                if (bo8Var != null) {
-                    bo8Var.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
+                fp8 fp8Var = this.p;
+                if (fp8Var != null) {
+                    fp8Var.n(this.f.getFirstVisiblePosition(), this.f.getLastVisiblePosition(), false, true);
                 }
             }
         }

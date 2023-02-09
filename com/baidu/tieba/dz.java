@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class dz extends hx<sw4> implements vn8 {
+public abstract class dz extends hx<sw4> implements zo8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -40,7 +40,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
     public TextView g;
     public sw4 h;
     public RoundCornerFrameLayout i;
-    public qo8 j;
+    public up8 j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -51,7 +51,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
     public final View.OnClickListener r;
     public gz.b s;
 
-    public abstract qo8 t();
+    public abstract up8 t();
 
     public void v() {
         Interceptable interceptable = $ic;
@@ -247,23 +247,23 @@ public abstract class dz extends hx<sw4> implements vn8 {
                     xc6.l(dzVar.g, dzVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    qo8 qo8Var = this.a.j;
-                    if (qo8Var != null) {
-                        qo8Var.onScroll();
+                    up8 up8Var = this.a.j;
+                    if (up8Var != null) {
+                        up8Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    qo8 qo8Var2 = this.a.j;
-                    if (qo8Var2 != null) {
-                        qo8Var2.onVolumeUp();
+                    up8 up8Var2 = this.a.j;
+                    if (up8Var2 != null) {
+                        up8Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    qo8 qo8Var3 = this.a.j;
-                    if (qo8Var3 != null) {
-                        return qo8Var3.onBackPress();
+                    up8 up8Var3 = this.a.j;
+                    if (up8Var3 != null) {
+                        return up8Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -342,18 +342,18 @@ public abstract class dz extends hx<sw4> implements vn8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.l = str;
-            qo8 qo8Var = this.j;
-            if (qo8Var != null) {
-                qo8Var.setStageType(str);
+            up8 up8Var = this.j;
+            if (up8Var != null) {
+                up8Var.setStageType(str);
             }
         }
     }
 
-    public void C(lo8 lo8Var) {
-        qo8 qo8Var;
+    public void C(pp8 pp8Var) {
+        up8 up8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lo8Var) == null) && (qo8Var = this.j) != null) {
-            qo8Var.setStatistic(lo8Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pp8Var) == null) && (up8Var = this.j) != null) {
+            up8Var.setStatistic(pp8Var);
         }
     }
 
@@ -361,9 +361,9 @@ public abstract class dz extends hx<sw4> implements vn8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             this.k = str;
-            qo8 qo8Var = this.j;
-            if (qo8Var != null) {
-                qo8Var.setFrom(str);
+            up8 up8Var = this.j;
+            if (up8Var != null) {
+                up8Var.setFrom(str);
             }
         }
     }
@@ -382,7 +382,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
         }
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -392,7 +392,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -406,7 +406,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -416,21 +416,21 @@ public abstract class dz extends hx<sw4> implements vn8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            qo8 qo8Var = this.j;
-            if (qo8Var == null) {
+            up8 up8Var = this.j;
+            if (up8Var == null) {
                 return false;
             }
-            return qo8Var.isFullScreen();
+            return up8Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -440,7 +440,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -450,16 +450,16 @@ public abstract class dz extends hx<sw4> implements vn8 {
         return invokeV.booleanValue;
     }
 
-    public qo8 s() {
+    public up8 s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.j;
         }
-        return (qo8) invokeV.objValue;
+        return (up8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -470,7 +470,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
         }
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -491,7 +491,7 @@ public abstract class dz extends hx<sw4> implements vn8 {
                 }
                 this.g = (TextView) this.f.findViewById(R.id.video_seg_title);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.frame_video);
-                qo8 t2 = t();
+                up8 t2 = t();
                 this.j = t2;
                 t2.setUniqueId(this.m);
                 this.j.setFrom(this.k);

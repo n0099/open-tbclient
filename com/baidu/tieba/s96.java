@@ -21,7 +21,7 @@ import java.util.List;
 public class s96 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
-    public static kda<String> b;
+    public static oea<String> b;
     public static final List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,14 +77,14 @@ public class s96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            kda<String> kdaVar = b;
-            if (kdaVar == null) {
+            oea<String> oeaVar = b;
+            if (oeaVar == null) {
                 if (!e()) {
                     return "";
                 }
                 throw new TbWebViewException("TBWebKit need call initUserAgent first !");
             }
-            return kdaVar.call();
+            return oeaVar.call();
         }
         return (String) invokeV.objValue;
     }
@@ -162,10 +162,10 @@ public class s96 {
         }
     }
 
-    public static void d(kda<String> kdaVar) {
+    public static void d(oea<String> oeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, kdaVar) == null) {
-            b = kdaVar;
+        if (interceptable == null || interceptable.invokeL(65541, null, oeaVar) == null) {
+            b = oeaVar;
         }
     }
 

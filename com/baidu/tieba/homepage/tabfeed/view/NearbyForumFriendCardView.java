@@ -90,7 +90,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements ay, zx<z4
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09175e && getContext() != null && this.k != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091777 && getContext() != null && this.k != null) {
             new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
             af7.j();
         }
@@ -167,17 +167,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements ay, zx<z4
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d065a, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0660, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d6);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d5);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910fc);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09175e);
-            this.g = findViewById(R.id.obfuscated_res_0x7f09175c);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09175b);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09137f);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091c96);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092521);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092520);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091110);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091777);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091775);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091774);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091394);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091cd7);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);

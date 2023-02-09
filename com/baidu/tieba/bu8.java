@@ -1,53 +1,56 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ForumList;
-import tbclient.GetDislikeList.DataRes;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes3.dex */
 public class bu8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Set<Cdo>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<zt8> a;
-    public boolean b;
 
-    public bu8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657572, "Lcom/baidu/tieba/bu8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657572, "Lcom/baidu/tieba/bu8;");
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = true;
+        a = new HashMap();
     }
 
-    public void a(DataRes dataRes) {
+    public static Set<Cdo> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return a.get(str);
         }
-        for (ForumList forumList : dataRes.forum_list) {
-            zt8 zt8Var = new zt8();
-            zt8Var.a = forumList.avatar;
-            zt8Var.b = forumList.forum_name;
-            zt8Var.c = String.valueOf(forumList.forum_id);
-            this.a.add(zt8Var);
+        return (Set) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, str) == null) && a.get(str) != null) {
+            a.get(str).clear();
+            a.remove(str);
         }
-        boolean z = true;
-        if (dataRes.has_more.intValue() != 1) {
-            z = false;
+    }
+
+    public static void b(String str, Set<Cdo> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, set) == null) {
+            a.put(str, set);
         }
-        this.b = z;
     }
 }

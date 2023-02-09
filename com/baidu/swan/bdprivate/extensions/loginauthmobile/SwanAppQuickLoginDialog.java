@@ -126,12 +126,12 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
                 if (z) {
                     this.a.n.setClickable(true);
-                    this.a.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811e5);
+                    this.a.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811fb);
                     return;
                 }
                 this.a.n.setClickable(false);
-                o83.f(this.a.b, R.string.obfuscated_res_0x7f0f13e0).H(true);
-                this.a.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f08122b);
+                o83.f(this.a.b, R.string.obfuscated_res_0x7f0f13f7).H(true);
+                this.a.n.setBackgroundResource(R.drawable.obfuscated_res_0x7f081241);
             }
         }
     }
@@ -197,11 +197,11 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0925bc) {
+            if (id == R.id.obfuscated_res_0x7f09260a) {
                 P1();
-            } else if (id == R.id.obfuscated_res_0x7f0925cc) {
+            } else if (id == R.id.obfuscated_res_0x7f09261a) {
                 Q1();
-            } else if (id == R.id.obfuscated_res_0x7f090689) {
+            } else if (id == R.id.obfuscated_res_0x7f090694) {
                 J1(true);
                 D1();
             }
@@ -231,15 +231,15 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     public void F1(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutInflater, viewGroup) == null) {
-            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d083e, viewGroup, false);
+            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0850, viewGroup, false);
             this.d = linearLayout;
-            this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090689);
-            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092314);
-            this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091a9a);
-            this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0925c7);
-            this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f0925cc);
-            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0925bc);
-            this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0925da);
+            this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090694);
+            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091ad2);
+            this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092615);
+            this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f09261a);
+            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09260a);
+            this.p = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092628);
             S1();
             R1();
             QuickLoginInfo quickLoginInfo = this.f;
@@ -261,7 +261,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Resources resources = getContext().getResources();
-            this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f081218));
+            this.j.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f08122e));
             TextView textView = this.k;
             boolean z = this.c;
             int i4 = R.color.obfuscated_res_0x7f0603da;
@@ -275,7 +275,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             if (this.c) {
                 i2 = R.color.obfuscated_res_0x7f0603db;
             } else {
-                i2 = R.color.obfuscated_res_0x7f060a7f;
+                i2 = R.color.obfuscated_res_0x7f060a80;
             }
             textView2.setTextColor(resources.getColor(i2));
             CheckBox checkBox = this.m;
@@ -297,17 +297,17 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("");
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13c6));
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13dd));
             if (this.f != null) {
                 int length = spannableStringBuilder.length();
                 QuickLoginInfo quickLoginInfo = this.f;
                 C1(spannableStringBuilder, length, quickLoginInfo.agreeText, quickLoginInfo.serviceAgreement);
-                spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13c3));
+                spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13da));
             }
-            C1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f13c5), ds2.o().G());
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13c3));
-            C1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f13c2), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
-            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13c4));
+            C1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f13dc), ds2.o().G());
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13da));
+            C1(spannableStringBuilder, spannableStringBuilder.length(), getString(R.string.obfuscated_res_0x7f0f13d9), "https://passport.baidu.com/static/passpc-account/html/protocal.html");
+            spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f13db));
             this.p.setMovementMethod(LinkMovementMethod.getInstance());
             this.p.setText(spannableStringBuilder);
         }
@@ -335,7 +335,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!SwanAppNetworkUtils.i(this.b)) {
-                o83.f(this.b, R.string.obfuscated_res_0x7f0f1394).H(true);
+                o83.f(this.b, R.string.obfuscated_res_0x7f0f13ab).H(true);
                 return;
             }
             QuickLoginInfo quickLoginInfo = this.f;
@@ -349,10 +349,10 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
     public final void R1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f13a6);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f13bd);
             CheckBox checkBox = this.m;
             if (!TextUtils.isEmpty(this.e)) {
-                string = String.format(getString(R.string.obfuscated_res_0x7f0f1369), this.e);
+                string = String.format(getString(R.string.obfuscated_res_0x7f0f1380), this.e);
             }
             checkBox.setText(string);
         }

@@ -250,7 +250,7 @@ public class xo7 extends nb5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pb5Var) == null) {
             EditorTools b = pb5Var.b();
-            if (z29.a() && e09.a(this.a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
+            if (d49.a() && i19.a(this.a, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
                 wb5Var.l = 2;
                 b.d(wb5Var);
             }

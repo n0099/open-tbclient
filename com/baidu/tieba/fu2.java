@@ -406,7 +406,7 @@ public abstract class fu2 implements hu2 {
             bv1 b2 = v52.b();
             SwanAppActivity swanAppActivity = this.d;
             if (swanAppActivity != null) {
-                b2.F((ViewGroup) swanAppActivity.findViewById(R.id.obfuscated_res_0x7f09016d));
+                b2.F((ViewGroup) swanAppActivity.findViewById(R.id.obfuscated_res_0x7f09016f));
             }
             return b2;
         }
@@ -622,7 +622,7 @@ public abstract class fu2 implements hu2 {
             if (activity == null) {
                 return null;
             }
-            if (this.g == null && (viewGroup = (ViewGroup) activity.findViewById(R.id.obfuscated_res_0x7f09016d)) != null) {
+            if (this.g == null && (viewGroup = (ViewGroup) activity.findViewById(R.id.obfuscated_res_0x7f09016f)) != null) {
                 SwanAppPropertyWindow swanAppPropertyWindow = new SwanAppPropertyWindow(activity);
                 this.g = swanAppPropertyWindow;
                 swanAppPropertyWindow.setVisibility(8);

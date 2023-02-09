@@ -24,6 +24,7 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c49;
 import com.baidu.tieba.gt6;
 import com.baidu.tieba.homepage.concern.ConcernFragment;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
@@ -43,7 +44,6 @@ import com.baidu.tieba.p35;
 import com.baidu.tieba.t97;
 import com.baidu.tieba.u97;
 import com.baidu.tieba.w97;
-import com.baidu.tieba.y29;
 import com.baidu.tieba.z97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -374,7 +374,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             if (bVar != null) {
                 return bVar.c;
             }
-            return x(R.string.obfuscated_res_0x7f0f141d);
+            return x(R.string.obfuscated_res_0x7f0f1434);
         }
         return (String) invokeI.objValue;
     }
@@ -784,7 +784,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     this.i = new PersonalizeWrapperFragment(context);
                     e(1);
                 }
-                this.w.add(A(this.i, 1, x(R.string.obfuscated_res_0x7f0f141d), BdUniDispatchSchemeController.PARAM_RECOMMEND, false));
+                this.w.add(A(this.i, 1, x(R.string.obfuscated_res_0x7f0f1434), BdUniDispatchSchemeController.PARAM_RECOMMEND, false));
             } else if (!PermissionUtil.isBrowseMode()) {
                 if (this.h == null) {
                     this.h = new PersonalizeFragment(context);
@@ -796,7 +796,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 if (this.u) {
                     x = x(R.string.obfuscated_res_0x7f0f0272);
                 } else {
-                    x = x(R.string.obfuscated_res_0x7f0f141d);
+                    x = x(R.string.obfuscated_res_0x7f0f1434);
                 }
                 list.add(z(personalizeFragment, 1, x));
             }
@@ -914,7 +914,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                     ((BaseFragment) gt6Var).setPrimary(false);
                 }
                 this.s = i;
-                VoiceManager a2 = y29.a(this.f);
+                VoiceManager a2 = c49.a(this.f);
                 if (a2 != null) {
                     a2.stopPlay();
                 }

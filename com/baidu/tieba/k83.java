@@ -351,7 +351,7 @@ public final class k83 {
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, charSequence, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00be, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00bf, (ViewGroup) null);
             relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801a4));
             boolean z4 = true;
             relativeLayout.setClickable(true);
@@ -391,14 +391,14 @@ public final class k83 {
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, charSequence, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00d8, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00d9, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-            linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43).setVisibility(8);
-            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e44);
+            linearLayout.findViewById(R.id.obfuscated_res_0x7f090e54).setVisibility(8);
+            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e55);
             progressBar.setVisibility(0);
             progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c7));
             linearLayout.setClickable(true);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e45);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e56);
             if (!TextUtils.isEmpty(charSequence) && textView != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060252));
@@ -426,14 +426,14 @@ public final class k83 {
         }
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00d8, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00d9, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         linearLayout.setClickable(true);
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e45)) != null) {
+        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e56)) != null) {
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060252));
             textView.setText(charSequence);
         }
-        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43);
+        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e54);
         if (imageView != null) {
             if (view2 != null) {
                 new r83(applicationContext).a(imageView, view2);
@@ -477,13 +477,13 @@ public final class k83 {
         }
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d6, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d7, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913b3);
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913be);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d25);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d26);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d27);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913c8);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913d3);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d67);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d68);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d69);
         if (!TextUtils.isEmpty(charSequence)) {
             textView.setTextColor(l83.a);
             if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
@@ -514,7 +514,7 @@ public final class k83 {
                     } else {
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d1c)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
+                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d5e)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
                         textView2.setText(charSequence2);
                         textView2.setTextColor(l83.a);
                         findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f06023f));

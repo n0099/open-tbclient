@@ -29,7 +29,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements w68<Lis
     public CustomMessageListener c;
 
     @Override // com.baidu.tieba.w68
-    public void R0() {
+    public void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }

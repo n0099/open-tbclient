@@ -45,14 +45,14 @@ public class cu7 implements View.OnClickListener {
                 return;
             }
         }
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a0, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a2, (ViewGroup) null);
         this.a = viewGroup;
-        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090652);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091c7d);
-        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09157b);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09157c);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a32);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a33);
+        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09065d);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091cbe);
+        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091591);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091592);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a40);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a41);
         this.d.setOnClickListener(this);
         this.f.setOnClickListener(this);
         c();

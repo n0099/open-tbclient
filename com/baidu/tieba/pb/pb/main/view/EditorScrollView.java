@@ -127,10 +127,10 @@ public class EditorScrollView extends ScrollView {
                 aVar3.c(this, i, i2, i3, i4);
             }
             if (getHeight() + i2 >= this.a.getHeight() && (aVar2 = this.e) != null) {
-                aVar2.b();
+                aVar2.a();
             }
             if ((i2 == 0 || getHeight() + i2 > this.a.getHeight()) && (aVar = this.e) != null) {
-                aVar.a();
+                aVar.b();
             }
             if (this.d != null && this.b && Math.abs(i3 - i2) >= this.c) {
                 this.d.onScrollChanged();

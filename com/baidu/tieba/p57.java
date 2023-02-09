@@ -85,8 +85,8 @@ public class p57 extends nc6<os6> {
         hListView.setHeaderDividersEnabled(false);
         this.t.setFooterDividersEnabled(false);
         this.t.setSelector(R.drawable.list_selector_transparent);
-        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d034d, (ViewGroup) null), tbPageContext, bdUniqueId);
-        yh7 yh7Var = new yh7(getContext(), R.layout.obfuscated_res_0x7f0d034d, this.v);
+        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d034f, (ViewGroup) null), tbPageContext, bdUniqueId);
+        yh7 yh7Var = new yh7(getContext(), R.layout.obfuscated_res_0x7f0d034f, this.v);
         this.u = yh7Var;
         yh7Var.d(this.x);
         this.t.setAdapter((ListAdapter) this.u);

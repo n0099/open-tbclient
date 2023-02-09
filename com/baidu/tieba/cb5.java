@@ -38,7 +38,7 @@ public class cb5 implements gb5 {
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            bs8 n = bs8.n();
+            ft8 n = ft8.n();
             if (i == 3) {
                 n.v(downloadData);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
@@ -46,7 +46,7 @@ public class cb5 implements gb5 {
                 n.B(downloadData);
             }
             db5.a(downloadData);
-            bs8.n().y(downloadData);
+            ft8.n().y(downloadData);
         }
     }
 
@@ -62,7 +62,7 @@ public class cb5 implements gb5 {
         }
         db5.c(downloadData);
         NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        bs8.n().y(downloadData);
+        ft8.n().y(downloadData);
         if (downloadData.isNeedInvokeApk()) {
             String str = downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             if (downloadData.getApkDownloadData() != null) {
@@ -113,7 +113,7 @@ public class cb5 implements gb5 {
             edit.putLong(downloadData.getId(), downloadData.getSize());
             edit.commit();
         }
-        bs8.n().C(downloadData);
-        bs8.n().y(downloadData);
+        ft8.n().C(downloadData);
+        ft8.n().y(downloadData);
     }
 }

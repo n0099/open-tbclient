@@ -661,7 +661,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f0952);
+                    showToast(R.string.obfuscated_res_0x7f0f095c);
                 }
             }
             ts7 ts7Var = this.b;
@@ -688,7 +688,7 @@ public class AtMessageFragment extends BaseFragment implements NoNetworkView.b {
             this.a = atMeModelController;
             atMeModelController.J(bundle);
             this.a.setUniqueId(getUniqueId());
-            this.c = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0124, viewGroup, false);
+            this.c = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0125, viewGroup, false);
             ts7 ts7Var = new ts7(this);
             this.b = ts7Var;
             ts7Var.Z(this.c);

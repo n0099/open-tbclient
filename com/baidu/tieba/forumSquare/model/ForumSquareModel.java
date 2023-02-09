@@ -18,9 +18,9 @@ import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.data.ForumSquareHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.ForumSquareSocketResponsedMessage;
-import com.baidu.tieba.f39;
 import com.baidu.tieba.forumSquare.ForumSquareStatic;
 import com.baidu.tieba.forumSquare.message.ForumSquareRequestMessage;
+import com.baidu.tieba.j49;
 import com.baidu.tieba.tq6;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.wq6;
@@ -90,10 +90,10 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f39)) {
-                f39 f39Var = (f39) customResponsedMessage.getData();
-                if (f39Var.b) {
-                    this.a.c0(f39Var.a, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof j49)) {
+                j49 j49Var = (j49) customResponsedMessage.getData();
+                if (j49Var.b) {
+                    this.a.c0(j49Var.a, true);
                 }
             }
         }
@@ -130,10 +130,10 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f39)) {
-                f39 f39Var = (f39) customResponsedMessage.getData();
-                if (f39Var.b) {
-                    this.a.c0(f39Var.a, false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof j49)) {
+                j49 j49Var = (j49) customResponsedMessage.getData();
+                if (j49Var.b) {
+                    this.a.c0(j49Var.a, false);
                 }
             }
         }
@@ -190,7 +190,7 @@ public class ForumSquareModel extends BdBaseModel {
             }
             this.a.mErrorString = responsedMessage.getErrorString();
             if (StringUtils.isNull(this.a.mErrorString)) {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
             } else {
                 str = this.a.mErrorString;
             }

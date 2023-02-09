@@ -64,8 +64,8 @@ public class ai5 implements fh5<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.J(locationData);
-                d29.a().f(System.currentTimeMillis());
-                d29.a().d(locationEvent.locationData);
+                h39.a().f(System.currentTimeMillis());
+                h39.a().d(locationEvent.locationData);
             }
             lh5.i(locationEvent);
         }
@@ -111,7 +111,7 @@ public class ai5 implements fh5<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                d29.a().d(locationEvent.locationData);
+                h39.a().d(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

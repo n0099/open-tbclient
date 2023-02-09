@@ -247,7 +247,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements jt6 
     }
 
     @Override // com.baidu.tieba.jt6
-    public NavigationBar T0() {
+    public NavigationBar S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

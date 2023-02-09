@@ -61,7 +61,7 @@ public class lt7 extends mc6<it7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a6 : invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
@@ -238,17 +238,17 @@ public class lt7 extends mc6<it7> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View h = h();
-            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f091ad3);
             this.j = (TextView) h.findViewById(R.id.user_name);
-            this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090a17);
-            this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b1e);
-            this.m = h.findViewById(R.id.obfuscated_res_0x7f09084a);
-            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922df);
-            this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090571);
-            this.p = h.findViewById(R.id.obfuscated_res_0x7f09056e);
-            this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090570);
+            this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090a25);
+            this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b59);
+            this.m = h.findViewById(R.id.obfuscated_res_0x7f090858);
+            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09057c);
+            this.p = h.findViewById(R.id.obfuscated_res_0x7f090579);
+            this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09057b);
             this.r = (OriginalThreadCardView) h.findViewById(R.id.original_thread_view);
-            this.s = (MessageCardBottomView) h.findViewById(R.id.obfuscated_res_0x7f09056d);
+            this.s = (MessageCardBottomView) h.findViewById(R.id.obfuscated_res_0x7f090578);
             this.t = h.findViewById(R.id.new_message);
             this.r.setUsePlaceHolder(false);
             this.i.setOnClickListener(this);

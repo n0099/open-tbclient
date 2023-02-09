@@ -1,201 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class jp9 {
+public class jp9 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ip9 a;
+    public boolean b;
+    public ByteBuffer c;
+    public IOException d;
 
-    public static void a() {
-        yp9 c;
+    public jp9(ip9 ip9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = eq9.c()) != null) {
-            c.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ip9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = ip9Var;
+    }
+
+    public void d(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
+            this.d = iOException;
+            this.b = true;
+            this.c = null;
         }
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
+    public final void a() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.getAppContext();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b) {
+                IOException iOException = this.d;
+                if (iOException == null) {
+                    return;
+                }
+                throw iOException;
+            } else if (!c()) {
+                if (this.c == null) {
+                    this.c = ByteBuffer.allocateDirect(32768);
+                }
+                this.c.clear();
+                this.a.u(this.c);
+                IOException iOException2 = this.d;
+                if (iOException2 == null) {
+                    ByteBuffer byteBuffer = this.c;
+                    if (byteBuffer != null) {
+                        byteBuffer.flip();
+                        return;
+                    }
+                    return;
+                }
+                throw iOException2;
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static int d() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null && byteBuffer.hasRemaining()) {
+                return true;
             }
-            return 0;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a();
+            if (c()) {
+                return this.c.get() & 255;
+            }
+            return -1;
         }
         return invokeV.intValue;
     }
 
-    public static yo9 i() {
-        InterceptResult invokeV;
+    @Override // java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return eq9.e();
-        }
-        return (yo9) invokeV.objValue;
-    }
-
-    public static cp9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return eq9.f();
-        }
-        return (cp9) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            xp9 b = eq9.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
+            if (i >= 0 && i2 >= 0 && i + i2 <= bArr.length) {
+                if (i2 == 0) {
+                    return 0;
+                }
+                a();
+                if (c()) {
+                    int min = Math.min(this.c.limit() - this.c.position(), i2);
+                    this.c.get(bArr, i, min);
+                    return min;
+                }
+                return -1;
             }
-            return false;
+            throw new IndexOutOfBoundsException();
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.isDebug();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.c(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            yp9 c = eq9.c();
-            if (c != null) {
-                return c.a(str);
-            }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.e(str);
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.b(z);
-            }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        wp9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = eq9.a()) != null) {
-            a.a(i);
-        }
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.getInt(str, i);
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            wp9 a = eq9.a();
-            if (a != null) {
-                return a.getLong(str, j);
-            }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        wp9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = eq9.a()) != null) {
-            a.putInt(str, i);
-        }
-    }
-
-    public static void o(String str, long j) {
-        wp9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = eq9.a()) != null) {
-            a.putLong(str, j);
-        }
-    }
-
-    public static void p(String str, String str2) {
-        wp9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = eq9.a()) != null) {
-            a.putString(str, str2);
-        }
+        return invokeLII.intValue;
     }
 }

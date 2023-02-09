@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class xi7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class xi7 extends BaseAdapter {
     public final List<zi7> b;
     public LayoutInflater c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class xi7 extends BaseAdapter {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,9 +166,9 @@ public class xi7 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof b)) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d03b3, (ViewGroup) null);
+                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d03b5, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091710);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
                 bVar.c = view2.findViewById(R.id.divider_line_top);
                 bVar.d = view2.findViewById(R.id.divider_line_bottom);
                 view2.setTag(bVar);

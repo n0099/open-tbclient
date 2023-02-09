@@ -143,15 +143,15 @@ public class dz6 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0318, (ViewGroup) null);
-                EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bd1);
+                View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d031a, (ViewGroup) null);
+                EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090be2);
                 SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0302);
                 eMTextView.setText(this.a.g);
-                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090bd0);
+                TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090be1);
                 n45 n45Var = new n45();
                 n45Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
                 tBSpecificationBtn.setConfig(n45Var);
-                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0761));
+                tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f076a));
                 tBSpecificationBtn.setOnClickListener(new a(this));
                 return inflate;
             }
@@ -301,7 +301,7 @@ public class dz6 {
         wfVar.f(R.anim.obfuscated_res_0x7f010073);
         vf b2 = wfVar.b();
         this.a = b2;
-        b2.p(this.b, this.c, false);
+        b2.q(this.b, this.c, false);
         p15 d = p15.d(this.c);
         d.n(R.string.J_X05);
         d.u(R.array.S_O_X004);

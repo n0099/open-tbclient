@@ -141,17 +141,17 @@ public class ItemMsgManage extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ae, (ViewGroup) this, true);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f090342);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02af, (ViewGroup) this, true);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09034a);
             this.a = settingTextSwitchView;
             settingTextSwitchView.setTextLeftMargin(R.dimen.obfuscated_res_0x7f0701d5);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090334);
-            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09033b);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09033a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09033c);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090336);
-            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09033d);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09033e);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09033c);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090343);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090342);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090344);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09033e);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090345);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090346);
             setVisibility(8);
         }
     }
@@ -217,7 +217,7 @@ public class ItemMsgManage extends LinearLayout {
                     i2 = 8;
                 }
                 relativeLayout2.setVisibility(i2);
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090339);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f090341);
                 if (z) {
                     i3 = 0;
                 } else {
@@ -240,16 +240,16 @@ public class ItemMsgManage extends LinearLayout {
                     int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
                     this.e.setVisibility(0);
                     if (intValue == -1) {
-                        String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f06bf), StringHelper.numberUniformFormat(intValue2));
+                        String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f06c8), StringHelper.numberUniformFormat(intValue2));
                         if (intValue2 > 0) {
                             this.e.setText(format);
                         } else {
                             this.e.setVisibility(8);
                         }
                     } else if (intValue == 1) {
-                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06c0));
+                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06c9));
                     } else if (intValue == 2) {
-                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06be));
+                        this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06c7));
                     } else {
                         this.e.setVisibility(8);
                     }

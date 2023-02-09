@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Typeface;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oz9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface oz9 {
+    void onFailure(String str, JSONObject jSONObject);
 
-    public abstract boolean a(String str);
-
-    public abstract String b(String str);
-
-    public abstract Typeface c(String str, int i, String str2);
-
-    public abstract Bitmap d(String str);
+    void onSuccess(String str, JSONObject jSONObject);
 }

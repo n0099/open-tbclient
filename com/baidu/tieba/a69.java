@@ -1,36 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class a69 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final g49 b;
-    public final v39 c;
+    public final k59 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a69(MainTabActivity mainTabActivity, v39 v39Var) {
-        super(2001371);
+    public a69(MainTabActivity mainTabActivity) {
+        super(2001011);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, v39Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,60 +40,51 @@ public class a69 extends CustomMessageListener {
         }
         this.a = mainTabActivity;
         this.b = mainTabActivity.e;
-        this.c = v39Var;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
-            fm0.l().p();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.Y) {
-            if (UbsABTestHelper.isAdRetargetNotificationRemindTest()) {
-                a();
-            }
-            zp5.a(1);
-            j95.h(HotEventData.getInstance());
-        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        g49 g49Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
-            b();
-            TbadkCoreApplication.getInst().syncHasFinish = true;
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                if (!TbSingleton.getInstance().mIsSplashClick && (g49Var = this.b) != null && g49Var.b() != null) {
-                    if (UbsABTestHelper.isNewInterestShowTestA()) {
-                        this.b.b().d();
-                    } else {
-                        this.b.b().a();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean z = false;
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                tl.e();
+                tl.h();
+                this.a.X = UtilHelper.getCurrentDay();
+                p35.m().A("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
+                MainTabActivity mainTabActivity = this.a;
+                if (!mainTabActivity.E) {
+                    k59 k59Var = this.b;
+                    if (k59Var != null && k59Var.j() != null) {
+                        this.b.j().b();
+                        return;
                     }
+                    return;
                 }
-                g49 g49Var2 = this.b;
-                if (g49Var2 != null && g49Var2.h() != null) {
-                    this.b.h().a();
+                mainTabActivity.E = false;
+                return;
+            }
+            String currentDay = UtilHelper.getCurrentDay();
+            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.X)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
+            MainTabActivity mainTabActivity2 = this.a;
+            if (mainTabActivity2.x == null) {
+                mainTabActivity2.x = new f99();
+            }
+            f99 f99Var = this.a.x;
+            f99Var.c(f99Var.c);
+            this.a.x.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            if (ku5.a()) {
+                int i = Calendar.getInstance().get(11);
+                ku5.a = (i >= 23 || i < 7) ? true : true;
+                k59 k59Var2 = this.b;
+                if (k59Var2 != null && k59Var2.j() != null) {
+                    this.b.j().b();
+                    this.b.j().a();
                 }
             }
-            if (!MainTabActivity.Y && UbsABTestHelper.isAdRetargetTipsRemindTest()) {
-                new vn5(this.a).o();
-            }
-            f69 y1 = this.a.y1();
-            if (y1 != null) {
-                y1.c();
-            }
-            if (p35.m().i(p35.q("key_new_god_pop_is_show"), false)) {
-                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
-            }
-            MainTabActivity.Y = true;
-            this.c.O();
         }
     }
 }

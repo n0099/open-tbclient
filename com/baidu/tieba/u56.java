@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class u56 extends as6<pz8, FrsPageAlaStageViewHolder> implements jd6 {
+public class u56 extends as6<t09, FrsPageAlaStageViewHolder> implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -75,12 +75,12 @@ public class u56 extends as6<pz8, FrsPageAlaStageViewHolder> implements jd6 {
         }
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, pz8 pz8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, t09 t09Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pz8Var, frsPageAlaStageViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) pz8Var, (pz8) frsPageAlaStageViewHolder);
-            if (pz8Var != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t09Var, frsPageAlaStageViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) t09Var, (t09) frsPageAlaStageViewHolder);
+            if (t09Var != null) {
                 int i2 = 0;
                 FrsViewData frsViewData = this.b;
                 if (frsViewData != null) {
@@ -89,7 +89,7 @@ public class u56 extends as6<pz8, FrsPageAlaStageViewHolder> implements jd6 {
                 f66 f66Var = frsPageAlaStageViewHolder.a;
                 f66Var.x = (i + 1) - i2;
                 f66Var.a(this.l);
-                frsPageAlaStageViewHolder.a.i(pz8Var);
+                frsPageAlaStageViewHolder.a.i(t09Var);
             }
             return view2;
         }
@@ -98,7 +98,7 @@ public class u56 extends as6<pz8, FrsPageAlaStageViewHolder> implements jd6 {
 
     @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (pz8) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        F(i, view2, viewGroup, (t09) obj, (FrsPageAlaStageViewHolder) viewHolder);
         return view2;
     }
 }

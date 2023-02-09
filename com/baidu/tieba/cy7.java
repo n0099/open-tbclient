@@ -178,7 +178,7 @@ public class cy7 extends qn<hy7, SearchSuggestLiveViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c6, viewGroup, false));
+            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d8, viewGroup, false));
         }
         return (SearchSuggestLiveViewHolder) invokeL.objValue;
     }

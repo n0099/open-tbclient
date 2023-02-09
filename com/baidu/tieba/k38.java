@@ -109,14 +109,14 @@ public class k38 {
         }
         this.j = new a(this);
         this.h = viewGroup.getContext();
-        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d8);
-        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d9);
-        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d2);
-        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d3);
-        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d4);
-        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921cf);
-        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d1);
-        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d0);
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221e);
+        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221f);
+        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092218);
+        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092219);
+        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221a);
+        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092215);
+        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092217);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092216);
         this.b.setOnClickListener(this.j);
         this.c.setOnClickListener(this.j);
     }
@@ -146,8 +146,8 @@ public class k38 {
             p15 d4 = p15.d(this.c);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0302);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a23, R.color.CAM_X0304, null);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08099f, R.color.CAM_X0101, null);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a32, R.color.CAM_X0304, null);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809ae, R.color.CAM_X0101, null);
         }
     }
 

@@ -157,8 +157,8 @@ public class mu6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.c.setNextPage(this.e);
-            this.e.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.e.S();
+            this.e.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.e.T();
         }
     }
 
@@ -175,8 +175,8 @@ public class mu6 {
     public final void e(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b64);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b68);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b75);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b79);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
             this.c.setFadingEdgeLength(0);
@@ -193,7 +193,7 @@ public class mu6 {
             this.e.J(R.dimen.tbfontsize33);
             this.e.H(SkinManager.getColor(R.color.CAM_X0107));
             this.e.D(R.color.CAM_X0110);
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b66);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b77);
             j(false);
         }
     }
@@ -265,7 +265,7 @@ public class mu6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.c.setNextPage(this.e);
-            this.e.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.e.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.e.g();
             this.e.F(this.a.getResources().getString(R.string.list_no_more));
         }

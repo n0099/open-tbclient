@@ -427,7 +427,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.c.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.j));
             this.b.K(str2, 10, false);
             this.e.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f044c), StringHelper.numberUniformFormatExtra(i2)));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtra(i2)));
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.c);
         }
     }

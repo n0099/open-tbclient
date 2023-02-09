@@ -137,13 +137,13 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
                 this.e.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams.addRule(8, 0);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0907df);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0907eb);
                 this.i.setLayoutParams(layoutParams);
             } else {
                 this.c.K(x58Var.d, 10, false);
                 this.c.setVisibility(0);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
-                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f090757);
+                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f090762);
                 layoutParams2.addRule(3, 0);
                 this.i.setLayoutParams(layoutParams2);
                 if (x58Var.e > 0) {
@@ -157,12 +157,12 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
             }
             this.h.setText(x58Var.a);
             String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(x58Var.b);
-            String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f092a, numberUniformFormatExtra);
+            String str = "" + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0934, numberUniformFormatExtra);
             String numberUniformFormatExtra2 = StringHelper.numberUniformFormatExtra(x58Var.c);
             if (str.length() > 0) {
                 str = str + GlideException.IndentedAppendable.INDENT;
             }
-            this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0929, numberUniformFormatExtra2));
+            this.i.setText(str + this.i.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0933, numberUniformFormatExtra2));
             if (x58Var.g) {
                 i = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
             } else {
@@ -175,17 +175,17 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b8, (ViewGroup) this, true);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091d5f);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ba, (ViewGroup) this, true);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091da1);
             this.b = viewGroup;
             viewGroup.setOnClickListener(this);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090757);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090756);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092601);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925ff);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092600);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0907df);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092137);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090762);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090761);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092650);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09264e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09264f);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0907eb);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09217d);
             this.c.setPlaceHolder(2);
             this.c.setRadius(ej.g(getContext(), R.dimen.tbds10));
             this.c.setConrers(15);

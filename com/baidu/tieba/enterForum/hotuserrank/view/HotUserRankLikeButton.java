@@ -99,7 +99,7 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                 n45Var2.t(R.color.CAM_X0302);
                 setConfig(n45Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();

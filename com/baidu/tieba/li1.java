@@ -54,9 +54,9 @@ public class li1 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09199d);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919a1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919a0);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0919d5);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919d9);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919d8);
         }
     }
 
@@ -117,7 +117,7 @@ public class li1 extends BaseAdapter {
                 return view2;
             }
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0714, (ViewGroup) null, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0725, (ViewGroup) null, false);
                 view2.setTag(new a(view2));
             }
             if (view2.getTag() != null && (view2.getTag() instanceof a)) {
@@ -126,16 +126,16 @@ public class li1 extends BaseAdapter {
                 aVar.b.setText(item.getPayText());
                 if (item.isChecked()) {
                     aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060912));
-                    aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060912));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f62));
-                } else {
-                    aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060b0f));
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060913));
                     aVar.b.setTextSize(1, 10.0f);
                     aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060913));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f61));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f77));
+                } else {
+                    aVar.a.setTextSize(1, 14.0f);
+                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060b11));
+                    aVar.b.setTextSize(1, 10.0f);
+                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060914));
+                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f76));
                 }
             }
             return view2;

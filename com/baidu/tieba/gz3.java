@@ -594,7 +594,7 @@ public class gz3 {
             this.l = i2;
             GameGuideConfigInfo z = vy3.o.z();
             int color = ds2.c().getResources().getColor(R.color.obfuscated_res_0x7f0603ac);
-            int color2 = ds2.c().getResources().getColor(R.color.obfuscated_res_0x7f060afa);
+            int color2 = ds2.c().getResources().getColor(R.color.obfuscated_res_0x7f060afb);
             if (z != null) {
                 this.j = z.configName;
                 this.o = z.targetAppDownloadUrl;

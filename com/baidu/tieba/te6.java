@@ -83,7 +83,7 @@ public class te6 extends BaseAdapter {
                     ClipboardManager clipboardManager = (ClipboardManager) this.b.b.getPageActivity().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                     clipboardManager.setText(h);
                     if (clipboardManager.getText() != null) {
-                        ej.P(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f047a);
+                        ej.P(this.b.b.getPageActivity(), R.string.obfuscated_res_0x7f0f047d);
                         return false;
                     }
                     return false;
@@ -263,14 +263,14 @@ public class te6 extends BaseAdapter {
         int i3;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, cVar, re6Var) == null) && cVar != null && re6Var != null) {
-            cVar.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0dc9) + "    ");
+            cVar.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f0dd5) + "    ");
             cVar.a.setText(re6Var.h());
             cVar.a.setOnLongClickListener(new a(this, re6Var));
             if (re6Var.k() == 1) {
-                cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f0808f5), 24, false);
+                cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080901), 24, false);
                 SkinManager.setViewTextColor(cVar.b, R.color.CAM_X0305, 1);
             } else {
-                cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f0808f4), 24, false);
+                cVar.b.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080900), 24, false);
                 SkinManager.setViewTextColor(cVar.b, R.color.CAM_X0109, 1);
             }
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109));
@@ -279,20 +279,20 @@ public class te6 extends BaseAdapter {
             AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(24, true);
             int i4 = this.c;
             if (i4 == 1) {
-                SpannableString d = d(R.string.obfuscated_res_0x7f0f0373, re6Var.l(), foregroundColorSpan, foregroundColorSpan2);
-                spannableString3 = b(R.string.obfuscated_res_0x7f0f0467, re6Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, re6Var.e());
-                spannableString = c(R.string.obfuscated_res_0x7f0f0375, re6Var.d(), foregroundColorSpan, foregroundColorSpan2);
+                SpannableString d = d(R.string.obfuscated_res_0x7f0f0374, re6Var.l(), foregroundColorSpan, foregroundColorSpan2);
+                spannableString3 = b(R.string.obfuscated_res_0x7f0f046a, re6Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, re6Var.e());
+                spannableString = c(R.string.obfuscated_res_0x7f0f0376, re6Var.d(), foregroundColorSpan, foregroundColorSpan2);
                 spannableString4 = d;
                 spannableString2 = null;
             } else if (i4 == 2) {
-                SpannableString d2 = d(R.string.obfuscated_res_0x7f0f0810, re6Var.l(), foregroundColorSpan, foregroundColorSpan2);
+                SpannableString d2 = d(R.string.obfuscated_res_0x7f0f0819, re6Var.l(), foregroundColorSpan, foregroundColorSpan2);
                 if (CurrencySwitchUtil.isYyIsConvert(re6Var.e())) {
-                    i = R.string.obfuscated_res_0x7f0f0811;
+                    i = R.string.obfuscated_res_0x7f0f081a;
                 } else {
-                    i = R.string.obfuscated_res_0x7f0f080e;
+                    i = R.string.obfuscated_res_0x7f0f0817;
                 }
                 spannableString3 = b(i, re6Var.m(), foregroundColorSpan, foregroundColorSpan2, absoluteSizeSpan, re6Var.e());
-                spannableString = c(R.string.obfuscated_res_0x7f0f0375, re6Var.d(), foregroundColorSpan, foregroundColorSpan2);
+                spannableString = c(R.string.obfuscated_res_0x7f0f0376, re6Var.d(), foregroundColorSpan, foregroundColorSpan2);
                 String str = "" + re6Var.j();
                 String str2 = this.b.getString(R.string.obfuscated_res_0x7f0f0286) + "    " + str;
                 SpannableString spannableString5 = new SpannableString(str2);
@@ -301,9 +301,9 @@ public class te6 extends BaseAdapter {
                 spannableString2 = spannableString5;
                 spannableString4 = d2;
             } else if (i4 == 3) {
-                String string = this.b.getString(R.string.obfuscated_res_0x7f0f104c);
+                String string = this.b.getString(R.string.obfuscated_res_0x7f0f1060);
                 if (CurrencySwitchUtil.isYyIsConvert(re6Var.e())) {
-                    l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1715), g(Double.valueOf(re6Var.i())));
+                    l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f172d), g(Double.valueOf(re6Var.i())));
                 } else {
                     l = re6Var.l();
                 }
@@ -311,16 +311,16 @@ public class te6 extends BaseAdapter {
                 spannableString4 = new SpannableString(str3);
                 UtilHelper.setSpan(spannableString4, str3, str3, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString4, str3, l, foregroundColorSpan2);
-                String str4 = ("" + re6Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f1051);
-                String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f104b) + "    " + str4;
+                String str4 = ("" + re6Var.g()) + this.b.getString(R.string.obfuscated_res_0x7f0f1065);
+                String str5 = this.b.getString(R.string.obfuscated_res_0x7f0f105f) + "    " + str4;
                 SpannableString spannableString6 = new SpannableString(str5);
                 UtilHelper.setSpan(spannableString6, str5, str5, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString6, str5, str4, foregroundColorSpan2);
                 UtilHelper.setSpan(spannableString6, str5, str4, absoluteSizeSpan);
                 spannableString3 = spannableString6;
-                SpannableString c2 = c(R.string.obfuscated_res_0x7f0f1050, re6Var.f(), foregroundColorSpan, foregroundColorSpan2);
+                SpannableString c2 = c(R.string.obfuscated_res_0x7f0f1064, re6Var.f(), foregroundColorSpan, foregroundColorSpan2);
                 String str6 = "" + re6Var.j();
-                String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f104a) + "    " + str6;
+                String str7 = this.b.getString(R.string.obfuscated_res_0x7f0f105e) + "    " + str6;
                 spannableString2 = new SpannableString(str7);
                 UtilHelper.setSpan(spannableString2, str7, str7, foregroundColorSpan);
                 UtilHelper.setSpan(spannableString2, str7, str6, foregroundColorSpan2);
@@ -394,16 +394,16 @@ public class te6 extends BaseAdapter {
             if (view2 != null) {
                 cVar = (c) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07a2, viewGroup, false);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07b4, viewGroup, false);
                 cVar = new c();
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091842);
-                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091846);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091848);
-                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091845);
-                cVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091843);
-                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09183f);
-                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091847);
-                cVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091840);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09185c);
+                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091860);
+                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091862);
+                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09185f);
+                cVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09185d);
+                cVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091859);
+                cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091861);
+                cVar.h = view2.findViewById(R.id.obfuscated_res_0x7f09185a);
                 cVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090076);
                 cVar.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090073);
                 view2.setTag(cVar);

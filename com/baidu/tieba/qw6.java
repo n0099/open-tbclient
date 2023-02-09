@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 /* loaded from: classes6.dex */
-public class qw6 extends as6<a09, FrsVideoActivityViewHolder> {
+public class qw6 extends as6<e19, FrsVideoActivityViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -29,15 +29,15 @@ public class qw6 extends as6<a09, FrsVideoActivityViewHolder> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a09 a;
+        public final /* synthetic */ e19 a;
         public final /* synthetic */ qw6 b;
 
-        public a(qw6 qw6Var, a09 a09Var) {
+        public a(qw6 qw6Var, e19 e19Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qw6Var, a09Var};
+                Object[] objArr = {qw6Var, e19Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,7 +48,7 @@ public class qw6 extends as6<a09, FrsVideoActivityViewHolder> {
                 }
             }
             this.b = qw6Var;
-            this.a = a09Var;
+            this.a = e19Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -58,8 +58,8 @@ public class qw6 extends as6<a09, FrsVideoActivityViewHolder> {
                 TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
                 p35 m = p35.m();
                 m.A("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
-                a09 a09Var = this.a;
-                if (a09Var != null && !StringUtils.isNull(a09Var.b)) {
+                e19 e19Var = this.a;
+                if (e19Var != null && !StringUtils.isNull(e19Var.b)) {
                     BrowserHelper.o(this.b.mContext, this.a.b);
                 }
             }
@@ -124,7 +124,7 @@ public class qw6 extends as6<a09, FrsVideoActivityViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d035c, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d035e, (ViewGroup) null);
             FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
             SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
@@ -141,16 +141,16 @@ public class qw6 extends as6<a09, FrsVideoActivityViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
     /* renamed from: J */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, a09 a09Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e19 e19Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
         InterceptResult invokeCommon;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, a09Var, frsVideoActivityViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e19Var, frsVideoActivityViewHolder})) == null) {
             if (view2 != null && frsVideoActivityViewHolder != null) {
-                view2.setOnClickListener(new a(this, a09Var));
+                view2.setOnClickListener(new a(this, e19Var));
                 TextView textView = frsVideoActivityViewHolder.a;
-                if (a09Var != null) {
-                    str = a09Var.a;
+                if (e19Var != null) {
+                    str = e19Var.a;
                 } else {
                     str = "";
                 }

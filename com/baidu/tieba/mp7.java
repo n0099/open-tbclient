@@ -45,15 +45,15 @@ public class mp7 implements rp7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
             if (i == 2) {
-                return new ChatItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038c, (ViewGroup) null, false), this.a);
+                return new ChatItemViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) null, false), this.a);
             }
             if (i == 1) {
-                return new ChatNameViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038d, (ViewGroup) null, false));
+                return new ChatNameViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038f, (ViewGroup) null, false));
             }
             if (i != 3) {
                 return null;
             }
-            return new ChatBannerViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038a, (ViewGroup) null, false));
+            return new ChatBannerViewHolder(LayoutInflater.from(SelectorHelper.getContext()).inflate(R.layout.obfuscated_res_0x7f0d038c, (ViewGroup) null, false));
         }
         return (BaseItemViewHolder) invokeLI.objValue;
     }

@@ -36,9 +36,9 @@ public class b extends com.tencent.open.a {
     }
 
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0733a c0733a) {
+    public void a(String str, String str2, List<String> list, a.C0734a c0734a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0733a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0734a) == null) {
             SLog.v("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -51,12 +51,12 @@ public class b extends com.tencent.open.a {
             a.b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.SecureJsBridge", "-->handler != null");
-                bVar.call(str2, list, c0733a);
+                bVar.call(str2, list, c0734a);
                 return;
             }
             SLog.e("openSDK_LOG.SecureJsBridge", "-->handler == null objName: " + str);
-            if (c0733a != null) {
-                c0733a.a();
+            if (c0734a != null) {
+                c0734a.a();
             }
         }
     }

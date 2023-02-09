@@ -98,14 +98,14 @@ public class em6 {
             }
         }
         this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02cf, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02d1, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092046);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09205c);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092062);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092064);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092048);
-        this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09110b);
+        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09208a);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a0);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a6);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a8);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09208c);
+        this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09111f);
         this.g.setText(R.string.forum_square_title);
         this.h.setText(R.string.forum_square_desc);
         this.b.setOnClickListener(new a(this));
@@ -144,7 +144,7 @@ public class em6 {
                 }
             }
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0206);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f080676, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f08067f, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setImageResource(this.e, R.drawable.pic_mask_square_circle);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);

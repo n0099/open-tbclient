@@ -61,7 +61,7 @@ public class sy3 extends ry3 {
                 layoutParams.removeRule(12);
                 layoutParams.bottomMargin = 0;
                 relativeLayout.setLayoutParams(layoutParams);
-                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f0608d2));
+                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f0608d3));
             }
         }
     }
@@ -85,7 +85,7 @@ public class sy3 extends ry3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0686, (ViewGroup) null);
+            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d068c, (ViewGroup) null);
         }
         return (View) invokeV.objValue;
     }

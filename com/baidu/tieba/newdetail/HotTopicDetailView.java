@@ -68,12 +68,12 @@ import com.baidu.tieba.ii7;
 import com.baidu.tieba.ji7;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.lf5;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.newdetail.adapter.HotTopicDetailPagerAdapter;
 import com.baidu.tieba.newdetail.view.HotTopicDetailHeadView;
 import com.baidu.tieba.newdetail.view.HotTopicDetailPkLayout;
 import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialLayout;
 import com.baidu.tieba.on;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.sm1;
@@ -214,7 +214,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
                 if (this.a.p.length() > 500) {
                     spannableStringBuilder.append((CharSequence) "...  ");
                 }
-                String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0910) + GlideException.IndentedAppendable.INDENT;
+                String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f091a) + GlideException.IndentedAppendable.INDENT;
                 spannableStringBuilder.append((CharSequence) str);
                 SpannableString spannableString = new SpannableString(spannableStringBuilder);
                 spannableString.setSpan(this.a.P, spannableString.length() - str.length(), spannableString.length(), 33);
@@ -335,7 +335,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 g58.f(this.a.c, "c14389");
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f1516);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f152d);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
@@ -575,14 +575,14 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
                     aVar.e(40, 80);
                     String e = SmartColorSDK.d().e(aVar.a(), p);
                     if (!TextUtils.isEmpty(e)) {
-                        int f = lz8.f(e);
+                        int f = p09.f(e);
                         if (f != Integer.MAX_VALUE) {
                             z = true;
                             if (this.a.n != null) {
                                 HotTopicDetailView.setWriteViewStyle(this.a.n, f);
                             }
                             if (this.a.m != null) {
-                                this.a.m.setBgCoverViewColor(lz8.a(f, 0.5f));
+                                this.a.m.setBgCoverViewColor(p09.a(f, 0.5f));
                             }
                         } else {
                             z = false;
@@ -877,7 +877,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
                 T.e(R.dimen.obfuscated_res_0x7f070231);
                 T.f(R.dimen.obfuscated_res_0x7f070309);
                 T.d(R.dimen.obfuscated_res_0x7f070230, R.dimen.obfuscated_res_0x7f070224);
-                T.c(lz8.a(i2, 0.5f));
+                T.c(p09.a(i2, 0.5f));
                 T.a();
             }
         }
@@ -904,7 +904,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) this.p);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0913);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f091d);
             SpannableStringBuilder spannableStringBuilder2 = (SpannableStringBuilder) spannableStringBuilder.subSequence(0, (this.o.getLayout().getLineEnd(1) - string.length()) - 2);
             spannableStringBuilder2.append((CharSequence) "...  ");
             int length = spannableStringBuilder2.length();
@@ -1002,7 +1002,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
                 this.v.setVisibility(0);
             }
             if (ii7Var.e() != null) {
-                this.f.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0915), ii7Var.e().b));
+                this.f.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f091f), ii7Var.e().b));
             }
             if (ii7Var.q != null) {
                 p35 m = p35.m();
@@ -1053,62 +1053,62 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d003b, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092380);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923ca);
             this.e = findViewById;
             findViewById.setAlpha(0.0f);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092696);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0926f5);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.getCenterText().setAlpha(0.0f);
-            ImageView imageView = (ImageView) this.f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03c2, new e(this));
+            ImageView imageView = (ImageView) this.f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03c4, new e(this));
             this.g = imageView;
             imageView.setVisibility(4);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09208a);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0920cf);
             ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
             layoutParams.height = this.b;
             findViewById2.setLayoutParams(layoutParams);
-            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090727);
-            LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.obfuscated_res_0x7f090725);
+            this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090732);
+            LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.obfuscated_res_0x7f090730);
             this.l = lottieSlideLoadingLayout;
             lottieSlideLoadingLayout.j(this.L);
             this.l.n();
-            HotTopicDetailHeadView hotTopicDetailHeadView = (HotTopicDetailHeadView) findViewById(R.id.obfuscated_res_0x7f090e8e);
+            HotTopicDetailHeadView hotTopicDetailHeadView = (HotTopicDetailHeadView) findViewById(R.id.obfuscated_res_0x7f090e9f);
             this.m = hotTopicDetailHeadView;
             this.l.l(hotTopicDetailHeadView);
-            this.t = findViewById(R.id.obfuscated_res_0x7f090e12);
+            this.t = findViewById(R.id.obfuscated_res_0x7f090e23);
             this.f.post(new f(this));
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090e91);
-            this.u = (HotTopicDetailPkLayout) findViewById(R.id.obfuscated_res_0x7f090e8f);
-            HotTopicDetailSpecialLayout hotTopicDetailSpecialLayout = (HotTopicDetailSpecialLayout) findViewById(R.id.obfuscated_res_0x7f090e90);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090ea2);
+            this.u = (HotTopicDetailPkLayout) findViewById(R.id.obfuscated_res_0x7f090ea0);
+            HotTopicDetailSpecialLayout hotTopicDetailSpecialLayout = (HotTopicDetailSpecialLayout) findViewById(R.id.obfuscated_res_0x7f090ea1);
             this.v = hotTopicDetailSpecialLayout;
             hotTopicDetailSpecialLayout.J(this.c);
-            this.r = findViewById(R.id.obfuscated_res_0x7f090724);
-            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f090290);
+            this.r = findViewById(R.id.obfuscated_res_0x7f09072f);
+            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f090295);
             this.s = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.K);
-            this.x = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090e94);
+            this.x = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090ea5);
             HotTopicDetailPagerAdapter hotTopicDetailPagerAdapter = new HotTopicDetailPagerAdapter(getContext());
             this.y = hotTopicDetailPagerAdapter;
             hotTopicDetailPagerAdapter.q(this.B);
             this.x.setAdapter(this.y);
-            TbTabLayout tbTabLayout = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f09210e);
+            TbTabLayout tbTabLayout = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092154);
             this.z = tbTabLayout;
             tbTabLayout.setSelectedTabTextBlod(true);
             this.z.setTabTextSize(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds46));
             this.z.setupWithViewPager(this.x);
-            this.A = findViewById(R.id.obfuscated_res_0x7f090847);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f3);
+            this.A = findViewById(R.id.obfuscated_res_0x7f090855);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09243d);
             this.n = textView;
             this.w = new di7(textView, this.c);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             TbadkCoreApplication.getInst().setSkinTypeValue(0);
-            this.C = findViewById(R.id.obfuscated_res_0x7f0917a2);
-            this.D = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917a0);
+            this.C = findViewById(R.id.obfuscated_res_0x7f0917bb);
+            this.D = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917b9);
             this.C.setOnClickListener(new g(this));
             p15.d(this.C).u(R.array.S_O_X004);
-            this.E = findViewById(R.id.obfuscated_res_0x7f0917a3);
-            this.F = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a4);
-            this.G = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917a1);
+            this.E = findViewById(R.id.obfuscated_res_0x7f0917bc);
+            this.F = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bd);
+            this.G = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917ba);
             this.E.setOnClickListener(new h(this));
             p15.d(this.E).u(R.array.S_O_X004);
             TbadkCoreApplication.getInst().setSkinTypeValue(skinType);
@@ -1138,7 +1138,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
         p15 d2 = p15.d(this.C);
         d2.n(R.string.J_X07);
         d2.f(R.color.CAM_X0213);
-        WebPManager.setPureDrawable(this.D, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.D, R.drawable.obfuscated_res_0x7f080998, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
         p15 d3 = p15.d(this.E);
         d3.n(R.string.J_X07);
         d3.f(R.color.CAM_X0213);
@@ -1146,7 +1146,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
         d4.v(R.color.CAM_X0105);
         d4.z(R.dimen.T_X07);
         d4.A(R.string.F_X01);
-        WebPManager.setPureDrawable(this.G, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+        WebPManager.setPureDrawable(this.G, R.drawable.obfuscated_res_0x7f080998, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
         this.a = skinType;
     }
 
@@ -1212,7 +1212,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
             this.k.e();
             this.k.f(R.color.CAM_X0201);
             this.k.i(R.drawable.new_pic_emotion_06);
-            this.k.o(this.c.getString(R.string.obfuscated_res_0x7f0f0912));
+            this.k.o(this.c.getString(R.string.obfuscated_res_0x7f0f091c));
             this.k.attachView(this.i, false);
             e58 e58Var = this.d;
             if ((e58Var instanceof Activity) && (i2 = this.a) != 1 && i2 != 4) {

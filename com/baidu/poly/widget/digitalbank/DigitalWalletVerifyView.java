@@ -341,14 +341,14 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
                 }
                 int optInt = jSONObject.optInt("status", 1);
                 if (optInt == 2) {
-                    ri1.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f080686, EventAlias.PayEventAlias.PAY_SUCCESS);
+                    ri1.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f08068f, EventAlias.PayEventAlias.PAY_SUCCESS);
                     this.a.i.b0(0, EventAlias.PayEventAlias.PAY_SUCCESS, "0");
                 } else if (optInt == -1) {
                     ri1.f(this.a.getContext(), "支付取消");
                     this.a.i.b0(2, "支付取消", "0");
                 } else {
                     this.a.i.b0(3, EventAlias.PayEventAlias.PAY_FAIL, "0");
-                    ri1.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f08067c, EventAlias.PayEventAlias.PAY_FAIL);
+                    ri1.d(this.a.getContext(), R.drawable.obfuscated_res_0x7f080685, EventAlias.PayEventAlias.PAY_FAIL);
                 }
             }
         }
@@ -545,10 +545,10 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091aec) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091b27) {
                 w();
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f091af7) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091b32) {
                 t();
             }
         }
@@ -576,7 +576,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public void b(View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, str) == null) {
-            ri1.e(getContext(), R.drawable.obfuscated_res_0x7f080663, "支付中");
+            ri1.e(getContext(), R.drawable.obfuscated_res_0x7f08066c, "支付中");
             pi1.h(str, new d(this));
         }
     }
@@ -609,7 +609,7 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public final void t() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.j != null && this.k != null && this.l != null) {
-            ri1.e(getContext(), R.drawable.obfuscated_res_0x7f080663, "请稍候");
+            ri1.e(getContext(), R.drawable.obfuscated_res_0x7f08066c, "请稍候");
             pi1.e(this.j, this.k, this.l.getPayChannel(), System.currentTimeMillis() / 1000, new b(this));
         }
     }
@@ -656,12 +656,12 @@ public class DigitalWalletVerifyView extends LinearLayout implements Verificatio
     public final void x(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04dc, this);
-            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091aec);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091afc);
-            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f091afb);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091afa);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091af7);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04e0, this);
+            this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091b27);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b37);
+            this.c = (VerificationCodeView) inflate.findViewById(R.id.obfuscated_res_0x7f091b36);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b35);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b32);
             s(60L);
             this.c.setOnCodeFinishListener(this);
             this.a.setOnClickListener(this);

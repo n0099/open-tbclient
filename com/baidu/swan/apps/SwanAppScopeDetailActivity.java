@@ -97,7 +97,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.d(str);
                 if (!TextUtils.isEmpty(str)) {
-                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092314)).setText(str);
+                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09235b)).setText(str);
                 }
             }
         }
@@ -139,7 +139,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f090311).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f090319).setOnClickListener(new a(this));
         }
     }
 
@@ -215,7 +215,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             D(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0857);
+            setContentView(R.layout.obfuscated_res_0x7f0d0869);
             nm3.a(this);
             C(getIntent());
             A();

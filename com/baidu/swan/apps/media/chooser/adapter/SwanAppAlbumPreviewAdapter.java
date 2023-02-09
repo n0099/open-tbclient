@@ -572,10 +572,10 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 }
             }
             this.a = view2;
-            this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09025b);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091b4f);
-            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091b52);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09265d);
+            this.b = (HugePhotoDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09025f);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091b8a);
+            this.d = (VideoView) view2.findViewById(R.id.obfuscated_res_0x7f091b8d);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926ba);
         }
     }
 
@@ -628,7 +628,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
     public void u(int i, @ColorInt int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) && i < this.b.size() && this.b.get(i) != null) {
-            this.b.get(i).findViewById(R.id.obfuscated_res_0x7f09025c).setBackgroundColor(i2);
+            this.b.get(i).findViewById(R.id.obfuscated_res_0x7f090260).setBackgroundColor(i2);
         }
     }
 
@@ -704,7 +704,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
             MediaModel mediaModel = this.a.get(i);
             View view2 = this.b.get(i);
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d084b, viewGroup, false);
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d085d, viewGroup, false);
                 hVar = new h(this, view2);
                 view2.setTag(hVar);
                 this.b.put(i, view2);

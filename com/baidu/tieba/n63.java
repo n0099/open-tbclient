@@ -213,11 +213,11 @@ public class n63 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 bVar = new b();
-                view3 = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0855, viewGroup, false);
-                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091bbe);
-                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091bbd);
-                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091bc2);
-                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091bc3);
+                view3 = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0867, viewGroup, false);
+                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091bfb);
+                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091bf8);
+                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091c01);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c02);
                 bVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 int o = nm3.o(this.e) - nm3.g(30.0f);
                 int i2 = this.a;
@@ -227,7 +227,7 @@ public class n63 extends BaseAdapter {
                 layoutParams.width = i4;
                 layoutParams.height = i4;
                 bVar.a.setLayoutParams(layoutParams);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f08123a));
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081250));
                 view3.setTag(bVar);
             } else {
                 view3 = view2;
@@ -235,22 +235,22 @@ public class n63 extends BaseAdapter {
             }
             int o2 = nm3.o(this.e) / 3;
             int o3 = nm3.o(this.e) / 3;
-            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f081239);
+            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08124f);
             bVar.b.setVisibility(8);
             if (e(i)) {
                 bVar.c.setVisibility(8);
-                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f081236));
-                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081234);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f08124c));
+                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f08124a);
             } else {
                 bVar.b.setVisibility(0);
                 String item = getItem(i);
                 if (!TextUtils.isEmpty(item)) {
                     if (hm3.c(item)) {
                         bVar.c.setVisibility(0);
-                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1359));
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1370));
                     } else if (hm3.f(item)) {
                         bVar.c.setVisibility(0);
-                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f135a));
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1371));
                     } else {
                         bVar.c.setVisibility(8);
                     }

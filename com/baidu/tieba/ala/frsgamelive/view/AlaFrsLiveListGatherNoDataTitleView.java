@@ -28,7 +28,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends mc6<c56> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f2 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -85,8 +85,8 @@ public class AlaFrsLiveListGatherNoDataTitleView extends mc6<c56> {
         this.l = 3;
         this.k = tbPageContext;
         View h = h();
-        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bb1);
-        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bb2);
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bc2);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090bc3);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

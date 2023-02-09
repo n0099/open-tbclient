@@ -31,11 +31,11 @@ public final class h93 {
 
         /* renamed from: com.baidu.tieba.h93$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0296a extends k93<a> {
+        public static class C0293a extends k93<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0296a() {
+            public C0293a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class h93 {
                     return;
                 }
             }
-            e = new C0296a();
+            e = new C0293a();
             f = new b();
         }
 

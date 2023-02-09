@@ -171,7 +171,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                         u05 u05Var = new u05(this.b.g.getContext());
                         u05Var.s(this.b.g.getString(R.string.confirm_unlike));
                         ArrayList arrayList = new ArrayList();
-                        q05 q05Var = new q05(this.b.g.getString(R.string.obfuscated_res_0x7f0f0459), u05Var);
+                        q05 q05Var = new q05(this.b.g.getString(R.string.obfuscated_res_0x7f0f045b), u05Var);
                         q05Var.m(new C0355a(this, view2));
                         arrayList.add(q05Var);
                         u05Var.n(new b(this));

@@ -101,7 +101,7 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? R.layout.obfuscated_res_0x7f0d019b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? R.layout.obfuscated_res_0x7f0d019c : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -465,7 +465,7 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
         o(bdUniqueId);
         this.w = tbPageContext;
         this.h = 3;
-        HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) h2.findViewById(R.id.obfuscated_res_0x7f090564);
+        HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) h2.findViewById(R.id.obfuscated_res_0x7f09056f);
         this.i = headPendantClickableView;
         if (headPendantClickableView.getHeadView() != null) {
             this.i.getHeadView().setIsRound(true);
@@ -479,23 +479,23 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
             this.i.getPendantView().setDrawBorder(false);
         }
         this.i.setAfterClickListener(this.J);
-        this.p = h2.findViewById(R.id.obfuscated_res_0x7f090855);
-        this.x = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09055c);
-        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) h2.findViewById(R.id.obfuscated_res_0x7f090554);
+        this.p = h2.findViewById(R.id.obfuscated_res_0x7f090863);
+        this.x = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f090567);
+        PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) h2.findViewById(R.id.obfuscated_res_0x7f09055f);
         this.j = playVoiceBntNew;
         playVoiceBntNew.setAfterClickListener(this.I);
-        TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f090553);
+        TextView textView = (TextView) h2.findViewById(R.id.obfuscated_res_0x7f09055e);
         this.y = textView;
         textView.setVisibility(8);
         this.B = h2.findViewById(R.id.divider_line_above_praise);
-        this.z = (ConstrainImageGroup) h2.findViewById(R.id.obfuscated_res_0x7f090557);
+        this.z = (ConstrainImageGroup) h2.findViewById(R.id.obfuscated_res_0x7f090562);
         this.z.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         this.z.setChildClickListener(this.H);
         vr5 vr5Var = new vr5(3);
         vr5Var.d(1.0d);
         this.z.setImageProcessor(vr5Var);
-        this.k = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f090558);
-        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f090562);
+        this.k = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f090563);
+        ThreadUserInfoLayout threadUserInfoLayout = (ThreadUserInfoLayout) h2.findViewById(R.id.obfuscated_res_0x7f09056d);
         this.n = threadUserInfoLayout;
         threadUserInfoLayout.setUserAfterClickListener(this.J);
         this.n.setFrom(3);
@@ -511,7 +511,7 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
         this.k.setStType("frs_page");
         this.k.setFrom(2);
         this.k.S = 3;
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h2.findViewById(R.id.obfuscated_res_0x7f090565);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h2.findViewById(R.id.obfuscated_res_0x7f090570);
         this.l = threadSourceShareAndPraiseLayout;
         if (threadSourceShareAndPraiseLayout != null) {
             threadSourceShareAndPraiseLayout.b.setOnClickListener(this.H);
@@ -522,15 +522,15 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
             this.l.setHideBarName(true);
             this.l.b.setNeedAddReplyIcon(true);
         }
-        RelativeLayout relativeLayout = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f090559);
+        RelativeLayout relativeLayout = (RelativeLayout) h2.findViewById(R.id.obfuscated_res_0x7f090564);
         this.o = relativeLayout;
         c57 c57Var = new c57(this.w, relativeLayout);
         this.E = c57Var;
         c57Var.d(f());
-        ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f090548);
+        ThreadGodReplyLayout threadGodReplyLayout = (ThreadGodReplyLayout) h2.findViewById(R.id.obfuscated_res_0x7f090553);
         this.m = threadGodReplyLayout;
         threadGodReplyLayout.setOnClickListener(this.H);
-        TbImageView tbImageView = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090c50);
+        TbImageView tbImageView = (TbImageView) h2.findViewById(R.id.obfuscated_res_0x7f090c61);
         this.q = tbImageView;
         tbImageView.setPageId(f());
         TbImageView tbImageView2 = (TbImageView) h2.findViewById(R.id.frs_normal_item_star_view);
@@ -542,7 +542,7 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
         this.F = findViewById;
         findViewById.setOnClickListener(new a(this));
         this.k.setOnSelectStatusChangeListener(new b(this));
-        this.r = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f090555);
+        this.r = (LinearLayout) h2.findViewById(R.id.obfuscated_res_0x7f090560);
         this.G = (AppletsCellView) h2.findViewById(R.id.card_home_page_normal_thread_share_info);
     }
 
@@ -634,7 +634,7 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
                 SpannableString parseAbstract = threadData.parseAbstract();
                 if (parseAbstract != null && !dj.isEmpty(parseAbstract.toString())) {
                     this.y.setVisibility(0);
-                    this.y.setOnTouchListener(new qd9(parseAbstract));
+                    this.y.setOnTouchListener(new ue9(parseAbstract));
                     this.y.setText(parseAbstract);
                     xc6.l(this.y, threadData.getId(), R.color.CAM_X0107, R.color.CAM_X0109);
                     return;
@@ -656,7 +656,7 @@ public class bx6 extends mc6<ThreadData> implements jd6, Object {
             SpannableStringBuilder parseTitleOrAbstractForFrsNew = threadData.parseTitleOrAbstractForFrsNew(false, true);
             if (parseTitleOrAbstractForFrsNew != null && !StringUtils.isNull(parseTitleOrAbstractForFrsNew.toString())) {
                 this.x.setVisibility(0);
-                this.x.setOnTouchListener(new qd9(parseTitleOrAbstractForFrsNew));
+                this.x.setOnTouchListener(new ue9(parseTitleOrAbstractForFrsNew));
                 this.x.setText(parseTitleOrAbstractForFrsNew);
                 xc6.l(this.x, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             } else {

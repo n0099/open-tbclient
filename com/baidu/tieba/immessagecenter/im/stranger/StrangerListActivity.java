@@ -340,7 +340,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
                 this.a.a.D(false);
                 this.a.a.B(false);
-                this.a.a.u().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0690));
+                this.a.a.u().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0699));
                 this.a.a.r().setVisibility(0);
                 this.a.a.w().setVisibility(0);
             }
@@ -637,7 +637,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             if (strangerListModel != null && strangerListModel.isEmpty()) {
                 showNoDataView();
             }
-            this.a.u().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0690));
+            this.a.u().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0699));
             this.a.u().getCenterImgBox().setVisibility(4);
             if (!this.b.isEmpty()) {
                 this.a.r().setVisibility(0);
@@ -690,12 +690,12 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
             this.f = z;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f14f5;
-                i2 = R.string.obfuscated_res_0x7f0f12f0;
+                i = R.string.obfuscated_res_0x7f0f150c;
+                i2 = R.string.obfuscated_res_0x7f0f1307;
                 i3 = R.string.unfriend_del;
             } else {
-                i = R.string.obfuscated_res_0x7f0f14f6;
-                i2 = R.string.obfuscated_res_0x7f0f12f3;
+                i = R.string.obfuscated_res_0x7f0f150d;
+                i2 = R.string.obfuscated_res_0x7f0f130a;
                 i3 = R.string.unfriend_all_read;
             }
             if (z) {
@@ -726,7 +726,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 this.a.B(true);
                 this.a.r().setVisibility(4);
                 this.a.w().setVisibility(4);
-                this.a.u().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f068f));
+                this.a.u().setCenterTextTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0698));
                 this.a.u().getCenterImgBox().setVisibility(4);
             } else if (view2 == this.a.w()) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ONE_KEY_READ).param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -736,7 +736,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.c);
                 bdTopToast.h(false);
-                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14f4));
+                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150b));
                 bdTopToast.i((ViewGroup) findViewById(16908290));
             }
         }

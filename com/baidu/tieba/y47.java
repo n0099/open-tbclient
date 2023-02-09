@@ -245,7 +245,7 @@ public class y47 implements ay {
             this.d = textView;
             textView.setOnClickListener(new d(this));
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f074f);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0758);
             int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
             int dimensionPixelSize2 = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
             this.d.setPadding(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize);
@@ -254,7 +254,7 @@ public class y47 implements ay {
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(14);
-            layoutParams.topMargin = this.c.T0().getBottom() + ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070303);
+            layoutParams.topMargin = this.c.S0().getBottom() + ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070303);
             this.d.setLayoutParams(layoutParams);
         }
     }

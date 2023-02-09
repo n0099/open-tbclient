@@ -289,9 +289,9 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.d != null && getContext() != null) {
             if (this.g) {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f09af);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f09b9);
             } else {
-                string = this.b.getString(R.string.obfuscated_res_0x7f0f09ad);
+                string = this.b.getString(R.string.obfuscated_res_0x7f0f09b7);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             EMTextView eMTextView = new EMTextView(getContext());
@@ -326,7 +326,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
             setOrientation(1);
             TextView textView = new TextView(getContext());
             this.c = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09b3));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09bd));
             addView(this.c, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
@@ -334,7 +334,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f09102c);
+            imageView.setId(R.id.obfuscated_res_0x7f09103e);
             int g = ej.g(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(g, g);
             layoutParams2.addRule(11, -1);
@@ -346,7 +346,7 @@ public class InterestForumTagLayout extends LinearLayout implements ay {
             this.d.setMinimumHeight(ej.g(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f09102c);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f09103e);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }

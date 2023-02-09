@@ -1,68 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.ula;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class sja implements ula.a {
-    public static /* synthetic */ Interceptable $ic;
+public class sja {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 2;
+    public static int c = 3;
+    public static int d = 4;
+    public static int e = 5;
+    public static int f = 6;
+    public static int g = 7;
+    public static int h = 8;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public uia c;
-    public pka d;
-    public mka e;
-    public Dialog f;
-    public IYYPayWayView g;
-    public AppCustomExpand h;
-    public IYYPayWayView.b i;
-    public IPayCallback<CurrencyChargeMessage> j;
 
-    public sja(Activity activity, Dialog dialog, uia uiaVar, mka mkaVar, pka pkaVar, Dialog dialog2, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, uiaVar, mkaVar, pkaVar, dialog2, iYYPayWayView, appCustomExpand, bVar, iPayCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948154719, "Lcom/baidu/tieba/sja;")) == null) {
+            return;
         }
-        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = uiaVar;
-        this.d = pkaVar;
-        this.e = mkaVar;
-        this.f = dialog2;
-        this.g = iYYPayWayView;
-        this.h = appCustomExpand;
-        this.i = bVar;
-        this.j = iPayCallback;
-    }
-
-    @Override // com.baidu.tieba.ula.a
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PaySignViewCallback", "onBtnConfirm");
-            this.c.f(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-            cla.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948154719, "Lcom/baidu/tieba/sja;");
         }
     }
 }

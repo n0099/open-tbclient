@@ -56,7 +56,7 @@ public class of5 extends ef5 {
             eMTextView2.setText(context.getResources().getString(R.string.location_view_desc));
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.locatin_view_button);
             this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a26));
+            tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a30));
             this.d.setTextSize(R.dimen.T_X05);
             this.d.setConfig(new m45());
         }

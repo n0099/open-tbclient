@@ -29,6 +29,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.c39;
 import com.baidu.tieba.cl5;
 import com.baidu.tieba.dl5;
 import com.baidu.tieba.el5;
@@ -38,14 +39,13 @@ import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.tieba.hl5;
 import com.baidu.tieba.k77;
 import com.baidu.tieba.l77;
-import com.baidu.tieba.m89;
 import com.baidu.tieba.nl5;
 import com.baidu.tieba.ob;
+import com.baidu.tieba.q99;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.t9;
 import com.baidu.tieba.vb;
 import com.baidu.tieba.wt4;
-import com.baidu.tieba.y19;
 import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -119,10 +119,10 @@ public class InitMessageManagerTask extends LaunchTask {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y19)) {
-                    y19 y19Var = (y19) customResponsedMessage.getData();
-                    DescriptionTableInfo.setModuleSet(y19Var.a);
-                    DescriptionTableInfo.setDescriptionTable(y19Var.b);
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c39)) {
+                    c39 c39Var = (c39) customResponsedMessage.getData();
+                    DescriptionTableInfo.setModuleSet(c39Var.a);
+                    DescriptionTableInfo.setDescriptionTable(c39Var.b);
                 }
             }
         };
@@ -185,7 +185,7 @@ public class InitMessageManagerTask extends LaunchTask {
             messageManager.addResponsedMessageRule(new k77());
             messageManager.addResponsedMessageRule(new cl5());
             messageManager.addResponsedMessageRule(new dl5());
-            messageManager.addResponsedMessageRule(new m89());
+            messageManager.addResponsedMessageRule(new q99());
         }
     }
 

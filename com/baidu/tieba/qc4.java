@@ -236,7 +236,7 @@ public final class qc4 extends Dialog {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d00c0);
+            setContentView(R.layout.obfuscated_res_0x7f0d00c1);
             setCanceledOnTouchOutside(false);
             d();
         }
@@ -246,12 +246,12 @@ public final class qc4 extends Dialog {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0909bb)).setOnTouchListener(b());
-            ((Button) findViewById(R.id.obfuscated_res_0x7f0909bb)).setOnClickListener(new c(this));
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f6a)).setOnTouchListener(b());
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f6a)).setOnClickListener(new d(this));
-            ((Button) findViewById(R.id.obfuscated_res_0x7f09073a)).setOnTouchListener(b());
-            ((Button) findViewById(R.id.obfuscated_res_0x7f09073a)).setOnClickListener(new e(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0909c9)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0909c9)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f7b)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090f7b)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090745)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090745)).setOnClickListener(new e(this));
         }
     }
 }

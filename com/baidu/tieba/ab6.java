@@ -68,8 +68,8 @@ public class ab6 {
         /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
         /* JADX WARN: Multi-variable type inference failed */
         /* JADX WARN: Removed duplicated region for block: B:27:0x009b  */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x018f  */
-        /* JADX WARN: Removed duplicated region for block: B:40:0x0192  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x018b  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
         @Override // com.baidu.adp.framework.listener.MessageListener
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -129,7 +129,7 @@ public class ab6 {
                         str4 = offlineWebViewHttpResMsg.getError() + "";
                         str5 = "\"\"";
                     }
-                    s = kq8.q().s(str);
+                    s = or8.q().s(str);
                     if (s == null) {
                         s = "0.0.0.0";
                     }
@@ -191,7 +191,7 @@ public class ab6 {
             }
             str4 = offlineWebViewHttpResMsg.getError() + "";
             str5 = "\"\"";
-            s = kq8.q().s(str);
+            s = or8.q().s(str);
             if (s == null) {
             }
             sb = new StringBuilder();
@@ -413,7 +413,7 @@ public class ab6 {
                 }
             }
             offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
-            offlineWebViewHttpReqMsg.addCookie("cache_version", kq8.q().s(offlineBridgeData.module));
+            offlineWebViewHttpReqMsg.addCookie("cache_version", or8.q().s(offlineBridgeData.module));
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
             tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

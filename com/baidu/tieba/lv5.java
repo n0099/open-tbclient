@@ -64,7 +64,7 @@ public class lv5 {
     public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (ox8.a(this.c.getIntent())) {
+            if (sy8.a(this.c.getIntent())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
             if (bundle != null) {
@@ -108,10 +108,10 @@ public class lv5 {
                 return;
             }
             b(bundle);
-            if (!ox8.a(this.c.getIntent()) && (ox8.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
+            if (!sy8.a(this.c.getIntent()) && (sy8.b(this.c.getIntent()) || this.c.isTaskRoot() || this.c.getIntent().getBooleanExtra(LogoActivityConfig.IS_DEAL_INTENT, false))) {
                 a(this.c.getIntent());
             }
-            iz8.g().i(this.c.getUniqueId());
+            m09.g().i(this.c.getUniqueId());
             mv5 mv5Var = new mv5(this.c);
             this.b = mv5Var;
             mv5Var.i(d);
@@ -121,7 +121,7 @@ public class lv5 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            iz8.g().k(this.c.getUniqueId());
+            m09.g().k(this.c.getUniqueId());
             d = false;
             mv5 mv5Var = this.b;
             if (mv5Var != null) {

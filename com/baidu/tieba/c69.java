@@ -12,15 +12,17 @@ public class c69 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final z49 b;
+    public final k59 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c69(MainTabActivity mainTabActivity, v39 v39Var) {
-        super(2921504);
+    public c69(MainTabActivity mainTabActivity, z49 z49Var) {
+        super(2921491);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, v39Var};
+            Object[] objArr = {mainTabActivity, z49Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,14 +34,21 @@ public class c69 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = z49Var;
+        this.c = mainTabActivity.e;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        z49 z49Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-            this.a.O1();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && (z49Var = this.b) != null && z49Var.y() != null && this.b.y().getCurrentTabType() != 21) {
+            String str = (String) customResponsedMessage.getData();
+            k59 k59Var = this.c;
+            if (k59Var != null && k59Var.a() != null) {
+                this.c.a().e(str);
+            }
         }
     }
 }

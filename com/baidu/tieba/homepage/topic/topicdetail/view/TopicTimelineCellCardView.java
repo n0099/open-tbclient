@@ -109,10 +109,10 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bc, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905a0);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a1);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905a2);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01bd, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905ab);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ac);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ad);
             this.e = ej.g(context, R.dimen.tbds340);
             this.f = ej.g(context, R.dimen.tbds230);
             setOnClickListener(this);
@@ -167,7 +167,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812a9);
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812c0);
                 gradientDrawable.setColor(Color.parseColor(qg7Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {

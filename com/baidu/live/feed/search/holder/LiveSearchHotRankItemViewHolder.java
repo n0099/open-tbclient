@@ -48,11 +48,11 @@ public class LiveSearchHotRankItemViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924fe);
-        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09153e);
-        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0910d7);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924da);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b0);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092549);
+        this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f091553);
+        this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0910ea);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092525);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924fa);
         this.e.setTextColor(fd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
         this.f.setTextColor(fd0.f().a(view2.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_858585"));
         if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {

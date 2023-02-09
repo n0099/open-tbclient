@@ -120,7 +120,7 @@ public final class b extends Presenter {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.aq();
             this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) xR()).adTemplate;
-            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09131a);
+            NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09132e);
             this.Gg = nestedScrollWebView;
             this.Gg.setClientConfig(nestedScrollWebView.getClientConfig().R(this.mAdTemplate));
             this.Gg.setNestedScrollingEnabled(true);

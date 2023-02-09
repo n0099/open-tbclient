@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface qf9 {
-    void c(int i, int i2);
-
-    void f();
-
-    void setDragMode(int i, int i2);
+    void i0(Intent intent);
 }

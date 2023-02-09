@@ -1,88 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v2a extends FunNativeAd2Bridger<l2a, View> {
+public class v2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public final /* synthetic */ r2a c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v2a(r2a r2aVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r2aVar, reporterPidLoader};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = r2aVar;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, l2a l2aVar, BaseNativeAd2<l2a, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, l2aVar, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(l2a l2aVar) {
+    public static com.fun.module.csj.g0 a(TTNativeAd tTNativeAd) {
         InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l2aVar)) == null) {
-            return ((TTNativeExpressAd) l2aVar.a).getExpressAdView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
+            int imageMode = tTNativeAd.getImageMode();
+            if (imageMode == 15) {
+                i = R.layout.fun_csj_ad_native_vertical_video_view;
+            } else if (imageMode != 16) {
+                if (imageMode != 166) {
+                    if (imageMode == 2) {
+                        i = R.layout.fun_csj_ad_native_small_img_view;
+                    } else if (imageMode == 3) {
+                        i = R.layout.fun_csj_ad_native_large_img_view;
+                    } else if (imageMode == 4) {
+                        i = R.layout.fun_csj_ad_native_group_img_view;
+                    } else if (imageMode != 5) {
+                        return null;
+                    }
+                }
+                i = R.layout.fun_csj_ad_native_large_video_view;
+            } else {
+                i = R.layout.fun_csj_ad_native_vertical_img_view;
+            }
+            com.fun.module.csj.g0 g0Var = (com.fun.module.csj.g0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
+            g0Var.a(tTNativeAd);
+            return g0Var;
         }
-        return (View) invokeL.objValue;
+        return (com.fun.module.csj.g0) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, l2a l2aVar, BaseNativeAd2<l2a, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public static String b(boolean z) {
+        InterceptResult invokeZ;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, l2aVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            l2a l2aVar2 = l2aVar;
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(l2aVar2);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            HashMap hashMap = new HashMap();
+            if (z) {
+                str = "1";
             } else {
-                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
+                str = "0";
             }
-            this.c.onShowStart(l2aVar2, this.b);
-            expressInflater.inflate();
-            View expressView = expressInflater.getExpressView();
-            r2a r2aVar = this.c;
-            r2aVar.getClass();
-            ((TTNativeExpressAd) l2aVar2.a).setDislikeCallback(activity, new u2a(r2aVar, expressView, l2aVar2, funAdInteractionListener, str));
-            this.b = true;
+            hashMap.put("personal_ads_type", str);
+            if (hashMap.isEmpty()) {
+                return "";
+            }
+            try {
+                JSONArray jSONArray = new JSONArray();
+                for (Map.Entry entry : hashMap.entrySet()) {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("name", entry.getKey());
+                    jSONObject.put("value", entry.getValue());
+                    jSONArray.put(jSONObject);
+                }
+                return jSONArray.toString();
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return "";
+            }
         }
+        return (String) invokeZ.objValue;
     }
 }

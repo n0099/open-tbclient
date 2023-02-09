@@ -216,7 +216,7 @@ public class o82 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0098, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0099, (ViewGroup) null);
             this.e = (TextView) inflate.findViewById(R.id.username_edit);
             TextView textView = (TextView) inflate.findViewById(R.id.password_edit);
             this.f = textView;

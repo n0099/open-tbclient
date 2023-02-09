@@ -56,12 +56,12 @@ public class l56 extends rn {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f5, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f6, (ViewGroup) null);
             this.c = inflate;
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901dc);
-            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901db);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901dd);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901da);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901de);
+            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901dd);
+            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901df);
+            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901dc);
             e(TbadkCoreApplication.getInst().getSkinType());
             return this.c;
         }

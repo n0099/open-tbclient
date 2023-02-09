@@ -66,7 +66,7 @@ public class hs6 extends as6<is6, FrsNoListItemViewHolder> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, is6Var, frsNoListItemViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) is6Var, (is6) frsNoListItemViewHolder);
             if (is6Var.a() == 6) {
-                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02c4);
+                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02c5);
             } else {
                 frsNoListItemViewHolder.d.setText(R.string.no_data_common_txt);
             }

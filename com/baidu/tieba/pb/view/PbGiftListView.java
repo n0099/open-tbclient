@@ -21,6 +21,7 @@ import com.baidu.tieba.dh;
 import com.baidu.tieba.vy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
@@ -150,6 +151,20 @@ public class PbGiftListView extends FrameLayout {
         h();
     }
 
+    public void setPostId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.m = j;
+        }
+    }
+
+    public void setThreadId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.l = j;
+        }
+    }
+
     public void g(vy4 vy4Var, String str, String str2, long j, long j2, long j3) {
         int size;
         Interceptable interceptable = $ic;
@@ -203,7 +218,7 @@ public class PbGiftListView extends FrameLayout {
                     this.f.setVisibility(8);
                 }
                 if (vy4Var.b() > 0) {
-                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0816), Integer.valueOf(vy4Var.b())));
+                    this.g.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f081f), Integer.valueOf(vy4Var.b())));
                     this.g.setVisibility(0);
                 } else {
                     this.g.setVisibility(8);
@@ -220,15 +235,43 @@ public class PbGiftListView extends FrameLayout {
         }
     }
 
+    public long getPostId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return invokeV.longValue;
+    }
+
+    public long getThreadId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.l;
+        }
+        return invokeV.longValue;
+    }
+
+    public void i() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.n != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
+            this.n = skinType;
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0304, 1);
+        }
+    }
+
     public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d06ed, this);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d06f4, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091903);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091904);
-            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091905);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091906);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091926);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091927);
+            this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091928);
+            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091929);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
@@ -237,20 +280,10 @@ public class PbGiftListView extends FrameLayout {
             this.d.setDefaultResource(R.drawable.icon_gift_moren);
             this.e.setDefaultResource(R.drawable.icon_gift_moren);
             this.f.setDefaultResource(R.drawable.icon_gift_moren);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091901);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091902);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091924);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091925);
             this.h = textView;
             textView.setOnClickListener(new a(this));
-        }
-    }
-
-    public void i() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.n != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
-            this.n = skinType;
-            SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.h, R.color.CAM_X0304, 1);
         }
     }
 }

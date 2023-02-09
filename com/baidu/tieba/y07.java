@@ -49,8 +49,8 @@ public class y07 extends g17 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g09)) {
-                this.a.b((g09) customResponsedMessage.getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k19)) {
+                this.a.b((k19) customResponsedMessage.getData());
             }
         }
     }
@@ -150,45 +150,45 @@ public class y07 extends g17 {
         frsFragment.registerListener(this.h);
     }
 
-    public final void b(g09 g09Var) {
+    public final void b(k19 k19Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, g09Var) != null) || g09Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, k19Var) != null) || k19Var == null) {
             return;
         }
-        FrsViewData Y0 = this.b.Y0();
-        if (this.e != null && this.d != null && this.a != null && Y0 != null && Y0.getForum() != null && g09Var.g() != null) {
-            if (g09Var.n() == 1) {
+        FrsViewData X0 = this.b.X0();
+        if (this.e != null && this.d != null && this.a != null && X0 != null && X0.getForum() != null && k19Var.g() != null) {
+            if (k19Var.n() == 1) {
                 z = true;
             } else {
                 z = false;
             }
-            if (g09Var.g().equals(Y0.getForum().getId())) {
-                Y0.getForum().setLike(g09Var.n());
-                if (!StringUtils.isNULL(g09Var.h())) {
-                    Y0.getForum().setLevelName(g09Var.h());
+            if (k19Var.g().equals(X0.getForum().getId())) {
+                X0.getForum().setLike(k19Var.n());
+                if (!StringUtils.isNULL(k19Var.h())) {
+                    X0.getForum().setLevelName(k19Var.h());
                 }
-                if (g09Var.m() >= 0) {
-                    Y0.getForum().setUser_level(g09Var.m());
+                if (k19Var.m() >= 0) {
+                    X0.getForum().setUser_level(k19Var.m());
                 }
                 if (z) {
-                    this.d.k0(Y0, false);
+                    this.d.k0(X0, false);
                     TbadkCoreApplication.getInst().addLikeForum(this.b.e());
                     return;
                 }
-                mz8.i().n(this.b.e(), false);
-                Y0.getForum().setLike(0);
+                q09.i().n(this.b.e(), false);
+                X0.getForum().setLike(0);
                 this.d.n0();
                 TbadkCoreApplication.getInst().delLikeForum(this.b.e());
                 return;
             }
-            if (g09Var.n() == 1) {
-                Y0.deleteLikeFeedForum(g09Var.g());
-                this.d.W(Y0);
-                this.c.d(Y0, this.e.b0());
+            if (k19Var.n() == 1) {
+                X0.deleteLikeFeedForum(k19Var.g());
+                this.d.W(X0);
+                this.c.d(X0, this.e.b0());
             }
-            if (Y0.getForum().getBannerListData() != null) {
-                Y0.getForum().getBannerListData().setFeedForumLiked(g09Var.g(), g09Var.n());
+            if (X0.getForum().getBannerListData() != null) {
+                X0.getForum().getBannerListData().setFeedForumLiked(k19Var.g(), k19Var.n());
             }
             this.a.Q0();
         }

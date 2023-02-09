@@ -754,19 +754,19 @@ public class cm6 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0789, (ViewGroup) null);
+            View inflate = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d079b, (ViewGroup) null);
             this.c = inflate;
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091c53);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091c94);
             this.e = this.c.findViewById(R.id.title_container);
-            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092314);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0909e2);
+            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09235b);
+            ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0909f0);
             this.i = imageView;
             imageView.setOnClickListener(new c(this));
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090870);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09087e);
             this.j = textView;
             textView.setOnClickListener(new d(this));
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090d26);
-            this.k = (RecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f091408);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090d37);
+            this.k = (RecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f09141d);
             RecentlyVisitedForumListAdapter recentlyVisitedForumListAdapter = new RecentlyVisitedForumListAdapter(this.a);
             this.m = recentlyVisitedForumListAdapter;
             this.k.setAdapter(recentlyVisitedForumListAdapter);
@@ -795,14 +795,14 @@ public class cm6 {
             if (sj6Var != null && sj6Var.a) {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0101);
                 SkinManager.setViewTextColorSelector(this.j, R.color.CAM_X0201, R.color.cp_bg_line_d_alpha50, 0);
-                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804f7);
+                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804fc);
             } else {
                 SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0105);
                 p15 d2 = p15.d(this.d);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0205);
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
-                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804f7);
+                this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804fc);
             }
             E();
             s();

@@ -45,7 +45,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     private void et() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0597a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.h.2
+            com.kwad.components.core.c.a.a.a(new a.C0598a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b(this) { // from class: com.kwad.components.ad.e.a.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ h kg;
@@ -142,8 +142,8 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f4);
-            this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f09119d);
+            this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091308);
+            this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f0911b1);
         }
     }
 }

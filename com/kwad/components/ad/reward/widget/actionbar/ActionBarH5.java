@@ -102,17 +102,17 @@ public class ActionBarH5 extends FrameLayout implements c {
     private void E(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d048f, this);
-            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09119a);
-            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f09119e);
-            this.wS = findViewById(R.id.obfuscated_res_0x7f09117c);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0491, this);
+            this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ae);
+            this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0911b2);
+            this.wS = findViewById(R.id.obfuscated_res_0x7f091190);
         }
     }
 
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0597a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.components.core.c.a.a.a(new a.C0598a(view2.getContext()).L(this.mAdTemplate).ae(view2 == this.wS ? 1 : 2).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;

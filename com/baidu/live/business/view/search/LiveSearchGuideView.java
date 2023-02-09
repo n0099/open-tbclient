@@ -68,16 +68,16 @@ public class LiveSearchGuideView extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) && this.b != null) {
             if (z) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d59);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d57);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d6b);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d69);
                 this.b.setTextColor(-1);
             } else if ("day".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d58);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d56);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d6a);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d68);
                 this.b.setTextColor(-1);
             } else if ("night".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d59);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d57);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d6b);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d69);
                 this.b.setTextColor(-1);
             }
         }
@@ -108,9 +108,9 @@ public class LiveSearchGuideView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0565, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091449);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09144a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056a, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09145e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09145f);
             c();
         }
     }

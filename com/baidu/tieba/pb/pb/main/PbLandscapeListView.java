@@ -49,7 +49,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, float f);
+        void a(int i, int i2, float f, float f2, float f3, float f4);
     }
 
     /* loaded from: classes5.dex */
@@ -90,7 +90,7 @@ public class PbLandscapeListView extends BdTypeListView {
                     return false;
                 }
                 if (this.a.O != null) {
-                    this.a.O.a(dVar.a, dVar.b);
+                    this.a.O.a(dVar.a, dVar.b, dVar.c, dVar.e, dVar.d, dVar.f);
                     return true;
                 }
                 return true;
@@ -104,7 +104,11 @@ public class PbLandscapeListView extends BdTypeListView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public float b;
+        public int b;
+        public float c;
+        public float d;
+        public float e;
+        public float f;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -168,7 +172,7 @@ public class PbLandscapeListView extends BdTypeListView {
                         int i2 = (int) (rawY - this.N);
                         int abs = Math.abs(i);
                         if (abs > this.J && abs > Math.abs(i2) && !this.V) {
-                            K(i, this.M);
+                            K(i, i2, this.M, this.N, rawX, rawY);
                             this.T = true;
                             return false;
                         }
@@ -314,23 +318,30 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
+    public void setIsLandscape(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.K = z;
+        }
+    }
+
     public void setListViewDragListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
             this.O = cVar;
         }
     }
 
     public void setOnLayoutListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
             this.L = bVar;
         }
     }
 
     public void setTextViewAdded(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.R = z;
         }
     }
@@ -338,7 +349,7 @@ public class PbLandscapeListView extends BdTypeListView {
     @Override // com.baidu.adp.widget.ListView.BdListView
     public void y(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             if (this.R) {
                 getAdapter2().h(view2, null, false, 1);
             } else {
@@ -347,16 +358,20 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    public final void K(int i, float f) {
+    public final void K(int i, int i2, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             this.Q.removeMessages(0);
             if (!this.Q.hasMessages(0)) {
                 Message message = new Message();
                 message.what = 0;
                 d dVar = new d();
                 dVar.a = i;
-                dVar.b = f;
+                dVar.b = i2;
+                dVar.c = f;
+                dVar.d = f2;
+                dVar.e = f3;
+                dVar.f = f4;
                 message.obj = dVar;
                 this.Q.sendMessageDelayed(message, 60L);
             }

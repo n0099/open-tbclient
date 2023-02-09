@@ -30,24 +30,24 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dm9;
 import com.baidu.tieba.e15;
-import com.baidu.tieba.ei9;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.g15;
-import com.baidu.tieba.i39;
+import com.baidu.tieba.ij9;
+import com.baidu.tieba.m49;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.pj9;
-import com.baidu.tieba.sj9;
-import com.baidu.tieba.tj9;
+import com.baidu.tieba.tk9;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.zk9;
+import com.baidu.tieba.wk9;
+import com.baidu.tieba.xk9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class NewWriteActivity extends BaseFragmentActivity implements pj9, VoiceManager.j {
+public class NewWriteActivity extends BaseFragmentActivity implements tk9, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -60,11 +60,11 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
     @Nullable
     public View h;
     @Nullable
-    public ei9 i;
+    public ij9 i;
     @Nullable
-    public zk9 j;
+    public dm9 j;
     @Nullable
-    public sj9 k;
+    public wk9 k;
     public boolean l;
     public boolean m;
     public final CustomMessageListener n;
@@ -118,9 +118,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                sj9 sj9Var = this.a.k;
-                if (sj9Var != null) {
-                    sj9Var.j();
+                wk9 wk9Var = this.a.k;
+                if (wk9Var != null) {
+                    wk9Var.j();
                 }
                 this.a.setResult(100);
                 this.a.finish();
@@ -157,9 +157,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                sj9 sj9Var = this.a.k;
-                if (sj9Var != null) {
-                    sj9Var.C();
+                wk9 wk9Var = this.a.k;
+                if (wk9Var != null) {
+                    wk9Var.C();
                     return false;
                 }
                 return false;
@@ -196,9 +196,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                sj9 sj9Var = this.a.k;
-                if (sj9Var != null) {
-                    sj9Var.s();
+                wk9 wk9Var = this.a.k;
+                if (wk9Var != null) {
+                    wk9Var.s();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921756));
                 }
                 this.a.h.setVisibility(8);
@@ -273,9 +273,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-                sj9 sj9Var = this.a.k;
-                if (sj9Var != null) {
-                    sj9Var.B();
+                wk9 wk9Var = this.a.k;
+                if (wk9Var != null) {
+                    wk9Var.B();
                 }
                 ej.z(this.a.getActivity(), this.a.getCurrentFocus());
                 return super.onFling(motionEvent, motionEvent2, f, f2);
@@ -300,7 +300,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         this.n = new a(this, 2921622);
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.tk9
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -308,8 +308,8 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         }
     }
 
-    @Override // com.baidu.tieba.pj9
-    public void L0() {
+    @Override // com.baidu.tieba.tk9
+    public void M0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.m = true;
@@ -317,7 +317,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         }
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.tk9
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -337,7 +337,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         }
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.tk9
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -359,12 +359,12 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
 
     @Override // androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
-        sj9 sj9Var;
+        wk9 wk9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ei9 ei9Var = this.i;
-            if ((ei9Var == null || !ei9Var.d()) && (sj9Var = this.k) != null) {
-                sj9Var.onBackPressed();
+            ij9 ij9Var = this.i;
+            if ((ij9Var == null || !ij9Var.d()) && (wk9Var = this.k) != null) {
+                wk9Var.onBackPressed();
             }
         }
     }
@@ -374,14 +374,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onDestroy();
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onDestroy();
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onDestroy();
             }
             K();
             u0().onDestory(getPageContext());
             if (!this.m) {
-                i39.h(null);
+                m49.h(null);
             }
         }
     }
@@ -391,9 +391,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPause();
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onPause();
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onPause();
                 this.k.h();
             }
             u0().onPause();
@@ -407,9 +407,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onResume();
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onResume();
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onResume();
             }
             u0().onResume(getPageContext());
             g15.q(this, e15.n);
@@ -421,9 +421,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onStart();
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onStart();
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onStart();
             }
             u0().onStart(getPageContext());
         }
@@ -434,9 +434,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onStop();
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onStop();
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onStop();
             }
             u0().onStop(getPageContext());
         }
@@ -446,8 +446,8 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            ei9 ei9Var = this.i;
-            if (ei9Var != null && ei9Var.a()) {
+            ij9 ij9Var = this.i;
+            if (ij9Var != null && ij9Var.a()) {
                 return true;
             }
             return false;
@@ -481,7 +481,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.tk9
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
@@ -496,9 +496,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onChangeSkinType(i);
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onChangeSkinType(i);
             }
             View view2 = this.h;
             if (view2 != null && view2.getVisibility() == 0) {
@@ -512,9 +512,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             super.onKeyboardVisibilityChanged(z);
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.b(z);
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.b(z);
             }
         }
     }
@@ -524,9 +524,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, intent) == null) {
             super.onNewIntent(intent);
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onNewIntent(intent);
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onNewIntent(intent);
             }
         }
     }
@@ -535,16 +535,16 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onSaveInstanceState(bundle);
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onSaveInstanceState(bundle);
             }
             u0().onSaveInstanceState(this);
             super.onSaveInstanceState(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.pj9
+    @Override // com.baidu.tieba.tk9
     public void R0(int i, boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
@@ -552,13 +552,13 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
             return;
         }
         intent.putExtra("type", i);
-        zk9 zk9Var = this.j;
-        if (zk9Var != null) {
-            this.k = zk9Var.a(i, z);
+        dm9 dm9Var = this.j;
+        if (dm9Var != null) {
+            this.k = dm9Var.a(i, z);
         }
-        sj9 sj9Var = this.k;
-        if (sj9Var != null) {
-            sj9Var.onCreate(null);
+        wk9 wk9Var = this.k;
+        if (wk9Var != null) {
+            wk9Var.onCreate(null);
             this.k.onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -568,9 +568,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            sj9 sj9Var = this.k;
-            if (sj9Var != null) {
-                sj9Var.onActivityResult(i, i2, intent);
+            wk9 wk9Var = this.k;
+            if (wk9Var != null) {
+                wk9Var.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -588,17 +588,17 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d005d);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091883);
+            this.a = findViewById(R.id.obfuscated_res_0x7f09189e);
             this.b = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0927b9);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906eb);
+            this.c = (ScrollView) findViewById(R.id.obfuscated_res_0x7f09281a);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906f6);
             this.e = (LinearLayout) findViewById(R.id.tool_view);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.c.setOnTouchListener(new b(this));
-            zk9 zk9Var = new zk9(getPageContext(), this.b, this.d, this.e, this);
-            this.j = zk9Var;
-            sj9 b2 = zk9Var.b(bundle);
+            dm9 dm9Var = new dm9(getPageContext(), this.b, this.d, this.e, this);
+            this.j = dm9Var;
+            wk9 b2 = dm9Var.b(bundle);
             this.k = b2;
             if (b2 != null) {
                 b2.onCreate(bundle);
@@ -606,9 +606,9 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
             this.f = new GestureDetector(getPageContext().getPageActivity(), new e(this, null));
             registerListener(this.n);
             u0().onCreate(getPageContext());
-            ei9 ei9Var = new ei9(this);
-            this.i = ei9Var;
-            ei9Var.e();
+            ij9 ij9Var = new ij9(this);
+            this.i = ij9Var;
+            ij9Var.e();
         }
     }
 
@@ -627,7 +627,7 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
                 }
                 UrlManager urlManager = UrlManager.getInstance();
                 TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
-                urlManager.dealOneLink(pageContext, new String[]{tj9.a + str2 + ("&from=" + str)});
+                urlManager.dealOneLink(pageContext, new String[]{xk9.a + str2 + ("&from=" + str)});
             } catch (Exception e2) {
                 BdLog.e("openPageByUrl fail:" + e2);
             }
@@ -638,14 +638,14 @@ public class NewWriteActivity extends BaseFragmentActivity implements pj9, Voice
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.h == null) {
-                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0926f2)).inflate();
-                this.h = findViewById(R.id.obfuscated_res_0x7f0926f1);
+                ((ViewStub) findViewById(R.id.obfuscated_res_0x7f092753)).inflate();
+                this.h = findViewById(R.id.obfuscated_res_0x7f092752);
             }
             this.h.setVisibility(0);
             p15 d2 = p15.d(this.h);
             d2.e(R.string.A_X05);
             d2.f(R.color.CAM_X0611);
-            p15 d3 = p15.d(this.h.findViewById(R.id.obfuscated_res_0x7f0926f0));
+            p15 d3 = p15.d(this.h.findViewById(R.id.obfuscated_res_0x7f092751));
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
             TextView textView = (TextView) this.h.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);

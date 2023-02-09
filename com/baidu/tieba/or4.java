@@ -55,7 +55,7 @@ public class or4 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
-                if ((data instanceof f39) && ((f39) data).b) {
+                if ((data instanceof j49) && ((j49) data).b) {
                     this.a.e();
                 }
             }

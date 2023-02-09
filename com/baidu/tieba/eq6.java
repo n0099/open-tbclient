@@ -62,7 +62,7 @@ public class eq6 extends as6<fq6, FrsMemberTeamViewHolder> {
                 if (view2.getTag() instanceof BawuRoleInfoPub) {
                     BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
                     this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09233f) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f092388) {
                     Object tag = view2.getTag();
                     String[] strArr = null;
                     if (tag instanceof Integer) {
@@ -121,7 +121,7 @@ public class eq6 extends as6<fq6, FrsMemberTeamViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new FrsMemberTeamViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02bd, (ViewGroup) null), this.l);
+            return new FrsMemberTeamViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02bf, (ViewGroup) null), this.l);
         }
         return (FrsMemberTeamViewHolder) invokeL.objValue;
     }

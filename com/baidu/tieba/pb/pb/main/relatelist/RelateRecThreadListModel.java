@@ -1,5 +1,6 @@
 package com.baidu.tieba.pb.pb.main.relatelist;
 
+import android.util.Log;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -11,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cv4;
-import com.baidu.tieba.o09;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,6 +87,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
             RelateRecThreadRequestMessage relateRecThreadRequestMessage;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                Log.e("RecThreadList", "------onMessage----");
                 this.a.a = false;
                 if (responsedMessage != null && responsedMessage.getmOrginalMessage() != null && (relateRecThreadRequestMessage = (RelateRecThreadRequestMessage) responsedMessage.getmOrginalMessage().getExtra()) != null && this.a.b != null && this.a.b.threadId == relateRecThreadRequestMessage.threadId) {
                     int error = responsedMessage.getError();
@@ -104,8 +106,9 @@ public class RelateRecThreadListModel extends BdBaseModel {
                         }
                         return;
                     }
+                    Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.K(R.string.obfuscated_res_0x7f0f05e4);
+                        errorString = this.a.K(R.string.obfuscated_res_0x7f0f05eb);
                     }
                     if (this.a.c != null) {
                         this.a.c.onError(error, errorString);
@@ -158,8 +161,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            o09.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            o09.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            s19.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            s19.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
@@ -182,6 +185,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
             sendMessage(relateRecThreadRequestMessage);
             this.b = relateRecThreadRequestMessage;
             this.a = true;
+            Log.e("RecThreadList", "sendReqMessage-->forumId=" + j + ",threadId=" + j2);
             return true;
         }
         return invokeCommon.booleanValue;

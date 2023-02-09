@@ -39,20 +39,20 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.b37;
+import com.baidu.tieba.d19;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.fe5;
-import com.baidu.tieba.i29;
+import com.baidu.tieba.m39;
 import com.baidu.tieba.no;
 import com.baidu.tieba.nx4;
 import com.baidu.tieba.q47;
 import com.baidu.tieba.q57;
 import com.baidu.tieba.qt6;
-import com.baidu.tieba.qz8;
 import com.baidu.tieba.t9;
+import com.baidu.tieba.u09;
 import com.baidu.tieba.uo5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.view.AdapterLinearLayout;
-import com.baidu.tieba.zz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -215,9 +215,9 @@ public class FrsTopView extends LinearLayout {
                         this.a.m.a(threadData);
                     }
                 }
-            } else if (cdo == null || !(cdo instanceof zz8)) {
+            } else if (cdo == null || !(cdo instanceof d19)) {
             } else {
-                this.a.k(((zz8) cdo).a());
+                this.a.k(((d19) cdo).a());
             }
         }
     }
@@ -392,8 +392,8 @@ public class FrsTopView extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0358, (ViewGroup) this, true);
-            this.a = (FrsFoldingView) findViewById(R.id.obfuscated_res_0x7f090ba0);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035a, (ViewGroup) this, true);
+            this.a = (FrsFoldingView) findViewById(R.id.obfuscated_res_0x7f090bb1);
         }
     }
 
@@ -442,7 +442,7 @@ public class FrsTopView extends LinearLayout {
                 valueOf = originalForumInfo.id;
                 str = valueOf;
             }
-            if (threadData.getLastReadPid() > 0 && i29.c()) {
+            if (threadData.getLastReadPid() > 0 && m39.c()) {
                 createFromThreadCfg = new PbActivityConfig(baseFragmentActivity).createHistoryCfg(threadData.getTid(), String.valueOf(threadData.getLastReadPid()), false, true, "frs_page");
             } else if (threadData.getThreadType() == 40) {
                 l(getTbPageContext().getContext(), threadData, i);
@@ -500,14 +500,14 @@ public class FrsTopView extends LinearLayout {
         }
         new ArrayList();
         List<Cdo> n = q57Var.n();
-        if (n != null && n.size() > i && (n.get(i) instanceof zz8)) {
-            zz8 zz8Var = (zz8) n.get(i);
-            if (zz8Var != null) {
+        if (n != null && n.size() > i && (n.get(i) instanceof d19)) {
+            d19 d19Var = (d19) n.get(i);
+            if (d19Var != null) {
                 ForumRuleStatus.Builder builder = new ForumRuleStatus.Builder();
-                builder.has_forum_rule = zz8Var.a().has_forum_rule;
-                builder.title = zz8Var.a().title;
+                builder.has_forum_rule = d19Var.a().has_forum_rule;
+                builder.title = d19Var.a().title;
                 builder.audit_status = 1;
-                zz8Var.b(builder.build(true));
+                d19Var.b(builder.build(true));
             }
             q57Var.r(n);
             q57Var.notifyDataSetChanged();
@@ -560,10 +560,10 @@ public class FrsTopView extends LinearLayout {
         }
     }
 
-    public void setDatas(List<Cdo> list, qz8 qz8Var) {
+    public void setDatas(List<Cdo> list, u09 u09Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, list, qz8Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, list, u09Var) == null) {
             this.k.clear();
             this.j.clear();
             this.i.clear();

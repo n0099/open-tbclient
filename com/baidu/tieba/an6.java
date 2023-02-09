@@ -14,7 +14,7 @@ import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.tieba.bn6;
 import com.baidu.tieba.external.music.data.MusicData;
 import com.baidu.tieba.external.music.model.SelectMusicModel;
-import com.baidu.tieba.uf9;
+import com.baidu.tieba.yg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,11 +39,11 @@ public class an6 implements ym6 {
     public class a implements bn6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uf9.a a;
+        public final /* synthetic */ yg9.a a;
         public final /* synthetic */ MusicData b;
         public final /* synthetic */ an6 c;
 
-        public a(an6 an6Var, uf9.a aVar, MusicData musicData) {
+        public a(an6 an6Var, yg9.a aVar, MusicData musicData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -453,12 +453,12 @@ public class an6 implements ym6 {
             this.h = false;
             String str = musicData.id;
             String g = bn6.h().g(musicData.resource);
-            if (obj != null && (obj instanceof uf9.a)) {
-                this.c = ((uf9.a) obj).d;
+            if (obj != null && (obj instanceof yg9.a)) {
+                this.c = ((yg9.a) obj).d;
             }
             if (TextUtils.isEmpty(g)) {
-                if (obj instanceof uf9.a) {
-                    uf9.a aVar = (uf9.a) obj;
+                if (obj instanceof yg9.a) {
+                    yg9.a aVar = (yg9.a) obj;
                     aVar.b.setVisibility(0);
                     aVar.a.setDrawBorder(false);
                     aVar.a.invalidate();

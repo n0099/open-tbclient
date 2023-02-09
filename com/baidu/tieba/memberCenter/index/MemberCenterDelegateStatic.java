@@ -162,7 +162,7 @@ public class MemberCenterDelegateStatic extends qf5 {
             rf5 rf5Var = new rf5();
             rf5Var.a = new MemberCenterFragment();
             rf5Var.e = 14;
-            rf5Var.b = R.string.obfuscated_res_0x7f0f0b58;
+            rf5Var.b = R.string.obfuscated_res_0x7f0f0b62;
             return rf5Var;
         }
         return (rf5) invokeV.objValue;

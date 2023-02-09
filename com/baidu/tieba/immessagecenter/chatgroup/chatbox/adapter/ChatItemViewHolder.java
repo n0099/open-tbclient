@@ -207,18 +207,18 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
         this.t = new a(this, 2921766);
         this.r = up7Var;
         this.s = view2;
-        this.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090da7);
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090da3);
-        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dc2);
+        this.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090db8);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090db4);
+        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dd3);
         this.g = (HeadImageView) view2.findViewById(R.id.chat_head);
         this.h = (TbCornersImageView) view2.findViewById(R.id.svg_head);
         this.i = (BarImageView) view2.findViewById(R.id.forum_head);
-        this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d95);
+        this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090da6);
         this.k = (TextView) view2.findViewById(R.id.chat_name);
         this.l = (TbRichTextView) view2.findViewById(R.id.last_chat_content);
         this.m = (TextView) view2.findViewById(R.id.new_message);
-        this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d97);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09061d);
+        this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090da8);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090628);
         this.l.setMaxLines(1);
         this.l.setAddTruncateListener(true);
         this.l.setTextEllipsize(TextUtils.TruncateAt.END);
@@ -280,7 +280,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             }
             if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
                 this.p.setVisibility(0);
-                this.p.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0868));
+                this.p.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0871));
                 return;
             }
             this.p.setVisibility(8);

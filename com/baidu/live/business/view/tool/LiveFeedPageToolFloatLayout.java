@@ -267,11 +267,11 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d056c, (ViewGroup) this, true);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091452);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091447);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091453);
-            this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f091448);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0571, (ViewGroup) this, true);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091467);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09145c);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091468);
+            this.g = (LiveSearchGuideView) findViewById(R.id.obfuscated_res_0x7f09145d);
             this.e.setOnClickListener(new c(this));
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
@@ -429,7 +429,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 }
                 if (z) {
                     LiveFeedPageToolItemView liveFeedPageToolItemView2 = new LiveFeedPageToolItemView(this.f.getContext());
-                    liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080d5d, "搜索");
+                    liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080d6f, "搜索");
                     liveFeedPageToolItemView2.setOnClickListener(new b(this));
                     this.f.addView(liveFeedPageToolItemView2, new LinearLayout.LayoutParams(-1, (int) TypedValue.applyDimension(1, 57.0f, getResources().getDisplayMetrics())));
                 }
@@ -476,7 +476,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
         if (this.e.getVisibility() == 0) {
             layoutParams2.addRule(15);
         } else {
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091452);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091467);
             layoutParams2.bottomMargin = (int) TypedValue.applyDimension(1, 7.0f, getResources().getDisplayMetrics());
         }
         this.g.setLayoutParams(layoutParams2);

@@ -130,7 +130,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             if (videoMiddleFragment != null) {
                 videoMiddleFragment.setPrimary(true);
                 this.d.setUserVisibleHint(true);
-                cr4.w().P(br4.c0, this.d.K0());
+                cr4.w().P(br4.c0, this.d.J0());
             }
         }
     }
@@ -217,7 +217,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         super.onActivityResult(i, i2, intent);
         VideoMiddleFragment videoMiddleFragment = this.d;
         if (videoMiddleFragment != null) {
-            videoMiddleFragment.i1(i, i2, intent);
+            videoMiddleFragment.h1(i, i2, intent);
         }
     }
 
@@ -243,7 +243,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
-            setContentView(R.layout.obfuscated_res_0x7f0d0904);
+            setContentView(R.layout.obfuscated_res_0x7f0d0919);
             this.e = new nv5(getPageContext(), "client_videomiddle");
             s1();
             t1();
@@ -281,7 +281,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                     if (videoMiddleFragment.s1()) {
                         return false;
                     }
-                    this.d.G0();
+                    this.d.E0();
                 }
                 finish();
                 return false;
@@ -318,7 +318,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.c)) {
-                ej.P(this, R.string.obfuscated_res_0x7f0f0cfb);
+                ej.P(this, R.string.obfuscated_res_0x7f0f0d05);
                 finish();
                 return;
             }
@@ -335,7 +335,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             this.d.setArguments(getIntent().getExtras());
             this.d.d2(this.c);
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09268e, this.d);
+            beginTransaction.add(R.id.obfuscated_res_0x7f0926ed, this.d);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
         }

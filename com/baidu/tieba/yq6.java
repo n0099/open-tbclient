@@ -183,8 +183,8 @@ public class yq6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b = (RelativeLayout) this.m.findViewById(R.id.right_container);
-            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091d91);
-            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091d93);
+            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091dd3);
+            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091dd5);
         }
     }
 
@@ -243,7 +243,7 @@ public class yq6 {
             this.g.setNextPage(this.i);
             this.i.l();
             this.i.c().setPadding(0, 0, 0, 0);
-            this.i.P();
+            this.i.Q();
         }
     }
 
@@ -252,7 +252,7 @@ public class yq6 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             ArrayList arrayList = new ArrayList();
             mo moVar = new mo();
-            moVar.a = this.a.getString(R.string.obfuscated_res_0x7f0f0714);
+            moVar.a = this.a.getString(R.string.obfuscated_res_0x7f0f071d);
             moVar.b = R.drawable.new_pic_emotion_06;
             arrayList.add(moVar);
             this.j.c(arrayList);
@@ -294,7 +294,7 @@ public class yq6 {
             this.g.setNextPage(this.i);
             this.i.l();
             this.i.c().setPadding(0, ej.g(this.a.getPageActivity(), R.dimen.tbds62), 0, ej.g(this.a.getPageActivity(), R.dimen.tbds362));
-            this.i.F(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0713));
+            this.i.F(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f071c));
             this.i.g();
         }
     }

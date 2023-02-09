@@ -28,7 +28,7 @@ public class gq6 extends as6<hq6, ManagerApplyViewHolder> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: n */
-    public static final int obfuscated = 2131296966;
+    public static final int obfuscated = 2131296972;
     public transient /* synthetic */ FieldHolder $fh;
     public t95 l;
     public View.OnClickListener m;
@@ -123,7 +123,7 @@ public class gq6 extends as6<hq6, ManagerApplyViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ManagerApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d033b, (ViewGroup) null));
+            return new ManagerApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d033d, (ViewGroup) null));
         }
         return (ManagerApplyViewHolder) invokeL.objValue;
     }

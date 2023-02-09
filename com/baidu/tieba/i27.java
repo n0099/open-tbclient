@@ -109,7 +109,7 @@ public abstract class i27 implements k27 {
                 return;
             }
         }
-        lz8.b();
+        p09.b();
     }
 
     @Override // com.baidu.tieba.k27

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a89;
+import com.baidu.tieba.e99;
 import com.baidu.tieba.fo7;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
@@ -30,11 +30,11 @@ import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingM
 import com.baidu.tieba.j05;
 import com.baidu.tieba.kl7;
 import com.baidu.tieba.kp5;
-import com.baidu.tieba.l89;
 import com.baidu.tieba.ls7;
 import com.baidu.tieba.ns7;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.op5;
+import com.baidu.tieba.p99;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.ym7;
@@ -49,8 +49,8 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public transient /* synthetic */ FieldHolder $fh;
     public ns7 a;
     public PersonalTalkSettingModel b;
-    public a89 c;
-    public l89 d;
+    public e99 c;
+    public p99 d;
     public long e;
     public final CustomMessageListener f;
     public yb g;
@@ -429,7 +429,7 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                 this.e = bundle.getLong("userId");
             }
             this.b = new PersonalTalkSettingModel(this, this, this.e);
-            this.d = new l89(getPageContext(), getUniqueId());
+            this.d = new p99(getPageContext(), getUniqueId());
         }
     }
 
@@ -528,34 +528,34 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        l89 l89Var;
+        p99 p99Var;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0925b4) {
+            if (id == R.id.obfuscated_res_0x7f092602) {
                 PersonalTalkSettingModel personalTalkSettingModel = this.b;
                 if (personalTalkSettingModel != null && personalTalkSettingModel.R() != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.e), this.b.R().name)));
                     ls7.a("c14629");
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09206d) {
+            } else if (id == R.id.obfuscated_res_0x7f0920b1) {
                 j05 j05Var = new j05(getPageContext().getPageActivity());
-                j05Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f1092)).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this)).create(getPageContext());
+                j05Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f10a6)).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this)).create(getPageContext());
                 j05Var.show();
-            } else if (id == R.id.obfuscated_res_0x7f09206e) {
-                if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921343, a89.class, getPageContext().getPageActivity())) != null) {
-                    this.c = (a89) runTask.getData();
+            } else if (id == R.id.obfuscated_res_0x7f0920b2) {
+                if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921343, e99.class, getPageContext().getPageActivity())) != null) {
+                    this.c = (e99) runTask.getData();
                 }
-                a89 a89Var = this.c;
-                if (a89Var != null) {
-                    a89Var.b(getUniqueId());
+                e99 e99Var = this.c;
+                if (e99Var != null) {
+                    e99Var.b(getUniqueId());
                     this.c.c(String.valueOf(this.e));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_PERSON_TALK_REPORT_CLICK).param("obj_locate", 2));
                 }
                 ls7.a("c14635");
-            } else if (id == R.id.obfuscated_res_0x7f09012b && (l89Var = this.d) != null && this.b != null) {
-                l89Var.n(this.e);
+            } else if (id == R.id.obfuscated_res_0x7f09012d && (p99Var = this.d) != null && this.b != null) {
+                p99Var.n(this.e);
             }
         }
     }

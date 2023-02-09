@@ -190,7 +190,7 @@ public class nw5 extends BaseAdapter {
                             bVar = new b(this, null);
                             bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090051);
                             bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090071);
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907ce);
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907da);
                             bVar.d = textView;
                             p15.d(textView).v(R.color.CAM_X0105);
                             bVar.d.setOnClickListener(this.d);
@@ -200,7 +200,7 @@ public class nw5 extends BaseAdapter {
                         } else {
                             view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
                             bVar = new b(this, null);
-                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09012a);
+                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09012c);
                             view2.setTag(bVar);
                             p15.d(bVar.b).v(R.color.CAM_X0302);
                         }

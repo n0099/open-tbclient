@@ -388,14 +388,14 @@ public class it7 extends BaseCardInfo {
             this.g.n = feedData.getQuote_pid();
             if (feedData.getQuote_user() != null) {
                 if (StringHelper.equals(feedData.getQuote_user().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b55);
+                    str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b5f);
                 } else {
                     str = feedData.getQuote_user().getName_show();
                 }
             } else {
                 str = "";
             }
-            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10a1, new Object[]{str, feedData.getQuote_content()});
+            this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f10b5, new Object[]{str, feedData.getQuote_content()});
             if (TextUtils.isGraphic(this.g.g)) {
                 OriginalThreadInfo originalThreadInfo3 = this.g;
                 originalThreadInfo3.g = originalThreadInfo3.g.replace("\n", " ");
@@ -408,7 +408,7 @@ public class it7 extends BaseCardInfo {
         } else {
             this.g.n = "0";
             if (feedData.isShareThread() && feedData.getOriginalThreadInfo() != null) {
-                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1211, new Object[]{feedData.getOriginalThreadInfo().b});
+                this.g.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1227, new Object[]{feedData.getOriginalThreadInfo().b});
             } else {
                 this.g.g = feedData.getTitle();
             }
@@ -472,7 +472,7 @@ public class it7 extends BaseCardInfo {
             this.x = str2;
             OriginalThreadInfo originalThreadInfo = this.g;
             originalThreadInfo.c = str2;
-            originalThreadInfo.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c03);
+            originalThreadInfo.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c0d);
             OriginalThreadInfo originalThreadInfo2 = this.g;
             originalThreadInfo2.a = 5;
             originalThreadInfo2.k = 70;

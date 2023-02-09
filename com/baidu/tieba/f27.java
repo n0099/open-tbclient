@@ -40,7 +40,7 @@ public class f27 implements e27, d27 {
     public TextView c;
     public TextView d;
     public TbClipImageView e;
-    public m09 f;
+    public q19 f;
     public ImageView g;
     public ImageOverlayView h;
     public FrsViewData i;
@@ -81,7 +81,7 @@ public class f27 implements e27, d27 {
                     customResponsedMessage.setOrginalMessage(customMessage);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                 }
-                if (TextUtils.equals(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0933), this.a.f.b) && this.a.i != null && this.a.i.getForum() != null && !TextUtils.isEmpty(this.a.i.getForum().getId())) {
+                if (TextUtils.equals(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f093d), this.a.f.b) && this.a.i != null && this.a.i.getForum() != null && !TextUtils.isEmpty(this.a.i.getForum().getId())) {
                     HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
                     hotUserRankActivityConfig.setForumId(Long.valueOf(dh.g(this.a.i.getForum().getId(), 0L)));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
@@ -117,12 +117,12 @@ public class f27 implements e27, d27 {
             }
         }
         this.j = new a(this);
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0346, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0348, (ViewGroup) null);
         this.a = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c74);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c76);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c78);
-        TbClipImageView tbClipImageView = (TbClipImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c77);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c85);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c87);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c89);
+        TbClipImageView tbClipImageView = (TbClipImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c88);
         this.e = tbClipImageView;
         tbClipImageView.setDrawerType(1);
         this.e.setIsRound(true);
@@ -130,42 +130,42 @@ public class f27 implements e27, d27 {
         int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds57);
         int dimensionPixelOffset2 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds1);
         int dimensionPixelOffset3 = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds15);
-        ImageOverlayView imageOverlayView = (ImageOverlayView) this.a.findViewById(R.id.obfuscated_res_0x7f090f70);
+        ImageOverlayView imageOverlayView = (ImageOverlayView) this.a.findViewById(R.id.obfuscated_res_0x7f090f81);
         this.h = imageOverlayView;
         imageOverlayView.a(3, dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, R.color.CAM_X0618, dimensionPixelOffset3);
         this.h.setStrokeStyle(1);
         this.h.setLoadImageType(12);
         this.a.setOnClickListener(this.j);
-        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c75);
+        this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c86);
     }
 
     @Override // com.baidu.tieba.e27
-    public void a(l09 l09Var, FrsViewData frsViewData) {
+    public void a(p19 p19Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, l09Var, frsViewData) == null) && l09Var != null && !ListUtils.isEmpty(l09Var.b)) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, p19Var, frsViewData) == null) && p19Var != null && !ListUtils.isEmpty(p19Var.b)) {
             this.i = frsViewData;
-            m09 m09Var = l09Var.b.get(0);
-            if (m09Var == null) {
+            q19 q19Var = p19Var.b.get(0);
+            if (q19Var == null) {
                 return;
             }
-            this.f = m09Var;
-            if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0933), this.f.b)) {
+            this.f = q19Var;
+            if (!TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093d), this.f.b)) {
                 this.c.setText(this.a.getContext().getString(R.string.forum_exclusive));
             } else {
-                this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f07a1));
-                this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0906));
+                this.c.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f07aa));
+                this.b.setText(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0910));
             }
-            this.d.setText(StringHelper.cutStringWithEllipsisStrict(m09Var.c, 20));
-            if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0933), m09Var.b)) {
+            this.d.setText(StringHelper.cutStringWithEllipsisStrict(q19Var.c, 20));
+            if (TextUtils.equals(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093d), q19Var.b)) {
                 this.h.setVisibility(0);
                 this.e.setVisibility(8);
                 f(frsViewData);
             } else {
-                this.e.K(m09Var.b, 10, false);
+                this.e.K(q19Var.b, 10, false);
                 this.e.setVisibility(0);
                 this.h.setVisibility(8);
             }
-            g27.d(m09Var);
+            g27.d(q19Var);
         }
     }
 

@@ -61,7 +61,7 @@ public class r17 extends PriorityOrganizer.Task {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             tg5.b bVar = this.o;
             if (bVar != null) {
-                bVar.S0();
+                bVar.R0();
             }
             t();
         }

@@ -335,13 +335,13 @@ public class SwanFavorDataManager implements kp1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, pk2Var) == null) {
             ds2.t().a();
-            if (!qm3.T(R.string.obfuscated_res_0x7f0f132e) && ds2.t().b()) {
+            if (!qm3.T(R.string.obfuscated_res_0x7f0f1345) && ds2.t().b()) {
                 if (!SwanAppNetworkUtils.h()) {
                     if (pk2Var != null) {
                         pk2Var.a();
                     }
                 } else if (TextUtils.equals(str, v83.K().q().O()) && v83.K().q().W().getType() != 0) {
-                    o83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1301).G();
+                    o83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1318).G();
                     pk2Var.b(true);
                 } else {
                     SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
@@ -358,7 +358,7 @@ public class SwanFavorDataManager implements kp1 {
 
     public void c(String str, qk2 qk2Var, qi2.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, qk2Var, bVar) != null) || qm3.T(R.string.obfuscated_res_0x7f0f132e)) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, qk2Var, bVar) != null) || qm3.T(R.string.obfuscated_res_0x7f0f1345)) {
             return;
         }
         if (!SwanAppNetworkUtils.h()) {
@@ -366,7 +366,7 @@ public class SwanFavorDataManager implements kp1 {
                 qk2Var.a();
             }
         } else if (TextUtils.equals(str, v83.K().q().O()) && v83.K().q().W().getType() != 0) {
-            o83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1301).G();
+            o83.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1318).G();
             qk2Var.c(true);
         } else {
             if (uf2.g(str, qk2Var, bVar)) {

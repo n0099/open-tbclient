@@ -27,6 +27,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
+import com.baidu.tieba.di9;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.j05;
 import com.baidu.tieba.lb5;
@@ -37,7 +38,6 @@ import com.baidu.tieba.p35;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.write.view.CustomPrivacyDialogView;
 import com.baidu.tieba.xb5;
-import com.baidu.tieba.zg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -145,7 +145,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                         }
                         this.a.b.C(i);
                         if ("2".equals(this.a.b.h)) {
-                            zg9.b(this.a.b.j, i);
+                            di9.b(this.a.b.j, i);
                         }
                     }
                 }
@@ -411,7 +411,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class h implements zg9.c {
+    public class h implements di9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditorInfoContainer a;
@@ -434,7 +434,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
             this.a = editorInfoContainer;
         }
 
-        @Override // com.baidu.tieba.zg9.c
+        @Override // com.baidu.tieba.di9.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeI(1048576, this, i) != null) {
@@ -554,10 +554,10 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                     j05Var.setNegativeButton((String) null, (j05.e) null);
                     j05Var.setContentViewSize(6);
                     CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-                    customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f16e9));
+                    customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f1701));
                     customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-                    customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f16e7));
-                    customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f16e8));
+                    customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f16ff));
+                    customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f1700));
                     customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new b(this, jVar, j05Var));
                     customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new c(this, jVar, j05Var));
                     j05Var.setContentView(customPrivacyDialogView);
@@ -635,7 +635,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048596, this, str, i2) == null) && "2".equals(this.h)) {
             this.j = str;
-            zg9.a(str, i2, new h(this));
+            di9.a(str, i2, new h(this));
         }
     }
 
@@ -664,7 +664,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0ff0));
+            this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1004));
             TBSpecificationButtonConfig styleConfig = this.a.getStyleConfig();
             if (i2 == 0) {
                 i3 = R.drawable.icon_pure_post_chosen12;
@@ -703,7 +703,7 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f123f));
+            this.c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1255));
             TBSpecificationButtonConfig styleConfig = this.c.getStyleConfig();
             if (z) {
                 i2 = R.drawable.icon_pure_post_chosen12;

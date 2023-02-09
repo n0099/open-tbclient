@@ -555,7 +555,7 @@ public abstract class bq4 implements hr2 {
                     if (z) {
                         aVar.onEnded();
                     } else {
-                        aVar.b(bq4Var.c());
+                        aVar.c(bq4Var.c());
                     }
                 }
             }
@@ -612,7 +612,7 @@ public abstract class bq4 implements hr2 {
                         break;
                 }
                 this.a.z0(i);
-                this.a.i.a(i);
+                this.a.i.b(i);
                 if (i == 904) {
                     this.a.C0();
                     return false;
@@ -1179,7 +1179,7 @@ public abstract class bq4 implements hr2 {
             G0(false);
             hr2.a aVar = this.i;
             if (aVar != null) {
-                aVar.b(c());
+                aVar.c(c());
             }
         }
     }
@@ -1213,7 +1213,7 @@ public abstract class bq4 implements hr2 {
             }
             hr2.a aVar = this.i;
             if (aVar != null) {
-                aVar.c(a2);
+                aVar.d(a2);
             }
         }
     }
@@ -1232,7 +1232,7 @@ public abstract class bq4 implements hr2 {
                 G0(true);
                 hr2.a aVar = this.i;
                 if (aVar != null) {
-                    aVar.b(c());
+                    aVar.c(c());
                     return;
                 }
                 return;
@@ -1242,7 +1242,7 @@ public abstract class bq4 implements hr2 {
             F0(true);
             hr2.a aVar2 = this.i;
             if (aVar2 != null) {
-                aVar2.d(c());
+                aVar2.e(c());
             }
         }
     }
@@ -1340,11 +1340,11 @@ public abstract class bq4 implements hr2 {
             }
             if (b2 != 100) {
                 if (b2 == 2101 && (aVar = this.i) != null) {
-                    aVar.e(2102);
+                    aVar.a(2102);
                 }
                 hr2.a aVar2 = this.i;
                 if (aVar2 != null) {
-                    aVar2.e(b2);
+                    aVar2.a(b2);
                 }
             }
         }

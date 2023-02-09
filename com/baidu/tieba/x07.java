@@ -378,7 +378,7 @@ public class x07 extends g17 {
         x47 c0;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, intent) == null) {
-            FrsViewData Y0 = this.b.Y0();
+            FrsViewData X0 = this.b.X0();
             switch (i) {
                 case 11002:
                     this.d.x0(true);
@@ -413,17 +413,17 @@ public class x07 extends g17 {
                         return;
                     }
                     String stringExtra = intent.getStringExtra("tid");
-                    if (stringExtra != null && (threadDataById = Y0.getThreadDataById(stringExtra)) != null) {
+                    if (stringExtra != null && (threadDataById = X0.getThreadDataById(stringExtra)) != null) {
                         if (intExtra == 2) {
                             threadDataById.setIs_good(intent.getIntExtra("good_data", 0));
                             threadDataById.parser_title();
                         }
-                        h(Y0, intent, stringExtra);
+                        h(X0, intent, stringExtra);
                         return;
                     }
                     return;
                 case 18004:
-                    r47.e(this.b.getPageContext(), Y0);
+                    r47.e(this.b.getPageContext(), X0);
                     return;
                 case 23007:
                     k(intent);
@@ -535,8 +535,8 @@ public class x07 extends g17 {
         thread2GroupShareView.setData(shareFromPBMsgData);
         j05Var.setContentViewSize(1);
         j05Var.setContentView(thread2GroupShareView);
-        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f11e9, new c(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
-        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this, thread2GroupShareView));
+        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f11ff, new c(this, thread2GroupShareView, j, str, str2, str3, shareFromPBMsgData));
+        j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(this, thread2GroupShareView));
         j05Var.setCanceledOnTouchOutside(true);
         j05Var.create(this.b.getPageContext()).show();
         if (!dj.isEmpty(shareFromPBMsgData.getImageUrl())) {

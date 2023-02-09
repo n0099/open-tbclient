@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ls9;
+import com.baidu.tieba.os9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class ns9 {
+public final class ns9 implements ls9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public float d;
-    public String e;
-    public String f;
-    public String g;
+
+    @Override // com.baidu.tieba.ls9.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ls9.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
     public ns9() {
         Interceptable interceptable = $ic;
@@ -33,26 +42,23 @@ public class ns9 {
         }
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.ls9.a
+    public final void a(Activity activity) {
+        os9 os9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = 0.0f;
-            this.e = "";
-            this.f = "";
-            this.g = "";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            os9Var = os9.a.a;
+            os9Var.c(new WeakReference<>(activity));
         }
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ls9.a
+    public final void onActivityDestroyed(Activity activity) {
+        os9 os9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "sft : " + this.a + ", bft : " + this.b + ", fc : " + this.c + ", time : " + this.d + ", cpu : " + this.e + ", mem : " + this.f + ", gpu : " + this.g;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            os9Var = os9.a.a;
+            os9Var.d(activity);
         }
-        return (String) invokeV.objValue;
     }
 }

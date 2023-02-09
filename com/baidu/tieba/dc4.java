@@ -200,7 +200,7 @@ public class dc4 implements ec4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0863, (ViewGroup) null);
+            return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0875, (ViewGroup) null);
         }
         return (View) invokeV.objValue;
     }

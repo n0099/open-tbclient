@@ -193,19 +193,19 @@ public class az6 {
             if (pbListView.c().getParent() == null) {
                 this.f.setNextPage(this.h);
             }
-            this.h.Q();
-            this.h.S();
+            this.h.R();
+            this.h.T();
         }
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) null);
             this.c = inflate;
             this.g = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d06);
-            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090d07);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d17);
+            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090d18);
             this.f = bdTypeListView;
             bdTypeListView.setDivider(null);
             z35 z35Var = new z35(this.a);

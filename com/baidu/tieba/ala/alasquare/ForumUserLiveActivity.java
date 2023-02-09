@@ -192,15 +192,15 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements o16 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02d1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09171b);
+            setContentView(R.layout.obfuscated_res_0x7f0d02d3);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091732);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f071f));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0728));
             int i = 2;
             this.c = LiveTabYYSubFragment.T1(false, 2, 4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f09070d);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09070d, this.c).commitAllowingStateLoss();
+            this.b = findViewById(R.id.obfuscated_res_0x7f090718);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090718, this.c).commitAllowingStateLoss();
             this.e = getIntent().getStringExtra("KEY_FORUM_ID");
             String stringExtra = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
             this.d = getIntent().getStringExtra("from");

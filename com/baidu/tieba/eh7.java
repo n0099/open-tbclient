@@ -58,7 +58,7 @@ public class eh7 extends mc6<bh7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ce : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01cf : invokeV.intValue;
     }
 
     static {
@@ -98,19 +98,19 @@ public class eh7 extends mc6<bh7> {
         this.j = 3;
         this.y = ej.g(getContext(), R.dimen.M_W_X005);
         View h = h();
-        this.k = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0905ec);
-        this.v = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905ee);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905e9);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905ed);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905ea);
-        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905e3);
-        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905e6);
-        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905e5);
-        this.r = h.findViewById(R.id.obfuscated_res_0x7f0905e8);
-        this.s = (TopicPkView) h.findViewById(R.id.obfuscated_res_0x7f0905eb);
-        this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f0905e4);
-        this.u = h.findViewById(R.id.obfuscated_res_0x7f0905e7);
-        this.i = h.findViewById(R.id.obfuscated_res_0x7f0905e2);
+        this.k = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0905f7);
+        this.v = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905f9);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905f4);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905f8);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905f5);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905ee);
+        this.p = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0905f1);
+        this.q = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905f0);
+        this.r = h.findViewById(R.id.obfuscated_res_0x7f0905f3);
+        this.s = (TopicPkView) h.findViewById(R.id.obfuscated_res_0x7f0905f6);
+        this.t = (ThreadGodReplyLayout) h.findViewById(R.id.obfuscated_res_0x7f0905ef);
+        this.u = h.findViewById(R.id.obfuscated_res_0x7f0905f2);
+        this.i = h.findViewById(R.id.obfuscated_res_0x7f0905ed);
         HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.user_avatar);
         this.w = headImageView;
         headImageView.setIsRound(true);
@@ -217,13 +217,13 @@ public class eh7 extends mc6<bh7> {
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             int g = ej.g(getContext(), R.dimen.tbds16);
-            layoutParams.addRule(1, R.id.obfuscated_res_0x7f0905e9);
+            layoutParams.addRule(1, R.id.obfuscated_res_0x7f0905f4);
             layoutParams.setMargins(g, 0, g, 0);
             ThreadCardUtils.cutAndSetTextByMaxLine(this.o, bh7Var.U, R.string.check_detail, R.dimen.tbds17, 2, z, true);
             if (bh7Var.V == 0) {
                 this.n.setText(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT);
             } else {
-                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1512), StringHelper.numberUniformFormat(bh7Var.V)));
+                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1529), StringHelper.numberUniformFormat(bh7Var.V)));
             }
             if (bh7Var.Y == null) {
                 this.t.setVisibility(8);
@@ -258,7 +258,7 @@ public class eh7 extends mc6<bh7> {
         if (str.length() > 14) {
             str = str.substring(0, 13) + StringHelper.STRING_MORE;
         }
-        this.m.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f04ae), str));
+        this.m.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f04b1), str));
         if (StringUtils.isNull(bh7Var.W)) {
             this.p.setVisibility(8);
             this.s.setUserColor(R.color.CAM_X0109);

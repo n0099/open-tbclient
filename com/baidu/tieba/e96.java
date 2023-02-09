@@ -4,7 +4,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.d96;
-import com.baidu.tieba.ve9;
+import com.baidu.tieba.zf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class e96 implements d96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ve9 a;
+    public zf9 a;
     public TextView b;
     public d96.c c;
     public d96.b d;
     public d96.a e;
 
     /* loaded from: classes4.dex */
-    public class a implements ve9.a {
+    public class a implements zf9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e96 a;
@@ -44,7 +44,7 @@ public class e96 implements d96 {
             this.a = e96Var;
         }
 
-        @Override // com.baidu.tieba.ve9.a
+        @Override // com.baidu.tieba.zf9.a
         public void onProgress(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
@@ -52,7 +52,7 @@ public class e96 implements d96 {
             }
         }
 
-        @Override // com.baidu.tieba.ve9.a
+        @Override // com.baidu.tieba.zf9.a
         public void a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
@@ -65,7 +65,7 @@ public class e96 implements d96 {
             }
         }
 
-        @Override // com.baidu.tieba.ve9.a
+        @Override // com.baidu.tieba.zf9.a
         public float getSpeed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class e96 implements d96 {
             return invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.ve9.a
+        @Override // com.baidu.tieba.zf9.a
         public void onFinish() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
@@ -87,12 +87,12 @@ public class e96 implements d96 {
         }
     }
 
-    public e96(ve9 ve9Var, TextView textView, d96.c cVar, d96.b bVar, d96.a aVar) {
+    public e96(zf9 zf9Var, TextView textView, d96.c cVar, d96.b bVar, d96.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ve9Var, textView, cVar, bVar, aVar};
+            Object[] objArr = {zf9Var, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,7 +102,7 @@ public class e96 implements d96 {
                 return;
             }
         }
-        this.a = ve9Var;
+        this.a = zf9Var;
         this.b = textView;
         this.c = cVar;
         this.d = bVar;
@@ -115,9 +115,9 @@ public class e96 implements d96 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.setMaxDuration(i);
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.setMaxDuration(i);
                 this.a.invalidate();
                 return true;
             }
@@ -131,9 +131,9 @@ public class e96 implements d96 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.setMinDuration(i);
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.setMinDuration(i);
                 this.a.invalidate();
                 return true;
             }
@@ -147,9 +147,9 @@ public class e96 implements d96 {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.setProgress(j);
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.setProgress(j);
                 return true;
             }
             return false;
@@ -162,9 +162,9 @@ public class e96 implements d96 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.setShowDeleteLastTip(z);
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.setShowDeleteLastTip(z);
                 return true;
             }
             return false;
@@ -177,9 +177,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.a();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.a();
                 return true;
             }
             return false;
@@ -192,9 +192,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                return ve9Var.b();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                return zf9Var.b();
             }
             return false;
         }
@@ -206,9 +206,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                return ve9Var.getMaxDuration();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                return zf9Var.getMaxDuration();
             }
             return 0;
         }
@@ -220,9 +220,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                return ve9Var.getProgress();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                return zf9Var.getProgress();
             }
             return 0.0f;
         }
@@ -234,9 +234,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                return ve9Var.getSlideNum();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                return zf9Var.getSlideNum();
             }
             return 0;
         }
@@ -247,11 +247,11 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var == null) {
+            zf9 zf9Var = this.a;
+            if (zf9Var == null) {
                 return false;
             }
-            ve9Var.setOnProgressListener(new a(this));
+            zf9Var.setOnProgressListener(new a(this));
             return true;
         }
         return invokeV.booleanValue;
@@ -262,9 +262,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.stop();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.stop();
                 return true;
             }
             return false;
@@ -277,9 +277,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.reset();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.reset();
                 return true;
             }
             return false;
@@ -292,9 +292,9 @@ public class e96 implements d96 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            ve9 ve9Var = this.a;
-            if (ve9Var != null) {
-                ve9Var.start();
+            zf9 zf9Var = this.a;
+            if (zf9Var != null) {
+                zf9Var.start();
                 return true;
             }
             return false;

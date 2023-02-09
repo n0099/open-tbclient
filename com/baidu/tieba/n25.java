@@ -321,7 +321,7 @@ public class n25 extends WebViewClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, webResourceRequest)) == null) {
             if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
                 String uri = webResourceRequest.getUrl().toString();
-                if (kq8.v(uri)) {
+                if (or8.v(uri)) {
                     WebViewClient webViewClient2 = this.a;
                     if (webViewClient2 != null) {
                         return webViewClient2.shouldInterceptRequest(webView, webResourceRequest);
@@ -330,7 +330,7 @@ public class n25 extends WebViewClient {
                 }
                 try {
                     String path = new URL(uri).getPath();
-                    mq8 c = lq8.a().c(path);
+                    qr8 c = pr8.a().c(path);
                     if (c == null) {
                         if (this.a != null) {
                             return this.a.shouldInterceptRequest(webView, webResourceRequest);
@@ -347,16 +347,16 @@ public class n25 extends WebViewClient {
                         }
                         return super.shouldInterceptRequest(webView, webResourceRequest);
                     } else {
-                        ?? s = kq8.q().s(c.b);
+                        ?? s = or8.q().s(c.b);
                         ?? sb = new StringBuilder();
-                        String p = kq8.q().p();
+                        String p = or8.q().p();
                         sb.append(p);
                         sb.append("/");
                         sb.append(c.b);
                         sb.append("/");
                         sb.append(s);
                         sb.append("/");
-                        String str = sb.toString() + lq8.a().e(path);
+                        String str = sb.toString() + pr8.a().e(path);
                         InputStreamReader inputStreamReader = null;
                         try {
                             try {

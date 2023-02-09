@@ -1410,7 +1410,7 @@ public final class tm4 extends sm4 implements on4 {
             for (int i = 0; i < this.e.size(); i++) {
                 Fragment fragment = this.e.get(i);
                 if (fragment != null) {
-                    fragment.Z0(menu);
+                    fragment.a1(menu);
                 }
             }
         }
@@ -1618,7 +1618,7 @@ public final class tm4 extends sm4 implements on4 {
                                         fragment.J = r14;
                                     }
                                 }
-                                fragment.O0(fragment.d);
+                                fragment.P0(fragment.d);
                                 if (fragment.I != null) {
                                     fragment.i1(fragment.d);
                                 }

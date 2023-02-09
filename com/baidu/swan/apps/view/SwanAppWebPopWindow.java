@@ -161,9 +161,9 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
                 if (ka2Var != null) {
                     ka2Var.b(i);
                 }
-                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.e.Q).inflate(R.layout.obfuscated_res_0x7f0d00ce, (ViewGroup) null);
+                LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.e.Q).inflate(R.layout.obfuscated_res_0x7f0d00cf, (ViewGroup) null);
                 linearLayout.setBackgroundColor(-1);
-                linearLayout.findViewById(R.id.obfuscated_res_0x7f09092a).setOnClickListener(new a(this));
+                linearLayout.findViewById(R.id.obfuscated_res_0x7f090938).setOnClickListener(new a(this));
                 this.e.W.addView(linearLayout);
             }
         }
@@ -437,8 +437,8 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ImageView imageView = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f090193);
-            imageView.setImageDrawable(imageView.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811af));
+            ImageView imageView = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f090195);
+            imageView.setImageDrawable(imageView.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811c5));
             imageView.setVisibility(0);
             return this;
         }
@@ -498,7 +498,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         if (Build.VERSION.SDK_INT > 29) {
             H(true);
         }
-        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.Q).inflate(R.layout.obfuscated_res_0x7f0d00ae, (ViewGroup) null);
+        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.Q).inflate(R.layout.obfuscated_res_0x7f0d00af, (ViewGroup) null);
         this.R = frameLayout;
         frameLayout.measure(0, 0);
         E(this.R);
@@ -591,7 +591,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            View findViewById = this.R.findViewById(R.id.obfuscated_res_0x7f0915aa);
+            View findViewById = this.R.findViewById(R.id.obfuscated_res_0x7f0915c0);
             this.S = findViewById;
             findViewById.getBackground().setAlpha(153);
             this.S.setOnClickListener(this);
@@ -621,14 +621,14 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
     public final void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ImageView imageView = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f0913ab);
+            ImageView imageView = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f0913c0);
             this.e0 = imageView;
             imageView.setOnClickListener(this);
-            ((TextView) this.R.findViewById(R.id.obfuscated_res_0x7f090194)).setText(this.d0);
-            ImageView imageView2 = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f090192);
+            ((TextView) this.R.findViewById(R.id.obfuscated_res_0x7f090196)).setText(this.d0);
+            ImageView imageView2 = (ImageView) this.R.findViewById(R.id.obfuscated_res_0x7f090194);
             imageView2.setOnClickListener(this);
             LinearLayout linearLayout = (LinearLayout) this.R.findViewById(R.id.btn_close);
-            TextView textView = (TextView) this.R.findViewById(R.id.obfuscated_res_0x7f0904af);
+            TextView textView = (TextView) this.R.findViewById(R.id.obfuscated_res_0x7f0904ba);
             textView.setBackgroundColor(-1);
             textView.setOnClickListener(this);
             int i = d.a[t0.ordinal()];
@@ -656,8 +656,8 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
             } else if (i < i2) {
                 this.V = i2;
             }
-            this.T = (SwanAppWebPopPullLayout) this.R.findViewById(R.id.obfuscated_res_0x7f090197);
-            this.U = (RelativeLayout) this.R.findViewById(R.id.obfuscated_res_0x7f090195);
+            this.T = (SwanAppWebPopPullLayout) this.R.findViewById(R.id.obfuscated_res_0x7f090199);
+            this.U = (RelativeLayout) this.R.findViewById(R.id.obfuscated_res_0x7f090197);
             this.T.setFitsSystemWindows(true);
             this.T.setOnClickListener(this);
             ViewGroup.LayoutParams layoutParams = this.T.getLayoutParams();
@@ -668,7 +668,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
             this.T.setLayoutParams(layoutParams);
             this.T.setCallback(this);
             q0();
-            FrameLayout frameLayout = (FrameLayout) this.R.findViewById(R.id.obfuscated_res_0x7f090de9);
+            FrameLayout frameLayout = (FrameLayout) this.R.findViewById(R.id.obfuscated_res_0x7f090dfa);
             this.W = frameLayout;
             frameLayout.setBackgroundColor(-1);
             this.W.setOverScrollMode(2);
@@ -696,7 +696,7 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0913ab) {
+            if (id == R.id.obfuscated_res_0x7f0913c0) {
                 this.j0--;
                 if (this.Y.canGoBack()) {
                     this.Y.goBack();
@@ -707,11 +707,11 @@ public class SwanAppWebPopWindow extends PopupWindow implements SwanAppWebPopPul
                     return;
                 }
                 r();
-            } else if (id == R.id.obfuscated_res_0x7f090192) {
+            } else if (id == R.id.obfuscated_res_0x7f090194) {
                 r();
-            } else if (id == R.id.obfuscated_res_0x7f0904af) {
+            } else if (id == R.id.obfuscated_res_0x7f0904ba) {
                 r();
-            } else if (id == R.id.obfuscated_res_0x7f0915aa) {
+            } else if (id == R.id.obfuscated_res_0x7f0915c0) {
                 r();
             }
         }

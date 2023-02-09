@@ -48,7 +48,7 @@ public class qc6 extends mc6<ei6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018b : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -155,11 +155,11 @@ public class qc6 extends mc6<ei6> {
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ba8);
-            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ba7);
-            this.r = view2.findViewById(R.id.obfuscated_res_0x7f090856);
-            this.s = view2.findViewById(R.id.obfuscated_res_0x7f090857);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09052a);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bb9);
+            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bb8);
+            this.r = view2.findViewById(R.id.obfuscated_res_0x7f090864);
+            this.s = view2.findViewById(R.id.obfuscated_res_0x7f090865);
             int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.tbds44);
             if (this.l == null) {
                 this.l = new oc6(this.b, null, null);

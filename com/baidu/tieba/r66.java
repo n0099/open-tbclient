@@ -32,7 +32,7 @@ public class r66 extends qn<h76, CardViewHolder<e86>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public d89 b;
+    public h99 b;
     public boolean c;
     public String d;
     public String e;
@@ -272,15 +272,15 @@ public class r66 extends qn<h76, CardViewHolder<e86>> {
             if (Build.VERSION.SDK_INT < 21) {
                 j05 j05Var = new j05(this.a.getPageActivity());
                 j05Var.setAutoNight(false);
-                j05Var.setTitle(R.string.obfuscated_res_0x7f0f0fe9);
+                j05Var.setTitle(R.string.obfuscated_res_0x7f0f0ffd);
                 j05Var.setMessage(this.a.getResources().getString(R.string.disallow_open_live_by_android_v5_0));
                 j05Var.setTitleShowCenter(true);
                 j05Var.setMessageShowCenter(true);
-                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a46, new b(this));
+                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a50, new b(this));
                 j05Var.create(this.a).show();
             } else if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
                 if (this.b == null) {
-                    this.b = new d89(this.a);
+                    this.b = new h99(this.a);
                 }
                 if (this.c) {
                     if (this.b.c()) {

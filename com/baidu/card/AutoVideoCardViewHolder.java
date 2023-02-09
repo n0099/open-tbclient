@@ -4,17 +4,17 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.dz;
-import com.baidu.tieba.lo8;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.sw4;
-import com.baidu.tieba.vn8;
 import com.baidu.tieba.vy;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder<T> implements vn8 {
+public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder<T> implements zo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public dz j;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void startPlay() {
         dz dzVar;
         Interceptable interceptable = $ic;
@@ -136,7 +136,7 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void stopPlay() {
         dz dzVar;
         Interceptable interceptable = $ic;
@@ -154,11 +154,11 @@ public class AutoVideoCardViewHolder<T extends sw4> extends ThreadCardViewHolder
         return (dz) invokeV.objValue;
     }
 
-    public void u(lo8 lo8Var) {
+    public void u(pp8 pp8Var) {
         dz dzVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, lo8Var) == null) && (dzVar = this.j) != null) {
-            dzVar.C(lo8Var);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, pp8Var) == null) && (dzVar = this.j) != null) {
+            dzVar.C(pp8Var);
         }
     }
 }

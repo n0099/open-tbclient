@@ -58,10 +58,10 @@ public class xo6 {
             }
         }
         this.a = tbPageContext;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02db, (ViewGroup) null);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02dd, (ViewGroup) null);
         this.d = relativeLayout;
         this.e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090ae4);
+        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090af5);
         this.b = bdTypeListView;
         bdTypeListView.addHeaderView(this.k);
         this.b.setDivider(null);
@@ -189,8 +189,8 @@ public class xo6 {
             if (pbListView.c().getParent() == null) {
                 this.b.setNextPage(this.f);
             }
-            this.f.Q();
-            this.f.S();
+            this.f.R();
+            this.f.T();
         }
     }
 
@@ -257,7 +257,7 @@ public class xo6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             if (this.j == null) {
-                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070237)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0588)), null, true);
+                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070237)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f058f)), null, true);
             }
             this.j.setVisibility(0);
             this.g.c().setVisibility(4);

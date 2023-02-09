@@ -43,12 +43,12 @@ public class u03 extends v03 {
 
         /* renamed from: com.baidu.tieba.u03$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0436a implements t03 {
+        public class C0437a implements t03 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0436a(a aVar) {
+            public C0437a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public class u03 extends v03 {
                     return;
                 }
                 w52.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                s03.g().update(new C0436a(this));
+                s03.g().update(new C0437a(this));
             }
         }
     }

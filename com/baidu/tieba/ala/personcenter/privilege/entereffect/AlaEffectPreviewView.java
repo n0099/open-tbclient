@@ -334,11 +334,11 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00ee, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e1);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e0);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901c7);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e2);
+            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00ef, this);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e3);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e2);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901c9);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e4);
         }
     }
 

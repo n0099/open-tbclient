@@ -58,15 +58,15 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
                     return;
                 }
             }
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f090713);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926b0);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f09071e);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09270f);
             this.b = clickableHeaderImageView;
             clickableHeaderImageView.setRadius(ej.g(view2.getContext(), R.dimen.obfuscated_res_0x7f070309));
             this.b.setAutoChangeStyle(true);
             this.b.setClickable(false);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926af);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b1);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0913f1);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09270e);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092710);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f091406);
         }
     }
 
@@ -202,7 +202,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            return new FansViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02a0, (ViewGroup) null));
+            return new FansViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02a1, (ViewGroup) null));
         }
         return (FansViewHolder) invokeLI.objValue;
     }

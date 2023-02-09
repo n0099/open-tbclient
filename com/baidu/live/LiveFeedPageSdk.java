@@ -12,7 +12,7 @@ import com.baidu.live.feedpage.interfaces.IHKLiveFeedPageInvoke;
 import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.a9a;
+import com.baidu.tieba.eaa;
 import com.baidu.tieba.fd0;
 import com.baidu.tieba.jc0;
 import com.baidu.tieba.vb0;
@@ -203,7 +203,7 @@ public class LiveFeedPageSdk {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return a9a.a(context);
+            return eaa.a(context);
         }
         return (String) invokeL.objValue;
     }

@@ -112,14 +112,14 @@ public class ku4 {
             for (ju4 ju4Var : this.d) {
                 if (ju4Var.b() != null) {
                     if (ju4Var.b() instanceof TextView) {
-                        if (this.g && !lz8.e(this.h)) {
+                        if (this.g && !p09.e(this.h)) {
                             ((TextView) ju4Var.b()).setTextColor(this.h);
                         } else {
                             SkinManager.setViewTextColor(ju4Var.b(), d());
                         }
                     } else if (ju4Var.b() instanceof ImageView) {
                         if (this.g) {
-                            if (!lz8.e(this.h)) {
+                            if (!p09.e(this.h)) {
                                 ((ImageView) ju4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(ju4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
                             } else {
                                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) ju4Var.b(), ju4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -190,7 +190,7 @@ public class ku4 {
         if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
             this.f = true;
             this.e = 0.0f;
-            this.h = lz8.f(i(str, "opacitybtnhex"));
+            this.h = p09.f(i(str, "opacitybtnhex"));
             NavigationBar navigationBar = this.b;
             if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
                 this.b.getBackground().mutate().setAlpha(0);

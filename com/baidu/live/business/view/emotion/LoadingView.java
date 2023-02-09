@@ -124,8 +124,8 @@ public class LoadingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setGravity(17);
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, (ViewGroup) this, true);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0914fb);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0562, (ViewGroup) this, true);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091510);
             this.b = lottieAnimationView;
             if (lottieAnimationView != null && lottieAnimationView.isAnimating()) {
                 this.b.cancelAnimation();

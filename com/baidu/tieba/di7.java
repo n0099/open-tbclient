@@ -100,7 +100,7 @@ public class di7 {
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !WriteActivityConfig.isAsyncWriting() && this.c != null) {
             String str = null;
             if (!StringUtils.isNull(this.d)) {
-                str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0915), this.d);
+                str = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f091f), this.d);
             }
             WriteActivityConfig newInstance = WriteActivityConfig.newInstance(this.a.getPageActivity());
             newInstance.setIntentAction(IntentAction.ActivityForResult);

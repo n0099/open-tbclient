@@ -1,38 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import android.app.Activity;
+import com.baidu.tieba.yma;
+import com.baidu.tieba.zma;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes7.dex */
-public class zja {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zja {
+    IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, xja xjaVar);
 
-    public static void a(int i, int i2, CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65536, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                ska.b(i, i2, PayUIEventType.purchaseclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                ska.b(i, i2, PayUIEventType.purchaseclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.purchaseclose_transparent);
-            }
-        }
-    }
+    wma b(Activity activity);
 
-    public static void b(int i, int i2, CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                ska.b(i, i2, PayUIEventType.paypageclose_bt);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_bt);
-            } else if (cancelType == CancelType.EMPTY_AREA_CLICK) {
-                ska.b(i, i2, PayUIEventType.paypageclose_transparent);
-                RLog.info("PayDialogStatistic", PayUIEventType.paypageclose_transparent);
-            }
-        }
-    }
+    vma c(Activity activity);
+
+    xma d(Activity activity);
+
+    IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, xja xjaVar);
+
+    yma f(Activity activity, yma.b bVar, PayUIKitConfig payUIKitConfig);
+
+    IYYPayWayView g(Activity activity, IYYPayWayView.b bVar, bka bkaVar);
+
+    zma h(Activity activity, PayUIKitConfig payUIKitConfig, zma.b bVar, bka bkaVar);
 }

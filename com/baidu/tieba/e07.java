@@ -49,9 +49,9 @@ public class e07 extends hx<l07> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.f == null) {
-                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a0, (ViewGroup) null, true);
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09107d);
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091090);
             }
             return this.f;
         }

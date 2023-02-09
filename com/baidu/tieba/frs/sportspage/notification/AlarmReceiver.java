@@ -52,7 +52,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "bkb";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f1289), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f129f), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -61,7 +61,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Intent intent2 = new Intent(context, DealIntentService.class);
             intent2.putExtra(DealIntentService.KEY_CLASS, 37);
             intent2.putExtra(IntentConfig.KEY_AI_APP_SCHEMA, str3);
-            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0b4d), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
+            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0b57), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

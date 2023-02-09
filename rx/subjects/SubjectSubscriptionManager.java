@@ -2,12 +2,12 @@ package rx.subjects;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gda;
-import com.baidu.tieba.hda;
-import com.baidu.tieba.qha;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.uca;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.kea;
+import com.baidu.tieba.lea;
+import com.baidu.tieba.uia;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,18 +21,18 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes9.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements tca.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements xda.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 6035251036011671568L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean active;
     public volatile Object latest;
-    public hda<c<T>> onAdded;
-    public hda<c<T>> onStart;
-    public hda<c<T>> onTerminated;
+    public lea<c<T>> onAdded;
+    public lea<c<T>> onStart;
+    public lea<c<T>> onTerminated;
 
     /* loaded from: classes9.dex */
-    public class a implements gda {
+    public class a implements kea {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
@@ -57,7 +57,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.gda
+        @Override // com.baidu.tieba.kea
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -167,21 +167,21 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes9.dex */
-    public static final class c<T> implements uca<T> {
+    public static final class c<T> implements yda<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final zca<? super T> a;
+        public final dea<? super T> a;
         public boolean b;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(zca<? super T> zcaVar) {
+        public c(dea<? super T> deaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zcaVar};
+                Object[] objArr = {deaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -192,7 +192,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
                 }
             }
             this.b = true;
-            this.a = zcaVar;
+            this.a = deaVar;
         }
 
         public void a(Object obj) {
@@ -221,7 +221,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
@@ -229,7 +229,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
@@ -316,7 +316,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -365,13 +365,13 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return invokeL.booleanValue;
     }
 
-    public void call(zca<? super T> zcaVar) {
+    public void call(dea<? super T> deaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zcaVar) == null) {
-            c<T> cVar = new c<>(zcaVar);
-            addUnsubscriber(zcaVar, cVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, deaVar) == null) {
+            c<T> cVar = new c<>(deaVar);
+            addUnsubscriber(deaVar, cVar);
             this.onStart.call(cVar);
-            if (!zcaVar.isUnsubscribed() && add(cVar) && zcaVar.isUnsubscribed()) {
+            if (!deaVar.isUnsubscribed() && add(cVar) && deaVar.isUnsubscribed()) {
                 remove(cVar);
             }
         }
@@ -422,16 +422,16 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return (c[]) invokeL.objValue;
     }
 
-    public void addUnsubscriber(zca<? super T> zcaVar, c<T> cVar) {
+    public void addUnsubscriber(dea<? super T> deaVar, c<T> cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zcaVar, cVar) == null) {
-            zcaVar.b(qha.a(new a(this, cVar)));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, deaVar, cVar) == null) {
+            deaVar.b(uia.a(new a(this, cVar)));
         }
     }
 
-    @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
+    @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((zca) ((zca) obj));
+        call((dea) ((dea) obj));
     }
 
     public Object getLatest() {

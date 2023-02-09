@@ -65,13 +65,13 @@ public class h38 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0887, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0899, (ViewGroup) null);
             this.a = inflate;
             this.b = context;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d7);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d6);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0921d5);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09221d);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09221c);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09221b);
             this.f = findViewById;
             findViewById.setTag(this);
             return this.a;

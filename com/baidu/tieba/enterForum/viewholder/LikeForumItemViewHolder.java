@@ -189,13 +189,13 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
         }
         this.a = tbPageContext;
         this.h = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091d76);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091db8);
         this.b = findViewById;
-        this.c = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091710);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091fc9);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d7d);
+        this.c = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091727);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09200d);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d8e);
         this.f = (BarImageView) this.b.findViewById(R.id.forum_avatar);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b00);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b11);
         this.f.setPlaceHolder(1);
         this.f.setStrokeColorResId(R.color.CAM_X0201);
     }
@@ -278,7 +278,7 @@ public class LikeForumItemViewHolder extends RecyclerView.ViewHolder {
             this.f.setShowInnerBorder(true);
             this.f.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.f.setStrokeColorResId(R.color.CAM_X0401);
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0923), StringHelper.numberUniformFormatExtraWithRoundInt(vj6Var.r())));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f092d), StringHelper.numberUniformFormatExtraWithRoundInt(vj6Var.r())));
             SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
             if (YYLiveUtil.isLiveRoom(vj6Var.o())) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);

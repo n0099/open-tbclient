@@ -48,7 +48,7 @@ public class w10 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return uv8.a();
+            return yw8.a();
         }
         return (x10) invokeV.objValue;
     }

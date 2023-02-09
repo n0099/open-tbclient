@@ -32,7 +32,7 @@ import com.baidu.tieba.hb7;
 import com.baidu.tieba.ib7;
 import com.baidu.tieba.iv4;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.s89;
+import com.baidu.tieba.w99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -93,7 +93,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    s89.b();
+                    w99.b();
                     if (this.b.j != null) {
                         int adapterPosition = this.b.getAdapterPosition();
                         this.b.j.c(view2, this.a, adapterPosition, adapterPosition);
@@ -171,13 +171,13 @@ public class HotTopicTabRankListLayout extends RecyclerView {
                 }
             }
             this.a = 3;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f091071);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091000);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09231a);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092137);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f09163e);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09163f);
-            this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09163d);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f091083);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091012);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092361);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09217d);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f091654);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091655);
+            this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091653);
         }
 
         public void e(iv4<hb7> iv4Var) {
@@ -328,7 +328,7 @@ public class HotTopicTabRankListLayout extends RecyclerView {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c3, viewGroup, false));
+                b bVar = new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c5, viewGroup, false));
                 bVar.e(this.b);
                 bVar.f(this.c);
                 bVar.d(TbadkCoreApplication.getInst().getSkinType());

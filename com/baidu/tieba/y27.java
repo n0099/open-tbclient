@@ -88,15 +88,15 @@ public class y27 {
         if (frsSportsRecommendFragment != null && view2 != null) {
             this.a = frsSportsRecommendFragment.getPageContext();
             BdUniqueId uniqueId = frsSportsRecommendFragment.getUniqueId();
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090c7d);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c85);
-            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c7e);
-            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c83);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7f);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c84);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c82);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c81);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c80);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090c8e);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c96);
+            this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c8f);
+            this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c94);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c90);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c95);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c93);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c92);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c91);
             this.d.setPageId(uniqueId);
             this.e.setPageId(uniqueId);
         }
@@ -122,7 +122,7 @@ public class y27 {
             if (sportScheduleInfo == null) {
                 this.b.setVisibility(8);
                 this.c.setVisibility(0);
-                this.c.setText(R.string.obfuscated_res_0x7f0f07a8);
+                this.c.setText(R.string.obfuscated_res_0x7f0f07b1);
                 return;
             }
             this.b.setVisibility(0);

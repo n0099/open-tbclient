@@ -40,7 +40,7 @@ public final class FloatingViewClickUtilKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, lastClickTime)) == null) {
             Intrinsics.checkNotNullParameter(lastClickTime, "$this$lastClickTime");
-            Object tag = lastClickTime.getTag(R.id.obfuscated_res_0x7f090a8b);
+            Object tag = lastClickTime.getTag(R.id.obfuscated_res_0x7f090a99);
             if (!(tag instanceof Long)) {
                 tag = null;
             }
@@ -57,7 +57,7 @@ public final class FloatingViewClickUtilKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(65539, null, lastClickTime, j) == null) {
             Intrinsics.checkNotNullParameter(lastClickTime, "$this$lastClickTime");
-            lastClickTime.setTag(R.id.obfuscated_res_0x7f090a8b, Long.valueOf(j));
+            lastClickTime.setTag(R.id.obfuscated_res_0x7f090a99, Long.valueOf(j));
         }
     }
 }

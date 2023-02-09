@@ -21,7 +21,7 @@ public class h12 extends g12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public zca c;
+    public dea c;
 
     /* loaded from: classes4.dex */
     public class a implements pn3<zd3<be3.e>> {
@@ -174,7 +174,7 @@ public class h12 extends g12 {
                 return false;
             }
             q12 q12Var = (q12) r(unitedSchemeEntity);
-            zca w = new v42(context, q12Var).w();
+            dea w = new v42(context, q12Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -198,12 +198,12 @@ public class h12 extends g12 {
                 String str = q12Var.b;
                 cz2 cz2Var = q12Var.h;
                 if (!TextUtils.isEmpty(str) && cz2Var != null && cz2Var.h()) {
-                    zca zcaVar = this.c;
-                    if (zcaVar == null) {
+                    dea deaVar = this.c;
+                    if (deaVar == null) {
                         p52.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    zcaVar.onCompleted();
+                    deaVar.onCompleted();
                     w52.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

@@ -84,7 +84,7 @@ public class HotTopicTabModel extends BdBaseModel {
                     return;
                 }
                 if (responsedMessage.getOrginalMessage() == null) {
-                    this.a.a.I0(-1, null);
+                    this.a.a.H0(-1, null);
                     return;
                 }
                 HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
@@ -92,7 +92,7 @@ public class HotTopicTabModel extends BdBaseModel {
                 if (!TextUtils.isEmpty(this.a.d)) {
                     this.a.f.put(this.a.d, kb7Var.getDataList());
                 }
-                this.a.a.I0(responsedMessage.getError(), kb7Var);
+                this.a.a.H0(responsedMessage.getError(), kb7Var);
             }
         }
     }
@@ -195,7 +195,7 @@ public class HotTopicTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                ej.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0cfe);
+                ej.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0d08);
                 return false;
             } else if (this.c) {
                 return false;

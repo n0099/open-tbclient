@@ -183,7 +183,7 @@ public class AddressListFragment extends BaseFragment implements by5.a, y35.g, A
                     return;
                 }
                 if (StringUtils.isNull(socketResponsedMessage.getErrorString())) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     errorString = socketResponsedMessage.getErrorString();
                 }
@@ -382,7 +382,7 @@ public class AddressListFragment extends BaseFragment implements by5.a, y35.g, A
     }
 
     @Override // com.baidu.tieba.addresslist.view.AssortView.a
-    public void k1(String str) {
+    public void j1(String str) {
         List<x85> J;
         int H;
         Interceptable interceptable = $ic;
@@ -413,7 +413,7 @@ public class AddressListFragment extends BaseFragment implements by5.a, y35.g, A
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09013c) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09013e) {
             Intent intent = new Intent();
             intent.setClass(getActivity(), QuickSearchActivity.class);
             getActivity().startActivity(intent);
@@ -445,15 +445,15 @@ public class AddressListFragment extends BaseFragment implements by5.a, y35.g, A
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-            this.h = LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d007b, (ViewGroup) null);
+            this.h = LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d007c, (ViewGroup) null);
             this.k = new z35(this.q.getPageContext());
             this.m = new ay5(TbadkCoreApplication.getInst().getApplicationContext(), this.g);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d007f, (ViewGroup) null, false);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.q.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0080, (ViewGroup) null, false);
             this.j = linearLayout;
             linearLayout.setOnClickListener(this);
-            this.o = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f09013b);
-            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f09013a);
-            BdListView bdListView = (BdListView) this.h.findViewById(R.id.obfuscated_res_0x7f090131);
+            this.o = (ImageView) this.j.findViewById(R.id.obfuscated_res_0x7f09013d);
+            this.n = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f09013c);
+            BdListView bdListView = (BdListView) this.h.findViewById(R.id.obfuscated_res_0x7f090133);
             this.l = bdListView;
             bdListView.setPullRefresh(this.k);
             this.l.addHeaderView(this.j);
@@ -461,7 +461,7 @@ public class AddressListFragment extends BaseFragment implements by5.a, y35.g, A
             this.l.setAdapter((ListAdapter) this.m);
             this.l.setOnItemClickListener(this);
             this.k.f(this);
-            AssortView assortView = (AssortView) this.h.findViewById(R.id.obfuscated_res_0x7f09012d);
+            AssortView assortView = (AssortView) this.h.findViewById(R.id.obfuscated_res_0x7f09012f);
             this.i = assortView;
             assortView.setClickable(true);
             this.i.setOnTouchListener(this);

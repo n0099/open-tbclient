@@ -740,7 +740,7 @@ public class TiebaUpdateService extends BdBaseService {
             if (!this.mHasTieba && !this.mHasAs && !this.mHasOther) {
                 stopSelf(i);
             } else if (!this.mHasTieba && !this.mHasAs) {
-                this.info = getString(R.string.obfuscated_res_0x7f0f0549);
+                this.info = getString(R.string.obfuscated_res_0x7f0f054c);
                 downloadOtherApk();
             } else {
                 if (this.mHasTieba) {

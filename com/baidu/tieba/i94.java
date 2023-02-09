@@ -287,7 +287,7 @@ public class i94 {
                 l94Var.a = this.a.y("clipMaxDuration", 30L);
                 l94Var.b = this.a.y("clipMinDuration", 3L);
                 l94Var.c = this.a.B("topicSource");
-                l94Var.d = this.a.C("publishTitle", ds2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1402));
+                l94Var.d = this.a.C("publishTitle", ds2.c().getResources().getString(R.string.obfuscated_res_0x7f0f1419));
                 l94Var.e = this.a.C("publishURL", "/searchbox?action=ugc&cmd=177");
                 l94Var.i = this.a.r("sourceType", 1);
                 l94Var.j = this.a.C("sourceFrom", "tiny");

@@ -252,7 +252,7 @@ public class ow4 extends PopupWindow {
             this.b.setTextColor(nv7.b(es4Var.p));
         }
         if (dj.isEmpty(es4Var.f)) {
-            this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f02d7));
+            this.c.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f02d8));
         } else {
             this.c.setText(es4Var.f);
         }

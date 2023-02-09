@@ -65,12 +65,12 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             setGravity(80);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0340, this);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090c3d);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c41);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c3f);
-            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c3e);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c40);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0342, this);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090c4e);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c52);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c50);
+            this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090c4f);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090c51);
             this.e = recyclerView;
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
             this.e.addItemDecoration(new GridSpacingItemDecoration(3, ej.g(getContext(), R.dimen.M_W_X004), ej.g(getContext(), R.dimen.M_H_X003), false));

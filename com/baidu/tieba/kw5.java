@@ -76,7 +76,7 @@ public class kw5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (dj.isEmpty(str) || (jw5Var = this.c) == null || !jw5Var.g()) {
-                rq9.d(str);
+                vr9.d(str);
             }
         }
     }
@@ -86,7 +86,7 @@ public class kw5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (dj.isEmpty(str) || (jw5Var = this.c) == null || !jw5Var.g()) {
-                rq9.e(str);
+                vr9.e(str);
             }
         }
     }
@@ -165,7 +165,7 @@ public class kw5 {
                     hashMap.put(str3, str4);
                 }
             }
-            rq9.c(str2 + statisticItem.getKey(), str, "", hashMap);
+            vr9.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

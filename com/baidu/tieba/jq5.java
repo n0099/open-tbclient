@@ -516,7 +516,7 @@ public class jq5 {
             wfVar.f(R.anim.push_open_tip_out);
             vf b2 = wfVar.b();
             this.a = b2;
-            b2.p(this.b, this.c, false);
+            b2.q(this.b, this.c, false);
             return true;
         }
         return invokeV.booleanValue;

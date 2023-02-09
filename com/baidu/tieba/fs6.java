@@ -33,7 +33,7 @@ public class fs6 {
     public void a(zu5 zu5Var) {
         i17 i17Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, zu5Var) == null) && (i17Var = this.a) != null && i17Var.Q0() != null && this.a.Q0().o0() != null && this.a.u1() != null && zu5Var != null && this.a.u1().g0() != null && this.a.s0() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, zu5Var) == null) && (i17Var = this.a) != null && i17Var.P0() != null && this.a.P0().o0() != null && this.a.u1() != null && zu5Var != null && this.a.u1().g0() != null && this.a.s0() != null) {
             BdTypeRecyclerView g0 = this.a.u1().g0();
             int i = zu5Var.a;
             if (i != 2) {

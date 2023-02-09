@@ -68,12 +68,12 @@ public class bb6 implements vb6 {
         this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
     }
 
-    public x19 d(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+    public b39 d(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, webView, str, str2, str3, jSONObject)) == null) {
             Log.e("lt-log", "requestByNative:" + str);
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
             offlineBridgeData.url = str;
             offlineBridgeData.type = str2;
@@ -100,24 +100,24 @@ public class bb6 implements vb6 {
                     }
                 }
             });
-            x19Var.w(str);
-            return x19Var;
+            b39Var.w(str);
+            return b39Var;
         }
-        return (x19) invokeLLLLL.objValue;
+        return (b39) invokeLLLLL.objValue;
     }
 
-    public x19 e(WebView webView, HashMap<String, String> hashMap) {
+    public b39 e(WebView webView, HashMap<String, String> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (hashMap != null && hashMap.get("result") != null) {
-                x19Var.o(hashMap.get("result"));
-                x19Var.w(hashMap.get("NotificationKey"));
+                b39Var.o(hashMap.get("result"));
+                b39Var.w(hashMap.get("NotificationKey"));
             }
-            x19Var.z(true);
-            return x19Var;
+            b39Var.z(true);
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 }

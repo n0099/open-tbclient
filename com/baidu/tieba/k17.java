@@ -18,10 +18,10 @@ public class k17 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<FrsModelController> a;
-    public MvcSocketResponsedMessage<vz8, ?> b;
-    public MvcSocketMessage<FrsRequestData, vz8> c;
-    public MvcNetMessage<FrsRequestData, vz8> d;
-    public c09 e;
+    public MvcSocketResponsedMessage<z09, ?> b;
+    public MvcSocketMessage<FrsRequestData, z09> c;
+    public MvcNetMessage<FrsRequestData, z09> d;
+    public g19 e;
 
     public k17() {
         Interceptable interceptable = $ic;
@@ -47,9 +47,9 @@ public class k17 implements MessageQueue.IdleHandler {
                 return false;
             }
             frsModelController.M0(this.b, this.c, this.d);
-            c09 c09Var = this.e;
-            if (c09Var != null) {
-                c09Var.b();
+            g19 g19Var = this.e;
+            if (g19Var != null) {
+                g19Var.b();
             }
             return false;
         }
@@ -63,28 +63,28 @@ public class k17 implements MessageQueue.IdleHandler {
         }
     }
 
-    public void b(c09 c09Var) {
+    public void b(g19 g19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c09Var) == null) {
-            this.e = c09Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g19Var) == null) {
+            this.e = g19Var;
         }
     }
 
-    public void c(MvcSocketMessage<FrsRequestData, vz8> mvcSocketMessage) {
+    public void c(MvcSocketMessage<FrsRequestData, z09> mvcSocketMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
             this.c = mvcSocketMessage;
         }
     }
 
-    public void d(MvcNetMessage<FrsRequestData, vz8> mvcNetMessage) {
+    public void d(MvcNetMessage<FrsRequestData, z09> mvcNetMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
             this.d = mvcNetMessage;
         }
     }
 
-    public void e(MvcSocketResponsedMessage<vz8, ?> mvcSocketResponsedMessage) {
+    public void e(MvcSocketResponsedMessage<z09, ?> mvcSocketResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
             this.b = mvcSocketResponsedMessage;

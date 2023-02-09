@@ -115,7 +115,7 @@ public class gn5 {
             }
             this.a = ej.g(gn5.b(), R.dimen.tbds182);
             this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.c = gn5.c(R.string.obfuscated_res_0x7f0f0ae6, new Object[0]);
+            this.c = gn5.c(R.string.obfuscated_res_0x7f0f0af0, new Object[0]);
             this.d = gn5.c(R.string.pb_load_more, new Object[0]);
             this.e = gn5.c(R.string.list_no_more, new Object[0]);
             this.f = gn5.c(R.string.click_retry, new Object[0]);

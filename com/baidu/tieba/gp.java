@@ -56,7 +56,7 @@ public class gp extends wb5 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1408);
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f141f);
         this.d = R.drawable.icon_pure_post_voice24;
         this.f = R.color.CAM_X0105;
         this.i = false;

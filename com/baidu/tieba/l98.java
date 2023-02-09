@@ -106,11 +106,11 @@ public class l98 {
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
             View inflate = this.d.inflate();
             this.e = inflate;
-            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09065c);
-            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09065e);
-            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f09065b);
-            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09065f);
-            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f09065d);
+            this.a = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090667);
+            this.b = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f090669);
+            this.c = (TbRichTextView) this.e.findViewById(R.id.obfuscated_res_0x7f090666);
+            this.f = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09066a);
+            this.g = this.e.findViewById(R.id.obfuscated_res_0x7f090668);
             this.c.setTextSize(TbConfig.getContentSize());
             c();
         }

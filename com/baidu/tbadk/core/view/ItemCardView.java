@@ -55,10 +55,10 @@ import com.baidu.tieba.da;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.e55;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.n15;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.o45;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.u45;
 import com.baidu.tieba.w45;
@@ -778,7 +778,7 @@ public class ItemCardView extends LinearLayout {
                     spannableStringBuilder.append((CharSequence) " |");
                     int i = length + 1;
                     spannableStringBuilder.setSpan(new e55(ItemCardView.R), length, i, 33);
-                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{lz8.a(SkinManager.getColor(R.color.CAM_X0108), n15.b(R.string.A_X10))}), null), i, length + 2, 33);
+                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{p09.a(SkinManager.getColor(R.color.CAM_X0108), n15.b(R.string.A_X10))}), null), i, length + 2, 33);
                     if (!dj.isEmpty(this.b.q)) {
                         int length2 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");

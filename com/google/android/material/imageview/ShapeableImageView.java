@@ -39,7 +39,7 @@ import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 import com.google.android.material.shape.Shapeable;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ShapeableImageView extends AppCompatImageView implements Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES = 2131755906;
@@ -73,7 +73,7 @@ public class ShapeableImageView extends AppCompatImageView implements Shapeable 
     }
 
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class OutlineProvider extends ViewOutlineProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

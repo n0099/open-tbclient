@@ -159,19 +159,19 @@ public class RankListViewController {
             this.l = "";
             this.n = 0;
             this.j = d(view2.getContext());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c2a);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c6b);
             this.a = textView;
             textView.getPaint().setFakeBoldText(true);
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090df9);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e0a);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.c = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090df8);
+            this.c = (UserHeadCoverView) view2.findViewById(R.id.obfuscated_res_0x7f090e09);
             this.d = (TextView) view2.findViewById(R.id.user_name);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b6);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d7d);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b0);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092604);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d8e);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925fe);
             this.h = (HotUserRankLikeButton) view2.findViewById(R.id.like_button);
         }
 
@@ -242,8 +242,8 @@ public class RankListViewController {
             this.b.K(mk6Var.b, 10, false);
             this.c.setData(mk6Var);
             String str = mk6Var.c;
-            if (rp5.e(str) > 12) {
-                str = rp5.m(str, 10) + StringHelper.STRING_MORE;
+            if (rp5.f(str) > 12) {
+                str = rp5.n(str, 10) + StringHelper.STRING_MORE;
             }
             this.d.setText(str);
             boolean z = mk6Var.h;
@@ -397,7 +397,7 @@ public class RankListViewController {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                RankListViewHolder rankListViewHolder = new RankListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c7, (ViewGroup) null));
+                RankListViewHolder rankListViewHolder = new RankListViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c9, (ViewGroup) null));
                 rankListViewHolder.i(0);
                 rankListViewHolder.g(this.a.e);
                 rankListViewHolder.h(this.a.f);
@@ -441,7 +441,7 @@ public class RankListViewController {
         this.a = bdRecyclerView;
         bdRecyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
         this.a.setAdapter(this.h);
-        View inflate = LayoutInflater.from(view2.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c8, (ViewGroup) null);
+        View inflate = LayoutInflater.from(view2.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ca, (ViewGroup) null);
         this.c = new jk6(inflate, this.e, this.f);
         inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         this.a.s(inflate);
@@ -496,10 +496,10 @@ public class RankListViewController {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d.L();
-            this.d.S();
+            this.d.M();
+            this.d.T();
             this.d.F(TbadkCoreApplication.getInst().getString(R.string.list_loading));
-            this.d.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.d.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         }
     }
 
@@ -507,15 +507,15 @@ public class RankListViewController {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d.R(ej.g(this.a.getContext(), R.dimen.tbds96));
+            this.d.S(ej.g(this.a.getContext(), R.dimen.tbds96));
             if (!TextUtils.isEmpty(str)) {
-                string = String.format(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0937), str);
+                string = String.format(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0941), str);
             } else {
-                string = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f06d4);
+                string = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f06dd);
             }
             this.d.G(string, ej.g(this.a.getContext(), R.dimen.tbds156));
             this.d.g();
-            this.d.N(ej.g(this.a.getContext(), R.dimen.tbds44));
+            this.d.O(ej.g(this.a.getContext(), R.dimen.tbds44));
         }
     }
 }

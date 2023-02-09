@@ -115,12 +115,12 @@ public class ut7 {
 
             /* renamed from: com.baidu.tieba.ut7$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0446a implements uh0.d {
+            public class C0447a implements uh0.d {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0446a(a aVar) {
+                public C0447a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -194,7 +194,7 @@ public class ut7 {
             public void b(@NonNull List<AdBaseModel> list) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                    uh0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0446a(this));
+                    uh0.b(this.a.a.b, this.a.a.e, list, this.a.a.l, new C0447a(this));
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_REQUEST);
                     statisticItem.param("obj_type", "a002").param("obj_locate", 0).param("obj_source", 1);
                     TiebaStatic.log(statisticItem);

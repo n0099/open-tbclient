@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.tieba.aj8;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dk6;
-import com.baidu.tieba.fi8;
+import com.baidu.tieba.ek8;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.i05;
 import com.baidu.tieba.jf;
+import com.baidu.tieba.jj8;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
@@ -42,7 +42,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_NO_NETWORK = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public aj8 a;
+    public ek8 a;
     public d b;
     public boolean c;
     public boolean d;
@@ -52,7 +52,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes5.dex */
     public interface d {
-        void a(aj8 aj8Var);
+        void a(ek8 ek8Var);
 
         void onFail(int i, String str);
     }
@@ -312,13 +312,13 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public aj8 K() {
+    public ek8 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (aj8) invokeV.objValue;
+        return (ek8) invokeV.objValue;
     }
 
     public void L() {
@@ -331,7 +331,7 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
     public void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = new aj8();
+            this.a = new ek8();
         }
     }
 
@@ -360,24 +360,24 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
 
     public void M(boolean z, ResponsedMessage<?> responsedMessage, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), responsedMessage, Long.valueOf(j)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && fi8.d().b() > 0) {
-            long f = fi8.d().f();
-            long b2 = fi8.d().b();
-            long c2 = fi8.d().c();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), responsedMessage, Long.valueOf(j)}) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && jj8.d().b() > 0) {
+            long f = jj8.d().f();
+            long b2 = jj8.d().b();
+            long c2 = jj8.d().c();
             long j2 = f + b2;
-            long a2 = fi8.d().a();
+            long a2 = jj8.d().a();
             if (a2 > 0 && j > a2) {
                 j2 = j - a2;
             }
             new rk5(1008, z, responsedMessage, 0L, b2, c2, false, 0L, 0L, j2).c();
-            fi8.d().h(0L);
+            jj8.d().h(0L);
         }
     }
 
     public final void N(PersonChangeData personChangeData) {
-        aj8 aj8Var;
+        ek8 ek8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, personChangeData) == null) && personChangeData != null && (aj8Var = this.a) != null && aj8Var.A() != null && TbadkCoreApplication.getCurrentAccount() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, personChangeData) == null) && personChangeData != null && (ek8Var = this.a) != null && ek8Var.A() != null && TbadkCoreApplication.getCurrentAccount() != null) {
             P();
             O(dh.g(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
@@ -416,9 +416,9 @@ public class PersonCenterModel extends BdBaseModel<BaseFragmentActivity> {
                 profileRequestMessage.setNeedUsergrowthTask(1);
                 profileRequestMessage.setHistoryForumIds(dk6.n().k());
                 profileRequestMessage.setHistoryForumNames(dk6.n().l());
-                aj8 aj8Var = new aj8();
-                this.a = aj8Var;
-                profileRequestMessage.setPersonCenterData(aj8Var);
+                ek8 ek8Var = new ek8();
+                this.a = ek8Var;
+                profileRequestMessage.setPersonCenterData(ek8Var);
                 sendMessage(profileRequestMessage);
             }
         }

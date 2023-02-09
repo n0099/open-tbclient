@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.bj7;
-import com.baidu.tieba.fn9;
+import com.baidu.tieba.jo9;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
 import com.baidu.tieba.x9;
@@ -88,8 +88,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof fn9)) {
-                    this.a.K(((fn9) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof jo9)) {
+                    this.a.K(((jo9) responsedMessage).getTopicList());
                 }
             }
         }

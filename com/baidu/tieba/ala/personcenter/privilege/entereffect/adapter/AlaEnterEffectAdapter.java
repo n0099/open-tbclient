@@ -71,17 +71,17 @@ public class AlaEnterEffectAdapter extends qn<AlaEnterEffectData, ViewHolder> {
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901cf);
+                TbImageView tbImageView = (TbImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901d1);
                 this.a = tbImageView;
                 tbImageView.setAutoChangeStyle(false);
-                this.b = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901d5);
-                this.c = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901d6);
-                this.d = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901d7);
-                this.e = (ImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901cc);
-                this.f = (ProgressBar) getView().findViewById(R.id.obfuscated_res_0x7f0901d3);
-                this.g = getView().findViewById(R.id.obfuscated_res_0x7f0901de);
-                this.h = getView().findViewById(R.id.obfuscated_res_0x7f0901d0);
-                this.i = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901c9);
+                this.b = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901d7);
+                this.c = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901d8);
+                this.d = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901d9);
+                this.e = (ImageView) getView().findViewById(R.id.obfuscated_res_0x7f0901ce);
+                this.f = (ProgressBar) getView().findViewById(R.id.obfuscated_res_0x7f0901d5);
+                this.g = getView().findViewById(R.id.obfuscated_res_0x7f0901e0);
+                this.h = getView().findViewById(R.id.obfuscated_res_0x7f0901d2);
+                this.i = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0901cb);
             }
         }
     }
@@ -116,7 +116,7 @@ public class AlaEnterEffectAdapter extends qn<AlaEnterEffectData, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) null));
+            return new ViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ee, (ViewGroup) null));
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -146,7 +146,7 @@ public class AlaEnterEffectAdapter extends qn<AlaEnterEffectData, ViewHolder> {
             viewHolder.a.K(alaEnterEffectData.thumbnail_url, 10, false);
             viewHolder.b.setText(alaEnterEffectData.name);
             if (alaEnterEffectData.isUsing()) {
-                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f06079f, 1, this.b);
+                SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f0607a0, 1, this.b);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d6, this.b);
                 viewHolder.c.setText(this.a.getString(R.string.obfuscated_res_0x7f0f021e));
                 viewHolder.a.setAlpha(1.0f);

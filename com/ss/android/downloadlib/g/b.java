@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.os.AsyncTask;
 /* loaded from: classes8.dex */
 public class b {
-    public static final a a = new C0690b();
+    public static final a a = new C0691b();
 
     /* loaded from: classes8.dex */
     public static class a {
@@ -22,8 +22,8 @@ public class b {
     @TargetApi(11)
     /* renamed from: com.ss.android.downloadlib.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0690b extends a {
-        public C0690b() {
+    public static class C0691b extends a {
+        public C0691b() {
             super();
         }
 

@@ -29,9 +29,9 @@ import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.kp5;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.op5;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -99,12 +99,12 @@ public class AddLinkActivity extends BaseActivity {
 
         /* renamed from: com.baidu.tieba.write.write.AddLinkActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0480b implements oo5<String> {
+        public class C0478b implements oo5<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0480b(b bVar) {
+            public C0478b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class AddLinkActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                    op5.b(new a(this), new C0480b(this));
+                    op5.b(new a(this), new C0478b(this));
                     return;
                 }
                 this.a.L1(UtilHelper.getClipBoardContent());
@@ -415,7 +415,7 @@ public class AddLinkActivity extends BaseActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.g != null && this.a.g.getText() != null) {
                 String obj = this.a.g.getText().toString();
                 if (dj.isEmpty(obj) || !UrlManager.getInstance().isUrlValid(obj)) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0a8d);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0a97);
                 } else {
                     this.a.H1(obj);
                 }
@@ -638,18 +638,18 @@ public class AddLinkActivity extends BaseActivity {
     public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0076);
+            setContentView(R.layout.obfuscated_res_0x7f0d0077);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
-            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090123);
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090124);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092475);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092521);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09247f);
-            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090125);
-            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f09099a);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910e3);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090126);
+            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090125);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090126);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bf);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09256c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c9);
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090127);
+            this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f0909a8);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090128);
             this.a.setOnClickListener(new c(this));
             this.b.setClickable(true);
             this.c.setOnClickListener(new d(this));
@@ -676,7 +676,7 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{lz8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), lz8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.e.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{p09.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), p09.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 

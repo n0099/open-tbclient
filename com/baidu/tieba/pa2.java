@@ -43,11 +43,11 @@ public class pa2 extends eg2 {
 
         /* renamed from: com.baidu.tieba.pa2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0375a implements Runnable {
+        public class RunnableC0372a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0375a(a aVar) {
+            public RunnableC0372a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class pa2 extends eg2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 w52.k("SwanAppV8DaemonEngine", "reload");
-                qm3.a0(new RunnableC0375a(this));
+                qm3.a0(new RunnableC0372a(this));
             }
         }
 

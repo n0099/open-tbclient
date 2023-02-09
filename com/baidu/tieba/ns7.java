@@ -61,33 +61,33 @@ public class ns7 {
             }
         }
         this.a = personalTalkSettingActivity;
-        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06c2);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091a61);
+        personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06c8);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091a99);
         this.c = findViewById;
         NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
         this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1438));
+        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f144f));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091f61);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa4);
         this.n = personalTalkSettingViewSettingView;
         personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0925b4);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09206d);
-        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09206e);
-        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09012b);
+        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092602);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b1);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b2);
+        this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09012d);
         this.i.setOnClickListener(this.a);
         this.j.setOnClickListener(this.a);
         this.k.setOnClickListener(this.a);
         this.l.setOnClickListener(this.a);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091a9b);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091ad3);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setGodIconWidth(R.dimen.tbds47);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f38);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f36);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090f49);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f47);
         this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092598);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f09086a);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925e4);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f090878);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:27:0x008c  */

@@ -176,12 +176,12 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f0, (ViewGroup) this, true);
             this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
             this.b = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922c0);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092307);
             this.d = (TextView) inflate.findViewById(R.id.thread_info_address);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090842);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090850);
             setGravity(16);
             d();
             this.b.setOnClickListener(this.i);

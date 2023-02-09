@@ -28,7 +28,7 @@ import com.baidu.tieba.b27;
 import com.baidu.tieba.c27;
 import com.baidu.tieba.no;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.uz8;
+import com.baidu.tieba.y09;
 import com.baidu.tieba.z17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,15 +102,15 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ay {
         @Override // com.baidu.tieba.no
         public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof uz8)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof y09)) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090c0b) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090c1c) {
                 if (this.a.g != null) {
-                    this.a.g.b((uz8) cdo);
+                    this.a.g.b((y09) cdo);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090b03 && this.a.g != null) {
-                this.a.g.c((uz8) cdo, i, new a(this, i));
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090b14 && this.a.g != null) {
+                this.a.g.c((y09) cdo, i, new a(this, i));
             }
         }
     }
@@ -407,11 +407,11 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ay {
     public final void h(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0337, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091d5e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c0e);
-            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c0d);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c0a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0339, this);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c1f);
+            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c1e);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c1b);
             z17 z17Var = new z17(getContext());
             this.f = z17Var;
             z17Var.setOnAdapterItemClickListener(getItemClickListener());

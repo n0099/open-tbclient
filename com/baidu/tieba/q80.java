@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q80 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile q80 c;
@@ -26,7 +26,7 @@ public class q80 {
     public o80 a;
     public s80 b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements IMPushUploadResponseListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class q80 {
         public final /* synthetic */ int d;
         public final /* synthetic */ q80 e;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class q80 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

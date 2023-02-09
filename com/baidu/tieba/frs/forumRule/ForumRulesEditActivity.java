@@ -82,8 +82,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             if (TextUtils.isEmpty(this.d)) {
                 BdTopToast bdTopToast = new BdTopToast(this, 2000);
                 bdTopToast.h(false);
-                bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f06e2));
-                bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0914dc));
+                bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f06eb));
+                bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0914f1));
                 return;
             }
             this.c.J(this.d, forumRuleBaseData, z);
@@ -114,7 +114,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
             bdTopToast.h(false);
             bdTopToast.g(str);
-            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0914dc));
+            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0914f1));
         }
     }
 
@@ -129,7 +129,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
                     intent.putExtra("group_name", getString(R.string.save_success));
                     intent.putExtra("from", true);
                 } else {
-                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f06e5));
+                    intent.putExtra("group_name", getString(R.string.obfuscated_res_0x7f0f06ee));
                     intent.putExtra("from", false);
                 }
                 setResult(-1, intent);
@@ -139,7 +139,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             BdTopToast bdTopToast = new BdTopToast(this, 2000);
             bdTopToast.h(false);
             bdTopToast.g(str);
-            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0914dc));
+            bdTopToast.i((ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0914f1));
         }
     }
 
@@ -168,7 +168,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             w1(bundle);
-            this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02bf, (ViewGroup) null);
+            this.a = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02c1, (ViewGroup) null);
             this.b = new sx6(getPageContext(), this, this.a, this.d, this.e, this.f, this.g, this.h, this);
             this.c = new ForumRuleEditModel(getPageContext(), this, this.d);
             setContentView(this.a);

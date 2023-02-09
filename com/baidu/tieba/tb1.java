@@ -111,7 +111,7 @@ public class tb1 extends Dialog {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = findViewById(R.id.root_container);
             this.c = (LoadingProgressBar) findViewById(R.id.loading_bar);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fe);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091614);
             this.d = textView;
             textView.setText(this.e);
             setCancelable(this.g);

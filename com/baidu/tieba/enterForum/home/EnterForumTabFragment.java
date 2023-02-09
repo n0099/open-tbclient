@@ -41,13 +41,13 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     public int D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0275 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0276 : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
         }
     }
 
@@ -270,10 +270,22 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
         }
     }
 
+    @Override // com.baidu.tieba.uv4
+    public void o1(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, intent) == null) && intent != null && this.g != null) {
+            int x = this.g.x(intent.getStringExtra("sub_locate_type"));
+            if (x == -1) {
+                x = 0;
+            }
+            this.g.R(x);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.g.J();
         }
@@ -282,7 +294,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
             gk6 gk6Var = this.g;
             if (gk6Var != null) {
@@ -294,23 +306,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.onCreate(bundle);
             this.g = new gk6(this);
             registerListener(this.i);
             registerListener(this.j);
-        }
-    }
-
-    @Override // com.baidu.tieba.uv4
-    public void p1(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, intent) == null) && intent != null && this.g != null) {
-            int x = this.g.x(intent.getStringExtra("sub_locate_type"));
-            if (x == -1) {
-                x = 0;
-            }
-            this.g.R(x);
         }
     }
 
@@ -380,7 +380,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             cl7.l().c();
             MessageManager.getInstance().unRegisterListener(this.i);
@@ -394,7 +394,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPause();
             g15.p(e15.k);
         }
@@ -403,7 +403,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
         }
     }
@@ -411,7 +411,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onStart();
         }
     }
@@ -419,7 +419,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onStop();
         }
     }
@@ -427,7 +427,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             gk6 gk6Var = this.g;
             if (gk6Var != null) {
@@ -439,7 +439,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements uv4 {
     @Override // com.baidu.tbadk.core.LazyBaseFragment, com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onPrimary();
             if (isPrimary() && getActivity() != null) {
                 H1(getActivity().getIntent(), null);

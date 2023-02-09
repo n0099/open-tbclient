@@ -319,7 +319,7 @@ public class sz6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 this.a.m = (String) customResponsedMessage.getData();
                 ItemCardHelper.z(this.a.k, this.a.m);
-                this.a.j.setCustomColorBtn(lz8.f(this.a.m));
+                this.a.j.setCustomColorBtn(p09.f(this.a.m));
             }
         }
     }
@@ -409,13 +409,13 @@ public class sz6 {
             int error = httpResponsedMessage.getError();
             GameCodeGetResponseMsg gameCodeGetResponseMsg = (GameCodeGetResponseMsg) httpResponsedMessage;
             if (httpResponsedMessage.getStatusCode() == 200 && error == 0 && gameCodeGetResponseMsg.errCode == 0) {
-                this.a.s(true, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f080c));
+                this.a.s(true, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0815));
                 r07 r07Var = new r07(((GameCodeGetMsg) httpResponsedMessage.getOrginalMessage()).getPosition(), gameCodeGetResponseMsg.getCodeValue());
                 this.a.t(r07Var);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921640, r07Var));
                 return;
             }
-            this.a.s(false, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f080b));
+            this.a.s(false, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0814));
         }
     }
 
@@ -447,8 +447,8 @@ public class sz6 {
             frsItemTabFragment.getBaseFragmentActivity().registerListener(this.r);
             frsItemTabFragment.registerListener(this.q);
             frsItemTabFragment.registerListener(this.s);
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090b8c);
-            ItemCardDownloadButton itemCardDownloadButton = (ItemCardDownloadButton) view2.findViewById(R.id.obfuscated_res_0x7f090b8a);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090b9d);
+            ItemCardDownloadButton itemCardDownloadButton = (ItemCardDownloadButton) view2.findViewById(R.id.obfuscated_res_0x7f090b9b);
             this.j = itemCardDownloadButton;
             itemCardDownloadButton.setShadow(R.array.S_O_X003);
             this.j.A();
@@ -456,11 +456,11 @@ public class sz6 {
             this.o.setSelfListener(true);
             this.o.setTag(this.j.getTag());
             MessageManager.getInstance().registerListener(this.o);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b8b);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b9c);
             this.k = textView;
             textView.setOnClickListener(this.p);
             p15.d(this.k).u(R.array.S_O_X003);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c07);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090c18);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(frsItemTabFragment.getContext()));
             this.f.setFadingEdgeLength(0);
@@ -600,11 +600,11 @@ public class sz6 {
                 this.k.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                 d2.n(R.string.J_X01);
                 d2.k(R.color.transparent);
-                d2.g(lz8.f(this.m));
+                d2.g(p09.f(this.m));
             } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                this.k.setTextColor(lz8.a(lz8.f(this.m), n15.b(R.string.A_X01)));
+                this.k.setTextColor(p09.a(p09.f(this.m), n15.b(R.string.A_X01)));
                 d2.l(R.dimen.tbds1);
-                d2.t(lz8.a(lz8.f(this.m), n15.b(R.string.A_X07)));
+                d2.t(p09.a(p09.f(this.m), n15.b(R.string.A_X07)));
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0208);
             } else {
@@ -657,7 +657,7 @@ public class sz6 {
             if (ItemCardHelper.x(itemData) && ItemCardHelper.o(itemData)) {
                 this.i.setVisibility(0);
                 this.j.setVisibility(0);
-                this.j.setCustomColorBtn(lz8.f(this.m));
+                this.j.setCustomColorBtn(p09.f(this.m));
                 this.j.B();
                 this.j.setData(itemData, -1, this.a.e, 0);
                 int objTypeByDownloadMode = this.j.getObjTypeByDownloadMode();
@@ -675,11 +675,11 @@ public class sz6 {
                         this.k.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                         d2.n(R.string.J_X01);
                         d2.k(R.color.transparent);
-                        d2.g(lz8.f(this.m));
+                        d2.g(p09.f(this.m));
                     } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                        this.k.setTextColor(lz8.a(lz8.f(this.m), n15.b(R.string.A_X01)));
+                        this.k.setTextColor(p09.a(p09.f(this.m), n15.b(R.string.A_X01)));
                         d2.l(R.dimen.tbds1);
-                        d2.t(lz8.a(lz8.f(this.m), n15.b(R.string.A_X07)));
+                        d2.t(p09.a(p09.f(this.m), n15.b(R.string.A_X07)));
                         d2.n(R.string.J_X01);
                         d2.f(R.color.CAM_X0208);
                     } else {

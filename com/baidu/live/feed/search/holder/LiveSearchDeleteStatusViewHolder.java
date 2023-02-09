@@ -40,10 +40,10 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091477);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907d2);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091476);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0914ad);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f09148c);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907de);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09148b);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0914c2);
     }
 
     public void a(int i) {
@@ -52,11 +52,11 @@ public class LiveSearchDeleteStatusViewHolder extends RecyclerView.ViewHolder {
             this.c.setTextColor(fd0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
             String r = fd0.f().r();
             if (r == "day") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d82);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d70);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d94);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d82);
             } else if (r == "night") {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d8c);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d71);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d9e);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d83);
             }
         }
     }

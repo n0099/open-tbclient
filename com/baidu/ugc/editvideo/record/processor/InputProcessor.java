@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tieba.hw9;
+import com.baidu.tieba.lx9;
 import com.baidu.tieba.pg0;
-import com.baidu.tieba.uw9;
 import com.baidu.tieba.xg0;
+import com.baidu.tieba.yx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class InputProcessor extends BaseEffectProcessor {
             return;
         }
         if (i2 == 0) {
-            uw9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+            yx9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InputProcessor this$0;
@@ -130,7 +130,7 @@ public class InputProcessor extends BaseEffectProcessor {
             if (pg0Var == null || pg0Var.l() == null) {
                 return i;
             }
-            MediaTrack mediaTrack = (MediaTrack) hw9.c(pg0Var.l(), 0);
+            MediaTrack mediaTrack = (MediaTrack) lx9.c(pg0Var.l(), 0);
             boolean m = xg0.m(mediaTrack, "input_blank");
             int f = !m ? pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, pg0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
             if (m) {

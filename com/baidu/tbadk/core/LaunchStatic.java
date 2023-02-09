@@ -32,8 +32,8 @@ import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.b25;
-import com.baidu.tieba.c29;
 import com.baidu.tieba.dj7;
+import com.baidu.tieba.g39;
 import com.baidu.tieba.gl7;
 import com.baidu.tieba.he5;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
@@ -44,7 +44,7 @@ import com.baidu.tieba.lh5;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.m15;
 import com.baidu.tieba.mu4;
-import com.baidu.tieba.o09;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
@@ -191,7 +191,7 @@ public class LaunchStatic {
         b();
         d();
         c();
-        c29.a();
+        g39.a();
         ko7.a();
         dj7.a();
         ImMemoryCacheRegister.i();
@@ -214,8 +214,8 @@ public class LaunchStatic {
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
             he5.d().f();
-            o09.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, o09.a(TbConfig.GET_PAY_CONFIG, 303039));
+            s19.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, s19.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

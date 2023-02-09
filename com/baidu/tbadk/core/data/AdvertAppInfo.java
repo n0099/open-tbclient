@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.tbadk.switchs.AppLegoSwitch;
 import com.baidu.tieba.av7;
 import com.baidu.tieba.aw4;
+import com.baidu.tieba.bt8;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.hy4;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.mv7;
-import com.baidu.tieba.nr8;
 import com.baidu.tieba.qi0;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.uw4;
-import com.baidu.tieba.xr8;
 import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,7 +34,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
-public class AdvertAppInfo extends ThreadData implements hy4, xr8 {
+public class AdvertAppInfo extends ThreadData implements hy4, bt8 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId A;
     public static final BdUniqueId B;
@@ -285,7 +285,7 @@ public class AdvertAppInfo extends ThreadData implements hy4, xr8 {
         return (AdvertAppInfo) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xr8
+    @Override // com.baidu.tieba.bt8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -302,7 +302,7 @@ public class AdvertAppInfo extends ThreadData implements hy4, xr8 {
         }
     }
 
-    @Override // com.baidu.tieba.xr8
+    @Override // com.baidu.tieba.bt8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -413,10 +413,10 @@ public class AdvertAppInfo extends ThreadData implements hy4, xr8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             if (!ThreadData.isRecAppLoaded.get()) {
-                nr8.n();
+                rs8.n();
                 return 31;
             } else if (!v.get()) {
-                nr8.n();
+                rs8.n();
                 return 31;
             } else if (!TextUtils.equals("PB_BANNER", this.j) && !TextUtils.equals("PIC_PAGE_BANNER", this.j) && TextUtils.isEmpty(this.f)) {
                 return 23;

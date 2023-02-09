@@ -22,7 +22,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialRadioButton extends AppCompatRadioButton {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES = 2131755876;

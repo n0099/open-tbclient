@@ -284,7 +284,7 @@ public class l05 {
                 textView.setPadding(0, 0, 0, 0);
                 textView.setGravity(this.o);
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0913eb);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091400);
             CharSequence charSequence = this.b.get(i);
             if (charSequence.length() <= 0) {
                 charSequence = "";

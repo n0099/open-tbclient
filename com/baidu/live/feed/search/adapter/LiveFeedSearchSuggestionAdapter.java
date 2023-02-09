@@ -144,10 +144,10 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
             this.mContext = context;
             this.mView = view2;
             this.scene = str;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09148f);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0914a4);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…earch_suggestion_content)");
             this.suggestionWordContent = (TextView) findViewById;
-            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f09148e);
+            View findViewById2 = this.mView.findViewById(R.id.obfuscated_res_0x7f0914a3);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…arch_suggestion_arrow_iv)");
             this.suggestionArrow = (ImageView) findViewById2;
         }
@@ -167,9 +167,9 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
                 Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                 String r = f.r();
                 if (Intrinsics.areEqual(r, "day")) {
-                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080d94);
+                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080da6);
                 } else if (Intrinsics.areEqual(r, "night")) {
-                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080d95);
+                    this.suggestionArrow.setImageResource(R.drawable.obfuscated_res_0x7f080da7);
                 }
             }
         }
@@ -287,7 +287,7 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
                     public void updateDrawState(TextPaint textPaint) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, textPaint) == null) {
-                            textPaint.setColor(this.this$0.getMContext().getResources().getColor(R.color.obfuscated_res_0x7f0607a2));
+                            textPaint.setColor(this.this$0.getMContext().getResources().getColor(R.color.obfuscated_res_0x7f0607a3));
                             textPaint.bgColor = 0;
                             textPaint.setTextSize(oa0.c(this.this$0.getMContext().getResources(), 14.0f));
                             textPaint.setUnderlineText(false);
@@ -602,12 +602,12 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
             if (i == 1) {
-                View view2 = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d057a, null);
+                View view2 = View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d057f, null);
                 Context context = this.mContext;
                 Intrinsics.checkExpressionValueIsNotNull(view2, "view");
                 return new LiveSearchResultViewHolder(context, view2, this.scene);
             }
-            View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0575, viewGroup, false);
+            View view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false);
             Context context2 = this.mContext;
             Intrinsics.checkExpressionValueIsNotNull(view3, "view");
             return new SearchSuggestionViewHolder(context2, view3, this.scene);
@@ -708,9 +708,9 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
                     Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                     String r = f.r();
                     if (Intrinsics.areEqual(r, "day")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6c);
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7e);
                     } else if (Intrinsics.areEqual(r, "night")) {
-                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6d);
+                        liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7f);
                     }
                 }
             } else {
@@ -722,9 +722,9 @@ public final class LiveFeedSearchSuggestionAdapter extends RecyclerView.Adapter<
                 Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
                 String r2 = f2.r();
                 if (Intrinsics.areEqual(r2, "day")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6a);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7c);
                 } else if (Intrinsics.areEqual(r2, "night")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6b);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7d);
                 }
             }
             liveSearchResultViewHolder.f().setVisibility(8);

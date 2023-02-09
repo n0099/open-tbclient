@@ -182,14 +182,14 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
                     return;
                 }
             }
-            this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090306);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917ae);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ae);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925b9);
+            this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09030e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917c7);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925fb);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092607);
             this.e = (ImageView) view2.findViewById(R.id.btn_msgitem_resend);
-            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b9a);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09070d);
-            this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909e4);
+            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091bd5);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090718);
+            this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909f2);
             if (z && view2.getContext() != null) {
                 ReplyContentView d = nq7.d(view2.getContext());
                 this.i = d;
@@ -260,7 +260,7 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ff, viewGroup, false), N());
+            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0401, viewGroup, false), N());
         }
         return (SelfHolder) invokeL.objValue;
     }
@@ -269,7 +269,7 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0400, viewGroup, false), N());
+            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0402, viewGroup, false), N());
         }
         return (SelfHolder) invokeL.objValue;
     }

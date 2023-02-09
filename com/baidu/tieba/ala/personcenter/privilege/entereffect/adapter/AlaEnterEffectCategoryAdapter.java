@@ -48,8 +48,8 @@ public class AlaEnterEffectCategoryAdapter extends qn<b86, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f09094a);
-            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901cb);
+            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f090958);
+            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901cd);
         }
     }
 
@@ -91,7 +91,7 @@ public class AlaEnterEffectCategoryAdapter extends qn<b86, ViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) null));
+            return new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null));
         }
         return (ViewHolder) invokeL.objValue;
     }

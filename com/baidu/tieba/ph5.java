@@ -35,14 +35,14 @@ public class ph5 implements fh5<AgreeEvent> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
             if (agreeEvent != null && agreeEvent.agreeData != null) {
-                w09 w09Var = new w09();
-                w09Var.b = agreeEvent.agreeData;
+                a29 a29Var = new a29();
+                a29Var.b = agreeEvent.agreeData;
                 String str = agreeEvent.agreeExtra;
                 if (AgreeEvent.IS_THREAD.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, w09Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, a29Var));
                     return true;
                 } else if (AgreeEvent.IS_POST.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, w09Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, a29Var));
                     return true;
                 }
             }

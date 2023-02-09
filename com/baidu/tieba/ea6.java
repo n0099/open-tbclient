@@ -18,7 +18,7 @@ import java.util.List;
 public class ea6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<v19> a;
+    public ArrayList<z29> a;
 
     public ea6() {
         Interceptable interceptable = $ic;
@@ -36,10 +36,10 @@ public class ea6 {
         this.a = new ArrayList<>();
     }
 
-    public void a(v19 v19Var) {
+    public void a(z29 z29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v19Var) == null) {
-            this.a.add(v19Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, z29Var) == null) {
+            this.a.add(z29Var);
         }
     }
 
@@ -51,70 +51,70 @@ public class ea6 {
         }
     }
 
-    public x19 c(WebView webView, z19 z19Var, x19 x19Var) {
+    public b39 c(WebView webView, d39 d39Var, b39 b39Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, z19Var, x19Var)) == null) {
-            if (x19Var == null) {
-                x19Var = new x19();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, d39Var, b39Var)) == null) {
+            if (b39Var == null) {
+                b39Var = new b39();
             }
-            if (ActionJsonData.TAG_NOTIFICATION.equals(z19Var.c()) && "addObserver".equals(z19Var.a())) {
-                Iterator<v19> it = this.a.iterator();
+            if (ActionJsonData.TAG_NOTIFICATION.equals(d39Var.c()) && "addObserver".equals(d39Var.a())) {
+                Iterator<z29> it = this.a.iterator();
                 while (it.hasNext()) {
-                    x19Var = it.next().addObserver(z19Var.d(), x19Var, true);
-                    if (x19Var.j()) {
-                        return x19Var;
+                    b39Var = it.next().addObserver(d39Var.d(), b39Var, true);
+                    if (b39Var.j()) {
+                        return b39Var;
                     }
                 }
-                if (!x19Var.j()) {
-                    x19Var.y(202);
-                    x19Var.u(pb6.getContext().getString(R.string.can_find_notification_name));
+                if (!b39Var.j()) {
+                    b39Var.y(202);
+                    b39Var.u(pb6.getContext().getString(R.string.can_find_notification_name));
                 }
             } else {
-                Iterator<v19> it2 = this.a.iterator();
+                Iterator<z29> it2 = this.a.iterator();
                 while (it2.hasNext()) {
-                    x19Var = it2.next().dispatch(webView, z19Var, x19Var);
-                    if (x19Var.i()) {
-                        return x19Var;
+                    b39Var = it2.next().dispatch(webView, d39Var, b39Var);
+                    if (b39Var.i()) {
+                        return b39Var;
                     }
                 }
-                if (!x19Var.i()) {
-                    x19Var.y(202);
+                if (!b39Var.i()) {
+                    b39Var.y(202);
                 }
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLLL.objValue;
+        return (b39) invokeLLL.objValue;
     }
 
-    public void d(WebView webView, x19 x19Var) {
+    public void d(WebView webView, b39 b39Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, x19Var) != null) || webView == null || x19Var == null || !x19Var.k()) {
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, b39Var) != null) || webView == null || b39Var == null || !b39Var.k()) {
             return;
         }
-        b(webView, x19Var.c(), x19Var.d());
+        b(webView, b39Var.c(), b39Var.d());
     }
 
-    public void e(WebView webView, List<x19> list) {
+    public void e(WebView webView, List<b39> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
-            for (x19 x19Var : list) {
-                if (x19Var != null && x19Var.k()) {
-                    b(webView, x19Var.c(), x19Var.d());
+            for (b39 b39Var : list) {
+                if (b39Var != null && b39Var.k()) {
+                    b(webView, b39Var.c(), b39Var.d());
                 }
             }
         }
     }
 
-    public List<x19> f(WebView webView, String str, HashMap hashMap) {
+    public List<b39> f(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
-            List<x19> list = null;
+            List<b39> list = null;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            Iterator<v19> it = this.a.iterator();
+            Iterator<z29> it = this.a.iterator();
             while (it.hasNext()) {
                 list = it.next().processNotification(webView, str, hashMap);
                 if (!ListUtils.isEmpty(list)) {

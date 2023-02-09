@@ -1,69 +1,110 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.ubc.UBC;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zx8 {
+public class zx8 implements NetworkInfoRecord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdTypeRecyclerView b;
-    public ay8 c;
-    public lo d;
-    public List<qn> e;
+    public cy8 a;
+    public cy8 b;
 
-    public zx8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public boolean shouldRecord() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public zx8() {
+        this(new ay8(10, 100));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this((cy8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new LinkedList();
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        a();
     }
 
-    public final void a() {
+    public zx8(cy8 cy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ay8 ay8Var = new ay8(this.a);
-            this.c = ay8Var;
-            this.e.add(ay8Var);
-            lo loVar = new lo(this.a);
-            this.d = loVar;
-            this.e.add(loVar);
-            this.b.a(this.e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cy8Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = cy8Var;
+        this.b = new by8();
     }
 
-    public void b() {
+    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
+    public void doRecord(NetworkStatRecord networkStatRecord) {
+        JSONObject uBCJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<Cdo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setData(list);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
+            String jSONObject = uBCJson.toString();
+            yx8 a = yx8.a();
+            if (a.g()) {
+                a.c(jSONObject);
+            }
+            if (a.f(networkStatRecord)) {
+                a.b(jSONObject);
+            }
+            cy8 cy8Var = this.a;
+            if (cy8Var != null && cy8Var.a(networkStatRecord)) {
+                int i = 0;
+                if (nx8.a) {
+                    i = 64;
+                }
+                UBC.onEvent(b(), jSONObject, i);
+            }
+            if (nx8.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
+                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
+            }
+            cy8 cy8Var2 = this.b;
+            if (cy8Var2 != null && cy8Var2.a(networkStatRecord)) {
+                UBC.onEvent(a(), jSONObject);
+            }
         }
     }
 }

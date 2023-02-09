@@ -224,7 +224,7 @@ public class y78 implements View.OnClickListener, BaseInterestSelectionFragment.
             this.g = inflate;
             NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
             this.j = navigationBar;
-            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f1266));
+            TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f127c));
             this.i = addTextButton;
             addTextButton.setId(R.id.btn_skip);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0108);

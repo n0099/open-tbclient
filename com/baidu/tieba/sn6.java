@@ -101,16 +101,16 @@ public class sn6 extends Dialog {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d027f, (ViewGroup) null);
+            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0280, (ViewGroup) null);
             this.f = TbadkApplication.getInst().getSkinType();
-            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f102a);
+            String string = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f103e);
             this.c = new SpannableString(string);
             this.c.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
             setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702da), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac)));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09224d);
             this.d = textView;
             textView.setText(this.c);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0906ff);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09070a);
             this.e = textView2;
             textView2.setOnClickListener(new a(this));
             setCancelable(true);
@@ -121,7 +121,7 @@ public class sn6 extends Dialog {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0280, (ViewGroup) null);
+            this.b = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0281, (ViewGroup) null);
             this.f = TbadkApplication.getInst().getSkinType();
             setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702da), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070294)));
             setCancelable(false);

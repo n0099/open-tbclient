@@ -627,8 +627,8 @@ public class m35 {
             AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f1003e3);
             builder.setMessage(R.string.check_app_has_been_damaged);
             builder.setCancelable(false);
-            builder.setPositiveButton(R.string.obfuscated_res_0x7f0f0618, new b(this, activity));
-            builder.setNegativeButton(R.string.obfuscated_res_0x7f0f0685, new c(this, activity));
+            builder.setPositiveButton(R.string.obfuscated_res_0x7f0f061f, new b(this, activity));
+            builder.setNegativeButton(R.string.obfuscated_res_0x7f0f068e, new c(this, activity));
             builder.show();
         }
     }

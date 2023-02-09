@@ -99,9 +99,9 @@ public class wo7 extends od5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (this.F) {
-                j09.r(this.G, this);
+                n19.r(this.G, this);
             } else {
-                j09.p(str, this);
+                n19.p(str, this);
             }
         }
     }
@@ -181,10 +181,10 @@ public class wo7 extends od5 {
             if (this.F) {
                 W.setReplyId(this.H);
                 W.setThreadId(this.G);
-                j09.B(this.G, W);
+                n19.B(this.G, W);
                 return;
             }
-            j09.z(str, W);
+            n19.z(str, W);
         }
     }
 

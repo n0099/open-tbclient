@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface xk0 {
     List<cl0> a();
 

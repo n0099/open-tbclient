@@ -60,9 +60,9 @@ public class iw2 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09024d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090250);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024f);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090251);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090254);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090253);
         }
     }
 
@@ -92,9 +92,9 @@ public class iw2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (TextUtils.equals(this.b, "Image")) {
-                return this.a.getString(R.string.obfuscated_res_0x7f0f138c, new Object[]{Integer.valueOf(i)});
+                return this.a.getString(R.string.obfuscated_res_0x7f0f13a3, new Object[]{Integer.valueOf(i)});
             }
-            return this.a.getString(R.string.obfuscated_res_0x7f0f135b, new Object[]{Integer.valueOf(i)});
+            return this.a.getString(R.string.obfuscated_res_0x7f0f1372, new Object[]{Integer.valueOf(i)});
         }
         return (String) invokeI.objValue;
     }
@@ -133,13 +133,13 @@ public class iw2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d084a, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d085c, (ViewGroup) null);
                 aVar = new a(this, view2);
                 view2.setTag(aVar);
             } else {
                 aVar = (a) view2.getTag();
             }
-            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f7));
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120d));
             ww2 ww2Var = this.c.get(i);
             if (ww2Var == null) {
                 return view2;

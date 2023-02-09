@@ -1,192 +1,168 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbReplyTitleViewHolder;
+import com.baidu.tieba.view.SortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pd8 extends q55 {
+public class pd8 extends mc8<ia8, PbReplyTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean p;
-    public boolean q;
-    public int r;
-    public TbPageContext s;
-    public String t;
-    public int u;
-    public ThreadData v;
+    public View.OnClickListener g;
+    public SortSwitchButton.f h;
+    public BdUniqueId i;
+    public BdUniqueId j;
+    public boolean k;
+    public v98 l;
+    public View m;
+    public boolean n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pd8(TbPageContext tbPageContext, p55 p55Var, int i) {
-        super(tbPageContext, p55Var);
+    public pd8(hh8 hh8Var, BdUniqueId bdUniqueId) {
+        super(hh8Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, p55Var, Integer.valueOf(i)};
+            Object[] objArr = {hh8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (p55) objArr2[1]);
+                super((hh8) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.p = false;
-        this.q = false;
-        this.r = 0;
-        this.r = i;
-        this.s = tbPageContext;
-        if (i == 1) {
-            super.m("4");
-        } else if (i == 3) {
-            super.m("5");
-        } else if (i != 4 && i != 5 && i != 6) {
-            super.m("0");
-        } else {
-            super.m("4");
-        }
+        this.k = false;
+        this.i = BdUniqueId.gen();
+        this.j = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.q55, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        String str;
+    public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null || view2.getAlpha() < 0.4d) {
-            return;
-        }
-        o55 o55Var = this.a;
-        if (o55Var != null) {
-            str = o55Var.getUserId();
-        } else {
-            str = "";
-        }
-        TiebaStatic.log(new StatisticItem("c12408").param("obj_source", u()).param("obj_id", str).param("tid", this.t));
-        int i = this.r;
-        int i2 = 8;
-        int i3 = 0;
-        if (i == 1) {
-            i2 = 3;
-        } else if (i == 3) {
-            i2 = 2;
-        } else if (i == 5) {
-            i2 = 5;
-        } else if (i == 7) {
-            i2 = 7;
-        } else if (i == 6) {
-            i2 = 6;
-        } else if (i == 4) {
-            i2 = 4;
-        } else if (i != 8) {
-            i2 = 0;
-        }
-        StatisticItem statisticItem = new StatisticItem("c12507");
-        statisticItem.param("obj_locate", i2);
-        statisticItem.param("obj_id", str);
-        statisticItem.param("tid", this.t);
-        statisticItem.param("obj_param1", this.u);
-        if (!dj.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-            statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
-        }
-        TiebaStatic.log(statisticItem);
-        StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_CONCERN_BTN_CLICK);
-        statisticItem2.param("obj_id", str);
-        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem2.param("tid", this.t);
-        ThreadData threadData = this.v;
-        if (threadData != null) {
-            statisticItem2.param("nid", threadData.getNid());
-            if (this.v.getBaijiahaoData() != null && !dj.isEmpty(this.v.getBaijiahaoData().oriUgcVid)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM6, this.v.getBaijiahaoData().oriUgcVid);
-            }
-            statisticItem2.param("recom_source", this.v.mRecomSource);
-            statisticItem2.param("ab_tag", this.v.mRecomAbTag);
-            statisticItem2.param("weight", this.v.mRecomWeight);
-            statisticItem2.param("extra", this.v.mRecomExtra);
-        }
-        TbPageContext tbPageContext = this.s;
-        if (tbPageContext != null) {
-            uj5.e(tbPageContext.getPageActivity(), statisticItem2);
-        }
-        TiebaStatic.log(statisticItem2);
-        super.onClick(view2);
-        if (this.p && this.a != null) {
-            TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.a.getUserId()));
-        }
-        if (this.q && this.a != null) {
-            int i4 = this.r;
-            if (i4 == 1) {
-                i3 = 1;
-            } else if (i4 == 2) {
-                i3 = 2;
-            }
-            TiebaStatic.log(new StatisticItem("c12150").param("obj_locate", i3).param("obj_id", this.a.getUserId()));
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
     }
 
-    public final int u() {
+    public void r(v98 v98Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v98Var) == null) {
+            this.l = v98Var;
+        }
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    public void z(SortSwitchButton.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+            this.h = fVar;
+        }
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.k = false;
+            MessageManager.getInstance().unRegisterListener(this.i);
+            MessageManager.getInstance().unRegisterListener(this.j);
+        }
+    }
+
+    public View v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String fromPageKey = UtilHelper.getFromPageKey(this.s);
-            if (fromPageKey == null) {
-                return 3;
-            }
-            if (fromPageKey.equals("a038")) {
-                return 1;
-            }
-            if (fromPageKey.equals("a002")) {
-                return 2;
-            }
-            if (fromPageKey.equals("a006")) {
-                return 3;
-            }
-            if (fromPageKey.equals("a011")) {
-                return 4;
-            }
-            if (fromPageKey.equals("a033")) {
-                return 5;
-            }
-            if (fromPageKey.equals("a010")) {
-                return 6;
-            }
-            return 7;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.m;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public void v(ThreadData threadData) {
+    @Override // com.baidu.tieba.mc8, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (ia8) obj, (PbReplyTitleViewHolder) viewHolder);
+        return view2;
+    }
+
+    public final void u() {
+        v98 v98Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.v = threadData;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (v98Var = this.l) != null && v98Var.Q() != null && this.l.h() != null) {
+            v98 v98Var2 = this.l;
+            if (v98Var2.i && !this.k) {
+                this.k = true;
+                boolean e = v98Var2.h().e();
+                TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_id", this.l.h().b()).param("thread_type", this.l.Q().getThreadType()).param("tid", this.l.Q().getId()));
+                if (!e) {
+                    TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 10).param("obj_id", this.l.h().b()).param("thread_type", this.l.Q().getThreadType()).param("tid", this.l.Q().getId()));
+                }
+            }
         }
     }
 
-    public void w(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public PbReplyTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.u = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d071a, viewGroup, false);
+            this.m = inflate;
+            PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.a.getPageContext(), inflate);
+            PbFragment pbFragment = this.b;
+            if (pbFragment != null) {
+                pbReplyTitleViewHolder.r(pbFragment.d0);
+            }
+            pbReplyTitleViewHolder.v = false;
+            pbReplyTitleViewHolder.q(this.g);
+            pbReplyTitleViewHolder.p(this.h);
+            pbReplyTitleViewHolder.o(this.n);
+            if (getType() == ia8.i) {
+                pbReplyTitleViewHolder.n(this.i);
+            } else if (getType() == ia8.j) {
+                pbReplyTitleViewHolder.m(this.j);
+            }
+            return pbReplyTitleViewHolder;
         }
+        return (PbReplyTitleViewHolder) invokeL.objValue;
     }
 
-    public void x(String str) {
+    public View x(int i, View view2, ViewGroup viewGroup, ia8 ia8Var, PbReplyTitleViewHolder pbReplyTitleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.t = str;
-            p(str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ia8Var, pbReplyTitleViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ia8Var, (ia8) pbReplyTitleViewHolder);
+            if (pbReplyTitleViewHolder != null) {
+                u();
+                ia8Var.g = this.l.f;
+                pbReplyTitleViewHolder.h(ia8Var);
+            }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

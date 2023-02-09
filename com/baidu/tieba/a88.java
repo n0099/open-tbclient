@@ -116,7 +116,7 @@ public abstract class a88 {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.b.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f148c), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f14a3), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
@@ -367,15 +367,15 @@ public abstract class a88 {
                 this.b.finish();
             } else if (view2.getId() == R.id.btn_skip) {
                 this.b.finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091bfb) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c3c) {
                 g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092766) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0927c7) {
                 o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092769) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0927ca) {
                 p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0927e1) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09284a) {
                 q();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091650) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091666) {
                 d();
             }
         }

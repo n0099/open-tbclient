@@ -314,15 +314,15 @@ public class ux6 extends v9<ForumRulesShowActivity> implements View.OnClickListe
     public final void x(ForumRulesShowActivity forumRulesShowActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, forumRulesShowActivity) == null) {
-            this.d = (ViewGroup) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090b1d);
-            NavigationBar navigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f09175a);
+            this.d = (ViewGroup) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090b2e);
+            NavigationBar navigationBar = (NavigationBar) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f091773);
             this.e = navigationBar;
             w(navigationBar);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090b2a);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090b3b);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(forumRulesShowActivity));
             this.j = new fx6(forumRulesShowActivity, this.m);
-            this.o = forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090b2b);
+            this.o = forumRulesShowActivity.findViewById(R.id.obfuscated_res_0x7f090b3c);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -349,7 +349,7 @@ public class ux6 extends v9<ForumRulesShowActivity> implements View.OnClickListe
                 String str3 = TbConfig.TIEBA_ADDRESS + "mo/q/wise-bawu-core/forumRuleShare?fid=" + i;
                 ShareItem shareItem = new ShareItem();
                 shareItem.v = str2;
-                shareItem.w = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f070b), str);
+                shareItem.w = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0714), str);
                 shareItem.x = str3;
                 shareItem.q0 = false;
                 mx6 mx6Var3 = this.s;
@@ -377,7 +377,7 @@ public class ux6 extends v9<ForumRulesShowActivity> implements View.OnClickListe
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.f = addSystemImageButton;
             this.g = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
-            this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0708));
+            this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0711));
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_more, this);
             this.h = addCustomView;
             this.i = (ImageView) addCustomView.findViewById(R.id.navigationBarBtnMore);

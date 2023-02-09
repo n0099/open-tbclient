@@ -183,21 +183,21 @@ public class h96 implements g96, View.OnClickListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904cb);
+            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904d6);
             this.c = linearLayout;
             p15 d = p15.d(linearLayout);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0214);
-            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c36);
-            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c37);
-            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c34);
-            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c35);
-            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c32);
-            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c33);
-            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c2e);
-            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c2f);
-            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c30);
-            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c31);
+            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c77);
+            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c78);
+            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c75);
+            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c76);
+            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c73);
+            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c74);
+            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c6f);
+            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c70);
+            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c71);
+            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c72);
             j();
             this.i.setOnClickListener(this);
             this.l.setOnClickListener(this);
@@ -212,22 +212,22 @@ public class h96 implements g96, View.OnClickListener {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a22));
-            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a21));
-            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a20));
-            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1e));
-            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a1f));
+            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a31));
+            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a30));
+            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a2f));
+            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a2d));
+            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a2e));
             float f = this.p;
             if (f == 0.0f) {
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a22, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a31, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 1.7777778f) {
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a21, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a30, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 1.3333334f) {
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a20, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2f, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 0.5625f) {
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1e, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2d, this.b.getResources().getColor(R.color.CAM_X0302), null));
             } else if (f == 1.0f) {
-                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a1f, this.b.getResources().getColor(R.color.CAM_X0302), null));
+                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2e, this.b.getResources().getColor(R.color.CAM_X0302), null));
             }
         }
     }
@@ -236,19 +236,19 @@ public class h96 implements g96, View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091c37) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091c78) {
                 this.p = 0.0f;
                 i(this.a);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c35) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c76) {
                 this.p = 1.7777778f;
                 i(1.7777778f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c33) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c74) {
                 this.p = 1.3333334f;
                 i(1.3333334f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c2f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c70) {
                 this.p = 0.5625f;
                 i(0.5625f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c31) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c72) {
                 this.p = 1.0f;
                 i(1.0f);
             }

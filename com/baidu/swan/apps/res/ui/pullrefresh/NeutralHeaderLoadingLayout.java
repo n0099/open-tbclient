@@ -228,7 +228,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00bd, viewGroup, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00be, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
@@ -271,7 +271,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091773);
+            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09178c);
             int f = nm3.f(getContext(), 29.0f);
             this.e = f;
             this.f = (int) (f * 2.4f);

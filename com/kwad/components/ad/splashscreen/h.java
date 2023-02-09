@@ -98,7 +98,7 @@ public final class h extends com.kwad.sdk.mvp.a {
     public final void a(Context context, int i, int i2, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), aVar}) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0597a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b(this, com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate), i, aVar) { // from class: com.kwad.components.ad.splashscreen.h.2
+            com.kwad.components.core.c.a.a.a(new a.C0598a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(i2).aj(false).a(new a.b(this, com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate), i, aVar) { // from class: com.kwad.components.ad.splashscreen.h.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdInfo pE;
@@ -222,7 +222,7 @@ public final class h extends com.kwad.sdk.mvp.a {
                 return null;
             }
             String jB = jB();
-            ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0912d7);
+            ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0912eb);
             Bitmap createBitmap = Bitmap.createBitmap(this.mRootContainer.getWidth(), this.mRootContainer.getHeight(), Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             Bitmap bitmap = this.yc.ky().getBitmap();

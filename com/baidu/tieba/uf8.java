@@ -1,615 +1,392 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class uf8 extends BaseAdapter {
+public class uf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View.OnClickListener b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public ThreadData f;
-    public boolean g;
-    public boolean h;
-    public String i;
-    public int j;
-    public View.OnLongClickListener k;
-    public View.OnClickListener l;
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    public static int n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public View b;
-        public TextView c;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090855);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090602);
-            this.c = textView;
-            textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
-            a(TbadkCoreApplication.getInst().getSkinType());
-        }
-
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != this.a) {
-                    SkinManager.setBackgroundColor(this.b, R.color.CAM_X0109);
-                    SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-                    SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-                    this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(i, (int) R.drawable.icon_floor_arrow_n), (Drawable) null);
-                }
-                this.a = i;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public View b;
-        public LinearLayout c;
-        public TextView d;
-        public TbRichTextView e;
-        public View f;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-        }
-    }
-
-    public uf8(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = false;
-        this.e = true;
-        this.g = false;
-        this.h = false;
-        this.i = "";
-        this.j = -1;
-        this.k = null;
-        this.l = null;
-        this.a = context;
-    }
-
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d067a, (ViewGroup) null);
-            inflate.setTag(new a(inflate));
-            return inflate;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = new b();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d067b, (ViewGroup) null);
-            bVar.b = inflate;
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920a2);
-            bVar.c = linearLayout;
-            if (this.g) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
-                layoutParams.topMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                layoutParams.bottomMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                bVar.c.setLayoutParams(layoutParams);
-            }
-            bVar.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09157d);
-            bVar.e = (TbRichTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09178c);
-            bVar.f = inflate.findViewById(R.id.obfuscated_res_0x7f09083a);
-            bVar.e.getLayoutStrategy().v();
-            if (!this.g) {
-                bVar.e.getLayoutStrategy().p(TbConfig.getContentLineSpaceOfLzl(), 1.0f);
-                bVar.e.getLayoutStrategy().k(0);
-                bVar.e.getLayoutStrategy().m(ej.g(this.a, R.dimen.tbds20));
-                bVar.e.getLayoutStrategy().n(ej.g(this.a, R.dimen.tbds14));
-                bVar.e.setMaxLines(4);
-                bVar.e.setTextEllipsize(TextUtils.TruncateAt.END);
-                bVar.e.setAddTruncateListener(true);
-                bVar.e.setTextSize(TbConfig.getOutterSubpbContentSize());
-            } else {
-                bVar.e.setTextSize(TbConfig.getContentSizeOfLzl());
-            }
-            bVar.e.setSubPbPost(true);
-            bVar.e.setTextColor(SkinManager.getColor(R.color.CAM_X0106));
-            bVar.e.setIsNeedResizeEmotion(true);
-            bVar.e.setTextCenter(true);
-            bVar.e.setOnClickListener(this.l);
-            bVar.d.setOnClickListener(this.b);
-            SparseArray sparseArray = new SparseArray();
-            sparseArray.put(R.id.tag_holder, bVar);
-            inflate.setTag(sparseArray);
-            return inflate;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0268  */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x02a3  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x017c  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x019e  */
-    /* JADX WARN: Removed duplicated region for block: B:86:0x01e4  */
-    /* JADX WARN: Removed duplicated region for block: B:89:0x01f8  */
-    /* JADX WARN: Removed duplicated region for block: B:98:0x025e  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(b bVar, PostData postData, boolean z, boolean z2) {
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        SparseArray sparseArray;
-        boolean z6;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bVar, postData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && bVar != null && postData != null) {
-            boolean z7 = true;
-            boolean z8 = false;
-            if (!postData.a0) {
-                Context context = this.a;
-                if (context instanceof gb8) {
-                    gb8 gb8Var = (gb8) context;
-                    TbPageContext pageContext = gb8Var.getPageContext();
-                    if (postData.r() != null && gb8Var.E(postData.r().getUserId())) {
-                        z6 = true;
-                    } else {
-                        z6 = false;
-                    }
-                    postData.l1(pageContext, z6);
-                }
-            }
-            if (z2) {
-                SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            } else {
-                bVar.b.setBackgroundResource(0);
-            }
-            if (postData.x0()) {
-                bVar.f.setVisibility(0);
-            } else {
-                bVar.f.setVisibility(8);
-            }
-            bVar.e.setPadding(0, 0, 0, 0);
-            if (postData.r() != null) {
-                String name_show = postData.r().getName_show();
-                String userId = postData.r().getUserId();
-                String portrait = postData.r().getPortrait();
-                SparseArray sparseArray2 = (SparseArray) bVar.b.getTag();
-                if (sparseArray2 == null) {
-                    sparseArray2 = new SparseArray();
-                    bVar.b.setTag(sparseArray2);
-                    bVar.e.setTag(sparseArray2);
-                }
-                sparseArray2.put(R.id.tag_photo_username, name_show);
-                sparseArray2.put(R.id.tag_photo_userid, userId);
-                sparseArray2.put(R.id.tag_photo_portrait, portrait);
-                sparseArray2.put(R.id.tag_clip_board, postData);
-                sparseArray2.put(R.id.tag_is_subpb, Boolean.TRUE);
-            }
-            bVar.e.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            bVar.e.setTextColor(SkinManager.getColor(R.color.CAM_X0106));
-            d(postData, this.g);
-            TbRichText Z = postData.Z();
-            if (Z != null) {
-                bVar.e.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d092c);
-                bVar.e.setIsFromCDN(this.e);
-                if (bVar.a != TbadkCoreApplication.getInst().getSkinType()) {
-                    Z.isChanged = true;
-                }
-                bVar.e.setText(Z);
-            }
-            String userId2 = postData.r().getUserId();
-            int i = this.c;
-            if (i != 0) {
-                if (i != 1002 && i != 3) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if (this.c != 3 && !this.f.isBjh()) {
-                    z4 = true;
-                } else {
-                    z4 = false;
-                }
-                if (userId2 != null && userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    z3 = false;
-                }
-                if (userId2 == null || userId2.equals("0") || userId2.length() == 0) {
-                    z3 = false;
-                }
-            } else {
-                z3 = false;
-                z4 = false;
-            }
-            if (this.d) {
-                if (!this.f.isBjh()) {
-                    z4 = true;
-                }
-                if (userId2 == null || !userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    z5 = true;
-                    if (userId2 == null && userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
-                        z8 = true;
-                    } else {
-                        z7 = z4;
-                    }
-                    bVar.d.setVisibility(8);
-                    sparseArray = (SparseArray) bVar.b.getTag();
-                    if (sparseArray == null) {
-                        sparseArray = new SparseArray();
-                        bVar.b.setTag(sparseArray);
-                        bVar.e.setTag(sparseArray);
-                    }
-                    sparseArray.put(R.id.tag_subpb_main_floor_post_id, this.i);
-                    if (!z3) {
-                        sparseArray.put(R.id.tag_should_manage_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(this.c));
-                        if (postData.r() != null) {
-                            sparseArray.put(R.id.tag_forbid_user_name, postData.r().getUserName());
-                            sparseArray.put(R.id.tag_forbid_user_name_show, postData.r().getName_show());
-                            sparseArray.put(R.id.tag_forbid_user_portrait, postData.r().getPortrait());
-                        }
-                        sparseArray.put(R.id.tag_forbid_user_post_id, postData.O());
-                    } else {
-                        sparseArray.put(R.id.tag_should_manage_visible, Boolean.FALSE);
-                    }
-                    sparseArray.put(R.id.tag_forbid_user_post_id, postData.O());
-                    sparseArray.put(R.id.tag_clip_board, postData);
-                    if (!z5) {
-                        if (this.f != null) {
-                            sparseArray.put(R.id.tag_user_mute_visible, Boolean.TRUE);
-                            sparseArray.put(R.id.tag_is_mem, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
-                            if (postData.r() != null) {
-                                sparseArray.put(R.id.tag_user_mute_mute_userid, postData.r().getUserId());
-                                sparseArray.put(R.id.tag_user_mute_mute_username, postData.r().getUserName());
-                                sparseArray.put(R.id.tag_user_mute_mute_nameshow, postData.r().getName_show());
+        if (interceptable == null || (invokeI = interceptable.invokeI(65549, null, i)) == null) {
+            if (i != -4) {
+                if (i != -3) {
+                    if (i != -2) {
+                        if (i != -1) {
+                            switch (i) {
+                                case 4:
+                                    return 5;
+                                case 5:
+                                    return 7;
+                                case 6:
+                                    return 6;
+                                case 7:
+                                    return 9;
+                                case 8:
+                                    return 8;
+                                default:
+                                    return 0;
                             }
-                            if (this.f.getId() != null) {
-                                sparseArray.put(R.id.tag_user_mute_thread_id, this.f.getId());
-                            }
-                            sparseArray.put(R.id.tag_user_mute_post_id, postData.O());
                         }
-                    } else {
-                        sparseArray.put(R.id.tag_user_mute_visible, Boolean.FALSE);
+                        return 1;
                     }
-                    if (!z7) {
-                        sparseArray.put(R.id.tag_should_delete_visible, Boolean.TRUE);
-                        sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(this.c));
-                        sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z8));
-                        sparseArray.put(R.id.tag_del_post_type, 2);
-                        sparseArray.put(R.id.tag_del_post_id, postData.O());
-                        sparseArray.put(R.id.tag_has_sub_post, Boolean.valueOf(postData.t0()));
-                    } else {
-                        sparseArray.put(R.id.tag_should_delete_visible, Boolean.FALSE);
-                    }
-                    if (this.g && z && this.h) {
-                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
-                        layoutParams.topMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070207);
-                        layoutParams.bottomMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                        bVar.c.setLayoutParams(layoutParams);
-                    }
-                    if (this.g && !z) {
-                        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
-                        layoutParams2.topMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                        layoutParams2.bottomMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                        bVar.c.setLayoutParams(layoutParams2);
-                    }
-                    bVar.d.setTag(sparseArray);
-                    bVar.e.setTag(sparseArray);
-                    bVar.a = TbadkCoreApplication.getInst().getSkinType();
-                    bVar.e.setOnLongClickListener(this.k);
-                    if (postData == null && postData.r() != null && postData.p() != null) {
-                        xf8.b("1", String.valueOf(postData.p().threadId), TbadkCoreApplication.getCurrentAccount(), postData.O(), postData.K(), postData.L());
-                        return;
-                    }
-                    return;
+                    return 2;
+                }
+                return 3;
+            }
+            return 4;
+        }
+        return invokeI.intValue;
+    }
+
+    public static boolean a(List<q05> list, u05 u05Var, PostData postData, la8 la8Var, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{list, u05Var, postData, la8Var, Boolean.valueOf(z)})) == null) {
+            if (list == null || postData == null || la8Var == null || !z || !la8Var.q() || !TbadkCoreApplication.isLogin() || l(postData) || la8Var.p()) {
+                return false;
+            }
+            q05 q05Var = new q05(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f032e), u05Var);
+            list.add(q05Var);
+            o99.f(q05Var.d, postData);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean b(List<q05> list, u05 u05Var, PostData postData, PbModel pbModel) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, list, u05Var, postData, pbModel)) == null) {
+            if (list != null && postData != null && pbModel != null && pbModel.l1() != null) {
+                v98 l1 = pbModel.l1();
+                if (l1.m0() && TbadkCoreApplication.isLogin() && !l(postData) && !l1.l0()) {
+                    q05 q05Var = new q05(9, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f032e), u05Var);
+                    list.add(q05Var);
+                    o99.f(q05Var.d, postData);
+                    return true;
                 }
             }
-            z5 = false;
-            if (userId2 == null) {
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public static List<q05> c(List<q05> list, AgreeData agreeData, SparseArray<?> sparseArray, u05 u05Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, list, agreeData, sparseArray, u05Var)) == null) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            z7 = z4;
-            bVar.d.setVisibility(8);
-            sparseArray = (SparseArray) bVar.b.getTag();
-            if (sparseArray == null) {
+            ArrayList arrayList = new ArrayList();
+            if (agreeData.hasAgree) {
+                if (agreeData.agreeType == 2) {
+                    q05 q05Var = new q05(-1, xd8.u(R.string.c_agreeed, new Object[0]), u05Var);
+                    q05Var.d.setTag(sparseArray);
+                    arrayList.add(q05Var);
+                    if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                        q05 q05Var2 = new q05(-2, xd8.u(R.string.c_disagree, new Object[0]), u05Var);
+                        q05Var2.d.setTag(sparseArray);
+                        arrayList.add(q05Var2);
+                    }
+                } else {
+                    q05 q05Var3 = new q05(-1, xd8.u(R.string.c_agree, new Object[0]), u05Var);
+                    q05Var3.d.setTag(sparseArray);
+                    arrayList.add(q05Var3);
+                    if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                        q05 q05Var4 = new q05(-2, xd8.u(R.string.c_disagreeed, new Object[0]), u05Var);
+                        q05Var4.d.setTag(sparseArray);
+                        arrayList.add(q05Var4);
+                    }
+                }
+            } else {
+                q05 q05Var5 = new q05(-1, xd8.u(R.string.c_agree, new Object[0]), u05Var);
+                q05Var5.d.setTag(sparseArray);
+                arrayList.add(q05Var5);
+                if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                    q05 q05Var6 = new q05(-2, xd8.u(R.string.c_disagree, new Object[0]), u05Var);
+                    q05Var6.d.setTag(sparseArray);
+                    arrayList.add(q05Var6);
+                }
             }
-            sparseArray.put(R.id.tag_subpb_main_floor_post_id, this.i);
-            if (!z3) {
+            q05 q05Var7 = new q05(-3, xd8.u(R.string.obfuscated_res_0x7f0f10b1, new Object[0]), u05Var);
+            q05Var7.d.setTag(sparseArray);
+            arrayList.add(q05Var7);
+            q05 q05Var8 = new q05(-4, xd8.u(R.string.obfuscated_res_0x7f0f11ff, new Object[0]), u05Var);
+            q05Var8.d.setTag(sparseArray);
+            arrayList.add(q05Var8);
+            list.addAll(0, arrayList);
+            return list;
+        }
+        return (List) invokeLLLL.objValue;
+    }
+
+    public static List<q05> d(List<q05> list, AgreeData agreeData, SparseArray<?> sparseArray, u05 u05Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, list, agreeData, sparseArray, u05Var)) == null) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            sparseArray.put(R.id.tag_forbid_user_post_id, postData.O());
-            sparseArray.put(R.id.tag_clip_board, postData);
-            if (!z5) {
+            ArrayList arrayList = new ArrayList();
+            if (agreeData.hasAgree) {
+                if (agreeData.agreeType == 2) {
+                    if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                        q05 q05Var = new q05(-2, xd8.u(R.string.action_dislike, new Object[0]), u05Var);
+                        q05Var.d.setTag(sparseArray);
+                        arrayList.add(q05Var);
+                    }
+                } else if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                    q05 q05Var2 = new q05(-2, xd8.u(R.string.c_disagreeed, new Object[0]), u05Var);
+                    q05Var2.d.setTag(sparseArray);
+                    arrayList.add(q05Var2);
+                }
+            } else if (!g(sparseArray, R.id.pb_dialog_item_isugc)) {
+                q05 q05Var3 = new q05(-2, xd8.u(R.string.action_dislike, new Object[0]), u05Var);
+                q05Var3.d.setTag(sparseArray);
+                arrayList.add(q05Var3);
             }
-            if (!z7) {
-            }
-            if (this.g) {
-                LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
-                layoutParams3.topMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070207);
-                layoutParams3.bottomMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                bVar.c.setLayoutParams(layoutParams3);
-            }
-            if (this.g) {
-                LinearLayout.LayoutParams layoutParams22 = (LinearLayout.LayoutParams) bVar.c.getLayoutParams();
-                layoutParams22.topMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                layoutParams22.bottomMargin = ej.g(this.a, R.dimen.obfuscated_res_0x7f070303);
-                bVar.c.setLayoutParams(layoutParams22);
-            }
-            bVar.d.setTag(sparseArray);
-            bVar.e.setTag(sparseArray);
-            bVar.a = TbadkCoreApplication.getInst().getSkinType();
-            bVar.e.setOnLongClickListener(this.k);
-            if (postData == null) {
-            }
+            q05 q05Var4 = new q05(-3, xd8.u(R.string.obfuscated_res_0x7f0f10b1, new Object[0]), u05Var);
+            q05Var4.d.setTag(sparseArray);
+            arrayList.add(0, q05Var4);
+            q05 q05Var5 = new q05(-4, xd8.u(R.string.obfuscated_res_0x7f0f11ff, new Object[0]), u05Var);
+            q05Var5.d.setTag(sparseArray);
+            arrayList.add(1, q05Var5);
+            list.addAll(0, arrayList);
+            return list;
+        }
+        return (List) invokeLLLL.objValue;
+    }
+
+    public static void e(Activity activity, @Nullable x9<?> x9Var, j05.e eVar, j05.e eVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, x9Var, eVar, eVar2) == null) {
+            j05 j05Var = new j05(activity);
+            j05Var.setMessageId(R.string.del_post_confirm);
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0520, eVar);
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0518, eVar2);
+            j05Var.setCancelable(true);
+            j05Var.create(x9Var);
+            j05Var.show();
         }
     }
 
-    public final void d(PostData postData, boolean z) {
-        TbRichText Z;
-        SpannableStringBuilder S;
-        int i;
+    public static List<q05> f(List<q05> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
+            if (list == null) {
+                return list;
+            }
+            for (q05 q05Var : list) {
+                q05Var.l(i(q05Var));
+            }
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static boolean j(PbModel pbModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pbModel)) == null) {
+            if (pbModel != null && pbModel.l1() != null && pbModel.l1().m0()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k(la8 la8Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, la8Var)) == null) {
+            if (la8Var != null && la8Var.q()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(SparseArray<?> sparseArray, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, sparseArray, i)) == null) {
+            if (sparseArray != null && (sparseArray.get(i) instanceof Boolean)) {
+                return ((Boolean) sparseArray.get(i)).booleanValue();
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static SpannableString o(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            spannableString.setSpan(new ForegroundColorSpan(i), 0, str.length(), 33);
+            return spannableString;
+        }
+        return (SpannableString) invokeLI.objValue;
+    }
+
+    public static SpannableStringBuilder h(PostData postData) {
+        InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048579, this, postData, z) != null) || postData == null || (Z = postData.Z()) == null) {
-            return;
-        }
-        ArrayList<TbRichTextData> I = Z.I();
-        if (ListUtils.isEmpty(I)) {
-            return;
-        }
-        if (z) {
-            TbRichTextData tbRichTextData = I.get(I.size() - 1);
-            int i2 = -1;
-            if (tbRichTextData != null) {
-                i = tbRichTextData.getType();
-            } else {
-                i = -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, postData)) == null) {
+            if (postData == null) {
+                return null;
             }
-            if (i == 1) {
-                String str2 = "   " + StringHelper.getFormatTime(postData.k0());
-                if (I.size() > 1) {
-                    if (I.get(I.size() - 2) != null) {
-                        i2 = I.get(I.size() - 2).getType();
-                    }
-                    if (i2 != i) {
-                        str2 = StringHelper.getFormatTime(postData.k0());
-                    }
-                }
-                SpannableStringBuilder S2 = tbRichTextData.S();
-                if (Z.hasAppendTime && S2 != 0 && Z.appendLength <= S2.length()) {
-                    S2.delete(S2.length() - Z.appendLength, S2.length());
-                }
-                str = StringHelper.forceLToR(str2);
-                if (S2 != null) {
-                    S2.append((CharSequence) str);
-                }
-                Z.hasAppendTime = true;
-                Z.appendLength = str.length();
-            } else if (!Z.hasAppendTime) {
-                String formatTime = StringHelper.getFormatTime(postData.k0());
-                tbRichTextData = new TbRichTextData(1);
-                String forceLToR = StringHelper.forceLToR(formatTime);
-                tbRichTextData.H(forceLToR);
-                Z.hasAppendTime = true;
-                Z.appendLength = forceLToR.length();
-                I.add(tbRichTextData);
-                str = forceLToR;
+            if (postData.Z() != null) {
+                str = postData.Z().toString();
             } else {
                 str = "";
             }
-            SpannableStringBuilder S3 = tbRichTextData.S();
-            if (S3 != null && str.length() <= S3.length()) {
-                AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(TbConfig.getContentSizeOfLzl());
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109));
-                S3.setSpan(absoluteSizeSpan, S3.length() - str.length(), S3.length(), 33);
-                S3.setSpan(foregroundColorSpan, S3.length() - str.length(), S3.length(), 33);
-                return;
+            SpannableString o = o(postData.r().getName_show() + ZeusCrashHandler.NAME_SEPERATOR, SkinManager.getColor(R.color.CAM_X0109));
+            SpannableString o2 = o(str, SkinManager.getColor(R.color.CAM_X0107));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) o);
+            spannableStringBuilder.append((CharSequence) o2);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public static Drawable i(q05 q05Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, q05Var)) == null) {
+            switch (q05Var.f()) {
+                case -4:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_share30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case -3:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_comment30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case -2:
+                    if (xd8.u(R.string.c_disagree, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_dislike30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_disliked30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case -1:
+                    if (xd8.u(R.string.c_agree, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_like30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_liked30, SkinManager.getColor(R.color.CAM_X0301), null);
+                case 0:
+                default:
+                    return null;
+                case 1:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_expression30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 2:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_save30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 3:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_copy30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 4:
+                    if (xd8.u(R.string.obfuscated_res_0x7f0f0b46, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_collect30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_collected30, SkinManager.getColor(R.color.CAM_X0305), null);
+                case 5:
+                    if (xd8.u(R.string.report_text, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_report30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!xd8.u(R.string.obfuscated_res_0x7f0f0bea, new Object[0]).equals(q05Var.g())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_nospeakingset30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 6:
+                    if (xd8.u(R.string.report_text, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_report30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!xd8.u(R.string.obfuscated_res_0x7f0f04d8, new Object[0]).equals(q05Var.g())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_delete30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 7:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_administration30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 8:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_hide30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 9:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_block30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 10:
+                    if (xd8.u(R.string.obfuscated_res_0x7f0f04e5, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_delete30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!xd8.u(R.string.obfuscated_res_0x7f0f04d8, new Object[0]).equals(q05Var.g())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_delete30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 11:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_block30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 12:
+                    if (xd8.u(R.string.obfuscated_res_0x7f0f0be6, new Object[0]).equals(q05Var.g())) {
+                        return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_nospeaking30, SkinManager.getColor(R.color.CAM_X0107), null);
+                    }
+                    if (!xd8.u(R.string.un_mute, new Object[0]).equals(q05Var.g())) {
+                        return null;
+                    }
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_recommend_nospeakinged30, SkinManager.getColor(R.color.CAM_X0107), null);
+                case 13:
+                    return WebPManager.getPureDrawable(R.drawable.icon_pure_pb_batch_delete, SkinManager.getColor(R.color.CAM_X0107), null);
             }
-            return;
         }
-        TbRichTextData tbRichTextData2 = I.get(I.size() - 1);
-        if (Z.hasAppendTime && tbRichTextData2 != null && (S = tbRichTextData2.S()) != null && Z.appendLength <= S.length()) {
-            S.delete(S.length() - Z.appendLength, S.length());
-        }
-        Z.hasAppendTime = false;
-        Z.appendLength = 0;
+        return (Drawable) invokeL.objValue;
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    public static boolean l(PostData postData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.l = onClickListener;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) {
-            this.b = onClickListener;
-        }
-    }
-
-    public void i(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, threadData) == null) {
-            this.f = threadData;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        PostData postData;
-        b bVar;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
-            if (getItem(i) instanceof PostData) {
-                postData = (PostData) getItem(i);
-            } else {
-                postData = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, postData)) == null) {
+            if (postData != null && postData.r() != null && !StringUtils.isNull(postData.r().getUserId()) && postData.r().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                return true;
             }
-            if (view2 == null) {
-                if (postData.getType() == PostData.W0) {
-                    view2 = a();
-                } else {
-                    view2 = b();
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static List<q05> m(List<q05> list, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65548, null, list, z)) == null) {
+            if (list != null && !z) {
+                Iterator<q05> it = list.iterator();
+                while (it.hasNext()) {
+                    q05 next = it.next();
+                    if (next.f() == 2 || next.f() == 1 || next.f() == 3) {
+                        it.remove();
+                    }
                 }
             }
-            if ((view2.getTag() instanceof a) && postData.getType() != PostData.W0) {
-                view2 = b();
-            }
-            if ((view2.getTag() instanceof SparseArray) && postData.getType() == PostData.W0) {
-                view2 = a();
-            }
-            if ((view2.getTag() instanceof SparseArray) && (bVar = (b) ((SparseArray) view2.getTag()).get(R.id.tag_holder)) != null && postData != null) {
-                boolean z2 = true;
-                if (i == this.j) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (i != 0) {
-                    z2 = false;
-                }
-                c(bVar, postData, z2, z);
-                if (z) {
-                    this.j = -1;
-                }
-            }
-            if (view2.getTag() instanceof a) {
-                ((a) view2.getTag()).a(TbadkCoreApplication.getInst().getSkinType());
-            }
-            return view2;
+            return list;
         }
-        return (View) invokeILL.objValue;
-    }
-
-    public void j(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.c = i;
-            this.d = z;
-        }
+        return (List) invokeLZ.objValue;
     }
 }

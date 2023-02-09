@@ -18,10 +18,10 @@ import com.baidu.tieba.d25;
 import com.baidu.tieba.e15;
 import com.baidu.tieba.g15;
 import com.baidu.tieba.g25;
-import com.baidu.tieba.gd8;
 import com.baidu.tieba.go;
+import com.baidu.tieba.md8;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.rd8;
+import com.baidu.tieba.zd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class PbActivity extends AbsPbActivity {
     public int D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f9 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0701 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.AbsPbActivity
@@ -282,9 +282,9 @@ public class PbActivity extends AbsPbActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048582, this, i, bdTypeRecyclerView) == null) && !this.v && H1() != null) {
             this.v = true;
-            if (H1() != null && H1().j1() == 7) {
+            if (H1() != null && H1().k1() == 7) {
                 i2 = 2;
-            } else if (H1() != null && H1().S1()) {
+            } else if (H1() != null && H1().V1()) {
                 i2 = 1;
             } else {
                 i2 = 3;
@@ -297,20 +297,20 @@ public class PbActivity extends AbsPbActivity {
         }
     }
 
-    public void Z1(int i, rd8 rd8Var) {
+    public void Z1(int i, zd8 zd8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, rd8Var) == null) && !this.v && H1() != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048583, this, i, zd8Var) == null) && !this.v && H1() != null) {
             int i2 = 1;
             this.v = true;
-            if (H1() != null && H1().j1() == 7) {
+            if (H1() != null && H1().k1() == 7) {
                 i2 = 2;
-            } else if (H1() == null || !H1().S1()) {
+            } else if (H1() == null || !H1().V1()) {
                 i2 = 3;
             }
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
             }
-            rd8Var.h2(new b(this, i, i2));
+            zd8Var.q2(new b(this, i, i2));
         }
     }
 
@@ -321,7 +321,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new gd8(this));
+            registerListener(new md8(this));
             V1();
         }
     }

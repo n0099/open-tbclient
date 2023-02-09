@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cm8;
+import com.baidu.tieba.dn8;
+import com.baidu.tieba.gn8;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.vg;
-import com.baidu.tieba.zl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public zl8 b;
+    public dn8 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -39,7 +39,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0735 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0746 : invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<cm8> e = this.a.e(i);
+                List<gn8> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -228,11 +228,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0735, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0746, this);
             this.e = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906d4);
-            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0906d5);
-            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090855);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906df);
+            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f0906e0);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090863);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<cm8> e(int i) {
+    public final List<gn8> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            zl8 zl8Var = this.b;
-            if (zl8Var != null && !ListUtils.isEmpty(zl8Var.a)) {
+            dn8 dn8Var = this.b;
+            if (dn8Var != null && !ListUtils.isEmpty(dn8Var.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    cm8 cm8Var = (cm8) ListUtils.getItem(this.b.a, i3);
-                    if (cm8Var != null) {
-                        arrayList.add(cm8Var);
+                    gn8 gn8Var = (gn8) ListUtils.getItem(this.b.a, i3);
+                    if (gn8Var != null) {
+                        arrayList.add(gn8Var);
                     }
                 }
                 return arrayList;

@@ -84,11 +84,11 @@ public class ForumsTopicsRecommendView extends ViewGroup implements me5 {
         this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d2, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b42));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b43));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b44));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b45));
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d4, (ViewGroup) this, true);
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b53));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b54));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b55));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090b56));
         int i3 = this.d;
         int i4 = this.b;
         this.g = ((i3 - (i4 * 2)) - this.c) / 2;

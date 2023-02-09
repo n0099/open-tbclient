@@ -38,7 +38,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements cl6 {
     public int D1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0276 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0277 : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.vj5
@@ -178,7 +178,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements cl6 {
     }
 
     @Override // com.baidu.tieba.cl6
-    public void C0(int i, int i2) {
+    public void B0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (!this.c.a()) {
@@ -255,7 +255,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements cl6 {
     }
 
     @Override // com.baidu.tieba.cl6
-    public void m1(rl6 rl6Var) {
+    public void l1(rl6 rl6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, rl6Var) == null) {
             hideLoadingView(this.e);
@@ -332,7 +332,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements cl6 {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f0952);
+                    showToast(R.string.obfuscated_res_0x7f0f095c);
                 }
             }
             if (!this.c.a()) {

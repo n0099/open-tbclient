@@ -1,7 +1,7 @@
 package com.fun;
 
-import com.baidu.tieba.b6a;
-import com.baidu.tieba.z0a;
+import com.baidu.tieba.d2a;
+import com.baidu.tieba.f7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,15 +13,15 @@ public class s0 extends HashMap<String, Object> {
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Object[] a;
     public final /* synthetic */ String b;
-    public final /* synthetic */ b6a c;
+    public final /* synthetic */ f7a c;
 
-    public s0(b6a b6aVar, Object[] objArr, String str) {
+    public s0(f7a f7aVar, Object[] objArr, String str) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr2 = {b6aVar, objArr, str};
+            Object[] objArr2 = {f7aVar, objArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,7 +31,7 @@ public class s0 extends HashMap<String, Object> {
                 return;
             }
         }
-        this.c = b6aVar;
+        this.c = f7aVar;
         this.a = objArr;
         this.b = str;
         if (objArr != null && objArr.length > 0) {
@@ -51,7 +51,7 @@ public class s0 extends HashMap<String, Object> {
         put("st", this.b);
         put("sid", this.c.b);
         put("sidv", Integer.valueOf(this.c.c));
-        put("ldr_i", Integer.valueOf(z0a.a(this.c.b)));
+        put("ldr_i", Integer.valueOf(d2a.a(this.c.b)));
         str2 = this.c.d;
         put("type", str2);
     }

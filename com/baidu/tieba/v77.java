@@ -147,7 +147,7 @@ public class v77 extends pm5<ActivityPageResIdl> {
                 hz4Var.i(recommendForumList.forum_list);
                 hz4Var.f = recommendForumList.class_name;
                 hz4Var.floorPosition = recommendForumList.floor_position.intValue();
-                hz4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105b);
+                hz4Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f106f);
                 hz4Var.e = R.color.CAM_X0108;
                 arrayList.add(hz4Var);
             }
@@ -156,7 +156,7 @@ public class v77 extends pm5<ActivityPageResIdl> {
                 lz4 lz4Var = new lz4();
                 lz4Var.f(recommendUserList.user_list);
                 lz4Var.floorPosition = recommendUserList.floor_position.intValue();
-                lz4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1072);
+                lz4Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1086);
                 lz4Var.b = R.color.CAM_X0108;
                 arrayList.add(lz4Var);
             }

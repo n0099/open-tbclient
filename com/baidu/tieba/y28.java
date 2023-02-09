@@ -61,7 +61,7 @@ public class y28 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f142f), Integer.valueOf(i)));
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1446), Integer.valueOf(i)));
         }
     }
 
@@ -70,11 +70,11 @@ public class y28 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0883, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0895, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921cc);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0921cb);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092212);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092211);
             return this.a;
         }
         return (View) invokeL.objValue;

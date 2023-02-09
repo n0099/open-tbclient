@@ -253,7 +253,7 @@ public final class y82 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                StringBuilder sb = new StringBuilder(ds2.c().getText(R.string.obfuscated_res_0x7f0f13d4));
+                StringBuilder sb = new StringBuilder(ds2.c().getText(R.string.obfuscated_res_0x7f0f13eb));
                 sb.append(str);
                 String e = t82.e();
                 if (!TextUtils.isEmpty(e)) {

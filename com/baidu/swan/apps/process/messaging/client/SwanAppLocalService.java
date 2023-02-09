@@ -126,7 +126,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                     ds2.I().d();
                 }
                 yn3.y(ds2.c());
-                g33.a().c(R.layout.obfuscated_res_0x7f0d00a5, R.layout.obfuscated_res_0x7f0d00c3, R.layout.obfuscated_res_0x7f0d00b8);
+                g33.a().c(R.layout.obfuscated_res_0x7f0d00a6, R.layout.obfuscated_res_0x7f0d00c4, R.layout.obfuscated_res_0x7f0d00b9);
                 ds2.V().a(ds2.u0().a());
                 boolean z = xn3.i;
                 pt2.c().d("screenSize", gm3.b());

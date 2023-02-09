@@ -141,10 +141,10 @@ public class BdPlayerSeekBar extends FrameLayout {
     private final void inflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0155, this);
-            this.progressView = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f09156c);
-            this.durationView = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091567);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f091578);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0156, this);
+            this.progressView = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f091582);
+            this.durationView = (BdPlayerProgressView) findViewById(R.id.obfuscated_res_0x7f09157d);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f09158e);
             this.seekBarView = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new BdThumbSeekBarView.OnBdSeekBarChangeListener(this) { // from class: com.baidu.searchbox.player.widget.BdPlayerSeekBar$inflate$1

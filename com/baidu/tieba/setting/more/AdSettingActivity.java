@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.CloseAdData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gu8;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.o09;
+import com.baidu.tieba.kv8;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.s35;
 import com.baidu.tieba.setting.im.more.MemberCloseAdHttpResponseMessage;
 import com.baidu.tieba.setting.im.more.MemberCloseAdRequestMessage;
@@ -42,7 +42,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static int f = 1;
     public static int g = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public gu8 a;
+    public kv8 a;
     public int b;
     public s35 c;
     public wb d;
@@ -251,7 +251,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new gu8(this);
+            this.a = new kv8(this);
             A1();
             registerListener(this.d);
         }
@@ -273,8 +273,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void A1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o09.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            o09.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            s19.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            s19.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -327,7 +327,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             j05Var.setMessageId(R.string.mebmer_close_ad_dialog_message);
             j05Var.setButtonTextColor(R.color.CAM_X0305);
             j05Var.setPositiveButton(R.string.open_now, new a(this));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
             j05Var.create(getPageContext()).show();
         }
     }

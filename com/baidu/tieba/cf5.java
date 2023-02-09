@@ -27,7 +27,7 @@ public class cf5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
             y45.a(downloadData, 400);
-            ds8.o().i(downloadData.getUrl(), downloadData.getId());
+            ht8.o().i(downloadData.getUrl(), downloadData.getId());
         }
     }
 
@@ -35,7 +35,7 @@ public class cf5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return ds8.o().u(str);
+            return ht8.o().u(str);
         }
         return invokeL.booleanValue;
     }
@@ -61,7 +61,7 @@ public class cf5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int l = ds8.o().l(downloadData.getId(), downloadData.getName());
+            int l = ht8.o().l(downloadData.getId(), downloadData.getName());
             if (l >= 0 && l <= 100) {
                 return l;
             }
@@ -100,13 +100,13 @@ public class cf5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (ds8.o().s(downloadData.getId())) {
+            if (ht8.o().s(downloadData.getId())) {
                 return 5;
             }
-            if (ds8.o().v(downloadData.getId())) {
+            if (ht8.o().v(downloadData.getId())) {
                 return 1;
             }
-            if (ds8.o().r(downloadData.getId(), downloadData.getName())) {
+            if (ht8.o().r(downloadData.getId(), downloadData.getName())) {
                 return 7;
             }
             return 6;
@@ -186,7 +186,7 @@ public class cf5 {
             downloadData.setId(str);
             downloadData.setName(itemData.mTitle);
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(ds8.p(str).intValue());
+            downloadData.setNotifyId(ht8.p(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());

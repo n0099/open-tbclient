@@ -122,22 +122,22 @@ public class gf6 implements ff6 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements gs9 {
+    public class b implements kt9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ gf6 a;
 
-        @Override // com.baidu.tieba.gs9
-        public nt9 c() {
+        @Override // com.baidu.tieba.kt9
+        public ru9 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (nt9) invokeV.objValue;
+            return (ru9) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.kt9
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -162,25 +162,25 @@ public class gf6 implements ff6 {
             this.a = gf6Var;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.kt9
         public IMediaPlayer a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new we9(this.a.a.getPageActivity());
+                return new ag9(this.a.a.getPageActivity());
             }
             return (IMediaPlayer) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.gs9
+        @Override // com.baidu.tieba.kt9
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.a.f) {
-                    return n99.c;
+                    return ra9.c;
                 }
-                return n99.d;
+                return ra9.d;
             }
             return (String) invokeV.objValue;
         }
@@ -454,7 +454,7 @@ public class gf6 implements ff6 {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            fs9.c().k(null);
+            jt9.c().k(null);
         }
     }
 
@@ -513,7 +513,7 @@ public class gf6 implements ff6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (!v89.a()) {
+            if (!z99.a()) {
                 this.a.getPageActivity().finish();
                 return false;
             }
@@ -528,9 +528,9 @@ public class gf6 implements ff6 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            fs9.c().h(TbadkCoreApplication.getInst());
-            fs9.c().j(FileHelper.getCacheDir());
-            fs9.c().k(new b(this));
+            jt9.c().h(TbadkCoreApplication.getInst());
+            jt9.c().j(FileHelper.getCacheDir());
+            jt9.c().k(new b(this));
         }
     }
 

@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.q09;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ public class zk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LikeModel a;
-    public q09 b;
+    public u19 b;
     public boolean c;
     public b d;
     public a e;
@@ -32,7 +32,7 @@ public class zk6 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends w9 implements q09.a {
+    public class b extends w9 implements u19.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public a a;
@@ -63,7 +63,7 @@ public class zk6 {
             }
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -76,7 +76,7 @@ public class zk6 {
             }
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -143,7 +143,7 @@ public class zk6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
             if (!ej.F()) {
-                UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0d08));
                 return false;
             } else if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
                 return false;
@@ -184,9 +184,9 @@ public class zk6 {
             bVar.d(this.e);
         }
         if (this.b == null) {
-            q09 q09Var = new q09();
-            this.b = q09Var;
-            q09Var.b(this.d);
+            u19 u19Var = new u19();
+            this.b = u19Var;
+            u19Var.b(this.d);
         }
         long g = dh.g(str2, -1L);
         if (g == -1) {

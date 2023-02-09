@@ -13,7 +13,7 @@ import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.tieba.mi2;
 import com.baidu.tieba.sb2;
-import com.baidu.tieba.tca;
+import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,8 +38,8 @@ public final class oi2 extends ac2 implements tl4, ql4 {
     public static final PMSDownloadType o;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
-    public zca<? super yh4> d;
-    public zca<yh4> e;
+    public dea<? super yh4> d;
+    public dea<yh4> e;
     public em4 f;
     public final ck4 g;
     public ng4<yh4> h;
@@ -222,7 +222,7 @@ public final class oi2 extends ac2 implements tl4, ql4 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements tca.a<yh4> {
+    public class e implements xda.a<yh4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oi2 a;
@@ -246,18 +246,18 @@ public final class oi2 extends ac2 implements tl4, ql4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
-        public void call(zca<? super yh4> zcaVar) {
+        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+        public void call(dea<? super yh4> deaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, zcaVar) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, deaVar) != null) {
                 return;
             }
-            this.a.d = zcaVar;
+            this.a.d = deaVar;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f extends zca<yh4> {
+    public class f extends dea<yh4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oi2 e;
@@ -285,7 +285,7 @@ public final class oi2 extends ac2 implements tl4, ql4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         /* renamed from: g */
         public void onNext(yh4 yh4Var) {
             Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public final class oi2 extends ac2 implements tl4, ql4 {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -307,7 +307,7 @@ public final class oi2 extends ac2 implements tl4, ql4 {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -536,7 +536,7 @@ public final class oi2 extends ac2 implements tl4, ql4 {
         }
     }
 
-    public final zca<yh4> b0() {
+    public final dea<yh4> b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -545,7 +545,7 @@ public final class oi2 extends ac2 implements tl4, ql4 {
             }
             return this.e;
         }
-        return (zca) invokeV.objValue;
+        return (dea) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.tl4
@@ -791,10 +791,10 @@ public final class oi2 extends ac2 implements tl4, ql4 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.f.g()) {
-                arrayList.add(tca.a(new e(this)));
+                arrayList.add(xda.a(new e(this)));
             }
             if (!arrayList.isEmpty()) {
-                tca.i(arrayList).u(b0());
+                xda.i(arrayList).u(b0());
             }
         }
     }
@@ -895,9 +895,9 @@ public final class oi2 extends ac2 implements tl4, ql4 {
                         yh4 yh4Var = (yh4) dm4.j(new JSONObject(i), new yh4());
                         yh4Var.g = "so_zeus_armeabi";
                         g0(yh4Var);
-                        o83.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f12fe)).G();
+                        o83.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1315)).G();
                     } catch (JSONException e2) {
-                        o83.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f12fd)).G();
+                        o83.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1314)).G();
                         e2.printStackTrace();
                     }
                 }

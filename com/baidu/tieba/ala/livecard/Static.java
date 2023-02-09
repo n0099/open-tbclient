@@ -14,9 +14,9 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.livecard.adapters.FrsAlaShareItemAdapter;
 import com.baidu.tieba.ala.livecard.adapters.FrsSplitAlaShareItemAdapter;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.oz8;
-import com.baidu.tieba.pz8;
 import com.baidu.tieba.r56;
+import com.baidu.tieba.s09;
+import com.baidu.tieba.t09;
 import com.baidu.tieba.t56;
 import com.baidu.tieba.u56;
 import com.baidu.tieba.v56;
@@ -71,8 +71,8 @@ public class Static {
                 absDelegateAdapterList.add(new t56(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
                 absDelegateAdapterList.add(new w56(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new r56(null, oz8.c, null));
-                absDelegateAdapterList.add(new u56(null, pz8.b, null));
+                absDelegateAdapterList.add(new r56(null, s09.c, null));
+                absDelegateAdapterList.add(new u56(null, t09.b, null));
             }
         }
     }
@@ -111,7 +111,7 @@ public class Static {
                 absDelegateAdapterList.add(new t56(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
                 absDelegateAdapterList.add(new v56(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
                 absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
-                absDelegateAdapterList.add(new v56(null, pz8.b, null));
+                absDelegateAdapterList.add(new v56(null, t09.b, null));
             }
         }
     }

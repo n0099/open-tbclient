@@ -33,7 +33,7 @@ public class nr6 extends mc6<jr6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02c8 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02ca : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -54,12 +54,12 @@ public class nr6 extends mc6<jr6> {
 
         /* renamed from: com.baidu.tieba.nr6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnLongClickListenerC0362a implements View.OnLongClickListener {
+        public class View$OnLongClickListenerC0361a implements View.OnLongClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnLongClickListenerC0362a(a aVar, nr6 nr6Var) {
+            public View$OnLongClickListenerC0361a(a aVar, nr6 nr6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,12 +178,12 @@ public class nr6 extends mc6<jr6> {
                 }
             }
             this.d = nr6Var;
-            View inflate = LayoutInflater.from(nr6Var.g().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) null);
+            View inflate = LayoutInflater.from(nr6Var.g().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02cb, (ViewGroup) null);
             this.a = inflate;
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09071d);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0907ce);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090728);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0907da);
             c();
-            this.b.setOnLongClickListener(new View$OnLongClickListenerC0362a(this, nr6Var));
+            this.b.setOnLongClickListener(new View$OnLongClickListenerC0361a(this, nr6Var));
             this.b.setOnClickListener(new b(this, nr6Var));
             this.c.setOnClickListener(new c(this, nr6Var));
         }

@@ -52,11 +52,11 @@ import com.baidu.tieba.a85;
 import com.baidu.tieba.ch7;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fg9;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
 import com.baidu.tieba.ig7;
+import com.baidu.tieba.jh9;
 import com.baidu.tieba.kd5;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.kg7;
@@ -109,7 +109,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     public TextView r;
     public tg7 s;
     public View t;
-    public fg9 u;
+    public jh9 u;
     public EditText v;
     public mg7 w;
     public boolean x;
@@ -738,7 +738,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             this.x = true;
             this.i.setNextPage(this.k);
-            this.k.S();
+            this.k.T();
         }
     }
 
@@ -831,13 +831,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.y = i2;
             this.r.setVisibility(0);
             if (i2 == 1) {
-                this.r.setText(R.string.obfuscated_res_0x7f0f150e);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1525);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_support_bg);
             } else if (i2 == 2) {
-                this.r.setText(R.string.obfuscated_res_0x7f0f150d);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1524);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_oppose_bg);
             } else {
-                this.r.setText(R.string.obfuscated_res_0x7f0f150c);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1523);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_opinion_bg);
             }
             int i3 = this.a;
@@ -865,11 +865,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 } else {
                     this.v.setSelection(selectionEnd);
                 }
-                fg9 fg9Var = this.u;
-                if (fg9Var.b() < 0) {
+                jh9 jh9Var = this.u;
+                if (jh9Var.b() < 0) {
                     z2 = false;
                 }
-                fg9Var.k(z2);
+                jh9Var.k(z2);
             }
         }
     }
@@ -889,7 +889,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.s.b().setBarBackgroundColorId(R.color.CAM_X0207);
             this.s.v((BaseActivity) getContext(), bundle);
             this.s.u();
-            this.s.b().setId(R.id.obfuscated_res_0x7f0923cd);
+            this.s.b().setId(R.id.obfuscated_res_0x7f092417);
             EditText g2 = this.s.o().g();
             this.v = g2;
             g2.addTextChangedListener(new e(this));
@@ -947,7 +947,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             z();
         }
         if (!StringUtils.isNull(mg7Var.b)) {
-            this.d.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04ae), StringHelper.cutChineseAndEnglishWithSuffix(mg7Var.b, 14, StringHelper.STRING_MORE)));
+            this.d.setCenterTextTitle(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04b1), StringHelper.cutChineseAndEnglishWithSuffix(mg7Var.b, 14, StringHelper.STRING_MORE)));
         }
         this.h.setData(mg7Var.e);
         this.i.s(this.h);
@@ -982,7 +982,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 addSystemImageButton.setOnClickListener(this);
                 this.f = (ImageView) this.e.findViewById(R.id.widget_navi_back_button);
             }
-            this.g = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08bd, this);
+            this.g = (ImageView) this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08d0, this);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_topbar_share44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.d.mCenterText, (int) R.color.CAM_X0101);
             this.d.mCenterText.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbds52));
@@ -990,17 +990,17 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f090082);
             this.l = noNetworkView;
             noNetworkView.a(this.D);
-            this.p = findViewById(R.id.obfuscated_res_0x7f0918e0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091903);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092418);
             this.q = textView;
             textView.setOnClickListener(new c(this));
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d4);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e2);
             this.o = findViewById(R.id.obfuscated_res_0x7f09007e);
             u(bundle);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
             addView(this.s.b(), layoutParams);
-            this.u = new fg9();
+            this.u = new jh9();
             this.t = findViewById(R.id.obfuscated_res_0x7f09007f);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090080);
             this.i = bdTypeRecyclerView;

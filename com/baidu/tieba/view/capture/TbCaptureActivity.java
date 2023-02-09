@@ -46,15 +46,16 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a48;
-import com.baidu.tieba.a99;
 import com.baidu.tieba.an6;
-import com.baidu.tieba.ce9;
+import com.baidu.tieba.ba9;
+import com.baidu.tieba.bh9;
 import com.baidu.tieba.cn6;
 import com.baidu.tieba.d96;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dn6;
 import com.baidu.tieba.e48;
 import com.baidu.tieba.e96;
+import com.baidu.tieba.ea9;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.external.filter.ResponseGetQmFiltersMessage;
 import com.baidu.tieba.external.music.data.MusicData;
@@ -64,6 +65,7 @@ import com.baidu.tieba.f96;
 import com.baidu.tieba.ff0;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.g96;
+import com.baidu.tieba.gf9;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.gj;
 import com.baidu.tieba.h96;
@@ -78,16 +80,14 @@ import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.s05;
 import com.baidu.tieba.u05;
-import com.baidu.tieba.ve9;
 import com.baidu.tieba.view.widget.HorizontalCenterSelectView;
 import com.baidu.tieba.view.widget.RecordPreviewContainer;
 import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
 import com.baidu.tieba.view.widget.recordeffect.VideoControllerLayout;
 import com.baidu.tieba.wm6;
-import com.baidu.tieba.x89;
-import com.baidu.tieba.xf9;
 import com.baidu.tieba.xm6;
 import com.baidu.tieba.ym6;
+import com.baidu.tieba.zf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -195,8 +195,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 if (this.a.V != null) {
                     QmFilterItem qmFilterItem = new QmFilterItem();
                     qmFilterItem.id = "-1";
-                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a86 + "";
-                    qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0678);
+                    qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a95 + "";
+                    qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0681);
                     qmFilterItem.isSelect = true;
                     qmFilterItem.localPath = "origin";
                     this.a.V.z(qmFilterItem);
@@ -206,7 +206,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     this.a.V.setDownLoadFilter(null);
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f12bf);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f12d5);
                 }
                 this.a.showToast(str);
                 this.a.F.b(5, str);
@@ -275,7 +275,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     this.a.V.setDownLoadSticker(qmStickerItem, false);
                 }
                 if (StringUtils.isNull(str)) {
-                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f12bf);
+                    str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f12d5);
                 }
                 this.a.showToast(str);
                 this.a.F.b(5, str);
@@ -466,7 +466,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                VideoFileInfo c = x89.c(str);
+                VideoFileInfo c = ba9.c(str);
                 if (c == null) {
                     TbCaptureActivity tbCaptureActivity = this.a;
                     tbCaptureActivity.hideLoadingView(tbCaptureActivity.e);
@@ -546,15 +546,15 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         }
 
         @Override // com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout.i
-        public void b(xf9 xf9Var, Object obj) {
+        public void b(bh9 bh9Var, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xf9Var, obj) != null) || xf9Var == null) {
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bh9Var, obj) != null) || bh9Var == null) {
                 return;
             }
-            int type = xf9Var.getType();
+            int type = bh9Var.getType();
             if (type != 2) {
-                if (type == 3 && (xf9Var.c() instanceof MusicData)) {
-                    MusicData musicData = (MusicData) xf9Var.c();
+                if (type == 3 && (bh9Var.c() instanceof MusicData)) {
+                    MusicData musicData = (MusicData) bh9Var.c();
                     TbMusicData tbMusicData = new TbMusicData();
                     tbMusicData.id = musicData.id;
                     tbMusicData.title = musicData.name;
@@ -572,10 +572,10 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                             this.a.V.setMusicName(this.a.O.title, "");
                         }
                     }
-                    this.a.N.c((MusicData) xf9Var.c(), obj);
+                    this.a.N.c((MusicData) bh9Var.c(), obj);
                 }
-            } else if (this.a.K != null && (xf9Var.c() instanceof QmFilterItem)) {
-                QmFilterItem qmFilterItem = (QmFilterItem) xf9Var.c();
+            } else if (this.a.K != null && (bh9Var.c() instanceof QmFilterItem)) {
+                QmFilterItem qmFilterItem = (QmFilterItem) bh9Var.c();
                 String f = this.a.K.f(qmFilterItem.fileUrl);
                 if (StringUtils.isNull(f) && !"-1".equals(qmFilterItem.id)) {
                     if (this.a.V != null) {
@@ -890,7 +890,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         public void a(MotionEvent motionEvent, int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, motionEvent, i) == null) && this.a.G != null) {
-                ce9.D(this.a.getPageContext()).l(i);
+                gf9.D(this.a.getPageContext()).l(i);
                 this.a.s2();
                 this.a.W = true;
             }
@@ -900,7 +900,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         public void b(MotionEvent motionEvent, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{motionEvent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && this.a.G != null) {
-                ce9.D(this.a.getPageContext()).c(i, i2, i3, i4);
+                gf9.D(this.a.getPageContext()).c(i, i2, i3, i4);
                 this.a.W = true;
             }
         }
@@ -1383,8 +1383,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 }
                 QmFilterItem qmFilterItem = new QmFilterItem();
                 qmFilterItem.id = "-1";
-                qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a86 + "";
-                qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0678);
+                qmFilterItem.bgurl = R.drawable.obfuscated_res_0x7f080a95 + "";
+                qmFilterItem.name = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0681);
                 qmFilterItem.isSelect = true;
                 qmFilterItem.localPath = "origin";
                 list.add(0, qmFilterItem);
@@ -1408,8 +1408,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         }
         this.P = new ArrayList<>();
         this.Q = false;
-        this.T = R.drawable.obfuscated_res_0x7f080a69;
-        this.U = R.drawable.obfuscated_res_0x7f080a6a;
+        this.T = R.drawable.obfuscated_res_0x7f080a78;
+        this.U = R.drawable.obfuscated_res_0x7f080a79;
         this.W = false;
         this.X = new k(this);
         this.Y = new o(this);
@@ -1460,8 +1460,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_QM_FILTERS);
-            httpMessage.addParam("uh", gj.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (a99.b(this) ? 1 : 0));
-            httpMessage.addParam("ut", gj.g() + "_" + gj.k() + "_" + a99.a() + "_" + Build.BRAND.replace("_", ""));
+            httpMessage.addParam("uh", gj.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (ea9.b(this) ? 1 : 0));
+            httpMessage.addParam("ut", gj.g() + "_" + gj.k() + "_" + ea9.a() + "_" + Build.BRAND.replace("_", ""));
             StringBuilder sb = new StringBuilder();
             sb.append(ff0.h());
             sb.append("");
@@ -1474,8 +1474,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_QM_STICKERS);
-            httpMessage.addParam("uh", gj.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (a99.b(this) ? 1 : 0));
-            httpMessage.addParam("ut", gj.g() + "_" + gj.k() + "_" + a99.a() + "_" + Build.BRAND.replace("_", ""));
+            httpMessage.addParam("uh", gj.f() + "," + Build.HARDWARE + "," + Build.BOARD + "," + (ea9.b(this) ? 1 : 0));
+            httpMessage.addParam("ut", gj.g() + "_" + gj.k() + "_" + ea9.a() + "_" + Build.BRAND.replace("_", ""));
             StringBuilder sb = new StringBuilder();
             sb.append(ff0.h());
             sb.append("");
@@ -1488,24 +1488,24 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void z2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            this.T = R.drawable.obfuscated_res_0x7f080a69;
-            this.U = R.drawable.obfuscated_res_0x7f080a6a;
+            this.T = R.drawable.obfuscated_res_0x7f080a78;
+            this.U = R.drawable.obfuscated_res_0x7f080a79;
             g96 g96Var = this.J;
             if (g96Var == null) {
                 return;
             }
             if (g96Var.e() == 1.0f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a52;
-                this.U = R.drawable.obfuscated_res_0x7f080a53;
+                this.T = R.drawable.obfuscated_res_0x7f080a61;
+                this.U = R.drawable.obfuscated_res_0x7f080a62;
             } else if (this.J.e() == 1.3333334f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a56;
-                this.U = R.drawable.obfuscated_res_0x7f080a57;
+                this.T = R.drawable.obfuscated_res_0x7f080a65;
+                this.U = R.drawable.obfuscated_res_0x7f080a66;
             } else if (this.J.e() == 1.7777778f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a58;
-                this.U = R.drawable.obfuscated_res_0x7f080a59;
+                this.T = R.drawable.obfuscated_res_0x7f080a67;
+                this.U = R.drawable.obfuscated_res_0x7f080a68;
             } else if (this.J.e() == 0.5625f) {
-                this.T = R.drawable.obfuscated_res_0x7f080a54;
-                this.U = R.drawable.obfuscated_res_0x7f080a55;
+                this.T = R.drawable.obfuscated_res_0x7f080a63;
+                this.U = R.drawable.obfuscated_res_0x7f080a64;
             }
             if (this.J.a() == 0) {
                 this.h.setImageDrawable(getResources().getDrawable(this.U));
@@ -1547,11 +1547,11 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             j96 j96Var = this.I;
             if (j96Var != null && j96Var.c()) {
-                i2 = R.drawable.obfuscated_res_0x7f080a4f;
-                i3 = R.drawable.obfuscated_res_0x7f080a51;
+                i2 = R.drawable.obfuscated_res_0x7f080a5e;
+                i3 = R.drawable.obfuscated_res_0x7f080a60;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f080a4e;
-                i3 = R.drawable.obfuscated_res_0x7f080a50;
+                i2 = R.drawable.obfuscated_res_0x7f080a5d;
+                i3 = R.drawable.obfuscated_res_0x7f080a5f;
             }
             if (z) {
                 this.g.setImageDrawable(getResources().getDrawable(i3));
@@ -1618,8 +1618,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void u2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a85));
-            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a88));
+            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a94));
+            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a97));
         }
     }
 
@@ -1637,7 +1637,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             d96 d96Var = this.H;
             if (d96Var != null && d96Var.getProgress() > 0.0f) {
                 s05 s05Var = new s05(getPageContext(), new u05(getPageContext().getPageActivity()));
-                s05Var.i(null, new String[]{getString(R.string.obfuscated_res_0x7f0f039b), getResources().getString(R.string.obfuscated_res_0x7f0f1034)}, new e(this, s05Var));
+                s05Var.i(null, new String[]{getString(R.string.obfuscated_res_0x7f0f039c), getResources().getString(R.string.obfuscated_res_0x7f0f1048)}, new e(this, s05Var));
                 s05Var.k();
                 return;
             }
@@ -1676,7 +1676,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 if6Var.a();
             }
             if (this.W) {
-                ce9.D(getPageContext()).release();
+                gf9.D(getPageContext()).release();
             }
         }
     }
@@ -1714,8 +1714,8 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (d96Var = this.H) != null) {
             d96Var.setShowDeleteLastTip(false);
-            this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a90));
-            this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15b0));
+            this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a9f));
+            this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c7));
         }
     }
 
@@ -1735,18 +1735,18 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void l2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.E = (RecordPreviewContainer) findViewById(R.id.obfuscated_res_0x7f0904cc);
+            this.E = (RecordPreviewContainer) findViewById(R.id.obfuscated_res_0x7f0904d7);
             this.G = new lf6(getPageContext(), this.E.getSurfaceView(), true, this.X, this.Y);
             dn6 dn6Var = new dn6(this.G);
             this.L = dn6Var;
             dn6Var.c(this.h0);
             this.L.e();
-            this.V = (VideoControllerLayout) findViewById(R.id.obfuscated_res_0x7f091c89);
+            this.V = (VideoControllerLayout) findViewById(R.id.obfuscated_res_0x7f091cca);
             wm6 wm6Var = new wm6(this.G, null, this.V);
             this.K = wm6Var;
             wm6Var.d(this.g0);
             this.K.h();
-            ve9 recrodButton = this.V.getRecrodButton();
+            zf9 recrodButton = this.V.getRecrodButton();
             TextView recordTimeView = this.V.getRecordTimeView();
             this.B = recordTimeView;
             e96 e96Var = new e96(recrodButton, recordTimeView, this.Z, this.a0, this.b0);
@@ -1824,56 +1824,56 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void n2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091d75);
-            this.C = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904dd);
-            this.D = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904cd);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904dc);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.C = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e8);
+            this.D = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904d8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904e7);
             this.f = imageView;
             imageView.setOnClickListener(this);
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904df);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904ea);
             this.g = imageView2;
             imageView2.setOnClickListener(this);
-            ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904de);
+            ImageView imageView3 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904e9);
             this.h = imageView3;
             imageView3.setOnClickListener(this);
-            ImageView imageView4 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904e0);
+            ImageView imageView4 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904eb);
             this.i = imageView4;
             imageView4.setOnClickListener(this);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904d2);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d3);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904dd);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904de);
             this.u = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904d4);
-            RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d5);
+            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904df);
+            RelativeLayout relativeLayout2 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e0);
             this.v = relativeLayout2;
             relativeLayout2.setOnClickListener(this);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904c2);
-            RelativeLayout relativeLayout3 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904c3);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904cd);
+            RelativeLayout relativeLayout3 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904ce);
             this.w = relativeLayout3;
             relativeLayout3.setOnClickListener(this);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904be);
-            RelativeLayout relativeLayout4 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904bf);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904c9);
+            RelativeLayout relativeLayout4 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904ca);
             this.x = relativeLayout4;
             relativeLayout4.setOnClickListener(this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d8);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e3);
             this.n = textView;
             p15.d(textView).y(R.array.S_O_X001);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d9);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904e4);
             this.o = textView2;
             p15.d(textView2).y(R.array.S_O_X001);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904c7);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d2);
             this.p = textView3;
             p15.d(textView3).y(R.array.S_O_X001);
-            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904c4);
+            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904cf);
             this.q = textView4;
             p15.d(textView4).y(R.array.S_O_X001);
-            TextView textView5 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904c6);
+            TextView textView5 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d1);
             this.s = textView5;
             p15.d(textView5).y(R.array.S_O_X001);
-            TextView textView6 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904c5);
+            TextView textView6 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d0);
             this.r = textView6;
             p15.d(textView6).y(R.array.S_O_X001);
-            TextView textView7 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904ca);
+            TextView textView7 = (TextView) findViewById(R.id.obfuscated_res_0x7f0904d5);
             this.t = textView7;
             p15 d2 = p15.d(textView7);
             d2.A(R.string.F_X02);
@@ -1884,39 +1884,39 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
             an6 an6Var = new an6(getPageContext(), this.V);
             this.N = an6Var;
             this.V.setMusicManager(an6Var);
-            RelativeLayout relativeLayout5 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904c1);
+            RelativeLayout relativeLayout5 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904cc);
             this.z = relativeLayout5;
             relativeLayout5.setOnClickListener(this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917a5);
-            HorizontalCenterSelectView horizontalCenterSelectView = (HorizontalCenterSelectView) findViewById(R.id.obfuscated_res_0x7f0915b6);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917be);
+            HorizontalCenterSelectView horizontalCenterSelectView = (HorizontalCenterSelectView) findViewById(R.id.obfuscated_res_0x7f0915cc);
             this.A = horizontalCenterSelectView;
             horizontalCenterSelectView.setItemTextPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012));
             this.A.setItemTextSize(UtilHelper.getDimenPixelSize(R.dimen.T_X05));
             this.A.setItemTextColor(getPageContext().getPageActivity().getResources().getColor(R.color.CAM_X0101));
             this.S = new ArrayList();
             this.R = new HashMap();
-            this.S.add(getString(R.string.obfuscated_res_0x7f0f0684));
-            this.R.put(getString(R.string.obfuscated_res_0x7f0f0684), 300);
-            this.S.add(getString(R.string.obfuscated_res_0x7f0f1265));
-            this.R.put(getString(R.string.obfuscated_res_0x7f0f1265), 60);
-            this.S.add(getString(R.string.obfuscated_res_0x7f0f0663));
-            this.R.put(getString(R.string.obfuscated_res_0x7f0f0663), 15);
+            this.S.add(getString(R.string.obfuscated_res_0x7f0f068d));
+            this.R.put(getString(R.string.obfuscated_res_0x7f0f068d), 300);
+            this.S.add(getString(R.string.obfuscated_res_0x7f0f127b));
+            this.R.put(getString(R.string.obfuscated_res_0x7f0f127b), 60);
+            this.S.add(getString(R.string.obfuscated_res_0x7f0f066c));
+            this.R.put(getString(R.string.obfuscated_res_0x7f0f066c), 15);
             this.A.setOnItemSelected(new i(this));
             this.A.setData(this.S);
             this.A.setSelectedPosition(this.S.size() - 1);
-            RelativeLayout relativeLayout6 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904c0);
+            RelativeLayout relativeLayout6 = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904cb);
             this.y = relativeLayout6;
             relativeLayout6.setOnClickListener(this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090440);
-            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a5f));
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090449);
+            this.f.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a6e));
             A2(false);
             z2();
-            this.i.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a5a));
-            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a85));
-            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a88));
-            this.l.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a8b));
-            this.m.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a7f));
-            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a8a));
+            this.i.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a69));
+            this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a94));
+            this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a97));
+            this.l.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a9a));
+            this.m.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a8e));
+            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a99));
             p15 d3 = p15.d(this.a);
             d3.n(R.string.J_X01);
             d3.f(R.color.CAM_X0302);
@@ -1953,17 +1953,17 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 ImageView imageView = this.b;
                 Resources resources = getResources();
                 if (this.H.b()) {
-                    i3 = R.drawable.obfuscated_res_0x7f080a82;
+                    i3 = R.drawable.obfuscated_res_0x7f080a91;
                 } else {
-                    i3 = R.drawable.obfuscated_res_0x7f080a90;
+                    i3 = R.drawable.obfuscated_res_0x7f080a9f;
                 }
                 imageView.setImageDrawable(resources.getDrawable(i3));
                 TextView textView = this.r;
                 Resources resources2 = getResources();
                 if (this.H.b()) {
-                    i4 = R.string.obfuscated_res_0x7f0f04d5;
+                    i4 = R.string.obfuscated_res_0x7f0f04d8;
                 } else {
-                    i4 = R.string.obfuscated_res_0x7f0f15b0;
+                    i4 = R.string.obfuscated_res_0x7f0f15c7;
                 }
                 textView.setText(resources2.getString(i4));
             }
@@ -1995,14 +1995,14 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
             if (this.d == null) {
-                RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904c9);
+                RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904d4);
                 this.d = relativeLayout;
                 p15 d2 = p15.d(relativeLayout);
                 d2.e(R.string.A_X09);
                 d2.f(R.color.CAM_X0611);
             }
             if (this.c == null) {
-                this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0904c8);
+                this.c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0904d3);
             }
             this.d.setVisibility(0);
             this.c.setAnimation(i2);
@@ -2020,13 +2020,13 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f0904dc) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0904e7) {
                 onBackPressed();
                 return;
             }
             int i2 = 8;
             boolean z2 = true;
-            if (view2.getId() == R.id.obfuscated_res_0x7f0904df) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0904ea) {
                 j96 j96Var = this.I;
                 if (j96Var != null) {
                     if (j96Var.a() == 0) {
@@ -2046,7 +2046,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     }
                     A2(z2);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904de) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904e9) {
                 if (ListUtils.isEmpty(this.P) && (g96Var = this.J) != null) {
                     if (g96Var.a() != 0) {
                         z2 = false;
@@ -2061,7 +2061,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     this.h.setImageDrawable(getResources().getDrawable(this.U));
                     this.J.b(0);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904e0) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904eb) {
                 kf6 kf6Var = this.G;
                 if (kf6Var != null) {
                     kf6Var.d();
@@ -2070,54 +2070,54 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     x2(R.raw.obfuscated_res_0x7f11000a);
                     p35.m().w("key_capture_switch_camera_guide_show", true);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904d3) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904de) {
                 if (!p35.m().i("key_capture_filter_guide_show", false)) {
                     x2(R.raw.obfuscated_res_0x7f11000b);
                     p35.m().w("key_capture_filter_guide_show", true);
                 }
                 u2();
                 if (this.V.q()) {
-                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a85));
+                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a94));
                 } else {
-                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a87));
+                    this.j.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a96));
                 }
                 this.V.v();
                 if (this.V.t()) {
                     p2();
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904d5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904e0) {
                 if (ListUtils.isEmpty(this.P)) {
                     u2();
                     if (this.V.s()) {
-                        this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a88));
+                        this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a97));
                     } else {
-                        this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a89));
+                        this.k.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a98));
                     }
                     this.V.w();
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904c3) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904ce) {
                 u2();
                 this.V.x();
                 if (this.V.u()) {
                     q2();
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904bf) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904ca) {
                 u2();
                 o2();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904c0) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904cb) {
                 d96 d96Var = this.H;
                 if (d96Var != null) {
                     if (d96Var.b()) {
                         this.H.a();
-                        this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a90));
-                        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15b0));
+                        this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a9f));
+                        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c7));
                         return;
                     }
                     this.H.setShowDeleteLastTip(true);
-                    this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a82));
-                    this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04d5));
+                    this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a91));
+                    this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04d8));
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904c1 && (cVar = this.Z) != null) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904cc && (cVar = this.Z) != null) {
                 cVar.a();
             }
         }

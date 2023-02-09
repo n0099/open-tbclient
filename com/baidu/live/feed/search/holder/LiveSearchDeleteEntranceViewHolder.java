@@ -38,8 +38,8 @@ public class LiveSearchDeleteEntranceViewHolder extends RecyclerView.ViewHolder 
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09147b);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09147a);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091490);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09148f);
     }
 
     public void a(int i) {
@@ -48,9 +48,9 @@ public class LiveSearchDeleteEntranceViewHolder extends RecyclerView.ViewHolder 
             this.b.setTextColor(fd0.f().a(this.a.getContext(), LiveFeedPageSdk.HOST_LIVE_TAB, "color_1F1F1F"));
             String r = fd0.f().r();
             if ("day".equals(r)) {
-                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d83);
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d95);
             } else if ("night".equals(r)) {
-                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d84);
+                this.c.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d96);
             }
         }
     }

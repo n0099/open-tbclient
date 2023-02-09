@@ -114,10 +114,10 @@ public class g1 extends Dialog {
             Window window = getWindow();
             window.setGravity(80);
             window.setWindowAnimations(com.baidu.tieba.R.style.obfuscated_res_0x7f100425);
-            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d08d3, null);
+            View inflate = View.inflate(this.a, com.baidu.tieba.R.layout.obfuscated_res_0x7f0d08e6, null);
             this.b = inflate;
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090441).setOnClickListener(new a(this));
-            this.b.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090e27).setOnClickListener(new b(this));
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09044a).setOnClickListener(new a(this));
+            this.b.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090e38).setOnClickListener(new b(this));
             window.setContentView(this.b);
             window.setLayout(-1, -2);
         }

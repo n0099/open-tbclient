@@ -335,7 +335,7 @@ public class mj7 extends u9<MsglistActivity<?>> {
                 if (((Boolean) view2.getTag()).booleanValue()) {
                     if (this.b.y.size() < 20) {
                         this.b.A.setChecked(true);
-                        this.b.y.add(new ReportPrivateMsgData(String.valueOf(this.a.getMsgId()), q89.b(this.b.mContext, this.a), String.valueOf(this.a.getTime())));
+                        this.b.y.add(new ReportPrivateMsgData(String.valueOf(this.a.getMsgId()), u99.b(this.b.mContext, this.a), String.valueOf(this.a.getTime())));
                         if (this.b.C != null) {
                             this.b.C.a(this.b.y, true);
                         }

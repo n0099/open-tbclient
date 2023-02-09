@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface xg5 {
     void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 

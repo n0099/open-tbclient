@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a implements com.kwad.sdk.core.webview.kwai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0572a tJ;
+    public InterfaceC0573a tJ;
 
     /* renamed from: com.kwad.components.ad.reward.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0572a {
+    public interface InterfaceC0573a {
     }
 
     public a() {

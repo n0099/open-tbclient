@@ -113,7 +113,7 @@ public class f38 extends BaseAdapter {
             }
             if (!this.a.b.g()) {
                 f38 f38Var = this.a;
-                f38Var.h(f38Var.a.getString(R.string.obfuscated_res_0x7f0f0317));
+                f38Var.h(f38Var.a.getString(R.string.obfuscated_res_0x7f0f0318));
                 return;
             }
             TailData b = ((h38) view2.getTag()).b();
@@ -334,6 +334,6 @@ public class f38 extends BaseAdapter {
         }
         j05 j05Var = new j05(a2.getPageActivity());
         j05Var.setButtonTextColor(R.color.CAM_X0305);
-        j05Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f038b), new d(this)).setPositiveButton(this.a.getString(R.string.open_now), new c(this)).create(a2).show();
+        j05Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f038c), new d(this)).setPositiveButton(this.a.getString(R.string.open_now), new c(this)).create(a2).show();
     }
 }

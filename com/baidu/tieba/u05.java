@@ -360,7 +360,7 @@ public class u05 {
             d2.n(R.string.J_X14);
             d2.f(R.color.CAM_X0204);
             this.c = (LinearLayout) this.b.findViewById(R.id.content_view);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092314);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235b);
             View findViewById = this.b.findViewById(R.id.title_divide_line);
             this.f = findViewById;
             findViewById.setVisibility(8);
@@ -415,7 +415,7 @@ public class u05 {
             d2.f(R.color.CAM_X0204);
             this.c = (LinearLayout) this.b.findViewById(R.id.content_view);
             this.d = (LinearLayout) this.b.findViewById(R.id.content_view_second);
-            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092314);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235b);
             View findViewById = this.b.findViewById(R.id.title_divide_line);
             this.f = findViewById;
             findViewById.setVisibility(8);

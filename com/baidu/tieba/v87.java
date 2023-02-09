@@ -220,7 +220,7 @@ public class v87 extends qn<f97, ThreadCardViewHolder<f97>> implements mw5 {
             ly o = threadCardViewHolder.o(false);
             o.s(this.e);
             o.q(false);
-            o.r(this.mContext.getString(R.string.obfuscated_res_0x7f0f0453));
+            o.r(this.mContext.getString(R.string.obfuscated_res_0x7f0f0455));
             o.u(true);
             o.g = true;
             return threadCardViewHolder;

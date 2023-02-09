@@ -343,7 +343,7 @@ public class qd5 extends nb5 {
             arrayList.add(6);
             arrayList.add(9);
             b.d(new hc5(b.getContext(), 1));
-            if (z29.a() && e09.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
+            if (d49.a() && i19.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
                 wb5Var.l = 2;
                 b.d(wb5Var);
             }

@@ -41,14 +41,14 @@ public class fb3 extends ta3 implements jx1.j {
 
         /* renamed from: com.baidu.tieba.fb3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0274a implements Runnable {
+        public class RunnableC0273a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0274a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public RunnableC0273a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class fb3 extends ta3 implements jx1.j {
                 w52.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
                 if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
                     kh3.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    qm3.e0(new RunnableC0274a(this, parse, string));
+                    qm3.e0(new RunnableC0273a(this, parse, string));
                     return;
                 }
                 w52.i("ShowFavoriteGuideAction", "Not satisfying display conditions");

@@ -159,10 +159,10 @@ public class ca7 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 bVar = new b(this, null);
-                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0381, (ViewGroup) null);
-                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090f08);
-                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f06);
-                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f07);
+                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0383, (ViewGroup) null);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090f19);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f17);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090f18);
                 bVar.b.setShowOval(true);
                 bVar.b.setAutoChangeStyle(true);
                 bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));

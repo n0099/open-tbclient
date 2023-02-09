@@ -12,12 +12,12 @@ import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.fun.ad.sdk.ChannelNativeAds;
 import com.kwad.sdk.api.KsAppDownloadListener;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q67 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusChangeListener, KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FunAdButton a;
-    public final e19 b;
+    public final i29 b;
     public ChannelNativeAds c;
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -27,12 +27,12 @@ public class q67 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
         }
     }
 
-    public q67(FunAdButton funAdButton, e19 e19Var, ChannelNativeAds channelNativeAds) {
+    public q67(FunAdButton funAdButton, i29 i29Var, ChannelNativeAds channelNativeAds) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdButton, e19Var, channelNativeAds};
+            Object[] objArr = {funAdButton, i29Var, channelNativeAds};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class q67 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
             }
         }
         this.a = funAdButton;
-        this.b = e19Var;
+        this.b = i29Var;
         this.c = channelNativeAds;
     }
 
@@ -54,9 +54,9 @@ public class q67 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
             if (funAdButton != null && funAdButton.getTag() == this.b) {
                 this.a.setText(i);
             }
-            e19 e19Var = this.b;
-            if (e19Var != null) {
-                e19Var.l(TbadkApplication.getInst().getString(i));
+            i29 i29Var = this.b;
+            if (i29Var != null) {
+                i29Var.l(TbadkApplication.getInst().getString(i));
             }
         }
     }
@@ -157,7 +157,7 @@ public class q67 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusC
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener, com.kwad.sdk.api.KsAppDownloadListener
     public void onIdle() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

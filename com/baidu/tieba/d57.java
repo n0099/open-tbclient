@@ -89,7 +89,7 @@ public class d57 extends g17 {
         }
 
         @Override // com.baidu.tieba.kt6
-        public void g1() {
+        public void f1() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
@@ -130,7 +130,7 @@ public class d57 extends g17 {
                     this.a.b.v4();
                     this.a.b.N4(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
-                    if (!TbadkCoreApplication.isLogin() || this.a.b.G3().getVisibility() != 0 || ListUtils.isEmpty(this.a.b.Y0().getThreadList())) {
+                    if (!TbadkCoreApplication.isLogin() || this.a.b.G3().getVisibility() != 0 || ListUtils.isEmpty(this.a.b.X0().getThreadList())) {
                     }
                 }
             }

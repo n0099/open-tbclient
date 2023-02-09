@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.tieba.mc6;
-import com.baidu.tieba.vn8;
+import com.baidu.tieba.zo8;
 import com.baidu.tieba.zw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> implements vn8 {
+public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> implements zo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         return (T) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -73,7 +73,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,7 +87,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,7 +101,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,7 +129,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class FrsCardVideoViewHolder<T extends zw6> extends CardViewHolder<T> imp
         }
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;

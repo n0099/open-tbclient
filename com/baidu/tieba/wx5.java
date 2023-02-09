@@ -101,12 +101,12 @@ public class wx5 {
 
         /* renamed from: com.baidu.tieba.wx5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0487a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0485a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0487a(a aVar) {
+            public C0485a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,7 +227,7 @@ public class wx5 {
                                 ValueAnimator ofInt = ValueAnimator.ofInt(this.a.i.x, this.a.i.x - (vx5.b - vx5.a));
                                 ofInt.setDuration(200L);
                                 ofInt.setInterpolator(new DecelerateInterpolator());
-                                ofInt.addUpdateListener(new C0487a(this));
+                                ofInt.addUpdateListener(new C0485a(this));
                                 ofInt.start();
                             }
                             this.a.f.d();

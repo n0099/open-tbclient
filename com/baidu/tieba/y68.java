@@ -36,10 +36,10 @@ public class y68 extends d78 {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ed);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908fb);
         this.b = textView;
         textView.setText(str);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908ee);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908fc);
         c();
     }
 

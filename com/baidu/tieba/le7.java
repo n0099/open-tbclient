@@ -38,7 +38,7 @@ public class le7 extends mc6<me7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b6 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -196,11 +196,11 @@ public class le7 extends mc6<me7> {
         this.i = tbPageContext;
         View h = h();
         this.j = h;
-        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091c3a);
+        TextView textView = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091c7b);
         this.k = textView;
         int i3 = p;
         textView.setPadding(0, i3, 0, i3 - o);
-        this.m = this.i.getResources().getString(R.string.obfuscated_res_0x7f0f08f4);
+        this.m = this.i.getResources().getString(R.string.obfuscated_res_0x7f0f08fd);
         this.j.setOnClickListener(new a(this));
     }
 

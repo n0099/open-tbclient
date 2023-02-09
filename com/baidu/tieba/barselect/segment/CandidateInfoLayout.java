@@ -138,11 +138,11 @@ public class CandidateInfoLayout extends CardBasicLayout {
             if (bazhuHeadView.getHeadView() != null) {
                 this.e.getHeadView().setIsRound(true);
             }
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0925bf);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09260d);
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092721);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090159);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d7d);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092782);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09015b);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d8e);
         }
     }
 
@@ -156,7 +156,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
             setGravity(80);
             setMinimumHeight(ej.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0171, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0172, (ViewGroup) this, true);
             a();
         }
     }
@@ -199,8 +199,8 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     layoutParams.setMargins(layoutParams.leftMargin - g3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     this.e.setLayoutParams(layoutParams);
                     this.e.p(true);
-                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f9c);
-                    this.e.setPendantView(R.drawable.obfuscated_res_0x7f08070f);
+                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080fb1);
+                    this.e.setPendantView(R.drawable.obfuscated_res_0x7f080718);
                     this.g.setTextSize(0, ej.g(this.d, R.dimen.tbfontsize46));
                     setGravity(16);
                     LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);

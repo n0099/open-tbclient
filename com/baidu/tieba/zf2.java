@@ -51,7 +51,7 @@ public class zf2 implements qi2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements hda<Cursor> {
+    public static class a implements lea<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kb3.c a;
@@ -75,7 +75,7 @@ public class zf2 implements qi2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hda
+        @Override // com.baidu.tieba.lea
         public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
@@ -93,7 +93,7 @@ public class zf2 implements qi2 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements lda<String, Cursor> {
+    public static class b implements pea<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,7 +112,7 @@ public class zf2 implements qi2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lda
+        @Override // com.baidu.tieba.pea
         public Cursor call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -625,7 +625,7 @@ public class zf2 implements qi2 {
         if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
             return;
         }
-        tca.f("").y(Schedulers.io()).h(new b()).k(dda.b()).w(new a(cVar));
+        xda.f("").y(Schedulers.io()).h(new b()).k(hea.b()).w(new a(cVar));
     }
 
     @NonNull

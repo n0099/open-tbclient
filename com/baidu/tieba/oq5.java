@@ -2191,7 +2191,7 @@ public class oq5 implements qq5 {
         if (interceptable == null || interceptable.invokeLLL(1048599, this, listView, context, attributeSet) == null) {
             int i4 = 150;
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n39.DragSort, 0, 0);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r49.DragSort, 0, 0);
                 this.u = Math.max(1, obtainStyledAttributes.getDimensionPixelSize(1, 1));
                 boolean z2 = obtainStyledAttributes.getBoolean(16, false);
                 this.W = z2;

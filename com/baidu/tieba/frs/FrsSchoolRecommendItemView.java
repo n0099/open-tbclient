@@ -96,13 +96,13 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c43);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c84);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c42);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c40);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091c41);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c83);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c81);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091c82);
         this.e = entelechyUserLikeButton;
         q55 q55Var = new q55(tbPageContext, entelechyUserLikeButton);
         this.f = q55Var;

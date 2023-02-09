@@ -51,8 +51,8 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomD
 import com.baidu.tieba.n95;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.pq9;
 import com.baidu.tieba.pr7;
+import com.baidu.tieba.tr9;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -366,7 +366,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{pq9.a(pq9.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.g)), "forumId", String.valueOf(this.a.h))});
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{tr9.a(tr9.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.g)), "forumId", String.valueOf(this.a.h))});
                 pr7.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.h, this.a.g);
             }
         }
@@ -409,22 +409,22 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 i iVar = new i();
                 iVar.a = view2;
-                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09171b);
+                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091732);
                 iVar.b = navigationBar;
                 View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
                 iVar.e = addSystemImageButton;
                 iVar.f = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) null);
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0393, (ViewGroup) null);
                 iVar.g = inflate;
-                iVar.h = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090d9c);
-                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090dae);
-                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f35);
-                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090db1);
-                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090da1);
+                iVar.h = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090dad);
+                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090dbf);
+                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f46);
+                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090dc2);
+                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090db2);
                 iVar.b.setTitleView(iVar.g, null, NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER);
-                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0754, (View.OnClickListener) null);
+                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0765, (View.OnClickListener) null);
                 iVar.c = addCustomView;
-                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090dc4);
+                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090dd5);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(iVar.d, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return iVar;
             }
@@ -465,9 +465,9 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 j jVar = new j();
                 jVar.a = (ConstraintLayout) view2.findViewById(R.id.dialog_content);
-                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09081f);
-                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09080b);
-                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907fe);
+                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09082c);
+                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090818);
+                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09080b);
                 jVar.e = (ImageView) view2.findViewById(R.id.dialog_image);
                 return jVar;
             }
@@ -612,7 +612,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener}) == null) {
             RelativeLayout relativeLayout = new RelativeLayout(context);
-            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d022b, (ViewGroup) null);
+            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d022c, (ViewGroup) null);
             relativeLayout.addView(inflate);
             j a2 = j.a(inflate);
             this.i = a2;

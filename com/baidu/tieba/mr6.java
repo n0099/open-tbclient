@@ -26,7 +26,7 @@ public class mr6 extends mc6<jr6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02c7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02c9 : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -119,8 +119,8 @@ public class mr6 extends mc6<jr6> {
             }
         }
         this.k = 3;
-        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090e4e);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e54);
+        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090e5f);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090e65);
         this.i.setOnClickListener(this);
     }
 
@@ -129,10 +129,10 @@ public class mr6 extends mc6<jr6> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
             j05 j05Var = new j05(this.b.getPageActivity());
-            j05Var.setTitle(R.string.obfuscated_res_0x7f0f045b);
+            j05Var.setTitle(R.string.obfuscated_res_0x7f0f045d);
             j05Var.setCanceledOnTouchOutside(true);
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new a(this));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new a(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
             j05Var.create(this.b);
             j05Var.show();
         }

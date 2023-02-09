@@ -96,11 +96,11 @@ public class s73 {
                 if (I1 != null && (e = I1.e()) != null) {
                     e.setVisibility(8);
                 }
-                LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090177);
+                LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090179);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
                 layoutParams.topMargin = 0;
                 linearLayout.setLayoutParams(layoutParams);
-                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f090178);
+                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09017a);
                 FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
                 layoutParams2.topMargin = 0;
                 frameLayout.setLayoutParams(layoutParams2);
@@ -290,7 +290,7 @@ public class s73 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) {
-            if (!b || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f090ff8) == null) {
+            if (!b || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f091009) == null) {
                 return false;
             }
             return true;

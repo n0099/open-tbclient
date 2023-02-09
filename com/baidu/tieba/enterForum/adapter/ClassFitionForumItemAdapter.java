@@ -89,9 +89,9 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914e9);
-            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091aa0);
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091717);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914fe);
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ad8);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09172e);
         }
     }
 
@@ -170,7 +170,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01dd, viewGroup, false));
+            return new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01de, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

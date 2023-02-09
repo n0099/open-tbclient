@@ -269,7 +269,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.R0();
+                this.a.a.Q0();
                 if (r68.b().a()) {
                     return;
                 }
@@ -563,7 +563,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (d68.o().q()) {
-                ej.P(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f0636);
+                ej.P(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f063f);
             } else {
                 z58.b().a(new f(this));
             }

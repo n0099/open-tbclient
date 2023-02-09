@@ -168,11 +168,11 @@ public class eo6 extends BaseAdapter {
             if (view2 != null) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d01e1, viewGroup, false);
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d01e2, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091085);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091096);
-                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091072);
+                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091098);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0910a9);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091084);
                 bVar.c = imageView;
                 SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
                 view2.setTag(bVar);

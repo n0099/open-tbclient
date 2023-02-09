@@ -49,7 +49,7 @@ public class xs4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof f39) && ((f39) data).b) {
+            if ((data instanceof j49) && ((j49) data).b) {
                 ys4.f().a("717");
             }
         }

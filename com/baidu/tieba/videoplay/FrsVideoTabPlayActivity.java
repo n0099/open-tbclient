@@ -302,7 +302,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.o.setUserVisibleHint(true);
-                cr4.w().P(br4.c0, this.o.K0());
+                cr4.w().P(br4.c0, this.o.J0());
             }
         }
     }
@@ -393,7 +393,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             super.onActivityResult(i, i2, intent);
             VideoVerticalPageFragment videoVerticalPageFragment = this.o;
             if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.i1(i, i2, intent);
+                videoVerticalPageFragment.h1(i, i2, intent);
             }
         }
     }
@@ -439,7 +439,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO);
             this.d = System.currentTimeMillis();
-            setContentView(R.layout.obfuscated_res_0x7f0d0904);
+            setContentView(R.layout.obfuscated_res_0x7f0d0919);
             this.r = new nv5(getPageContext(), "client_videomiddle");
             x1();
             y1();
@@ -512,7 +512,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                     if (videoVerticalPageFragment.s1()) {
                         return false;
                     }
-                    this.o.G0();
+                    this.o.E0();
                 }
                 finish();
                 return false;
@@ -561,7 +561,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(videoTabListByFid);
             }
             if (ListUtils.isEmpty(this.n)) {
-                ej.P(this, R.string.obfuscated_res_0x7f0f0cfb);
+                ej.P(this, R.string.obfuscated_res_0x7f0f0d05);
                 finish();
                 return;
             }
@@ -584,7 +584,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             this.o = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09268e, this.o);
+            beginTransaction.add(R.id.obfuscated_res_0x7f0926ed, this.o);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             this.p = new NavigationBar(this);

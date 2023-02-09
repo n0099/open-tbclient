@@ -436,7 +436,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             if (TextUtils.isEmpty(stringExtra)) {
                 this.a = "https://tieba.baidu.com/n/interact/modifyname";
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d024a);
+            setContentView(R.layout.obfuscated_res_0x7f0d024b);
             I1();
             BrowserHelper.h(getApplicationContext());
         }
@@ -475,13 +475,13 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.d = findViewById(R.id.root_layout);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092751);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0927b2);
             this.b = baseWebView;
             baseWebView.setWebViewClient(new e(this, null));
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             if (this.j == 0) {
-                navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0b8d));
+                navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0b97));
             }
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         }
@@ -493,9 +493,9 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
             if (this.i == null) {
                 j05 j05Var = new j05(getActivity());
                 this.i = j05Var;
-                j05Var.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b8f));
-                this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f1142, new c(this));
-                this.i.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this));
+                j05Var.setMessage(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b99));
+                this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f1156, new c(this));
+                this.i.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(this));
                 this.i.create(getPageContext());
             }
             this.i.show();
@@ -505,7 +505,7 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     public void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d08);
             if (this.g == null) {
                 lf5 lf5Var = new lf5(this.e.getPageActivity(), new b(this));
                 this.g = lf5Var;

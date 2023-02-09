@@ -21,14 +21,14 @@ public final class a implements View.OnClickListener {
     @Nullable
     public ImageView CP;
     @Nullable
-    public InterfaceC0603a CQ;
+    public InterfaceC0604a CQ;
     @Nullable
     public TextView mTitle;
     public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0603a {
+    public interface InterfaceC0604a {
         void r(View view2);
 
         void s(View view2);
@@ -52,7 +52,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911cb);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0911df);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -63,19 +63,19 @@ public final class a implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c8);
-            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911c9);
-            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911ca);
+            this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911dc);
+            this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911dd);
+            ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911de);
             this.CP = imageView;
             imageView.setOnClickListener(this);
             this.CO.setOnClickListener(this);
         }
     }
 
-    public final void a(@Nullable InterfaceC0603a interfaceC0603a) {
+    public final void a(@Nullable InterfaceC0604a interfaceC0604a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0603a) == null) {
-            this.CQ = interfaceC0603a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0604a) == null) {
+            this.CQ = interfaceC0604a;
         }
     }
 

@@ -1,13 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.view.View;
 /* loaded from: classes4.dex */
 public interface gs8 {
-    String getImageUrl();
+    void autoPlay(int i);
 
-    String getShareLink();
+    boolean canPlay();
 
-    AdvertAppInfo getThreadData();
+    long getCurrentPosition();
 
-    String getTitle();
+    int getPlayStatus();
+
+    String getPlayUrl();
+
+    View getVideoContainer();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

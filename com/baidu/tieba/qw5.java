@@ -69,7 +69,7 @@ public class qw5 {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
             this.c = linearLayout;
             this.d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
-            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090343);
+            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f09034b);
             this.g = (TextView) this.c.findViewById(R.id.tv_title);
             this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090057);
             this.e.a();

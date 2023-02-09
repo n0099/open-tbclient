@@ -97,7 +97,7 @@ public class dd6 extends mc6<fe6> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091db7);
             this.j = (HeadImageView) view2.findViewById(R.id.promotion_head_img);
             this.k = (TextView) view2.findViewById(R.id.promotion_name);
             this.l = (TextView) view2.findViewById(R.id.promotion_desc);

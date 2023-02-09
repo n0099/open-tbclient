@@ -32,13 +32,13 @@ public class gz1 extends cz1 {
 
         /* renamed from: com.baidu.tieba.gz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0294a implements vi3.c {
+        public class C0292a implements vi3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ oz1 a;
             public final /* synthetic */ a b;
 
-            public C0294a(a aVar, oz1 oz1Var) {
+            public C0292a(a aVar, oz1 oz1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class gz1 extends cz1 {
                 oz1 oz1Var = new oz1("compassChange", jSONObject, str);
                 vi3 i = vi3.i();
                 i.l(this.a.getContext());
-                i.o(new C0294a(this, oz1Var));
+                i.o(new C0292a(this, oz1Var));
                 w52.i("CompassApi", "start listen compass");
                 i.p();
                 oz1Var.b(this.a);

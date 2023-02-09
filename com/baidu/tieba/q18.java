@@ -13,7 +13,7 @@ import tbclient.GetVipInfo.DataRes;
 import tbclient.GetVipInfo.VipInfo;
 import tbclient.GetVipInfo.VipUpgrade;
 import tbclient.GetVipInfo.VipUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q18 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId a;

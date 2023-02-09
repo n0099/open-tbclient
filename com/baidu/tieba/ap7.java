@@ -528,7 +528,7 @@ public class ap7 implements ImagePagerAdapter.a {
             if (view2 != null) {
                 return view2;
             }
-            View inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03da, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03dc, (ViewGroup) null);
             this.u = inflate;
             p15.d(inflate.findViewById(R.id.obfuscated_res_0x7f0900f1)).p(new int[]{R.color.black_alpha40, R.color.black_alpha0}, Direction.RIGHT);
             TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.u.findViewById(R.id.obfuscated_res_0x7f0900db);
@@ -696,9 +696,9 @@ public class ap7 implements ImagePagerAdapter.a {
                 TextView textView2 = this.w;
                 if (textView2 != null) {
                     if (this.n) {
-                        i = R.string.obfuscated_res_0x7f0f0970;
+                        i = R.string.obfuscated_res_0x7f0f097a;
                     } else {
-                        i = R.string.obfuscated_res_0x7f0f096f;
+                        i = R.string.obfuscated_res_0x7f0f0979;
                     }
                     textView2.setText(i);
                 }

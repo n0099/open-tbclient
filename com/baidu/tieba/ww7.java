@@ -67,12 +67,12 @@ public class ww7 implements ILoginListener {
 
         /* renamed from: com.baidu.tieba.ww7$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0486a extends kp5<Object> {
+        public class C0484a extends kp5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0486a(a aVar) {
+            public C0484a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -139,7 +139,7 @@ public class ww7 implements ILoginListener {
                     if (z) {
                         bx7.i("login_lcp");
                         bx7.c("login_lcp");
-                        op5.b(new C0486a(this), null);
+                        op5.b(new C0484a(this), null);
                     }
                 }
             }

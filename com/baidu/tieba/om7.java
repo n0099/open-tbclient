@@ -176,7 +176,7 @@ public class om7 {
             RecommendDetailActivity recommendDetailActivity2 = this.a;
             this.t = recommendDetailActivity2.c;
             this.f.setText(UtilHelper.getFixedText(recommendDetailActivity2.d, 7));
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d98));
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0da4));
             e();
         }
     }
@@ -187,33 +187,33 @@ public class om7 {
         if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (recommendDetailActivity = this.a) == null) {
             return;
         }
-        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d0791);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091d75);
+        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d07a3);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091db7);
         NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
         this.c = navigationBar;
         navigationBar.showBottomLine();
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        k(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1059));
+        k(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f106d));
         this.d = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
         LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.content_view);
         this.o = linearLayout;
         linearLayout.setVisibility(8);
-        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090736);
-        this.q = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09072d);
-        this.r = this.a.findViewById(R.id.obfuscated_res_0x7f090848);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925af);
+        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090741);
+        this.q = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090738);
+        this.r = this.a.findViewById(R.id.obfuscated_res_0x7f090856);
+        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925fd);
         this.e = headImageView;
         headImageView.setIsRound(true);
         this.f = (TextView) this.a.findViewById(R.id.user_name);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925e5);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925b6);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09105a);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092100);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092101);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092633);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092604);
+        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09106c);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092146);
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092147);
         this.l = settingTextSwitchView;
         settingTextSwitchView.setSwitchStateChangeListener(this.a);
-        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092103);
-        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092104);
+        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092149);
+        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f09214a);
         this.m = settingTextSwitchView2;
         settingTextSwitchView2.setSwitchStateChangeListener(this.a);
     }

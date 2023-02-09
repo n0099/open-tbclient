@@ -58,13 +58,13 @@ public class x68 implements View.OnClickListener, oo6 {
 
         /* renamed from: com.baidu.tieba.x68$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0489a implements Runnable {
+        public class RunnableC0487a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public RunnableC0489a(a aVar, int i) {
+            public RunnableC0487a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public class x68 implements View.OnClickListener, oo6 {
                     if (this.a < 30) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.b.a.j.getPageActivity(), true, 25021)));
                     } else {
-                        ej.Q(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f057d), 30));
+                        ej.Q(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f0581), 30));
                     }
                 }
             }
@@ -125,7 +125,7 @@ public class x68 implements View.OnClickListener, oo6 {
                 } else {
                     size = f.size();
                 }
-                gh.a().post(new RunnableC0489a(this, size));
+                gh.a().post(new RunnableC0487a(this, size));
             }
         }
     }
@@ -169,7 +169,7 @@ public class x68 implements View.OnClickListener, oo6 {
                     if (this.a < 30) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.b.a.j.getPageActivity(), 25021)));
                     } else {
-                        ej.Q(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f057d), 30));
+                        ej.Q(this.b.a.j.getPageActivity(), String.format(this.b.a.j.getString(R.string.obfuscated_res_0x7f0f0581), 30));
                     }
                 }
             }
@@ -227,20 +227,20 @@ public class x68 implements View.OnClickListener, oo6 {
         this.i = null;
         this.j = tbPageContext;
         this.k = i;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025d, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025e, (ViewGroup) null);
         this.c = inflate;
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f09090a);
-        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f09090b);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090918);
+        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090919);
         this.b = findViewById;
         findViewById.setOnClickListener(this);
         this.a.setVisibility(0);
-        View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f09090f);
+        View findViewById2 = this.c.findViewById(R.id.obfuscated_res_0x7f09091d);
         this.d = findViewById2;
         findViewById2.setClickable(false);
         this.d.setOnClickListener(this);
         this.d.setVisibility(8);
-        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09258d);
-        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090ee9);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0925d8);
+        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090efa);
         this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090116);
         this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090115);
     }
@@ -375,7 +375,7 @@ public class x68 implements View.OnClickListener, oo6 {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
             SkinManager.setImageResource(this.e, R.drawable.emotion_uploading_bar_refresh);
             SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-            this.h.setText(R.string.obfuscated_res_0x7f0f059e);
+            this.h.setText(R.string.obfuscated_res_0x7f0f05a5);
             this.d.setClickable(false);
         }
     }
@@ -396,7 +396,7 @@ public class x68 implements View.OnClickListener, oo6 {
             if (!TextUtils.isEmpty(str)) {
                 this.h.setText(str);
             } else {
-                this.h.setText(R.string.obfuscated_res_0x7f0f057b);
+                this.h.setText(R.string.obfuscated_res_0x7f0f057e);
             }
             this.d.setClickable(true);
         }

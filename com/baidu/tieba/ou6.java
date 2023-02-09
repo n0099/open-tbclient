@@ -42,7 +42,7 @@ public class ou6 implements ay {
     public RoundRelativeLayout f;
     public TextView g;
     public j05 h;
-    public qz8 i;
+    public u09 i;
     public ForumData j;
     public View k;
     public LinearLayout l;
@@ -179,9 +179,9 @@ public class ou6 implements ay {
     }
 
     public final void g() {
-        qz8 qz8Var;
+        u09 u09Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qz8Var = this.i) != null && !StringUtils.isNull(qz8Var.p())) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u09Var = this.i) != null && !StringUtils.isNull(u09Var.p())) {
             if (!os5.a(this.a.getPageActivity(), this.i.i())) {
                 i47.b(this.a, this.i.k(), this.i.p(), this.i.j());
             }
@@ -206,21 +206,21 @@ public class ou6 implements ay {
             vr4Var.k(1.5d);
             this.n.j(2.5d);
             this.n.f();
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0350, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0352, (ViewGroup) null);
             this.b = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cca);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d80);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cdb);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091dc2);
             this.f = roundRelativeLayout;
             roundRelativeLayout.setRoundCount(8);
-            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f0915ab);
-            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fb7);
+            this.k = this.b.findViewById(R.id.obfuscated_res_0x7f0915c1);
+            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091ffa);
             this.l = linearLayout;
             linearLayout.setOnClickListener(this.p);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f09153d);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f091552);
             this.m = tBLottieAnimationView;
             tBLottieAnimationView.setAnimation(R.raw.frs_ad_shark);
             this.m.setFrame(2);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090b65);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090b76);
             this.c = tbImageView;
             tbImageView.setOnClickListener(this.p);
             this.c.setPlaceHolder(2);
@@ -230,12 +230,12 @@ public class ou6 implements ay {
             layoutParams.height = (int) (l * 1.3333333333333333d);
             this.c.setLayoutParams(layoutParams);
             this.k.setLayoutParams(layoutParams);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b63);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b74);
             this.d = textView;
             textView.setOnClickListener(this.p);
-            qz8 qz8Var = this.i;
-            if (qz8Var != null) {
-                this.c.K(qz8Var.e(), 10, false);
+            u09 u09Var = this.i;
+            if (u09Var != null) {
+                this.c.K(u09Var.e(), 10, false);
             }
             new zu6(this.f, this.m).g();
         }
@@ -244,13 +244,13 @@ public class ou6 implements ay {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0306, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) null);
             this.b = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cca);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d80);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cdb);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091dc2);
             this.e = roundLinearLayout;
             roundLinearLayout.setRoundCount(8);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090b65);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090b76);
             this.c = tbImageView;
             tbImageView.setOnClickListener(this.p);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
@@ -258,12 +258,12 @@ public class ou6 implements ay {
             layoutParams.width = l;
             layoutParams.height = (int) (l * 1.3306452f);
             this.c.setLayoutParams(layoutParams);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b63);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090b74);
             this.d = textView;
             textView.setOnClickListener(this.p);
-            qz8 qz8Var = this.i;
-            if (qz8Var != null) {
-                this.c.K(qz8Var.e(), 10, false);
+            u09 u09Var = this.i;
+            if (u09Var != null) {
+                this.c.K(u09Var.e(), 10, false);
             }
         }
     }
@@ -271,8 +271,8 @@ public class ou6 implements ay {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            qz8 qz8Var = this.i;
-            if (qz8Var != null && qz8Var.r()) {
+            u09 u09Var = this.i;
+            if (u09Var != null && u09Var.r()) {
                 h();
             } else {
                 i();
@@ -296,8 +296,8 @@ public class ou6 implements ay {
                 viewGroup.removeAllViews();
                 viewGroup.addView(this.b);
             }
-            qz8 qz8Var2 = this.i;
-            if (qz8Var2 != null && qz8Var2.f()) {
+            u09 u09Var2 = this.i;
+            if (u09Var2 != null && u09Var2.f()) {
                 p15 d = p15.d(this.g);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0602);
@@ -311,16 +311,16 @@ public class ou6 implements ay {
         }
     }
 
-    public boolean j(vz8 vz8Var) {
+    public boolean j(z09 z09Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vz8Var)) == null) {
-            if (vz8Var == null || vz8Var.getForum() == null || vz8Var.getBusinessPromot() == null || vz8Var.getBusinessPromot().g()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, z09Var)) == null) {
+            if (z09Var == null || z09Var.getForum() == null || z09Var.getBusinessPromot() == null || z09Var.getBusinessPromot().g()) {
                 return false;
             }
-            this.j = vz8Var.getForum();
-            this.i = vz8Var.getBusinessPromot();
-            String str = "key_frs_dialog_ad_last_show_time" + vz8Var.getForum().getId();
+            this.j = z09Var.getForum();
+            this.i = z09Var.getBusinessPromot();
+            String str = "key_frs_dialog_ad_last_show_time" + z09Var.getForum().getId();
             long o = p35.m().o(str, 0L);
             if (o >= 0 && TimeHelper.isSameDay(new Date(o), new Date(System.currentTimeMillis()))) {
                 return false;

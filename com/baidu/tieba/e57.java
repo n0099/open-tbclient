@@ -253,14 +253,14 @@ public class e57 {
         this.m = new d(this);
         this.a = frsFragment;
         View L3 = frsFragment.L3();
-        AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b99);
+        AdvancedAdSlideLoadingLayout advancedAdSlideLoadingLayout = (AdvancedAdSlideLoadingLayout) L3.findViewById(R.id.obfuscated_res_0x7f090baa);
         this.b = advancedAdSlideLoadingLayout;
         advancedAdSlideLoadingLayout.k(this.j);
         this.b.j(this.k);
         this.b.i(this.l);
         this.b.n();
-        this.c = (AppBarLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b74);
-        this.d = (BdTypeRecyclerView) L3.findViewById(R.id.obfuscated_res_0x7f090c31);
+        this.c = (AppBarLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b85);
+        this.d = (BdTypeRecyclerView) L3.findViewById(R.id.obfuscated_res_0x7f090c42);
     }
 
     public void f(vw4 vw4Var) {
@@ -348,13 +348,13 @@ public class e57 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View findViewById = this.a.L3().findViewById(R.id.obfuscated_res_0x7f090e05);
-            TbImageView tbImageView = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090e04);
+            View findViewById = this.a.L3().findViewById(R.id.obfuscated_res_0x7f090e16);
+            TbImageView tbImageView = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090e15);
             tbImageView.setPlaceHolder(2);
-            TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09263d);
-            TbImageView tbImageView2 = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092637);
-            View findViewById2 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09263c);
-            View findViewById3 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090e20);
+            TbVideoView tbVideoView = (TbVideoView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09268e);
+            TbImageView tbImageView2 = (TbImageView) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092688);
+            View findViewById2 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f09268d);
+            View findViewById3 = this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f090e31);
             if (findViewById == null) {
                 return;
             }
@@ -420,7 +420,7 @@ public class e57 {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.m(this.a.L3().findViewById(R.id.obfuscated_res_0x7f090bd9), 0);
+            this.b.m(this.a.L3().findViewById(R.id.obfuscated_res_0x7f090bea), 0);
         }
     }
 
@@ -469,7 +469,7 @@ public class e57 {
             gh.a().postDelayed(this.m, 5000L);
             kt6 kt6Var = this.e;
             if (kt6Var != null) {
-                kt6Var.g1();
+                kt6Var.f1();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
             }
         }

@@ -443,7 +443,7 @@ public class l3 extends h1 implements z2 {
     }
 
     @Override // com.baidu.tieba.z2
-    public void P0() {
+    public void O0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();
@@ -479,7 +479,7 @@ public class l3 extends h1 implements z2 {
     }
 
     @Override // com.baidu.tieba.z2
-    public void a1() {
+    public void Z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {

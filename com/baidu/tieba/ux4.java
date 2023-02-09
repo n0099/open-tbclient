@@ -35,7 +35,7 @@ public class ux4 implements t15 {
     public String m;
     public float n;
     public List<String> o;
-    public h09 p;
+    public l19 p;
 
     /* loaded from: classes6.dex */
     public class a implements Comparator<VideoImageColor> {
@@ -121,13 +121,13 @@ public class ux4 implements t15 {
         return (String) invokeV.objValue;
     }
 
-    public h09 f() {
+    public l19 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.p;
         }
-        return (h09) invokeV.objValue;
+        return (l19) invokeV.objValue;
     }
 
     public String g() {
@@ -308,9 +308,9 @@ public class ux4 implements t15 {
             this.k = str4.trim();
         }
         this.o = headImgs.third_statistics_url;
-        h09 h09Var = new h09();
-        this.p = h09Var;
-        h09Var.d(headImgs);
+        l19 l19Var = new l19();
+        this.p = l19Var;
+        l19Var.d(headImgs);
     }
 
     public void p(String str) {

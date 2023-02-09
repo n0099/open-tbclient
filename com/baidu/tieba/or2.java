@@ -259,10 +259,10 @@ public class or2 extends PopupWindow {
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, editText, i) == null) {
             this.a = swanAppActivity;
             this.b = editText;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00b4, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00b5, (ViewGroup) null);
             this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070152);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091123);
+            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091137);
             gridView.setAdapter((ListAdapter) new nr2(swanAppActivity, this.c));
             qm3.a0(new b(this, gridView, new a(this, i)));
             ImageView imageView = (ImageView) linearLayout.findViewById(R.id.close_btn);

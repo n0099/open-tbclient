@@ -2,84 +2,62 @@ package com.baidu.tieba;
 
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.p2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes5.dex */
-public class q2a implements TTNativeExpressAd.AdInteractionListener {
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+/* loaded from: classes6.dex */
+public class q2a extends p2a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ j2a c;
-    public final /* synthetic */ n2a d;
+    public final /* synthetic */ z2a f;
 
-    public q2a(n2a n2aVar, j2a j2aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q2a(p2a p2aVar, t3a t3aVar, String str, z2a z2aVar) {
+        super(p2aVar, t3aVar, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n2aVar, j2aVar};
+            Object[] objArr = {p2aVar, t3aVar, str, z2aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((p2a) objArr2[0], (t3a) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = n2aVar;
-        this.c = j2aVar;
+        this.f = z2aVar;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    @Override // com.baidu.tieba.p2a.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
     public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+            super.onAdClicked(view2, i);
+            z2a z2aVar = this.f;
+            String str = this.b;
+            FunSplashAdInteractionListener funSplashAdInteractionListener = z2aVar.j;
+            if (funSplashAdInteractionListener != null) {
+                funSplashAdInteractionListener.onAdClicked(str);
+            }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.AdInteractionListener
-    public void onAdDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.d.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    @Override // com.baidu.tieba.p2a.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
     public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, view2, str, i) == null) {
-            LogPrinter.e("onRenderFail message: " + str + ", code: " + i, new Object[0]);
-            this.d.onError(i, str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.d();
-            this.d.onAdLoaded((n2a) this.c);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            super.onAdShow(view2, i);
+            z2a z2aVar = this.f;
+            z2aVar.g = z2aVar.b.getWidth();
+            z2aVar.h = z2aVar.b.getHeight();
         }
     }
 }

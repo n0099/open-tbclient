@@ -31,7 +31,7 @@ public class ju6 extends mc6<ku6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02f7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02f9 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -65,7 +65,7 @@ public class ju6 extends mc6<ku6> {
         this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09009f);
         this.n = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0900b2);
         this.l = h.findViewById(R.id.item_divider);
-        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090b67);
+        this.m = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090b78);
         h.setOnClickListener(this);
     }
 

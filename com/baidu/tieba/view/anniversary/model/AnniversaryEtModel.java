@@ -6,12 +6,12 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.o09;
-import com.baidu.tieba.sd9;
-import com.baidu.tieba.vd9;
+import com.baidu.tieba.af9;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.wb;
-import com.baidu.tieba.wd9;
+import com.baidu.tieba.we9;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.ze9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AnniversaryEtModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sd9 a;
-    public wd9 b;
+    public we9 a;
+    public af9 b;
     public final wb c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -78,14 +78,14 @@ public class AnniversaryEtModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && this.a.a != null && this.a.b != null) {
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    vd9 vd9Var = null;
+                    ze9 ze9Var = null;
                     if (responsedMessage instanceof AnniversaryEtSocketResMessage) {
-                        vd9Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
+                        ze9Var = ((AnniversaryEtSocketResMessage) responsedMessage).getResultData();
                     } else if (responsedMessage instanceof AnniversaryEtHttpResMessage) {
-                        vd9Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
+                        ze9Var = ((AnniversaryEtHttpResMessage) responsedMessage).getResultData();
                     }
-                    if (vd9Var != null) {
-                        this.a.a.G0(vd9Var);
+                    if (ze9Var != null) {
+                        this.a.a.G0(ze9Var);
                         return;
                     } else {
                         this.a.a.onError(-1, "请求失败，请稍后重试");
@@ -98,13 +98,13 @@ public class AnniversaryEtModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, sd9 sd9Var) {
+    public AnniversaryEtModel(@NonNull TbPageContext tbPageContext, we9 we9Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sd9Var};
+            Object[] objArr = {tbPageContext, we9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -116,8 +116,8 @@ public class AnniversaryEtModel extends BdBaseModel {
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_HTTP_ET_VIDEO, 309725);
-        this.a = sd9Var;
-        this.b = new wd9(tbPageContext, sd9Var);
+        this.a = we9Var;
+        this.b = new af9(tbPageContext, we9Var);
         init();
     }
 
@@ -131,27 +131,27 @@ public class AnniversaryEtModel extends BdBaseModel {
         }
     }
 
-    public void J(vd9 vd9Var) {
-        wd9 wd9Var;
+    public void J(ze9 ze9Var) {
+        af9 af9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vd9Var) == null) && (wd9Var = this.b) != null) {
-            wd9Var.m(vd9Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ze9Var) == null) && (af9Var = this.b) != null) {
+            af9Var.m(ze9Var);
         }
     }
 
     public void cancel() {
-        wd9 wd9Var;
+        af9 af9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (wd9Var = this.b) != null) {
-            wd9Var.i();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (af9Var = this.b) != null) {
+            af9Var.i();
         }
     }
 
     public final void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o09.h(309725, AnniversaryEtSocketResMessage.class, false, false);
-            o09.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
+            s19.h(309725, AnniversaryEtSocketResMessage.class, false, false);
+            s19.c(309725, CmdConfigHttp.CMD_HTTP_ET_VIDEO, "c/f/video/videoTemplate", AnniversaryEtHttpResMessage.class, true, true, true, false);
             registerListener(this.c);
         }
     }

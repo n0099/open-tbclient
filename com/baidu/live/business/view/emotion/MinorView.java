@@ -57,7 +57,7 @@ public class MinorView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oa0.f(this.a.getContext())) {
-                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a9b, 1).show();
+                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0aa5, 1).show();
                 } else if (this.a.e != null) {
                     this.a.e.a(view2);
                 }
@@ -126,13 +126,13 @@ public class MinorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d055e, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0563, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091627);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091629);
-        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f091626);
-        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090a31);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09163d);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09163f);
+        this.c = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09163c);
+        this.d = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f090a3f);
         b();
     }
 

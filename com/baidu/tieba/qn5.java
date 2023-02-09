@@ -44,7 +44,7 @@ public class qn5 extends ln5 {
         pbListView.c();
         this.d.r(R.color.transparent);
         this.d.v(this.a.a);
-        this.d.N(this.a.b);
+        this.d.O(this.a.b);
         this.d.A();
         this.d.J(R.dimen.tbfontsize33);
         this.d.H(SkinManager.getColor(R.color.CAM_X0107));
@@ -78,7 +78,7 @@ public class qn5 extends ln5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c.setNextPage(this.d);
-            this.d.S();
+            this.d.T();
             this.d.F(this.a.c);
             this.d.E(null);
         }

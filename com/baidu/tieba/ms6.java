@@ -209,7 +209,7 @@ public class ms6 {
             j05Var2.setContentViewSize(1);
             this.a.setNegativeTextColor(R.color.CAM_X0105);
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092314);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
             this.b = textView;
             textView.setText(R.string.frs_recommend_thread_sure_title);
             this.c = (TextView) inflate.findViewById(R.id.call_fans_intro);
@@ -222,7 +222,7 @@ public class ms6 {
             } else {
                 this.c.setText(String.format(tbPageContext.getString(R.string.frs_recommend_thread_sure_content), "D", 2, 2));
             }
-            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090645);
+            this.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090650);
             this.e = (TextView) inflate.findViewById(R.id.no_tip_again_text);
             inflate.findViewById(R.id.no_tip_again_group).setOnClickListener(new a(this));
             f();

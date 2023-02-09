@@ -27,13 +27,13 @@ public class os3 {
 
         /* renamed from: com.baidu.tieba.os3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0370a implements Runnable {
+        public class RunnableC0368a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0370a(a aVar, byte[] bArr) {
+            public RunnableC0368a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class os3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ql3.l(new RunnableC0370a(this, bArr), "HandshakeRequest");
+                ql3.l(new RunnableC0368a(this, bArr), "HandshakeRequest");
             }
         }
 

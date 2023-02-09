@@ -119,7 +119,7 @@ public class j48 extends i48 {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z) {
-                ej.P(this.a.d.getPageActivity(), R.string.obfuscated_res_0x7f0f15b2);
+                ej.P(this.a.d.getPageActivity(), R.string.obfuscated_res_0x7f0f15c9);
             }
         }
     }
@@ -369,19 +369,19 @@ public class j48 extends i48 {
             } else {
                 cVar = new c(this, null);
                 if (itemViewType == 0) {
-                    inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d073c, (ViewGroup) null);
+                    inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d074d, (ViewGroup) null);
                     ViewGroup viewGroup2 = (ViewGroup) inflate.findViewById(R.id.item_view);
                     cVar.a = viewGroup2;
                     viewGroup2.setOnClickListener(this.h);
-                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a9b);
+                    ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ad3);
                     cVar.b = clickableHeaderImageView;
                     clickableHeaderImageView.setRadius(ej.g(this.d.getPageActivity(), R.dimen.obfuscated_res_0x7f070309));
                     cVar.b.setAutoChangeStyle(true);
                     cVar.b.setClickable(false);
                     ((ViewGroup.MarginLayoutParams) cVar.b.getLayoutParams()).setMargins(ej.g(this.d.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
-                    cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091003);
-                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921ab);
-                    EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091710);
+                    cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091015);
+                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921f1);
+                    EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091727);
                     cVar.c = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, cVar));
                     View a2 = lt4.b().a(this.d.getPageActivity(), 5);
@@ -390,9 +390,9 @@ public class j48 extends i48 {
                         a2.setVisibility(8);
                         cVar.g.addView(cVar.d, 1);
                     }
-                    cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902cb);
-                    cVar.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091058);
-                    NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) inflate.findViewById(R.id.obfuscated_res_0x7f0902d8);
+                    cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902d1);
+                    cVar.e = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09106a);
+                    NewMyFansUserLikeButton newMyFansUserLikeButton = (NewMyFansUserLikeButton) inflate.findViewById(R.id.obfuscated_res_0x7f0902de);
                     cVar.h = newMyFansUserLikeButton;
                     newMyFansUserLikeButton.setContext(this.d);
                     ((LinearLayout.LayoutParams) cVar.h.getLayoutParams()).setMargins(0, 0, ej.g(this.d.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
@@ -402,15 +402,15 @@ public class j48 extends i48 {
                     cVar.i.o(new b(this));
                     cVar.k = null;
                     cVar.m = null;
-                    cVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090839);
+                    cVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090847);
                 } else if (itemViewType == 2) {
-                    inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ec, (ViewGroup) null);
-                    cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916b5);
+                    inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f1, (ViewGroup) null);
+                    cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0916cc);
                 } else {
                     inflate = LayoutInflater.from(this.d.getPageActivity()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
                     cVar.c = (EMTextView) inflate.findViewById(R.id.pb_more_text);
                     inflate.setOnClickListener(this.g);
-                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091b9a);
+                    cVar.k = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f091bd5);
                     cVar.m = null;
                 }
                 inflate.setTag(cVar);
@@ -424,15 +424,15 @@ public class j48 extends i48 {
                     cVar.f.setVisibility(8);
                     cVar.l.setVisibility(0);
                     if (this.e) {
-                        cVar.l.setText(R.string.obfuscated_res_0x7f0f0d5f);
+                        cVar.l.setText(R.string.obfuscated_res_0x7f0f0d6a);
                     } else {
                         int i2 = this.f;
                         if (i2 == 2) {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f08de);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f08e7);
                         } else if (i2 == 1) {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f08e1);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f08ea);
                         } else {
-                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0d22);
+                            cVar.l.setText(R.string.obfuscated_res_0x7f0f0d2c);
                         }
                     }
                 } else {
@@ -490,10 +490,10 @@ public class j48 extends i48 {
                 cVar.j.setLayoutParams(layoutParams);
                 cVar.k = null;
             } else if (itemViewType == 2) {
-                cVar.m.setText(R.string.obfuscated_res_0x7f0f0d02);
+                cVar.m.setText(R.string.obfuscated_res_0x7f0f0d0c);
                 cVar.m.setVisibility(0);
             } else {
-                cVar.c.setText(this.d.getString(R.string.obfuscated_res_0x7f0f0ae6));
+                cVar.c.setText(this.d.getString(R.string.obfuscated_res_0x7f0f0af0));
                 cVar.k.setVisibility(0);
             }
             h(inflate, cVar);

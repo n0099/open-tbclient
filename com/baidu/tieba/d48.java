@@ -79,16 +79,16 @@ public class d48 {
         }
     }
 
-    public void d(xn8 xn8Var) {
+    public void d(bp8 bp8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, xn8Var) == null) && this.d) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, bp8Var) == null) && this.d) {
             this.d = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
             long j = this.b - this.a;
             long j2 = elapsedRealtime - this.c;
             long j3 = j2 + j;
-            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && xn8Var != null) {
-                xn8Var.a(j, j2, j3);
+            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && bp8Var != null) {
+                bp8Var.a(j, j2, j3);
             }
         }
     }

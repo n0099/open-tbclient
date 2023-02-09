@@ -154,7 +154,7 @@ public class ja7 {
                     this.a.b.d0(this.a.n);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0807);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0810);
                 } else {
                     this.a.a.showToast(str);
                 }
@@ -354,7 +354,7 @@ public class ja7 {
                     return;
                 }
                 this.a.b.p0(null);
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0952);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f095c);
             }
         }
     }
@@ -669,9 +669,9 @@ public class ja7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 <= 0) {
-                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0805);
+                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f080e);
             } else {
-                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0806, Integer.valueOf(i2));
+                string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f080f, Integer.valueOf(i2));
             }
             return new y35.i(string, 1000);
         }

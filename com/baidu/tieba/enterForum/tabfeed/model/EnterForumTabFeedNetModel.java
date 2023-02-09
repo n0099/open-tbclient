@@ -524,7 +524,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     i++;
                 }
                 if (i3 < i4) {
-                    this.g.C0(i3, i4);
+                    this.g.B0(i3, i4);
                 }
             }
         }
@@ -674,7 +674,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             this.j.a = ql6Var.c();
             cl6 cl6Var = this.g;
             if (cl6Var != null) {
-                cl6Var.m1(this.j);
+                cl6Var.l1(this.j);
             }
         }
     }

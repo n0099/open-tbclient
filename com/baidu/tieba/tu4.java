@@ -67,11 +67,11 @@ public class tu4 implements vb6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public x19 c(WebView webView, int i, String str) {
+    public b39 c(WebView webView, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             JSONObject jSONObject = new JSONObject();
             Activity a = pb6.a(webView.getContext());
             if (a == null) {
@@ -80,8 +80,8 @@ public class tu4 implements vb6 {
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                x19Var.o(jSONObject.toString());
-                return x19Var;
+                b39Var.o(jSONObject.toString());
+                return b39Var;
             }
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
             loginActivityConfig.setThirdPartyLoginForResult(i, str);
@@ -94,10 +94,10 @@ public class tu4 implements vb6 {
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
-            x19Var.o(jSONObject.toString());
-            return x19Var;
+            b39Var.o(jSONObject.toString());
+            return b39Var;
         }
-        return (x19) invokeLIL.objValue;
+        return (b39) invokeLIL.objValue;
     }
 
     public final String d(WebView webView, String str) {
@@ -118,11 +118,11 @@ public class tu4 implements vb6 {
         return (String) invokeLL.objValue;
     }
 
-    public x19 f(WebView webView, String str) {
+    public b39 f(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             Activity a = pb6.a(webView.getContext());
             if (a != null) {
                 ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
@@ -131,13 +131,13 @@ public class tu4 implements vb6 {
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
             jSResultData.setErrorMsg("");
-            x19Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return x19Var;
+            b39Var.o(OrmObject.jsonStrWithObject(jSResultData));
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 
-    public x19 e(WebView webView, HashMap hashMap) {
+    public b39 e(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
@@ -151,14 +151,14 @@ public class tu4 implements vb6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
-            x19 x19Var = new x19();
-            x19Var.o(jSONObject.toString());
-            return x19Var;
+            b39 b39Var = new b39();
+            b39Var.o(jSONObject.toString());
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 
-    public x19 g(WebView webView, HashMap hashMap) {
+    public b39 g(WebView webView, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, hashMap)) == null) {
@@ -174,10 +174,10 @@ public class tu4 implements vb6 {
                 e.printStackTrace();
             }
             a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            x19 x19Var = new x19();
-            x19Var.o(jSONObject.toString());
-            return x19Var;
+            b39 b39Var = new b39();
+            b39Var.o(jSONObject.toString());
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 }

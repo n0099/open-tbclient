@@ -52,20 +52,20 @@ public class b28 {
             }
         }
         this.i = memberTaskCenterActivity;
-        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d059f);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091d75);
+        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d05a4);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091db7);
         this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
         NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0b6e);
-        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0915e7);
-        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05a0, (ViewGroup) null);
+        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0b78);
+        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0915fd);
+        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05a5, (ViewGroup) null);
         BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090145);
+        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090147);
         this.g = tbImageView;
         tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09078d);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090798);
         this.g.setOnClickListener(onClickListener);
         z18 z18Var = new z18(memberTaskCenterActivity);
         this.e = z18Var;
@@ -117,7 +117,7 @@ public class b28 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
             this.g.K(str, 10, false);
-            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f04a9), String.valueOf(j)));
+            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f04ac), String.valueOf(j)));
             this.e.c(list);
             this.e.notifyDataSetChanged();
         }

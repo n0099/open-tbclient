@@ -137,8 +137,8 @@ public class SingleLinkCardView extends RelativeLayout implements View.OnClickLi
         this.b = (TextView) findViewById(R.id.tv_single_link_text);
         this.c = (TextView) findViewById(R.id.goods_price);
         this.d = findViewById(R.id.extra_info_container);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09071e);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090721);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090729);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09072c);
         this.g = (ImageView) findViewById(R.id.content1_icon);
         this.h = (ImageView) findViewById(R.id.content2_icon);
         d();

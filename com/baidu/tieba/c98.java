@@ -25,7 +25,7 @@ public class c98 {
     public interface b {
         void a(ForbidResultData forbidResultData);
 
-        void onSuccess();
+        void b(ForbidResultData forbidResultData);
     }
 
     /* loaded from: classes4.dex */
@@ -119,9 +119,9 @@ public class c98 {
                 b bVar = this.j.get();
                 if (bVar != null) {
                     if (forbidResultData.error_code == 0 && dj.isEmpty(forbidResultData.error_msg)) {
-                        bVar.onSuccess();
-                    } else {
                         bVar.a(forbidResultData);
+                    } else {
+                        bVar.b(forbidResultData);
                     }
                 }
             }

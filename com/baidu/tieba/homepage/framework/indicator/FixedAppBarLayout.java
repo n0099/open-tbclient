@@ -356,14 +356,14 @@ public class FixedAppBarLayout extends AppBarLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 e eVar = new e();
                 eVar.a = view2;
-                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f091491);
-                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090e7a);
-                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907b8);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eeb);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091eff);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f06);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ecc);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa3);
+                eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0914a6);
+                eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090e8b);
+                eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f2e);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f42);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f49);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f0f);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fb4);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 eVar.i.setUseNightOrDarkMask(false);
@@ -488,7 +488,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.b = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028e, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d028f, (ViewGroup) this, true);
             this.a = e.a(this);
             n();
             o();
@@ -595,7 +595,7 @@ public class FixedAppBarLayout extends AppBarLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1173));
+            this.a.g.setText(this.b.getString(R.string.obfuscated_res_0x7f0f1187));
             if (k()) {
                 this.d = true;
                 this.a.h.setVisibility(0);

@@ -124,8 +124,8 @@ public class un6 extends BaseAdapter {
             int l = (ej.l(this.a) - ej.g(this.a, R.dimen.obfuscated_res_0x7f07027a)) / 4;
             if (view2 == null) {
                 b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0286, (ViewGroup) null);
-                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f65);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0287, (ViewGroup) null);
+                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f76);
                 inflate.setTag(bVar);
                 inflate.setLayoutParams(new AbsListView.LayoutParams(l, l));
                 view2 = inflate;

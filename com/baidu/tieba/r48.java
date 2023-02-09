@@ -50,19 +50,19 @@ public class r48 {
     public int g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091f85 : R.id.obfuscated_res_0x7f090e6f : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fc9 : R.id.obfuscated_res_0x7f090e80 : invokeZ.intValue;
     }
 
     public int h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091f87 : R.id.obfuscated_res_0x7f0915a5 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fcb : R.id.obfuscated_res_0x7f0915bb : invokeZ.intValue;
     }
 
     public int i(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091f86 : R.id.obfuscated_res_0x7f090e71 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fca : R.id.obfuscated_res_0x7f090e82 : invokeZ.intValue;
     }
 
     /* loaded from: classes6.dex */
@@ -201,15 +201,15 @@ public class r48 {
         this.m = false;
         this.n = new a(this);
         this.a = threadFragment.getBaseFragmentActivity();
-        this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091735);
-        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b9a);
-        this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091883);
-        this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, ej.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07027c)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0b42, R.string.obfuscated_res_0x7f0f0b43), null);
+        this.b = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f09174c);
+        this.i = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091bd5);
+        this.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09189e);
+        this.f = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.COLLECTION, ej.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07027c)), NoDataViewFactory.e.b(R.string.obfuscated_res_0x7f0f0b4c, R.string.obfuscated_res_0x7f0f0b4d), null);
         q48 q48Var = new q48(threadFragment.getPageContext());
         this.g = q48Var;
         q48Var.notifyDataSetChanged();
         this.e = new z35(threadFragment.getPageContext());
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091408);
+        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09141d);
         this.c = bdListView;
         bdListView.setPullRefresh(this.e);
         this.e.f(threadFragment);
@@ -463,12 +463,12 @@ public class r48 {
             if (this.j == null) {
                 j05 j05Var = new j05(this.a.getPageContext().getPageActivity());
                 this.j = j05Var;
-                j05Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1409));
-                this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfe));
+                j05Var.setTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1420));
+                this.j.setMessage(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d08));
                 if (this.k != null) {
-                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10cb), this.k);
+                    this.j.setPositiveButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f10df), this.k);
                 }
-                this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0459), new b(this));
+                this.j.setNegativeButton(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f045b), new b(this));
                 this.j.create(this.a.getPageContext());
                 this.j.setCanceledOnTouchOutside(true);
             }

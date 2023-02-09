@@ -35,9 +35,9 @@ public class ForumEmotionModel extends BdBaseModel {
     public interface b {
         void onFailed(String str);
 
-        void q1(ForumEmotionData forumEmotionData);
+        void p1(ForumEmotionData forumEmotionData);
 
-        void z0(ForumEmotionData forumEmotionData);
+        void y0(ForumEmotionData forumEmotionData);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -101,10 +101,10 @@ public class ForumEmotionModel extends BdBaseModel {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
                             if (this.a.a == 1) {
-                                bVar.q1(forumEmotionCenterResponseMessage.data);
+                                bVar.p1(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
-                                bVar.z0(forumEmotionCenterResponseMessage.data);
+                                bVar.y0(forumEmotionCenterResponseMessage.data);
                                 return;
                             }
                         }

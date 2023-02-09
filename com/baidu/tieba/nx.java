@@ -56,12 +56,12 @@ public class nx extends dz {
     }
 
     @Override // com.baidu.tieba.dz
-    public qo8 t() {
+    public up8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ro8(this.b, this.i, this.y);
+            return new vp8(this.b, this.i, this.y);
         }
-        return (qo8) invokeV.objValue;
+        return (up8) invokeV.objValue;
     }
 }

@@ -4,20 +4,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.cr8;
-import com.baidu.tieba.os8;
-import com.baidu.tieba.ps8;
+import com.baidu.tieba.gs8;
 import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.st8;
+import com.baidu.tieba.tt8;
 import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public interface IHomeAdVideoView extends cr8 {
-    @Override // com.baidu.tieba.cr8
+public interface IHomeAdVideoView extends gs8 {
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ void autoPlay(int i);
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ boolean canPlay();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ long getCurrentPosition();
 
     /* synthetic */ int getHeight();
@@ -26,29 +26,29 @@ public interface IHomeAdVideoView extends cr8 {
 
     /* synthetic */ void getLocationInWindow(int[] iArr);
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ int getPlayStatus();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ String getPlayUrl();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ View getVideoContainer();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ boolean isPlayStarted();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ boolean isPlaying();
 
     int jump2DownloadDetailPage();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ void release();
 
     void setAdInfo(AdCard adCard);
 
-    void setData(VideoInfo videoInfo, os8 os8Var, int i, int i2, int i3, int i4);
+    void setData(VideoInfo videoInfo, st8 st8Var, int i, int i2, int i3, int i4);
 
     void setOnClickListener(View.OnClickListener onClickListener);
 
@@ -60,12 +60,12 @@ public interface IHomeAdVideoView extends cr8 {
 
     void setVideoScalingMode(int i);
 
-    void setVideoTailFrameData(ps8 ps8Var);
+    void setVideoTailFrameData(tt8 tt8Var);
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ void startPlay();
 
-    @Override // com.baidu.tieba.cr8
+    @Override // com.baidu.tieba.gs8
     /* synthetic */ void stopPlay();
 
     void updateTailFrameView(AdvertAppInfo advertAppInfo);

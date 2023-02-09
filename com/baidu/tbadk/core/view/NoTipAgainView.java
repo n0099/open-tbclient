@@ -96,7 +96,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
             this.a = (TextView) findViewById(R.id.no_tip_again_text);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090645);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090650);
             b();
             this.b.setOnClickListener(this);
         }

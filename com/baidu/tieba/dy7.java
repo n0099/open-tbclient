@@ -121,7 +121,7 @@ public class dy7 extends qn<iy7, SearchSuggestRankingViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c7, viewGroup, false));
+            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d9, viewGroup, false));
         }
         return (SearchSuggestRankingViewHolder) invokeL.objValue;
     }
@@ -150,7 +150,7 @@ public class dy7 extends qn<iy7, SearchSuggestRankingViewHolder> {
                 return view2;
             }
             x(searchSuggestRankingViewHolder);
-            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080ac1, null);
+            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080ad0, null);
             yx7.a(searchSuggestRankingViewHolder.b, iy7Var.f(), iy7Var.a());
             y(iy7Var);
             return view2;

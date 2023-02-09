@@ -1,179 +1,156 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.personCenter.view.AutoBannerView;
+import com.baidu.tieba.personCenter.data.PersonVipCardData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class vj8 extends mc6<lj8> {
+public class vj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int i;
-    public LinearLayout j;
-    public LinearLayout k;
-    public AutoBannerView l;
-    public View m;
-    public View n;
-    public w15<ui8> o;
+    public nj8 a;
+    public kj8 b;
+    public sj8 c;
+    public tj8 d;
+    public oj8 e;
+    public rj8 f;
+    public mj8 g;
+    public pj8 h;
+    public qj8 i;
+    public BdTypeListView j;
+    public lj8 k;
+    public uj8 l;
+    public List<qn> m;
 
-    @Override // com.baidu.tieba.mc6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0728 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements w15<ui8> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vj8 a;
-
-        public a(vj8 vj8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vj8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vj8Var;
-        }
-
-        @Override // com.baidu.tieba.w15
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && this.a.l != null && str != null) {
-                if (this.a.l.a(i)) {
-                    TiebaStatic.log(new StatisticItem("c13247").param("obj_locate", i).param("obj_param1", str));
-                }
-                this.a.l.f();
-                this.a.l.b(str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.w15
-        /* renamed from: c */
-        public void a(int i, ui8 ui8Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, ui8Var) == null) && this.a.l != null && ui8Var != null && ui8Var.a() != null && this.a.l.a(i)) {
-                TiebaStatic.log(new StatisticItem("c13246").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", i).param("obj_param1", ui8Var.a()));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vj8(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public vj8(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 3;
-        this.o = new a(this);
-        this.n = h();
-        int g = ej.g(this.c, R.dimen.M_W_X003);
-        this.n.setPadding(g, 0, g, 0);
-        this.j = (LinearLayout) this.n.findViewById(R.id.obfuscated_res_0x7f0926d2);
-        this.k = (LinearLayout) this.n.findViewById(R.id.obfuscated_res_0x7f0914f3);
-        AutoBannerView autoBannerView = (AutoBannerView) this.n.findViewById(R.id.obfuscated_res_0x7f0919b5);
-        this.l = autoBannerView;
-        autoBannerView.getCoverFlowView().setAutoPlay(false);
-        this.l.setMarqueenTime(3000L);
-        this.l.getCoverFlowView().setCallback(this.o);
-        this.m = this.n.findViewById(R.id.obfuscated_res_0x7f0903ad);
+        this.m = new ArrayList();
+        this.j = bdTypeListView;
+        a(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
-    public void s(boolean z) {
+    public final void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || this.l.getCoverFlowView() == null) {
-            return;
-        }
-        if (z) {
-            this.l.getCoverFlowView().m();
-        } else {
-            this.l.getCoverFlowView().x();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
+            this.a = new nj8(tbPageContext, jk8.b);
+            this.b = new kj8(tbPageContext, dk8.f);
+            this.c = new sj8(tbPageContext, pk8.b);
+            this.d = new tj8(tbPageContext, qk8.c);
+            this.e = new oj8(tbPageContext, fk8.b);
+            this.f = new rj8(tbPageContext, gk8.b);
+            this.k = new lj8(tbPageContext, hk8.c);
+            this.h = new pj8(tbPageContext, lk8.b);
+            this.i = new qj8(tbPageContext, mk8.b);
+            this.g = new mj8(tbPageContext, ik8.q);
+            this.l = new uj8(tbPageContext, PersonVipCardData.PERSON_VIP_CARD_DATA);
+            this.m.add(this.a);
+            this.m.add(this.l);
+            this.m.add(this.b);
+            this.m.add(this.e);
+            this.m.add(this.f);
+            this.m.add(this.c);
+            this.m.add(this.d);
+            this.m.add(this.h);
+            this.m.add(this.i);
+            this.m.add(this.g);
+            this.m.add(this.k);
+            bdTypeListView.a(this.m);
         }
     }
 
-    public void v(boolean z) {
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            s(z);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.j) != null && (bdTypeListView.getAdapter2() instanceof un)) {
+            this.j.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.mc6
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public void c() {
+        uj8 uj8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.i != i) {
-            AutoBannerView autoBannerView = this.l;
-            if (autoBannerView != null) {
-                autoBannerView.e(i);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (uj8Var = this.l) != null) {
+            uj8Var.onDestroy();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            uj8 uj8Var = this.l;
+            if (uj8Var != null) {
+                uj8Var.onPause();
             }
-            SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.m, R.color.CAM_X0204);
-            this.i = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mc6
-    /* renamed from: t */
-    public void i(lj8 lj8Var) {
-        List<ui8> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lj8Var) == null) {
-            j(this.b, TbadkCoreApplication.getInst().getSkinType());
-            if (this.j == null || lj8Var == null || (list = lj8Var.a) == null || this.l == null || list.size() == 0) {
-                return;
+            sj8 sj8Var = this.c;
+            if (sj8Var != null) {
+                sj8Var.onPause();
             }
-            this.l.d(lj8Var.a);
         }
     }
 
-    public void u() {
+    public void f() {
+        uj8 uj8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s(false);
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (uj8Var = this.l) != null) {
+            uj8Var.onResume();
+        }
+    }
+
+    public void g() {
+        pj8 pj8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (pj8Var = this.h) != null) {
+            pj8Var.onScroll();
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            uj8 uj8Var = this.l;
+            if (uj8Var != null) {
+                uj8Var.u(z);
+            }
+            lj8 lj8Var = this.k;
+            if (lj8Var != null) {
+                lj8Var.v(z);
+            }
+            rj8 rj8Var = this.f;
+            if (rj8Var != null) {
+                rj8Var.u(z);
+            }
+            sj8 sj8Var = this.c;
+            if (sj8Var != null) {
+                sj8Var.u(z);
+            }
+        }
+    }
+
+    public void h(boolean z) {
+        lj8 lj8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (lj8Var = this.k) != null) {
+            lj8Var.u(z);
         }
     }
 }

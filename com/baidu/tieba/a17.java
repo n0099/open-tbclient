@@ -81,16 +81,16 @@ public class a17 extends g17 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str) && this.a.b.Y0() != null) {
-                    FrsViewData Y0 = this.a.b.Y0();
-                    Y0.removeThread(str);
+                if (!StringUtils.isNull(str) && this.a.b.X0() != null) {
+                    FrsViewData X0 = this.a.b.X0();
+                    X0.removeThread(str);
                     z07 z07Var = this.a.g;
                     if (z07Var != null) {
                         z07Var.k(str);
                     }
-                    this.a.a.L1(Y0.getThreadList(), Y0);
-                    if (mz8.i() != null) {
-                        mz8.i().n(this.a.b.e(), false);
+                    this.a.a.L1(X0.getThreadList(), X0);
+                    if (q09.i() != null) {
+                        q09.i().n(this.a.b.e(), false);
                     }
                     if (this.a.b != null) {
                         if (zr6.g()) {
@@ -146,24 +146,24 @@ public class a17 extends g17 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ForumManageModel.e)) {
                 a17 a17Var = this.a;
-                if (a17Var.b != null && a17Var.a != null && a17Var.d != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.a) && this.a.b.Y0() != null) {
+                if (a17Var.b != null && a17Var.a != null && a17Var.d != null && (eVar = (ForumManageModel.e) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(eVar.a) && this.a.b.X0() != null) {
                     String str = eVar.a;
                     String str2 = eVar.b;
                     String str3 = eVar.c;
                     if (eVar.d == 4) {
-                        FrsViewData Y0 = this.a.b.Y0();
-                        ThreadData threadDataById = Y0.getThreadDataById(str);
-                        Y0.removeThreadData(threadDataById);
-                        List<Cdo> topThreadList = Y0.getTopThreadList();
+                        FrsViewData X0 = this.a.b.X0();
+                        ThreadData threadDataById = X0.getThreadDataById(str);
+                        X0.removeThreadData(threadDataById);
+                        List<Cdo> topThreadList = X0.getTopThreadList();
                         if (topThreadList == null) {
                             topThreadList = new ArrayList<>();
                         }
                         topThreadList.add(0, threadDataById);
-                        this.a.a.L1(Y0.getThreadList(), Y0);
-                        this.a.d.W(Y0);
+                        this.a.a.L1(X0.getThreadList(), X0);
+                        this.a.d.W(X0);
                     }
                     if (TextUtils.equals(this.a.b.e(), str3)) {
-                        mz8.i().n(this.a.b.e(), false);
+                        q09.i().n(this.a.b.e(), false);
                     }
                 }
             }
@@ -235,7 +235,7 @@ public class a17 extends g17 {
                 r6.<init>()
                 boolean r1 = r8 instanceof com.baidu.tieba.homepage.GetMyPostHttpResponseMessage
                 r2 = 0
-                r3 = 2131692798(0x7f0f0cfe, float:1.9014706E38)
+                r3 = 2131692808(0x7f0f0d08, float:1.9014727E38)
                 if (r1 == 0) goto L85
                 r1 = r8
                 com.baidu.tieba.homepage.GetMyPostHttpResponseMessage r1 = (com.baidu.tieba.homepage.GetMyPostHttpResponseMessage) r1
@@ -444,10 +444,10 @@ public class a17 extends g17 {
     }
 
     public final void d(qy4 qy4Var) {
-        FrsViewData Y0;
+        FrsViewData X0;
         ArrayList<Cdo> threadList;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qy4Var) != null) || (Y0 = this.b.Y0()) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qy4Var) != null) || (X0 = this.b.X0()) == null) {
             return;
         }
         this.e.Q(qy4Var);
@@ -456,12 +456,12 @@ public class a17 extends g17 {
             arrayList.add(qy4Var);
             threadList = this.g.c(false, true, arrayList, null, true, -1, null);
         } else {
-            threadList = Y0.getThreadList();
+            threadList = X0.getThreadList();
         }
         if (threadList != null) {
-            Y0.setThreadList(threadList);
-            Y0.checkLiveStageInThreadList();
-            this.a.L1(threadList, Y0);
+            X0.setThreadList(threadList);
+            X0.checkLiveStageInThreadList();
+            this.a.L1(threadList, X0);
         }
     }
 
@@ -506,8 +506,8 @@ public class a17 extends g17 {
                 this.b.showToast(str);
                 return;
             }
-            FrsViewData Y0 = this.b.Y0();
-            if (Y0 != null && Y0.getForum() != null && getMyPostResIdl != null && this.a != null && this.e != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
+            FrsViewData X0 = this.b.X0();
+            if (X0 != null && X0.getForum() != null && getMyPostResIdl != null && this.a != null && this.e != null && (dataRes = getMyPostResIdl.data) != null && dataRes.thread_info != null) {
                 qy4 qy4Var = new qy4();
                 ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
                 User.Builder builder2 = new User.Builder(builder.author);
@@ -521,8 +521,8 @@ public class a17 extends g17 {
                     builder.author = builder2.build(true);
                 }
                 builder.cheak_repeat = 1;
-                builder.fname = Y0.getForum().getName();
-                builder.fid = Long.valueOf(dh.g(Y0.getForum().getId(), 0L));
+                builder.fname = X0.getForum().getName();
+                builder.fid = Long.valueOf(dh.g(X0.getForum().getId(), 0L));
                 qy4Var.parserProtobuf(builder.build(true));
                 i(qy4Var, i2, jSONObject);
             }

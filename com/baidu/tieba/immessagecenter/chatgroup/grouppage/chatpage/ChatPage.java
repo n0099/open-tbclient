@@ -179,12 +179,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
 
             /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage$l$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0316a implements Runnable {
+            public class RunnableC0318a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0316a(a aVar) {
+                public RunnableC0318a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,7 +237,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     this.c.b.p.b.I(this.a, true, BaseMsg.DIFF_ITEM_CALLBACK);
                     if (this.b) {
-                        kh.c(new RunnableC0316a(this));
+                        kh.c(new RunnableC0318a(this));
                     }
                 }
             }
@@ -583,7 +583,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, fetchedEvent) == null) && u.a[fetchedEvent.ordinal()] == 1) {
                 BdTopToast bdTopToast = new BdTopToast(this.b.b.getContext());
-                bdTopToast.g(this.b.b.getContext().getString(R.string.obfuscated_res_0x7f0f0892));
+                bdTopToast.g(this.b.b.getContext().getString(R.string.obfuscated_res_0x7f0f089b));
                 bdTopToast.h(false);
                 bdTopToast.i((ViewGroup) this.b.b.getView());
             }
@@ -897,16 +897,16 @@ public class ChatPage implements LifecycleObserver, wq7 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 d0 d0Var = new d0();
                 d0Var.a = view2;
-                d0Var.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090634);
-                BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09063b);
+                d0Var.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063f);
+                BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090646);
                 d0Var.b = bdTypeRecyclerView;
                 d0Var.c = new qq7(bdTypeRecyclerView);
-                d0Var.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09257e);
-                d0Var.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090489);
-                d0Var.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090493);
-                d0Var.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090877);
-                d0Var.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090876);
-                d0Var.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09140f);
+                d0Var.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0925c9);
+                d0Var.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090494);
+                d0Var.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09049e);
+                d0Var.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090885);
+                d0Var.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090884);
+                d0Var.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091424);
                 return d0Var;
             }
             return (d0) invokeL.objValue;
@@ -1693,7 +1693,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
                         return;
                     }
                     this.a.u0(b, baseMsg, i);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090db4 && (reMsgInfo = baseMsg.getReMsgInfo()) != null) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090dc5 && (reMsgInfo = baseMsg.getReMsgInfo()) != null) {
                     this.a.c.E(reMsgInfo.getMsgId(), reMsgInfo.getMsgKey(), this.a.w);
                 }
             }
@@ -1730,7 +1730,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, view2, baseMsg, i)) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f09070d || id == R.id.obfuscated_res_0x7f090dbb || id == R.id.obfuscated_res_0x7f090d9c || id == R.id.obfuscated_res_0x7f090dc0 || id == R.id.obfuscated_res_0x7f090db7 || id == R.id.obfuscated_res_0x7f090db8 || id == R.id.obfuscated_res_0x7f090db4) {
+                if (id == R.id.obfuscated_res_0x7f090718 || id == R.id.obfuscated_res_0x7f090dcc || id == R.id.obfuscated_res_0x7f090dad || id == R.id.obfuscated_res_0x7f090dd1 || id == R.id.obfuscated_res_0x7f090dc8 || id == R.id.obfuscated_res_0x7f090dc9 || id == R.id.obfuscated_res_0x7f090dc5) {
                     this.a.t0(baseMsg);
                     this.a.T();
                     return false;
@@ -1985,7 +1985,7 @@ public class ChatPage implements LifecycleObserver, wq7 {
     public final void x0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048613, this) == null) && !BdNetTypeUtil.isNetWorkAvailable()) {
-            ej.M(this.b.requireContext(), R.string.obfuscated_res_0x7f0f0cfe);
+            ej.M(this.b.requireContext(), R.string.obfuscated_res_0x7f0f0d08);
         }
     }
 
@@ -2336,9 +2336,9 @@ public class ChatPage implements LifecycleObserver, wq7 {
         }
         this.p.f.setVisibility(0);
         if (!m0()) {
-            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c1);
+            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c2);
         } else {
-            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c0);
+            this.p.d.setText(R.string.obfuscated_res_0x7f0f03c1);
         }
         if (!m0()) {
             atInfoMsg = this.r.getAtInfo().getSingleMsgList().get(0);
@@ -2377,12 +2377,12 @@ public class ChatPage implements LifecycleObserver, wq7 {
                     return true;
                 } else if (this.r.getExtraInfo().getTalkType() == 1 && this.r.getUserInfo().getIdentityRole() != 3) {
                     BdTopToast bdTopToast4 = new BdTopToast(this.b.getContext());
-                    bdTopToast4.g(this.b.getContext().getString(R.string.obfuscated_res_0x7f0f087a));
+                    bdTopToast4.g(this.b.getContext().getString(R.string.obfuscated_res_0x7f0f0883));
                     bdTopToast4.h(false);
                     bdTopToast4.i((ViewGroup) this.b.getView());
                     return true;
                 } else if (this.b.b2().Z(this.r.getExtraInfo().getTalkThresholdLevel(), this.r.getUserInfo().getForumLevel())) {
-                    String format = String.format(this.b.getStringSafely(R.string.obfuscated_res_0x7f0f086f), Integer.valueOf(this.r.getExtraInfo().getTalkThresholdLevel()));
+                    String format = String.format(this.b.getStringSafely(R.string.obfuscated_res_0x7f0f0878), Integer.valueOf(this.r.getExtraInfo().getTalkThresholdLevel()));
                     BdTopToast bdTopToast5 = new BdTopToast(this.b.getContext());
                     bdTopToast5.g(format);
                     bdTopToast5.h(false);

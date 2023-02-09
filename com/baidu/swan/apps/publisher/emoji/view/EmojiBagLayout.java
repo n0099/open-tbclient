@@ -140,7 +140,7 @@ public class EmojiBagLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    linearLayout = (LinearLayout) this.b.inflate(R.layout.obfuscated_res_0x7f0d084f, viewGroup, false);
+                    linearLayout = (LinearLayout) this.b.inflate(R.layout.obfuscated_res_0x7f0d0861, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                     layoutParams.height = this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07013a);
                     linearLayout.setLayoutParams(layoutParams);
@@ -149,7 +149,7 @@ public class EmojiBagLayout extends LinearLayout {
                 }
                 ImageView imageView = (ImageView) linearLayout.findViewById(R.id.img_item);
                 if (i == getCount() - 1) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081222);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081238);
                 } else if (i < this.a.size()) {
                     imageView.setImageBitmap(j63.c().a(this.a.get(i)));
                 }

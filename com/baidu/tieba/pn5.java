@@ -41,7 +41,7 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
     public ln5 k;
     public mn5<P> l;
     public BdListView.p m;
-    public bo8 n;
+    public fp8 n;
     public View.OnClickListener o;
     public final BdListView.p p;
     public final RecyclerView.OnScrollListener q;
@@ -438,10 +438,10 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
 
     public final void B(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (bo8Var = this.n) != null) {
-            bo8Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (bdTypeRecyclerView = this.h) != null && (fp8Var = this.n) != null) {
+            fp8Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
         }
     }
 
@@ -476,9 +476,9 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
-            bo8 bo8Var = this.n;
-            if (bo8Var != null) {
-                bo8Var.u(bdUniqueId);
+            fp8 fp8Var = this.n;
+            if (fp8Var != null) {
+                fp8Var.u(bdUniqueId);
             }
             xm5 xm5Var = this.d;
             if (xm5Var != null) {
@@ -541,9 +541,9 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             if (i == 1 || i == 0 || i == 2) {
-                bo8 bo8Var = new bo8(this.f, this.h);
-                this.n = bo8Var;
-                bo8Var.p(i);
+                fp8 fp8Var = new fp8(this.f, this.h);
+                this.n = fp8Var;
+                fp8Var.p(i);
                 this.n.u(this.e);
             }
         }
@@ -559,10 +559,10 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
     }
 
     public void A() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bo8Var = this.n) != null) {
-            bo8Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fp8Var = this.n) != null) {
+            fp8Var.r(true);
             B(false);
         }
     }
@@ -621,10 +621,10 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
 
     @Override // com.baidu.tieba.kn5
     public void e() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (bo8Var = this.n) != null) {
-            bo8Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (fp8Var = this.n) != null) {
+            fp8Var.h();
         }
     }
 
@@ -706,10 +706,10 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
     }
 
     public final void y() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (bo8Var = this.n) != null) {
-            bo8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && (fp8Var = this.n) != null) {
+            fp8Var.z();
             this.n.r(false);
         }
     }
@@ -782,7 +782,7 @@ public class pn5<Q extends rm5, P extends pm5> extends kn5<Q, P> {
             if (p != null) {
                 q = p.getErrorMsg();
             } else {
-                q = q(R.string.obfuscated_res_0x7f0f05e4, new Object[0]);
+                q = q(R.string.obfuscated_res_0x7f0f05eb, new Object[0]);
             }
             rl5Var.q(q);
             return null;

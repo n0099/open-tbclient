@@ -30,7 +30,7 @@ public class pu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public qz8 b;
+    public u09 b;
     public ForumData c;
     public RoundAdapterLinearLayout d;
     public TextView e;
@@ -184,26 +184,26 @@ public class pu6 {
         }
     }
 
-    public void e(ForumData forumData, qz8 qz8Var, boolean z) {
+    public void e(ForumData forumData, u09 u09Var, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, qz8Var, z) != null) || qz8Var == null) {
+        if ((interceptable != null && interceptable.invokeLLZ(1048576, this, forumData, u09Var, z) != null) || u09Var == null) {
             return;
         }
         this.c = forumData;
-        this.b = qz8Var;
-        this.e.setText(qz8Var.o());
-        if (qz8Var.getType() == 3) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07ad, Integer.valueOf(this.b.h())));
-        } else if (qz8Var.getType() == 1) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07af, Integer.valueOf(this.b.h())));
-        } else if (qz8Var.getType() == 2) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07ab, Integer.valueOf(this.b.h())));
-        } else if (qz8Var.getType() == 4) {
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07ac, Integer.valueOf(this.b.h())));
+        this.b = u09Var;
+        this.e.setText(u09Var.o());
+        if (u09Var.getType() == 3) {
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07b6, Integer.valueOf(this.b.h())));
+        } else if (u09Var.getType() == 1) {
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07b8, Integer.valueOf(this.b.h())));
+        } else if (u09Var.getType() == 2) {
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07b4, Integer.valueOf(this.b.h())));
+        } else if (u09Var.getType() == 4) {
+            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f07b5, Integer.valueOf(this.b.h())));
         }
         this.f.K(this.b.d(), 10, false);
-        qz8 qz8Var2 = this.b;
-        if (qz8Var2 != null && qz8Var2.f()) {
+        u09 u09Var2 = this.b;
+        if (u09Var2 != null && u09Var2.f()) {
             this.i.setVisibility(0);
         } else {
             this.i.setVisibility(8);
@@ -255,16 +255,16 @@ public class pu6 {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0355, (ViewGroup) null);
+            RoundAdapterLinearLayout roundAdapterLinearLayout = (RoundAdapterLinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0357, (ViewGroup) null);
             this.d = roundAdapterLinearLayout;
             roundAdapterLinearLayout.setRadius(this.a.getResources().getDimension(R.dimen.tbds20));
-            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c99);
-            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c9e);
-            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090c97);
+            this.e = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090caa);
+            this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090caf);
+            TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ca8);
             this.f = tbImageView;
             tbImageView.setDefaultBgResource(R.color.white_alpha100);
             this.h = (FrsAdCommentScrollView) this.d.findViewById(R.id.obfuscated_res_0x7f090098);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090c98);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ca9);
             this.i = textView;
             p15 d = p15.d(textView);
             d.n(R.string.J_X01);

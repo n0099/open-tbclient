@@ -111,7 +111,7 @@ public class t26 {
                 }
                 if (!ListUtils.isEmpty(this.d)) {
                     b46 b46Var = new b46();
-                    b46Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0abf, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
+                    b46Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ac9, Integer.valueOf(alaLiveTabMyConcernResponse.followCloseNum));
                     arrayList.add(b46Var);
                 }
                 if (!ListUtils.isEmpty(this.d)) {
@@ -167,7 +167,7 @@ public class t26 {
             }
             if (alaLiveTabMyConcernResponse.followStatus != 1) {
                 b46 b46Var = new b46();
-                b46Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ac0, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
+                b46Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aca, Integer.valueOf(alaLiveTabMyConcernResponse.totalFollowCount));
                 arrayList.add(b46Var);
             }
             if (!ListUtils.isEmpty(this.c)) {
@@ -209,7 +209,7 @@ public class t26 {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(this.e)) {
                 b46 b46Var = new b46();
-                b46Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ac4);
+                b46Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ace);
                 arrayList.add(b46Var);
                 arrayList.addAll(g(this.e));
             }

@@ -477,7 +477,7 @@ public class h85 {
         wfVar.f(R.anim.push_top_out);
         vf b2 = wfVar.b();
         this.a = b2;
-        b2.p(this.b, this.d, false);
+        b2.q(this.b, this.d, false);
     }
 
     public Activity getActivity() {

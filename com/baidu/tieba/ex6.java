@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ex6 extends as6<p09, FrsU9ViewHolder> {
+public class ex6 extends as6<t19, FrsU9ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,13 +56,13 @@ public class ex6 extends as6<p09, FrsU9ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
     /* renamed from: F */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, p09 p09Var, FrsU9ViewHolder frsU9ViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t19 t19Var, FrsU9ViewHolder frsU9ViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p09Var, frsU9ViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) p09Var, (p09) frsU9ViewHolder);
-            if (p09Var != null && frsU9ViewHolder != null) {
-                frsU9ViewHolder.f(p09Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t19Var, frsU9ViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) t19Var, (t19) frsU9ViewHolder);
+            if (t19Var != null && frsU9ViewHolder != null) {
+                frsU9ViewHolder.f(t19Var);
                 frsU9ViewHolder.g(TbadkCoreApplication.getInst().getSkinType());
                 return frsU9ViewHolder.getView();
             }

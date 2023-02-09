@@ -212,7 +212,7 @@ public class lz1 extends cz1 {
                     int i = I1.d().b;
                     View b = s73.b();
                     if (b != null) {
-                        b.findViewById(R.id.obfuscated_res_0x7f09017c).setBackgroundColor(i);
+                        b.findViewById(R.id.obfuscated_res_0x7f09017e).setBackgroundColor(i);
                     }
                 }
                 SwanAppActionBar K1 = H.K1();

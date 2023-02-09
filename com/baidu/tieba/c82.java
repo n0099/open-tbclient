@@ -400,7 +400,7 @@ public abstract class c82 extends Fragment implements SlideInterceptor {
                         w52.b("SwanAppBaseFragment", "view为null");
                         return;
                     }
-                    c82Var.s0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0920ce);
+                    c82Var.s0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f092114);
                 }
                 this.d.s0.setVisibility(0);
                 if (this.a) {
@@ -410,7 +410,7 @@ public abstract class c82 extends Fragment implements SlideInterceptor {
                     return;
                 }
                 this.d.t0 = new AtomicBoolean(false);
-                this.d.s0.setText(R.string.obfuscated_res_0x7f0f13c8);
+                this.d.s0.setText(R.string.obfuscated_res_0x7f0f13df);
                 this.d.s0.setOnClickListener(new b(this));
             }
         }
@@ -1269,9 +1269,9 @@ public abstract class c82 extends Fragment implements SlideInterceptor {
         boolean z = this.t0.get();
         Button button = this.s0;
         if (z) {
-            i2 = R.string.obfuscated_res_0x7f0f13c9;
+            i2 = R.string.obfuscated_res_0x7f0f13e0;
         } else {
-            i2 = R.string.obfuscated_res_0x7f0f13c8;
+            i2 = R.string.obfuscated_res_0x7f0f13df;
         }
         button.setText(i2);
         ue3.j(z);
@@ -1837,9 +1837,9 @@ public abstract class c82 extends Fragment implements SlideInterceptor {
         if ((interceptable != null && interceptable.invokeL(1048619, this, view2) != null) || view2 == null) {
             return;
         }
-        this.f0 = (SwanAppActionBar) view2.findViewById(R.id.obfuscated_res_0x7f09017c);
-        this.e0 = view2.findViewById(R.id.obfuscated_res_0x7f09017d);
-        this.i0 = view2.findViewById(R.id.obfuscated_res_0x7f09233a);
+        this.f0 = (SwanAppActionBar) view2.findViewById(R.id.obfuscated_res_0x7f09017e);
+        this.e0 = view2.findViewById(R.id.obfuscated_res_0x7f09017f);
+        this.i0 = view2.findViewById(R.id.obfuscated_res_0x7f092383);
         this.f0.setLeftBackViewMinWidth(nm3.f(this.c0, 38.0f));
         g gVar = new g(this);
         this.f0.setLeftBackViewClickListener(gVar);

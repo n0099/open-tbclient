@@ -82,7 +82,7 @@ public class FakeStartLiveButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0556, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055b, this);
         }
     }
 }

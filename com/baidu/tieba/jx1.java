@@ -655,24 +655,24 @@ public class jx1 {
             }
             o(activity, w83Var, guideType);
             if (guideType == ShowFavoriteGuideApi.GuideType.TIPS) {
-                i2 = R.layout.obfuscated_res_0x7f0d00a4;
+                i2 = R.layout.obfuscated_res_0x7f0d00a5;
             } else {
-                i2 = R.layout.obfuscated_res_0x7f0d00a3;
+                i2 = R.layout.obfuscated_res_0x7f0d00a4;
             }
             View inflate = LayoutInflater.from(activity).inflate(i2, (ViewGroup) null, false);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a1e);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a2c);
             if (textView != null && str3 != null) {
                 if (guideType.limit != -1 && str.length() > guideType.limit) {
                     str3 = str3.substring(0, guideType.limit - 1) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str3);
             }
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f092357);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0923a1);
             if (guideType == ShowFavoriteGuideApi.GuideType.TIPS) {
                 if (findViewById != null) {
                     int[] iArr = new int[2];
                     findViewById.getLocationOnScreen(iArr);
-                    inflate.findViewById(R.id.obfuscated_res_0x7f090a1b).setPadding(0, 0, ((nm3.o(null) - iArr[0]) - (findViewById.getWidth() / 2)) - nm3.g(7.0f), 0);
+                    inflate.findViewById(R.id.obfuscated_res_0x7f090a29).setPadding(0, 0, ((nm3.o(null) - iArr[0]) - (findViewById.getWidth() / 2)) - nm3.g(7.0f), 0);
                     this.a = new PopupWindow(inflate, -2, -2);
                     SwanAppActivity swanAppActivity2 = this.c;
                     if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.c.isDestroyed() && findViewById.isAttachedToWindow()) {
@@ -687,7 +687,7 @@ public class jx1 {
                     }
                 }
             } else {
-                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a1d);
+                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a2b);
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 int i3 = guideType.showWidth4px;
                 int g2 = nm3.g(7.0f);
@@ -698,14 +698,14 @@ public class jx1 {
                 }
                 layoutParams.width = i3;
                 relativeLayout.setLayoutParams(layoutParams);
-                qm3.X((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a1f), str2, R.drawable.obfuscated_res_0x7f08013f);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a1c);
+                qm3.X((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a2d), str2, R.drawable.obfuscated_res_0x7f08013f);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a2a);
                 if (guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
                     imageView.setVisibility(8);
                 } else {
                     imageView.setOnClickListener(new a(this, guideType));
                 }
-                ((Button) inflate.findViewById(R.id.obfuscated_res_0x7f090a1a)).setOnClickListener(new b(this, guideType, activity));
+                ((Button) inflate.findViewById(R.id.obfuscated_res_0x7f090a28)).setOnClickListener(new b(this, guideType, activity));
                 PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
                 this.a = popupWindow;
                 popupWindow.L(16);

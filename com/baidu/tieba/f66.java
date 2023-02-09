@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class f66 extends mc6<pz8> implements jd6 {
+public class f66 extends mc6<t09> implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForbidParentSwipeBackRelativeLayout i;
@@ -43,7 +43,7 @@ public class f66 extends mc6<pz8> implements jd6 {
     public View n;
     public View o;
     public String p;
-    public pz8 q;
+    public t09 q;
     public int r;
     public z56 s;
     public a66 t;
@@ -58,7 +58,7 @@ public class f66 extends mc6<pz8> implements jd6 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fe : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -259,11 +259,11 @@ public class f66 extends mc6<pz8> implements jd6 {
         this.y = new b(this);
         this.z = new c(this);
         this.i = (ForbidParentSwipeBackRelativeLayout) h().findViewById(R.id.layout_root);
-        this.n = h().findViewById(R.id.obfuscated_res_0x7f090855);
-        this.o = h().findViewById(R.id.obfuscated_res_0x7f090861);
-        this.j = (FrsAlaStageLiveViewPager) h().findViewById(R.id.obfuscated_res_0x7f090c88);
-        this.l = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090c87);
-        this.m = (IndicatorView) h().findViewById(R.id.obfuscated_res_0x7f090c86);
+        this.n = h().findViewById(R.id.obfuscated_res_0x7f090863);
+        this.o = h().findViewById(R.id.obfuscated_res_0x7f09086f);
+        this.j = (FrsAlaStageLiveViewPager) h().findViewById(R.id.obfuscated_res_0x7f090c99);
+        this.l = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090c98);
+        this.m = (IndicatorView) h().findViewById(R.id.obfuscated_res_0x7f090c97);
         z56 z56Var = new z56(tbPageContext, this.i);
         this.s = z56Var;
         z56Var.d(f());
@@ -283,23 +283,23 @@ public class f66 extends mc6<pz8> implements jd6 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.mc6
     /* renamed from: E */
-    public void i(pz8 pz8Var) {
+    public void i(t09 t09Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, pz8Var) == null) && pz8Var != null && pz8Var.a != null) {
-            this.q = pz8Var;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, t09Var) == null) && t09Var != null && t09Var.a != null) {
+            this.q = t09Var;
             q(0);
             if (this.t == null) {
-                a66 a66Var = new a66(pz8Var.a, this.u, this.v);
+                a66 a66Var = new a66(t09Var.a, this.u, this.v);
                 this.t = a66Var;
                 a66Var.i(2);
                 this.t.h(6);
                 this.t.g(1);
             }
-            this.t.j(pz8Var.a);
+            this.t.j(t09Var.a);
             this.k.d(this.p);
             this.k.c(this.t.e(), this.z);
             this.j.setCurrentItem(this.t.d(), false);
-            if (pz8Var.a.size() >= 2) {
+            if (t09Var.a.size() >= 2) {
                 this.l.setVisibility(0);
                 if (this.m.getCount() != this.t.b()) {
                     this.m.setCount(this.t.b());
@@ -309,8 +309,8 @@ public class f66 extends mc6<pz8> implements jd6 {
             } else {
                 this.l.setVisibility(8);
             }
-            if (pz8Var.a.size() > 0) {
-                this.s.b(pz8Var.a.get(0), "ala_frs_stage_live_feed_back_type");
+            if (t09Var.a.size() > 0) {
+                this.s.b(t09Var.a.get(0), "ala_frs_stage_live_feed_back_type");
             }
             B();
             j(g(), TbadkCoreApplication.getInst().getSkinType());
@@ -359,10 +359,10 @@ public class f66 extends mc6<pz8> implements jd6 {
     }
 
     public final void B() {
-        pz8 pz8Var;
+        t09 t09Var;
         int c2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pz8Var = this.q) != null && ListUtils.isEmpty(pz8Var.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (t09Var = this.q) != null && ListUtils.isEmpty(t09Var.a) && (c2 = this.t.c(this.r)) < this.q.a.size() && c2 >= 0) {
             CustomMessage customMessage = new CustomMessage(2921017);
             List<ThreadData> list = this.q.a;
             if (list != null && list.get(c2) != null) {
@@ -419,8 +419,8 @@ public class f66 extends mc6<pz8> implements jd6 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            pz8 pz8Var = this.q;
-            if (pz8Var != null && !ListUtils.isEmpty(pz8Var.a)) {
+            t09 t09Var = this.q;
+            if (t09Var != null && !ListUtils.isEmpty(t09Var.a)) {
                 for (ThreadData threadData2 : this.q.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(F(threadData2));
                 }

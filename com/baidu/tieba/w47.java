@@ -134,7 +134,7 @@ public class w47 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 i05.d();
                 jf<String> e = i05.e("tb.enter_frs_dialog_list");
-                String encode = URLEncoder.encode(this.a.a.Y0().getForum().getName());
+                String encode = URLEncoder.encode(this.a.a.X0().getForum().getName());
                 if (e.get(encode) == null) {
                     e.g(encode, "1");
                     return Boolean.TRUE;
@@ -151,7 +151,7 @@ public class w47 {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) != null) || !bool.booleanValue() || !this.a.c() || !this.a.a.isAdded()) {
                 return;
             }
-            PopInfo popInfo = this.a.a.Y0().enterFrsDialogInfo;
+            PopInfo popInfo = this.a.a.X0().enterFrsDialogInfo;
             j05 j05Var = new j05(this.a.a.getActivity());
             j05Var.setTitle(popInfo.title);
             j05Var.setMessage(popInfo.v_title);
@@ -184,8 +184,8 @@ public class w47 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PopInfo popInfo = this.a.Y0().enterFrsDialogInfo;
-            if (popInfo != null && !StringUtils.isNull(popInfo.ahead_info) && !StringUtils.isNull(popInfo.ahead_url) && !StringUtils.isNull(popInfo.ok_info) && !StringUtils.isNull(popInfo.title) && !StringUtils.isNull(popInfo.v_title) && this.a.Y0().enterFrsDialogInfo.if_pop.intValue() != 0) {
+            PopInfo popInfo = this.a.X0().enterFrsDialogInfo;
+            if (popInfo != null && !StringUtils.isNull(popInfo.ahead_info) && !StringUtils.isNull(popInfo.ahead_url) && !StringUtils.isNull(popInfo.ok_info) && !StringUtils.isNull(popInfo.title) && !StringUtils.isNull(popInfo.v_title) && this.a.X0().enterFrsDialogInfo.if_pop.intValue() != 0) {
                 return true;
             }
             return false;
@@ -196,7 +196,7 @@ public class w47 {
     public void d() {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.Y0() == null || this.a.Y0().getForum() == null || StringUtils.isNull(this.a.Y0().getForum().getName()) || this.a.Y0().enterFrsDialogInfo == null || !c() || this.b != null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.X0() == null || this.a.X0().getForum() == null || StringUtils.isNull(this.a.X0().getForum().getName()) || this.a.X0().enterFrsDialogInfo == null || !c() || this.b != null) {
             return;
         }
         b bVar = new b(this, null);

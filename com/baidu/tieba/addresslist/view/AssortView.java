@@ -26,7 +26,7 @@ public class AssortView extends View {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void k1(String str);
+        void j1(String str);
 
         void w1();
     }
@@ -162,7 +162,7 @@ public class AssortView extends View {
                             this.b = length;
                             a aVar = this.c;
                             if (aVar != null) {
-                                aVar.k1(z85.a[length]);
+                                aVar.j1(z85.a[length]);
                             }
                         }
                     } else {
@@ -176,7 +176,7 @@ public class AssortView extends View {
                     this.b = length;
                     a aVar3 = this.c;
                     if (aVar3 != null) {
-                        aVar3.k1(z85.a[length]);
+                        aVar3.j1(z85.a[length]);
                     }
                 }
             } else {

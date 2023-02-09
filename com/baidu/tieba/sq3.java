@@ -38,12 +38,12 @@ public class sq3 {
 
         /* renamed from: com.baidu.tieba.sq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0426a implements Runnable {
+        public class RunnableC0425a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0426a(a aVar) {
+            public RunnableC0425a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class sq3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 ViewGroup viewGroup = this.a;
                 if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0426a(this));
+                    viewGroup.post(new RunnableC0425a(this));
                 }
                 if (this.c.i(quickLoginInfo)) {
                     this.c.a.putParcelable("quick_login_info", quickLoginInfo);
@@ -234,7 +234,7 @@ public class sq3 {
             SwanAppActivity w = v83.K().w();
             if (w != null && !w.isFinishing()) {
                 viewGroup = (ViewGroup) w.findViewById(16908290);
-                e83.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f1393));
+                e83.h(w, viewGroup, w.getResources().getString(R.string.obfuscated_res_0x7f0f13aa));
             } else {
                 viewGroup = null;
             }

@@ -654,7 +654,7 @@ public class g85 {
         wfVar.f(R.anim.push_top_out);
         vf b2 = wfVar.b();
         this.a = b2;
-        b2.p(this.b, this.c, false);
+        b2.q(this.b, this.c, false);
         if (this.t != Integer.MAX_VALUE) {
             if (this.u == null) {
                 this.u = new b(this);

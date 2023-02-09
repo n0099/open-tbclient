@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tieba.aw4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lh8;
+import com.baidu.tieba.pi8;
 import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +31,7 @@ public class ProfileRequestMessage extends NetMessage {
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public lh8 mPersonCenterData;
+    public pi8 mPersonCenterData;
     public Integer needUsergrowthTask;
     public Integer need_post_count;
     public Integer page;
@@ -112,13 +112,13 @@ public class ProfileRequestMessage extends NetMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public lh8 getPersonCenterData() {
+    public pi8 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mPersonCenterData;
         }
-        return (lh8) invokeV.objValue;
+        return (pi8) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -273,10 +273,10 @@ public class ProfileRequestMessage extends NetMessage {
         }
     }
 
-    public void setPersonCenterData(lh8 lh8Var) {
+    public void setPersonCenterData(pi8 pi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, lh8Var) == null) {
-            this.mPersonCenterData = lh8Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, pi8Var) == null) {
+            this.mPersonCenterData = pi8Var;
         }
     }
 

@@ -15,11 +15,11 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fla;
-import com.baidu.tieba.nla;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.tla;
+import com.baidu.tieba.ana;
+import com.baidu.tieba.jma;
+import com.baidu.tieba.rma;
 import com.baidu.tieba.wla;
+import com.baidu.tieba.xma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPayGiftView extends LinearLayout implements tla {
+public class YYPayGiftView extends LinearLayout implements xma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,27 +42,27 @@ public class YYPayGiftView extends LinearLayout implements tla {
     public GridView d;
     public View e;
     public TextView f;
-    public tla.a g;
+    public xma.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public wla k;
+    public ana k;
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, windowParams) == null) {
@@ -125,18 +125,18 @@ public class YYPayGiftView extends LinearLayout implements tla {
         this.b = i2;
         this.i = payUIKitConfig;
         c(context);
-        ska.d(this.a, this.b, "17", "", "", "");
+        wla.d(this.a, this.b, "17", "", "", "");
     }
 
-    @Override // com.baidu.tieba.tla
-    public void setCallback(tla.a aVar) {
+    @Override // com.baidu.tieba.xma
+    public void setCallback(xma.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.g = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.tla
+    @Override // com.baidu.tieba.xma
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, giftBagsInfo) == null) {
@@ -148,16 +148,16 @@ public class YYPayGiftView extends LinearLayout implements tla {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, nla.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(context, rma.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
             Button button = (Button) findViewById(R.id.btn_know);
             this.c = button;
             button.setOnClickListener(new a(this));
             this.f = (TextView) findViewById(R.id.tv_title);
             this.e = findViewById(R.id.rl_container);
             this.d = (GridView) findViewById(R.id.grid_pay_gift);
-            wla wlaVar = new wla(context, this.j, this.i);
-            this.k = wlaVar;
-            this.d.setAdapter((ListAdapter) wlaVar);
+            ana anaVar = new ana(context, this.j, this.i);
+            this.k = anaVar;
+            this.d.setAdapter((ListAdapter) anaVar);
         }
     }
 
@@ -175,7 +175,7 @@ public class YYPayGiftView extends LinearLayout implements tla {
         }
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -190,7 +190,7 @@ public class YYPayGiftView extends LinearLayout implements tla {
                 this.j.clear();
                 this.j.addAll(this.h.giftbag);
                 this.k.notifyDataSetChanged();
-                fla.a(this.j.size(), this.e, this.d);
+                jma.a(this.j.size(), this.e, this.d);
                 f();
                 e();
                 return;

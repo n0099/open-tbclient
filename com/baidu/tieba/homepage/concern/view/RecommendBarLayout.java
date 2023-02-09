@@ -201,13 +201,13 @@ public class RecommendBarLayout extends LinearLayout implements ay, View.OnClick
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078c, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d079e, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c6c);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091c6a);
-            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091c6d);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c68);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091cad);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091cab);
+            this.e = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091cae);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ca9);
             this.e.setOffscreenPageLimit(2);
             RecommendBarPageAdapter recommendBarPageAdapter = new RecommendBarPageAdapter(this.i, this.j);
             this.h = recommendBarPageAdapter;
@@ -244,7 +244,7 @@ public class RecommendBarLayout extends LinearLayout implements ay, View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091c6c) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2.getId() != R.id.obfuscated_res_0x7f091cad) {
             return;
         }
         Cdo b2 = this.h.b(this.e.getCurrentItem());

@@ -24,7 +24,7 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.en6;
 import com.baidu.tieba.fn6;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lg9;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.qp5;
 import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -268,7 +268,7 @@ public class InputView extends SpanGroupEditText implements xb5 {
         if (z) {
             setHint(context.getString(R.string.im_msg_input_hint));
         }
-        lg9.l(this, R.drawable.edittext_cursor);
+        ph9.l(this, R.drawable.edittext_cursor);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         int dimensionPixelSize2 = context.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
         setPadding(dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2);
@@ -299,9 +299,9 @@ public class InputView extends SpanGroupEditText implements xb5 {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             SkinManager.setViewTextColor(this, R.color.CAM_X0105, 2, i);
             if (i == 0) {
-                lg9.l(this, R.drawable.edittext_cursor);
+                ph9.l(this, R.drawable.edittext_cursor);
             } else {
-                lg9.l(this, R.drawable.edittext_cursor_1);
+                ph9.l(this, R.drawable.edittext_cursor_1);
             }
             setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
         }

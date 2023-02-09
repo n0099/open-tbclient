@@ -71,12 +71,12 @@ public class b78 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0265, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0266, (ViewGroup) null);
         this.b = inflate;
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090902);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090910);
         this.a = findViewById;
         findViewById.setVisibility(8);
-        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090908);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090916);
     }
 
     public void c(int i) {

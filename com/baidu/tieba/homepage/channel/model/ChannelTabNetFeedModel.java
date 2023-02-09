@@ -21,11 +21,11 @@ import com.baidu.tieba.bg7;
 import com.baidu.tieba.cf7;
 import com.baidu.tieba.df7;
 import com.baidu.tieba.homepage.channel.message.HomePageChannelTabHttpResponsedMessage;
-import com.baidu.tieba.o09;
-import com.baidu.tieba.vs8;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.w77;
 import com.baidu.tieba.x77;
 import com.baidu.tieba.x9;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements df7 {
         this.b = false;
         this.c = 1;
         this.g = new a(this, CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST);
-        o09.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
+        s19.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
         this.f = new x77();
         this.e = cf7Var;
     }
@@ -174,7 +174,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements df7 {
             httpMessage.addParam("rn", 20);
             httpMessage.addParam("q_type", TbImageHelper.getInstance().getUrlQuality());
             if ("local".equals(this.d)) {
-                httpMessage.addParam("app_pos", vs8.e().b());
+                httpMessage.addParam("app_pos", zt8.e().b());
             }
             ChannelIconConfigFinalData c = TbSingleton.getInstance().getChannelConfigModel().c();
             if (c != null && !TextUtils.isEmpty(c.getTid())) {

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -36,21 +35,21 @@ public class to5 {
         }
     }
 
-    public static void a(String str, String str2, String str3, int i, Context context, BaijiahaoData baijiahaoData) {
+    public static void a(String str, String str2, String str3, int i, x9 x9Var, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), context, baijiahaoData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), x9Var, baijiahaoData}) == null) {
             b = str;
             c = str2;
             a = str3;
-            if (!StringUtils.isNull(str3) && context != null) {
+            if (!StringUtils.isNull(str3) && x9Var != null && x9Var.getPageActivity() != null) {
                 if (d.equals(a)) {
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(context).createSubPbActivityConfig(b, c, "search_post", true);
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(x9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
                     createSubPbActivityConfig.setKeyPageStartFrom(8);
                     createSubPbActivityConfig.setBjhData(baijiahaoData);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
                     return;
                 }
-                PbActivityConfig createNormalCfg = new PbActivityConfig(context).createNormalCfg(b, c, "search_post");
+                PbActivityConfig createNormalCfg = new PbActivityConfig(x9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
                 createNormalCfg.setStartFrom(8);
                 createNormalCfg.setBjhData(baijiahaoData);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));

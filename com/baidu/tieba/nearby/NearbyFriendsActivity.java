@@ -99,7 +99,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
                 }
                 if (qc5Var != null && qc5Var.b() == 1) {
                     NearbyFriendsActivity nearbyFriendsActivity = this.a;
-                    new pc5(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09175f), qc5Var).m();
+                    new pc5(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091778), qc5Var).m();
                 }
             }
         }

@@ -126,9 +126,9 @@ public class nq7 {
             int i = R.color.CAM_X0334;
             int i2 = R.string.A_X05;
             if (commonMsgField.isRobot()) {
-                str = resources.getString(R.string.obfuscated_res_0x7f0f0880);
+                str = resources.getString(R.string.obfuscated_res_0x7f0f0889);
             } else if (role > 0 && role < 4) {
-                str = resources.getString(R.string.obfuscated_res_0x7f0f0881);
+                str = resources.getString(R.string.obfuscated_res_0x7f0f088a);
                 i = R.color.CAM_X0302;
                 i2 = R.string.A_X01;
             } else {
@@ -175,7 +175,7 @@ public class nq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             ReplyContentView replyContentView = new ReplyContentView(context);
-            replyContentView.setId(R.id.obfuscated_res_0x7f090db4);
+            replyContentView.setId(R.id.obfuscated_res_0x7f090dc5);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.setMargins(dimenPixelSize, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), dimenPixelSize, 0);
@@ -190,7 +190,7 @@ public class nq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             MaxHeightRecycleView maxHeightRecycleView = new MaxHeightRecycleView(context);
-            maxHeightRecycleView.setId(R.id.obfuscated_res_0x7f091f0d);
+            maxHeightRecycleView.setId(R.id.obfuscated_res_0x7f091f50);
             maxHeightRecycleView.setLayoutParams(new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds782), -2));
             return maxHeightRecycleView;
         }
@@ -261,7 +261,7 @@ public class nq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, childitemdata, selfHolder) == null) {
             ReMsgInfo reMsgInfo = childitemdata.getReMsgInfo();
-            View findViewById = selfHolder.g.findViewById(R.id.obfuscated_res_0x7f090db4);
+            View findViewById = selfHolder.g.findViewById(R.id.obfuscated_res_0x7f090dc5);
             if (findViewById instanceof ReplyContentView) {
                 if (reMsgInfo != null) {
                     if (childitemdata instanceof TextGenImageMsg) {

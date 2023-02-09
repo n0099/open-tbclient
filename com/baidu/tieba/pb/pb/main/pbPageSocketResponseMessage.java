@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fc8;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.ic8;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.s98;
-import com.baidu.tieba.u98;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.t98;
+import com.baidu.tieba.v98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public s98 mAppealInfo;
-    public u98 pbData;
+    public t98 mAppealInfo;
+    public v98 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -49,22 +49,22 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public s98 getAppealInfo() {
+    public t98 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mAppealInfo;
         }
-        return (s98) invokeV.objValue;
+        return (t98) invokeV.objValue;
     }
 
-    public u98 getPbData() {
+    public v98 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.pbData;
         }
-        return (u98) invokeV.objValue;
+        return (v98) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -84,12 +84,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
             int i2 = this.updateType;
             if (i2 != 3) {
                 if (i2 == 4) {
-                    fc8.b().f(this.cacheKey, bArr);
+                    ic8.b().f(this.cacheKey, bArr);
                     return;
                 }
                 return;
             }
-            fc8.b().e(this.cacheKey, this.isFromMark, bArr);
+            ic8.b().e(this.cacheKey, this.isFromMark, bArr);
         }
     }
 
@@ -107,12 +107,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                     if (pbPageResIdl.data == null) {
                         return pbPageResIdl;
                     }
-                    s98 s98Var = new s98();
-                    this.mAppealInfo = s98Var;
+                    t98 t98Var = new t98();
+                    this.mAppealInfo = t98Var;
                     AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                     if (appealInfo != null) {
-                        s98Var.a = appealInfo.source;
-                        s98Var.c = appealInfo.appeal_url;
+                        t98Var.a = appealInfo.source;
+                        t98Var.c = appealInfo.appeal_url;
                     }
                     SimpleForum simpleForum = pbPageResIdl.data.forum;
                     if (simpleForum != null) {
@@ -121,18 +121,18 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 }
                 return pbPageResIdl;
             }
-            u98 u98Var = new u98();
-            this.pbData = u98Var;
-            u98Var.C0(2);
-            this.pbData.B0(pbPageResIdl.data);
+            v98 v98Var = new v98();
+            this.pbData = v98Var;
+            v98Var.F0(2);
+            this.pbData.E0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = ys8.b(dataRes.thread);
+                JSONObject b = cu8.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                ys8.f().h("PB", arrayList);
+                cu8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
             return pbPageResIdl;

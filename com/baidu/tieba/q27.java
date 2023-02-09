@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.frs.shrinkhead.LogicField;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface q27 {
     void d(int i, @NonNull String str);
 

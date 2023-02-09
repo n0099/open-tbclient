@@ -100,7 +100,7 @@ public class i24 {
             aVar.a();
             aVar.n(new eo3());
             aVar.m(z);
-            aVar.Q(R.color.obfuscated_res_0x7f060aa3);
+            aVar.Q(R.color.obfuscated_res_0x7f060aa4);
             aVar.f(true);
             aVar.P(str2, onClickListener);
             return aVar;

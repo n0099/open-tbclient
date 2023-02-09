@@ -154,7 +154,7 @@ public class m47 {
                 str5 = null;
             }
             ShareItem shareItem = new ShareItem();
-            shareItem.v = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f06ad);
+            shareItem.v = str4 + tbPageContext.getString(R.string.obfuscated_res_0x7f0f06b6);
             shareItem.w = str3;
             shareItem.x = str2;
             shareItem.b = true;
@@ -192,7 +192,7 @@ public class m47 {
             }
             sb.append(tbPageContext.getString(R.string.frsgroup_recommend));
             sb.append(str2);
-            sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f06ad));
+            sb.append(tbPageContext.getString(R.string.obfuscated_res_0x7f0f06b6));
             shareItem.J0 = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append(str);
@@ -258,7 +258,7 @@ public class m47 {
                 Uri uri = parse;
                 String slogan = frsViewData.getForum().getSlogan();
                 ShareItem shareItem = new ShareItem();
-                shareItem.v = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f06ad);
+                shareItem.v = name + tbPageContext.getString(R.string.obfuscated_res_0x7f0f06b6);
                 shareItem.w = slogan;
                 shareItem.x = c;
                 shareItem.b = true;

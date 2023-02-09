@@ -42,7 +42,7 @@ public class l46 extends mc6<q16> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d010e : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -159,14 +159,14 @@ public class l46 extends mc6<q16> {
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d2d);
-            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9b);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245c);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092458);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092455);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fab);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092499);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092498);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d6f);
+            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fac);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a6);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a2);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09249f);
             view2.setOnClickListener(l46Var.q);
             this.b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.b.setDrawerType(0);
@@ -251,13 +251,13 @@ public class l46 extends mc6<q16> {
                 }
                 this.o = str;
                 this.k.b.K(this.m.getThreadAlaInfo().cover, 10, false);
-                this.k.d.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12a5, StringHelper.numberUniformFormatExtra(this.m.getThreadAlaInfo().audience_count)));
+                this.k.d.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12bb, StringHelper.numberUniformFormatExtra(this.m.getThreadAlaInfo().audience_count)));
                 this.k.f.setData(this.m, false);
                 this.k.h.setText(this.m.getTitle());
                 if (this.m.getAuthor() != null) {
                     String name_show = this.m.getAuthor().getName_show();
-                    if (rp5.e(name_show) > 10) {
-                        name_show = rp5.m(name_show, 10) + StringHelper.STRING_MORE;
+                    if (rp5.f(name_show) > 10) {
+                        name_show = rp5.n(name_show, 10) + StringHelper.STRING_MORE;
                     }
                     this.k.g.setText(name_show);
                 }
@@ -269,7 +269,7 @@ public class l46 extends mc6<q16> {
                     this.k.c.setVisibility(8);
                 }
                 if (q16Var.e) {
-                    this.k.i.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12a4, StringHelper.numberUniformFormatExtra((long) (this.m.getThreadAlaInfo().distance / 1000.0d))));
+                    this.k.i.setText(this.j.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12ba, StringHelper.numberUniformFormatExtra((long) (this.m.getThreadAlaInfo().distance / 1000.0d))));
                     this.k.i.setVisibility(0);
                 } else {
                     this.k.i.setVisibility(8);

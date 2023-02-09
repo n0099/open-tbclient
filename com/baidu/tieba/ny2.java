@@ -76,7 +76,7 @@ public class ny2 extends nx1 {
             }
             String optString = ((JSONObject) s.second).optString("imageURL");
             if (TextUtils.isEmpty(optString)) {
-                return new w02(202, ds2.c().getString(R.string.obfuscated_res_0x7f0f15c5));
+                return new w02(202, ds2.c().getString(R.string.obfuscated_res_0x7f0f15dc));
             }
             return y(optString);
         }

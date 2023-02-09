@@ -100,11 +100,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ay {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f0624);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f062b);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f068e);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f0697);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -208,7 +208,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ay {
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f0624))));
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f062b))));
             p15 d = p15.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
@@ -217,7 +217,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements ay {
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f0624);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f062b);
             p15.d(this.a).z(R.dimen.T_X07);
             this.b.setPadding(ej.g(getContext(), R.dimen.M_W_X005), ej.g(getContext(), R.dimen.M_H_X005), 0, ej.g(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);

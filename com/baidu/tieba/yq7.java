@@ -233,7 +233,7 @@ public class yq7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userReplyInfoData)) == null) {
             if (this.a != null && !TextUtils.isEmpty(userReplyInfoData.getmNameShow()) && !TextUtils.isEmpty(userReplyInfoData.getmContent())) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                spannableStringBuilder.append((CharSequence) (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0872) + this.a.getResources().getString(R.string.obfuscated_res_0x7f0f087d)));
+                spannableStringBuilder.append((CharSequence) (this.a.getResources().getString(R.string.obfuscated_res_0x7f0f087b) + this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0886)));
                 spannableStringBuilder.append(userReplyInfoData.getmContent());
                 this.b.setData(spannableStringBuilder);
                 return true;

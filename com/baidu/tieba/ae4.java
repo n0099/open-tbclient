@@ -187,7 +187,7 @@ public class ae4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f081020);
+            return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f081035);
         }
         return (Bitmap) invokeV.objValue;
     }
@@ -305,7 +305,7 @@ public class ae4 {
                 }
                 String str = next.d;
                 if (TextUtils.isEmpty(str)) {
-                    str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f081020).build().getSourceUri().toString();
+                    str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f081035).build().getSourceUri().toString();
                 }
                 tl3.e(str, new a(next, fe4Var, arrayList, context, ge4Var, arrayList2, arrayList3, atomicInteger, size));
                 it = it;

@@ -152,11 +152,11 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.e.setEnabled(false);
                 }
                 if (length >= 32) {
-                    this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02fd));
+                    this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02fe));
                     this.a.o.setTextColor(-65536);
                     return;
                 }
-                this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02fe));
+                this.a.o.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02ff));
                 this.a.o.setTextColor(-6250336);
             }
         }
@@ -455,7 +455,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0200);
+            setContentView(R.layout.obfuscated_res_0x7f0d0201);
             initData();
             M1();
             L1();
@@ -519,39 +519,39 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.u = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923b3)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090972);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091003);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090769);
+            this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090718);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fd)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090980);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091015);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090774);
             this.e = relativeLayout;
             relativeLayout.setOnClickListener(this.l);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091004);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0908bf);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091016);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0908cd);
             this.c = editText;
             editText.addTextChangedListener(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0908ce);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f0908dc);
             this.d = editText2;
             editText2.addTextChangedListener(this.m);
             if (this.t) {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0d4e));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0d59));
                 this.c.setText(this.s);
             } else {
-                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02fc));
+                this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02fd));
             }
-            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090769);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f69);
+            this.q = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090774);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f7a);
             this.f = frameLayout;
             frameLayout.setOnClickListener(this.l);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f65);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f76);
             this.e.setEnabled(false);
-            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b9a);
-            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091ba1);
+            this.h = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bd5);
+            this.i = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bdc);
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f091fc3).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f092006).setOnTouchListener(new c(this));
         }
     }
 
@@ -579,7 +579,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             getLayoutMode().k(this.p);
             SkinManager.setButtonTextColor(this.r, i);
             SkinManager.setTextColor(this.b, i);
-            String str = this.s + getPageContext().getString(R.string.obfuscated_res_0x7f0f02ff);
+            String str = this.s + getPageContext().getString(R.string.obfuscated_res_0x7f0f0300);
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10252)), 0, this.s.length(), 33);
             spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.common_color_10004)), this.s.length(), str.length(), 33);

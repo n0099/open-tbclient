@@ -103,11 +103,11 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            hu6 hu6Var = new hu6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09138c));
+            hu6 hu6Var = new hu6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0913a1));
             this.a = hu6Var;
             hu6Var.h(true);
             this.a.j(this.c);
-            fu6 fu6Var = new fu6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091376));
+            fu6 fu6Var = new fu6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09138a));
             this.b = fu6Var;
             fu6Var.h(false);
         }

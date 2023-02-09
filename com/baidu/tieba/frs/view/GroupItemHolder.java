@@ -77,7 +77,7 @@ public final class GroupItemHolder extends RecyclerView.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.d = skinType;
-            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0805ac));
+            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0805b1));
             p15 d = p15.d(this.b);
             d.v(R.color.CAM_X0304);
             d.z(R.dimen.T_X08);

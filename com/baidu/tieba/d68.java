@@ -76,13 +76,13 @@ public class d68 {
 
         /* renamed from: com.baidu.tieba.d68$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0246b implements Runnable {
+        public class RunnableC0245b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ GetCloudFaceGroupMessage a;
             public final /* synthetic */ b b;
 
-            public RunnableC0246b(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
+            public RunnableC0245b(b bVar, GetCloudFaceGroupMessage getCloudFaceGroupMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,7 +150,7 @@ public class d68 {
                     }
                     if (getCloudFaceGroupMessage.getDiyUpdateTime() > d68.m()) {
                         if (getCloudFaceGroupMessage.getDiyEmotionList() != null) {
-                            z58.b().a(new RunnableC0246b(this, getCloudFaceGroupMessage));
+                            z58.b().a(new RunnableC0245b(this, getCloudFaceGroupMessage));
                         } else {
                             this.a.g = false;
                         }

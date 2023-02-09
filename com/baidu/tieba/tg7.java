@@ -36,7 +36,7 @@ import com.baidu.tbadk.editortools.pb.ImageModel;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.j09;
+import com.baidu.tieba.n19;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -133,7 +133,7 @@ public class tg7 extends pb5 {
                         }
                     } else if (postWriteCallBackData != null && i == 227001) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    } else if (i != 238010 && !k89.d(i)) {
+                    } else if (i != 238010 && !o99.d(i)) {
                         this.a.getContext().showToast(str);
                     }
                 } else {
@@ -245,7 +245,7 @@ public class tg7 extends pb5 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements j09.g {
+    public class e implements n19.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tg7 a;
@@ -268,7 +268,7 @@ public class tg7 extends pb5 {
             this.a = tg7Var;
         }
 
-        @Override // com.baidu.tieba.j09.g
+        @Override // com.baidu.tieba.n19.g
         public void a(WriteData writeData) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, writeData) != null) || writeData == null) {
@@ -428,14 +428,14 @@ public class tg7 extends pb5 {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            j09.C(String.valueOf(this.d), null);
+            n19.C(String.valueOf(this.d), null);
         }
     }
 
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            j09.s(String.valueOf(this.d), new e(this));
+            n19.s(String.valueOf(this.d), new e(this));
         }
     }
 
@@ -491,7 +491,7 @@ public class tg7 extends pb5 {
             writeData.setContent(this.c);
             writeData.setTopicId(String.valueOf(this.d));
             writeData.setWriteImagesInfo(this.k);
-            j09.C(String.valueOf(this.d), writeData);
+            n19.C(String.valueOf(this.d), writeData);
         }
     }
 
@@ -515,7 +515,7 @@ public class tg7 extends pb5 {
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             j05 j05Var = new j05(getContext().getPageActivity());
             j05Var.setMessage(str);
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a46, new c(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a50, new c(this));
             j05Var.create(getContext()).show();
         }
     }

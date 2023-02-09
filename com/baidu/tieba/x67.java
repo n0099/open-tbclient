@@ -146,18 +146,18 @@ public class x67 extends BaseAdapter {
             if (view2 != null && view2.getTag() != null) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0384, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0386, (ViewGroup) null);
                 bVar = new b(null);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f65);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
                 bVar.a = tbImageView;
                 tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
-                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091594);
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915aa);
                 bVar.b = tbImageView2;
                 tbImageView2.setDefaultBgResource(R.drawable.transparent_bg);
                 bVar.b.setDefaultResource(R.drawable.transparent_bg);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0915aa);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091710);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b53);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0915c0);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b8e);
                 view2.setTag(bVar);
             }
             SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0105, 1);

@@ -40,9 +40,9 @@ import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.mp5;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.q39;
 import com.baidu.tieba.r97;
 import com.baidu.tieba.t97;
+import com.baidu.tieba.u49;
 import com.baidu.tieba.u97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -957,7 +957,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements u97 
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d != null) {
             HashMap<String, ha5> colourHeaderConfig = TbSingleton.getInstance().getColourHeaderConfig();
             if (colourHeaderConfig != null) {
-                ha5 ha5Var = colourHeaderConfig.get(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f141d));
+                ha5 ha5Var = colourHeaderConfig.get(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1434));
                 if (ha5Var != null) {
                     PagerSlidingTabStrip pagerSlidingTabStrip = this.d;
                     if (TbadkCoreApplication.getInst().getSkinType() == 0) {
@@ -979,7 +979,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements u97 
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLII(1048583, this, str, i2, i3) == null) && this.g != null && this.m != null) {
             if (i2 == -1 && ej.E()) {
-                ej.P(this.a, R.string.obfuscated_res_0x7f0f0cfe);
+                ej.P(this.a, R.string.obfuscated_res_0x7f0f0d08);
             }
             this.m.P(str, i2, i3);
         }
@@ -1027,9 +1027,9 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements u97 
         if (interceptable == null || interceptable.invokeL(1048613, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4006);
             this.a = getContext();
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07b5, (ViewGroup) this, true);
-            this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0902aa);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091f15);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c7, (ViewGroup) this, true);
+            this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0902b0);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091f58);
             this.d = pagerSlidingTabStrip;
             pagerSlidingTabStrip.setIsFromSecondtab(true);
             this.d.setTextNormalColor(R.color.CAM_X0107);
@@ -1037,12 +1037,12 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements u97 
             this.d.A(ej.g(context, R.dimen.T_X07), ej.g(context, R.dimen.T_X07), ej.g(context, R.dimen.tbds0), false);
             this.d.setHorizontalFadingEdgeEnabled(true);
             this.d.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007));
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e78);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e89);
             this.f = frameLayout;
-            q39.c(frameLayout, 4);
-            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091f1e);
-            this.h = findViewById(R.id.obfuscated_res_0x7f090862);
-            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0903ef);
+            u49.c(frameLayout, 4);
+            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091f61);
+            this.h = findViewById(R.id.obfuscated_res_0x7f090870);
+            this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0903f7);
             this.d.setOnPageChangeListener(new h(this));
             SpeedStatsManager.getInstance().addStatsTimeStamp(4007);
         }

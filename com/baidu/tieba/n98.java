@@ -200,19 +200,19 @@ public class n98 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d9, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01da, (ViewGroup) null);
         this.a = inflate;
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066d);
-        this.c = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090665);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090666);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090659);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090678);
+        this.c = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090670);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090671);
+        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090664);
         this.c.setRadius(ej.d(context, 2.0f));
-        this.g = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09065a);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090657);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090656);
+        this.g = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090665);
+        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090662);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090661);
         this.i = textView;
         textView.setOnClickListener(new a(this));
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090658);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090663);
     }
 
     public void d(String str) {
@@ -276,7 +276,7 @@ public class n98 {
                 this.i.setEnabled(false);
                 return;
             }
-            this.i.setText(R.string.obfuscated_res_0x7f0f02b9);
+            this.i.setText(R.string.obfuscated_res_0x7f0f02ba);
             this.i.setEnabled(true);
             SkinManager.setViewTextColor(this.i, R.color.CAM_X0111, 1);
         }

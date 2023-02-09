@@ -86,7 +86,7 @@ public class pa7 {
     public RotateAnimation t;
     public boolean u;
     public boolean v;
-    public bo8 w;
+    public fp8 w;
     public int x;
     public int y;
     public boolean z;
@@ -207,7 +207,7 @@ public class pa7 {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.a.i != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f0809c9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                 this.a.u = false;
             }
         }
@@ -255,7 +255,7 @@ public class pa7 {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && this.a.i != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a.i, R.drawable.obfuscated_res_0x7f0809c9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                 this.a.u = false;
             }
         }
@@ -856,10 +856,10 @@ public class pa7 {
     }
 
     public void N() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (bo8Var = this.w) != null && this.A) {
-            bo8Var.n(this.x, this.y, this.v, true);
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (fp8Var = this.w) != null && this.A) {
+            fp8Var.n(this.x, this.y, this.v, true);
         }
     }
 
@@ -907,10 +907,10 @@ public class pa7 {
     }
 
     public void o0() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && (bo8Var = this.w) != null) {
-            bo8Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && (fp8Var = this.w) != null) {
+            fp8Var.y();
         }
     }
 
@@ -938,7 +938,7 @@ public class pa7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            return this.c.findViewById(R.id.obfuscated_res_0x7f090d20);
+            return this.c.findViewById(R.id.obfuscated_res_0x7f090d31);
         }
         return (View) invokeV.objValue;
     }
@@ -998,9 +998,9 @@ public class pa7 {
             if (rotateAnimation2 != null) {
                 rotateAnimation2.cancel();
             }
-            bo8 bo8Var = this.w;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.w;
+            if (fp8Var != null) {
+                fp8Var.h();
             }
             u();
             MessageManager.getInstance().unRegisterListener(this.K);
@@ -1046,9 +1046,9 @@ public class pa7 {
                 this.d.setNextPage(this.g);
             }
             this.g.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.g.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ae6));
+            this.g.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0af0));
             this.g.E(null);
-            this.g.S();
+            this.g.T();
         }
     }
 
@@ -1060,7 +1060,7 @@ public class pa7 {
                 this.d.setNextPage(this.g);
             }
             this.g.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.g.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0805));
+            this.g.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f080e));
             this.g.E(null);
             this.g.g();
         }
@@ -1069,12 +1069,12 @@ public class pa7 {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0382, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0384, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.o = (GameVideoTitleBar) this.c.findViewById(R.id.obfuscated_res_0x7f090d20);
-            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d1b);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f090d1d);
+            this.o = (GameVideoTitleBar) this.c.findViewById(R.id.obfuscated_res_0x7f090d31);
+            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d2c);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f090d2e);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.b.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -1085,11 +1085,11 @@ public class pa7 {
             }
             this.E.o(this.b);
             this.C = new yi6();
-            bo8 bo8Var = new bo8(this.b, this.d);
-            this.w = bo8Var;
-            bo8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            fp8 fp8Var = new fp8(this.b, this.d);
+            this.w = fp8Var;
+            fp8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.w.u(this.B);
-            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d1e);
+            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090d2f);
             ud7 ud7Var = new ud7(this.b);
             this.f = ud7Var;
             this.e.setProgressView(ud7Var);
@@ -1109,9 +1109,9 @@ public class pa7 {
             this.k = ba7Var;
             ba7Var.h(this.D);
             this.k.i(this.B);
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090d1a);
-            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090d1f);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090d1c);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f090d2b);
+            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090d30);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090d2d);
             this.j = textView;
             textView.setText(p35.m().s("key_game_video_tab_has_choosed_sub_class_name", ""));
             s();
@@ -1122,11 +1122,11 @@ public class pa7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.z = z;
-            bo8 bo8Var = this.w;
-            if (bo8Var == null) {
+            fp8 fp8Var = this.w;
+            if (fp8Var == null) {
                 return;
             }
-            bo8Var.r(!z);
+            fp8Var.r(!z);
             ThreadCardViewHolder w = w();
             boolean z2 = false;
             if (w != null && w.a() != null) {
@@ -1150,11 +1150,11 @@ public class pa7 {
         }
         imageView.setVisibility(0);
         if (z) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809c9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.o, R.color.CAM_X0201);
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809c9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
         SkinManager.setBackgroundResource(this.o, R.color.CAM_X0207);
     }
 
@@ -1166,7 +1166,7 @@ public class pa7 {
                 this.d.setNextPage(this.g);
             }
             this.g.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.g.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0804));
+            this.g.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f080d));
             this.g.E(onClickListener);
             this.g.g();
         }
@@ -1219,7 +1219,7 @@ public class pa7 {
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (this.i != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f0809c9, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             }
             kf5 kf5Var = this.h;
             if (kf5Var != null) {
@@ -1319,8 +1319,8 @@ public class pa7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            bo8 bo8Var = this.w;
-            if (bo8Var != null && bo8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
+            fp8 fp8Var = this.w;
+            if (fp8Var != null && fp8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
                 return (ThreadCardViewHolder) this.w.j().getTag();
             }
             return null;

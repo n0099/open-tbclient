@@ -64,10 +64,10 @@ public class LoginDialogActivity extends SuspendedActivity implements kl5 {
     public final fw4.a y;
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -254,7 +254,7 @@ public class LoginDialogActivity extends SuspendedActivity implements kl5 {
     public void L1() {
         ILoginListener iLoginListener;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (iLoginListener = this.w) != null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (iLoginListener = this.w) != null) {
             iLoginListener.onCancel();
             this.w = null;
         }

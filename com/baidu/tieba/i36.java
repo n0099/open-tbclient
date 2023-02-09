@@ -340,23 +340,23 @@ public class i36 implements t16 {
     public final void j(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
-            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0963, (ViewGroup) null, false);
+            View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0978, (ViewGroup) null, false);
             this.c = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fb6);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fc7);
             this.d = tbImageView;
             tbImageView.setDrawCorner(true);
             this.d.setConrers(3);
             this.d.setRadiusById(R.string.J_X13);
             this.d.setPlaceHolder(2);
-            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f090fca);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09223d);
-            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092220);
+            this.e = this.c.findViewById(R.id.obfuscated_res_0x7f090fdb);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092283);
+            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092266);
             EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.text_title);
             this.h = eMTextView;
             p15.d(eMTextView).A(R.string.F_X02);
-            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092237);
+            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09227d);
             this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092023);
+            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092067);
             this.j = tbImageView2;
             tbImageView2.setDrawCorner(true);
             this.j.setConrers(1);

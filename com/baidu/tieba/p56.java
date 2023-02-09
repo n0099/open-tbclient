@@ -124,14 +124,14 @@ public class p56 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 aVar = new a(this);
-                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e5, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090755);
+                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e6, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f090760);
                 aVar.a = tbImageView;
                 tbImageView.setDrawerType(1);
                 aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801ce);
                 aVar.a.setDefaultBgResource(R.color.transparent);
                 aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092314);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09235b);
                 aVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
                 view3.setTag(aVar);

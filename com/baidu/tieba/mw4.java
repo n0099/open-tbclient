@@ -251,8 +251,8 @@ public class mw4 {
         }
         this.f = false;
         this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        o09.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        o09.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        s19.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
+        s19.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
         MessageManager.getInstance().registerListener(this.g);
         this.c = new SparseArray<>();
     }

@@ -240,7 +240,7 @@ public class NPSPackageManager {
                     int bundleStatus = this.f.getBundleStatus(this.b, this.c);
                     if (bundleByType != null && bundleStatus == 44 && !z && !z2 && bundleByType.getSize() >= 5242880 && !bf1.b(ContextHolder.getApplicationContext())) {
                         Application applicationContext = ContextHolder.getApplicationContext();
-                        xd1.a().c(null, applicationContext.getString(R.string.obfuscated_res_0x7f0f09a3, bundleByType.getName(), new DecimalFormat("###.0").format(bundleByType.getSize() / 1048576.0d)), new View$OnClickListenerC0133a(this), applicationContext.getString(R.string.obfuscated_res_0x7f0f09a7), new b(this), applicationContext.getString(R.string.obfuscated_res_0x7f0f09a8));
+                        xd1.a().c(null, applicationContext.getString(R.string.obfuscated_res_0x7f0f09ad, bundleByType.getName(), new DecimalFormat("###.0").format(bundleByType.getSize() / 1048576.0d)), new View$OnClickListenerC0133a(this), applicationContext.getString(R.string.obfuscated_res_0x7f0f09b1), new b(this), applicationContext.getString(R.string.obfuscated_res_0x7f0f09b2));
                         return;
                     }
                 }
@@ -395,10 +395,10 @@ public class NPSPackageManager {
                     e eVar2 = this.b;
                     he1 he1Var = eVar2.b;
                     if (he1Var != null) {
-                        he1Var.onResult(51, eVar2.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa6));
+                        he1Var.onResult(51, eVar2.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fba));
                     }
                     if (ze1.a()) {
-                        Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.b.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa6));
+                        Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.b.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fba));
                     }
                 }
             }
@@ -437,10 +437,10 @@ public class NPSPackageManager {
             if (updateBundle == null) {
                 he1 he1Var = this.b;
                 if (he1Var != null) {
-                    he1Var.onResult(3, this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa7));
+                    he1Var.onResult(3, this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fbb));
                 }
                 if (ze1.a()) {
-                    Log.i(NPSPackageManager.TAG, "update, retCode=3,message = " + this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa7));
+                    Log.i(NPSPackageManager.TAG, "update, retCode=3,message = " + this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fbb));
                 }
             } else if (this.c == 1) {
                 if (!bf1.b(ContextHolder.getApplicationContext())) {
@@ -452,10 +452,10 @@ public class NPSPackageManager {
                 me1.j().d(updateBundle);
                 he1 he1Var2 = this.b;
                 if (he1Var2 != null) {
-                    he1Var2.onResult(51, this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa6));
+                    he1Var2.onResult(51, this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fba));
                 }
                 if (ze1.a()) {
-                    Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa6));
+                    Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.f.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fba));
                 }
             }
         }
@@ -573,7 +573,7 @@ public class NPSPackageManager {
                     if (str != null) {
                         long j = (a.a * 100) / a.b;
                         if (j > 0 && j <= 100) {
-                            we1.h(str, ContextHolder.getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09a6), (int) j);
+                            we1.h(str, ContextHolder.getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09b0), (int) j);
                         }
                     }
                 }
@@ -630,10 +630,10 @@ public class NPSPackageManager {
                         me1.j().d(updateBundle);
                         he1 he1Var = this.c;
                         if (he1Var != null) {
-                            he1Var.onResult(51, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa6));
+                            he1Var.onResult(51, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fba));
                         }
                         if (ze1.a()) {
-                            Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa6));
+                            Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fba));
                             return;
                         }
                         return;
@@ -641,10 +641,10 @@ public class NPSPackageManager {
                 }
                 he1 he1Var2 = this.c;
                 if (he1Var2 != null) {
-                    he1Var2.onResult(3, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa7));
+                    he1Var2.onResult(3, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fbb));
                 }
                 if (ze1.a()) {
-                    Log.i(NPSPackageManager.TAG, "preDownload, retCode=3，message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fa7));
+                    Log.i(NPSPackageManager.TAG, "preDownload, retCode=3，message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0fbb));
                 }
             }
         }
@@ -1851,7 +1851,7 @@ public class NPSPackageManager {
                     return null;
                 }
             }
-            return we1.g(activity, ContextHolder.getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09a6), null);
+            return we1.g(activity, ContextHolder.getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09b0), null);
         }
         return (String) invokeILL.objValue;
     }

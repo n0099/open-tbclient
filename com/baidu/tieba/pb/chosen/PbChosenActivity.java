@@ -46,7 +46,6 @@ import com.baidu.tbadk.editortools.pb.DataModel;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a85;
-import com.baidu.tieba.dg8;
 import com.baidu.tieba.e98;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.g98;
@@ -54,17 +53,18 @@ import com.baidu.tieba.h98;
 import com.baidu.tieba.ho;
 import com.baidu.tieba.i98;
 import com.baidu.tieba.j98;
-import com.baidu.tieba.k89;
 import com.baidu.tieba.k98;
 import com.baidu.tieba.ld5;
 import com.baidu.tieba.m98;
 import com.baidu.tieba.n98;
 import com.baidu.tieba.o98;
+import com.baidu.tieba.o99;
 import com.baidu.tieba.od5;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.p98;
 import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import com.baidu.tieba.pg8;
 import com.baidu.tieba.qd5;
 import com.baidu.tieba.qv4;
 import com.baidu.tieba.tbadkCore.LikeModel;
@@ -151,12 +151,12 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
 
         /* renamed from: com.baidu.tieba.pb.chosen.PbChosenActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0385a extends w9 {
+        public class C0382a extends w9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0385a(a aVar) {
+            public C0382a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -226,7 +226,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe)).k();
+                    BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08)).k();
                 } else if (!this.a.checkUpIsLogin() || this.a.k == null || this.a.k.getThreadInfo() == null || this.a.k.getThreadInfo().forum.forum_id == null) {
                 } else {
                     if (this.a.l == null) {
@@ -234,7 +234,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                         pbChosenActivity.l = new LikeModel(pbChosenActivity.getPageContext());
                     }
                     this.a.l.setFrom("from_frs");
-                    this.a.l.setLoadDataCallBack(new C0385a(this));
+                    this.a.l.setLoadDataCallBack(new C0382a(this));
                     this.a.l.Y(this.a.k.getThreadInfo().forum.forum_name, String.valueOf(this.a.k.getThreadInfo().forum.forum_id));
                     if (this.a.k != null && this.a.k.getThreadInfo() != null) {
                         StatisticItem statisticItem = new StatisticItem("c10322");
@@ -286,7 +286,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     PbChosenActivity pbChosenActivity = this.a;
                     pbChosenActivity.hideLoadingView(pbChosenActivity.a);
                     if (StringUtils.isNull(h98Var.getErrorText())) {
-                        errorText = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                        errorText = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                     } else {
                         errorText = h98Var.getErrorText();
                     }
@@ -295,7 +295,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                     this.a.Z1(h98Var);
                 }
                 if (!this.a.t) {
-                    String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f05e4);
+                    String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f05eb);
                     PbChosenActivity pbChosenActivity2 = this.a;
                     pbChosenActivity2.showNetRefreshView(pbChosenActivity2.a, string, true);
                     this.a.setNetRefreshLayoutMarginTop(false);
@@ -387,7 +387,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             this.a.d.n();
             if (responsedMessage.hasError()) {
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
@@ -878,7 +878,7 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 if (z) {
                     this.a.p.b().q();
                     this.a.g.e(true);
-                } else if (postWriteCallBackData != null && a85Var == null && postWriteCallBackData.getErrorCode() != 227001 && !k89.d(postWriteCallBackData.getErrorCode())) {
+                } else if (postWriteCallBackData != null && a85Var == null && postWriteCallBackData.getErrorCode() != 227001 && !o99.d(postWriteCallBackData.getErrorCode())) {
                     if (AntiHelper.m(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
                         AntiHelper.u(this.a.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
                     } else {
@@ -1313,9 +1313,9 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
             }
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
             this.e.setTitleText(R.string.chosen_pb_title);
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01dc, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01dd, (ViewGroup) null);
             this.i = inflate;
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090669);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090674);
             this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, new h(this));
         }
     }
@@ -1374,20 +1374,20 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
                 if (threadInfo != null) {
                     if (this.h != null && (l2 = threadInfo.post_num) != null) {
                         String numFormatOver10000 = StringHelper.numFormatOver10000(l2.longValue());
-                        this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0400, numFormatOver10000));
-                        this.g.c(getResources().getString(R.string.obfuscated_res_0x7f0f03ff, numFormatOver10000));
+                        this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0401, numFormatOver10000));
+                        this.g.c(getResources().getString(R.string.obfuscated_res_0x7f0f0400, numFormatOver10000));
                     }
                     this.d.update(threadInfo);
                     this.c.j(getPageContext().getPageActivity(), threadInfo);
-                    dg8 dg8Var = new dg8();
-                    dg8Var.c(getPageContext(), h98Var.getThreadInfo().content);
-                    this.j.d(dg8Var.a());
+                    pg8 pg8Var = new pg8();
+                    pg8Var.c(getPageContext(), h98Var.getThreadInfo().content);
+                    this.j.d(pg8Var.a());
                     this.j.notifyDataSetChanged();
                 }
                 this.b.setVisibility(0);
                 return;
             }
-            showNetRefreshView(this.a, getResources().getString(R.string.obfuscated_res_0x7f0f05e4), true);
+            showNetRefreshView(this.a, getResources().getString(R.string.obfuscated_res_0x7f0f05eb), true);
             setNetRefreshLayoutMarginTop(false);
             this.g.e(false);
         }
@@ -1446,16 +1446,16 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(true);
-            setContentView(R.layout.obfuscated_res_0x7f0d01d8);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09066c);
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090664);
+            setContentView(R.layout.obfuscated_res_0x7f0d01d9);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090677);
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09066f);
             this.b = bdListView;
             bdListView.setOnTouchListener(new f(this));
             this.b.setOnScrollListener(this.z);
             k98 k98Var = new k98(getPageContext().getPageActivity());
             this.j = k98Var;
             this.b.setAdapter((ListAdapter) k98Var);
-            p98 p98Var = new p98(findViewById(R.id.obfuscated_res_0x7f090667));
+            p98 p98Var = new p98(findViewById(R.id.obfuscated_res_0x7f090672));
             this.g = p98Var;
             p98Var.b(this.B);
             this.g.d(this.E);

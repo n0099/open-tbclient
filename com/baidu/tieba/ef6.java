@@ -201,7 +201,7 @@ public class ef6 implements View.OnClickListener {
                 k();
                 return;
             }
-            this.k.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+            this.k.showToast(R.string.obfuscated_res_0x7f0f0d08);
         }
     }
 
@@ -338,7 +338,7 @@ public class ef6 implements View.OnClickListener {
         }
         this.m = true;
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            this.k.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+            this.k.showToast(R.string.obfuscated_res_0x7f0f0d08);
             this.a.e();
             return;
         }

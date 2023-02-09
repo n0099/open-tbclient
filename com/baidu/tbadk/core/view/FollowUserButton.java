@@ -105,7 +105,7 @@ public class FollowUserButton extends TBSpecificationBtn implements p55 {
         n45Var.i(this.p, 0, TBSpecificationButtonConfig.IconType.SVG);
         n45Var.t(R.color.CAM_X0304);
         setConfig(n45Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9));
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
     }
 
     @Override // com.baidu.tieba.p55
@@ -193,7 +193,7 @@ public class FollowUserButton extends TBSpecificationBtn implements p55 {
                 n45Var2.t(R.color.CAM_X0304);
                 setConfig(n45Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

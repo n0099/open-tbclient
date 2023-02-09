@@ -68,7 +68,7 @@ public class xy4 extends PostData {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean o1() {
+    public boolean p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -80,7 +80,7 @@ public class xy4 extends PostData {
         return invokeV.booleanValue;
     }
 
-    public void p1(RecommendBook recommendBook) {
+    public void q1(RecommendBook recommendBook) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBook) != null) || recommendBook == null) {
             return;

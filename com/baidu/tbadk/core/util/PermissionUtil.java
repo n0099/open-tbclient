@@ -18,6 +18,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.mutiprocess.event.PrivacyPolicyEvent;
+import com.baidu.tieba.ca9;
 import com.baidu.tieba.co5;
 import com.baidu.tieba.fh5;
 import com.baidu.tieba.gj;
@@ -27,8 +28,7 @@ import com.baidu.tieba.lo5;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.op5;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.u89;
-import com.baidu.tieba.y89;
+import com.baidu.tieba.y99;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,7 +152,7 @@ public class PermissionUtil {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        y89.b();
+                        ca9.b();
                         return null;
                     }
                     return invokeV.objValue;
@@ -180,7 +180,7 @@ public class PermissionUtil {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
                         PermissionUtil.setIsAgreePrivacyPolicy(true);
-                        u89.b(true);
+                        y99.b(true);
                     }
                 }
             });

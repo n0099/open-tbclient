@@ -454,7 +454,7 @@ public class he4 extends c82 implements OnGetGeoCoderResultListener, BaiduMap.On
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048612, this, layoutInflater, viewGroup, bundle)) == null) {
             dd4.a();
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0083, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0084, viewGroup, false);
             Y2(inflate);
             Z2();
             if (T1()) {
@@ -495,17 +495,17 @@ public class he4 extends c82 implements OnGetGeoCoderResultListener, BaiduMap.On
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             SDKInitializer.setCoordType(CoordType.GCJ02);
             this.W0 = new ArrayList(11);
-            this.G0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09151a);
-            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a72);
-            this.H0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a74);
-            this.L0 = view2.findViewById(R.id.obfuscated_res_0x7f0904ad);
-            this.M0 = view2.findViewById(R.id.obfuscated_res_0x7f091ecc);
-            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a3e);
-            this.O0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905fc);
-            this.J0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09140d);
-            this.K0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091591);
-            this.P0 = view2.findViewById(R.id.obfuscated_res_0x7f091503);
-            this.S0 = (TextureMapView) view2.findViewById(R.id.obfuscated_res_0x7f09035d);
+            this.G0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09152f);
+            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a80);
+            this.H0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a82);
+            this.L0 = view2.findViewById(R.id.obfuscated_res_0x7f0904b8);
+            this.M0 = view2.findViewById(R.id.obfuscated_res_0x7f091f0f);
+            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a4c);
+            this.O0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090607);
+            this.J0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091422);
+            this.K0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915a7);
+            this.P0 = view2.findViewById(R.id.obfuscated_res_0x7f091518);
+            this.S0 = (TextureMapView) view2.findViewById(R.id.obfuscated_res_0x7f090365);
             this.I0.setOnClickListener(this);
             this.N0.setOnClickListener(this);
             this.M0.setOnClickListener(this);
@@ -650,7 +650,7 @@ public class he4 extends c82 implements OnGetGeoCoderResultListener, BaiduMap.On
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090a72) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090a80) {
                 le4 le4Var = this.X0;
                 if (le4Var != null && le4Var.i() != null) {
                     BDLocation i = this.X0.i();
@@ -663,12 +663,12 @@ public class he4 extends c82 implements OnGetGeoCoderResultListener, BaiduMap.On
                     }
                     f3(true);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090a3e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090a4c) {
                 e3(16);
                 W2();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ecc) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f0f) {
                 k3(this.V0);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904ad) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0904b8) {
                 e3(17);
                 W2();
             }

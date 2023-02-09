@@ -28,8 +28,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.tn8;
 import com.baidu.tieba.wu6;
+import com.baidu.tieba.xo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,8 +42,8 @@ public class ru6 extends mc6<wu6> implements su6 {
     public wu6 A;
     public int B;
     public xu6 C;
-    public lo8 D;
-    public lo8 E;
+    public pp8 D;
+    public pp8 E;
     public int F;
     public boolean G;
     public boolean H;
@@ -69,7 +69,7 @@ public class ru6 extends mc6<wu6> implements su6 {
     public ImageView v;
     public LinearLayout w;
     public LinearLayout x;
-    public tn8 y;
+    public xo8 y;
     public TbPageContext<?> z;
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,11 +85,11 @@ public class ru6 extends mc6<wu6> implements su6 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bf : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c0 : invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements tn8.t {
+    public class a implements xo8.t {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru6 a;
@@ -112,30 +112,30 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.a = ru6Var;
         }
 
-        @Override // com.baidu.tieba.tn8.t
+        @Override // com.baidu.tieba.xo8.t
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.N0()) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.R0()) {
                 this.a.l.setVisibility(8);
             }
         }
 
-        @Override // com.baidu.tieba.tn8.t
+        @Override // com.baidu.tieba.xo8.t
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a.y.N0()) {
+                if (this.a.y.R0()) {
                     this.a.l.setVisibility(8);
                 }
                 if (this.a.I) {
-                    this.a.y.D1();
+                    this.a.y.T1();
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements tn8.c0 {
+    public class b implements xo8.c0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru6 a;
@@ -158,7 +158,7 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.a = ru6Var;
         }
 
-        @Override // com.baidu.tieba.tn8.c0
+        @Override // com.baidu.tieba.xo8.c0
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -168,7 +168,7 @@ public class ru6 extends mc6<wu6> implements su6 {
             }
         }
 
-        @Override // com.baidu.tieba.tn8.c0
+        @Override // com.baidu.tieba.xo8.c0
         public void b() {
             String str;
             Interceptable interceptable = $ic;
@@ -189,7 +189,7 @@ public class ru6 extends mc6<wu6> implements su6 {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements tn8.w {
+    public class c implements xo8.w {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru6 a;
@@ -212,16 +212,16 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.a = ru6Var;
         }
 
-        @Override // com.baidu.tieba.tn8.w
+        @Override // com.baidu.tieba.xo8.w
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
                     this.a.z.showToast(this.a.n.getText().toString());
                     ru6 ru6Var = this.a;
-                    tn8 tn8Var = ru6Var.y;
+                    xo8 xo8Var = ru6Var.y;
                     wu6 wu6Var = ru6Var.A;
-                    tn8Var.w1(wu6Var.n.d, wu6Var.b);
+                    xo8Var.M1(wu6Var.n.d, wu6Var.b);
                     this.a.l.setVisibility(8);
                     this.a.K("2");
                 } else {
@@ -234,7 +234,7 @@ public class ru6 extends mc6<wu6> implements su6 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements tn8.u {
+    public class d implements xo8.u {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru6 a;
@@ -257,11 +257,11 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.a = ru6Var;
         }
 
-        @Override // com.baidu.tieba.tn8.u
+        @Override // com.baidu.tieba.xo8.u
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!this.a.y.N0()) {
+                if (!this.a.y.R0()) {
                     this.a.k.setVisibility(0);
                 } else if (z) {
                     if (this.a.k.getVisibility() == 0) {
@@ -277,11 +277,11 @@ public class ru6 extends mc6<wu6> implements su6 {
             }
         }
 
-        @Override // com.baidu.tieba.tn8.u
+        @Override // com.baidu.tieba.xo8.u
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (!this.a.y.N0()) {
+                if (!this.a.y.R0()) {
                     this.a.k.setVisibility(0);
                 } else if (this.a.k.getVisibility() == 0) {
                     this.a.k.setVisibility(8);
@@ -330,7 +330,7 @@ public class ru6 extends mc6<wu6> implements su6 {
                 }
                 if (this.a != null && !this.c.H) {
                     this.a.a(this.b);
-                    this.c.y.T0();
+                    this.c.y.X0();
                 }
             }
         }
@@ -382,7 +382,7 @@ public class ru6 extends mc6<wu6> implements su6 {
     }
 
     /* loaded from: classes6.dex */
-    public class g implements tn8.z {
+    public class g implements xo8.z {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ru6 a;
@@ -405,7 +405,7 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.a = ru6Var;
         }
 
-        @Override // com.baidu.tieba.tn8.z
+        @Override // com.baidu.tieba.xo8.z
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -436,26 +436,26 @@ public class ru6 extends mc6<wu6> implements su6 {
         this.N = z;
         View h = h();
         this.z = tbPageContext;
-        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092613);
+        this.i = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092663);
         FrameLayout frameLayout = (FrameLayout) h.findViewById(R.id.video_container);
         this.j = frameLayout;
-        tn8 tn8Var = new tn8(tbPageContext, frameLayout, false);
-        this.y = tn8Var;
-        tn8Var.m1("2005");
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092314);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908ab);
-        this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09162d);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09162f);
-        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09162e);
-        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0925ac);
+        xo8 xo8Var = new xo8(tbPageContext, frameLayout, false);
+        this.y = xo8Var;
+        xo8Var.z1("2005");
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908b9);
+        this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091643);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091645);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091644);
+        this.p = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f0925f9);
         this.q = (TextView) h.findViewById(R.id.user_name);
-        this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902d4);
+        this.r = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902da);
         this.w = (LinearLayout) h.findViewById(R.id.thread_info_commont_container);
-        this.x = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09015c);
+        this.x = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09015e);
         this.s = (TextView) h.findViewById(R.id.thread_info_commont_num);
-        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922ac);
+        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922f2);
         this.u = (ImageView) h.findViewById(R.id.thread_info_commont_img);
-        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0922ab);
+        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0922f1);
         this.w.setOnClickListener(this);
         this.x.setOnClickListener(this);
         this.k.setOnClickListener(this);
@@ -478,7 +478,7 @@ public class ru6 extends mc6<wu6> implements su6 {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return this.y.X0(i);
+            return this.y.b1(i);
         }
         return invokeI.booleanValue;
     }
@@ -562,22 +562,22 @@ public class ru6 extends mc6<wu6> implements su6 {
     public final void B(wu6 wu6Var, int i, qu6 qu6Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wu6Var, i, qu6Var) == null) && wu6Var != null && wu6Var.n != null) {
-            this.y.D1();
-            this.y.d1(true);
-            this.y.f1(new a(this));
-            this.y.j1(new b(this));
-            this.y.h1(new c(this));
-            this.y.c1(false);
-            lo8 lo8Var = new lo8();
-            this.D = lo8Var;
-            lo8Var.c = wu6Var.b;
-            lo8Var.d = wu6Var.a;
-            lo8Var.e = TbadkCoreApplication.getCurrentAccount();
-            lo8 lo8Var2 = new lo8();
-            this.E = lo8Var2;
-            lo8Var2.c = wu6Var.b;
-            lo8Var2.d = wu6Var.a;
-            lo8Var2.e = TbadkCoreApplication.getCurrentAccount();
+            this.y.T1();
+            this.y.j1(true);
+            this.y.n1(new a(this));
+            this.y.u1(new b(this));
+            this.y.p1(new c(this));
+            this.y.i1(false);
+            pp8 pp8Var = new pp8();
+            this.D = pp8Var;
+            pp8Var.c = wu6Var.b;
+            pp8Var.d = wu6Var.a;
+            pp8Var.e = TbadkCoreApplication.getCurrentAccount();
+            pp8 pp8Var2 = new pp8();
+            this.E = pp8Var2;
+            pp8Var2.c = wu6Var.b;
+            pp8Var2.d = wu6Var.a;
+            pp8Var2.e = TbadkCoreApplication.getCurrentAccount();
             if (this.N) {
                 StatisticItem statisticItem = new StatisticItem("c12590");
                 statisticItem.param("tid", wu6Var.b);
@@ -588,44 +588,44 @@ public class ru6 extends mc6<wu6> implements su6 {
                 statisticItem.param("obj_locate", i);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
                 TiebaStatic.log(statisticItem);
-                lo8 lo8Var3 = this.D;
-                lo8Var3.g = "auto_midpage";
-                lo8Var3.a = "13";
-                lo8Var3.i = "1";
-                lo8 lo8Var4 = this.E;
-                lo8Var4.g = "auto_midpage";
-                lo8Var4.a = "auto_midpage";
-                lo8Var4.i = "1";
+                pp8 pp8Var3 = this.D;
+                pp8Var3.g = "auto_midpage";
+                pp8Var3.a = "13";
+                pp8Var3.i = "1";
+                pp8 pp8Var4 = this.E;
+                pp8Var4.g = "auto_midpage";
+                pp8Var4.a = "auto_midpage";
+                pp8Var4.i = "1";
             } else {
-                lo8 lo8Var5 = this.D;
-                lo8Var5.i = "frs_bavideotab";
-                lo8Var5.a = "12";
-                lo8 lo8Var6 = this.E;
-                lo8Var6.i = "frs_bavideotab";
-                lo8Var6.a = "frs_bavideotab";
+                pp8 pp8Var5 = this.D;
+                pp8Var5.i = "frs_bavideotab";
+                pp8Var5.a = "12";
+                pp8 pp8Var6 = this.E;
+                pp8Var6.i = "frs_bavideotab";
+                pp8Var6.a = "frs_bavideotab";
             }
             wu6.c cVar = wu6Var.n;
             if (cVar != null) {
-                lo8 lo8Var7 = this.D;
+                pp8 pp8Var7 = this.D;
                 String str = cVar.c;
-                lo8Var7.m = str;
+                pp8Var7.m = str;
                 this.E.m = str;
             }
-            this.y.D0().setVideoStatData(this.D);
+            this.y.H0().setVideoStatData(this.D);
             this.y.q0();
-            this.y.g1(new d(this));
-            this.y.k1(new e(this, qu6Var, i));
-            this.y.l1(new f(this, qu6Var));
-            this.y.q1(wu6Var.n.j);
-            this.y.s1(wu6Var.n.d, wu6Var.b);
-            this.y.r1(wu6Var.l);
-            this.y.i1(new g(this));
-            this.y.T0();
-            this.y.t1();
+            this.y.o1(new d(this));
+            this.y.v1(new e(this, qu6Var, i));
+            this.y.w1(new f(this, qu6Var));
+            this.y.D1(wu6Var.n.j);
+            this.y.H1(wu6Var.n.d, wu6Var.b);
+            this.y.G1(wu6Var.l);
+            this.y.r1(new g(this));
+            this.y.X0();
+            this.y.J1();
             if (wu6Var.s) {
                 onClick(this.j);
                 this.I = false;
-                this.y.B1(wu6Var.n.d, wu6Var.b, null, new Object[0]);
+                this.y.R1(wu6Var.n.d, wu6Var.b, null, new Object[0]);
             }
             this.I = false;
         }
@@ -643,9 +643,9 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.l.setText(StringHelper.stringForVideoTime(wu6Var.n.e * 1000));
             long j = wu6Var.n.h;
             if (j == 0) {
-                format = this.z.getString(R.string.obfuscated_res_0x7f0f162e);
+                format = this.z.getString(R.string.obfuscated_res_0x7f0f1645);
             } else {
-                format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f162d), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
+                format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f1644), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
             }
             this.n.setText(format);
             this.m.setVisibility(8);
@@ -661,7 +661,7 @@ public class ru6 extends mc6<wu6> implements su6 {
         if ((interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) && this.y != null && this.j != null && (tbPageContext = this.z) != null && tbPageContext.getPageActivity() != null && this.z.getPageActivity().getWindow() != null && (this.z.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.z.getPageActivity().getWindow().getDecorView();
             if (this.G) {
-                this.y.b1();
+                this.y.g1();
             }
             if (configuration.orientation == 2) {
                 this.H = true;
@@ -706,7 +706,7 @@ public class ru6 extends mc6<wu6> implements su6 {
                 this.y.q0();
                 this.G = true;
             }
-            this.y.O0(this.z, configuration);
+            this.y.S0(this.z, configuration);
             this.l.setVisibility(8);
         }
     }
@@ -726,10 +726,10 @@ public class ru6 extends mc6<wu6> implements su6 {
                         wu6 wu6Var = this.A;
                         if (wu6Var != null && wu6Var.n != null) {
                             this.m.setVisibility(8);
-                            this.y.a1();
-                            tn8 tn8Var = this.y;
+                            this.y.f1();
+                            xo8 xo8Var = this.y;
                             wu6 wu6Var2 = this.A;
-                            tn8Var.w1(wu6Var2.n.d, wu6Var2.b);
+                            xo8Var.M1(wu6Var2.n.d, wu6Var2.b);
                             K("2");
                             return;
                         }
@@ -792,14 +792,14 @@ public class ru6 extends mc6<wu6> implements su6 {
         if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !isPlaying()) {
             return;
         }
-        this.y.P0();
+        this.y.T0();
     }
 
     public void J() {
-        tn8 tn8Var;
+        xo8 xo8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (tn8Var = this.y) != null) {
-            tn8Var.v0();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (xo8Var = this.y) != null) {
+            xo8Var.v0();
         }
     }
 
@@ -807,7 +807,7 @@ public class ru6 extends mc6<wu6> implements su6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.m.setVisibility(8);
-            this.y.D1();
+            this.y.T1();
             TextView textView = this.k;
             if (textView != null) {
                 textView.setVisibility(0);
@@ -823,7 +823,7 @@ public class ru6 extends mc6<wu6> implements su6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.y.N0();
+            return this.y.R0();
         }
         return invokeV.booleanValue;
     }
@@ -833,7 +833,7 @@ public class ru6 extends mc6<wu6> implements su6 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && (wu6Var = this.A) != null && wu6Var.n != null) {
             if ("1".equals(str) || "2".equals(str)) {
-                ao8.e(this.A.n.c, "", str, this.E, this.y.D0().getPcdnState());
+                ep8.e(this.A.n.c, "", str, this.E, this.y.H0().getPcdnState());
             }
         }
     }
@@ -856,7 +856,7 @@ public class ru6 extends mc6<wu6> implements su6 {
             Drawable drawable = SkinManager.getDrawable(R.drawable.video_aggregation_attention_selector);
             drawable.setBounds(0, 0, ej.g(this.c, R.dimen.obfuscated_res_0x7f0701d5), ej.g(this.c, R.dimen.obfuscated_res_0x7f0701d5));
             this.r.setCompoundDrawables(drawable, null, null, null);
-            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f02b9));
+            this.r.setText(this.z.getString(R.string.obfuscated_res_0x7f0f02ba));
         }
     }
 

@@ -19,7 +19,7 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lz8;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -199,7 +199,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             } else {
                 p15 d2 = p15.d(this.c);
                 d2.n(R.string.J_X07);
-                d2.g(lz8.f(this.g));
+                d2.g(p09.f(this.g));
             }
             p15.d(this.d).x(R.color.CAM_X0101);
             p15.d(this.e).f(R.color.CAM_X0617);
@@ -240,7 +240,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = new ImageView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0808ae, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0808ba, null);
             addView(this.a);
         }
     }
@@ -280,7 +280,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.f = new ImageView(getContext());
             this.f.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.f.setPadding(ej.g(getContext(), R.dimen.M_W_X005), 0, ej.g(getContext(), R.dimen.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a79, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a88, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.c.addView(this.f);
         }
     }

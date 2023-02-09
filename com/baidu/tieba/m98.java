@@ -48,14 +48,14 @@ public class m98 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d6, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d7, (ViewGroup) null);
         this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090660);
-        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f09065d);
-        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f0906c1);
-        this.d = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090661), aVar);
-        this.e = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090662), aVar);
-        this.f = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f090663), aVar);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066b);
+        this.g = this.b.findViewById(R.id.obfuscated_res_0x7f090668);
+        this.a = this.b.findViewById(R.id.obfuscated_res_0x7f0906cc);
+        this.d = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09066c), aVar);
+        this.e = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09066d), aVar);
+        this.f = new l98((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09066e), aVar);
     }
 
     public final User a(Post post, List<User> list) {

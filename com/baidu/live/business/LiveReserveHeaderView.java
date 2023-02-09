@@ -76,9 +76,9 @@ public class LiveReserveHeaderView extends LiveBaseItemView {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0558, this);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d055d, this);
             this.h = inflate.findViewById(R.id.layout_bg);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09251e);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092569);
             this.j = (ImageView) inflate.findViewById(R.id.iv_arrow);
             d();
             GradientDrawable gradientDrawable = new GradientDrawable();

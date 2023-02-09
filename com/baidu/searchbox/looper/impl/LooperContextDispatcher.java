@@ -3,15 +3,15 @@ package com.baidu.searchbox.looper.impl;
 import android.content.Context;
 import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m6a;
-import com.baidu.tieba.u6a;
+import com.baidu.tieba.q7a;
+import com.baidu.tieba.y7a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class LooperContextDispatcher extends m6a {
+public class LooperContextDispatcher extends q7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class LooperContextDispatcher extends m6a {
         }
     }
 
-    @Override // com.baidu.tieba.m6a
+    @Override // com.baidu.tieba.q7a
     public boolean displayNotification() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,12 +53,12 @@ public class LooperContextDispatcher extends m6a {
         }
     }
 
-    @Override // com.baidu.tieba.m6a, com.baidu.tieba.o6a
-    public void onBlock(Context context, u6a u6aVar) {
+    @Override // com.baidu.tieba.q7a, com.baidu.tieba.s7a
+    public void onBlock(Context context, y7a y7aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, u6aVar) == null) {
-            super.onBlock(context, u6aVar);
-            LooperRuntime.getInstance().dispatchBlock(context, u6aVar);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, y7aVar) == null) {
+            super.onBlock(context, y7aVar);
+            LooperRuntime.getInstance().dispatchBlock(context, y7aVar);
         }
     }
 }

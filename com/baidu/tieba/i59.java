@@ -1,52 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i59 extends CustomMessageListener {
+public class i59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public final MainTabActivity a;
+    public final z49 b;
+    public bf6 c;
+    public bf6 d;
+    public bf6 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i59(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public i59(MainTabActivity mainTabActivity, z49 z49Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, z49Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = mainTabActivity;
+        this.b = z49Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a() {
+        bf6 bf6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            qc5 qc5Var = null;
-            if (customResponsedMessage.getData() instanceof qc5) {
-                qc5Var = (qc5) customResponsedMessage.getData();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bf6Var = this.e) != null && bf6Var.i()) {
+            this.e.h();
+        }
+    }
+
+    public void b() {
+        bf6 bf6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bf6Var = this.d) != null && bf6Var.i()) {
+            this.d.h();
+            this.d = null;
+        }
+    }
+
+    public void c() {
+        bf6 bf6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bf6Var = this.c) != null && bf6Var.i()) {
+            this.c.h();
+            this.c = null;
+        }
+    }
+
+    public void d() {
+        z49 z49Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (z49Var = this.b) != null && z49Var.y() != null) {
+            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
             }
-            if (qc5Var != null && qc5Var.b() == 0) {
-                MainTabActivity mainTabActivity = this.a;
-                new pc5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092119), qc5Var).m();
+            bf6 bf6Var = new bf6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
+            this.e = bf6Var;
+            bf6Var.L(R.drawable.bg_tip_blue_down);
+            this.e.l(2);
+            this.e.o(32);
+            this.e.N(true);
+            this.e.R(-ej.g(this.a, R.dimen.tbds10));
+            this.e.C(R.color.CAM_X0101);
+            this.e.p(R.dimen.tbds54);
+            this.e.w(1);
+            this.e.n(4000);
+            this.e.F(ej.g(this.a, R.dimen.tbds44));
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
+            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
             }
+            bf6 bf6Var = new bf6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
+            this.c = bf6Var;
+            bf6Var.L(R.drawable.bg_tip_blue_down);
+            this.c.l(2);
+            this.c.o(32);
+            this.c.N(true);
+            this.c.R(-ej.g(this.a, R.dimen.tbds10));
+            this.c.C(R.color.CAM_X0101);
+            this.c.p(R.dimen.tbds54);
+            this.c.w(999);
+            this.c.n(5000);
+            this.c.F(ej.g(this.a, R.dimen.tbds44));
+            this.c.V(str, "categoryUpdate", false, true);
+        }
+    }
+
+    public void f() {
+        bf6 bf6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (bf6Var = this.e) != null && !bf6Var.i()) {
+            bf6 bf6Var2 = this.e;
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05bc);
+            bf6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
         }
     }
 }

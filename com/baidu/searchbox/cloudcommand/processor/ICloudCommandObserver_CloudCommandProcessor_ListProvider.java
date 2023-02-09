@@ -1,7 +1,7 @@
 package com.baidu.searchbox.cloudcommand.processor;
 
 import com.baidu.searchbox.retrieve.connect.cloudcommand.FetchCloudCommandReceiver;
-import com.baidu.tieba.tw8;
+import com.baidu.tieba.xx8;
 import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public class ICloudCommandObserver_CloudCommandProcessor_ListProvider implements
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new FetchCloudCommandReceiver());
-            arrayList.add(new tw8());
+            arrayList.add(new xx8());
             return arrayList;
         }
         return invokeV.objValue;

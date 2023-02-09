@@ -22,7 +22,7 @@ import com.baidu.tieba.barselect.data.VoteElectionSocketResMessage;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.k29;
+import com.baidu.tieba.o39;
 import com.baidu.tieba.q86;
 import com.baidu.tieba.s86;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
@@ -288,9 +288,9 @@ public class BarVoteModel extends BdBaseModel {
                         }
                     }
                 } else if (error == 3250023) {
-                    k29.b(error, "", null);
+                    o39.b(error, "", null);
                 } else if (error == 3250021) {
-                    k29.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    o39.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 } else if (error != 3250002 && error != 3250004) {
                     ej.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
                 } else {
@@ -302,7 +302,7 @@ public class BarVoteModel extends BdBaseModel {
                     }
                     blockPopInfoData.block_info = errorString;
                     blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
-                    blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a46);
+                    blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a50);
                     blockPopInfoData.ahead_url = AntiHelper.a;
                     AntiHelper.s(this.a.a, blockPopInfoData);
                 }

@@ -106,49 +106,49 @@ public class b57 extends v9<BaseFragmentActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a == null) {
                 return;
             }
-            LogicField logicField = (LogicField) view2.getTag(R.id.obfuscated_res_0x7f090680);
-            FrsViewData Y0 = this.a.a.Y0();
-            if (Y0 != null && Y0.getForum() != null && this.a.c != null && (view2 == this.a.c.f() || view2 == this.a.c.g() || view2 == this.a.c.j() || logicField == LogicField.INFO_AREA)) {
+            LogicField logicField = (LogicField) view2.getTag(R.id.obfuscated_res_0x7f09068b);
+            FrsViewData X0 = this.a.a.X0();
+            if (X0 != null && X0.getForum() != null && this.a.c != null && (view2 == this.a.c.f() || view2 == this.a.c.g() || view2 == this.a.c.j() || logicField == LogicField.INFO_AREA)) {
                 StatisticItem statisticItem = new StatisticItem("c12046");
-                if (this.a.a != null && Y0.getForum() != null) {
+                if (this.a.a != null && X0.getForum() != null) {
                     if (this.a.a.a4()) {
                         i = 1;
                     } else {
                         i = 2;
                     }
-                    statisticItem.param("fid", Y0.getForum().getId());
-                    statisticItem.param("fname", Y0.getForum().getName());
+                    statisticItem.param("fid", X0.getForum().getId());
+                    statisticItem.param("fname", X0.getForum().getName());
                     statisticItem.param("obj_locate", i);
                     h27.a(statisticItem);
                 }
                 ArrayList<String> arrayList = new ArrayList<>();
-                if (Y0.getEntelechyTabInfo() != null && Y0.getEntelechyTabInfo().a != null) {
-                    for (int i2 = 0; i2 < Y0.getEntelechyTabInfo().a.size(); i2++) {
-                        arrayList.add(Y0.getEntelechyTabInfo().a.get(i2).tab_name);
+                if (X0.getEntelechyTabInfo() != null && X0.getEntelechyTabInfo().a != null) {
+                    for (int i2 = 0; i2 < X0.getEntelechyTabInfo().a.size(); i2++) {
+                        arrayList.add(X0.getEntelechyTabInfo().a.get(i2).tab_name);
                     }
                 }
-                ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(this.a.getPageContext().getPageActivity(), Y0.getForum().getId(), ForumDetailActivityConfig.FromType.FRS);
+                ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(this.a.getPageContext().getPageActivity(), X0.getForum().getId(), ForumDetailActivityConfig.FromType.FRS);
                 forumDetailActivityConfig.setForumTabs(arrayList);
-                forumDetailActivityConfig.setServiceAreaListData(Y0.serviceAreaFlutterData);
-                int baWuNoticeNum = Y0.getBaWuNoticeNum();
+                forumDetailActivityConfig.setServiceAreaListData(X0.serviceAreaFlutterData);
+                int baWuNoticeNum = X0.getBaWuNoticeNum();
                 forumDetailActivityConfig.setRedPotNum(String.valueOf(baWuNoticeNum));
-                if (Y0.getUserData() != null) {
-                    if (Y0.getUserData().getIs_manager() == 1 && baWuNoticeNum > 0) {
+                if (X0.getUserData() != null) {
+                    if (X0.getUserData().getIs_manager() == 1 && baWuNoticeNum > 0) {
                         MessageManager.getInstance().sendMessage(new BawuUnreadRequestMessage(this.a.a.l));
                     }
-                    Y0.setBaWuNoticeNum(0);
+                    X0.setBaWuNoticeNum(0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921721));
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (Y0.getUserData().getIs_manager() == 1) {
+                    if (X0.getUserData().getIs_manager() == 1) {
                         if (baWuNoticeNum > 0) {
                             statisticItem.param("obj_type", 1);
                         } else {
                             statisticItem.param("obj_type", 2);
                         }
                     }
-                    if (Y0.getUserData().isOtherBawu()) {
+                    if (X0.getUserData().isOtherBawu()) {
                         statisticItem.param("obj_type", 3);
-                    } else if (Y0.getUserData().isNormal()) {
+                    } else if (X0.getUserData().isNormal()) {
                         statisticItem.param("obj_type", 4);
                     }
                 }
@@ -156,47 +156,47 @@ public class b57 extends v9<BaseFragmentActivity> {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
             int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f0924c4 && logicField != LogicField.LIKE_BTN) {
-                if (id != R.id.obfuscated_res_0x7f09250a && logicField != LogicField.SIGN_BTN) {
-                    if (id == R.id.obfuscated_res_0x7f090bdc) {
-                        if (ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) && Y0 != null && Y0.getGameUrl() != null) {
-                            UrlManager.getInstance().dealOneLink((TbPageContext) this.a.getPageContext(), new String[]{Y0.getGameUrl()}, true);
+            if (id != R.id.obfuscated_res_0x7f09250e && logicField != LogicField.LIKE_BTN) {
+                if (id != R.id.obfuscated_res_0x7f092555 && logicField != LogicField.SIGN_BTN) {
+                    if (id == R.id.obfuscated_res_0x7f090bed) {
+                        if (ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) && X0 != null && X0.getGameUrl() != null) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext) this.a.getPageContext(), new String[]{X0.getGameUrl()}, true);
                         }
-                    } else if (id == R.id.obfuscated_res_0x7f090b7f) {
-                        if (Y0 != null && Y0.getUserData() != null && Y0.getUserData().isBawu()) {
-                            String bawuCenterUrl = Y0.getBawuCenterUrl();
+                    } else if (id == R.id.obfuscated_res_0x7f090b90) {
+                        if (X0 != null && X0.getUserData() != null && X0.getUserData().isBawu()) {
+                            String bawuCenterUrl = X0.getBawuCenterUrl();
                             if (!dj.isEmpty(bawuCenterUrl)) {
                                 BrowserHelper.p(this.a.getPageContext().getPageActivity(), bawuCenterUrl);
-                                if (Y0.getForum() != null) {
-                                    TiebaStatic.log(new StatisticItem("c10502").param("fid", Y0.getForum().getId()).param("uid", Y0.getUserData().getUserId()));
+                                if (X0.getForum() != null) {
+                                    TiebaStatic.log(new StatisticItem("c10502").param("fid", X0.getForum().getId()).param("uid", X0.getUserData().getUserId()));
                                 }
                             }
                         }
-                    } else if (id != R.id.obfuscated_res_0x7f0913c6 && logicField != LogicField.LEVEL_AND_LEVEL_NAME) {
-                        if (id == R.id.obfuscated_res_0x7f090be7) {
-                            if (Y0 != null && Y0.getForum() != null && !TextUtils.isEmpty(Y0.getForum().getId())) {
+                    } else if (id != R.id.obfuscated_res_0x7f0913db && logicField != LogicField.LEVEL_AND_LEVEL_NAME) {
+                        if (id == R.id.obfuscated_res_0x7f090bf8) {
+                            if (X0 != null && X0.getForum() != null && !TextUtils.isEmpty(X0.getForum().getId())) {
                                 HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.a.getPageContext().getPageActivity());
-                                hotUserRankActivityConfig.setForumId(Long.valueOf(dh.g(Y0.getForum().getId(), 0L)));
+                                hotUserRankActivityConfig.setForumId(Long.valueOf(dh.g(X0.getForum().getId(), 0L)));
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
                                 StatisticItem statisticItem2 = new StatisticItem("c13666");
-                                statisticItem2.param("fid", Y0.getForum().getId());
+                                statisticItem2.param("fid", X0.getForum().getId());
                                 TiebaStatic.log(statisticItem2);
                             }
-                        } else if (id == R.id.obfuscated_res_0x7f090c36) {
-                            if (Y0 != null && Y0.getForum() != null && !TextUtils.isEmpty(Y0.getForum().getId())) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumMemberActivityConfig(this.a.getPageContext().getPageActivity(), String.valueOf(Y0.getForum().getId()), Y0.getForum().getName())));
+                        } else if (id == R.id.obfuscated_res_0x7f090c47) {
+                            if (X0 != null && X0.getForum() != null && !TextUtils.isEmpty(X0.getForum().getId())) {
+                                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumMemberActivityConfig(this.a.getPageContext().getPageActivity(), String.valueOf(X0.getForum().getId()), X0.getForum().getName())));
                             }
-                        } else if (id == R.id.obfuscated_res_0x7f090c35 && ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) && Y0 != null && Y0.getForum() != null && !TextUtils.isEmpty(Y0.getForum().getId())) {
+                        } else if (id == R.id.obfuscated_res_0x7f090c46 && ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) && X0 != null && X0.getForum() != null && !TextUtils.isEmpty(X0.getForum().getId())) {
                             UrlManager urlManager = UrlManager.getInstance();
                             TbPageContext<?> p = this.a.a.p();
-                            urlManager.dealOneLink(p, new String[]{TbConfig.URL_FORUM_MANAGER_APPLY + Y0.getForum().getId()});
+                            urlManager.dealOneLink(p, new String[]{TbConfig.URL_FORUM_MANAGER_APPLY + X0.getForum().getId()});
                         }
                     } else if (!this.a.a.E3() && this.a.i == 0 && this.a.F() && this.a.c != null) {
                         this.a.c.S(view2, false);
                     }
                 } else if (!this.a.a.E3()) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     } else if (ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity())) {
                         if (!this.a.B()) {
                             this.a.y0();
@@ -208,11 +208,11 @@ public class b57 extends v9<BaseFragmentActivity> {
                 }
             } else if (!this.a.a.E3()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                 } else if (!ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity())) {
                     TiebaStatic.log(new StatisticItem("c10517").param("obj_locate", 1).param("fid", this.a.a.l()));
                 } else {
-                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f0910b5);
+                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f0910c8);
                     if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) {
                         h27.d(this.a.a.l(), this.a.a.e());
                     }
@@ -450,12 +450,12 @@ public class b57 extends v9<BaseFragmentActivity> {
 
     public void c0(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && this.a.Q0() != null && this.a.Q0().e0() != null) {
-            int M = this.a.Q0().e0().M();
-            int J = this.a.Q0().e0().J();
-            int H = this.a.Q0().e0().H();
-            mz8 i = mz8.i();
-            mz8.i().n(i.g("1~" + str, M, J, H), false);
+        if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && this.a.P0() != null && this.a.P0().e0() != null) {
+            int M = this.a.P0().e0().M();
+            int J = this.a.P0().e0().J();
+            int H = this.a.P0().e0().H();
+            q09 i = q09.i();
+            q09.i().n(i.g("1~" + str, M, J, H), false);
         }
     }
 
@@ -613,7 +613,7 @@ public class b57 extends v9<BaseFragmentActivity> {
         }
     }
 
-    public void u0(List<uz8> list) {
+    public void u0(List<y09> list) {
         n57 n57Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048618, this, list) == null) && (n57Var = this.c) != null) {

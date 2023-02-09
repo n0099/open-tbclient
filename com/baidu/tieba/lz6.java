@@ -514,9 +514,9 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             this.c.setNextPage(this.g);
-            this.g.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.g.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.E(null);
-            this.g.S();
+            this.g.T();
         }
     }
 
@@ -806,7 +806,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
 
     public void H(String str) {
         ThreadData threadData;
-        e19 e19Var;
+        i29 i29Var;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || ListUtils.isEmpty(this.h.l())) {
             return;
@@ -819,8 +819,8 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
             Cdo next = it.next();
             if (StringUtils.isNull(str)) {
                 if (!(next instanceof yu5) && !(next instanceof sx5)) {
-                    if ((next instanceof wz4) && (threadData = ((wz4) next).t) != null && (e19Var = threadData.funAdData) != null) {
-                        e19Var.p(true);
+                    if ((next instanceof wz4) && (threadData = ((wz4) next).t) != null && (i29Var = threadData.funAdData) != null) {
+                        i29Var.p(true);
                         it.remove();
                     }
                 } else {
@@ -966,7 +966,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
     public final void u(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, view2) == null) {
-            TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bc7);
+            TabLayout tabLayout = (TabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bd8);
             this.f = tabLayout;
             tabLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0);
             this.f.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) new e(this));
@@ -991,7 +991,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             this.c.setNextPage(this.g);
-            this.g.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.g.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.E(this.r);
             this.g.g();
             this.g.F(this.a.getResources().getString(R.string.list_click_load_more));
@@ -1002,7 +1002,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             this.c.setNextPage(this.g);
-            this.g.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.g.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.g.E(null);
             this.g.g();
             this.g.F(this.a.getResources().getString(R.string.list_has_no_more));
@@ -1092,7 +1092,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
                     J(intValue, this.f, false);
                     this.a.m2(this.o);
                     ed6.b().e(false);
-                    iz8.g().h(this.a.getUniqueId(), false);
+                    m09.g().h(this.a.getUniqueId(), false);
                 }
             }
             S(tab);
@@ -1134,7 +1134,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
     public final void w() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && this.e == null) {
-            TabLayout tabLayout = (TabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0316, (ViewGroup) null);
+            TabLayout tabLayout = (TabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0318, (ViewGroup) null);
             this.e = tabLayout;
             tabLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) - (this.q / 2), 0);
             this.e.setLayoutParams(new RecyclerView.LayoutParams(-1, ej.g(this.a.getContext(), R.dimen.tbds126)));
@@ -1147,9 +1147,9 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
     public final void x(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048620, this, view2, z) == null) {
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bc6);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bd7);
             u(view2);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090bc8);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090bd9);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
             this.c.setFadingEdgeLength(0);
@@ -1168,7 +1168,7 @@ public class lz6 implements TabLayout.OnTabSelectedListener {
             this.g.H(SkinManager.getColor(R.color.CAM_X0107));
             this.g.D(R.color.CAM_X0110);
             this.c.setOnSrollToBottomListener(this.a);
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c27);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c38);
             this.h = new mz6(this.a, this.c);
             L(false);
             this.a.registerListener(this.t);

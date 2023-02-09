@@ -1,100 +1,129 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.Canvas;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import com.opensource.svgaplayer.SVGAVideoEntity;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class f9a {
+public class f9a {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<f9a> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public g9a a;
-    public String b;
-    public Context c;
+    public final s9a a;
+    public final SVGAVideoEntity b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947720347, "Lcom/baidu/tieba/f9a;")) == null) {
-            return;
+    /* loaded from: classes4.dex */
+    public final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final n9a b;
+
+        public a(f9a f9aVar, String str, n9a n9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f9aVar, str, n9aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = n9aVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public final n9a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (n9a) invokeV.objValue;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947720347, "Lcom/baidu/tieba/f9a;");
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public f9a(Context context, String str) {
+    public f9a(SVGAVideoEntity sVGAVideoEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {sVGAVideoEntity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        k9a.b();
-        this.a = new g9a(context, str);
-        this.b = str;
-        this.c = context;
+        this.b = sVGAVideoEntity;
+        this.a = new s9a();
     }
 
-    public static f9a b(Context context, String str) {
-        InterceptResult invokeLL;
-        f9a f9aVar;
-        f9a f9aVar2;
+    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<f9a> softReference = d;
-                if (softReference == null) {
-                    f9aVar = null;
-                } else {
-                    f9aVar = softReference.get();
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
+            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
+        }
+    }
+
+    public final s9a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (s9a) invokeV.objValue;
+    }
+
+    public final SVGAVideoEntity c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (SVGAVideoEntity) invokeV.objValue;
+    }
+
+    public final List<a> d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            List<m9a> g = this.b.g();
+            ArrayList arrayList = new ArrayList();
+            for (m9a m9aVar : g) {
+                a aVar = null;
+                if (i >= 0 && i < m9aVar.a().size() && m9aVar.a().get(i).a() > 0.0d) {
+                    aVar = new a(this, m9aVar.b(), m9aVar.a().get(i));
                 }
-                if (f9aVar == null || !str.equals(f9aVar.b)) {
-                    synchronized (f9a.class) {
-                        f9aVar2 = new f9a(context, str);
-                        d = new SoftReference<>(f9aVar2);
-                    }
-                    return f9aVar2;
+                if (aVar != null) {
+                    arrayList.add(aVar);
                 }
-                return f9aVar;
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
+            return arrayList;
         }
-        return (f9a) invokeLL.objValue;
-    }
-
-    public final void a(Activity activity, d9a d9aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, d9aVar) == null) {
-            this.a.c(activity, "123", d9aVar);
-        }
-    }
-
-    public final void c(int i, int i2, Intent intent, d9a d9aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, d9aVar}) == null) {
-            this.a.d(i, i2, intent, d9aVar);
-        }
+        return (List) invokeI.objValue;
     }
 }

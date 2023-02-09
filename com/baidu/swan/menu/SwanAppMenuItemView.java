@@ -199,11 +199,11 @@ public class SwanAppMenuItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setGravity(49);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d008c, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09018b);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09018e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09018d);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09018c);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d008d, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09018d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090190);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09018f);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09018e);
             setBackgroundResource(0);
         }
     }
@@ -241,7 +241,7 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return;
                 }
                 this.c.setVisibility(8);
-                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811ce));
+                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e4));
                 this.d.setVisibility(0);
                 return;
             } else if (i <= 0) {
@@ -249,8 +249,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
             } else {
                 this.d.setVisibility(8);
                 this.c.setText(a(ef4Var.e()));
-                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a90));
-                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811cd));
+                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a91));
+                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e3));
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
                 marginLayoutParams.leftMargin = c(i);
                 this.c.setLayoutParams(marginLayoutParams);

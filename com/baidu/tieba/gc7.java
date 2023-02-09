@@ -210,7 +210,7 @@ public class gc7 implements qb7, View.OnClickListener, iv4 {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
             this.u.setLayoutParams(layoutParams2);
-            this.u.setText(R.string.obfuscated_res_0x7f0f0a85);
+            this.u.setText(R.string.obfuscated_res_0x7f0f0a8f);
             this.u.setBackgroundColor(0);
             this.v.addView(this.u);
         }
@@ -303,20 +303,20 @@ public class gc7 implements qb7, View.OnClickListener, iv4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (tbPageContext = this.a) != null && tbPageContext.getPageActivity() != null) {
             this.a.getPageActivity().setContentView(k());
-            this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090e1b);
-            this.k = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090e21);
-            this.l = (NavigationBar) k().findViewById(R.id.obfuscated_res_0x7f0913da);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) k().findViewById(R.id.obfuscated_res_0x7f091656);
+            this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090e2c);
+            this.k = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090e32);
+            this.l = (NavigationBar) k().findViewById(R.id.obfuscated_res_0x7f0913ef);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) k().findViewById(R.id.obfuscated_res_0x7f09166c);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.m.setFadingEdgeLength(0);
             o(this.e);
-            AppBarLayout appBarLayout = (AppBarLayout) k().findViewById(R.id.obfuscated_res_0x7f0913d7);
+            AppBarLayout appBarLayout = (AppBarLayout) k().findViewById(R.id.obfuscated_res_0x7f0913ec);
             this.t = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.w);
-            this.q = (CollapsingToolbarLayout) k().findViewById(R.id.obfuscated_res_0x7f0913d8);
-            this.r = k().findViewById(R.id.obfuscated_res_0x7f091766);
-            this.s = k().findViewById(R.id.obfuscated_res_0x7f09176c);
+            this.q = (CollapsingToolbarLayout) k().findViewById(R.id.obfuscated_res_0x7f0913ed);
+            this.r = k().findViewById(R.id.obfuscated_res_0x7f09177f);
+            this.s = k().findViewById(R.id.obfuscated_res_0x7f091785);
             m();
             ub7 ub7Var = new ub7(this.a, this.m);
             this.d = ub7Var;

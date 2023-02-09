@@ -1,51 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
 /* loaded from: classes6.dex */
-public class ww8 implements yw8 {
+public class ww8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vw8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public ww8(int i, int i2) {
+    public static synchronized vw8 a() {
+        InterceptResult invokeV;
+        vw8 vw8Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ww8.class) {
+                if (a == null) {
+                    a = new vw8();
+                }
+                vw8Var = a;
             }
+            return vw8Var;
         }
-        this.a = i;
-        this.b = i2;
-    }
-
-    @Override // com.baidu.tieba.yw8
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if (networkStatRecord == null) {
-                return false;
-            }
-            if ((networkStatRecord.from == 3 && sv4.e()) || new Random().nextInt(this.b) >= this.a) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (vw8) invokeV.objValue;
     }
 }

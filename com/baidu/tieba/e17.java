@@ -211,10 +211,10 @@ public class e17 extends g17 {
     }
 
     public void h(int i) {
-        FrsViewData Y0;
+        FrsViewData X0;
         ArrayList<Cdo> threadList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (Y0 = this.b.Y0()) != null && this.a != null && (threadList = Y0.getThreadList()) != null) {
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (X0 = this.b.X0()) != null && this.a != null && (threadList = X0.getThreadList()) != null) {
             Iterator<Cdo> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -234,7 +234,7 @@ public class e17 extends g17 {
                     }
                 }
             }
-            this.a.a0().g(threadList, Y0);
+            this.a.a0().g(threadList, X0);
             this.a.a0().notifyDataSetChanged();
         }
     }

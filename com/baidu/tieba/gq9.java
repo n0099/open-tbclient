@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.JsonWriter;
-import java.io.IOException;
-import org.json.JSONException;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface gq9 {
-    JSONObject a() throws JSONException;
+    boolean a(JSONObject jSONObject, boolean z, boolean z2);
 
-    void b(JsonWriter jsonWriter) throws IOException;
+    boolean b(File file, long j, boolean z, boolean z2);
 }

@@ -31,10 +31,10 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
     public final String a;
     public final String b;
     public List<String> c;
-    public zr8 d;
+    public dt8 d;
     public List<AdvertAppInfo> e;
     public boolean f;
-    public sq8 g;
+    public wr8 g;
     public boolean h;
     public long i;
     public int j;
@@ -64,9 +64,9 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
         this.f = z2;
         this.m = tbPageContext;
         try {
-            zr8 zr8Var = (zr8) mr8.l().h(IAdBaseAsyncController.Type.PIC_PAGE, this);
-            this.d = zr8Var;
-            zr8Var.h(tbPageContext, hVar, z);
+            dt8 dt8Var = (dt8) qs8.l().h(IAdBaseAsyncController.Type.PIC_PAGE, this);
+            this.d = dt8Var;
+            dt8Var.h(tbPageContext, hVar, z);
         } catch (ClassCastException e) {
             if (sv4.e()) {
                 throw new RuntimeException(e);
@@ -125,9 +125,9 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
             e(advertAppInfo, mv7.i(this.c), true);
-            sq8 sq8Var = this.g;
-            if (sq8Var != null) {
-                sq8Var.a(null);
+            wr8 wr8Var = this.g;
+            if (wr8Var != null) {
+                wr8Var.a(null);
             }
         }
     }
@@ -222,10 +222,10 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
         }
         boolean z2 = false;
         int i3 = mv7.i(this.c);
-        String f = qq8.f(advertAppInfo);
+        String f = ur8.f(advertAppInfo);
         if (i >= i3) {
             String str = (String) mv7.d(this.c, i3 - 1);
-            if (!qq8.j(str) && (z || !this.d.n())) {
+            if (!ur8.j(str) && (z || !this.d.n())) {
                 if (StringUtils.isNotNull(str) && str.startsWith("####mLiveRoomPageProvider")) {
                     TiebaStatic.log(new StatisticItem("c15097").param("obj_type", "a008"));
                     this.d.k(advertAppInfo);
@@ -245,7 +245,7 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
             i2 = (int) (i + this.i);
         }
         advertAppInfo.position = i2;
-        if (qq8.l(advertAppInfo)) {
+        if (ur8.l(advertAppInfo)) {
             if (i >= i3) {
                 this.d.k(advertAppInfo);
             }
@@ -285,9 +285,9 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
                     it.remove();
                 }
             }
-            sq8 sq8Var = this.g;
-            if (sq8Var != null) {
-                sq8Var.a(null);
+            wr8 wr8Var = this.g;
+            if (wr8Var != null) {
+                wr8Var.a(null);
             }
         }
     }
@@ -313,14 +313,14 @@ public class dp7 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
         return invokeV.booleanValue;
     }
 
-    public void n(@Nullable sq8 sq8Var) {
+    public void n(@Nullable wr8 wr8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, sq8Var) != null) || !this.f) {
+        if ((interceptable != null && interceptable.invokeL(1048589, this, wr8Var) != null) || !this.f) {
             return;
         }
         AdvertAppInfo.v.set(true);
         this.h = false;
-        this.g = sq8Var;
+        this.g = wr8Var;
         this.d.l();
         wn5 wn5Var = new wn5();
         wn5Var.c = this.a;

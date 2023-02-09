@@ -104,7 +104,7 @@ public class gs6 {
     public GifView O;
     public TbImageView P;
     public HashSet<String> Q;
-    public bo8 R;
+    public fp8 R;
     public int S;
     public int T;
     public View U;
@@ -116,7 +116,7 @@ public class gs6 {
     public FrsFragment a;
     public boolean a0;
     public NoPressedRelativeLayout b;
-    public p99 b0;
+    public ta9 b0;
     public CoordinatorLayout c;
     public AppBarLayout c0;
     public View d;
@@ -154,7 +154,7 @@ public class gs6 {
     public PbListView t;
     public bo t0;
     public BdTypeRecyclerView u;
-    public ag9 u0;
+    public eh9 u0;
     public rw6 v;
     public CustomMessageListener v0;
     public e57 w;
@@ -338,7 +338,7 @@ public class gs6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092311)).setText(R.string.obfuscated_res_0x7f0f07b9);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(R.string.obfuscated_res_0x7f0f07c2);
                 this.a.a.getPageContext().getLayoutMode().k(inflate);
                 return inflate;
             }
@@ -1116,10 +1116,10 @@ public class gs6 {
     }
 
     public void Z0(boolean z) {
-        ag9 ag9Var;
+        eh9 eh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048639, this, z) == null) && z && (ag9Var = this.u0) != null) {
-            ag9Var.i(2000);
+        if ((interceptable == null || interceptable.invokeZ(1048639, this, z) == null) && z && (eh9Var = this.u0) != null) {
+            eh9Var.i(2000);
         }
     }
 
@@ -1273,14 +1273,14 @@ public class gs6 {
                 this.t.F(this.a.getResources().getString(R.string.load_more));
                 BdTypeRecyclerView bdTypeRecyclerView = this.u;
                 if (bdTypeRecyclerView.getChildAt(bdTypeRecyclerView.getChildCount() - 1) == this.t.c()) {
-                    this.t.S();
+                    this.t.T();
                     this.a.b();
                     return;
                 }
                 this.t.g();
                 return;
             }
-            this.t.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ae4));
+            this.t.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aee));
             this.t.g();
         }
     }
@@ -1316,7 +1316,7 @@ public class gs6 {
                 if (this.K == null) {
                     this.K = new CommonTipView(this.a.getActivity());
                 }
-                this.K.setText(R.string.obfuscated_res_0x7f0f0777);
+                this.K.setText(R.string.obfuscated_res_0x7f0f0780);
                 FrameLayout v0 = v0();
                 if (v0 != null) {
                     this.K.j(v0, TbadkCoreApplication.getInst().getSkinType());
@@ -1514,10 +1514,10 @@ public class gs6 {
     }
 
     public void S0() {
-        ag9 ag9Var;
+        eh9 eh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048618, this) == null) && (ag9Var = this.u0) != null) {
-            ag9Var.d();
+        if ((interceptable == null || interceptable.invokeV(1048618, this) == null) && (eh9Var = this.u0) != null) {
+            eh9Var.d();
         }
     }
 
@@ -1549,10 +1549,10 @@ public class gs6 {
             this.u.setNextPage(this.t);
             int i2 = this.I;
             if (i2 > 0) {
-                this.t.N(i2);
+                this.t.O(i2);
             }
             this.t.E(null);
-            this.t.S();
+            this.t.T();
         }
     }
 
@@ -1801,7 +1801,7 @@ public class gs6 {
             if (this.G) {
                 return false;
             }
-            this.t.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ae4));
+            this.t.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aee));
             this.t.g();
             return true;
         }
@@ -1849,13 +1849,13 @@ public class gs6 {
         return invokeV.intValue;
     }
 
-    public bo8 o0() {
+    public fp8 o0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
             return this.R;
         }
-        return (bo8) invokeV.objValue;
+        return (fp8) invokeV.objValue;
     }
 
     public TextView p0() {
@@ -1967,8 +1967,8 @@ public class gs6 {
             return;
         }
         View L3 = this.a.L3();
-        this.O = (GifView) L3.findViewById(R.id.obfuscated_res_0x7f090d36);
-        TbImageView tbImageView = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f092202);
+        this.O = (GifView) L3.findViewById(R.id.obfuscated_res_0x7f090d47);
+        TbImageView tbImageView = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f092248);
         this.P = tbImageView;
         tbImageView.setPageId(this.a.getUniqueId());
         this.O.setLayerType(1, null);
@@ -1983,7 +1983,7 @@ public class gs6 {
             this.t.E(this.y);
             int i2 = this.I;
             if (i2 > 0) {
-                this.t.N(i2);
+                this.t.O(i2);
             }
             this.t.g();
             this.t.F(this.a.getResources().getString(R.string.list_click_load_more));
@@ -2008,7 +2008,7 @@ public class gs6 {
             this.u.setNextPage(this.t);
             int i2 = this.I;
             if (i2 > 0) {
-                this.t.N(i2);
+                this.t.O(i2);
             }
             this.t.E(null);
             this.t.g();
@@ -2086,35 +2086,35 @@ public class gs6 {
             this.Z = tw6Var;
             View L3 = this.a.L3();
             if (this.b == null) {
-                this.b = (NoPressedRelativeLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b61);
+                this.b = (NoPressedRelativeLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b72);
             }
             if (this.d == null) {
-                this.d = L3.findViewById(R.id.obfuscated_res_0x7f090b98);
+                this.d = L3.findViewById(R.id.obfuscated_res_0x7f090ba9);
             }
             if (this.c == null) {
-                this.c = (CoordinatorLayout) L3.findViewById(R.id.obfuscated_res_0x7f090c4d);
+                this.c = (CoordinatorLayout) L3.findViewById(R.id.obfuscated_res_0x7f090c5e);
             }
             if (this.E == null) {
-                this.E = L3.findViewById(R.id.obfuscated_res_0x7f090c27);
+                this.E = L3.findViewById(R.id.obfuscated_res_0x7f090c38);
             }
             if (this.F == null) {
-                this.F = (FrameLayout) L3.findViewById(R.id.obfuscated_res_0x7f090c94);
+                this.F = (FrameLayout) L3.findViewById(R.id.obfuscated_res_0x7f090ca5);
             }
             if (this.f0 == null) {
-                this.f0 = (CollapsingToolbarLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b96);
+                this.f0 = (CollapsingToolbarLayout) L3.findViewById(R.id.obfuscated_res_0x7f090ba7);
             }
             if (this.e0 == null) {
-                this.e0 = (FrsHeaderViewContainer) L3.findViewById(R.id.obfuscated_res_0x7f090e28);
+                this.e0 = (FrsHeaderViewContainer) L3.findViewById(R.id.obfuscated_res_0x7f090e39);
             }
             if (this.w == null) {
                 this.w = new e57(this.a);
             }
             if (this.W == null) {
-                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) L3.findViewById(R.id.obfuscated_res_0x7f091751);
+                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) L3.findViewById(R.id.obfuscated_res_0x7f091769);
                 this.W = observedChangeLinearLayout;
                 observedChangeLinearLayout.setOnSizeChangeListener(new j(this));
                 if (this.X == null) {
-                    this.X = (FrsTopBarGroupEntranceGuideView) this.W.findViewById(R.id.obfuscated_res_0x7f0923bc);
+                    this.X = (FrsTopBarGroupEntranceGuideView) this.W.findViewById(R.id.obfuscated_res_0x7f092406);
                 }
             }
             this.C.h(this.a, L3, this.y);
@@ -2128,7 +2128,7 @@ public class gs6 {
                 this.B.setVisibility(8);
             }
             if (this.D == null) {
-                this.D = L3.findViewById(R.id.obfuscated_res_0x7f090c4c);
+                this.D = L3.findViewById(R.id.obfuscated_res_0x7f090c5d);
                 uw6 c2 = tw6Var.c();
                 if (c2 != null) {
                     c2.b(this.D);
@@ -2157,7 +2157,7 @@ public class gs6 {
                 }
             }
             if (this.l == null) {
-                TextView textView = (TextView) this.B.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.obfuscated_res_0x7f0d0349, (View.OnClickListener) null);
+                TextView textView = (TextView) this.B.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.obfuscated_res_0x7f0d034b, (View.OnClickListener) null);
                 this.l = textView;
                 textView.setVisibility(8);
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_arrow12_white);
@@ -2172,7 +2172,7 @@ public class gs6 {
                 SkinManager.setBackgroundColor(this.B.getBottomLine(), R.color.CAM_X0204);
             }
             if (this.u == null) {
-                this.u = (BdTypeRecyclerView) L3.findViewById(R.id.obfuscated_res_0x7f090c31);
+                this.u = (BdTypeRecyclerView) L3.findViewById(R.id.obfuscated_res_0x7f090c42);
             }
             k kVar = new k(this);
             kVar.setSupportsChangeAnimations(false);
@@ -2238,26 +2238,26 @@ public class gs6 {
                 t1(true);
             }
             if (this.U == null) {
-                this.U = L3.findViewById(R.id.obfuscated_res_0x7f092085);
+                this.U = L3.findViewById(R.id.obfuscated_res_0x7f0920ca);
             }
             if (this.V == null) {
-                this.V = L3.findViewById(R.id.obfuscated_res_0x7f092086);
+                this.V = L3.findViewById(R.id.obfuscated_res_0x7f0920cb);
             }
             if (this.R == null) {
-                this.R = new bo8(this.a.getPageContext(), this.u);
+                this.R = new fp8(this.a.getPageContext(), this.u);
             }
             this.R.p(2);
             this.R.u(this.a.getUniqueId());
             if (this.u0 == null) {
-                this.u0 = new ag9(this.a.getPageContext(), this.u);
+                this.u0 = new eh9(this.a.getPageContext(), this.u);
             }
-            NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) L3.findViewById(R.id.obfuscated_res_0x7f091753);
+            NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) L3.findViewById(R.id.obfuscated_res_0x7f09176b);
             this.n0 = navigationBarCoverTip;
             if (this.N == null) {
                 this.N = new g57(this.a, navigationBarCoverTip);
             }
             if (this.c0 == null) {
-                AppBarLayout appBarLayout = (AppBarLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b74);
+                AppBarLayout appBarLayout = (AppBarLayout) L3.findViewById(R.id.obfuscated_res_0x7f090b85);
                 this.c0 = appBarLayout;
                 appBarLayout.addOnOffsetChangedListener(this.w0);
                 this.g0 = true;
@@ -2267,19 +2267,19 @@ public class gs6 {
                     this.d0 = (AppBarLayoutStickyBehavior) layoutParams.getBehavior();
                 }
             }
-            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) L3.findViewById(R.id.obfuscated_res_0x7f090c45);
+            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) L3.findViewById(R.id.obfuscated_res_0x7f090c56);
             this.l0 = frsMultiDelBottomMenuView;
             frsMultiDelBottomMenuView.setPageContext(this.a.getPageContext());
-            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) L3.findViewById(R.id.obfuscated_res_0x7f090c42);
+            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) L3.findViewById(R.id.obfuscated_res_0x7f090c53);
             this.m0 = frsMoveAreaBottomMenuView;
             frsMoveAreaBottomMenuView.setPageContext(this.a.getPageContext());
             if (this.p0 == null) {
                 this.p0 = (TextView) this.C.a(LogicField.FOLD_TITLE);
             }
-            ExposeTagViewCoordinatorLayout exposeTagViewCoordinatorLayout = (ExposeTagViewCoordinatorLayout) L3.findViewById(R.id.obfuscated_res_0x7f090c4d);
+            ExposeTagViewCoordinatorLayout exposeTagViewCoordinatorLayout = (ExposeTagViewCoordinatorLayout) L3.findViewById(R.id.obfuscated_res_0x7f090c5e);
             this.r = exposeTagViewCoordinatorLayout;
             exposeTagViewCoordinatorLayout.setListener(new o(this));
-            FrsTabViewPager frsTabViewPager = (FrsTabViewPager) L3.findViewById(R.id.obfuscated_res_0x7f090ca9);
+            FrsTabViewPager frsTabViewPager = (FrsTabViewPager) L3.findViewById(R.id.obfuscated_res_0x7f090cba);
             this.s = frsTabViewPager;
             frsTabViewPager.addOnPageChangeListener(new p(this));
         }
@@ -2297,8 +2297,8 @@ public class gs6 {
             ArrayList<Cdo> arrayList2 = new ArrayList<>();
             arrayList2.add(is6Var);
             FrsFragment frsFragment = this.a;
-            if (frsFragment != null && frsFragment.Q0() != null && this.a.Q0().g0() == 0) {
-                is6Var.b(this.a.Q0().b0());
+            if (frsFragment != null && frsFragment.P0() != null && this.a.P0().g0() == 0) {
+                is6Var.b(this.a.P0().b0());
             }
             switchThreadDataToThreadCardInfo = arrayList2;
         }
@@ -2311,9 +2311,9 @@ public class gs6 {
             }
         }
         this.v.g(switchThreadDataToThreadCardInfo, frsViewData);
-        bo8 bo8Var = this.R;
-        if (bo8Var != null && (i2 = this.S) != 0) {
-            bo8Var.n(i2, this.T, this.J, true);
+        fp8 fp8Var = this.R;
+        if (fp8Var != null && (i2 = this.S) != 0) {
+            fp8Var.n(i2, this.T, this.J, true);
         }
         FrsFragment frsFragment2 = this.a;
         if (frsFragment2 != null) {
@@ -2323,9 +2323,9 @@ public class gs6 {
         if (frsMultiDelBottomMenuView != null) {
             frsMultiDelBottomMenuView.setFrsViewData(frsViewData);
         }
-        ag9 ag9Var = this.u0;
-        if (ag9Var != null) {
-            ag9Var.i(2000);
+        eh9 eh9Var = this.u0;
+        if (eh9Var != null) {
+            eh9Var.i(2000);
         }
     }
 
@@ -2421,7 +2421,7 @@ public class gs6 {
                 return;
             }
             if (this.b0 == null) {
-                this.b0 = new p99(this.a.getActivity(), this.b);
+                this.b0 = new ta9(this.a.getActivity(), this.b);
             }
             this.b0.g(postWriteCallBackData);
         }
@@ -2540,12 +2540,12 @@ public class gs6 {
         if (interceptable == null || interceptable.invokeL(1048616, this, f05Var) == null) {
             if (this.n == null) {
                 View L3 = this.a.L3();
-                ViewStub viewStub = (ViewStub) L3.findViewById(R.id.obfuscated_res_0x7f0927e0);
+                ViewStub viewStub = (ViewStub) L3.findViewById(R.id.obfuscated_res_0x7f092841);
                 this.n = viewStub;
                 viewStub.setVisibility(0);
-                this.o = (FrameLayout) L3.findViewById(R.id.obfuscated_res_0x7f090ce7);
-                this.p = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f090ce6);
-                this.q = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f090ce8);
+                this.o = (FrameLayout) L3.findViewById(R.id.obfuscated_res_0x7f090cf8);
+                this.p = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f090cf7);
+                this.q = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f090cf9);
                 this.p.setPageId(this.a.getUniqueId());
                 this.q.setPageId(this.a.getUniqueId());
                 this.p.setDefaultBgResource(R.color.common_color_10022);
@@ -2656,18 +2656,18 @@ public class gs6 {
     public void T0(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048621, this, i2, i3) == null) {
-            ag9 ag9Var = this.u0;
-            if (ag9Var != null) {
-                ag9Var.i(100);
+            eh9 eh9Var = this.u0;
+            if (eh9Var != null) {
+                eh9Var.i(100);
             }
             if (this.u0 != null && !K0()) {
                 this.u0.g();
             }
-            bo8 bo8Var = this.R;
-            if (bo8Var == null) {
+            fp8 fp8Var = this.R;
+            if (fp8Var == null) {
                 return;
             }
-            bo8Var.m(i2, i3, this.J, 1);
+            fp8Var.m(i2, i3, this.J, 1);
             this.R.p(2);
             this.R.q(false);
         }
@@ -2679,7 +2679,7 @@ public class gs6 {
             String[] strArr = {this.a.getPageContext().getPageActivity().getString(R.string.take_photo), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0256)};
             l05 l05Var = new l05(this.a.getPageContext().getPageActivity());
             this.x = l05Var;
-            l05Var.l(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dc6));
+            l05Var.l(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0dd2));
             this.x.j(strArr, new b(this));
             this.x.c(this.a.getPageContext());
         }
@@ -2689,9 +2689,9 @@ public class gs6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.v0);
-            bo8 bo8Var = this.R;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.R;
+            if (fp8Var != null) {
+                fp8Var.h();
             }
             g57 g57Var = this.N;
             if (g57Var != null) {
@@ -2718,9 +2718,9 @@ public class gs6 {
             if (x47Var != null) {
                 x47Var.r();
             }
-            p99 p99Var = this.b0;
-            if (p99Var != null) {
-                p99Var.e();
+            ta9 ta9Var = this.b0;
+            if (ta9Var != null) {
+                ta9Var.e();
             }
             NavigationBarCoverTip navigationBarCoverTip = this.n0;
             if (navigationBarCoverTip != null) {
@@ -2780,7 +2780,7 @@ public class gs6 {
         for (Cdo cdo : f2) {
             if (cdo instanceof wz4) {
                 wz4 wz4Var = (wz4) cdo;
-                if (wz4Var.u != 0 && wz4Var.t != null && this.a.Q0() != null && this.a.Q0().o0() != null) {
+                if (wz4Var.u != 0 && wz4Var.t != null && this.a.P0() != null && this.a.P0().o0() != null) {
                     int[] imageWidthAndHeight = wz4Var.t.getImageWidthAndHeight();
                     wz4Var.u = imageWidthAndHeight[0];
                     wz4Var.v = imageWidthAndHeight[1];

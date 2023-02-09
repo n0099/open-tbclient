@@ -514,7 +514,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public final int P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.k;
         }
         return invokeV.intValue;
@@ -803,7 +803,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void a0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             this.f = -1;
             this.g = null;
             this.l = false;
@@ -1169,9 +1169,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return invokeL.booleanValue;
     }
 
-    public void Z0(Menu menu) {
+    public void a1(Menu menu) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048611, this, menu) == null) && !this.z) {
+        if ((interceptable == null || interceptable.invokeL(1048612, this, menu) == null) && !this.z) {
             if (this.D && this.E) {
                 G0(menu);
             }
@@ -1308,9 +1308,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return (LayoutInflater) invokeL.objValue;
     }
 
-    public void O0(Bundle bundle) {
+    public void P0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, bundle) == null) {
             tm4 tm4Var = this.u;
             if (tm4Var != null) {
                 tm4Var.V();

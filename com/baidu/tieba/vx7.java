@@ -54,7 +54,7 @@ public class vx7 {
             if (!StringUtils.isNull(str)) {
                 this.d.setText(str);
             } else {
-                this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0930));
+                this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093a));
             }
         }
     }
@@ -77,9 +77,9 @@ public class vx7 {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, rx7Var, i)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c9, (ViewGroup) null);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092248);
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f85);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07db, (ViewGroup) null);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09228e);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090f96);
             if (rx7Var != null) {
                 int c = rx7Var.c();
                 imageView.setVisibility(0);
@@ -88,7 +88,7 @@ public class vx7 {
                 textView.setText(e(rx7Var.b(), 8));
                 linearLayout.setTag(rx7Var);
             } else {
-                textView.setText(R.string.obfuscated_res_0x7f0f0905);
+                textView.setText(R.string.obfuscated_res_0x7f0f090f);
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
                 imageView.setVisibility(8);
             }
@@ -136,15 +136,15 @@ public class vx7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c8, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07da, (ViewGroup) null);
             this.c = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092319);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092360);
             this.e = findViewById;
             findViewById.setVisibility(0);
-            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091f05);
-            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092063);
+            this.b = (TableLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091f48);
+            TextView textView = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a7);
             this.d = textView;
-            textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0930));
+            textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f093a));
             return this.c;
         }
         return (View) invokeV.objValue;
@@ -161,7 +161,7 @@ public class vx7 {
                 return str;
             }
             String substring = str.substring(0, i - 1);
-            return substring + this.a.getString(R.string.obfuscated_res_0x7f0f0575);
+            return substring + this.a.getString(R.string.obfuscated_res_0x7f0f0578);
         }
         return (String) invokeLI.objValue;
     }

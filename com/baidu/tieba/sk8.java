@@ -1,81 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sk8 extends qn<lm8, CardViewHolder<on8>> {
+public class sk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View.OnClickListener b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sk8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static void a(ik8 ik8Var, TbPageContext<?> tbPageContext) {
+        Uri parse;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, ik8Var, tbPageContext) == null) && ik8Var != null && tbPageContext != null) {
+            int i = ik8Var.m;
+            boolean z = false;
+            if (i == 1) {
+                if (!TextUtils.isEmpty(ik8Var.g)) {
+                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{ik8Var.g});
+                }
+            } else if (i == 2) {
+                if (!TextUtils.isEmpty(ik8Var.g) && (parse = Uri.parse(ik8Var.g)) != null) {
+                    String queryParameter = parse.getQueryParameter("paramfromna");
+                    if (!TextUtils.isEmpty(queryParameter)) {
+                        ik8Var.g = b(ik8Var.g, queryParameter);
+                    }
+                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
+                        str = parse.getQueryParameter("title");
+                        z = true;
+                    } else {
+                        str = "";
+                    }
+                    BrowserHelper.A(z, tbPageContext.getPageActivity(), str, ik8Var.g);
+                }
+            } else if (i == 3 && !TextUtils.isEmpty(ik8Var.g)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ik8Var.g));
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public CardViewHolder<on8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new on8(this.a));
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b = onClickListener;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lm8 lm8Var, CardViewHolder<on8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lm8Var, cardViewHolder})) == null) {
-            if (lm8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().i(lm8Var);
-                if (cardViewHolder.a().h() != null) {
-                    cardViewHolder.a().h().setOnClickListener(this.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
+                StringBuilder sb = new StringBuilder(str);
+                boolean z = false;
+                for (String str3 : split) {
+                    if ("skin".equalsIgnoreCase(str3)) {
+                        sb.append("&skin=");
+                        sb.append(SkinManager.getCurrentSkinTypeString());
+                    } else if ("user_id".equalsIgnoreCase(str3)) {
+                        sb.append("&user_id=");
+                        sb.append(TbadkCoreApplication.getCurrentAccountId());
+                    } else if ("comparams".equalsIgnoreCase(str3)) {
+                        z = true;
+                    }
                 }
-                return cardViewHolder.a().h();
+                if (z) {
+                    return lj5.g(sb.toString());
+                }
+                return sb.toString();
             }
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeLL.objValue;
     }
 }

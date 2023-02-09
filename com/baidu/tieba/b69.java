@@ -2,8 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,15 +12,16 @@ public class b69 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final z49 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b69(MainTabActivity mainTabActivity, v39 v39Var) {
-        super(2016493);
+    public b69(MainTabActivity mainTabActivity, z49 z49Var) {
+        super(2921348);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, v39Var};
+            Object[] objArr = {mainTabActivity, z49Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,19 +33,19 @@ public class b69 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = z49Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        wa5 wa5Var;
+        z49 z49Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof wa5) && (wa5Var = (wa5) customResponsedMessage.getData()) != null && !StringUtils.isNull(wa5Var.a)) {
-            no5.h(wa5Var);
-            if (StringUtils.isNull(wa5Var.c)) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{wa5Var.a});
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean) && (z49Var = this.b) != null && z49Var.y() != null) {
+            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                this.b.y().getTabWrapper().animate().translationY(this.b.y().getTabWrapper().getHeight()).setDuration(200L).start();
             } else {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{wa5Var.a, wa5Var.c});
+                this.b.y().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
             }
         }
     }

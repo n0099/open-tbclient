@@ -118,7 +118,7 @@ public class o45 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setStroke(g, lz8.a(i, n15.b(this.w)));
+                gradientDrawable.setStroke(g, p09.a(i, n15.b(this.w)));
             }
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(f);

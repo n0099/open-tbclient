@@ -108,24 +108,24 @@ public class FrsBannerAdStatic {
                 return;
             }
             bv5 bv5Var = (bv5) b.getPageActivity();
-            av5 Z0 = bv5Var.Z0(2);
-            if (Z0 == null) {
+            av5 Y0 = bv5Var.Y0(2);
+            if (Y0 == null) {
                 dv5 a = ev5.b().a(2);
                 if (a == null) {
                     return;
                 }
-                Z0 = a.a();
-                bv5Var.x0(2, Z0);
-                Z0.f(new cv5(b), null);
-                if (!(Z0 instanceof uu5)) {
+                Y0 = a.a();
+                bv5Var.x0(2, Y0);
+                Y0.f(new cv5(b), null);
+                if (!(Y0 instanceof uu5)) {
                     return;
                 }
-                ((uu5) Z0).h(new C0218a(this));
+                ((uu5) Y0).h(new C0218a(this));
             }
-            if (!(Z0 instanceof uu5)) {
+            if (!(Y0 instanceof uu5)) {
                 return;
             }
-            uu5 uu5Var = (uu5) Z0;
+            uu5 uu5Var = (uu5) Y0;
             if (iv5Var.a() == 1) {
                 uu5Var.b(iv5Var.g());
                 uu5Var.c(iv5Var.d());

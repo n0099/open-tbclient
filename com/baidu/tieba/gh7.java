@@ -134,7 +134,7 @@ public class gh7 {
                     this.a.b.R(this.a.i);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f1648);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f165f);
                 } else {
                     this.a.c.showToast(str);
                 }
@@ -278,7 +278,7 @@ public class gh7 {
                     return;
                 }
                 this.a.b.Z(null);
-                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.c.showToast(R.string.obfuscated_res_0x7f0f0d08);
             }
         }
     }
@@ -501,9 +501,9 @@ public class gh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i <= 0) {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1649);
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1660);
             } else {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1647, Integer.valueOf(i));
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f165e, Integer.valueOf(i));
             }
             return new y35.i(string, 1000);
         }

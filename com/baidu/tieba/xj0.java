@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface xj0 {
     public static final ServiceReference b = new ServiceReference("nad.core", "deviceInfoInner");
     public static final xj0 c = new a();
 
     String m();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a implements xj0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

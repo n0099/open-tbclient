@@ -61,15 +61,15 @@ public class GameRecommendGameAdapter extends as6<gi6, CardFrsGameRecommendGameH
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09054a);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d0a);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090d09);
-            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d08);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090555);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d1b);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090d1a);
+            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d19);
             this.d = cardFrsGameRecommendGameLayout;
             cardFrsGameRecommendGameLayout.setItemSpace(ej.g(view2.getContext(), R.dimen.tbds27));
             this.d.setItemWidth(ej.g(view2.getContext(), R.dimen.tbds192));
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090856);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090857);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090864);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090865);
         }
     }
 
@@ -181,7 +181,7 @@ public class GameRecommendGameAdapter extends as6<gi6, CardFrsGameRecommendGameH
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d018c, viewGroup, false));
+            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d018d, viewGroup, false));
             cardFrsGameRecommendGameHolder.d.setViewPool(this.m);
             return cardFrsGameRecommendGameHolder;
         }

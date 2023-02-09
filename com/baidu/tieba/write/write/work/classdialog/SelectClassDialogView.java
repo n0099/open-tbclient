@@ -28,7 +28,7 @@ public class SelectClassDialogView extends ViewGroup implements kl5 {
     public wt5<String> b;
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -79,7 +79,7 @@ public class SelectClassDialogView extends ViewGroup implements kl5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01df, this.a, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e0, this.a, true);
             wt5<String> wt5Var = new wt5<>(this.a, true);
             this.b = wt5Var;
             wt5Var.t(9);

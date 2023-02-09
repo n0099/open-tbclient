@@ -174,7 +174,7 @@ public class zf7 {
             hz4 hz4Var2 = this.f;
             hz4Var2.f = recommendForumList.class_name;
             hz4Var2.floorPosition = recommendForumList.floor_position.intValue();
-            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f105b);
+            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f106f);
             this.f.e = R.color.CAM_X0108;
         }
         RecommendUserList recommendUserList = dataRes.recommend_user;
@@ -183,7 +183,7 @@ public class zf7 {
             this.g = lz4Var;
             lz4Var.f(recommendUserList.user_list);
             this.g.floorPosition = recommendUserList.floor_position.intValue();
-            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1072);
+            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1086);
             this.g.b = R.color.CAM_X0108;
         }
         HotTopic hotTopic = dataRes.hot_topic;

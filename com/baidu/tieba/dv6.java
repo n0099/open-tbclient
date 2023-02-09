@@ -44,7 +44,7 @@ public class dv6 {
     public PbListView c;
     public cv6 d;
     public fv6 e;
-    public bo8 f;
+    public fp8 f;
     public RelativeLayout g;
     public xw6 h;
     public boolean i;
@@ -121,10 +121,10 @@ public class dv6 {
                 if (this.a.c != null && this.a.a != null) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
                         this.a.b.setNextPage(this.a.c);
-                        this.a.c.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                        this.a.c.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                         this.a.c.E(null);
                         if (this.a.i) {
-                            this.a.c.P();
+                            this.a.c.Q();
                             this.a.c.E(null);
                             this.a.a.X1();
                             return;
@@ -264,7 +264,7 @@ public class dv6 {
         this.n = new c(this);
         if (frsCommonTabFragment != null && view2 != null) {
             this.a = frsCommonTabFragment;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b97);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ba8);
             this.b = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.b.setFadingEdgeLength(0);
@@ -295,7 +295,7 @@ public class dv6 {
             this.d = new cv6(frsCommonTabFragment2, bdTypeRecyclerView3, frsViewData, z);
             x(false);
             if (this.f == null) {
-                this.f = new bo8(this.a.getPageContext(), this.b);
+                this.f = new fp8(this.a.getPageContext(), this.b);
             }
             this.f.p(2);
             this.f.u(this.a.getUniqueId());
@@ -380,13 +380,13 @@ public class dv6 {
         return invokeV.booleanValue;
     }
 
-    public bo8 i() {
+    public fp8 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.f;
         }
-        return (bo8) invokeV.objValue;
+        return (fp8) invokeV.objValue;
     }
 
     public BdTypeRecyclerView j() {
@@ -401,9 +401,9 @@ public class dv6 {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            bo8 bo8Var = this.f;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.f;
+            if (fp8Var != null) {
+                fp8Var.h();
             }
             cv6 cv6Var = this.d;
             if (cv6Var != null) {
@@ -419,10 +419,10 @@ public class dv6 {
     }
 
     public void p() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (bo8Var = this.f) != null) {
-            bo8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (fp8Var = this.f) != null) {
+            fp8Var.z();
         }
     }
 
@@ -444,10 +444,10 @@ public class dv6 {
     }
 
     public void s() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (bo8Var = this.f) != null) {
-            bo8Var.o();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (fp8Var = this.f) != null) {
+            fp8Var.o();
         }
     }
 
@@ -581,14 +581,14 @@ public class dv6 {
             fv6Var.a = false;
         }
         this.e = fv6Var;
-        this.c.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.c.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         if (this.i) {
             this.b.setNextPage(this.c);
             if (k(fv6Var.c, 3)) {
                 this.c.E(null);
-                this.c.O();
+                this.c.P();
             } else {
-                this.c.O();
+                this.c.P();
                 this.c.E(this.l);
                 this.c.F(this.a.getResources().getString(R.string.list_click_load_more));
             }

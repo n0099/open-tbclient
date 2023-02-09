@@ -665,7 +665,7 @@ public class vy<T extends sw4> implements ay, lw5 {
                 this.d.setTag(R.id.virtual_image_user_head, null);
                 this.g.a(t);
                 hx<T> hxVar = this.g;
-                if (hxVar instanceof zf9) {
+                if (hxVar instanceof dh9) {
                     this.d.setTag(R.id.virtual_image_user_head, hxVar);
                 }
             }

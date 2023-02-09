@@ -370,12 +370,12 @@ public class fx5 {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setContentView(R.layout.obfuscated_res_0x7f0d0140);
-            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.c.setContentView(R.layout.obfuscated_res_0x7f0d0141);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091db7);
             this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
             u("");
             this.j = (LinearLayout) this.c.findViewById(R.id.webview_container);
-            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f09274c);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f0927ad);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
             layoutParams.addRule(3, R.id.view_navigation_bar);
             this.j.setLayoutParams(layoutParams);
@@ -384,7 +384,7 @@ public class fx5 {
             this.f = addCustomView;
             ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
             this.g = imageView;
-            imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02d7));
+            imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02d8));
         }
     }
 
@@ -409,7 +409,7 @@ public class fx5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             if (this.l == null) {
-                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f1076), this.m)));
+                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f108a), this.m)));
             }
             this.l.f(this.c.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.j.setVisibility(8);

@@ -697,7 +697,7 @@ public final class qm3 {
             if (c2 == null) {
                 return false;
             }
-            String str = c2.getString(R.string.obfuscated_res_0x7f0f1330) + "\n" + c2.getString(i);
+            String str = c2.getString(R.string.obfuscated_res_0x7f0f1347) + "\n" + c2.getString(i);
             if (!ds2.y0().d()) {
                 return false;
             }
@@ -1220,9 +1220,9 @@ public final class qm3 {
                         if (TextUtils.isEmpty(str2)) {
                             str3 = "";
                         } else {
-                            str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f13a2) + str2;
+                            str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f13b9) + str2;
                         }
-                        String str4 = context.getResources().getString(R.string.obfuscated_res_0x7f0f13a1) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str3;
+                        String str4 = context.getResources().getString(R.string.obfuscated_res_0x7f0f13b8) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str3;
                         String string = context.getString(R.string.obfuscated_res_0x7f0f011c);
                         String string2 = context.getString(R.string.obfuscated_res_0x7f0f0114);
                         a83.a aVar = new a83.a(context);

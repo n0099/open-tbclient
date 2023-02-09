@@ -419,11 +419,11 @@ public class BdDatePicker extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009e, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009f, this);
             this.p = nm3.g(this.p);
             this.q = nm3.g(16.0f);
             this.r = nm3.g(14.0f);
-            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09276f);
+            WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f0927d0);
             this.d = wheelView3d;
             wheelView3d.setCenterTextSize(this.q);
             this.d.setOuterTextSize(this.r);
@@ -433,7 +433,7 @@ public class BdDatePicker extends LinearLayout {
             this.d.setDividerType(WheelView3d.DividerType.FILL);
             this.d.setVisibleItem(7);
             this.d.setOnItemSelectedListener(new a(this));
-            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09276e);
+            WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f0927cf);
             this.e = wheelView3d2;
             wheelView3d2.setCenterTextSize(this.q);
             this.e.setOuterTextSize(this.r);
@@ -443,7 +443,7 @@ public class BdDatePicker extends LinearLayout {
             this.e.setDividerType(WheelView3d.DividerType.FILL);
             this.e.setVisibleItem(7);
             this.e.setOnItemSelectedListener(new b(this));
-            WheelView3d wheelView3d3 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09276b);
+            WheelView3d wheelView3d3 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f0927cc);
             this.f = wheelView3d3;
             wheelView3d3.setCenterTextSize(this.q);
             this.f.setOuterTextSize(this.r);

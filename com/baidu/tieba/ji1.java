@@ -293,12 +293,12 @@ public class ji1 extends Dialog {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d022a);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b4);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b3);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b6);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0905b7);
+            setContentView(R.layout.obfuscated_res_0x7f0d022b);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0905bf);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905be);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c0);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905c1);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0905c2);
         }
     }
 

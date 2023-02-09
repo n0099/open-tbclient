@@ -261,7 +261,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             if ((interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) && this.a.o == null) {
                 this.a.n0(str);
                 ChannelListView channelListView = this.a;
-                channelListView.Z(3, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0809) + str, "0");
+                channelListView.Z(3, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0812) + str, "0");
                 this.a.Q();
                 hh1 hh1Var = new hh1("1");
                 hh1Var.b(new SdkException("gatewaylist error --> " + str, th).getStackMessage());
@@ -998,7 +998,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     @Override // com.baidu.poly.widget.digitalbank.DigitalBankPayView.b
     public void a(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && R.id.obfuscated_res_0x7f091af1 == i2) {
+        if ((interceptable == null || interceptable.invokeI(1048591, this, i2) == null) && R.id.obfuscated_res_0x7f091b2c == i2) {
             N(this.k.getSelectedChildrenEntity());
         }
     }
@@ -1087,7 +1087,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             if (!TextUtils.isEmpty(str2)) {
                 n0(str2);
             } else {
-                n0(getResources().getString(R.string.obfuscated_res_0x7f0f0f85));
+                n0(getResources().getString(R.string.obfuscated_res_0x7f0f0f99));
             }
             Z(3, str, "0");
             setIsPreparePaying(false);
@@ -1126,18 +1126,18 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0f85);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0f99);
             }
             if (this.N == null) {
-                View inflate = View.inflate(this.e.getContext(), R.layout.obfuscated_res_0x7f0d0211, null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b0e)).setText(EventAlias.PayEventAlias.PAY_FAIL);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b0d)).setText(str.trim());
+                View inflate = View.inflate(this.e.getContext(), R.layout.obfuscated_res_0x7f0d0212, null);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b49)).setText(EventAlias.PayEventAlias.PAY_FAIL);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b48)).setText(str.trim());
                 PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
                 this.N = popupWindow;
                 popupWindow.w(false);
                 this.N.B(false);
                 this.N.v(new ColorDrawable(0));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b08)).setOnClickListener(new i(this));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b43)).setOnClickListener(new i(this));
                 this.N.A(new j(this));
             }
             PolyActivity polyActivity = (PolyActivity) getContext();
@@ -1438,37 +1438,37 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.u = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012d);
             this.v = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012f);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d090a, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d091f, this);
             this.a = findViewById(R.id.bg_view);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090619);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091b0f);
-            this.E = findViewById(R.id.obfuscated_res_0x7f0918ac);
-            this.F = findViewById(R.id.obfuscated_res_0x7f090610);
-            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092310);
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090611);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0918ad);
-            DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f091af2);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090624);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091b4a);
+            this.E = findViewById(R.id.obfuscated_res_0x7f0918c7);
+            this.F = findViewById(R.id.obfuscated_res_0x7f09061b);
+            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092357);
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09061c);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c8);
+            DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f091b2d);
             this.k = digitalBankPayView;
             digitalBankPayView.setOptionListener(this);
-            this.l = (DigitalWalletVerifyView) findViewById(R.id.obfuscated_res_0x7f091af3);
-            this.g = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f0918aa);
+            this.l = (DigitalWalletVerifyView) findViewById(R.id.obfuscated_res_0x7f091b2e);
+            this.g = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f0918c5);
             View findViewById = findViewById(R.id.close_button);
             this.i = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091af0);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091b2b);
             this.j = findViewById2;
             findViewById2.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f0926e2);
-            this.x = findViewById(R.id.obfuscated_res_0x7f0926ad);
-            this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090e8b);
-            CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f09074c);
+            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f092743);
+            this.x = findViewById(R.id.obfuscated_res_0x7f09270c);
+            this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090e9c);
+            CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f090757);
             this.D = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
-            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091632);
-            this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a6);
-            this.B = findViewById(R.id.obfuscated_res_0x7f0926ce);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0924dd);
+            this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091648);
+            this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b1);
+            this.B = findViewById(R.id.obfuscated_res_0x7f09272d);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f092528);
             this.C = findViewById3;
             findViewById3.setOnClickListener(this);
         }
@@ -1617,7 +1617,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 hh1 hh1Var = new hh1("6");
                 hh1Var.c(jSONObject);
                 kh1.e(hh1Var);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918aa) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918c5) {
                 if (this.s == 0) {
                     return;
                 }
@@ -1660,12 +1660,12 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                     this.W = this.p.getPayChannel();
                     r0();
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09074c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090757) {
                 a0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924dd) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092528) {
                 this.b0 = true;
                 h0();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091af0) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b2b) {
                 this.k.a();
                 this.m.setText("支付");
                 this.j.setVisibility(8);
@@ -1684,7 +1684,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
                 gh1.f(System.currentTimeMillis());
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
-                this.I = qi1.c(this, layoutParams, getResources().getString(R.string.obfuscated_res_0x7f0f0f86), -1L);
+                this.I = qi1.c(this, layoutParams, getResources().getString(R.string.obfuscated_res_0x7f0f0f9a), -1L);
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put(DI.PAY_CHANNEL, str);

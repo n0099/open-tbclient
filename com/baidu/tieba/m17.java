@@ -67,7 +67,7 @@ public class m17 extends PriorityOrganizer.Task {
             if (g15.l()) {
                 return false;
             }
-            vz8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            z09 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
             if (frsResponseData != null && frsResponseData.getEntelechyTabInfo() != null && frsResponseData.getEntelechyTabInfo().a != null) {
                 for (FrsTabInfo frsTabInfo : frsResponseData.getEntelechyTabInfo().a) {
                     if (frsTabInfo.tab_id.intValue() == 502 && p35.m().i("first_into_tab_profession", true)) {

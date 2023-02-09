@@ -247,7 +247,7 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
             LayoutInflater.from(this.a).inflate(R.layout.nad_bd_layer_seek_bar, this);
             this.c = (BdTextProgressView) findViewById(R.id.nad_main_progress_text);
             this.d = (BdTextProgressView) findViewById(R.id.nad_main_duration_text);
-            BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f091578);
+            BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f09158e);
             this.b = bdThumbSeekBar;
             bdThumbSeekBar.setOnSeekBarChangeListener(this);
         }

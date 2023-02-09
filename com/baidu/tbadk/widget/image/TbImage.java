@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.gr5;
 import com.baidu.tieba.ir5;
-import com.baidu.tieba.n39;
+import com.baidu.tieba.r49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -214,7 +214,7 @@ public final class TbImage extends SimpleDraweeView implements gr5 {
         GenericDraweeHierarchyBuilder placeholderImage;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, n39.TbFrescoImage);
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, r49.TbFrescoImage);
             int resourceId = obtainStyledAttributes.getResourceId(3, 0);
             GenericDraweeHierarchyBuilder genericDraweeHierarchyBuilder = null;
             if (resourceId != 0) {

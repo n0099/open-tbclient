@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az8;
-import com.baidu.tieba.bz8;
+import com.baidu.tieba.e09;
+import com.baidu.tieba.f09;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.rz4;
 import com.baidu.tieba.stamp.view.NewStyleStampDialogView;
-import com.baidu.tieba.vy8;
+import com.baidu.tieba.zz8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class NewStyleStampDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public bz8 b;
+    public f09 b;
     public View c;
     public ImageView d;
     public TextView e;
@@ -298,13 +298,13 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (View) invokeV.objValue;
     }
 
-    public bz8 getmStampData() {
+    public f09 getmStampData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (bz8) invokeV.objValue;
+        return (f09) invokeV.objValue;
     }
 
     public final void p() {
@@ -417,11 +417,11 @@ public class NewStyleStampDialogView extends LinearLayout {
         if ((interceptable == null || interceptable.invokeL(65549, this, list) == null) && !ListUtils.isEmpty(list)) {
             this.l.setVisibility(0);
             this.l.setStampIconsList(list);
-            this.l.setSignStampIconClickListener(new az8() { // from class: com.baidu.tieba.ez8
+            this.l.setSignStampIconClickListener(new e09() { // from class: com.baidu.tieba.i09
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.az8
+                @Override // com.baidu.tieba.e09
                 public final void a(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -432,10 +432,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public void setStampData(bz8 bz8Var) {
+    public void setStampData(f09 f09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bz8Var) == null) {
-            this.b = bz8Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, f09Var) == null) {
+            this.b = f09Var;
             n();
         }
     }
@@ -502,13 +502,13 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            bz8 bz8Var = this.b;
-            if (bz8Var instanceof vy8) {
-                vy8 vy8Var = (vy8) bz8Var;
-                this.e.setText(vy8Var.b());
-                this.k.K(vy8Var.a(), 10, false);
-            } else if (bz8Var instanceof rz4) {
-                rz4 rz4Var = (rz4) bz8Var;
+            f09 f09Var = this.b;
+            if (f09Var instanceof zz8) {
+                zz8 zz8Var = (zz8) f09Var;
+                this.e.setText(zz8Var.b());
+                this.k.K(zz8Var.a(), 10, false);
+            } else if (f09Var instanceof rz4) {
+                rz4 rz4Var = (rz4) f09Var;
                 List<rz4.a> a2 = rz4Var.a();
                 if (rz4Var.b() == -1) {
                     this.f.setText(getResources().getString(R.string.stamp_full_level));
@@ -557,7 +557,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 i2 = 0;
             }
             tBLottieAnimationView.setRepeatCount(i2);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.dz8
+            tBLottieAnimationView.post(new Runnable() { // from class: com.baidu.tieba.h09
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

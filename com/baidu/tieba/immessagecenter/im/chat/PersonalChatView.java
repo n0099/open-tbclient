@@ -720,21 +720,21 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             PersonalChatActivity personalChatActivity = (PersonalChatActivity) talkableActivity;
             this.d = personalChatActivity;
             if (personalChatActivity.X2()) {
-                string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0459);
+                string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f045b);
             } else {
-                string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b90);
+                string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b9a);
             }
             if (this.d.X2()) {
-                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0754, talkableActivity);
+                View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0765, talkableActivity);
                 this.mBtnForumInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090dc5);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090dd6);
                 this.b = textView;
                 textView.setText(string);
                 this.b.setVisibility(0);
             } else {
-                View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0754, talkableActivity);
+                View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0765, talkableActivity);
                 this.mBtnForumInfo = addCustomView2;
-                this.c = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f090dc4);
+                this.c = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f090dd5);
                 int g2 = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070307);
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g2, g2);
                 layoutParams.rightMargin = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701b2);

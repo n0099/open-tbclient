@@ -1,47 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final gg8 a(TbPageContext<?> tbPageContext, ExcContent excContent) {
-        InterceptResult invokeLL;
-        Long l;
+    public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null) {
-                return null;
-            }
-            if (l.longValue() == 2) {
-                return new eg8(excContent);
-            }
-            if (excContent.type.longValue() == 0) {
-                return new kg8(tbPageContext.getPageActivity(), excContent);
-            }
-            if (excContent.type.longValue() != 1) {
-                return null;
-            }
-            return new fg8(tbPageContext, excContent);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14349");
+            statisticItem.param("tid", str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("post_id", str3);
+            TiebaStatic.log(statisticItem);
         }
-        return (gg8) invokeLL.objValue;
     }
 
-    public static final hg8 b(ExcContent excContent) {
-        InterceptResult invokeL;
-        Long l;
+    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, excContent)) == null) {
-            if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
-                return null;
-            }
-            return new ig8(excContent);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14348");
+            statisticItem.param("tid", str2);
+            statisticItem.param("uid", str3);
+            statisticItem.param("post_id", str4);
+            statisticItem.param("pid", str4);
+            statisticItem.param("fname", str5);
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
-        return (hg8) invokeL.objValue;
     }
 }

@@ -78,15 +78,15 @@ public class xw4 {
         }
     }
 
-    public static void f(f19 f19Var) {
+    public static void f(j29 j29Var) {
         xw4 xw4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, f19Var) == null) && f19Var != null && f19Var.getAdvertAppInfo() != null && (xw4Var = f19Var.getAdvertAppInfo().i) != null && !xw4Var.h && !a(xw4Var.g)) {
-            f19Var.c1 = xw4Var.d;
-            f19Var.d1 = xw4Var.e;
-            f19Var.b1 = xw4Var.c;
+        if ((interceptable == null || interceptable.invokeL(65543, null, j29Var) == null) && j29Var != null && j29Var.getAdvertAppInfo() != null && (xw4Var = j29Var.getAdvertAppInfo().i) != null && !xw4Var.h && !a(xw4Var.g)) {
+            j29Var.c1 = xw4Var.d;
+            j29Var.d1 = xw4Var.e;
+            j29Var.b1 = xw4Var.c;
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(f19Var.h1 + 1)).w(String.valueOf(f19Var.f1)).v(xw4Var.a).r(xw4Var.d).s(xw4Var.e).t(xw4Var.c).p(xw4Var.g);
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(j29Var.h1 + 1)).w(String.valueOf(j29Var.f1)).v(xw4Var.a).r(xw4Var.d).s(xw4Var.e).t(xw4Var.c).p(xw4Var.g);
             n21.b(clogBuilder);
             xw4Var.h = true;
             i.add(xw4Var.g);

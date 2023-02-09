@@ -112,7 +112,7 @@ public class x48 {
                 return;
             }
         }
-        o09.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        s19.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
         d = null;
     }
 

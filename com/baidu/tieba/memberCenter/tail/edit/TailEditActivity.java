@@ -147,7 +147,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.b.h().length() == 0) {
                     TailEditActivity tailEditActivity = this.a;
-                    tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1433));
+                    tailEditActivity.showToast(tailEditActivity.getResources().getString(R.string.obfuscated_res_0x7f0f144a));
                     return;
                 }
                 this.a.b.r();
@@ -420,9 +420,9 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             j05 j05Var = new j05(getActivity());
-            j05Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f1428));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new h(this, j05Var));
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new i(this, j05Var));
+            j05Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f143f));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new h(this, j05Var));
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new i(this, j05Var));
             j05Var.create(getPageContext());
             j05Var.show();
         }
@@ -491,12 +491,12 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d087d);
+            setContentView(R.layout.obfuscated_res_0x7f0d088f);
             setActivityBgTransparent();
             setSwipeBackEnabled(false);
             this.b = new r28(this, this.f, this.g);
             this.a = new q28(getPageContext());
-            this.c = findViewById(R.id.obfuscated_res_0x7f0921af);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0921f5);
             J1();
             K1();
             I1();

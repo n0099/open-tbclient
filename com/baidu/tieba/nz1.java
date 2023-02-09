@@ -342,13 +342,13 @@ public class nz1 {
                             if (i2 < 3) {
                                 if (!hr2Var.i0()) {
                                     hr2Var.pause();
-                                    hr2Var.Q().b(hr2Var.c());
+                                    hr2Var.Q().c(hr2Var.c());
                                 } else {
                                     i2++;
                                 }
                             } else {
                                 hr2Var.pause();
-                                hr2Var.Q().b(hr2Var.c());
+                                hr2Var.Q().c(hr2Var.c());
                             }
                         }
                     }

@@ -1,42 +1,21 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes4.dex */
-public final class h7a implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+public interface h7a {
+    void onAdClicked(Ssp.Pid pid);
 
-    public h7a(InstallActivity installActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = installActivity;
-    }
+    void onAdClose(Ssp.Pid pid);
 
-    @Override // android.view.View.OnClickListener
-    public final void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-            return;
-        }
-        this.a.h();
-        this.a.n();
-    }
+    void onAdLoad(Ssp.Pid pid);
+
+    void onAdLoadError(Ssp.Pid pid, int i, String str);
+
+    void onAdLoaded(Ssp.Pid pid);
+
+    void onAdShow(Ssp.Pid pid);
+
+    void onAdShowError(Ssp.Pid pid, int i, String str);
+
+    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
 }

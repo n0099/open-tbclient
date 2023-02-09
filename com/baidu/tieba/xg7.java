@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class xg7 extends mc6<pg7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class xg7 extends mc6<pg7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bb : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bc : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,11 +61,11 @@ public class xg7 extends mc6<pg7> {
         }
         this.i = 3;
         View h = h();
-        this.j = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0923fe);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092402);
-        this.l = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f092400);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092401);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0923ff);
+        this.j = (CellTopicLinearLayout) h.findViewById(R.id.obfuscated_res_0x7f092448);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09244c);
+        this.l = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09244a);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09244b);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092449);
         this.l.setRadius(ej.g(this.c, R.dimen.tbds10));
         this.l.setConrers(15);
         this.l.setPlaceHolder(2);
@@ -113,7 +113,7 @@ public class xg7 extends mc6<pg7> {
             this.o = pg7Var;
             if (pg7Var.a) {
                 if (StringUtils.isNull(pg7Var.d)) {
-                    this.k.setText(R.string.obfuscated_res_0x7f0f1517);
+                    this.k.setText(R.string.obfuscated_res_0x7f0f152e);
                 } else {
                     this.k.setText(pg7Var.d);
                 }
@@ -157,7 +157,7 @@ public class xg7 extends mc6<pg7> {
                 this.m.setVisibility(0);
                 this.m.setText(pg7Var.e.getTitle());
             }
-            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f150f), Integer.valueOf(pg7Var.e.getReply_num())));
+            this.n.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1526), Integer.valueOf(pg7Var.e.getReply_num())));
         }
     }
 }

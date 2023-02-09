@@ -167,7 +167,7 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements xb5 
     public final void f(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, str) == null) {
-            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d087e, (ViewGroup) this, true);
+            LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0890, (ViewGroup) this, true);
             this.d = new w28(this);
             u28 u28Var = new u28(tbPageContext);
             this.c = u28Var;

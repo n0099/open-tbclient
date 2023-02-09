@@ -110,8 +110,8 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d91);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090d93);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090da2);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090da4);
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
@@ -136,7 +136,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.f(i2);
             if (TextUtils.isEmpty(this.g) && (tbImageView = this.d) != null) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0805ef, i2);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0805f6, i2);
             }
             if (!TextUtils.isEmpty(this.g) && this.d != null) {
                 o(i2);
@@ -200,7 +200,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 o(skinType);
                 return;
             }
-            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0805ef, skinType);
+            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0805f6, skinType);
         }
     }
 }

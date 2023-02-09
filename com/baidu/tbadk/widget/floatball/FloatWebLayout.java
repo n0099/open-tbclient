@@ -362,7 +362,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09070d);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
             h(context);
             g(context);
             f(context);

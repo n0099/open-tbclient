@@ -172,9 +172,9 @@ public class cy5 extends BaseAdapter implements View.OnClickListener {
         f = new HashMap<>();
         d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00bd));
         d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00db));
-        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0df5));
-        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0e23));
-        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f16a1));
+        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0e01));
+        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0e2f));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f16b9));
         e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
         e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
         f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));
@@ -322,12 +322,12 @@ public class cy5 extends BaseAdapter implements View.OnClickListener {
             if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof d)) {
                 dVar = (d) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0077, (ViewGroup) null);
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0078, (ViewGroup) null);
                 dVar = new d(null);
-                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b5b);
-                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b5d);
-                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b5c);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b59);
+                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b6c);
+                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b6e);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b6d);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b6a);
                 view2.setTag(dVar);
             }
             sk7 item = getItem(i);

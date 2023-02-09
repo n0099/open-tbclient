@@ -1,114 +1,133 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.SparseIntArray;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
+import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
+import com.baidu.tieba.jf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class ic8<T, V extends TypeAdapter.ViewHolder> extends qn<T, V> {
+public class ic8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ic8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public pg8 a;
-    public PbFragment b;
-    public VideoPbCommentFloatFragment c;
-    public int d;
-    public boolean e;
-    public SparseIntArray f;
+    public jf<byte[]> a;
+    public jf<byte[]> b;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public ic8(pg8 pg8Var, BdUniqueId bdUniqueId) {
-        super(r0, bdUniqueId);
-        AbsPbActivity N;
+    public ic8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pg8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (pg8Var == null) {
-            N = null;
-        } else {
-            N = pg8Var.N();
-        }
-        this.d = 3;
-        this.e = false;
-        this.f = new SparseIntArray();
-        t(pg8Var);
+        this.a = null;
+        this.b = null;
+        c();
     }
 
-    @Override // com.baidu.tieba.qn
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
+    public static synchronized ic8 b() {
+        InterceptResult invokeV;
+        ic8 ic8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.d = TbadkCoreApplication.getInst().getSkinType();
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public int s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = this.f.get(i, -1);
-            if (i2 != -1) {
-                return i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ic8.class) {
+                if (c == null) {
+                    c = new ic8();
+                }
+                ic8Var = c;
             }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.f.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
+            return ic8Var;
         }
-        return invokeI.intValue;
+        return (ic8) invokeV.objValue;
     }
 
-    public void setFromCDN(boolean z) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                i05.d();
+                this.a = i05.b("tb.pb_mark");
+            }
+            if (this.b == null) {
+                i05.d();
+                this.b = i05.b("tb.pb_normal");
+            }
         }
     }
 
-    public void t(pg8 pg8Var) {
+    public byte[] a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        jf.b<byte[]> h;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, pg8Var) == null) && pg8Var != null) {
-            this.a = pg8Var;
-            this.b = pg8Var.v1();
-            VideoPbCommentFloatFragment J = pg8Var.J();
-            this.c = J;
-            PbFragment pbFragment = this.b;
-            if (pbFragment != null) {
-                this.mContext = pbFragment.getActivity();
-            } else if (J != null) {
-                this.mContext = J.getActivity();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (PBCacheBlockSwitch.getIsOn()) {
+                return null;
+            }
+            if (z) {
+                jf<byte[]> jfVar = this.a;
+                if (jfVar != null && str != null) {
+                    h = jfVar.h(str);
+                }
+                h = null;
             } else {
-                this.mContext = null;
+                jf<byte[]> jfVar2 = this.b;
+                if (jfVar2 != null && str != null) {
+                    h = jfVar2.h(str);
+                }
+                h = null;
+            }
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLZ.objValue;
+    }
+
+    public void d(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            if (z) {
+                jf<byte[]> jfVar = this.a;
+                if (jfVar != null && str != null) {
+                    jfVar.i(str, new byte[0], 0L);
+                    return;
+                }
+                return;
+            }
+            jf<byte[]> jfVar2 = this.b;
+            if (jfVar2 != null && str != null) {
+                jfVar2.i(str, new byte[0], 0L);
+            }
+        }
+    }
+
+    public void f(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
+            c();
+            this.a.e(str, bArr, 86400000L);
+        }
+    }
+
+    public void e(String str, boolean z, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
+            c();
+            if (z) {
+                this.a.e(str, bArr, 86400000L);
+            } else {
+                this.b.e(str, bArr, 86400000L);
             }
         }
     }

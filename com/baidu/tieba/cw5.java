@@ -55,7 +55,7 @@ public class cw5 implements su5 {
     }
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -351,10 +351,10 @@ public class cw5 implements su5 {
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0528, (ViewGroup) this.b, true);
-            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f36);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f37);
-            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091f35);
+            LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d052c, (ViewGroup) this.b, true);
+            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f79);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f7a);
+            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091f78);
             this.g = attentionView;
             if (attentionView != null) {
                 attentionView.setForumSelectStateChangedListener(j());

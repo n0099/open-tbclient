@@ -49,13 +49,13 @@ public class fn1 {
 
         /* renamed from: com.baidu.tieba.fn1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0278a extends bo1 {
+        public class C0277a extends bo1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ tm1.a b;
             public final /* synthetic */ a c;
 
-            public C0278a(a aVar, tm1.a aVar2) {
+            public C0277a(a aVar, tm1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class fn1 {
                     for (int i = 0; i < this.d.size(); i++) {
                         tm1.a aVar2 = (tm1.a) this.d.get(i);
                         if (aVar2 != null) {
-                            do1.c().b(new C0278a(this, aVar2));
+                            do1.c().b(new C0277a(this, aVar2));
                         }
                     }
                 }

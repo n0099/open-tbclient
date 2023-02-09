@@ -81,7 +81,7 @@ public class xr0 {
 
         /* renamed from: com.baidu.tieba.xr0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0492b {
+        public static class C0491b {
             public static /* synthetic */ Interceptable $ic;
             public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class xr0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                return C0492b.a;
+                return C0491b.a;
             }
             return (b) invokeV.objValue;
         }

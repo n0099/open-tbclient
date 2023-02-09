@@ -124,7 +124,7 @@ public class mb3 {
                 if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
                     this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01e5);
                 } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1308);
+                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f131f);
                 }
                 this.b.setFloatButtonText(this.c);
             }
@@ -138,7 +138,7 @@ public class mb3 {
             if (context == null) {
                 return null;
             }
-            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d0834, (ViewGroup) null);
+            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d0846, (ViewGroup) null);
         }
         return (FloatButton) invokeL.objValue;
     }
@@ -169,7 +169,7 @@ public class mb3 {
                 this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
             }
             this.b.setFloatButtonText(this.c);
-            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811c1));
+            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811d7));
             this.b.setFloatButtonDefaultPosition();
             this.b.setFloatButtonStyle(this.d);
             this.b.setVisibility(0);
@@ -191,7 +191,7 @@ public class mb3 {
             if (qm3.F(activity, optString)) {
                 string = activity.getString(R.string.obfuscated_res_0x7f0f01e5);
             } else {
-                string = activity.getString(R.string.obfuscated_res_0x7f0f1308);
+                string = activity.getString(R.string.obfuscated_res_0x7f0f131f);
             }
             this.c = string;
             this.d = jSONObject.optJSONObject("style");

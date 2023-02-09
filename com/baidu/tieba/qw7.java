@@ -81,7 +81,7 @@ public class qw7 extends zs4 {
                 statisticItem.param("obj_id", "");
                 if (c) {
                     statisticItem.param("obj_type", "2");
-                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09e5)).k();
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09ef)).k();
                     PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
                     if (broadcast != null) {
                         alarmManager.cancel(broadcast);
@@ -90,7 +90,7 @@ public class qw7 extends zs4 {
                     et4Var.a = false;
                 } else {
                     statisticItem.param("obj_type", "1");
-                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09f0)).k();
+                    BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f09fa)).k();
                     alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
                     et4Var.a = true;
                 }

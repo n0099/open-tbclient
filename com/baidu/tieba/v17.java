@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.data.IconPopData;
 import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.a09;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.wy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class v17 extends PriorityOrganizer.Task {
     public boolean o;
 
     /* loaded from: classes6.dex */
-    public class a implements wy8.c {
+    public class a implements a09.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v17 a;
@@ -47,7 +47,7 @@ public class v17 extends PriorityOrganizer.Task {
             this.a = v17Var;
         }
 
-        @Override // com.baidu.tieba.wy8.c
+        @Override // com.baidu.tieba.a09.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -55,7 +55,7 @@ public class v17 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // com.baidu.tieba.wy8.c
+        @Override // com.baidu.tieba.a09.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -63,7 +63,7 @@ public class v17 extends PriorityOrganizer.Task {
             }
         }
 
-        @Override // com.baidu.tieba.wy8.c
+        @Override // com.baidu.tieba.a09.c
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -188,10 +188,10 @@ public class v17 extends PriorityOrganizer.Task {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (PollingModel.k0()) {
                 IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                wy8 wy8Var = new wy8();
-                wy8Var.d(iconPopData);
-                wy8Var.e(new a(this));
-                wy8Var.f(new b(this));
+                a09 a09Var = new a09();
+                a09Var.d(iconPopData);
+                a09Var.e(new a(this));
+                a09Var.f(new b(this));
                 g15.o("userIcon");
                 if (!this.o) {
                     this.n.I4(true);

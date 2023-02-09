@@ -48,7 +48,7 @@ public class fr4 {
         }
         l = TbadkCoreApplication.getInst().getString(R.string.tb_token);
         m = TbadkCoreApplication.getInst().getString(R.string.tb_ai_apps_tips);
-        n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038b);
+        n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038c);
         o = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
     }
 

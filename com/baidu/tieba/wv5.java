@@ -184,7 +184,7 @@ public class wv5 {
                     this.a.e.remove(bVar);
                     if (this.a.D && this.a.r != null) {
                         this.a.r.setClickable(false);
-                        this.a.r.setTextColor(lz8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                        this.a.r.setTextColor(p09.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     }
                 }
             }
@@ -498,7 +498,7 @@ public class wv5 {
             if (this.z == null) {
                 this.z = new s35(this.b);
             }
-            this.z.i(R.string.obfuscated_res_0x7f0f0ae6);
+            this.z.i(R.string.obfuscated_res_0x7f0f0af0);
             this.z.h(true);
         }
     }
@@ -642,7 +642,7 @@ public class wv5 {
             SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColorSelector(this.q, R.color.CAM_X0105);
             if (this.D) {
-                this.r.setTextColor(lz8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.r.setTextColor(p09.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 this.r.setClickable(false);
             } else {
                 p15.d(this.r).v(R.color.CAM_X0302);
@@ -734,9 +734,9 @@ public class wv5 {
                 EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.ueg_new_delete_thread_certain_view);
                 this.r = eMTextView4;
                 if (this.H) {
-                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f1238);
+                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f124e);
                 } else {
-                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f04d5);
+                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f04d8);
                 }
                 this.r.setOnClickListener(new f(this));
             }

@@ -155,7 +155,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements ay {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0331, (ViewGroup) null));
+                d dVar = new d(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0333, (ViewGroup) null));
                 dVar.b(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -336,19 +336,19 @@ public class CardItemHotVideoLayout extends LinearLayout implements ay {
                 }
             }
             this.h = cardItemHotVideoLayout;
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bf9);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c0a);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setPageId(da.a(view2.getContext()).getUniqueId());
-            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090bfa);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bfb);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bfc);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090bfd);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf8);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bfe);
+            this.g = view2.findViewById(R.id.obfuscated_res_0x7f090c0b);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c0c);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c0d);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c0e);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c09);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c0f);
         }
 
         @SuppressLint({"ClickableViewAccessibility"})
@@ -374,7 +374,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements ay {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 SkinManager.setImageResource(this.b, R.drawable.icon_video26);
-                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f08084b);
+                SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080857);
                 p15 d = p15.d(this.f);
                 d.z(R.dimen.T_X12);
                 d.v(R.color.CAM_X0105);
@@ -384,7 +384,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements ay {
                 p15 d3 = p15.d(this.d);
                 d3.z(R.dimen.T_X09);
                 d3.v(R.color.CAM_X0101);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08028f);
+                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f080291);
             }
         }
 
@@ -393,7 +393,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements ay {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, spannableStringBuilder) != null) || spannableStringBuilder == null) {
                 return;
             }
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f076c);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0775);
             spannableStringBuilder.insert(0, (CharSequence) string);
             int g = ej.g(TbadkCoreApplication.getInst(), R.dimen.L_X01);
             int g2 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
@@ -585,7 +585,7 @@ public class CardItemHotVideoLayout extends LinearLayout implements ay {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f076d);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0776);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(ej.g(getContext(), R.dimen.M_W_X005), ej.g(getContext(), R.dimen.tbds32), 0, 0);
             p15 d2 = p15.d(this.a);

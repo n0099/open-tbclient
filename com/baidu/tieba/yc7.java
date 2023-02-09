@@ -250,7 +250,7 @@ public class yc7 extends qn<ae6, ThreadCardViewHolder<ae6>> implements mw5 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ae6Var, threadCardViewHolder})) == null) {
             if (ae6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && ae6Var.a != null) {
                 if (i == 0) {
-                    qv8.a("main", true);
+                    uw8.a("main", true);
                 }
                 ae6Var.I(ae6Var.position + 1);
                 ae6Var.a.statFloor = ae6Var.m();

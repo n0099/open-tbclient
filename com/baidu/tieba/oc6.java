@@ -47,7 +47,7 @@ public class oc6 extends mc6<bi6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0186 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0187 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -105,7 +105,7 @@ public class oc6 extends mc6<bi6> {
             if (this.a != i) {
                 SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
-                h29 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                l39 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.u.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.j, R.color.CAM_X0108, 1);
                 } else {
@@ -136,19 +136,19 @@ public class oc6 extends mc6<bi6> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09053e);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090541);
-            this.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09053d);
-            this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09053c);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090549);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09054c);
+            this.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090548);
+            this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090547);
             this.m = (ImageView) view2.findViewById(R.id.img_play);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090542);
-            this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090543);
-            this.p = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090544);
-            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090545);
-            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090540);
-            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09053f);
-            this.t = view2.findViewById(R.id.obfuscated_res_0x7f09051e);
-            this.l.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808c7);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09054d);
+            this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09054e);
+            this.p = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09054f);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090550);
+            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09054b);
+            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09054a);
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f090529);
+            this.l.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808d3);
             int dimensionPixelSize = ej.s(this.c)[0] - (this.c.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
@@ -189,7 +189,7 @@ public class oc6 extends mc6<bi6> {
             }
             this.l.K(str, 10, false);
             this.j.setText(bi6Var.getThreadData().getTitle());
-            h29 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            l39 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(bi6Var.getThreadData().getId())) {
                 SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
             } else {

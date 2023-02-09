@@ -63,7 +63,7 @@ public final class sz5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090d61) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090d72) {
                     if (t9.f().b() != null && !StringUtils.isNull(this.a.f())) {
                         Uri parse = Uri.parse(this.a.f());
                         if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
@@ -81,7 +81,7 @@ public final class sz5 {
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090d60) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090d71) {
                     try {
                         this.b.dismiss();
                     } catch (Throwable th2) {
@@ -124,7 +124,7 @@ public final class sz5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090d61) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090d72) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.a));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.b.j).param("obj_source", "tb_password").param("obj_name", this.b.h).param("obj_param1", this.b.k.intValue()));
                     try {
@@ -132,7 +132,7 @@ public final class sz5 {
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090d60) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090d71) {
                     try {
                         this.c.dismiss();
                     } catch (Throwable th2) {
@@ -156,13 +156,13 @@ public final class sz5 {
             if (StringUtils.isNull(f)) {
                 return null;
             }
-            View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00d9, (ViewGroup) null, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d61);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d60);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09237b);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09237a);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09237c);
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08128d);
+            View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00da, (ViewGroup) null, true);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d72);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d71);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c5);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c4);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c6);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0812a3);
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);
             if (fr4Var.g() != 3) {
@@ -170,10 +170,10 @@ public final class sz5 {
                 if (!StringUtils.isNull(fr4Var.c())) {
                     tbImageView.K(fr4Var.c(), 10, false);
                 } else {
-                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f08128d);
+                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0812a3);
                 }
             } else {
-                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f08128e);
+                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0812a4);
                 aVar = new a(fr4Var, popupWindow);
             }
             textView.setOnClickListener(aVar);

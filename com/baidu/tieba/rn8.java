@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.GetRecommendGodList.DataRes;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class rn8 implements Runnable {
+public class rn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
+    public int a;
+    public List<User> b;
 
     public rn8() {
         Interceptable interceptable = $ic;
@@ -25,12 +30,25 @@ public class rn8 implements Runnable {
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view2;
+    public lz4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.a) != null && (view2.getTag() instanceof vn8)) {
-            ((vn8) this.a.getTag()).startPlay();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            lz4 lz4Var = new lz4();
+            lz4Var.d = false;
+            lz4Var.f(this.b);
+            return lz4Var;
         }
+        return (lz4) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.b = dataRes.recom_user_list;
+        dataRes.has_more.intValue();
+        this.a = dataRes.current_page.intValue();
     }
 }

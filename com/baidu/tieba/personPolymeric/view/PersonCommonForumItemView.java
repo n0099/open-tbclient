@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cm8;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.gn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public cm8 h;
+    public gn8 h;
     public View.OnClickListener i;
 
     /* loaded from: classes5.dex */
@@ -95,7 +95,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
         this.f = 3;
         this.g = context;
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0734, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0745, (ViewGroup) this, true);
         c();
         d();
     }
@@ -105,9 +105,9 @@ public class PersonCommonForumItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = (BarImageView) findViewById(R.id.forum_avatar);
             this.b = (TextView) findViewById(R.id.forum_name);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b16);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b3a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b3b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b27);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b4b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b4c);
         }
     }
 
@@ -132,15 +132,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(cm8 cm8Var) {
+    public void setData(gn8 gn8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cm8Var) == null) {
-            this.h = cm8Var;
-            this.a.K(cm8Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, gn8Var) == null) {
+            this.h = gn8Var;
+            this.a.K(gn8Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(cm8Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f06ad));
-            this.d.setText(StringHelper.numberUniformFormat((long) cm8Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0f05), StringHelper.getUserDescByGender(cm8Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(gn8Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f06b6));
+            this.d.setText(StringHelper.numberUniformFormat((long) gn8Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0f19), StringHelper.getUserDescByGender(gn8Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

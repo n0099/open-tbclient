@@ -156,7 +156,7 @@ public class rl7 {
             }
             TiebaStatic.log(param.param("tid", j2));
             String str = "";
-            if (view2.getId() == R.id.obfuscated_res_0x7f090af0) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090b01) {
                 if (jo5.a()) {
                     return;
                 }
@@ -180,8 +180,8 @@ public class rl7 {
             } else {
                 BdTopToast bdTopToast = new BdTopToast(this.a.a.getPageActivity());
                 bdTopToast.h(false);
-                bdTopToast.g(this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06b7));
-                bdTopToast.i((ViewGroup) this.a.c.findViewById(R.id.obfuscated_res_0x7f090b0c));
+                bdTopToast.g(this.a.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c0));
+                bdTopToast.i((ViewGroup) this.a.c.findViewById(R.id.obfuscated_res_0x7f090b1d));
             }
         }
     }
@@ -361,10 +361,10 @@ public class rl7 {
                     this.a.e.stopScroll();
                 }
                 if (this.a.f != null && this.a.b != null && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    this.a.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     this.a.f.E(null);
                     if (this.a.g) {
-                        this.a.f.P();
+                        this.a.f.Q();
                         this.a.b.b();
                     }
                 }
@@ -501,8 +501,8 @@ public class rl7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str) == null) {
             this.c = view2;
-            this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09172c);
-            this.q = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b0b);
+            this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091743);
+            this.q = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b1c);
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.j = (ImageView) this.d.getCenterImgBox();
             LinearLayout linearLayout = (LinearLayout) this.d.getCenterImgBoxLayout();
@@ -525,7 +525,7 @@ public class rl7 {
             this.j.setLayoutParams(layoutParams2);
             this.j.setVisibility(0);
             this.j.setOnClickListener(this.v);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090415);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09041e);
             this.e = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.e.setOverScrollMode(2);
@@ -589,10 +589,10 @@ public class rl7 {
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f != null && this.b != null) {
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 this.e.setNextPage(this.f);
-                this.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.f.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.f.E(null);
                 if (this.g) {
-                    this.f.P();
+                    this.f.Q();
                     this.b.b();
                     return;
                 }
@@ -610,11 +610,11 @@ public class rl7 {
             ScreenTopToast screenTopToast = this.s;
             if (screenTopToast == null || !screenTopToast.g()) {
                 ScreenTopToast screenTopToast2 = new ScreenTopToast(this.a.getPageActivity());
-                screenTopToast2.m(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06ba));
+                screenTopToast2.m(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c3));
                 screenTopToast2.k(this.a.getPageActivity().getString(R.string.frs_recommend_fail_tip_btn));
                 screenTopToast2.j(new c(this));
                 this.s = screenTopToast2;
-                screenTopToast2.n((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090b0c));
+                screenTopToast2.n((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090b1d));
             }
         }
     }
@@ -642,7 +642,7 @@ public class rl7 {
             BdTopToast bdTopToast = new BdTopToast(this.a.getPageActivity());
             bdTopToast.h(true);
             bdTopToast.g(this.a.getPageActivity().getString(R.string.frs_forum_bcast_publish_success_tip));
-            bdTopToast.i((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090b0c));
+            bdTopToast.i((ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f090b1d));
         }
     }
 

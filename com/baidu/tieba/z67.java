@@ -149,10 +149,10 @@ public class z67 extends BaseAdapter {
             if (view2 != null && view2.getTag() != null) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0386, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0388, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092216);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090842);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225c);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090850);
                 view2.setTag(bVar);
             }
             SkinManager.setBackgroundResource(view2, R.drawable.list_item_selector);
@@ -161,7 +161,7 @@ public class z67 extends BaseAdapter {
             SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
             a77 item = getItem(i);
             if (getItemViewType(i) == 1) {
-                bVar.a.setText(R.string.obfuscated_res_0x7f0f04ab);
+                bVar.a.setText(R.string.obfuscated_res_0x7f0f04ae);
                 bVar.b.setVisibility(4);
             } else {
                 String str = "";

@@ -372,15 +372,15 @@ public class HotUserRankView {
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = addSystemImageButton;
         addSystemImageButton.setOnClickListener(this.s);
-        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0938));
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0942));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092131);
+        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092177);
         this.d = tbTabLayout;
         tbTabLayout.setTabTextSize(ej.g(baseFragmentActivity, R.dimen.tbds46));
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092113);
-        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f092114);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0926d2);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092159);
+        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f09215a);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f092733);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);
@@ -388,11 +388,11 @@ public class HotUserRankView {
         this.h = fragmentAdapter;
         this.g.setAdapter(fragmentAdapter);
         this.d.setupWithViewPager(this.g);
-        this.j = new kk6(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f090409));
+        this.j = new kk6(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f090412));
         this.a.registerListener(this.u);
-        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092581);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092582);
-        this.p = this.b.findViewById(R.id.obfuscated_res_0x7f09040a);
+        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0925cc);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925cd);
+        this.p = this.b.findViewById(R.id.obfuscated_res_0x7f090413);
     }
 
     public void m(boolean z) {
@@ -443,7 +443,7 @@ public class HotUserRankView {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             this.j.d(i);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f081195, R.color.CAM_X0302, null);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0811ab, R.color.CAM_X0302, null);
             int g = ej.g(this.a, R.dimen.tbds63);
             int g2 = ej.g(this.a, R.dimen.tbds2);
             int i2 = 0;

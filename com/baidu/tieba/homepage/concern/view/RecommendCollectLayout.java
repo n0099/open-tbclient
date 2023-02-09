@@ -63,13 +63,13 @@ public class RecommendCollectLayout extends RelativeLayout implements ay {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078f, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a1, (ViewGroup) this, true);
             int g = ej.g(getContext(), R.dimen.M_W_X004);
             setPadding(g, 0, g, 0);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0906a8);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906ae);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d1b);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0906b3);
+            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906b9);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5d);
             this.b = new ContentCollectListAdapter(this.a);
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.c.setAdapter(this.b);
@@ -84,7 +84,7 @@ public class RecommendCollectLayout extends RelativeLayout implements ay {
             d.A(R.string.F_X02);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
-            setBackground(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080299, (WebPManager.ResourceStateType) null));
+            setBackground(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08029b, (WebPManager.ResourceStateType) null));
             ContentCollectListAdapter contentCollectListAdapter = this.b;
             if (contentCollectListAdapter != null) {
                 contentCollectListAdapter.notifyDataSetChanged();
@@ -106,12 +106,12 @@ public class RecommendCollectLayout extends RelativeLayout implements ay {
             }
             setLayoutParams(marginLayoutParams);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a6, SkinManager.getColor(R.color.CAM_X0306), null);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b5, SkinManager.getColor(R.color.CAM_X0306), null);
         pureDrawable.setBounds(0, 0, ej.g(getContext(), R.dimen.tbds96), ej.g(getContext(), R.dimen.T_X07));
         this.e.setCompoundDrawables(pureDrawable, null, null, null);
         this.e.setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X001));
         this.e.setText(j97Var.getTitle());
-        this.d.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080826, true));
+        this.d.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080832, true));
         this.b.i(j97Var.getDataList());
         this.b.j(this.f);
         this.b.notifyDataSetChanged();

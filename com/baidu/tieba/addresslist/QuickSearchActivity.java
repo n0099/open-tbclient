@@ -379,10 +379,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
                     return null;
                 }
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0783, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0795, (ViewGroup) null);
                     hVar = new h(this.b, null);
-                    hVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c16);
-                    hVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c17);
+                    hVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c57);
+                    hVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c58);
                     view2.setTag(hVar);
                 } else {
                     hVar = (h) view2.getTag();
@@ -491,7 +491,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0782);
+            setContentView(R.layout.obfuscated_res_0x7f0d0794);
             QuickSearchModel quickSearchModel = new QuickSearchModel(this);
             this.a = quickSearchModel;
             quickSearchModel.setUniqueId(getUniqueId());
@@ -505,13 +505,13 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0784, (View.OnClickListener) null);
-            EditText editText = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c15);
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0796, (View.OnClickListener) null);
+            EditText editText = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c56);
             this.d = editText;
             editText.addTextChangedListener(new f(this, null));
             this.d.setOnFocusChangeListener(new d(this));
             this.d.requestFocus();
-            this.e = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c13);
+            this.e = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c54);
             ej.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
             this.e.setOnClickListener(new e(this));
         }
@@ -520,10 +520,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091c18);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091c59);
             adjustResizeForSoftInput();
             D1();
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091c19);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091c5a);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.g.addHeaderView(textView);
@@ -532,7 +532,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             this.h = gVar;
             this.g.setAdapter((ListAdapter) gVar);
             this.g.setOnItemClickListener(this);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c14);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c55);
             this.b.setOnTouchListener(new b(this));
         }
     }

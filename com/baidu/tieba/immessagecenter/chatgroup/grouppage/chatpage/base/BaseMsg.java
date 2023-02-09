@@ -263,7 +263,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03cd), getCommonMsgField().getUserName());
+            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03ce), getCommonMsgField().getUserName());
         }
         return (CharSequence) invokeV.objValue;
     }

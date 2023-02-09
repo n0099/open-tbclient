@@ -99,7 +99,7 @@ public class nn6 extends dc5 {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             t(2);
             q(4);
-            on onVar = new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08098d)), false);
+            on onVar = new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08099c)), false);
             super.s(onVar);
             super.r(onVar);
             y();
@@ -265,7 +265,7 @@ public class nn6 extends dc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             if ("#(meme,diysetting)".equals(str)) {
-                return new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080917)), false);
+                return new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080926)), false);
             }
             File u = u(str);
             if (u == null || (image = FileHelper.getImage(u.getAbsolutePath())) == null) {
@@ -283,7 +283,7 @@ public class nn6 extends dc5 {
             return;
         }
         this.g = i;
-        on onVar = new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08098d)), false);
+        on onVar = new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08099c)), false);
         super.s(onVar);
         super.r(onVar);
         TbImageMemoryCache.n().k(zg.h().g("#(meme,diysetting)", 20));

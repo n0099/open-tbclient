@@ -148,7 +148,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ej.g(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa8);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb9);
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);

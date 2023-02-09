@@ -41,11 +41,11 @@ public class x47 implements ww6 {
     public FrsFragment a;
     public NoPressedRelativeLayout b;
     public f57 c;
-    public d89 d;
+    public h99 d;
     public y17 e;
-    public hg9 f;
+    public lh9 f;
     public OvalActionButton g;
-    public ig9 h;
+    public mh9 h;
     public y17.d i;
     public final View.OnClickListener j;
     public final yg<on> k;
@@ -284,11 +284,11 @@ public class x47 implements ww6 {
         if (frsFragment != null && noPressedRelativeLayout != null) {
             this.a = frsFragment;
             this.b = noPressedRelativeLayout;
-            this.d = new d89(frsFragment.getPageContext());
+            this.d = new h99(frsFragment.getPageContext());
             y17 y17Var = new y17(frsFragment.getPageContext());
             this.e = y17Var;
             y17Var.i(this.i);
-            this.f = new hg9(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
+            this.f = new lh9(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
             u(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -303,17 +303,17 @@ public class x47 implements ww6 {
     public void u(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            ig9 ig9Var = this.h;
-            if (ig9Var != null) {
-                ig9Var.d(i);
+            mh9 mh9Var = this.h;
+            if (mh9Var != null) {
+                mh9Var.d(i);
             }
-            hg9 hg9Var = this.f;
-            if (hg9Var != null) {
-                hg9Var.i(i);
+            lh9 lh9Var = this.f;
+            if (lh9Var != null) {
+                lh9Var.i(i);
             }
-            d89 d89Var = this.d;
-            if (d89Var != null) {
-                d89Var.f();
+            h99 h99Var = this.d;
+            if (h99Var != null) {
+                h99Var.f();
             }
         }
     }
@@ -332,7 +332,7 @@ public class x47 implements ww6 {
 
     public void A(boolean z) {
         int i;
-        FrsViewData Y0;
+        FrsViewData X0;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.g != null) {
             l();
@@ -343,8 +343,8 @@ public class x47 implements ww6 {
                 i = 8;
             }
             ovalActionButton.setVisibility(i);
-            if (z && TbadkCoreApplication.isLogin() && (Y0 = this.a.Y0()) != null && Y0.postTopic != null && Y0.getForum() != null && !StringUtils.isNull(Y0.getForum().getId()) && !StringUtils.isNull(Y0.postTopic.recom_title) && !StringUtils.isNull(Y0.postTopic.recom_topic) && es6.d().c(Y0.getForum().getId(), Y0.postTopic.uniq_topicid.longValue())) {
-                z(this.g, Y0);
+            if (z && TbadkCoreApplication.isLogin() && (X0 = this.a.X0()) != null && X0.postTopic != null && X0.getForum() != null && !StringUtils.isNull(X0.getForum().getId()) && !StringUtils.isNull(X0.postTopic.recom_title) && !StringUtils.isNull(X0.postTopic.recom_topic) && es6.d().c(X0.getForum().getId(), X0.postTopic.uniq_topicid.longValue())) {
+                z(this.g, X0);
             }
         }
     }
@@ -355,11 +355,11 @@ public class x47 implements ww6 {
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (frsFragment = this.a) != null) {
             ForumWriteData v3 = frsFragment.v3();
             ItemInfo itemInfo = null;
-            if (this.a.Y0() != null) {
-                itemInfo = this.a.Y0().itemInfo;
+            if (this.a.X0() != null) {
+                itemInfo = this.a.X0().itemInfo;
             }
             if (this.f == null) {
-                this.f = new hg9(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
+                this.f = new lh9(this.a.getPageContext().getPageActivity(), "frs", 2, "2");
             }
             this.f.j(v3);
             this.f.l(m());
@@ -391,12 +391,12 @@ public class x47 implements ww6 {
 
     public final String m() {
         InterceptResult invokeV;
-        FrsViewData Y0;
+        FrsViewData X0;
         ActivityConfig activityConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             FrsFragment frsFragment = this.a;
-            if (frsFragment == null || (Y0 = frsFragment.Y0()) == null || (activityConfig = Y0.activityConfig) == null) {
+            if (frsFragment == null || (X0 = frsFragment.X0()) == null || (activityConfig = X0.activityConfig) == null) {
                 return "";
             }
             return activityConfig.addthread_text;
@@ -408,11 +408,11 @@ public class x47 implements ww6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ig9 ig9Var = this.h;
-            if (ig9Var == null) {
+            mh9 mh9Var = this.h;
+            if (mh9Var == null) {
                 return false;
             }
-            return ig9Var.b();
+            return mh9Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -421,11 +421,11 @@ public class x47 implements ww6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ig9 ig9Var = this.h;
-            if (ig9Var == null) {
+            mh9 mh9Var = this.h;
+            if (mh9Var == null) {
                 return false;
             }
-            return ig9Var.b();
+            return mh9Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -433,9 +433,9 @@ public class x47 implements ww6 {
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ig9 ig9Var = this.h;
-            if (ig9Var != null) {
-                ig9Var.e();
+            mh9 mh9Var = this.h;
+            if (mh9Var != null) {
+                mh9Var.e();
             }
             f57 f57Var = this.c;
             if (f57Var != null) {
@@ -456,8 +456,8 @@ public class x47 implements ww6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            ig9 ig9Var = this.h;
-            if (ig9Var != null && ig9Var.b()) {
+            mh9 mh9Var = this.h;
+            if (mh9Var != null && mh9Var.b()) {
                 this.h.a(true);
                 return true;
             }
@@ -489,17 +489,17 @@ public class x47 implements ww6 {
 
     public boolean k() {
         InterceptResult invokeV;
-        FrsViewData Y0;
+        FrsViewData X0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             FrsFragment frsFragment = this.a;
-            if (frsFragment == null || (Y0 = frsFragment.Y0()) == null) {
+            if (frsFragment == null || (X0 = frsFragment.X0()) == null) {
                 return false;
             }
             if (!ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
                 return true;
             }
-            AntiData anti = Y0.getAnti();
+            AntiData anti = X0.getAnti();
             if (anti == null || !y(anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
                 return false;
             }
@@ -510,13 +510,13 @@ public class x47 implements ww6 {
 
     public boolean l() {
         InterceptResult invokeV;
-        FrsViewData Y0;
+        FrsViewData X0;
         ActivityConfig activityConfig;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             FrsFragment frsFragment = this.a;
-            if (frsFragment != null && (Y0 = frsFragment.Y0()) != null && (activityConfig = Y0.activityConfig) != null && activityConfig.type.intValue() == 2) {
+            if (frsFragment != null && (X0 = frsFragment.X0()) != null && (activityConfig = X0.activityConfig) != null && activityConfig.type.intValue() == 2) {
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     z = true;
                 } else {
@@ -551,7 +551,7 @@ public class x47 implements ww6 {
         String str11;
         String str12;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (frsFragment = this.a) == null || frsFragment.Y0() == null || (forum = this.a.Y0().getForum()) == null) {
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (frsFragment = this.a) == null || frsFragment.X0() == null || (forum = this.a.X0().getForum()) == null) {
             return;
         }
         ThemeColorInfo themeColorInfo = forum.getThemeColorInfo();
@@ -629,7 +629,7 @@ public class x47 implements ww6 {
                 return false;
             }
             if (StringUtils.isNull(blockPopInfoData.block_info)) {
-                str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0732);
+                str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f073b);
             } else {
                 str = blockPopInfoData.block_info;
             }

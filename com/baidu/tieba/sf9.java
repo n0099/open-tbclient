@@ -1,94 +1,90 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class sf9 {
     public static /* synthetic */ Interceptable $ic;
+    public static sf9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<CloudMusicData.MusicTagList.MusicList> a;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return n99.d;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948149635, "Lcom/baidu/tieba/sf9;")) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948149635, "Lcom/baidu/tieba/sf9;");
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public sf9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return n99.c;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.a = new SparseArray<>();
     }
 
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
+    public static synchronized sf9 b() {
+        InterceptResult invokeV;
+        sf9 sf9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) == null) {
-            String str3 = "";
-            FileOutputStream fileOutputStream = null;
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (sf9.class) {
+                if (b == null) {
+                    b = new sf9();
+                }
+                sf9Var = b;
             }
-            try {
-                try {
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(file, str2);
-                if (!file2.exists()) {
-                    file2.createNewFile();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                    fileOutputStream2.flush();
-                    str3 = file2.getAbsolutePath();
-                    fileOutputStream2.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream = fileOutputStream2;
-                    e.printStackTrace();
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    return str3;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-                return str3;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeLLL.objValue;
+            return sf9Var;
+        }
+        return (sf9) invokeV.objValue;
+    }
+
+    public CloudMusicData.MusicTagList.MusicList a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get(4096);
+        }
+        return (CloudMusicData.MusicTagList.MusicList) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = null;
+            b = null;
+        }
+    }
+
+    public void d(CloudMusicData.MusicTagList.MusicList musicList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, musicList) == null) {
+            this.a.put(4096, musicList);
         }
     }
 }

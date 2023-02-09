@@ -311,7 +311,7 @@ public class FrsHottopicFragment extends BaseFragment implements it6, vi7.a, kt6
     }
 
     @Override // com.baidu.tieba.kt6
-    public void g1() {
+    public void f1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             refresh();
@@ -468,7 +468,7 @@ public class FrsHottopicFragment extends BaseFragment implements it6, vi7.a, kt6
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d032b, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d032d, (ViewGroup) null);
             vi7 vi7Var = new vi7(this, inflate, getPageContext());
             this.c = vi7Var;
             vi7Var.f(getTbPageTag());

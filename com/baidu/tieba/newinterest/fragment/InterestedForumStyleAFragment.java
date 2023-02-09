@@ -107,7 +107,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 this.b = getArguments().getBoolean(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM);
                 this.c = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
             }
-            this.e = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02e0, viewGroup, false);
+            this.e = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02e2, viewGroup, false);
             J1();
             initData();
             return this.e;
@@ -153,8 +153,8 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09103b);
-            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091049);
+            this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09104d);
+            TextView textView = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09105b);
             this.h = textView;
             String[] strArr = this.c;
             if (strArr != null && strArr.length == 3) {
@@ -162,23 +162,23 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 this.i.setText(this.c[2]);
             }
             m45 m45Var = new m45();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091028);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f09103a);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
             this.j.setConfig(m45Var);
-            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f09da));
+            this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f09e4));
             this.j.setEnabled(false);
             o45 o45Var = new o45();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091f2a);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091f6d);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
             o45Var.s(R.color.CAM_X0105);
             this.g.setConfig(o45Var);
-            this.g.setText(getString(R.string.obfuscated_res_0x7f0f09e2));
-            this.k = this.e.findViewById(R.id.obfuscated_res_0x7f091029);
-            this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09102a);
-            this.m = this.e.findViewById(R.id.obfuscated_res_0x7f09102b);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f091040);
+            this.g.setText(getString(R.string.obfuscated_res_0x7f0f09ec));
+            this.k = this.e.findViewById(R.id.obfuscated_res_0x7f09103b);
+            this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09103c);
+            this.m = this.e.findViewById(R.id.obfuscated_res_0x7f09103d);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.e.findViewById(R.id.obfuscated_res_0x7f091052);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.getRecycledViewPool().setMaxRecycledViews(1, 12);
             ((DefaultItemAnimator) this.f.getItemAnimator()).setSupportsChangeAnimations(false);

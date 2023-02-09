@@ -10,6 +10,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tieba.c49;
 import com.baidu.tieba.cw7;
 import com.baidu.tieba.ew7;
 import com.baidu.tieba.ju7;
@@ -17,7 +18,6 @@ import com.baidu.tieba.ku7;
 import com.baidu.tieba.lego.LegoHotPageView;
 import com.baidu.tieba.lego.LegoListView;
 import com.baidu.tieba.nu7;
-import com.baidu.tieba.y29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -353,7 +353,7 @@ public class ScrollFragmentAdapter extends PagerAdapter {
             if (this.c != i) {
                 f();
                 this.c = i;
-                VoiceManager a2 = y29.a(this.a);
+                VoiceManager a2 = c49.a(this.a);
                 if (a2 != null) {
                     a2.stopPlay();
                 }

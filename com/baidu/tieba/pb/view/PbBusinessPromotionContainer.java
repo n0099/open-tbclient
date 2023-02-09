@@ -263,11 +263,11 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.j = new a(this);
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d7, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090f10);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f0e);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0f);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0d);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d9, this);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090f21);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f1f);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f20);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f1e);
         this.b.setRadius(ej.g(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);
@@ -357,13 +357,13 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.h) {
-                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0698));
+                this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06a1));
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundResource(this.d, 17170445);
                 this.d.setOnClickListener(null);
                 return;
             }
-            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f02b9));
+            this.d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f02ba));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             SkinManager.setBackgroundResource(this.d, R.drawable.pb_business_promotion_attention_bg);
             this.d.setOnClickListener(this.j);

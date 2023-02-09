@@ -128,7 +128,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                     return;
                 }
                 this.a.c.q();
-                this.a.c.z(this.a.getString(R.string.obfuscated_res_0x7f0f0cfe), true);
+                this.a.c.z(this.a.getString(R.string.obfuscated_res_0x7f0f0d08), true);
             }
         }
     }
@@ -164,7 +164,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
                 return;
             }
             if (!ej.F()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                 return;
             }
             long uid = this.a.b.getUid();
@@ -342,9 +342,9 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f08d2);
+            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f08db);
             if (this.e == 2) {
-                return getPageContext().getString(R.string.obfuscated_res_0x7f0f1236);
+                return getPageContext().getString(R.string.obfuscated_res_0x7f0f124c);
             }
             return string;
         }
@@ -392,7 +392,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
             if (ej.F()) {
                 this.c.A();
             } else {
-                this.c.z(getString(R.string.obfuscated_res_0x7f0f0cfe), true);
+                this.c.z(getString(R.string.obfuscated_res_0x7f0f0d08), true);
             }
             k85.h0().d0(0);
         }

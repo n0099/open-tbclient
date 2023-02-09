@@ -48,23 +48,23 @@ public final class bq2 extends rm2<hr2> {
         public void a(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onStateChange", Integer.valueOf(i));
+            }
+        }
+
+        @Override // com.baidu.tieba.hr2.a
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.b != null) {
                 this.a.b.onCallback(this.a, "onInfo", Integer.valueOf(i));
             }
         }
 
         @Override // com.baidu.tieba.hr2.a
-        public void c(@NonNull String str) {
+        public void d(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a.b != null) {
+            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.b != null) {
                 this.a.b.onCallback(this.a, "onNetStatus", str);
-            }
-        }
-
-        @Override // com.baidu.tieba.hr2.a
-        public void e(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onStateChange", Integer.valueOf(i));
             }
         }
 
@@ -88,9 +88,9 @@ public final class bq2 extends rm2<hr2> {
         }
 
         @Override // com.baidu.tieba.hr2.a
-        public void b(String str) {
+        public void c(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
                 if (this.a.b != null) {
                     this.a.b.onCallback(this.a, "onPaused", null);
                 }
@@ -101,9 +101,9 @@ public final class bq2 extends rm2<hr2> {
         }
 
         @Override // com.baidu.tieba.hr2.a
-        public void d(String str) {
+        public void e(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
                 if (this.a.b != null) {
                     this.a.b.onCallback(this.a, "onPlayed", null);
                 }

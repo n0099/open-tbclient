@@ -6,7 +6,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.kda;
+import com.baidu.tieba.oea;
 import com.baidu.tieba.s96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,7 +56,7 @@ public class InitWebViewTask extends LaunchTask {
             try {
                 s96 s96Var = new s96();
                 s96Var.i(TbadkCoreApplication.getInst().isDebugMode());
-                s96.d(new kda<String>(this) { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
+                s96.d(new oea<String>(this) { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitWebViewTask this$0;
@@ -80,7 +80,7 @@ public class InitWebViewTask extends LaunchTask {
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tieba.kda
+                    @Override // com.baidu.tieba.oea
                     public String call() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;

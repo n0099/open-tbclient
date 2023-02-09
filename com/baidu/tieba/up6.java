@@ -93,7 +93,7 @@ public class up6 extends as6<vp6, ManitoMemberItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new ManitoMemberItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0591, (ViewGroup) null));
+            return new ManitoMemberItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0596, (ViewGroup) null));
         }
         return (ManitoMemberItemViewHolder) invokeL.objValue;
     }
@@ -133,15 +133,15 @@ public class up6 extends as6<vp6, ManitoMemberItemViewHolder> {
                     SkinManager.setViewTextColor(manitoMemberItemViewHolder.d, R.color.CAM_X0109, 1);
                 }
                 manitoMemberItemViewHolder.a.e(vp6Var.b(), 12, false);
-                manitoMemberItemViewHolder.b.setText(rp5.f(vp6Var.g(), 16));
+                manitoMemberItemViewHolder.b.setText(rp5.g(vp6Var.g(), 16));
                 if (StringUtils.isNull(vp6Var.c())) {
                     manitoMemberItemViewHolder.c.setText(R.string.god_intro_default);
                 } else {
-                    manitoMemberItemViewHolder.c.setText(rp5.f(vp6Var.c(), 30));
+                    manitoMemberItemViewHolder.c.setText(rp5.g(vp6Var.c(), 30));
                 }
                 int color = SkinManager.getColor(R.color.CAM_X0301);
                 String numberUniformFormat = StringHelper.numberUniformFormat(vp6Var.a());
-                manitoMemberItemViewHolder.d.setText(F(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f064e), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
+                manitoMemberItemViewHolder.d.setText(F(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0657), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
                 manitoMemberItemViewHolder.getView().setTag(vp6Var);
                 manitoMemberItemViewHolder.getView().setOnClickListener(this.l);
                 manitoMemberItemViewHolder.f = this.f;

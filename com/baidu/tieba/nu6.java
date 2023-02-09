@@ -43,7 +43,7 @@ public class nu6 {
     public final AnimatorSet i;
     public long j;
     public ForumData k;
-    public qz8 l;
+    public u09 l;
     public Dialog m;
     public int n;
     public int o;
@@ -77,12 +77,12 @@ public class nu6 {
 
         /* renamed from: com.baidu.tieba.nu6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0363a implements Runnable {
+        public class RunnableC0362a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0363a(a aVar) {
+            public RunnableC0362a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class nu6 {
         public void I(int i) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == 3) {
-                this.a.a.post(new RunnableC0363a(this));
+                this.a.a.post(new RunnableC0362a(this));
                 this.a.p.f();
             }
         }
@@ -726,7 +726,7 @@ public class nu6 {
         this.p = new e(this);
         this.a = view2;
         this.g = tbImageView;
-        this.b = (ScanningView) view2.findViewById(R.id.obfuscated_res_0x7f090ca0);
+        this.b = (ScanningView) view2.findViewById(R.id.obfuscated_res_0x7f090cb1);
         if (!(context instanceof y9)) {
             this.c = null;
             this.e = null;
@@ -855,13 +855,13 @@ public class nu6 {
         }
     }
 
-    public void s(qz8 qz8Var, ForumData forumData, long j2) {
+    public void s(u09 u09Var, ForumData forumData, long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{qz8Var, forumData, Long.valueOf(j2)}) == null) && this.c != null && this.e != null && this.f != null && qz8Var != null && !StringUtils.isNull(qz8Var.q())) {
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{u09Var, forumData, Long.valueOf(j2)}) == null) && this.c != null && this.e != null && this.f != null && u09Var != null && !StringUtils.isNull(u09Var.q())) {
             this.j = j2;
             this.k = forumData;
-            this.l = qz8Var;
-            this.f.setVideoData(qz8Var.q(), this.l.b());
+            this.l = u09Var;
+            this.f.setVideoData(u09Var.q(), this.l.b());
             this.b.d();
         }
     }

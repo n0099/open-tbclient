@@ -181,11 +181,11 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2 == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090145) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090147) {
                 MemberCenterStatic.a(this.a.getPageContext(), new String[]{this.a.c});
                 this.a.g = true;
                 TiebaStatic.log(new StatisticItem("c11747"));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0921e5 && (view2.getTag() instanceof w18)) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09222b && (view2.getTag() instanceof w18)) {
                 w18 w18Var = (w18) view2.getTag();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(this.a.getPageContext().getPageActivity());
@@ -405,9 +405,9 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
         if (!TbadkCoreApplication.isLogin()) {
             j05 j05Var = new j05(getPageContext().getPageActivity());
-            j05Var.setTitle(R.string.obfuscated_res_0x7f0f14e9);
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b05, new d(this, j05Var));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new e(this, j05Var));
+            j05Var.setTitle(R.string.obfuscated_res_0x7f0f1500);
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0b0f, new d(this, j05Var));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new e(this, j05Var));
             j05Var.create(getPageContext());
             j05Var.show();
         } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
@@ -417,10 +417,10 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
             }
         } else {
             j05 j05Var2 = new j05(getPageContext().getPageActivity());
-            j05Var2.setTitle(R.string.obfuscated_res_0x7f0f14ea);
+            j05Var2.setTitle(R.string.obfuscated_res_0x7f0f1501);
             j05Var2.setButtonTextColor(R.color.CAM_X0305);
             j05Var2.setPositiveButton(R.string.open_now, new f(this, j05Var2));
-            j05Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new g(this, j05Var2));
+            j05Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new g(this, j05Var2));
             j05Var2.create(getPageContext());
             j05Var2.show();
         }
@@ -433,9 +433,9 @@ public class MemberTaskCenterActivity extends BaseActivity<MemberTaskCenterActiv
         }
         int i2 = this.e;
         if (i2 == 1) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14e8), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14ff), Integer.valueOf(i)));
         } else if (i2 == 2) {
-            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14e7), Integer.valueOf(i)));
+            showToast(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f14fe), Integer.valueOf(i)));
         }
     }
 

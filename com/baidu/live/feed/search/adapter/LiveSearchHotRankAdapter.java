@@ -270,9 +270,9 @@ public final class LiveSearchHotRankAdapter extends RecyclerView.Adapter<Recycle
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             if (i != 0) {
                 if (i != 2) {
-                    return new LiveSearchHotRankItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0572, viewGroup, false));
+                    return new LiveSearchHotRankItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0577, viewGroup, false));
                 }
-                return new LiveSearchHotRankBottomViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0571, viewGroup, false));
+                return new LiveSearchHotRankBottomViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0576, viewGroup, false));
             }
             return new LiveSearchHotRankHeaderViewHolder(new ImageView(viewGroup.getContext()));
         }

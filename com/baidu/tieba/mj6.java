@@ -26,7 +26,7 @@ import com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.tieba.fk6;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.k29;
+import com.baidu.tieba.o39;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class mj6 extends BaseAdapter {
     public sj6 h;
     public wl6 i;
     public HashSet<Long> j;
-    public k29.c k;
+    public o39.c k;
 
     /* loaded from: classes5.dex */
     public class e implements View.OnClickListener {
@@ -86,7 +86,7 @@ public class mj6 extends BaseAdapter {
             public void onClick(j05 j05Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
-                    k29.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", this.a.a.k);
+                    o39.b(NetWorkErr.ERROR_UEG_BIND_MOBILE, "", this.a.a.k);
                     j05Var.dismiss();
                 }
             }
@@ -189,33 +189,33 @@ public class mj6 extends BaseAdapter {
                     int H = b2.H();
                     if (H != 220012) {
                         if (H == 2121002) {
-                            i95.b(this.a.a, null, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049d), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f14f9), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f148a), new a(this), new b(this)).show();
+                            i95.b(this.a.a, null, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f04a0), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f1510), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f14a1), new a(this), new b(this)).show();
                         }
                     } else {
                         BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                         if (dj.isEmpty(b2.G())) {
-                            G = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0499);
+                            G = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049c);
                         } else {
                             G = b2.G();
                         }
                         blockPopInfoData.block_info = G;
-                        blockPopInfoData.ahead_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049b);
-                        blockPopInfoData.ok_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a46);
+                        blockPopInfoData.ahead_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049e);
+                        blockPopInfoData.ok_info = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a50);
                         blockPopInfoData.ahead_url = AntiHelper.a;
                         AntiHelper.s(this.a.a.getPageActivity(), blockPopInfoData);
                     }
                     z = true;
                 }
                 if (!z) {
-                    String string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049a);
+                    String string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049d);
                     if (b2 != null) {
                         if (dj.isEmpty(b2.G())) {
-                            string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049a);
+                            string = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f049d);
                         } else {
                             string = b2.G();
                         }
                     }
-                    i95.b(this.a.a, null, string, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a46), null, new c(this), null).show();
+                    i95.b(this.a.a, null, string, this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a50), null, new c(this), null).show();
                 }
             }
         }
@@ -358,32 +358,32 @@ public class mj6 extends BaseAdapter {
     }
 
     /* loaded from: classes5.dex */
-    public class f extends k29.c {
+    public class f extends o39.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.k29.c
+        @Override // com.baidu.tieba.o39.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.k29.c
+        @Override // com.baidu.tieba.o39.c
         public void c(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.k29.c
+        @Override // com.baidu.tieba.o39.c
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.k29.c
+        @Override // com.baidu.tieba.o39.c
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -701,11 +701,11 @@ public class mj6 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof i)) {
                         iVar = (i) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0274, viewGroup, false);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0275, viewGroup, false);
                         iVar = new i(this, null);
-                        iVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092314);
-                        iVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092014);
-                        iVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09070d);
+                        iVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+                        iVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092058);
+                        iVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090718);
                         view2.setTag(iVar);
                     }
                     if (this.f.get(i2) instanceof uj6) {
@@ -755,7 +755,7 @@ public class mj6 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof zl6)) {
                         zl6Var = (zl6) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d03a5, viewGroup, false);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d03a7, viewGroup, false);
                         zl6Var = new zl6(this.a, view2, this.b);
                         view2.setTag(zl6Var);
                     }
@@ -768,10 +768,10 @@ public class mj6 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof g)) {
                         gVar = (g) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0273, (ViewGroup) null);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0274, (ViewGroup) null);
                         gVar = new g(this, null);
                         gVar.a = (TextView) view2.findViewById(R.id.footer_text);
-                        gVar.b = view2.findViewById(R.id.obfuscated_res_0x7f09070d);
+                        gVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090718);
                         view2.setTag(gVar);
                     }
                     View view3 = gVar.b;
@@ -784,11 +784,11 @@ public class mj6 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof h)) {
                         hVar = (h) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0271, (ViewGroup) null);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0272, (ViewGroup) null);
                         hVar = new h(this, null);
-                        hVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091d5e);
-                        hVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f65);
-                        hVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e47);
+                        hVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091da0);
+                        hVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
+                        hVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e58);
                         hVar.d = (TBSpecificationBtn) view2.findViewById(R.id.footer_text);
                         m45 m45Var = new m45();
                         hVar.d.setTextSize(R.dimen.tbds42);
@@ -796,13 +796,13 @@ public class mj6 extends BaseAdapter {
                         view2.setTag(hVar);
                     }
                     if (!TbadkCoreApplication.isLogin()) {
-                        hVar.c.setText(R.string.obfuscated_res_0x7f0f05a9);
-                        hVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0410));
+                        hVar.c.setText(R.string.obfuscated_res_0x7f0f05b0);
+                        hVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0411));
                         hVar.d.setTextHorizontalCenter(true);
                         SkinManager.setImageResource(hVar.b, R.drawable.new_pic_emotion_09);
                     } else {
-                        hVar.c.setText(R.string.obfuscated_res_0x7f0f0720);
-                        hVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f040e));
+                        hVar.c.setText(R.string.obfuscated_res_0x7f0f0729);
+                        hVar.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f040f));
                         SkinManager.setImageResource(hVar.b, R.drawable.new_pic_emotion_01);
                     }
                     SkinManager.setViewTextColor(hVar.c, (int) R.color.CAM_X0107);
@@ -937,7 +937,7 @@ public class mj6 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof yl6)) {
                         yl6Var = (yl6) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d053e, viewGroup, false);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0542, viewGroup, false);
                         yl6Var = new yl6(this.a, view2, this.b, this.c, this.e);
                         view2.setTag(yl6Var);
                     }
@@ -950,7 +950,7 @@ public class mj6 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof xl6)) {
                         xl6Var = (xl6) view2.getTag();
                     } else {
-                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d01de, viewGroup, false);
+                        view2 = this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d01df, viewGroup, false);
                         xl6Var = new xl6(this.a, view2, this.b, this.c, this.e);
                         view2.setTag(xl6Var);
                     }

@@ -8,6 +8,8 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment;
+import com.baidu.tieba.pb.videopb.fragment.ReplyFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,13 +25,13 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
     public ArrayList<BaseFragment> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbCommentFloatFragment videoPbCommentFloatFragment) {
+    public VideoPbFragmentAdapter(FragmentManager fragmentManager, AbsVideoPbFragment absVideoPbFragment) {
         super(fragmentManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentManager, videoPbCommentFloatFragment};
+            Object[] objArr = {fragmentManager, absVideoPbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,12 +46,22 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
             this.a = new ArrayList();
         }
         this.a.clear();
-        this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ebb));
+        if (absVideoPbFragment.J4()) {
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ec7));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ecf));
+        } else {
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ecf));
+        }
         if (this.b == null) {
             this.b = new ArrayList<>();
         }
         this.b.clear();
-        this.b.add(DetailInfoAndReplyFragment.a2(videoPbCommentFloatFragment));
+        if (absVideoPbFragment.J4()) {
+            this.b.add(DetailInfoFragment.O1(absVideoPbFragment));
+            this.b.add(ReplyFragment.d2(absVideoPbFragment));
+            return;
+        }
+        this.b.add(DetailInfoAndReplyFragment.i2(absVideoPbFragment));
     }
 
     public BaseFragment b(int i) {

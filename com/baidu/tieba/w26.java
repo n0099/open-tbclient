@@ -236,14 +236,14 @@ public class w26 {
         this.t = new c(this);
         this.b = tbPageContext;
         this.o = str;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0873, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0885, (ViewGroup) null, false);
         this.c = inflate;
-        this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f9a);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09244e);
-        this.f = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d2d);
-        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09245c);
-        this.h = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09245d);
-        HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0910d1);
+        this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fab);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092498);
+        this.f = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d6f);
+        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924a6);
+        this.h = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924a7);
+        HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0910e4);
         this.i = headImageView;
         headImageView.setIsRound(true);
         this.i.setBorderWidth(ej.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
@@ -331,7 +331,7 @@ public class w26 {
                 this.d.K(this.k.getThreadAlaInfo().cover, 10, false);
                 this.h.setBackgroundDrawable(gradientDrawable);
                 this.d.setEvent(new b(this));
-                this.e.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0ac1, StringHelper.numberUniformFormatExtraWithRound(this.k.getThreadAlaInfo().audience_count)));
+                this.e.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0acb, StringHelper.numberUniformFormatExtraWithRound(this.k.getThreadAlaInfo().audience_count)));
                 if (this.k.getAuthor() != null) {
                     String name_show = this.k.getAuthor().getName_show();
                     if (!StringUtils.isNull(name_show)) {

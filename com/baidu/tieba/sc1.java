@@ -66,13 +66,13 @@ public class sc1 extends rc1 {
 
         /* renamed from: com.baidu.tieba.sc1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0424a implements View.OnClickListener {
+        public class View$OnClickListenerC0423a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0424a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0423a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -444,7 +444,7 @@ public class sc1 extends rc1 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0424a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0423a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -554,19 +554,19 @@ public class sc1 extends rc1 {
             this.x = -1;
             this.v = viewGroup;
             this.a = (LinearLayout) viewGroup.findViewById(R.id.nad_title_panel);
-            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09081f);
+            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09082c);
             this.c = (TextView) viewGroup.findViewById(R.id.dialog_message);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.nad_dialog_message_content);
             this.e = (TextView) viewGroup.findViewById(R.id.positive_button);
             this.f = (TextView) viewGroup.findViewById(R.id.negative_button);
             this.g = (TextView) viewGroup.findViewById(R.id.neutral_button);
-            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090845);
-            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f090846);
+            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090853);
+            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f090854);
             this.o = viewGroup.findViewById(R.id.dialog_customPanel);
             this.p = (FrameLayout) viewGroup.findViewById(R.id.dialog_custom_content);
             this.r = (ImageView) viewGroup.findViewById(R.id.dialog_icon);
             this.s = (RelativeLayout) viewGroup.findViewById(R.id.searchbox_alert_dialog);
-            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f090844);
+            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f090852);
             this.t = (BoxScrollView) viewGroup.findViewById(R.id.message_scrollview);
             this.u = (LinearLayout) viewGroup.findViewById(R.id.nad_btn_panel);
         }

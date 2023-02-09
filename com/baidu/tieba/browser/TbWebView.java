@@ -22,12 +22,12 @@ import com.baidu.tieba.browser.core.webview.flyweight.FlyweightWebView;
 import com.baidu.tieba.browser.core.webview.scroll.NestedScrollWebView;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
 import com.baidu.tieba.hc6;
-import com.baidu.tieba.hda;
 import com.baidu.tieba.ic6;
 import com.baidu.tieba.jc6;
 import com.baidu.tieba.l96;
 import com.baidu.tieba.la6;
 import com.baidu.tieba.lb6;
+import com.baidu.tieba.lea;
 import com.baidu.tieba.ma6;
 import com.baidu.tieba.mb6;
 import com.baidu.tieba.na6;
@@ -50,7 +50,7 @@ public class TbWebView extends FrameLayout implements aa6, WebViewLifeCycle {
     public SimpleWebViewLifeCycle c;
     public final ma6 d;
     public final na6 e;
-    public hda<WebView> f;
+    public lea<WebView> f;
     public ProgressBar g;
     public final lb6 h;
 
@@ -208,9 +208,9 @@ public class TbWebView extends FrameLayout implements aa6, WebViewLifeCycle {
             if (simpleWebViewLifeCycle != null) {
                 simpleWebViewLifeCycle.a(this.b);
             }
-            hda<WebView> hdaVar = this.f;
-            if (hdaVar != null) {
-                hdaVar.call(this.b);
+            lea<WebView> leaVar = this.f;
+            if (leaVar != null) {
+                leaVar.call(this.b);
             }
         }
     }
@@ -232,10 +232,10 @@ public class TbWebView extends FrameLayout implements aa6, WebViewLifeCycle {
         }
     }
 
-    public void g(hda<WebView> hdaVar) {
+    public void g(lea<WebView> leaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hdaVar) == null) {
-            this.f = hdaVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, leaVar) == null) {
+            this.f = leaVar;
         }
     }
 
@@ -319,7 +319,7 @@ public class TbWebView extends FrameLayout implements aa6, WebViewLifeCycle {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08047a, getContext().getTheme());
+            return ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f08047e, getContext().getTheme());
         }
         return (Drawable) invokeV.objValue;
     }

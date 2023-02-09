@@ -41,8 +41,8 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.eo7;
 import com.baidu.tieba.kn7;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.qd9;
 import com.baidu.tieba.t35;
+import com.baidu.tieba.ue9;
 import com.baidu.tieba.xk7;
 import com.baidu.tieba.yf;
 import com.baidu.tieba.ys5;
@@ -528,7 +528,7 @@ public class SingleImageTextView extends RelativeLayout {
             d.v(R.color.CAM_X0107);
             d.w(R.dimen.M_T_X003);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.k, R.drawable.obfuscated_res_0x7f0802b7);
+            SkinManager.setBackgroundResource(this.k, R.drawable.obfuscated_res_0x7f0802b9);
         }
     }
 
@@ -566,21 +566,21 @@ public class SingleImageTextView extends RelativeLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05c5, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ff9);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091ff5);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ff6);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09203d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092039);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09203a);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(false);
             this.d.setRadius(ej.g(getContext(), R.dimen.tbds20));
             this.d.setConrers(15);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c38);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b8);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091ff7);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091fc7);
-            this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091383);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0924fc);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0924fd);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c79);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09203b);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09200b);
+            this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091398);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092547);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092548);
             setOnLongClickListener(new a(this));
             int dimension = (int) this.a.getResources().getDimension(R.dimen.tbds38);
             int dimension2 = (int) this.a.getResources().getDimension(R.dimen.tbds10);
@@ -624,14 +624,14 @@ public class SingleImageTextView extends RelativeLayout {
         if (!TextUtils.isEmpty(aVar.b)) {
             str2 = aVar.b;
         }
-        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0985))) {
+        if (!TextUtils.isEmpty(aVar.b) && aVar.b.contains(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f098f))) {
             b bVar = new b(this, 2, aVar.d, aVar);
-            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0985));
+            int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f098f));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.c.setOnTouchListener(new qd9(spannableString));
+            this.c.setOnTouchListener(new ue9(spannableString));
             this.c.setText(spannableString);
-            this.f.setText(R.string.obfuscated_res_0x7f0f0302);
+            this.f.setText(R.string.obfuscated_res_0x7f0f0303);
         } else {
             this.c.setText(str2);
         }

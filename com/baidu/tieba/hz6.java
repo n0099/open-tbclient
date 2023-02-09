@@ -19,7 +19,7 @@ public class hz6 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public x9 a;
-    public u19 b;
+    public y29 b;
 
     public hz6(x9 x9Var) {
         Interceptable interceptable = $ic;
@@ -39,10 +39,10 @@ public class hz6 extends WebChromeClient {
         this.a = x9Var;
     }
 
-    public void a(u19 u19Var) {
+    public void a(y29 y29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u19Var) == null) {
-            this.b = u19Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, y29Var) == null) {
+            this.b = y29Var;
         }
     }
 
@@ -115,8 +115,8 @@ public class hz6 extends WebChromeClient {
         x9 x9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            u19 u19Var = this.b;
-            if ((u19Var != null && u19Var.onJsPrompt(str2, jsPromptResult)) || (x9Var = this.a) == null || !ih.f(x9Var)) {
+            y29 y29Var = this.b;
+            if ((y29Var != null && y29Var.onJsPrompt(str2, jsPromptResult)) || (x9Var = this.a) == null || !ih.f(x9Var)) {
                 return true;
             }
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);

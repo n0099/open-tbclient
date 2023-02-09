@@ -34,7 +34,7 @@ public class f47 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) && activity != null && this.b.c()) {
             if (this.a == null) {
-                this.a = new dz6(activity, R.id.obfuscated_res_0x7f090bcf);
+                this.a = new dz6(activity, R.id.obfuscated_res_0x7f090be0);
             }
             this.a.i(str);
             this.a.j(str2);

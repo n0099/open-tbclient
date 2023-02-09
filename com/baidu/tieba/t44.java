@@ -1110,12 +1110,12 @@ public class t44 extends c82 implements h94, d83.a {
     public final void A3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092355);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09239f);
             this.H0 = findViewById;
             findViewById.post(new e(this));
-            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092357);
-            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f092358);
-            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092356);
+            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923a1);
+            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f0923a2);
+            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923a0);
             this.I0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080124));
             this.K0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08010f));
             this.J0.setBackgroundResource(R.color.obfuscated_res_0x7f060391);
@@ -1128,7 +1128,7 @@ public class t44 extends c82 implements h94, d83.a {
     public void C3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090182);
+            FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090184);
             this.L0 = frameLayout;
             DuMixGameSurfaceView r = w44.m().r();
             this.G0 = r;
@@ -1139,14 +1139,14 @@ public class t44 extends c82 implements h94, d83.a {
                 }
             }
             if (j1 && !v43.n()) {
-                View inflate = ((ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090180)).inflate();
+                View inflate = ((ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090182)).inflate();
                 if (inflate != null) {
-                    this.S0 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09017f);
+                    this.S0 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090181);
                 }
                 M3();
             }
             A3(view2);
-            this.O0 = new rb4((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090183));
+            this.O0 = new rb4((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090185));
             this.N0 = new rb4(this.L0);
         }
     }
@@ -1487,7 +1487,7 @@ public class t44 extends c82 implements h94, d83.a {
             if (fm3.p(getActivity())) {
                 fm3.s(getActivity());
             }
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0089, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d008a, viewGroup, false);
             C3(inflate);
             z3();
             return inflate;

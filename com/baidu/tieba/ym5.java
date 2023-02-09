@@ -278,7 +278,7 @@ public class ym5<Q extends rm5, P extends sm5> {
     public final void o(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, o09.a(str, i2));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, s19.a(str, i2));
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setIsNeedTbs(true);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);

@@ -1,92 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class kw8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1500;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947927613, "Lcom/baidu/tieba/kw8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947927613, "Lcom/baidu/tieba/kw8;");
+    public static void a(int i, ShareEntity shareEntity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, shareEntity) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
+            int i2 = 6;
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i != 6) {
+                            if (i != 8) {
+                                i2 = 0;
+                            } else {
+                                i2 = 5;
+                            }
+                        }
+                    } else {
+                        i2 = 4;
+                    }
+                } else {
+                    i2 = 2;
+                }
+            } else {
+                i2 = 3;
+            }
+            if (i2 != 0) {
+                statisticItem.param("obj_source", i2);
+            }
+            if (shareEntity == null) {
+                TiebaStatic.log(statisticItem);
+                return;
+            }
+            Bundle stats = shareEntity.getStats();
+            if (stats != null) {
+                statisticItem.param("tid", stats.getString("tid"));
+                statisticItem.param("uid", stats.getString("uid"));
+                statisticItem.param("fid", stats.getString("fid"));
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public static int a(String str, int i) {
-        InterceptResult invokeLI;
+    public static void b(int i, ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return i;
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, shareEntity) == null) {
+            if (shareEntity != null && GroupInfoData.isValidGroup(shareEntity.groupData)) {
+                wn7.c(shareEntity.groupData, null, shareEntity.shareMediaType);
             }
-            try {
-                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getInt(str, i);
-            } catch (Exception unused) {
-                return i;
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
+            int i2 = 6;
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i != 6) {
+                            if (i != 8) {
+                                i2 = 0;
+                            } else {
+                                i2 = 5;
+                            }
+                        }
+                    } else {
+                        i2 = 4;
+                    }
+                } else {
+                    i2 = 2;
+                }
+            } else {
+                i2 = 3;
             }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
+            if (i2 != 0) {
+                statisticItem.param("obj_source", i2);
             }
-            try {
-                return BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).getString(str, str2);
-            } catch (Exception unused) {
-                return str2;
+            if (shareEntity == null) {
+                TiebaStatic.log(statisticItem);
+                return;
             }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            a = a("threshold_to_store_log", 1500);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            try {
-                SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("network_config_prefs", 0).edit();
-                edit.putString(str, str2);
-                edit.apply();
-            } catch (Exception unused) {
+            Bundle stats = shareEntity.getStats();
+            if (stats != null) {
+                int i3 = stats.getInt("obj_param1");
+                if (i3 != 0) {
+                    statisticItem.param("obj_param1", i3);
+                    if (i3 == 2) {
+                        statisticItem.param("fid", stats.getString("fid"));
+                    } else if (i3 == 3) {
+                        int i4 = stats.getInt("obj_type");
+                        if (i4 != 0) {
+                            statisticItem.param("obj_type", i4);
+                        }
+                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
+                    }
+                }
+                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
+                if (!dj.isEmpty(string)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
+                }
+                int i5 = stats.getInt("obj_locate");
+                int i6 = stats.getInt("source", 0);
+                if (i6 == 10 || i6 == 16 || i6 == 3) {
+                    i5 = i6;
+                }
+                statisticItem.param("obj_locate", i5);
+                if (i6 == 15) {
+                    return;
+                }
             }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

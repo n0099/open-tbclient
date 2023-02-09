@@ -867,7 +867,7 @@ public class bo6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4) == null) {
             if (d68.o().p()) {
-                ej.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0630);
+                ej.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0639);
                 return;
             }
             qe5 qe5Var = new qe5();
@@ -934,7 +934,7 @@ public class bo6 {
                 lVar.onResult(4, 0, 0);
             }
             if (d68.o().p() && lVar != null) {
-                ej.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0630);
+                ej.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0639);
                 lVar.onResult(4, 0, 0);
                 return;
             }

@@ -1,30 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.sharesdk.ShareHandlerActivity;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes6.dex */
-public class uu8 implements d95 {
+public class uu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
-    public uu8(Context context, c95 c95Var) {
+    public uu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, c95Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,71 +43,40 @@ public class uu8 implements d95 {
                 return;
             }
         }
-        this.a = null;
-        this.a = context;
+        this.k = "";
     }
 
-    @Override // com.baidu.tieba.d95
-    public void a(ShareItem shareItem, int i, boolean z) {
+    public uu8(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b(shareItem, i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
     }
 
-    public final void b(ShareItem shareItem, int i) {
-        boolean z;
+    public static void a(uu8 uu8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
-            IntentConfig intentConfig = new IntentConfig(this.a);
-            ShareEntity shareEntity = new ShareEntity();
-            shareEntity.setTitle(shareItem.v);
-            shareEntity.setContent(shareItem.w);
-            shareEntity.setReadCount(shareItem.W);
-            int i2 = shareItem.R;
-            if (i2 != 2 && i2 != 6 && i2 != 8) {
-                z = false;
-            } else {
-                z = true;
-            }
-            shareEntity.setIsVideoThread(z);
-            shareEntity.setFestivalTaskTid(shareItem.Y);
-            shareEntity.setFestivalTaskType(shareItem.Z);
-            shareEntity.setImageUri(shareItem.z);
-            shareEntity.canShareBySmartApp = shareItem.v0;
-            String str = shareItem.x;
-            if (i == 6 && !StringUtils.isNull(shareItem.y)) {
-                str = shareItem.y;
-            }
-            shareEntity.setLinkUrl(str);
-            shareEntity.setLocalFile(shareItem.B);
-            shareEntity.setLocation(shareItem.F);
-            shareEntity.setShareTo(i);
-            shareEntity.setStats(shareItem.f());
-            shareEntity.setPreferImageToLink(shareItem.k0);
-            shareEntity.setTid(shareItem.O);
-            shareEntity.setFloorAuthorUid(shareItem.P);
-            shareEntity.setfName(shareItem.t);
-            shareEntity.setTypeShareToSmallApp(shareItem.C);
-            shareEntity.topic = shareItem.T;
-            if (i == 6 && !StringUtils.isNull(shareItem.V)) {
-                shareEntity.topic = shareItem.U + shareItem.V;
-                shareEntity.setContent("");
-            }
-            shareEntity.taskCompleteId = shareItem.X;
-            shareEntity.diskPicOperate = shareItem.E;
-            shareEntity.setExtLiveInfo(shareItem.A0);
-            shareEntity.setFromDuXiaoMan(shareItem.m);
-            shareEntity.setUserGrowthWeight(shareItem.B0);
-            shareEntity.setTopicId(shareItem.C0);
-            shareEntity.groupData = shareItem.M0;
-            shareEntity.shareMediaType = shareItem.O0;
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("extra_share_data", shareEntity);
-            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
-            intentConfig.getIntent().putExtras(bundle);
-            shareItem.k(true);
-            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
+        if (interceptable == null || interceptable.invokeL(65538, null, uu8Var) == null) {
+            uu8Var.i = 0;
+            uu8Var.g = 4;
+            uu8Var.h = 4;
+            uu8Var.l = System.currentTimeMillis();
+            uu8Var.n = true;
         }
     }
 }

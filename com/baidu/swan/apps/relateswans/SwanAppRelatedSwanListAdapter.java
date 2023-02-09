@@ -106,7 +106,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         public void a(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-                TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091652);
+                TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091668);
                 if (TextUtils.isEmpty(str)) {
                     textView.setVisibility(8);
                     return;
@@ -226,9 +226,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if ((interceptable != null && interceptable.invokeLLI(1048576, this, context, aVar, i) != null) || aVar == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ca6)).setOnClickListener(new a(this, aVar, context, i));
-            tl3.e(aVar.a, new C0201b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0920c7), context));
-            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f0920c9)).setText(aVar.b);
+            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ce7)).setOnClickListener(new a(this, aVar, context, i));
+            tl3.e(aVar.a, new C0201b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f09210d), context));
+            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f09210f)).setText(aVar.b);
         }
     }
 
@@ -297,9 +297,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             if (i == 0) {
-                return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d083f, viewGroup, false));
+                return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0851, viewGroup, false));
             }
-            return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0840, viewGroup, false));
+            return new b(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0852, viewGroup, false));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

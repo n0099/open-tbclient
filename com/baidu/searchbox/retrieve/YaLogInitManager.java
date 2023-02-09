@@ -12,7 +12,7 @@ import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
 import com.baidu.tieba.dk1;
 import com.baidu.tieba.hk1;
-import com.baidu.tieba.ly9;
+import com.baidu.tieba.pz9;
 import com.baidu.tieba.v80;
 import com.baidu.tieba.z10;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,10 +72,10 @@ public class YaLogInitManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        ly9 ly9Var;
+        pz9 pz9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(65541, this, z) == null) && z && (ly9Var = (ly9) ServiceManager.getService(ly9.a)) != null) {
-            ly9Var.retry();
+        if ((interceptable == null || interceptable.invokeZ(65541, this, z) == null) && z && (pz9Var = (pz9) ServiceManager.getService(pz9.a)) != null) {
+            pz9Var.retry();
         }
     }
 

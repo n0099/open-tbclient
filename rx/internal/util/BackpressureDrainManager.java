@@ -1,7 +1,7 @@
 package rx.internal.util;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vca;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class BackpressureDrainManager extends AtomicLong implements vca {
+public final class BackpressureDrainManager extends AtomicLong implements zda {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2826241102729529449L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +224,7 @@ public final class BackpressureDrainManager extends AtomicLong implements vca {
         }
     }
 
-    @Override // com.baidu.tieba.vca
+    @Override // com.baidu.tieba.zda
     public void request(long j) {
         boolean z;
         Interceptable interceptable = $ic;

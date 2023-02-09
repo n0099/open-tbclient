@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STATE_ADAPTER = "android:menu:adapter";
@@ -68,7 +68,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     public boolean textAppearanceSet;
     public ColorStateList textColor;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface NavigationMenuItem {
     }
 
@@ -112,7 +112,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HeaderViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String STATE_ACTION_VIEWS = "android:menu:action_views";
@@ -514,7 +514,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NavigationMenuHeaderItem implements NavigationMenuItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -534,7 +534,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NavigationMenuSeparatorItem implements NavigationMenuItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -579,7 +579,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NavigationMenuTextItem implements NavigationMenuItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -614,7 +614,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class NavigationMenuViewAccessibilityDelegate extends RecyclerViewAccessibilityDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -651,14 +651,14 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NormalViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NormalViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021d, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021e, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -678,39 +678,13 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SeparatorViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SeparatorViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021f, viewGroup, false));
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {layoutInflater, viewGroup};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class SubheaderViewHolder extends ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
             super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0220, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -730,7 +704,33 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
+    public static class SubheaderViewHolder extends ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0221, viewGroup, false));
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {layoutInflater, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
     public static abstract class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1110,7 +1110,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, viewGroup)) == null) {
             if (this.menuView == null) {
-                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0221, viewGroup, false);
+                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0222, viewGroup, false);
                 this.menuView = navigationMenuView;
                 navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this, this.menuView));
                 if (this.adapter == null) {
@@ -1120,7 +1120,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 if (i != -1) {
                     this.menuView.setOverScrollMode(i);
                 }
-                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021e, (ViewGroup) this.menuView, false);
+                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d021f, (ViewGroup) this.menuView, false);
                 this.menuView.setAdapter(this.adapter);
             }
             return this.menuView;

@@ -46,7 +46,7 @@ import java.util.HashMap;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
 /* loaded from: classes8.dex */
-public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0575a, p.a, d.b, c.a {
+public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0576a, p.a, d.b, c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_REWARD_TYPE = "key_template_reward_type";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -471,9 +471,9 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b6);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ca);
             this.mRootContainer = adBaseFrameLayout;
-            this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09130c);
+            this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091320);
             boolean z = !ag.cB(this.mContext);
             if ((this.mModel.gL() || this.mModel.gM()) && z) {
                 this.mDetailVideoView.setForce(true);
@@ -680,7 +680,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "KSRewardLandScapeVideoActivityProxy" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0575a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0576a
     public boolean handledOnResume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -743,7 +743,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
             com.kwad.components.core.m.d.oy().a(this);
             this.mContext = Wrapper.wrapContextIfNeed(getActivity());
             initWithModel(this.mModel);
-            setContentView(R.layout.obfuscated_res_0x7f0d041f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0421);
             initView();
             onActivityCreated(this.mRootContainer);
             c.eZ().a(this.mRewardVerifyListener);
@@ -831,7 +831,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
             }
             kVar.mz = true;
             if (com.kwad.sdk.core.response.a.a.aY(by)) {
-                kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091217));
+                kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09122b));
             }
             kVar.mO = 0L;
             if (this.mModel.by() != null) {

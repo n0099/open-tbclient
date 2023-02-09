@@ -191,8 +191,8 @@ public class gt7 {
                 return;
             }
         }
-        o09.h(309593, AgreeMeSocketResponseMessage.class, false, false);
-        o09.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
+        s19.h(309593, AgreeMeSocketResponseMessage.class, false, false);
+        s19.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
     }
 
     public gt7(TbPageContext tbPageContext, c cVar) {

@@ -197,7 +197,7 @@ public class a37 {
             if (i != 2) {
                 k = null;
             } else {
-                k = gz8.k("c13692", threadData, 2);
+                k = k09.k("c13692", threadData, 2);
             }
             TiebaStatic.log(k);
         }
@@ -266,7 +266,7 @@ public class a37 {
             z3 = z2;
             i3 = i2;
         }
-        StatisticItem c = gz8.c(threadData, "a006", "common_click", i, threadData.statFloor, z3, str, null, i3);
+        StatisticItem c = k09.c(threadData, "a006", "common_click", i, threadData.statFloor, z3, str, null, i3);
         if (c == null) {
             return;
         }
@@ -301,7 +301,7 @@ public class a37 {
             c.param("thread_type", threadData.getThreadType());
         }
         k(c, tbPageTag, true);
-        iz8.g().c(bdUniqueId, c);
+        m09.g().c(bdUniqueId, c);
         j(threadData, i);
         q(threadData, tbPageTag, i);
     }
@@ -357,7 +357,7 @@ public class a37 {
         if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{bdUniqueId, Integer.valueOf(i), forumData, Integer.valueOf(i2), Integer.valueOf(i3)}) != null) || i <= 0) {
             return;
         }
-        StatisticItem f = gz8.f("a006", "common_fill", true, i, i3);
+        StatisticItem f = k09.f("a006", "common_fill", true, i, i3);
         if (forumData != null) {
             if (!dj.isEmpty(forumData.getId())) {
                 f.param("fid", forumData.getId());
@@ -373,7 +373,7 @@ public class a37 {
             }
         }
         f.param(TiebaStatic.Params.LIST_ORDER, i2);
-        iz8.g().c(bdUniqueId, f);
+        m09.g().c(bdUniqueId, f);
     }
 
     public static void g(ThreadData threadData, BdUniqueId bdUniqueId, TbPageTag tbPageTag) {
@@ -388,8 +388,8 @@ public class a37 {
             if (threadData.isSmartFrsThread() && threadData.getFeedBackReasonMap() != null && !z) {
                 StatisticItem param = new StatisticItem("common_exp").param("page_type", "a006").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 15).param("obj_id", threadData.getId()).param(TiebaStatic.Params.OBJ_FLOOR, threadData.statFloor).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("tid", threadData.getId()).param(TiebaStatic.Params.FIRST_DIR, threadData.getFirstClassName()).param(TiebaStatic.Params.SECOND_DIR, threadData.getSecondClassName());
                 a(param, threadData, tbPageTag);
-                String b = gz8.b(threadData.getTid(), "", "", threadData.getBaijiahaoData());
-                iz8 g = iz8.g();
+                String b = k09.b(threadData.getTid(), "", "", threadData.getBaijiahaoData());
+                m09 g = m09.g();
                 g.d(bdUniqueId, b + "_15", param);
             }
         }
@@ -523,7 +523,7 @@ public class a37 {
             i2 = i;
         }
         String str3 = str;
-        StatisticItem d = gz8.d(threadData, "a006", "common_exp", threadData.statFloor, z3, str, null, i2);
+        StatisticItem d = k09.d(threadData, "a006", "common_exp", threadData.statFloor, z3, str, null, i2);
         if (d == null) {
             return;
         }
@@ -550,7 +550,7 @@ public class a37 {
             d.param(TiebaStatic.Params.PURE_BROWSING, 1);
         }
         k(d, tbPageTag, false);
-        iz8.g().d(bdUniqueId, gz8.b(threadData.getTid(), str3, "", threadData.getBaijiahaoData()), d);
+        m09.g().d(bdUniqueId, k09.b(threadData.getTid(), str3, "", threadData.getBaijiahaoData()), d);
         if (threadData.isHeadLinePost) {
             g(threadData, bdUniqueId, tbPageTag);
         }

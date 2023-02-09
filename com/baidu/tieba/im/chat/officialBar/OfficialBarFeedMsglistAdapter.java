@@ -181,9 +181,9 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
                 }
             }
             this.e = officialBarFeedMsglistAdapter;
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f091819);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09181e);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091818);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f091833);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091838);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091832);
             this.a.setShowOval(true);
             this.a.setPlaceHolder(2);
             this.a.setShowOuterBorder(false);
@@ -287,7 +287,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new b(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d06a8, (ViewGroup) null));
+            return new b(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d06ae, (ViewGroup) null));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

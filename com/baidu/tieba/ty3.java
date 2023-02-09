@@ -59,7 +59,7 @@ public class ty3 extends ry3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d0687, (ViewGroup) null);
+            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d068d, (ViewGroup) null);
         }
         return (View) invokeV.objValue;
     }

@@ -90,10 +90,10 @@ public final class ChatShareChatroomCard extends ConstraintLayout {
         e = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X006);
         f = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
         g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds395);
-        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ad);
+        String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06b6);
         Intrinsics.checkNotNullExpressionValue(string, "getInst().getString(R.string.forum)");
         h = string;
-        String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0575);
+        String string2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0578);
         Intrinsics.checkNotNullExpressionValue(string2, "getInst().getString(R.string.ellipsis)");
         i = string2;
     }

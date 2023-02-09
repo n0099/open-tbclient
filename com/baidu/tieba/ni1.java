@@ -66,15 +66,15 @@ public class ni1 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090753);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090752);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f34);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905af);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090754);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090750);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09074d);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090751);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f3e);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09075e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09075d);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f77);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09075f);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09075b);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090758);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09075c);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f81);
         }
     }
 
@@ -154,7 +154,7 @@ public class ni1 extends BaseAdapter {
             }
             boolean z2 = false;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01fe, (ViewGroup) null, false);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01ff, (ViewGroup) null, false);
                 view2.setTag(new a(view2));
             }
             if (view2.getTag() != null && (view2.getTag() instanceof a)) {

@@ -140,7 +140,7 @@ public class pq4 implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0920e5) {
+        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09212b) {
             j();
         }
     }
@@ -205,13 +205,13 @@ public class pq4 implements View.OnClickListener {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d085a, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d086c, (ViewGroup) null);
             this.b = relativeLayout;
             relativeLayout.setVisibility(8);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920e6);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09212c);
             this.c = textView;
             textView.setVisibility(8);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920e5);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09212b);
             this.d = imageView;
             imageView.setOnClickListener(this);
             this.d.setVisibility(8);

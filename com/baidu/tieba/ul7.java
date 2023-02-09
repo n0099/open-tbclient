@@ -191,7 +191,7 @@ public class ul7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (!ww9.a(str)) {
+            if (!ay9.a(str)) {
                 if (str.startsWith("{") && str.endsWith("}")) {
                     return true;
                 }

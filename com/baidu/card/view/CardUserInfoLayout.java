@@ -65,7 +65,7 @@ import com.baidu.tieba.p15;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.ux;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.vs8;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -976,7 +976,7 @@ public class CardUserInfoLayout extends RelativeLayout implements ay {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = vs8.e().c();
+                AppPosInfo c2 = zt8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {

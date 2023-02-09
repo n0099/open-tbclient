@@ -5,14 +5,14 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-import com.baidu.tieba.kt8;
+import com.baidu.tieba.ou8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ForumSquareDispatcher implements kt8 {
+public class ForumSquareDispatcher implements ou8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String url = "com.baidu.tieba://unidispatch/forumsquare?";
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class ForumSquareDispatcher implements kt8 {
         }
     }
 
-    @Override // com.baidu.tieba.kt8
+    @Override // com.baidu.tieba.ou8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

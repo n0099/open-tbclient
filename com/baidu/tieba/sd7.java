@@ -82,7 +82,7 @@ public class sd7 extends qn<de7, CardViewHolder<b>> {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b2 : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b3 : invokeV.intValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,15 +104,15 @@ public class sd7 extends qn<de7, CardViewHolder<b>> {
                     return;
                 }
             }
-            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f091c1b);
+            TbImageView tbImageView = (TbImageView) h().findViewById(R.id.obfuscated_res_0x7f091c5c);
             this.i = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.i.setRadiusById(R.string.J_X06);
             this.i.setConrers(15);
             this.i.setScaleType(ImageView.ScaleType.FIT_XY);
             this.i.setPlaceHolder(2);
-            this.k = h().findViewById(R.id.obfuscated_res_0x7f090698);
-            this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090689);
+            this.k = h().findViewById(R.id.obfuscated_res_0x7f0906a3);
+            this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090694);
             this.k.setOnClickListener(this);
             h().setOnClickListener(this);
             WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_card_close22, R.color.CAM_X0101, null);

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class te7 extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qo8 z;
+    public up8 z;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public te7(Context context) {
@@ -34,7 +34,7 @@ public class te7 extends nx {
     }
 
     @Override // com.baidu.tieba.nx, com.baidu.tieba.dz
-    public qo8 t() {
+    public up8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -46,6 +46,6 @@ public class te7 extends nx {
             this.z.setStageType("2001");
             return this.z;
         }
-        return (qo8) invokeV.objValue;
+        return (up8) invokeV.objValue;
     }
 }

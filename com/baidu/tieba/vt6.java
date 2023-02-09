@@ -68,7 +68,7 @@ public class vt6 implements ft6 {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == i09.d) {
+            if (bdUniqueId == m19.d) {
                 return new ov6(tbPageContext, bdUniqueId, z);
             }
             if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {

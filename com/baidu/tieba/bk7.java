@@ -225,7 +225,7 @@ public abstract class bk7 extends BaseAdapter {
             aVar.e = (TextView) view2.findViewById(R.id.chat_name);
             aVar.f = (TextView) view2.findViewById(R.id.last_chat_content);
             aVar.g = (TextView) view2.findViewById(R.id.chat_time);
-            aVar.j = view2.findViewById(R.id.obfuscated_res_0x7f0913eb);
+            aVar.j = view2.findViewById(R.id.obfuscated_res_0x7f091400);
             aVar.h = (MessageRedDotView) view2.findViewById(R.id.new_message);
             aVar.i = (FrameLayout) view2.findViewById(R.id.new_message_container);
             aVar.h.setShadowEnabled(false);

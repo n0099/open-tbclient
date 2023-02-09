@@ -375,7 +375,7 @@ public class rv7 {
         this.m = new a(this);
         this.n = new g(this);
         this.a = tbPageContext;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090767);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090772);
         this.b = findViewById;
         findViewById.setOnClickListener(this.m);
         this.c = AnimationUtils.loadAnimation(this.a.getPageActivity(), R.anim.anim_alpha_0_to_1_duration_200_accelerate);

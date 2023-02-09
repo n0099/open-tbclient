@@ -40,8 +40,8 @@ import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.i39;
 import com.baidu.tieba.j05;
+import com.baidu.tieba.m49;
 import com.baidu.tieba.qy4;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
@@ -185,7 +185,7 @@ public class ConcernFragment extends BaseFragment implements gt6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = dh.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = dh.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = dh.g(i39.c(), 0L);
+                long g3 = dh.g(m49.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     gh.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -289,7 +289,7 @@ public class ConcernFragment extends BaseFragment implements gt6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = dh.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = dh.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = dh.g(i39.c(), 0L);
+                long g3 = dh.g(m49.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     gh.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
@@ -471,7 +471,7 @@ public class ConcernFragment extends BaseFragment implements gt6 {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
@@ -483,7 +483,7 @@ public class ConcernFragment extends BaseFragment implements gt6 {
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
@@ -696,8 +696,8 @@ public class ConcernFragment extends BaseFragment implements gt6 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = i39.d();
-                builder.fid = Long.valueOf(dh.g(i39.d(), 0L));
+                builder.fname = m49.d();
+                builder.fid = Long.valueOf(dh.g(m49.d(), 0L));
                 qy4Var.parserProtobuf(builder.build(true));
                 this.a.C(qy4Var, true);
             }

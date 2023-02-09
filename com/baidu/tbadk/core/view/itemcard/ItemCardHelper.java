@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.n15;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.o15;
 import com.baidu.tieba.o45;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.u45;
@@ -572,11 +572,11 @@ public class ItemCardHelper {
                 textView.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0101));
                 d2.n(R.string.J_X01);
                 d2.k(R.color.transparent);
-                d2.g(lz8.f(m));
+                d2.g(p09.f(m));
             } else if (TbadkCoreApplication.getInst().getSkinType() != 1 && TbadkCoreApplication.getInst().getSkinType() != 4) {
-                textView.setTextColor(lz8.a(lz8.f(m), n15.b(R.string.A_X01)));
+                textView.setTextColor(p09.a(p09.f(m), n15.b(R.string.A_X01)));
                 d2.l(R.dimen.tbds1);
-                d2.t(lz8.a(lz8.f(m), n15.b(R.string.A_X07)));
+                d2.t(p09.a(p09.f(m), n15.b(R.string.A_X07)));
                 d2.n(R.string.J_X01);
                 d2.f(R.color.CAM_X0209);
             } else {

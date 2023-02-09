@@ -54,24 +54,24 @@ public class ye6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f0927ce) {
+                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f09282f) {
                     this.a.j();
                 } else if (id == R.id.private_no) {
                     if (this.a.b.isShowing()) {
                         this.a.b.dismiss();
-                        vx8.a("1", "2");
+                        zy8.a("1", "2");
                     }
                     if (this.a.c == null) {
                         ye6 ye6Var = this.a;
                         ye6Var.c = zv5.a(ye6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
                     }
                     this.a.c.show();
-                    vx8.b("2");
-                } else if (id == R.id.obfuscated_res_0x7f090416) {
+                    zy8.b("2");
+                } else if (id == R.id.obfuscated_res_0x7f09041f) {
                     ye6.g(this.a);
                     if (this.a.c.isShowing()) {
                         this.a.c.dismiss();
-                        vx8.a("2", "2");
+                        zy8.a("2", "2");
                         if (this.a.d == null) {
                             ye6 ye6Var2 = this.a;
                             TbPageContext<BaseFragmentActivity> pageContext = ye6Var2.a.getPageContext();
@@ -83,12 +83,12 @@ public class ye6 {
                             }
                             ye6Var2.d = zv5.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
                             this.a.d.show();
-                            vx8.b("3");
+                            zy8.b("3");
                         }
                     }
                     if (this.a.d.isShowing() && this.a.e == 2) {
                         this.a.d.dismiss();
-                        vx8.a("3", "2");
+                        zy8.a("3", "2");
                         if (TbBrowseModeSwitch.isOn()) {
                             PermissionUtil.doBrowseModeInit();
                             PermissionUtil.starMainTabActivity(this.a.a, 2);
@@ -133,19 +133,19 @@ public class ye6 {
             if (j05Var != null && j05Var.isShowing()) {
                 this.b.dismiss();
                 SmartLaunchStats.onConfirmPrivacy();
-                vx8.a("1", "1");
+                zy8.a("1", "1");
                 d25.k("logoController", false);
             }
             j05 j05Var2 = this.c;
             if (j05Var2 != null && j05Var2.isShowing()) {
                 this.c.dismiss();
-                vx8.a("2", "1");
+                zy8.a("2", "1");
                 d25.k("logoController", false);
             }
             j05 j05Var3 = this.d;
             if (j05Var3 != null && j05Var3.isShowing()) {
                 this.d.dismiss();
-                vx8.a("3", "1");
+                zy8.a("3", "1");
                 d25.k("logoController", false);
             }
             p35.m().A("key_first_enter_app_timestamp", System.currentTimeMillis());
@@ -161,7 +161,7 @@ public class ye6 {
             j05 b = zv5.b(this.a.getPageContext(), this.f);
             this.b = b;
             b.show();
-            vx8.b("1");
+            zy8.b("1");
             TbSingleton.setExceptInsertAdDiaShow(true);
             SmartLaunchStats.onPrivacyDialogShow();
         }

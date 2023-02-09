@@ -27,7 +27,7 @@ public class f86 extends mc6<a76> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0104 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0105 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.mc6
@@ -68,12 +68,12 @@ public class f86 extends mc6<a76> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09020a);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913ce);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913cf);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090221);
-            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09020b);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913d2);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09020e);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913e3);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913e4);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090225);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09020f);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913e7);
             h().setOnClickListener(this);
         }
     }

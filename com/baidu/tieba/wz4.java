@@ -199,8 +199,8 @@ public class wz4 extends sw4 implements Cdo {
                         }
                         return ThreadData.TYPE_FRS_HOTTOPIC;
                     }
-                    e19 e19Var = this.t.funAdData;
-                    if (e19Var != null && e19Var.h()) {
+                    i29 i29Var = this.t.funAdData;
+                    if (i29Var != null && i29Var.h()) {
                         if (this.t.funAdData.i()) {
                             return AdvertAppInfo.G;
                         }

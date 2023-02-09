@@ -61,15 +61,15 @@ public class GameCompetitionAdapter extends as6<di6, CardFrsGameCompetitionHolde
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090549);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cf0);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090cef);
-            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090cee);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090554);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d01);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090d00);
+            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090cff);
             this.d = cardFrsGameCompetitionLayout;
             cardFrsGameCompetitionLayout.setItemSpace(ej.g(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((ej.g(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090856);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090857);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090864);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090865);
         }
     }
 
@@ -181,7 +181,7 @@ public class GameCompetitionAdapter extends as6<di6, CardFrsGameCompetitionHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0188, viewGroup, false));
+            CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0189, viewGroup, false));
             cardFrsGameCompetitionHolder.d.setViewPool(this.m);
             return cardFrsGameCompetitionHolder;
         }

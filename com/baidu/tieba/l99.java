@@ -1,75 +1,74 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class l99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
 
-    public l99() {
+    public static byte[] a(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(list.get(i));
+                sb.append("\n");
+            }
+            return sb.toString().getBytes();
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public static l99 a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    public static byte[] b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            l99 l99Var = new l99();
-            l99Var.a = i;
-            l99Var.b = f;
-            l99Var.c = f2;
-            l99Var.d = f3;
-            l99Var.e = f4;
-            l99Var.f = f5;
-            return l99Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return jSONObject.toString().getBytes();
         }
-        return (l99) invokeCommon.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static l99 b(int i) {
-        InterceptResult invokeI;
+    public static boolean c(byte[] bArr, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            hg hgVar = new hg();
+            hgVar.b().s(str);
+            hgVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
+            hgVar.b().c("", bArr);
+            new eg(hgVar).m(3, -1, -1);
+            int i = hgVar.c().b;
+            byte[] bArr2 = hgVar.c().i;
+            if (bArr2 == null || i != 200) {
+                return false;
+            }
+            try {
+                if (new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") != 0) {
+                    return false;
                 }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         }
-        return (l99) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 }

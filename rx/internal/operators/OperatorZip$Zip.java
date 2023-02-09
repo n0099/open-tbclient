@@ -1,13 +1,13 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cfa;
-import com.baidu.tieba.fda;
-import com.baidu.tieba.nda;
-import com.baidu.tieba.nha;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.uca;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.gga;
+import com.baidu.tieba.jea;
+import com.baidu.tieba.rea;
+import com.baidu.tieba.ria;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,18 +23,18 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
     public static final int THRESHOLD;
     public static final long serialVersionUID = 5995274816189928317L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uca<? super R> child;
-    public final nha childSubscription;
+    public final yda<? super R> child;
+    public final ria childSubscription;
     public int emitted;
     public AtomicLong requested;
     public volatile Object[] subscribers;
-    public final nda<? extends R> zipFunction;
+    public final rea<? extends R> zipFunction;
 
     /* loaded from: classes9.dex */
-    public final class a extends zca {
+    public final class a extends dea {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final cfa e;
+        public final gga e;
         public final /* synthetic */ OperatorZip$Zip f;
 
         public a(OperatorZip$Zip operatorZip$Zip) {
@@ -53,18 +53,18 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 }
             }
             this.f = operatorZip$Zip;
-            this.e = cfa.a();
+            this.e = gga.a();
         }
 
-        @Override // com.baidu.tieba.zca
+        @Override // com.baidu.tieba.dea
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e(cfa.c);
+                e(gga.c);
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -80,7 +80,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -88,7 +88,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
@@ -115,15 +115,15 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 return;
             }
         }
-        THRESHOLD = (int) (cfa.c * 0.7d);
+        THRESHOLD = (int) (gga.c * 0.7d);
     }
 
-    public OperatorZip$Zip(zca<? super R> zcaVar, nda<? extends R> ndaVar) {
+    public OperatorZip$Zip(dea<? super R> deaVar, rea<? extends R> reaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zcaVar, ndaVar};
+            Object[] objArr = {deaVar, reaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,26 +133,26 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                 return;
             }
         }
-        nha nhaVar = new nha();
-        this.childSubscription = nhaVar;
-        this.child = zcaVar;
-        this.zipFunction = ndaVar;
-        zcaVar.b(nhaVar);
+        ria riaVar = new ria();
+        this.childSubscription = riaVar;
+        this.child = deaVar;
+        this.zipFunction = reaVar;
+        deaVar.b(riaVar);
     }
 
-    public void start(tca[] tcaVarArr, AtomicLong atomicLong) {
+    public void start(xda[] xdaVarArr, AtomicLong atomicLong) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tcaVarArr, atomicLong) == null) {
-            Object[] objArr = new Object[tcaVarArr.length];
-            for (int i = 0; i < tcaVarArr.length; i++) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, xdaVarArr, atomicLong) == null) {
+            Object[] objArr = new Object[xdaVarArr.length];
+            for (int i = 0; i < xdaVarArr.length; i++) {
                 a aVar = new a(this);
                 objArr[i] = aVar;
                 this.childSubscription.a(aVar);
             }
             this.requested = atomicLong;
             this.subscribers = objArr;
-            for (int i2 = 0; i2 < tcaVarArr.length; i2++) {
-                tcaVarArr[i2].B((a) objArr[i2]);
+            for (int i2 = 0; i2 < xdaVarArr.length; i2++) {
+                xdaVarArr[i2].B((a) objArr[i2]);
             }
         }
     }
@@ -163,34 +163,34 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (objArr = this.subscribers) != null && getAndIncrement() == 0) {
             int length = objArr.length;
-            uca<? super R> ucaVar = this.child;
+            yda<? super R> ydaVar = this.child;
             AtomicLong atomicLong = this.requested;
             while (true) {
                 Object[] objArr2 = new Object[length];
                 boolean z = true;
                 for (int i = 0; i < length; i++) {
-                    cfa cfaVar = ((a) objArr[i]).e;
-                    Object h = cfaVar.h();
+                    gga ggaVar = ((a) objArr[i]).e;
+                    Object h = ggaVar.h();
                     if (h == null) {
                         z = false;
-                    } else if (cfaVar.d(h)) {
-                        ucaVar.onCompleted();
+                    } else if (ggaVar.d(h)) {
+                        ydaVar.onCompleted();
                         this.childSubscription.unsubscribe();
                         return;
                     } else {
-                        objArr2[i] = cfaVar.c(h);
+                        objArr2[i] = ggaVar.c(h);
                     }
                 }
                 if (z && atomicLong.get() > 0) {
                     try {
-                        ucaVar.onNext((R) this.zipFunction.call(objArr2));
+                        ydaVar.onNext((R) this.zipFunction.call(objArr2));
                         atomicLong.decrementAndGet();
                         this.emitted++;
                         for (Object obj : objArr) {
-                            cfa cfaVar2 = ((a) obj).e;
-                            cfaVar2.i();
-                            if (cfaVar2.d(cfaVar2.h())) {
-                                ucaVar.onCompleted();
+                            gga ggaVar2 = ((a) obj).e;
+                            ggaVar2.i();
+                            if (ggaVar2.d(ggaVar2.h())) {
+                                ydaVar.onCompleted();
                                 this.childSubscription.unsubscribe();
                                 return;
                             }
@@ -202,7 +202,7 @@ public final class OperatorZip$Zip<R> extends AtomicLong {
                             this.emitted = 0;
                         }
                     } catch (Throwable th) {
-                        fda.g(th, ucaVar, objArr2);
+                        jea.g(th, ydaVar, objArr2);
                         return;
                     }
                 } else if (decrementAndGet() <= 0) {

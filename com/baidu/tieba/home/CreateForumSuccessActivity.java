@@ -137,7 +137,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0204);
+            setContentView(R.layout.obfuscated_res_0x7f0d0205);
             initData();
             w1();
         }
@@ -146,24 +146,24 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(R.string.create_bar);
             this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
             int g = ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0908f8), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, g), null, null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090906), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, g), null, null);
             this.e = a2;
             a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09224b);
-            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0d51) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0d52));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092221);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0d4d);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092291);
+            this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0d5c) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0d5d));
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092267);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0d58);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }
-            findViewById(R.id.obfuscated_res_0x7f09222e).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f092274).setOnClickListener(new a(this));
         }
     }
 }

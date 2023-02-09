@@ -262,9 +262,9 @@ public class SendVoiceView extends LinearLayout implements xb5, ij7, ISendVoiceV
         this.a = context;
         int i3 = m;
         setPadding(0, i3, 0, i3);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07da, this);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092214);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09110d);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ec, this);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091121);
         setFocusable(true);
         setFocusableInTouchMode(true);
         c();
@@ -359,9 +359,9 @@ public class SendVoiceView extends LinearLayout implements xb5, ij7, ISendVoiceV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ba3));
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0bad));
             } else {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ba4));
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0bae));
             }
         }
     }

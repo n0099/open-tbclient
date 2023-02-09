@@ -13,11 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ila;
-import com.baidu.tieba.mka;
-import com.baidu.tieba.nla;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.ula;
+import com.baidu.tieba.mma;
+import com.baidu.tieba.qla;
+import com.baidu.tieba.rma;
+import com.baidu.tieba.wla;
+import com.baidu.tieba.yma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,40 +30,40 @@ import tv.athena.revenue.api.MiddleRevenueConfig;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPaySignView extends LinearLayout implements ula {
+public class YYPaySignView extends LinearLayout implements yma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
-    public ula.b b;
-    public ula.a c;
+    public yma.b b;
+    public yma.a c;
     public PayUIKitConfig d;
     public TextView e;
     public int f;
     public int g;
     public long h;
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, windowParams) == null) {
@@ -134,7 +134,7 @@ public class YYPaySignView extends LinearLayout implements ula {
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                ska.d(this.a.f, this.a.g, PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK, "", "", "");
+                wla.d(this.a.f, this.a.g, PayUVEventType.PAY_SIGN_DIALOG_DONT_REMIND_CLICK, "", "", "");
             }
         }
     }
@@ -173,15 +173,15 @@ public class YYPaySignView extends LinearLayout implements ula {
                     this.b.c.b();
                 }
                 Context applicationContext = this.b.a.getApplicationContext();
-                ila.b(applicationContext, this.b.h + "").c("pay_sp_key_sign_pay_skip_remind", this.a.isChecked());
+                mma.b(applicationContext, this.b.h + "").c("pay_sp_key_sign_pay_skip_remind", this.a.isChecked());
                 RLog.info("YYPaySignView", "click remind. uid=" + this.b.h + ", is skip remind=" + this.a.isChecked());
-                ska.d(this.b.f, this.b.g, PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, "", "", "");
+                wla.d(this.b.f, this.b.g, PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, "", "", "");
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public YYPaySignView(Activity activity, ula.b bVar, PayUIKitConfig payUIKitConfig, int i, int i2) {
+    public YYPaySignView(Activity activity, yma.b bVar, PayUIKitConfig payUIKitConfig, int i, int i2) {
         super(activity);
         MiddleRevenueConfig middleRevenueConfig;
         Interceptable interceptable = $ic;
@@ -214,11 +214,11 @@ public class YYPaySignView extends LinearLayout implements ula {
             this.h = middleRevenueConfig.getUid();
         }
         h();
-        ska.d(this.f, this.g, PayUVEventType.PAY_SIGN_DIALOG_SHOW, "", "", "");
+        wla.d(this.f, this.g, PayUVEventType.PAY_SIGN_DIALOG_SHOW, "", "", "");
     }
 
-    @Override // com.baidu.tieba.ula
-    public void setCallback(ula.a aVar) {
+    @Override // com.baidu.tieba.yma
+    public void setCallback(yma.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.c = aVar;
@@ -228,27 +228,27 @@ public class YYPaySignView extends LinearLayout implements ula {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(this.a, nla.a.a(this.d))).inflate(R.layout.pay_ui_layout_sign_pay_view, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(this.a, rma.a.a(this.d))).inflate(R.layout.pay_ui_layout_sign_pay_view, (ViewGroup) this, true);
             this.e = (TextView) findViewById(R.id.btn_confirm_recharge);
             View findViewById = findViewById(R.id.ll_check_remind);
             CheckBox checkBox = (CheckBox) findViewById(R.id.btn_check_remind);
             i();
             findViewById.setOnClickListener(new a(this, checkBox));
             Context applicationContext = this.a.getApplicationContext();
-            checkBox.setChecked(ila.b(applicationContext, this.h + "").a("pay_sp_key_sign_pay_skip_remind", true));
+            checkBox.setChecked(mma.b(applicationContext, this.h + "").a("pay_sp_key_sign_pay_skip_remind", true));
             checkBox.setOnCheckedChangeListener(new b(this));
             this.e.setOnClickListener(new c(this, checkBox));
         }
     }
 
     public final void i() {
-        ula.b bVar;
-        mka mkaVar;
+        yma.b bVar;
+        qla qlaVar;
         boolean z;
         String format;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.b) != null && (mkaVar = bVar.a) != null) {
-            double c2 = mkaVar.c();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (bVar = this.b) != null && (qlaVar = bVar.a) != null) {
+            double c2 = qlaVar.c();
             if (c2 == ((long) c2)) {
                 z = true;
             } else {

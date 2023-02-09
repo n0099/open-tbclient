@@ -77,7 +77,7 @@ public class tc6 extends nc6<yd6> {
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof g09) || this.a.y.getErrorCode() != 0) {
+                if (!(obj instanceof k19) || this.a.y.getErrorCode() != 0) {
                     if (AntiHelper.m(this.a.y.getErrorCode(), this.a.y.getErrorString())) {
                         AntiHelper.u(this.a.getContext(), this.a.y.getErrorString());
                     } else {

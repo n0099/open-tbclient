@@ -129,44 +129,44 @@ public class vu4 implements vb6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public x19 c(WebView webView) {
+    public b39 c(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (!e()) {
-                return x19Var;
+                return b39Var;
             }
             try {
-                kq8.q().i();
-                lq8.a().i(null);
+                or8.q().i();
+                pr8.a().i(null);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                x19Var.o(jSONObject.toString());
-                return x19Var;
+                b39Var.o(jSONObject.toString());
+                return b39Var;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (x19) invokeL.objValue;
+        return (b39) invokeL.objValue;
     }
 
-    public x19 d(WebView webView) {
+    public b39 d(WebView webView) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (!e()) {
-                return x19Var;
+                return b39Var;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("version", TbConfig.getVersion());
                 jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
-                jSONObject.put("hybridVersion", kq8.q().E());
+                jSONObject.put("hybridVersion", or8.q().E());
                 if (QuickWebViewSwitch.getInOn()) {
                     i = 1;
                 } else {
@@ -178,24 +178,24 @@ public class vu4 implements vb6 {
                     jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
                 }
                 jSONObject.put("resultCode", 1);
-                x19Var.o(jSONObject.toString());
+                b39Var.o(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeL.objValue;
+        return (b39) invokeL.objValue;
     }
 
-    public x19 f(WebView webView, int i) {
+    public b39 f(WebView webView, int i) {
         InterceptResult invokeLI;
         boolean z;
         TriState triState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, webView, i)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (!e()) {
-                return x19Var;
+                return b39Var;
             }
             if (i == 1) {
                 z = true;
@@ -211,23 +211,23 @@ public class vu4 implements vb6 {
                 QuickWebViewSwitch.setState(triState);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                x19Var.o(jSONObject.toString());
-                return x19Var;
+                b39Var.o(jSONObject.toString());
+                return b39Var;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (x19) invokeLI.objValue;
+        return (b39) invokeLI.objValue;
     }
 
-    public x19 g(WebView webView, String str) {
+    public b39 g(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (!e()) {
-                return x19Var;
+                return b39Var;
             }
             try {
                 if (StringUtils.isNull(str)) {
@@ -240,23 +240,23 @@ public class vu4 implements vb6 {
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                x19Var.o(jSONObject.toString());
-                return x19Var;
+                b39Var.o(jSONObject.toString());
+                return b39Var;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 
-    public x19 h(WebView webView, ArrayList<JSONObject> arrayList) {
+    public b39 h(WebView webView, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, arrayList)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (!e()) {
-                return x19Var;
+                return b39Var;
             }
             try {
                 nu4 nu4Var = new nu4();
@@ -275,35 +275,35 @@ public class vu4 implements vb6 {
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                x19Var.o(jSONObject2.toString());
+                b39Var.o(jSONObject2.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 
-    public x19 i(WebView webView) {
+    public b39 i(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (!e()) {
-                return x19Var;
+                return b39Var;
             }
             try {
-                kq8.q().i();
+                or8.q().i();
                 MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                x19Var.o(jSONObject.toString());
-                return x19Var;
+                b39Var.o(jSONObject.toString());
+                return b39Var;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (x19) invokeL.objValue;
+        return (b39) invokeL.objValue;
     }
 }

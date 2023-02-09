@@ -3,303 +3,181 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-import androidx.core.app.NotificationCompat;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y5a.a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdLoadListener;
-import com.fun.ad.sdk.FunAdLoader;
 import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.SidSessionMeta;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class y5a<S extends a> implements FunAdLoader {
+public class y5a extends u5a<KsFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public S b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282532, "Lcom/baidu/tieba/y5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948282532, "Lcom/baidu/tieba/y5a;");
-                return;
-            }
-        }
-        c = !y5a.class.desiredAssertionStatus();
-    }
-
-    public y5a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new Object();
-    }
-
-    public static /* synthetic */ int e(PidLoader pidLoader, PidLoader pidLoader2) {
-        return -Double.compare(pidLoader.getBiddingOrBasePrices(), pidLoader2.getBiddingOrBasePrices());
-    }
-
-    public final PidLoader a(PidLoader pidLoader, PidLoader pidLoader2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pidLoader, pidLoader2)) == null) {
-            if (pidLoader == null && pidLoader2 == null) {
-                return null;
-            }
-            return (pidLoader != null && (pidLoader2 == null || pidLoader.getBiddingOrBasePrices() >= pidLoader2.getBiddingOrBasePrices())) ? pidLoader : pidLoader2;
-        }
-        return (PidLoader) invokeLL.objValue;
-    }
-
-    public final S b() {
-        InterceptResult invokeV;
-        S s;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this.a) {
-                s = this.b;
-                if (s == null) {
-                    s = f();
-                    if (!c && s == null) {
-                        throw new AssertionError();
-                    }
-                    this.b = s;
-                }
-            }
-            return s;
-        }
-        return (S) invokeV.objValue;
-    }
-
-    public final <N> N c(List<PidLoader> list, List<PidLoader> list2, k0a<N> k0aVar, String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, k0aVar, str)) != null) {
-            return (N) invokeLLLL.objValue;
-        }
-        LinkedList<PidLoader> d = d(list);
-        Collections.sort(d, new Comparator() { // from class: com.baidu.tieba.rz9
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            @Override // java.util.Comparator
-            public final int compare(Object obj, Object obj2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? y5a.e((PidLoader) obj, (PidLoader) obj2) : invokeLL.intValue;
-            }
-        });
-        LinkedList<PidLoader> d2 = d(list2);
-        PidLoader poll = d.poll();
-        PidLoader poll2 = d2.poll();
-        while (true) {
-            if (poll == null && poll2 == null) {
-                return null;
-            }
-            PidLoader a2 = a(poll, poll2);
-            double biddingOrBasePrices = a2.getBiddingOrBasePrices();
-            if (a2 == poll) {
-                poll = d.poll();
-            } else {
-                poll2 = d2.poll();
-            }
-            PidLoader pidLoader = poll;
-            PidLoader pidLoader2 = poll2;
-            PidLoader a3 = a(pidLoader, pidLoader2);
-            a2.setBiddingResult(a2.getBiddingOrBasePrices(), a3 != null ? a3.getBiddingOrBasePrices() : biddingOrBasePrices, 1);
-            N a4 = k0aVar.a(a2, str);
-            if (a4 != null) {
-                return a4;
-            }
-            poll = pidLoader;
-            poll2 = pidLoader2;
-        }
-    }
-
-    public final LinkedList<PidLoader> d(List<PidLoader> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            LinkedList<PidLoader> linkedList = new LinkedList<>();
-            for (PidLoader pidLoader : list) {
-                if (pidLoader.isLoaded()) {
-                    linkedList.add(pidLoader);
-                }
-            }
-            return linkedList;
-        }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public abstract S f();
 
     /* loaded from: classes7.dex */
-    public static abstract class a {
+    public class a implements KsLoadManager.FullScreenVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final SidSessionMeta a;
-        public final com.fun.h0 b;
-        public FunAdLoadListener c;
+        public final /* synthetic */ y5a a;
 
-        public a(String str, int i, String str2) {
+        public a(y5a y5aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i), str2};
+                Object[] objArr = {y5aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            SidSessionMeta sidSessionMeta = new SidSessionMeta(str, i);
-            this.a = sidSessionMeta;
-            this.b = new com.fun.h0(sidSessionMeta, str2);
+            this.a = y5aVar;
         }
 
-        public abstract void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
-
-        public boolean c() {
-            InterceptResult invokeV;
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c == null : invokeV.booleanValue;
-        }
-
-        public abstract boolean d(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
-
-        public abstract FunSplashAd e(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
-
-        public abstract void g();
-
-        public final void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                com.fun.h0 h0Var = this.b;
-                h0Var.getClass();
-                h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, str);
-                this.c.onError(this.a.sid);
-                g();
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
 
-        public final void f() {
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.b.b("ldr_ld_succeed", new Object[0]);
-                this.c.onAdLoaded(this.a.sid);
-                g();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                this.a.onAdLoaded((y5a) list.get(0));
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                LogPrinter.d();
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public void destroy() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y5a(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null) {
-                    s.g();
-                }
-                this.b = null;
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public void recycleListener() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null) {
-                    s.g();
-                }
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final void load(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
-            synchronized (this.a) {
-                S s = this.b;
-                if (s != null && !s.c()) {
-                    com.fun.h0 h0Var = s.b;
-                    h0Var.getClass();
-                    h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, "irr");
-                    s.g();
-                }
-                this.b = null;
-            }
-            S b = b();
-            b.getClass();
-            if (funAdLoadListener != null) {
-                b.b.b("ldr_ld_start", new Object[0]);
-                b.c = funAdLoadListener;
-                b.a(context, funAdSlot, funAdLoadListener);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            throw new IllegalArgumentException();
         }
     }
 
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new r6a(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build();
+            onLoadStart(funAdSlot);
+            KsAdSDK.getLoadManager().loadFullScreenVideoAd(build, new a(this));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((KsFullScreenVideoAd) obj).getECPM() / 100.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
+            if (ksFullScreenVideoAd != null && ksFullScreenVideoAd.isAdEnable()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
+            if (z) {
+                ksFullScreenVideoAd.setBidEcpm((int) (d2 * 100.0d));
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, t, str, funAdInteractionListener)) == null) {
-            S b = b();
-            b.b.b("ldr_sh_start", new Object[0]);
-            return b.d(activity, t, funAdInteractionListener);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, obj)) == null) {
+            KsFullScreenVideoAd ksFullScreenVideoAd = (KsFullScreenVideoAd) obj;
+            if (!ksFullScreenVideoAd.isAdEnable()) {
+                LogPrinter.e("Ad isn't ready now.", new Object[0]);
+                return false;
+            }
+            onShowStart(ksFullScreenVideoAd);
+            ksFullScreenVideoAd.setFullScreenVideoAdInteractionListener(new z5a(this, ksFullScreenVideoAd));
+            ksFullScreenVideoAd.showFullScreenVideoAd(activity, e());
+            return true;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunAdLoader
-    public final <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, t, str, funAdInteractionListener)) == null) {
-            S b = b();
-            b.b.b("ldr_sh_start", new Object[0]);
-            return b.e(activity, t, funAdInteractionListener);
-        }
-        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

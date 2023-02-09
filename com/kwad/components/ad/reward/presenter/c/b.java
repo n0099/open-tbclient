@@ -252,7 +252,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
             this.tp = ig();
             this.nM.a(this.mt);
             hVar.c(this.tp);
-            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0610a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0611a(this) { // from class: com.kwad.components.ad.reward.presenter.c.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b tq;
@@ -275,7 +275,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
                     this.tq = this;
                 }
 
-                @Override // com.kwad.components.core.webview.b.a.InterfaceC0610a
+                @Override // com.kwad.components.core.webview.b.a.InterfaceC0611a
                 public final void ii() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -377,12 +377,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onCreate();
-            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c4);
-            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911c6);
-            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911fe);
-            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911c3);
-            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091204);
-            this.tm = findViewById(R.id.obfuscated_res_0x7f09116a);
+            this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d8);
+            this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911da);
+            this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091212);
+            this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911d7);
+            this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091218);
+            this.tm = findViewById(R.id.obfuscated_res_0x7f09117e);
         }
     }
 

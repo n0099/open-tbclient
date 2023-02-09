@@ -146,7 +146,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090d9c) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090dad) {
                 TaskInfo taskInfo = this.a.getTaskInfo();
                 if (taskInfo != null && taskInfo.isComplete()) {
                     String bigSrc = this.a.getBigSrc();
@@ -200,7 +200,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
             MaxHeightRecycleView e = nq7.e(this.mContext);
             frameLayout.addView(e);
             Context context = this.mContext;
-            frameLayout.setTag(R.id.obfuscated_res_0x7f09218b, gr7.c(context, e, ej.g(context, R.dimen.M_W_X004)));
+            frameLayout.setTag(R.id.obfuscated_res_0x7f0921d1, gr7.c(context, e, ej.g(context, R.dimen.M_W_X004)));
         }
     }
 
@@ -260,7 +260,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
             TextGenImageView textGenImageView = new TextGenImageView(context);
-            textGenImageView.setId(R.id.obfuscated_res_0x7f090dbc);
+            textGenImageView.setId(R.id.obfuscated_res_0x7f090dcd);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -279,7 +279,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), textGenImageMsg, frameLayout, list, Integer.valueOf(i2)}) == null) {
             super.H(i, textGenImageMsg, frameLayout, list, i2);
-            sr7 sr7Var = (sr7) frameLayout.getTag(R.id.obfuscated_res_0x7f09218b);
+            sr7 sr7Var = (sr7) frameLayout.getTag(R.id.obfuscated_res_0x7f0921d1);
             if (sr7Var != null && textGenImageMsg.getSubSkillConfig() != null && !textGenImageMsg.getSubSkillConfig().a.isEmpty()) {
                 frameLayout.setVisibility(0);
                 ArrayList arrayList = new ArrayList();

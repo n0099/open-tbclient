@@ -41,7 +41,7 @@ public class MiTinyDataClient {
         public Context f60a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C0738a f61a;
+        public C0739a f61a;
 
         /* renamed from: a  reason: collision with other field name */
         public Boolean f62a;
@@ -54,7 +54,7 @@ public class MiTinyDataClient {
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0738a {
+        public class C0739a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -71,7 +71,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public ScheduledThreadPoolExecutor f68a;
 
-            public C0738a(a aVar) {
+            public C0739a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class MiTinyDataClient {
                     return;
                 }
             }
-            this.f61a = new C0738a(this);
+            this.f61a = new C0739a(this);
             this.f64a = new ArrayList<>();
         }
 

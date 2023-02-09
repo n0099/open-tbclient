@@ -126,17 +126,17 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fc3);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd4);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091710);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09180d);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09015b);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090476);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091827);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09015d);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090480);
         this.itemView.setOnClickListener(this.j);
         this.e.setOnClickListener(this.j);
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0904bb);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0904c6);
         this.i = findViewById;
         findViewById.setOnClickListener(this.j);
     }
@@ -154,7 +154,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
             if (valueOf != null && valueOf.length() < 4) {
                 valueOf = String.format("%04d", Long.valueOf(n86Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0d88), valueOf, Integer.valueOf(n86Var.f)), n86Var.j);
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0d94), valueOf, Integer.valueOf(n86Var.f)), n86Var.j);
             this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00ec), StringHelper.numFormatOverWanWithNegative(n86Var.g), StringHelper.numFormatOverWanWithNegative(n86Var.h), StringHelper.numFormatOverWanWithNegative(n86Var.i)));
             i();
         }

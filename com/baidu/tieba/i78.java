@@ -77,7 +77,7 @@ public class i78 extends qn<r78, InterestedForumStyleATitleViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0408, viewGroup, false));
+            return new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d040a, viewGroup, false));
         }
         return (InterestedForumStyleATitleViewHolder) invokeL.objValue;
     }
@@ -116,7 +116,7 @@ public class i78 extends qn<r78, InterestedForumStyleATitleViewHolder> {
     public final void u(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, r78 r78Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, r78Var) == null) {
-            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f0807b4);
+            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f0807c0);
             interestedForumStyleATitleViewHolder.b.K(r78Var.a(), 10, false);
             interestedForumStyleATitleViewHolder.c.setText(r78Var.b());
         }

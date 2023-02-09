@@ -14,7 +14,7 @@ import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.IOException;
 import java.util.Arrays;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q8 implements Appendable, CharSequence {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] c;

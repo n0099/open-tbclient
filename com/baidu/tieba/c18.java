@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c18 extends yd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class c18 extends yd5 {
     public b18.e w;
     public b18.e x;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements yd5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class c18 extends yd5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements BubbleListModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,13 +145,13 @@ public class c18 extends yd5 {
                     if (!TextUtils.isEmpty(bubbleListData.getError_msg())) {
                         UtilHelper.showToast(this.a.o, bubbleListData.getError_msg());
                     } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cfe);
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d08);
                     }
                 } else {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cfe);
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d08);
                 }
             } else {
-                UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cfe);
+                UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d08);
             }
             if (this.a.h() != null) {
                 this.a.h().onLoadFail();
@@ -190,7 +190,7 @@ public class c18 extends yd5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements BubbleListModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -291,13 +291,13 @@ public class c18 extends yd5 {
                         if (!TextUtils.isEmpty(setBubbleResultData.getError_msg())) {
                             UtilHelper.showToast(this.a.o, setBubbleResultData.getError_msg());
                         } else {
-                            UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cfe);
+                            UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d08);
                         }
                     } else {
-                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cfe);
+                        UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d08);
                     }
                 } else {
-                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0cfe);
+                    UtilHelper.showToast(this.a.o, (int) R.string.obfuscated_res_0x7f0f0d08);
                 }
                 if (this.a.h() != null) {
                     this.a.h().onLoadFail();
@@ -306,7 +306,7 @@ public class c18 extends yd5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,7 +343,7 @@ public class c18 extends yd5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -396,7 +396,7 @@ public class c18 extends yd5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class f implements b18.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -437,7 +437,7 @@ public class c18 extends yd5 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class g implements b18.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

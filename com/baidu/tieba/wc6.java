@@ -41,9 +41,9 @@ import com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.cp8;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.yn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
     public View A;
     public TextView B;
     public View C;
-    public io8 D;
+    public mp8 D;
     public be6 E;
     public View F;
     public int G;
@@ -65,7 +65,7 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
     public boolean I;
     public boolean J;
     public String K;
-    public yn8 L;
+    public cp8 L;
     public Animation M;
     public TextView N;
     public TextView O;
@@ -149,7 +149,7 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements yn8.c {
+    public class b implements cp8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wc6 a;
@@ -172,7 +172,7 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
             this.a = wc6Var;
         }
 
-        @Override // com.baidu.tieba.yn8.c
+        @Override // com.baidu.tieba.cp8.c
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i2 < i && i != 0 && (i2 * 100) / i >= 80 && i > 15000) {
@@ -332,9 +332,9 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
             TbVideoViewContainer tbVideoViewContainer = this.w;
             if (tbVideoViewContainer != null) {
                 tbVideoViewContainer.getControl().stopPlayback();
-                yn8 yn8Var = this.L;
-                if (yn8Var != null) {
-                    yn8Var.n();
+                cp8 cp8Var = this.L;
+                if (cp8Var != null) {
+                    cp8Var.n();
                 }
             }
             this.I = false;
@@ -380,7 +380,7 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
                     String str = p35.m().s("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.E.getThreadData().getTid();
                     spannableStringBuilder.append((CharSequence) this.E.getThreadData().generateNaniTail(new a(this, 2, str, str)));
                 }
-                this.r.setOnTouchListener(new qd9(spannableStringBuilder));
+                this.r.setOnTouchListener(new ue9(spannableStringBuilder));
                 this.r.setText(spannableStringBuilder);
                 this.s.j(this.E.getThreadData());
                 this.s.setUserAfterClickListener(this.S);
@@ -464,29 +464,29 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (be6Var = this.E) != null && be6Var.a != null) {
-            lo8 lo8Var = new lo8();
+            pp8 pp8Var = new pp8();
             if (this.E.T == 0) {
                 str = "index";
             } else {
                 str = "hot_juhe";
             }
-            lo8Var.a = str;
-            lo8Var.c = this.E.a.getTid();
-            lo8Var.d = this.E.a.getFid() + "";
-            lo8Var.e = TbadkCoreApplication.getCurrentAccount();
+            pp8Var.a = str;
+            pp8Var.c = this.E.a.getTid();
+            pp8Var.d = this.E.a.getFid() + "";
+            pp8Var.e = TbadkCoreApplication.getCurrentAccount();
             be6 be6Var2 = this.E;
             ThreadData threadData = be6Var2.a;
-            lo8Var.f = threadData.mRecomSource;
+            pp8Var.f = threadData.mRecomSource;
             String str2 = threadData.mRecomAbTag;
-            lo8Var.l = str2;
-            lo8Var.g = str2;
-            lo8Var.h = threadData.mRecomWeight;
-            lo8Var.i = "";
-            lo8Var.k = be6Var2.h();
+            pp8Var.l = str2;
+            pp8Var.g = str2;
+            pp8Var.h = threadData.mRecomWeight;
+            pp8Var.i = "";
+            pp8Var.k = be6Var2.h();
             if (this.E.a.getThreadVideoInfo() != null) {
-                lo8Var.m = this.E.a.getThreadVideoInfo().video_md5;
+                pp8Var.m = this.E.a.getThreadVideoInfo().video_md5;
             }
-            ao8.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", lo8Var, this.w.getControl().getPcdnState());
+            ep8.e(this.E.a.getThreadVideoInfo().video_md5, "", "1", pp8Var, this.w.getControl().getPcdnState());
         }
     }
 
@@ -752,9 +752,9 @@ public class wc6 extends mc6<be6> implements View.OnClickListener, lw5 {
                 }
                 this.I = true;
                 this.w.getControl().setVideoPath(this.K, this.E.g);
-                yn8 yn8Var = this.L;
-                if (yn8Var != null) {
-                    yn8Var.m();
+                cp8 cp8Var = this.L;
+                if (cp8Var != null) {
+                    cp8Var.m();
                 }
                 J();
             }

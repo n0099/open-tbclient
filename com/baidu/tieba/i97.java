@@ -7,8 +7,8 @@ import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.av8;
 import com.baidu.tieba.k97;
-import com.baidu.tieba.wt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,16 +90,16 @@ public class i97 extends sw4 {
         return invokeV.booleanValue;
     }
 
-    public static i97 c(wt8 wt8Var) {
+    public static i97 c(av8 av8Var) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wt8Var)) == null) {
-            if (wt8Var != null && !ListUtils.isEmpty(wt8Var.b)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, av8Var)) == null) {
+            if (av8Var != null && !ListUtils.isEmpty(av8Var.b)) {
                 i97 i97Var = new i97();
                 ArrayList arrayList = new ArrayList();
                 i97Var.k(arrayList);
-                for (wt8.b bVar : wt8Var.b) {
+                for (av8.b bVar : av8Var.b) {
                     if (!ListUtils.isEmpty(bVar.b)) {
                         k97 k97Var = new k97();
                         if (!StringUtils.isNull(bVar.a) && !i97Var.a) {

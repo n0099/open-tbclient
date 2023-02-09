@@ -238,8 +238,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d0758);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092119);
+            setContentView(R.layout.obfuscated_res_0x7f0d076a);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215f);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);
@@ -264,7 +264,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
                 this.c.setTitle(this.j.getText(R.string.album_all).toString());
                 return;
             }
-            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f063f).toString());
+            this.c.setTitle(this.j.getText(R.string.obfuscated_res_0x7f0f0648).toString());
         }
     }
 
@@ -315,8 +315,8 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
                     x1();
                 }
             }
-            t1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f063b).toString());
-            t1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0637).toString());
+            t1(this.f, 1, this.j.getText(R.string.obfuscated_res_0x7f0f0644).toString());
+            t1(this.h, 3, this.j.getText(R.string.obfuscated_res_0x7f0f0640).toString());
             t1(this.g, 2, this.j.getText(R.string.my_mark).toString());
             this.e.k(1);
             this.e.setCurrentTab(0);

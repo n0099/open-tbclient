@@ -176,33 +176,33 @@ public class yl6 extends ej5<wj6, sj6> implements nj6 {
                         int H = b2.H();
                         if (H != 220012) {
                             if (H == 2121002) {
-                                i95.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f049d), this.a.b().getString(R.string.obfuscated_res_0x7f0f14f9), this.a.b().getString(R.string.obfuscated_res_0x7f0f148a), new a(this), new b(this)).show();
+                                i95.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f04a0), this.a.b().getString(R.string.obfuscated_res_0x7f0f1510), this.a.b().getString(R.string.obfuscated_res_0x7f0f14a1), new a(this), new b(this)).show();
                             }
                         } else {
                             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                             if (dj.isEmpty(b2.G())) {
-                                G = this.a.b().getString(R.string.obfuscated_res_0x7f0f0499);
+                                G = this.a.b().getString(R.string.obfuscated_res_0x7f0f049c);
                             } else {
                                 G = b2.G();
                             }
                             blockPopInfoData.block_info = G;
-                            blockPopInfoData.ahead_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f049b);
-                            blockPopInfoData.ok_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f0a46);
+                            blockPopInfoData.ahead_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f049e);
+                            blockPopInfoData.ok_info = this.a.b().getString(R.string.obfuscated_res_0x7f0f0a50);
                             blockPopInfoData.ahead_url = AntiHelper.a;
                             AntiHelper.s(this.a.b().getPageActivity(), blockPopInfoData);
                         }
                         z = true;
                     }
                     if (!z) {
-                        String string = this.a.b().getString(R.string.obfuscated_res_0x7f0f049a);
+                        String string = this.a.b().getString(R.string.obfuscated_res_0x7f0f049d);
                         if (b2 != null) {
                             if (dj.isEmpty(b2.G())) {
-                                string = this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f049a);
+                                string = this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f049d);
                             } else {
                                 string = b2.G();
                             }
                         }
-                        i95.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0a46), null, new C0496c(this), null).show();
+                        i95.b(this.a.b(), null, string, this.a.b().getResources().getString(R.string.obfuscated_res_0x7f0f0a50), null, new C0496c(this), null).show();
                     }
                 }
             }
@@ -287,7 +287,7 @@ public class yl6 extends ej5<wj6, sj6> implements nj6 {
                     if (currentActivity != null) {
                         BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                         bdTopToast.h(false);
-                        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0a88));
+                        bdTopToast.g(currentActivity.getString(R.string.obfuscated_res_0x7f0f0a92));
                         bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
                     }
                 }
@@ -316,9 +316,9 @@ public class yl6 extends ej5<wj6, sj6> implements nj6 {
                 return;
             }
         }
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f0913e5);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092314);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092014);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f0913fa);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092058);
         RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.recycler_view);
         this.i = recyclerView;
         this.l = enterForumModel;
@@ -346,7 +346,7 @@ public class yl6 extends ej5<wj6, sj6> implements nj6 {
         }
     }
 
-    @Override // com.baidu.tieba.d09
+    @Override // com.baidu.tieba.h19
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

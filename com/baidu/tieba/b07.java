@@ -48,7 +48,7 @@ public class b07 extends qn<k07, a> {
                 ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
                 marginLayoutParams.topMargin = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
                 this.a.setLayoutParams(marginLayoutParams);
-                this.a.setText(R.string.obfuscated_res_0x7f0f076a);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0773);
                 this.a.setPadding(ej.g(b07Var.mContext, R.dimen.M_W_X005), ej.g(b07Var.mContext, R.dimen.M_H_X005), 0, 0);
                 p15 d = p15.d(this.a);
                 d.z(R.dimen.T_X07);

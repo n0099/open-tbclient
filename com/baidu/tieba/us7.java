@@ -472,7 +472,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
                 }
                 new StatisticItem(CommonStatisticKey.KEY_QUESTION_ENTRANCE_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", i).eventStat();
                 this.a.N0(0);
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a.a.getContext(), this.a.a.getString(R.string.obfuscated_res_0x7f0f09f5), TbConfig.QUESTION_THREAD_LIST, true);
+                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a.a.getContext(), this.a.a.getString(R.string.obfuscated_res_0x7f0f09ff), TbConfig.QUESTION_THREAD_LIST, true);
                 tbWebViewActivityConfig.setFixTitle(true);
                 tbWebViewActivityConfig.setNoClose(true);
                 tbWebViewActivityConfig.setNoHelp(false);
@@ -1460,7 +1460,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
                 }
                 if (responsedMessage.getError() != 0) {
                     if (!this.a.Y && this.a.a != null && responsedMessage.getError() != -100000303) {
-                        this.a.a.showToast(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0cfe));
+                        this.a.a.showToast(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0d08));
                         this.a.Y = true;
                         return;
                     }
@@ -1629,7 +1629,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
                 return;
             }
             b1(true);
-            B0();
+            D0();
         }
     }
 
@@ -1706,7 +1706,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
         }
     }
 
-    public void B0() {
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageAggregationListAdapter messageAggregationListAdapter = this.h;
@@ -1739,7 +1739,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
             ol5Var.h(false);
             ol5Var.f(SocketMessageTask.DupLicateMode.NONE);
             MessageManager.getInstance().registerTask(ol5Var);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_MSG_REC_FORUM_LIST, o09.a("c/f/forum/getMsgRecForumlist", 309712));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_MSG_REC_FORUM_LIST, s19.a("c/f/forum/getMsgRecForumlist", 309712));
             tbHttpMessageTask.setResponsedClass(MsgRecForumHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
             this.a.registerListener(this.w0);
@@ -1762,7 +1762,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-            this.o = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d01d1, (ViewGroup) null, false);
+            this.o = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d01d2, (ViewGroup) null, false);
             j0();
             k0(this.o);
             TiebaStatic.eventStat(getActivity(), "enter_chatlist", "chatlistclick", 1, new Object[0]);
@@ -1947,7 +1947,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterShowItemData)) == null) {
             String string = this.a.getPageContext().getPageActivity().getString(R.string.delete_user_chat);
-            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1508);
+            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f151f);
             String string3 = this.a.getPageContext().getPageActivity().getString(R.string.cancel_top);
             String string4 = this.a.getPageContext().getPageActivity().getString(R.string.im_chat_no_tip);
             String string5 = this.a.getPageContext().getPageActivity().getString(R.string.im_chat_no_tip_cancel);
@@ -2041,11 +2041,11 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
                 this.S.setThreeDotMode(2);
                 this.S.f(i2);
                 this.S.setVisibility(0);
-                this.Q.setText(R.string.obfuscated_res_0x7f0f0724);
+                this.Q.setText(R.string.obfuscated_res_0x7f0f072d);
                 return;
             }
             this.S.setVisibility(8);
-            this.Q.setText(R.string.obfuscated_res_0x7f0f0723);
+            this.Q.setText(R.string.obfuscated_res_0x7f0f072c);
         }
     }
 
@@ -2373,13 +2373,13 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
         }
         TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.unfriend_del, TBAlertConfig.OperateBtnStyle.ALERT);
         TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.unfriend_cancel, TBAlertConfig.OperateBtnStyle.SECONDARY);
-        int i2 = R.string.obfuscated_res_0x7f0f12f0;
+        int i2 = R.string.obfuscated_res_0x7f0f1307;
         if (String.valueOf(9).equals(imMessageCenterShowItemData.getOwnerName())) {
-            i2 = R.string.obfuscated_res_0x7f0f12f1;
+            i2 = R.string.obfuscated_res_0x7f0f1308;
         }
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
         this.h0 = tBAlertBuilder;
-        tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f14f5);
+        tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f150c);
         tBAlertBuilder.m(i2);
         tBAlertBuilder.o(true);
         tBAlertBuilder.u(aVar2, aVar);
@@ -2404,13 +2404,13 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
     public final void k0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048617, this, view2) == null) {
-            this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063b);
-            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f0926c3);
+            this.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090646);
+            ShutDownValidateTipView shutDownValidateTipView = (ShutDownValidateTipView) view2.findViewById(R.id.obfuscated_res_0x7f092722);
             this.i = shutDownValidateTipView;
             shutDownValidateTipView.setVisibility(8);
             this.i.setShutDownClickListener(new z(this));
-            this.g = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091732);
-            BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09063c);
+            this.g = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091749);
+            BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f090647);
             this.f = bdListView;
             bdListView.setDividerHeight(0);
             MessageAggregationListAdapter messageAggregationListAdapter = new MessageAggregationListAdapter(this.a.getPageContext().getPageActivity());
@@ -2421,34 +2421,34 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
             this.f.setOnItemClickListener(this.z0);
             this.f.setOnItemLongClickListener(this.A0);
             this.f.setOnScrollListener(this.s0);
-            View inflate = View.inflate(this.mContext.getPageActivity(), R.layout.obfuscated_res_0x7f0d05ae, null);
+            View inflate = View.inflate(this.mContext.getPageActivity(), R.layout.obfuscated_res_0x7f0d05b3, null);
             this.u = inflate;
-            this.v = inflate.findViewById(R.id.obfuscated_res_0x7f0902ce);
-            this.w = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f0902cd);
-            this.x = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f0902d1);
-            this.y = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f0902cf);
-            this.z = this.u.findViewById(R.id.obfuscated_res_0x7f090152);
-            this.A = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090151);
-            this.B = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090156);
-            this.C = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090153);
-            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091cd2);
-            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091cd1);
-            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091cd5);
-            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091cd3);
-            this.H = this.u.findViewById(R.id.obfuscated_res_0x7f090a14);
-            this.I = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090a13);
-            this.J = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090a18);
-            this.K = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090a15);
-            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091f53);
-            RelativeLayout relativeLayout = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091068);
+            this.v = inflate.findViewById(R.id.obfuscated_res_0x7f0902d4);
+            this.w = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f0902d3);
+            this.x = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f0902d7);
+            this.y = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f0902d5);
+            this.z = this.u.findViewById(R.id.obfuscated_res_0x7f090154);
+            this.A = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090153);
+            this.B = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090158);
+            this.C = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090155);
+            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091d13);
+            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091d12);
+            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091d16);
+            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091d14);
+            this.H = this.u.findViewById(R.id.obfuscated_res_0x7f090a22);
+            this.I = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090a21);
+            this.J = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090a26);
+            this.K = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090a23);
+            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091f96);
+            RelativeLayout relativeLayout = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f09107a);
             this.N = relativeLayout;
             relativeLayout.setOnClickListener(this.B0);
-            this.O = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091064);
-            this.P = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091067);
-            this.R = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091066);
+            this.O = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091076);
+            this.P = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091079);
+            this.R = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091078);
             X0(p35.m().i("key_question_msg_no_remind", false));
-            this.Q = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091063);
-            MessageRedDotView messageRedDotView = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091065);
+            this.Q = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091075);
+            MessageRedDotView messageRedDotView = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091077);
             this.S = messageRedDotView;
             messageRedDotView.setThreeDotMode(2);
             N0(p35.m().n(p35.q("msg_tab_entrance_invitation_answer_unread_num"), 0));
@@ -2466,7 +2466,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
             this.H.setOnClickListener(this);
             this.f.addHeaderView(this.u);
             d0();
-            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cd4);
+            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d15);
             if (this.e == null) {
                 z35 z35Var = new z35(this.a.getPageContext());
                 this.e = z35Var;
@@ -2610,15 +2610,15 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
             SkinManager.setViewTextColor(this.B, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.F, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.J, (int) R.color.CAM_X0105);
-            WebPManager.setMaskDrawable(this.w, R.drawable.obfuscated_res_0x7f08082f, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setMaskDrawable(this.A, R.drawable.obfuscated_res_0x7f080831, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setMaskDrawable(this.E, R.drawable.obfuscated_res_0x7f080832, WebPManager.ResourceStateType.NORMAL_PRESS);
-            WebPManager.setMaskDrawable(this.I, R.drawable.obfuscated_res_0x7f080830, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setMaskDrawable(this.w, R.drawable.obfuscated_res_0x7f08083b, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setMaskDrawable(this.A, R.drawable.obfuscated_res_0x7f08083d, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setMaskDrawable(this.E, R.drawable.obfuscated_res_0x7f08083e, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setMaskDrawable(this.I, R.drawable.obfuscated_res_0x7f08083c, WebPManager.ResourceStateType.NORMAL_PRESS);
             SkinManager.setBackgroundColor(this.L, R.color.CAM_X0203);
             p15 d2 = p15.d(this.N);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0206);
-            WebPManager.setMaskDrawable(this.O, R.drawable.obfuscated_res_0x7f080833, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(this.O, R.drawable.obfuscated_res_0x7f08083f, WebPManager.ResourceStateType.NORMAL);
             p15 d3 = p15.d(this.P);
             d3.z(R.dimen.T_X07);
             d3.A(R.string.F_X02);

@@ -71,7 +71,7 @@ public class ek6 implements me5, wi5 {
     public wl6 b;
     public EnterForumModel c;
     public RecentlyVisitedForumModel d;
-    public d89 e;
+    public h99 e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -102,7 +102,7 @@ public class ek6 implements me5, wi5 {
     }
 
     @Override // com.baidu.tieba.wi5
-    public boolean b1() {
+    public boolean a1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
@@ -419,7 +419,7 @@ public class ek6 implements me5, wi5 {
                 if (responsedMessage.getError() == 0) {
                     BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
                     bdTopToast.h(true);
-                    bdTopToast.g(this.a.j.getActivity().getString(R.string.obfuscated_res_0x7f0f0a87));
+                    bdTopToast.g(this.a.j.getActivity().getString(R.string.obfuscated_res_0x7f0f0a91));
                     bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
                     return;
                 }
@@ -464,7 +464,7 @@ public class ek6 implements me5, wi5 {
                 if (ej.F()) {
                     new m(this.b, this.a).execute(new vj6[0]);
                 } else {
-                    this.b.j.showToast(R.string.obfuscated_res_0x7f0f04dd);
+                    this.b.j.showToast(R.string.obfuscated_res_0x7f0f04e0);
                 }
                 TiebaStatic.eventStat(this.b.j.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
                 j05Var.dismiss();
@@ -609,7 +609,7 @@ public class ek6 implements me5, wi5 {
                     TiebaStatic.page(TiebaStatic.OpKey.OP_FORUM_ENTER, currentTimeMillis - this.a.k, this.a.c.M() - this.a.k, this.a.c.O(), this.a.c.N(), currentTimeMillis - this.a.c.L());
                     this.a.k = -1L;
                 }
-                String string = this.a.j.getResources().getString(R.string.obfuscated_res_0x7f0f05ac);
+                String string = this.a.j.getResources().getString(R.string.obfuscated_res_0x7f0f05b3);
                 tj6 tj6Var3 = eVar.d;
                 if (tj6Var3 != null && tj6Var3.d() != null) {
                     HotSearchInfoData d = eVar.d.d();
@@ -727,9 +727,9 @@ public class ek6 implements me5, wi5 {
                             BaseFragmentActivity baseFragmentActivity = this.c.j;
                             Activity activity = this.c.j.getActivity();
                             if (k > 0) {
-                                i2 = R.string.obfuscated_res_0x7f0f05b2;
+                                i2 = R.string.obfuscated_res_0x7f0f05b9;
                             } else {
-                                i2 = R.string.obfuscated_res_0x7f0f05ae;
+                                i2 = R.string.obfuscated_res_0x7f0f05b5;
                             }
                             baseFragmentActivity.showToast(activity.getString(i2));
                         }
@@ -742,9 +742,9 @@ public class ek6 implements me5, wi5 {
                             BaseFragmentActivity baseFragmentActivity2 = this.c.j;
                             Activity activity2 = this.c.j.getActivity();
                             if (k > 0) {
-                                i = R.string.obfuscated_res_0x7f0f05b1;
+                                i = R.string.obfuscated_res_0x7f0f05b8;
                             } else {
-                                i = R.string.obfuscated_res_0x7f0f05ad;
+                                i = R.string.obfuscated_res_0x7f0f05b4;
                             }
                             baseFragmentActivity2.showToast(activity2.getString(i));
                         }
@@ -863,7 +863,7 @@ public class ek6 implements me5, wi5 {
                         if (!StringUtils.isNull(this.a.getErrorString())) {
                             this.c.j.showToast(this.a.getErrorString());
                         } else if (this.c.a.isAdded()) {
-                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f04dd));
+                            this.c.j.showToast(this.c.j.getActivity().getString(R.string.obfuscated_res_0x7f0f04e0));
                         }
                     }
                 }
@@ -912,7 +912,7 @@ public class ek6 implements me5, wi5 {
         this.t = new al6();
         this.d = new RecentlyVisitedForumModel();
         this.m = new LikeModel(this.j.getPageContext());
-        this.e = new d89(this.j.getPageContext());
+        this.e = new h99(this.j.getPageContext());
         this.m.setLoadDataCallBack(this.y);
         this.c.f0(this.z);
         p35.m().w("enter_forum_edit_mode", false);
@@ -927,7 +927,7 @@ public class ek6 implements me5, wi5 {
         boolean z3;
         EnterForumModel enterForumModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && !this.r && this.c != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048605, this, z) == null) && !this.r && this.c != null && this.b != null) {
             String str = this.i;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             this.i = currentAccount;
@@ -968,7 +968,7 @@ public class ek6 implements me5, wi5 {
                 TbadkCoreApplication.getInst().clearSignedForum();
                 String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
                 if (currentAccount2 != null && currentAccount2.length() > 0) {
-                    e29.g(currentAccount2);
+                    i39.g(currentAccount2);
                 }
                 this.b.c0(this.c.P());
             }
@@ -1042,7 +1042,7 @@ public class ek6 implements me5, wi5 {
 
     public void x(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048603, this, z) == null) && this.b != null && this.a != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048604, this, z) == null) && this.b != null && this.a != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007009, Integer.valueOf(z ? 1 : 0)));
         }
     }
@@ -1169,7 +1169,7 @@ public class ek6 implements me5, wi5 {
     public final void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.s = LayoutInflater.from(this.j.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d027b, (ViewGroup) null);
+            this.s = LayoutInflater.from(this.j.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d027c, (ViewGroup) null);
             wl6 wl6Var = new wl6(this.a, this.s, this.n, this.d, this.c);
             this.b = wl6Var;
             wl6Var.A0(this.t);
@@ -1275,7 +1275,7 @@ public class ek6 implements me5, wi5 {
         if (!StringUtils.isNull(str)) {
             this.a.G1().V(str.trim());
         } else {
-            this.a.G1().V(this.j.getActivity().getString(R.string.obfuscated_res_0x7f0f05ac));
+            this.a.G1().V(this.j.getActivity().getString(R.string.obfuscated_res_0x7f0f05b3));
         }
     }
 
@@ -1285,9 +1285,9 @@ public class ek6 implements me5, wi5 {
             return;
         }
         j05 j05Var = new j05(this.j.getPageContext().getPageActivity());
-        j05Var.setMessage(String.format(this.j.getPageContext().getString(R.string.obfuscated_res_0x7f0f02c0), vj6Var.o()));
-        j05Var.setPositiveButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038c), new h(this, vj6Var));
-        j05Var.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038b), new i(this));
+        j05Var.setMessage(String.format(this.j.getPageContext().getString(R.string.obfuscated_res_0x7f0f02c1), vj6Var.o()));
+        j05Var.setPositiveButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038d), new h(this, vj6Var));
+        j05Var.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038c), new i(this));
         j05Var.setButtonTextColor(R.color.CAM_X0105);
         j05Var.create(this.j.getPageContext());
         j05Var.show();
@@ -1305,10 +1305,10 @@ public class ek6 implements me5, wi5 {
     }
 
     @Override // com.baidu.tieba.wi5
-    public boolean y0(xi5 xi5Var) {
+    public boolean w0(xi5 xi5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, xi5Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, xi5Var)) == null) {
             int b2 = xi5Var.b();
             ni5 a2 = xi5Var.a();
             int i2 = 2;

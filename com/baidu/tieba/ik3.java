@@ -604,9 +604,9 @@ public class ik3 {
         this.g = list;
         int size = list.size();
         this.f = new ArrayList<>(size);
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f0903e3);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f0903eb);
         y(this.e.c);
-        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09016e);
+        LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090170);
         this.b = linearLayout;
         linearLayout.setVisibility(0);
         this.b.setBackgroundColor(this.e.d);

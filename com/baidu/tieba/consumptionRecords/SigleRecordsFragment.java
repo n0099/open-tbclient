@@ -342,15 +342,15 @@ public class SigleRecordsFragment extends BaseFragment {
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
-                        i = R.string.obfuscated_res_0x7f0f0d46;
+                        i = R.string.obfuscated_res_0x7f0f0d50;
                     } else {
-                        i = R.string.obfuscated_res_0x7f0f0d44;
+                        i = R.string.obfuscated_res_0x7f0f0d4e;
                     }
                 } else {
-                    i = R.string.obfuscated_res_0x7f0f0d2b;
+                    i = R.string.obfuscated_res_0x7f0f0d35;
                 }
             } else {
-                i = R.string.obfuscated_res_0x7f0f0d20;
+                i = R.string.obfuscated_res_0x7f0f0d2a;
             }
             if (this.j == null) {
                 this.j = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ej.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07029f)), NoDataViewFactory.e.a(i), null);
@@ -432,9 +432,9 @@ public class SigleRecordsFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07f2, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0804, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c90);
+            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091cd1);
             this.h = new z35(this.a.getPageContext());
             te6 te6Var = new te6(this.a.getPageContext(), this.e);
             this.i = te6Var;
@@ -445,7 +445,7 @@ public class SigleRecordsFragment extends BaseFragment {
             this.g.x(textView, 0);
             this.h.f(new b(this));
             this.g.setOnSrollToBottomListener(new c(this));
-            TextView textView2 = (TextView) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d057e, (ViewGroup) null);
+            TextView textView2 = (TextView) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0583, (ViewGroup) null);
             this.k = textView2;
             this.g.addFooterView(textView2);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

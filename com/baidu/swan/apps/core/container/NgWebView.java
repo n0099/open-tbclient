@@ -536,10 +536,10 @@ public class NgWebView extends BdSailorWebView implements dv1, SlideInterceptor,
             int i2 = popTopY - g2;
             if (i2 < 0) {
                 g = nm3.g(22.0f) + popBottomY;
-                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120c);
+                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081222);
             } else {
                 g = nm3.g(22.0f) + i2;
-                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120b);
+                swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081221);
             }
             if (g + g2 > height) {
                 g = (popBottomY - popTopY) - g2;
@@ -585,7 +585,7 @@ public class NgWebView extends BdSailorWebView implements dv1, SlideInterceptor,
     private void tryInitSelectPopupWindow(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65547, this, z) == null) && this.mSelectPopWindow == null) {
-            SwanAppSelectPopView swanAppSelectPopView = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0860, (ViewGroup) null);
+            SwanAppSelectPopView swanAppSelectPopView = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0872, (ViewGroup) null);
             this.mSelectPopWindow = swanAppSelectPopView;
             if (z) {
                 swanAppSelectPopView.findViewById(R.id.select_separator_one).setVisibility(8);
@@ -593,7 +593,7 @@ public class NgWebView extends BdSailorWebView implements dv1, SlideInterceptor,
             }
             getCurrentWebView().addView(this.mSelectPopWindow, new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(-2, -2)));
             this.mSelectPopWindow.setEventListener(this);
-            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120b);
+            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f081221);
             this.mSelectPopWindow.setVisibility(4);
         }
     }

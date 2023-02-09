@@ -40,10 +40,10 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = 3;
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d72);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091b66);
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b67);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b6a);
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b65);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091db4);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091ba1);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba2);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba5);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ba0);
     }
 }

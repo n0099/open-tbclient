@@ -173,12 +173,12 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0550, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144e);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091450);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09144d);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09142e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0555, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091463);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091464);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091465);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091462);
+            this.f = findViewById(R.id.obfuscated_res_0x7f091443);
             this.l = new LottieDrawable();
             c();
             this.l.loop(true);
@@ -243,24 +243,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                         this.b.setBackgroundDrawable(gradientDrawable2);
                         if (!"day".equals(fd0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
                             if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d63);
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d75);
                             } else {
-                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d64);
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d76);
                             }
                         } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d63);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d75);
                         }
                     } else if (i == 0) {
                         gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_4E6EF2"), fd0.f().a(this.a, this.h, "color_4E6EF2")});
                         this.b.setBackgroundDrawable(gradientDrawable2);
                         if (!"day".equals(fd0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h)) {
                             if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d65);
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d77);
                             } else {
-                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d66);
+                                this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d78);
                             }
                         } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d65);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d77);
                         }
                     } else {
                         gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_FF3333"), fd0.f().a(this.a, this.h, "color_FF3333")});
@@ -335,24 +335,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     if (i2 == 3) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d69);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a9f));
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7b);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aa9));
                         this.d.setPadding(oa0.b(this.a, 2.0f), 0, oa0.b(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else if (i2 == 0) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d69);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aa1));
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7b);
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aab));
                         this.d.setPadding(oa0.b(this.a, 2.0f), 0, oa0.b(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else {
                         this.g = true;
                         this.b.setVisibility(8);
-                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aa0));
+                        this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aaa));
                         this.d.setPadding(0, 0, oa0.b(this.a, 4.0f), 0);
                         this.e.setVisibility(0);
-                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a9e), oa0.a(this.a, liveBannerEntity.audienceCount)));
+                        this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aa8), oa0.a(this.a, liveBannerEntity.audienceCount)));
                     }
                     f("day");
                     setVisibility(0);

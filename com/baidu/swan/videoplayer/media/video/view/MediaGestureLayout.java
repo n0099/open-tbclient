@@ -288,7 +288,7 @@ public final class MediaGestureLayout extends FrameLayout implements kq4 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
                 float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-                this.c.g(R.drawable.obfuscated_res_0x7f081257);
+                this.c.g(R.drawable.obfuscated_res_0x7f08126d);
                 this.c.h(b2);
                 this.c.f();
                 return true;
@@ -309,9 +309,9 @@ public final class MediaGestureLayout extends FrameLayout implements kq4 {
                 this.e.h((int) (this.e.b() + ((this.e.c() * x) / (getWidth() * 0.8f))));
                 MediaFastForward mediaFastForward = this.e;
                 if (x > 0.0f) {
-                    i = R.drawable.obfuscated_res_0x7f081253;
+                    i = R.drawable.obfuscated_res_0x7f081269;
                 } else {
-                    i = R.drawable.obfuscated_res_0x7f081254;
+                    i = R.drawable.obfuscated_res_0x7f08126a;
                 }
                 mediaFastForward.g(i);
                 this.e.f();
@@ -330,7 +330,7 @@ public final class MediaGestureLayout extends FrameLayout implements kq4 {
             if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
                 float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
                 this.d.f(a2);
-                this.d.g(R.drawable.obfuscated_res_0x7f081245);
+                this.d.g(R.drawable.obfuscated_res_0x7f08125b);
                 this.d.h((int) ((a2 / this.d.b()) * 100.0f));
                 this.d.e();
                 return true;

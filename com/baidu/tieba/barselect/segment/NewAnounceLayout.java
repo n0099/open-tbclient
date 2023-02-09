@@ -125,13 +125,13 @@ public class NewAnounceLayout extends CardBasicLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090284);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090289);
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090a4c);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091f10);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1c);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090286);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090a5a);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091f53);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5f);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09028b);
         }
     }
 
@@ -145,7 +145,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             setGravity(17);
             setMinimumHeight(ej.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0663, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0669, (ViewGroup) this, true);
             b();
         }
     }

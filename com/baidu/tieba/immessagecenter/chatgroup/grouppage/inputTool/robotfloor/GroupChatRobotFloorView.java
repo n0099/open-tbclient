@@ -345,17 +345,17 @@ public class GroupChatRobotFloorView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (tbPageContext = this.b) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d038f, (ViewGroup) this, true);
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d57);
-        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d50);
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f092389);
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d5d);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d4f);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) this, true);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d99);
+        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d92);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0923d3);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d9f);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d91);
         this.g = headImageView;
         headImageView.setIsRound(true);
         this.g.setIsBigV(false);
-        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d56);
-        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091d55);
+        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d98);
+        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091d97);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b.getPageActivity());
         this.m = linearLayoutManager;
         this.i.setLayoutManager(linearLayoutManager);

@@ -115,13 +115,13 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.h = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b9);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ba);
-            this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09030a);
-            this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090309);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092504);
+            this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090312);
+            this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.f = (LinearLayout) view2.findViewById(R.id.right_container);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091645);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091657);
+            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09165b);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09166d);
             this.h = str;
             LiveFeedPageConcernAdapter.h(this.d, str2);
             this.d.setRepeatCount(-1);
@@ -179,12 +179,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
             }
             this.i = "";
             this.a = (LinearLayout) view2.findViewById(R.id.root_container);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b9);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09030f);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ab1);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b8);
-            this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09030a);
-            this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090309);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac1);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092502);
+            this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090312);
+            this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.h = (LinearLayout) view2.findViewById(R.id.right_container);
             this.i = str;
             this.j = str2;
@@ -214,12 +214,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
                 if (!LiveFeedPageSdk.IMMERSION.equals(this.j) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.j) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                     if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {
-                        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d50);
+                        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d62);
                     } else {
-                        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d51);
+                        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d63);
                     }
                 } else {
-                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d52);
+                    this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d64);
                 }
                 if (LiveFeedPageSdk.VIDEO_BAR.equals(this.j) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(this.j)) {
                     ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
@@ -273,11 +273,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.f = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b9);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09030f);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ab1);
-            this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f09030a);
-            this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090309);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ac1);
+            this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090312);
+            this.c = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.f = str;
             LiveFeedPageConcernAdapter.h(this.b, str2);
             this.b.setRepeatCount(-1);
@@ -657,7 +657,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         LiveHostInfo liveHostInfo = liveFollowEntity.hostInfo;
                         if (liveHostInfo != null) {
                             if (tc0.a(liveHostInfo.name)) {
-                                oneFollowViewHolder.c.setText(R.string.obfuscated_res_0x7f0f0aa3);
+                                oneFollowViewHolder.c.setText(R.string.obfuscated_res_0x7f0f0aad);
                             } else {
                                 oneFollowViewHolder.c.setText(liveFollowEntity.hostInfo.name);
                             }
@@ -718,7 +718,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         LiveHostInfo liveHostInfo5 = liveFollowEntity2.hostInfo;
                         if (liveHostInfo5 != null) {
                             if (tc0.a(liveHostInfo5.name)) {
-                                twoFollowViewHolder.f.setText(R.string.obfuscated_res_0x7f0f0aa3);
+                                twoFollowViewHolder.f.setText(R.string.obfuscated_res_0x7f0f0aad);
                             } else {
                                 twoFollowViewHolder.f.setText(liveFollowEntity2.hostInfo.name);
                             }
@@ -779,12 +779,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                         f(viewHolder2);
                         if (!LiveFeedPageSdk.IMMERSION.equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
                             if (!"night".equals(fd0.f().r()) && !"dark".equals(fd0.f().r())) {
-                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080d45);
+                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080d57);
                             } else {
-                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080d47);
+                                viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080d59);
                             }
                         } else {
-                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080d46);
+                            viewHolder2.e.setImageResource(R.drawable.obfuscated_res_0x7f080d58);
                         }
                         viewHolder2.e.setVisibility(0);
                         viewHolder2.b.setVisibility(4);
@@ -804,7 +804,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                     LiveHostInfo liveHostInfo9 = liveFollowEntity3.hostInfo;
                     if (liveHostInfo9 != null) {
                         if (tc0.a(liveHostInfo9.name)) {
-                            viewHolder2.a.setText(R.string.obfuscated_res_0x7f0f0aa3);
+                            viewHolder2.a.setText(R.string.obfuscated_res_0x7f0f0aad);
                         } else {
                             viewHolder2.a.setText(liveFollowEntity3.hostInfo.name);
                         }
@@ -842,12 +842,12 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 this.g = true;
             }
             if (getItemViewType(i) == 1 && this.g) {
-                return new OneFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d055f, viewGroup, false), this.h, this.e);
+                return new OneFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0564, viewGroup, false), this.h, this.e);
             }
             if (getItemViewType(i) == 2 && this.g) {
-                return new TwoFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d056e, viewGroup, false), this.h, this.e);
+                return new TwoFollowViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0573, viewGroup, false), this.h, this.e);
             }
-            return new ViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0557, viewGroup, false), this.h, this.e);
+            return new ViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d055c, viewGroup, false), this.h, this.e);
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

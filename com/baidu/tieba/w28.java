@@ -28,7 +28,7 @@ public class w28 {
                 return;
             }
         }
-        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921ad);
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921f3);
     }
 
     public void a(s28 s28Var) {

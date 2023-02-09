@@ -147,19 +147,19 @@ public class l35 {
         }
     }
 
-    public void d(AgreeData agreeData, w09 w09Var) {
+    public void d(AgreeData agreeData, a29 a29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, w09Var) == null) {
-            w09Var.b = agreeData;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, a29Var) == null) {
+            a29Var.b = agreeData;
             if (agreeData.isInThread) {
                 BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
                 if (baijiahaoData != null) {
                     agreeData.nid = baijiahaoData.oriUgcNid;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, w09Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, a29Var));
                 a(agreeData, AgreeEvent.IS_THREAD);
             } else if (agreeData.isInPost) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, w09Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, a29Var));
                 a(agreeData, AgreeEvent.IS_POST);
             }
         }

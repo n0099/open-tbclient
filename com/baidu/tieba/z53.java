@@ -93,11 +93,11 @@ public final class z53 {
             }
             Application context = ds2.c();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f13af);
-            String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f13b0), 20, null, 4, null);
-            String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f13b1), 4, null, 4, null);
+            String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f13c6);
+            String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f13c7), 20, null, 4, null);
+            String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f13c8), 4, null, 4, null);
             String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f0114), 4, null, 4, null);
-            String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f13b2), 8, null, 4, null);
+            String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f13c9), 8, null, 4, null);
             String c2 = c(jSONObject, "navBarTextStyle", "");
             if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
                 c2 = "black";
@@ -111,7 +111,7 @@ public final class z53 {
                 }
                 i2 = -1;
             }
-            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060ace);
+            int color = context.getResources().getColor(R.color.obfuscated_res_0x7f060acf);
             try {
                 i3 = Color.parseColor(c(jSONObject, "confirmColor", "#3388FF"));
             } catch (Exception e7) {

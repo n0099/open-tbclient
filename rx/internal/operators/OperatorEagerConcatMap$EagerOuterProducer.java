@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.oda;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.xda;
+import com.baidu.tieba.bfa;
+import com.baidu.tieba.sea;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements vca {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements zda {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -657299606803478389L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xda<?, ?> parent;
+    public final bfa<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(xda<?, ?> xdaVar) {
+    public OperatorEagerConcatMap$EagerOuterProducer(bfa<?, ?> bfaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xdaVar};
+            Object[] objArr = {bfaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,17 +30,17 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
                 return;
             }
         }
-        this.parent = xdaVar;
+        this.parent = bfaVar;
     }
 
-    @Override // com.baidu.tieba.vca
+    @Override // com.baidu.tieba.zda
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    oda.b(this, j);
+                    sea.b(this, j);
                     this.parent.g();
                     return;
                 }

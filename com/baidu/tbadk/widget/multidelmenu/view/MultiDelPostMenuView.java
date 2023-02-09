@@ -175,13 +175,13 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
             TextView textView = (TextView) findViewById.findViewById(R.id.multi_del_cancel_btn);
             this.d = textView;
             if (textView != null) {
-                textView.setText(R.string.obfuscated_res_0x7f0f038b);
+                textView.setText(R.string.obfuscated_res_0x7f0f038c);
                 this.d.setOnClickListener(this);
             }
             TextView textView2 = (TextView) this.b.findViewById(R.id.multi_del_btn);
             this.e = textView2;
             if (textView2 != null) {
-                textView2.setText(R.string.obfuscated_res_0x7f0f04d5);
+                textView2.setText(R.string.obfuscated_res_0x7f0f04d8);
                 this.e.setOnClickListener(this);
             }
             TextView textView3 = (TextView) this.b.findViewById(R.id.multi_del_forbidden_btn);
@@ -276,7 +276,7 @@ public class MultiDelPostMenuView extends RelativeLayout implements View.OnClick
             } else {
                 this.g = State.SELECTED;
             }
-            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04d5);
+            String string = this.c.getString(R.string.obfuscated_res_0x7f0f04d8);
             TextView textView = this.e;
             if (textView != null) {
                 if (this.g == State.SELECTED) {

@@ -148,14 +148,14 @@ public class o46 {
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d2d);
-            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9b);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245c);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092458);
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092455);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fab);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092499);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092498);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d6f);
+            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fac);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a6);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a2);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09249f);
             view2.setOnClickListener(o46Var.j);
             this.b.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.b.setDrawerType(0);
@@ -193,7 +193,7 @@ public class o46 {
         this.j = new a(this);
         this.k = new b(this);
         this.b = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d010f, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0110, (ViewGroup) null, false);
         this.d = inflate;
         this.c = new c(this, inflate);
         this.i = z;
@@ -234,13 +234,13 @@ public class o46 {
                 this.c.b.setBorderSurroundContent(true);
                 this.c.b.setDrawBorder(true);
                 this.c.b.K(this.g.getThreadAlaInfo().cover, 10, false);
-                this.c.d.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12a5, StringHelper.numberUniformFormatExtra(this.g.getThreadAlaInfo().audience_count)));
+                this.c.d.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12bb, StringHelper.numberUniformFormatExtra(this.g.getThreadAlaInfo().audience_count)));
                 this.c.f.setData(this.g, false);
                 this.c.h.setText(this.g.getTitle());
                 if (this.g.getAuthor() != null) {
                     String name_show = this.g.getAuthor().getName_show();
-                    if (rp5.e(name_show) > 10) {
-                        name_show = rp5.m(name_show, 10) + StringHelper.STRING_MORE;
+                    if (rp5.f(name_show) > 10) {
+                        name_show = rp5.n(name_show, 10) + StringHelper.STRING_MORE;
                     }
                     this.c.g.setText(name_show);
                 }
@@ -252,7 +252,7 @@ public class o46 {
                     this.c.c.setVisibility(8);
                 }
                 if (q16Var.e) {
-                    this.c.i.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12a4, StringHelper.numberUniformFormatExtra((long) (this.g.getThreadAlaInfo().distance / 1000.0d))));
+                    this.c.i.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f12ba, StringHelper.numberUniformFormatExtra((long) (this.g.getThreadAlaInfo().distance / 1000.0d))));
                     this.c.i.setVisibility(0);
                 } else {
                     this.c.i.setVisibility(8);

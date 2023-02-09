@@ -72,15 +72,15 @@ public class pw5 implements View.OnClickListener {
                     return;
                 }
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    cu8 cu8Var = null;
+                    gv8 gv8Var = null;
                     if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        cu8Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
+                        gv8Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
                     }
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        cu8Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+                        gv8Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
                     if (this.a.c != null) {
-                        this.a.c.M(cu8Var);
+                        this.a.c.M(gv8Var);
                     }
                     if (this.a.b != null && this.a.c != null && this.a.c.H() != null) {
                         this.a.b.d(this.a.c.H().f());
@@ -89,7 +89,7 @@ public class pw5 implements View.OnClickListener {
                     return;
                 }
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0cfe);
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
@@ -138,7 +138,7 @@ public class pw5 implements View.OnClickListener {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             g();
         } else {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
         }
     }
 
@@ -147,10 +147,10 @@ public class pw5 implements View.OnClickListener {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090343) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09034b) {
                 TiebaStatic.log("c10013");
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{e});
                 }

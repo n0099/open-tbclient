@@ -20,7 +20,7 @@ public class ex5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdWebViewActivity a;
-    public u19 b;
+    public y29 b;
 
     public ex5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class ex5 extends WebChromeClient {
         this.a = adWebViewActivity;
     }
 
-    public void a(u19 u19Var) {
+    public void a(y29 y29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u19Var) == null) {
-            this.b = u19Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, y29Var) == null) {
+            this.b = y29Var;
         }
     }
 
@@ -116,8 +116,8 @@ public class ex5 extends WebChromeClient {
         AdWebViewActivity adWebViewActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            u19 u19Var = this.b;
-            if ((u19Var != null && u19Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !ih.f(adWebViewActivity.getPageContext())) {
+            y29 y29Var = this.b;
+            if ((y29Var != null && y29Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !ih.f(adWebViewActivity.getPageContext())) {
                 return true;
             }
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);

@@ -164,7 +164,7 @@ public class n45 extends TBSpecificationButtonConfig {
                 } else {
                     i = this.b;
                 }
-                gradientDrawable.setColor(lz8.a(i, 0.08f));
+                gradientDrawable.setColor(p09.a(i, 0.08f));
             } else {
                 gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
             }

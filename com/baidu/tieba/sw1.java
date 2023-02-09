@@ -33,7 +33,7 @@ public class sw1 {
 
         /* renamed from: com.baidu.tieba.sw1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0427a implements Animator.AnimatorListener {
+        public class C0426a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -52,7 +52,7 @@ public class sw1 {
                 }
             }
 
-            public C0427a(a aVar) {
+            public C0426a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -116,7 +116,7 @@ public class sw1 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.play(this.b.d(this.a, 150L));
-                animatorSet.addListener(new C0427a(this));
+                animatorSet.addListener(new C0426a(this));
                 animatorSet.start();
                 this.b.a.add(animatorSet);
             }

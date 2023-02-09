@@ -94,12 +94,12 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092410);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d2);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c0);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09268b);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09268a);
-        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091078);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09245a);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09241c);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09240a);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ea);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0926e9);
+        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09108b);
     }
 
     public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, bj7 bj7Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
@@ -118,7 +118,7 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
             this.f.setVisibility(0);
             if (bj7Var.a() > 0) {
                 hotVideoViewHolder.b.setVisibility(0);
-                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f092d), StringHelper.numberUniformFormatExtra(bj7Var.a())));
+                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0937), StringHelper.numberUniformFormatExtra(bj7Var.a())));
             } else {
                 hotVideoViewHolder.b.setVisibility(8);
             }

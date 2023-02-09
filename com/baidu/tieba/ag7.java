@@ -30,7 +30,7 @@ public class ag7 extends ib7 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1071);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1085);
     }
 
     public void h(HotTopic hotTopic) {

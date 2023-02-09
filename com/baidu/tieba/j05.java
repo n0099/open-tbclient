@@ -915,8 +915,8 @@ public class j05 {
             boolean z2 = true;
             this.mDialogCreated = true;
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(R.id.dialog_content);
-            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0927cd);
-            this.noButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0917b5);
+            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09282e);
+            this.noButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0917ce);
             this.dividerWithButton = this.mRootView.findViewById(R.id.divider_yes_no_button);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.bdDialog_divider_line);
             this.mCloseButton = (Button) this.mRootView.findViewById(R.id.close_btn);
@@ -1008,14 +1008,14 @@ public class j05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_content_with_no_tip_again, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092314);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
             this.titleTextView = textView;
             textView.setText(this.mTitle);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091058);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09106a);
             this.introTextView = textView2;
             textView2.setText(this.mMessage);
             this.noTipAgain = (TextView) inflate.findViewById(R.id.no_tip_again_text);
-            this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090645);
+            this.noTipAgainCheckBox = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090650);
             setCheckBoxDrawable();
             this.noTipAgainCheckBox.setOnClickListener(new a(this));
             return inflate;

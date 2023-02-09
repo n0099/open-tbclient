@@ -359,17 +359,17 @@ public class ny7 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee9);
+            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091f2c);
             this.o = quickWebView;
             quickWebView.l(true);
-            this.p = this.b.findViewById(R.id.obfuscated_res_0x7f091f0b);
+            this.p = this.b.findViewById(R.id.obfuscated_res_0x7f091f4e);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091efb);
+            QuickWebView quickWebView = (QuickWebView) this.b.findViewById(R.id.obfuscated_res_0x7f091f3e);
             this.n = quickWebView;
             quickWebView.l(true);
         }
@@ -380,7 +380,7 @@ public class ny7 {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.d.setText("");
             this.d.requestFocus();
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f038b));
+            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f038c));
         }
     }
 
@@ -453,17 +453,17 @@ public class ny7 {
             NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.showBottomLine();
-            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d081f, (View.OnClickListener) null);
+            View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0831, (View.OnClickListener) null);
             this.u = addCustomView;
-            this.g = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091ed2);
-            this.d = (EditText) this.u.findViewById(R.id.obfuscated_res_0x7f090e6a);
-            this.e = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090e5a);
-            this.f = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090e59);
-            this.h = (LinearLayout) this.u.findViewById(R.id.obfuscated_res_0x7f0914df);
-            this.i = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091d6b);
+            this.g = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091f15);
+            this.d = (EditText) this.u.findViewById(R.id.obfuscated_res_0x7f090e7b);
+            this.e = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090e6b);
+            this.f = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090e6a);
+            this.h = (LinearLayout) this.u.findViewById(R.id.obfuscated_res_0x7f0914f4);
+            this.i = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f091dad);
             this.e.setOnClickListener(new c(this));
             r(false);
-            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f038b));
+            this.f.setText(this.a.getString(R.string.obfuscated_res_0x7f0f038c));
         }
     }
 
@@ -492,7 +492,7 @@ public class ny7 {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090e73);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f090e84);
             this.r = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a));
             this.r.setOnScrollListener(this.t);
@@ -527,10 +527,10 @@ public class ny7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             h();
-            LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = (LinearLayoutDetectsSoftKeyboard) this.b.findViewById(R.id.obfuscated_res_0x7f091ed9);
+            LinearLayoutDetectsSoftKeyboard linearLayoutDetectsSoftKeyboard = (LinearLayoutDetectsSoftKeyboard) this.b.findViewById(R.id.obfuscated_res_0x7f091f1c);
             this.k = linearLayoutDetectsSoftKeyboard;
             linearLayoutDetectsSoftKeyboard.setOnTouchListener(new b(this));
-            this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090b54);
+            this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090b65);
             NoDataView a2 = NoDataViewFactory.a(this.a, null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f07026d)), null, null);
             this.m = a2;
             this.l.addView(a2, 0);
@@ -559,7 +559,7 @@ public class ny7 {
                 this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             }
             this.c.onChangeSkinType(x9Var, i);
-            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080ac3, R.color.CAM_X0109, null);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080ad2, R.color.CAM_X0109, null);
             SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
             WebPManager.setPureDrawable(this.g, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
             SkinManager.setBackgroundResource(this.l, R.color.CAM_X0201);

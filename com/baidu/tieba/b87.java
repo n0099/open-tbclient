@@ -369,7 +369,7 @@ public class b87 {
                         it.remove();
                     }
                 }
-                qq8.c(this.a.b);
+                ur8.c(this.a.b);
                 this.a.s.clear();
                 if (this.a.b.size() >= 9) {
                     b87 b87Var = this.a;
@@ -529,10 +529,10 @@ public class b87 {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                qq8.d(str, this.a.b);
-                qq8.d(str, this.a.c.app_list);
-                qq8.d(str, this.a.s);
-                qq8.p(this.a.b);
+                ur8.d(str, this.a.b);
+                ur8.d(str, this.a.c.app_list);
+                ur8.d(str, this.a.s);
+                ur8.p(this.a.b);
                 if (this.a.l != null) {
                     this.a.l.j(new ArrayList(this.a.b));
                 }
@@ -1026,7 +1026,7 @@ public class b87 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
-            String e2 = qq8.e(this.b, z);
+            String e2 = ur8.e(this.b, z);
             wn5 wn5Var = new wn5();
             wn5Var.b = e2;
             return wn5Var;
@@ -1037,7 +1037,7 @@ public class b87 {
     public final void r(List<Cdo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, list) == null) {
-            ys8.f().i("CONCERN", qq8.b(list));
+            cu8.f().i("CONCERN", ur8.b(list));
         }
     }
 
@@ -1218,7 +1218,7 @@ public class b87 {
                                     linkedList.add(h97Var2);
                                 }
                             } else {
-                                h97Var2.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0451);
+                                h97Var2.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0453);
                             }
                         }
                         z4 = true;
@@ -1398,7 +1398,7 @@ public class b87 {
     public final void y(List<Cdo> list, DataRes.Builder builder, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048606, this, list, builder, i2) == null) {
-            List<hy4> c0 = c0(qq8.h(builder.app_list, "CONCERN"));
+            List<hy4> c0 = c0(ur8.h(builder.app_list, "CONCERN"));
             if (this.c == null) {
                 this.c = new DataRes.Builder();
             }
@@ -1411,10 +1411,10 @@ public class b87 {
             }
             c0.addAll(this.s);
             if (!mv7.e(c0)) {
-                this.s = qq8.i(c0, list, i2);
+                this.s = ur8.i(c0, list, i2);
             }
-            qq8.p(list);
-            qq8.a(list, this.r, "CONCERN");
+            ur8.p(list);
+            ur8.a(list, this.r, "CONCERN");
             r(list);
         }
     }

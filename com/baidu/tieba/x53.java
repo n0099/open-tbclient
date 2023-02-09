@@ -70,13 +70,13 @@ public final class x53 {
 
         /* renamed from: com.baidu.tieba.x53$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0488a implements pn3<t53> {
+        public class C0486a implements pn3<t53> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ v53 b;
 
-            public C0488a(a aVar, String str, v53 v53Var) {
+            public C0486a(a aVar, String str, v53 v53Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public final class x53 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + v53Var.b);
                 }
                 synchronized (this.a.g) {
-                    on3.a(v83.M(), new C0488a(this, str, v53Var), this.a.g);
+                    on3.a(v83.M(), new C0486a(this, str, v53Var), this.a.g);
                 }
             }
         }

@@ -76,9 +76,9 @@ public class EmotionCenterModel extends BdBaseModel {
                 }
                 if (no6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
                     if (this.a.a == 1) {
-                        no6Var.d1(emotionCenterResponseMessage.data);
+                        no6Var.b1(emotionCenterResponseMessage.data);
                     } else {
-                        no6Var.B0(emotionCenterResponseMessage.data);
+                        no6Var.z0(emotionCenterResponseMessage.data);
                     }
                 }
             }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ve7 implements qo8 {
+public class ve7 implements up8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ue7 a;
@@ -37,7 +37,7 @@ public class ve7 implements qo8 {
     public String k;
     public View.OnClickListener l;
     public View.OnClickListener m;
-    public lo8 n;
+    public pp8 n;
     public int o;
 
     public ve7(Context context, ViewGroup viewGroup) {
@@ -64,7 +64,7 @@ public class ve7 implements qo8 {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (context = this.b) != null && this.c != null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d095a, this.c, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d096f, this.c, true);
             if (inflate != null) {
                 inflate.setOnClickListener(this);
             }
@@ -114,7 +114,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void changeRenderViewMode(int i) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public boolean onBackground(boolean z) {
         InterceptResult invokeZ;
         ue7 ue7Var;
@@ -152,7 +152,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void setAfterClickListener(View.OnClickListener onClickListener) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -164,7 +164,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void setFrom(String str) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -176,7 +176,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -188,7 +188,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void setStageType(String str) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -200,19 +200,19 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
-    public void setStatistic(lo8 lo8Var) {
+    @Override // com.baidu.tieba.up8
+    public void setStatistic(pp8 pp8Var) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, lo8Var) == null) {
-            this.n = lo8Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, pp8Var) == null) {
+            this.n = pp8Var;
             if (this.g && (ue7Var = this.a) != null) {
-                ue7Var.setStatistic(lo8Var);
+                ue7Var.setStatistic(pp8Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void setUniqueId(BdUniqueId bdUniqueId) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         ue7 ue7Var;
@@ -238,7 +238,7 @@ public class ve7 implements qo8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public View getMainView() {
         InterceptResult invokeV;
         ue7 ue7Var;
@@ -252,7 +252,7 @@ public class ve7 implements qo8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         ue7 ue7Var;
@@ -266,7 +266,7 @@ public class ve7 implements qo8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public boolean isPlaying() {
         InterceptResult invokeV;
         ue7 ue7Var;
@@ -280,7 +280,7 @@ public class ve7 implements qo8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public boolean onBackPress() {
         InterceptResult invokeV;
         ue7 ue7Var;
@@ -312,7 +312,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void onScroll() {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public boolean onVolumeUp() {
         InterceptResult invokeV;
         ue7 ue7Var;
@@ -353,7 +353,7 @@ public class ve7 implements qo8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void startPlay() {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -365,7 +365,7 @@ public class ve7 implements qo8 {
         }
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void stopPlay() {
         ue7 ue7Var;
         Interceptable interceptable = $ic;
@@ -402,7 +402,7 @@ public class ve7 implements qo8 {
         return invokeIIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qo8
+    @Override // com.baidu.tieba.up8
     public void setData(ThreadData threadData) {
         ue7 ue7Var;
         Interceptable interceptable = $ic;

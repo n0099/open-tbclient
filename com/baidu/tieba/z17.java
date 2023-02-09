@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes7.dex */
-public class z17 extends qn<uz8, FrsLikeRecommendHolder> {
+public class z17 extends qn<y09, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThemeColorInfo a;
@@ -24,17 +24,17 @@ public class z17 extends qn<uz8, FrsLikeRecommendHolder> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uz8 a;
+        public final /* synthetic */ y09 a;
         public final /* synthetic */ ViewGroup b;
         public final /* synthetic */ int c;
         public final /* synthetic */ z17 d;
 
-        public a(z17 z17Var, uz8 uz8Var, ViewGroup viewGroup, int i) {
+        public a(z17 z17Var, y09 y09Var, ViewGroup viewGroup, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z17Var, uz8Var, viewGroup, Integer.valueOf(i)};
+                Object[] objArr = {z17Var, y09Var, viewGroup, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public class z17 extends qn<uz8, FrsLikeRecommendHolder> {
                 }
             }
             this.d = z17Var;
-            this.a = uz8Var;
+            this.a = y09Var;
             this.b = viewGroup;
             this.c = i;
         }
@@ -54,14 +54,14 @@ public class z17 extends qn<uz8, FrsLikeRecommendHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
-                this.d.getOnAdapterItemClickListener().b(view2, this.a, uz8.e, this.b, this.c, view2.getId());
+                this.d.getOnAdapterItemClickListener().b(view2, this.a, y09.e, this.b, this.c, view2.getId());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z17(@NonNull Context context) {
-        super(context, uz8.e);
+        super(context, y09.e);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,7 +87,7 @@ public class z17 extends qn<uz8, FrsLikeRecommendHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0336, viewGroup, false), this.a);
+            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0338, viewGroup, false), this.a);
         }
         return (FrsLikeRecommendHolder) invokeL.objValue;
     }
@@ -101,18 +101,18 @@ public class z17 extends qn<uz8, FrsLikeRecommendHolder> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uz8 uz8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
-        t(i, view2, viewGroup, uz8Var, frsLikeRecommendHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y09 y09Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        t(i, view2, viewGroup, y09Var, frsLikeRecommendHolder);
         return view2;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, uz8 uz8Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, y09 y09Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uz8Var, frsLikeRecommendHolder})) == null) {
-            if (uz8Var != null && frsLikeRecommendHolder != null) {
-                frsLikeRecommendHolder.a(uz8Var);
-                frsLikeRecommendHolder.c(new a(this, uz8Var, viewGroup, i));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y09Var, frsLikeRecommendHolder})) == null) {
+            if (y09Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(y09Var);
+                frsLikeRecommendHolder.c(new a(this, y09Var, viewGroup, i));
                 frsLikeRecommendHolder.b();
             }
             return view2;

@@ -140,12 +140,12 @@ public class wl6 implements EnterForumAdView.c {
 
             /* renamed from: com.baidu.tieba.wl6$n$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0477a implements Runnable {
+            public class RunnableC0476a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0477a(a aVar) {
+                public RunnableC0476a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -209,7 +209,7 @@ public class wl6 implements EnterForumAdView.c {
                     this.a.a.c.z();
                     this.a.a.d.z();
                     this.a.a.c.C(0, -this.a.a.c.p(), 0, 0);
-                    gh.a().postDelayed(new RunnableC0477a(this), 0L);
+                    gh.a().postDelayed(new RunnableC0476a(this), 0L);
                     this.a.a.d.setVisibility(0);
                 }
             }
@@ -258,12 +258,12 @@ public class wl6 implements EnterForumAdView.c {
 
         /* renamed from: com.baidu.tieba.wl6$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0476a implements Runnable {
+        public class RunnableC0475a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0476a(a aVar) {
+            public RunnableC0475a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -314,7 +314,7 @@ public class wl6 implements EnterForumAdView.c {
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.P) {
                 return;
             }
-            iz8.g().j(this.a.b.getUniqueId());
+            m09.g().j(this.a.b.getUniqueId());
             if (this.a.B != null) {
                 this.a.A = false;
                 this.a.B.f(z);
@@ -329,7 +329,7 @@ public class wl6 implements EnterForumAdView.c {
                     this.a.p0();
                     return;
                 }
-                gh.a().post(new RunnableC0476a(this));
+                gh.a().post(new RunnableC0475a(this));
             }
         }
     }
@@ -438,7 +438,7 @@ public class wl6 implements EnterForumAdView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092311)).setText(this.a.q);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(this.a.q);
                 this.a.b.getPageContext().getLayoutMode().k(inflate);
                 return inflate;
             }
@@ -983,7 +983,7 @@ public class wl6 implements EnterForumAdView.c {
                         if (itemAtPosition != null && (itemAtPosition instanceof qx4)) {
                             qx4 qx4Var = (qx4) itemAtPosition;
                             if (qx4Var.c() == 1 && this.b.d.getItemAtPosition(i4) == ListUtils.getItem(this.b.f, 0)) {
-                                this.b.D0(qx4Var, this.b.d.getChildAt(i4).findViewById(R.id.obfuscated_res_0x7f090b00));
+                                this.b.D0(qx4Var, this.b.d.getChildAt(i4).findViewById(R.id.obfuscated_res_0x7f090b11));
                             }
                         }
                     }
@@ -1472,7 +1472,7 @@ public class wl6 implements EnterForumAdView.c {
                 this.d.setNextPage(this.v);
             }
             this.v.v(ej.g(this.a, R.dimen.tbds400));
-            this.v.S();
+            this.v.T();
         }
     }
 
@@ -1562,11 +1562,11 @@ public class wl6 implements EnterForumAdView.c {
         }
         vj6 vj6Var = (vj6) qx4Var;
         if (vj6Var.y() != 0 && vj6Var.x() != 0 && !p35.m().s("enter_forum_new_forum_long_press_guide", "").equals(vj6Var.getId())) {
-            this.q = R.string.obfuscated_res_0x7f0f049c;
+            this.q = R.string.obfuscated_res_0x7f0f049f;
         } else if (p35.m().o("enter_forum_long_press_guide", 0L) != 0) {
             return;
         } else {
-            this.q = R.string.obfuscated_res_0x7f0f06d7;
+            this.q = R.string.obfuscated_res_0x7f0f06e0;
         }
         if (view2 != null) {
             R = true;
@@ -1584,9 +1584,9 @@ public class wl6 implements EnterForumAdView.c {
             this.p.l(true);
             this.p.m(this.b.getActivity());
             int i2 = this.q;
-            if (i2 == R.string.obfuscated_res_0x7f0f049c) {
+            if (i2 == R.string.obfuscated_res_0x7f0f049f) {
                 p35.m().B("enter_forum_new_forum_long_press_guide", vj6Var.getId());
-            } else if (i2 == R.string.obfuscated_res_0x7f0f06d7) {
+            } else if (i2 == R.string.obfuscated_res_0x7f0f06e0) {
                 p35.m().A("enter_forum_long_press_guide", 1L);
             }
             gh.a().postDelayed(new e(this), 5000L);
@@ -1856,7 +1856,7 @@ public class wl6 implements EnterForumAdView.c {
     public void X(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
-            EnterForumAdView enterForumAdView = (EnterForumAdView) view2.getRootView().findViewById(R.id.obfuscated_res_0x7f09094c);
+            EnterForumAdView enterForumAdView = (EnterForumAdView) view2.getRootView().findViewById(R.id.obfuscated_res_0x7f09095a);
             this.m = enterForumAdView;
             if (enterForumAdView != null) {
                 r0();
@@ -1896,7 +1896,7 @@ public class wl6 implements EnterForumAdView.c {
             bm6 bm6Var = new bm6();
             this.r = bm6Var;
             bm6Var.a(new s(this));
-            this.d = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f091416);
+            this.d = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f09142b);
             w0(0);
             this.d.setBackgroundColor(0);
             this.d.setVerticalScrollBarEnabled(false);
@@ -2014,7 +2014,7 @@ public class wl6 implements EnterForumAdView.c {
             if (this.i == null) {
                 this.i = new CommonTipView(this.b.getActivity());
             }
-            this.i.setText(R.string.obfuscated_res_0x7f0f05aa);
+            this.i.setText(R.string.obfuscated_res_0x7f0f05b1);
             this.i.k(this.b.F1(), TbadkCoreApplication.getInst().getSkinType());
             p35.m().w("enter_forum_login_tip", false);
         }
@@ -2063,7 +2063,7 @@ public class wl6 implements EnterForumAdView.c {
                 qx4Var.f(4);
                 arrayList.add(qx4Var);
                 if (z3) {
-                    uj6 uj6Var = new uj6(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bfa), z2, false);
+                    uj6 uj6Var = new uj6(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c04), z2, false);
                     wj6 wj6Var = new wj6();
                     wj6Var.d = uj6Var;
                     wj6Var.e = list;

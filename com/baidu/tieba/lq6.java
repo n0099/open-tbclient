@@ -78,15 +78,15 @@ public class lq6 {
             }
         }
         this.a = baseActivity;
-        baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d02bb);
+        baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d02bd);
         this.b = this.a.findViewById(R.id.obfuscated_res_0x7f09007a);
         NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
         this.d = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0721)).setOnClickListener(new a(this));
+        navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f072a)).setOnClickListener(new a(this));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
         this.g = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-        this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090b0f);
+        this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090b20);
         z35 z35Var = new z35(this.a.getPageContext());
         this.f = z35Var;
         z35Var.a0(this.a.getUniqueId());

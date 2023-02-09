@@ -1,50 +1,242 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import com.fun.ad.sdk.internal.api.http.GetRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.comm.constants.Constants;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class i7a implements ValueAnimator.AnimatorUpdateListener {
+public class i7a {
     public static /* synthetic */ Interceptable $ic;
+    public static final n1a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-    public final /* synthetic */ int b;
-    public final /* synthetic */ int c;
-    public final /* synthetic */ InstallActivity d;
 
-    public i7a(InstallActivity installActivity, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947807798, "Lcom/baidu/tieba/i7a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947807798, "Lcom/baidu/tieba/i7a;");
                 return;
             }
         }
-        this.d = installActivity;
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
+        a = new n1a();
+        HandlerThread handlerThread = new HandlerThread("pull_pid_cpm");
+        handlerThread.start();
+        new a(handlerThread.getLooper());
     }
 
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
-            float animatedFraction2 = valueAnimator.getAnimatedFraction();
-            int i = this.b;
-            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
-            this.d.getWindow().getDecorView().refreshDrawableState();
+    /* loaded from: classes4.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:53:0x011d  */
+        /* JADX WARN: Removed duplicated region for block: B:61:0x014c  */
+        @Override // android.os.Handler
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void handleMessage(@NonNull Message message) {
+            boolean z;
+            long j;
+            double d;
+            int i;
+            Response perform;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i2 = message.what;
+                long j2 = 0;
+                boolean z2 = false;
+                if (i2 != 100) {
+                    if (i2 == 101) {
+                        n1a n1aVar = i7a.a;
+                        synchronized (n1aVar) {
+                            LogPrinter.d("new dey", new Object[0]);
+                            double a = f2a.a();
+                            f2a.b.clear().apply();
+                            n1aVar.a.clear();
+                            if (a > 0.0d) {
+                                d2a.d(d2a.m() + a);
+                            }
+                        }
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.add(6, 1);
+                        calendar.set(11, 0);
+                        calendar.set(12, 0);
+                        calendar.set(13, 0);
+                        long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
+                        if (timeInMillis2 >= 0) {
+                            j2 = timeInMillis2;
+                        }
+                        sendEmptyMessageDelayed(101, j2);
+                        return;
+                    }
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    HostAppInfo.fillReqParams(jSONObject);
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        hashMap.put(next, jSONObject.get(next));
+                    }
+                } catch (JSONException unused) {
+                }
+                try {
+                    perform = new GetRequest("https://cd.xdplt.com/v2/pr", new RequestParams(hashMap)).perform();
+                } catch (IOException | JSONException e) {
+                    LogPrinter.d("cpm exception:" + e, new Object[0]);
+                    LogPrinter.e(e);
+                }
+                if (perform != null && perform.getResponseCode() == 200) {
+                    JSONObject jSONObject2 = new JSONObject(perform.getContent());
+                    if (jSONObject2.getInt(Constants.KEYS.RET) == 200) {
+                        f2a.a.edit().putLong("key_cpm_update_date", Calendar.getInstance().getTimeInMillis()).putString("key_ad_cpmcfg", jSONObject2.getJSONObject("data").getJSONArray("cpm").toString()).apply();
+                        z = true;
+                        if (!z) {
+                        }
+                    } else {
+                        z = false;
+                        if (!z) {
+                            int i3 = message.arg1;
+                            LogPrinter.d("ad cpm config pull times = %1s", Integer.valueOf(i3));
+                            if (i3 == 0) {
+                                i = 10;
+                            } else if (i3 <= 2) {
+                                i = i3 * 5 * 60;
+                            } else {
+                                i = 3600;
+                            }
+                            Message obtainMessage = obtainMessage(100);
+                            obtainMessage.arg1 = i3 + 1;
+                            sendMessageDelayed(obtainMessage, i * 1000);
+                            return;
+                        }
+                        n1a n1aVar2 = i7a.a;
+                        synchronized (n1aVar2) {
+                            n1aVar2.a.clear();
+                            try {
+                                JSONArray jSONArray = new JSONArray(f2a.a.getString("key_ad_cpmcfg", ""));
+                                if (jSONArray.length() >= 1) {
+                                    double m = d2a.m();
+                                    double a2 = f2a.a();
+                                    HashMap hashMap2 = new HashMap();
+                                    boolean z3 = false;
+                                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                                        JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
+                                        String string = jSONObject3.getString("aid");
+                                        double d2 = jSONObject3.getDouble("cpm");
+                                        LogPrinter.d("update Cpm:" + string, new Object[0]);
+                                        hashMap2.put(string, Double.valueOf(d2));
+                                        int i5 = f2a.a.getInt(string, 0);
+                                        LogPrinter.d("need adjust aid count:" + i5, new Object[0]);
+                                        if (i5 != 0) {
+                                            a2 -= f2a.b(string);
+                                            m += i5 * d2;
+                                            f2a.b.remove(string).remove(string + "_");
+                                            z3 = true;
+                                        }
+                                    }
+                                    n1aVar2.a.putAll(hashMap2);
+                                    if (z3) {
+                                        LogPrinter.d("update totalPrice&totalPriceByBasePrice", new Object[0]);
+                                        if (a2 < 0.0d) {
+                                            d = 0.0d;
+                                        } else {
+                                            d = a2;
+                                        }
+                                        SharedPreferences.Editor editor = f2a.b;
+                                        editor.putLong("key_price_by_baseprice", Double.doubleToRawLongBits(d));
+                                        editor.apply();
+                                        d2a.d(m);
+                                    }
+                                }
+                            } catch (JSONException unused2) {
+                                n1aVar2.a.clear();
+                            }
+                        }
+                        Calendar calendar2 = Calendar.getInstance();
+                        Random random = new Random();
+                        long timeInMillis3 = calendar2.getTimeInMillis();
+                        int nextInt = random.nextInt(30);
+                        calendar2.set(11, 1);
+                        calendar2.set(12, nextInt);
+                        Calendar calendar3 = Calendar.getInstance();
+                        int i6 = calendar3.get(6);
+                        int i7 = calendar3.get(1);
+                        calendar3.setTimeInMillis(f2a.a.getLong("key_cpm_update_date", 0L));
+                        int i8 = calendar3.get(6);
+                        if (i7 == calendar3.get(1) && i6 == i8) {
+                            z2 = true;
+                        }
+                        if (z2) {
+                            calendar2.add(6, 1);
+                        }
+                        long timeInMillis4 = calendar2.getTimeInMillis() - timeInMillis3;
+                        if (timeInMillis4 < 0) {
+                            j = 0;
+                        } else {
+                            j = timeInMillis4;
+                        }
+                        sendEmptyMessageDelayed(100, j);
+                        return;
+                    }
+                }
+                LogPrinter.d("cpm fail:", new Object[0]);
+                z = false;
+                if (!z) {
+                }
+            }
         }
     }
 }

@@ -176,7 +176,7 @@ public class TextGenImageView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new TextView(this.a);
             this.b.setLayoutParams(new LinearLayout.LayoutParams(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
-            this.b.setId(R.id.obfuscated_res_0x7f090dbb);
+            this.b.setId(R.id.obfuscated_res_0x7f090dcc);
             this.b.setLineSpacing(1.0f, 1.2f);
             p15.d(this.b).z(R.dimen.T_X05);
             addView(this.b);
@@ -187,7 +187,7 @@ public class TextGenImageView extends LinearLayout {
             this.c.e(false);
             this.c.setErrorResId(R.drawable.icon_pic_placeholder);
             this.c.setErrorBgResId(R.drawable.transparent_bg);
-            this.c.getImage().setId(R.id.obfuscated_res_0x7f090d9c);
+            this.c.getImage().setId(R.id.obfuscated_res_0x7f090dad);
             addView(this.c);
         }
     }

@@ -1,245 +1,178 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.media.AudioTrack;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.IOException;
-import java.util.List;
-@TargetApi(18)
 /* loaded from: classes5.dex */
-public class lu9 {
+public class lu9 extends fu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
-    public MediaMuxer c;
-    public int d;
-    public int e;
-    public MediaFormat f;
-    public MediaFormat g;
-    public bv9 h;
+    public ku9 B;
+    public Thread C;
 
-    public lu9(List<String> list, String str, bv9 bv9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lu9(String str, int[] iArr) throws Exception {
+        super(0, str, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, bv9Var};
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        cw9.e("VideoComposer", list.size() + " composer to " + str);
-        this.a = list;
-        this.b = str;
-        this.h = bv9Var;
     }
 
-    public final long a(long j, String str) throws IOException {
-        InterceptResult invokeJL;
-        boolean z;
+    @Override // com.baidu.tieba.fu9
+    public void B(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            M(j * 1000, true);
+        }
+    }
+
+    @Override // com.baidu.tieba.fu9
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Thread thread = this.C;
+            if (thread == null || !thread.isAlive()) {
+                Thread thread2 = new Thread(this);
+                this.C = thread2;
+                thread2.start();
+            }
+            super.I();
+        }
+    }
+
+    public final void K() {
         int i;
-        int i2;
-        ku9 ku9Var;
-        int i3;
-        ku9 ku9Var2;
-        int i4;
-        ku9 ku9Var3;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
-            String str3 = "VideoComposer";
-            cw9.e("VideoComposer", j + " compose " + str);
-            ku9 ku9Var4 = new ku9();
-            ku9Var4.m(str, FileUtils.VIDEO_FILE_START);
-            int d = ku9Var4.d();
-            ku9 ku9Var5 = null;
-            if (d < 0) {
-                ku9Var4.j();
-                ku9Var4 = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (i() == 1) {
+                i = 4;
             } else {
-                ku9Var4.l(this.e);
+                i();
+                i = 12;
             }
-            ku9 ku9Var6 = new ku9();
-            ku9Var6.m(str, "audio/");
-            int d2 = ku9Var6.d();
-            if (d2 < 0) {
-                ku9Var6.j();
-            } else {
-                ku9Var6.l(this.d);
-                ku9Var5 = ku9Var6;
+            int i2 = this.q;
+            if (i2 != 1 && i2 != 2) {
+                this.q = 2;
             }
-            boolean z2 = false;
-            if (ku9Var4 == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (ku9Var5 == null) {
-                z2 = true;
-            }
-            long j2 = 0;
-            long j3 = 0;
-            while (true) {
-                if (z && z2) {
-                    break;
-                }
-                if (!z2 && (z || ku9Var5.e() - ku9Var4.e() <= 50000)) {
-                    i = this.d;
-                    i3 = d2;
-                    i2 = i3;
-                    ku9Var = ku9Var5;
-                } else {
-                    i = this.e;
-                    i2 = d2;
-                    ku9Var = ku9Var4;
-                    i3 = d;
-                }
-                MediaCodec.BufferInfo h = ku9Var.h();
-                if (h == null) {
-                    i4 = d;
-                    ku9 ku9Var7 = ku9Var;
-                    if (ku9Var7 == ku9Var4) {
-                        j2 = ku9Var4.e();
-                        d2 = i2;
-                        d = i4;
-                        z = true;
-                    } else if (ku9Var7 == ku9Var5) {
-                        j3 = ku9Var5.e();
-                        d2 = i2;
-                        d = i4;
-                        z2 = true;
-                    } else {
-                        ku9Var2 = ku9Var4;
-                        ku9Var3 = ku9Var5;
-                        str2 = str3;
-                    }
-                } else {
-                    ku9Var2 = ku9Var4;
-                    i4 = d;
-                    ku9 ku9Var8 = ku9Var;
-                    if (ku9Var8.f() != i3) {
-                        StringBuilder sb = new StringBuilder();
-                        ku9Var3 = ku9Var5;
-                        sb.append("WEIRD: got sample from track ");
-                        sb.append(ku9Var8.f());
-                        sb.append(", expected ");
-                        sb.append(i3);
-                        cw9.e(str3, sb.toString());
-                    } else {
-                        ku9Var3 = ku9Var5;
-                    }
-                    str2 = str3;
-                    h.presentationTimeUs += j;
-                    this.c.writeSampleData(i, ku9Var8.c(), h);
-                    ku9Var8.a();
-                }
-                str3 = str2;
-                d2 = i2;
-                d = i4;
-                ku9Var4 = ku9Var2;
-                ku9Var5 = ku9Var3;
-            }
-            long max = j + Math.max(j2, j3) + 10000;
-            bv9 bv9Var = this.h;
-            if (bv9Var != null) {
-                bv9Var.b(max);
-            }
-            cw9.e(str3, "finish one file, ptsOffset " + max);
-            if (ku9Var4 != null) {
-                ku9Var4.j();
-            }
-            if (ku9Var5 != null) {
-                ku9Var5.j();
-            }
-            return max;
+            this.B = new ku9(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
         }
-        return invokeJL.longValue;
     }
 
-    public boolean b(StringBuilder sb) {
-        InterceptResult invokeL;
+    public boolean L() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
-            boolean z = false;
-            boolean z2 = false;
-            for (String str : this.a) {
-                try {
-                    ku9 ku9Var = new ku9();
-                    try {
-                        ku9Var.m(str, FileUtils.VIDEO_FILE_START);
-                        if (!z) {
-                            MediaFormat mediaFormat = ku9Var.g().a;
-                            this.g = mediaFormat;
-                            if (mediaFormat == null) {
-                                cw9.e("VideoComposer", "No video track found in " + str);
-                            } else {
-                                z = true;
-                            }
-                        }
-                        if (!z2) {
-                            MediaFormat mediaFormat2 = ku9Var.b().a;
-                            this.f = mediaFormat2;
-                            if (mediaFormat2 == null) {
-                                cw9.e("VideoComposer", "No audio track found in " + str);
-                            } else {
-                                z2 = true;
-                            }
-                        }
-                    } catch (Exception e) {
-                        cw9.e("VideoComposer", e.getMessage());
-                        e.printStackTrace();
-                    }
-                    ku9Var.j();
-                    if (z && z2) {
-                        break;
-                    }
-                } catch (Exception e2) {
-                    if (sb != null) {
-                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
-                    }
-                    e2.printStackTrace();
-                    return false;
-                }
-            }
-            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
-            this.c = mediaMuxer;
-            if (z) {
-                this.e = mediaMuxer.addTrack(this.g);
-            }
-            if (z2) {
-                this.d = this.c.addTrack(this.f);
-            }
-            this.c.start();
-            long j = 0;
-            for (String str2 : this.a) {
-                j = a(j, str2);
-            }
-            if (this.c != null) {
-                try {
-                    this.c.stop();
-                    this.c.release();
-                } catch (Exception unused) {
-                    cw9.e("VideoComposer", "Muxer close error. No data was written");
-                }
-                this.c = null;
-            }
-            cw9.j("VideoComposer", "video join finished");
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ku9 ku9Var = this.B;
+            return ku9Var != null && ku9Var.getState() == 1;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void M(long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            if (this.e != null && j > this.e.getDuration()) {
+                j = this.e.getDuration();
+            }
+            if (z) {
+                int playState = L() ? this.B.getPlayState() : 2;
+                if (playState == 2) {
+                    pause();
+                }
+                synchronized (this.b) {
+                    if (L()) {
+                        this.B.flush();
+                    }
+                    this.d = 0L;
+                }
+                e();
+                c();
+                if (playState == 3) {
+                    I();
+                }
+            }
+            synchronized (this.c) {
+                if (this.e != null) {
+                    this.e.seek(j);
+                }
+            }
+        }
+    }
+
+    public void N(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            synchronized (this.b) {
+                if (L()) {
+                    this.B.setStereoVolume(f, f2);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fu9
+    public ju9 p() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            K();
+            return this.B;
+        }
+        return (ju9) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fu9
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 2) {
+                    this.B.pause();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fu9
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this.b) {
+                if (L() && this.B.getPlayState() != 3) {
+                    this.B.play();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.fu9
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
+            return;
+        }
+        this.C = null;
     }
 }

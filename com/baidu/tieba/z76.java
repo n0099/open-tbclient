@@ -226,7 +226,7 @@ public class z76 {
             }
             if (this.d.getParent() == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.addRule(2, R.id.obfuscated_res_0x7f0908d6);
+                layoutParams.addRule(2, R.id.obfuscated_res_0x7f0908e4);
                 layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d6);
                 this.b.addView(this.d, layoutParams);
             }

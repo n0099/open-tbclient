@@ -39,7 +39,7 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.jd9;
+import com.baidu.tieba.ne9;
 import com.baidu.tieba.u05;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,11 +81,11 @@ public class ou4 {
     public boolean v;
     public boolean w;
     public boolean x;
-    public oh8 y;
+    public si8 y;
     public s05 z;
 
     /* loaded from: classes5.dex */
-    public class a implements jd9.c {
+    public class a implements ne9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ou4 a;
@@ -108,7 +108,7 @@ public class ou4 {
             this.a = ou4Var;
         }
 
-        @Override // com.baidu.tieba.jd9.c
+        @Override // com.baidu.tieba.ne9.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.y == null) {
@@ -437,7 +437,7 @@ public class ou4 {
     }
 
     /* loaded from: classes5.dex */
-    public class k implements jd9.d {
+    public class k implements ne9.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ou4 a;
@@ -460,7 +460,7 @@ public class ou4 {
             this.a = ou4Var;
         }
 
-        @Override // com.baidu.tieba.jd9.d
+        @Override // com.baidu.tieba.ne9.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y != null && this.a.a != null) {
@@ -814,16 +814,16 @@ public class ou4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             if (this.y == null) {
-                jd9 jd9Var = new jd9(this.a);
+                ne9 ne9Var = new ne9(this.a);
                 ArrayList arrayList = new ArrayList();
-                jd9.b bVar = new jd9.b(this.a.getString(R.string.report_text), jd9Var);
+                ne9.b bVar = new ne9.b(this.a.getString(R.string.report_text), ne9Var);
                 bVar.h(new k(this));
                 arrayList.add(bVar);
-                jd9Var.g(new a(this));
-                jd9Var.f(arrayList);
-                oh8 oh8Var = new oh8(this.a, jd9Var.b());
-                this.y = oh8Var;
-                oh8Var.a(0.7f);
+                ne9Var.g(new a(this));
+                ne9Var.f(arrayList);
+                si8 si8Var = new si8(this.a, ne9Var.b());
+                this.y = si8Var;
+                si8Var.a(0.7f);
             }
             this.y.show();
         }
@@ -836,7 +836,7 @@ public class ou4 {
             if (this.o == null) {
                 ProgressBar progressBar = new ProgressBar(this.a.getActivity(), null, 16842871);
                 this.o = progressBar;
-                progressBar.setIndeterminateDrawable(ResourcesCompat.getDrawable(this.a.getActivity().getResources(), R.drawable.obfuscated_res_0x7f08103b, null));
+                progressBar.setIndeterminateDrawable(ResourcesCompat.getDrawable(this.a.getActivity().getResources(), R.drawable.obfuscated_res_0x7f081050, null));
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                 layoutParams.gravity = 17;
                 this.o.setLayoutParams(layoutParams);
@@ -906,7 +906,7 @@ public class ou4 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int a2 = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             if (this.p == null) {
-                this.p = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1076), this.q)));
+                this.p = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, a2), NoDataViewFactory.e.d(null, this.a.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f108a), this.q)));
             }
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 this.p.g(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NETERROR, a2), this.a.getPageContext());
@@ -1057,7 +1057,7 @@ public class ou4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.a.setContentView(R.layout.base_webview_activity_new);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091db7);
             this.c = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
             this.B = this.a.findViewById(R.id.night_mode_overlay);
             this.s = (FrameLayout) this.b.findViewById(R.id.webview_progress_container);
@@ -1081,12 +1081,12 @@ public class ou4 {
             this.f = addCustomView;
             ImageView imageView = (ImageView) addCustomView.findViewById(R.id.widget_navi_back_button);
             this.g = imageView;
-            imageView.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02d7));
+            imageView.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02d8));
             View addCustomView2 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, new e(this));
             this.h = addCustomView2;
             ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.widget_navi_back_button);
             this.i = imageView2;
-            imageView2.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f041b));
+            imageView2.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f041d));
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.i.getLayoutParams();
             layoutParams2.leftMargin = ej.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
             this.i.setLayoutParams(layoutParams2);

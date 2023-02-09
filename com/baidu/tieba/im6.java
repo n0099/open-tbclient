@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.q09;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class im6 {
     public String j;
     public gz4 k;
     public LikeModel l;
-    public q09 m;
+    public u19 m;
     public boolean n;
 
     /* loaded from: classes4.dex */
@@ -169,12 +169,12 @@ public class im6 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements q09.a {
+    public class d implements u19.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ im6 a;
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -199,7 +199,7 @@ public class im6 {
             this.a = im6Var;
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -225,16 +225,16 @@ public class im6 {
             }
         }
         this.a = tbPageContext;
-        this.i = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+        this.i = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
         this.j = TbadkCoreApplication.getInst().getString(R.string.thread_str);
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0797, (ViewGroup) null);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d07a9, (ViewGroup) null);
         this.b = inflate;
-        this.c = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090333);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090340);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0907dc);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ab6);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922de);
-        this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090b04);
+        this.c = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09033b);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090348);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0907e8);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ac6);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092325);
+        this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090b15);
         this.b.setOnClickListener(new a(this));
         this.h.setOnClickListener(new b(this));
     }
@@ -292,7 +292,7 @@ public class im6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!ej.F()) {
-                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0d08));
                 return;
             }
             gz4 gz4Var = this.k;
@@ -317,7 +317,7 @@ public class im6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!ej.F()) {
-                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                UtilHelper.showToast(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0d08));
                 return;
             }
             gz4 gz4Var = this.k;
@@ -327,7 +327,7 @@ public class im6 {
                     return;
                 }
                 if (this.m == null) {
-                    this.m = new q09();
+                    this.m = new u19();
                 }
                 this.m.b(new d(this));
                 this.m.c(this.k.k(), this.k.i());

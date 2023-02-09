@@ -30,7 +30,7 @@ public class oq7 {
             if (TextUtils.isEmpty(str)) {
                 return str2;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f085b, new Object[]{str, str2});
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0864, new Object[]{str, str2});
         }
         return (String) invokeLL.objValue;
     }
@@ -45,7 +45,7 @@ public class oq7 {
                 return null;
             }
             try {
-                return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(bdUidFromBdUK), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f085d, new Object[]{userDTO.getNameShow(), skillDTO.getName()}), userDTO.getPortrait(), 0);
+                return AtUserInfo.create(AtUserInfo.AtType.USER, Long.parseLong(bdUidFromBdUK), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0866, new Object[]{userDTO.getNameShow(), skillDTO.getName()}), userDTO.getPortrait(), 0);
             } catch (Exception e) {
                 if (!TbadkCoreApplication.getInst().isDebugMode()) {
                     e.printStackTrace();
@@ -65,7 +65,7 @@ public class oq7 {
             BotsDTO.BotListDTO.SkillDTO skillDTO = cq7Var.b;
             List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list = cq7Var.c;
             if (userDTO != null && skillDTO != null) {
-                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f085c, new Object[]{userDTO.getNameShow(), skillDTO.getName(), a(skillDTO.getAlias(), str)}));
+                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0865, new Object[]{userDTO.getNameShow(), skillDTO.getName(), a(skillDTO.getAlias(), str)}));
                 AtUserInfo b = b(userDTO, skillDTO);
                 if (b == null) {
                     return TextMsg.create(str);
@@ -116,7 +116,7 @@ public class oq7 {
                 if (sb2.endsWith("\n")) {
                     sb2 = sb2.substring(0, sb2.length() - 1);
                 }
-                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f085c, new Object[]{userDTO.getNameShow(), skillDTO.getName(), sb2}));
+                TextMsg create = TextMsg.create(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0865, new Object[]{userDTO.getNameShow(), skillDTO.getName(), sb2}));
                 AtUserInfo b = b(userDTO, skillDTO);
                 if (b == null) {
                     return TextMsg.create(str);

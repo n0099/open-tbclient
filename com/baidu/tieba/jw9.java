@@ -1,409 +1,302 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
+import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
+import com.baidu.ugc.editvideo.player.IPlayer;
+import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
+import com.baidu.ugc.editvideo.record.source.IDataSourceView;
+import com.faceunity.gles.GeneratedTexture;
+import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes5.dex */
-public class jw9 {
+public class jw9 extends iw9 implements IDataSourceView.IPlayerDataSourceView {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int A;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public SurfaceTexture m;
+    public float[] n;
+    public FullFrameRect o;
+    public int p;
+    public int q;
+    public a r;
+    public boolean s;
+    public int t;
+    public int[] u;
+    public int v;
+    public int w;
+    public int x;
+    public boolean y;
+    public boolean z;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(String str);
+        void a(GL10 gl10, int i, int i2);
 
-        void b();
-
-        void c(String str);
-
-        void d();
-
-        void e(boolean z);
-
-        void f(boolean z);
-
-        void g(int i);
-
-        void h();
-
-        void i();
-
-        void j(String str);
-
-        void k(int i);
-
-        void onRecordEnd();
+        void b(SurfaceTexture surfaceTexture);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897853, "Lcom/baidu/tieba/jw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            float x = motionEvent.getX();
+            float y = motionEvent.getY();
+            int i3 = this.f;
+            int i4 = this.g;
+            int i5 = (this.z ? this.h : this.j) + i3;
+            if (this.z) {
+                i = this.g;
+                i2 = this.i;
+            } else {
+                i = this.g;
+                i2 = this.k;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947897853, "Lcom/baidu/tieba/jw9;");
-                return;
-            }
+            return (x <= ((float) i3) || x >= ((float) i5) || y <= ((float) i4) || y >= ((float) (i + i2))) ? !this.z : this.z;
         }
-        a = new HashMap<>();
+        return invokeL.booleanValue;
     }
 
-    public static HashMap a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_clear");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_start");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("sex_type", Integer.valueOf(i));
-            hashMap.put("event_name", "sex_event");
-            hashMap.put("event_data", hashMap2);
-            return hashMap;
-        }
-        return (HashMap) invokeI.objValue;
-    }
-
-    public static HashMap e(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "audio_volume");
-            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
-            return hashMap;
-        }
-        return (HashMap) invokeCommon.objValue;
-    }
-
-    public static HashMap d(String str) {
+    public boolean e(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (a.get(str) != null) {
-                return a.get(str);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? !d(motionEvent) : invokeL.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.t == 0) {
+            this.t = this.mFullScreen2D.createTexture2DObject();
+            GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.p, this.q, 0, GeneratedTexture.FORMAT, 5121, null);
+            GLES20.glBindTexture(3553, 0);
+            GLES20.glGenFramebuffers(1, this.u, 0);
+            this.v = this.u[0];
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SurfaceTexture surfaceTexture = this.m;
+            if (surfaceTexture != null) {
+                surfaceTexture.release();
+                this.m = null;
             }
-            HashMap hashMap = null;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1909077165:
-                    if (str.equals("startRecord")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1848594969:
-                    if (str.equals("pauseRecord")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -815530368:
-                    if (str.equals("resetRecord")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -793791417:
-                    if (str.equals("startOverRecord")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 473974106:
-                    if (str.equals("capture_timer_clear")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 488985455:
-                    if (str.equals("capture_timer_start")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+            int i = this.l;
+            if (i != 0) {
+                GLES20.glDeleteTextures(1, new int[]{i}, 0);
+                this.l = 0;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c == 5) {
-                                    hashMap = i();
-                                }
-                            } else {
-                                hashMap = b();
-                            }
-                        } else {
-                            hashMap = a();
-                        }
-                    } else {
-                        hashMap = g();
-                    }
-                } else {
-                    hashMap = f();
+            h();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.t == 0) {
+            return;
+        }
+        GLES20.glDeleteFramebuffers(1, this.u, 0);
+        GLES20.glDeleteTextures(1, new int[]{this.t}, 0);
+        this.t = 0;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
+    public void onCompletion(IPlayer iPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iPlayer) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycle
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iw9, com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onDestroyInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onDestroyInGlThread();
+            g();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
+    public void onError(IPlayer iPlayer, int i, int i2, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{iPlayer, Integer.valueOf(i), Integer.valueOf(i2), exc}) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onGLLocation(GLViewPortLocation gLViewPortLocation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, gLViewPortLocation) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
+    public void onInfo(IPlayer iPlayer, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048586, this, iPlayer, i, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycle
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.iw9, com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
+    public void onPauseInGlThread() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onPauseInGlThread();
+            g();
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
+    public void onPlayStateListener(IPlayer iPlayer, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048589, this, iPlayer, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
+    public void onPrepared(IPlayer iPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, iPlayer) == null) {
+            iPlayer.setVolume(1.0f, 1.0f);
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycle
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048592, this, gl10, i, i2) == null) {
+            super.onSurfaceChanged(gl10, i, i2);
+            a aVar = this.r;
+            if (aVar != null) {
+                aVar.a(gl10, i, i2);
+            }
+            if (i != this.p || i2 != this.q) {
+                h();
+            }
+            this.p = i;
+            this.q = i2;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onSurfaceCreate(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, fullFrameRect, fullFrameRect2) == null) {
+            super.onSurfaceCreate(fullFrameRect, fullFrameRect2);
+            this.o = fullFrameRect;
+            if (fullFrameRect != null) {
+                this.l = fullFrameRect.createTextureObject();
+            }
+            if (this.y) {
+                try {
+                    new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D_FOLLOW));
+                } catch (Exception e) {
+                    gx9.d(e.getMessage());
                 }
-            } else {
-                hashMap = h();
             }
-            if (hashMap != null) {
-                a.put(str, hashMap);
+            SurfaceTexture surfaceTexture = new SurfaceTexture(this.l);
+            this.m = surfaceTexture;
+            a aVar = this.r;
+            if (aVar != null) {
+                aVar.b(surfaceTexture);
             }
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
+    public void onVideoSizeChanged(int i, int i2) {
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_pause");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
+        if (!(interceptable == null || interceptable.invokeII(1048594, this, i, i2) == null) || i == 0 || i2 == 0) {
+            return;
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_reset");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
+        int i5 = this.e;
+        if (i5 == 90 || i5 == 270) {
+            i2 = i;
+            i = i2;
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
+        if (this.j == 0 && this.k == 0) {
+            this.j = this.h;
+            this.k = this.i;
         }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start_over");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static void j(HashMap<String, Object> hashMap, a aVar) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !hw9.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
-            String str = (String) obj;
-            char c = 65535;
-            boolean z = true;
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1903331025:
-                    if (str.equals("show_text")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1768834290:
-                    if (str.equals("game_end")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -1584838740:
-                    if (str.equals("filter_adjust_enable")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -1272940549:
-                    if (str.equals("game_is_ready")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -708270859:
-                    if (str.equals("phone_shake")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -672934016:
-                    if (str.equals("case_reset")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -548493597:
-                    if (str.equals("need_volume")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 902635637:
-                    if (str.equals("child_status")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 967087977:
-                    if (str.equals("game_pause")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 969912325:
-                    if (str.equals("game_score")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1000807605:
-                    if (str.equals("game_http")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 1001154298:
-                    if (str.equals("game_time")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1076032614:
-                    if (str.equals("need_face")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
+        if (this.A == 0) {
+            if (this.h == 0 || (i4 = this.i) == 0) {
+                return;
             }
-            switch (c) {
-                case 0:
-                    if (hashMap.get("text_content") instanceof String) {
-                        aVar.c((String) hashMap.get("text_content"));
-                        return;
-                    }
-                    return;
-                case 1:
-                    aVar.d();
-                    return;
-                case 2:
-                case 3:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                        return;
-                    }
-                    return;
-                case 4:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                    }
-                    aVar.onRecordEnd();
-                    return;
-                case 5:
-                    aVar.h();
-                    return;
-                case 6:
-                    aVar.b();
-                    return;
-                case 7:
-                    if (hashMap.get("text_content") instanceof Float) {
-                        try {
-                            i = ((Float) hashMap.get("text_content")).intValue();
-                        } catch (Exception e) {
-                            cw9.g(e);
-                        }
-                        aVar.g(i);
-                        return;
-                    }
-                    return;
-                case '\b':
-                    if (hashMap.get("isDefaultChild") != null) {
-                        String obj2 = hashMap.get("isDefaultChild").toString();
-                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
-                            z = false;
-                        }
-                        aVar.f(z);
-                        return;
-                    }
-                    return;
-                case '\t':
-                    if (hashMap.get("volume_ability") != null) {
-                        if (gw9.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
-                            z = false;
-                        }
-                        aVar.e(z);
-                        return;
-                    }
-                    return;
-                case '\n':
-                    aVar.i();
-                    return;
-                case 11:
-                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
-                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
-                        return;
-                    }
-                    return;
-                case '\f':
-                    if (hashMap.get("set_content") != null) {
-                        aVar.j(hashMap.get("set_content").toString());
-                        return;
-                    }
-                    return;
-                default:
-                    return;
+            if (i > i2) {
+                this.j = i4;
             }
+            i3 = (int) (((this.j * i2) * 1.0f) / i);
+        } else if (this.h == 0 || this.i == 0) {
+            return;
+        } else {
+            this.o.setAngle(270.0f);
+            if (i2 > i) {
+                this.j = this.i;
+            }
+            i3 = (int) (((this.j * i) * 1.0f) / i2);
+        }
+        this.k = i3;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void setEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void setTextureMode(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
         }
     }
 }

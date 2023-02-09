@@ -615,7 +615,7 @@ public abstract class n57 {
         }
     }
 
-    public void T(List<uz8> list) {
+    public void T(List<y09> list) {
         ForumData forum;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048595, this, list) != null) || this.a == null || this.Z == null || TextUtils.isEmpty(this.W) || ListUtils.isEmpty(list) || (forum = this.Z.getForum()) == null || forum.getThemeColorInfo() == null || !d(forum.getThemeColorInfo())) {

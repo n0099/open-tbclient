@@ -1,128 +1,69 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.video.record.GLVideoPreviewView;
-import com.baidu.tieba.video.record.ProgressView;
-import com.baidu.tieba.video.record.RecordVideoActivity;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.TextureMovieEncoder;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class lb9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lb9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public RecordVideoActivity c;
-    public ProgressView d;
-    public List<b> e;
-    public boolean f;
-    public long g;
-    public int h;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(int i);
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
     }
 
     /* loaded from: classes5.dex */
-    public class a implements ProgressView.a {
+    public class a implements gb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lb9 a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ lb9 c;
 
-        /* renamed from: com.baidu.tieba.lb9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0330a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ jb9 a;
-            public final /* synthetic */ a b;
-
-            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
-            public void onStartSuccess() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                }
+        @Override // com.baidu.tieba.gb5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
             }
-
-            /* renamed from: com.baidu.tieba.lb9$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
-            public class RunnableC0331a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0330a a;
-
-                public RunnableC0331a(C0330a c0330a) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0330a};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = c0330a;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a.c != null) {
-                        this.a.b.a.c.w0();
-                    }
-                }
-            }
-
-            public C0330a(a aVar, jb9 jb9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jb9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = jb9Var;
-            }
-
-            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
-            public void onStopSuccess() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    gh.a().post(new RunnableC0331a(this));
-                    this.a.setOnEncoderStatusUpdateListener(null);
-                }
-            }
+            return invokeL.booleanValue;
         }
 
-        public a(lb9 lb9Var) {
+        @Override // com.baidu.tieba.gb5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a(lb9 lb9Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lb9Var};
+                Object[] objArr = {lb9Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,250 +73,159 @@ public class lb9 {
                     return;
                 }
             }
-            this.a = lb9Var;
+            this.c = lb9Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.video.record.ProgressView.a
-        public void a(int i) {
-            kb9 kb9Var;
-            jb9 q;
+        @Override // com.baidu.tieba.gb5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.h = i;
-                if (i != 100 || this.a.c == null || (kb9Var = this.a.c.k) == null || (q = kb9Var.q()) == null) {
-                    return;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
                 }
-                if (q instanceof GLVideoPreviewView) {
-                    q.setOnEncoderStatusUpdateListener(new C0330a(this, q));
-                    this.a.o();
-                    return;
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
                 }
-                this.a.o();
-                if (this.a.c != null) {
-                    this.a.c.w0();
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                if (this.a != null) {
+                    this.c.a.put(downloadData.getPath().substring(ra9.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.a.c(this.b, downloadData.getPath());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.gb5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
                 }
             }
         }
     }
 
-    public lb9(RecordVideoActivity recordVideoActivity) {
+    public lb9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recordVideoActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = 1;
-        this.c = recordVideoActivity;
-        if (recordVideoActivity == null) {
-            return;
-        }
-        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f0904ab);
-        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090a6c);
-        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092660);
-        this.d = progressView;
-        progressView.setListener(new a(this));
-        if (!eb9.f(true)) {
-            imageView2.setVisibility(4);
-        }
-        if (!eb9.g(recordVideoActivity.getPackageManager())) {
-            imageView.setVisibility(8);
         }
     }
 
-    public void m(int i) {
-        File[] listFiles;
+    public static lb9 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.a = i;
-            if (i == 1) {
-                this.d.setVisibility(4);
-                this.d.d();
-                this.b = 0;
-                File file = new File(n99.f);
-                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                    for (File file2 : listFiles) {
-                        if (file2.getPath().startsWith("rec_tmp_")) {
-                            file2.delete();
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (lb9.class) {
+                    if (c == null) {
+                        c = new lb9();
                     }
                 }
             }
-            List<b> list = this.e;
-            if (list != null) {
-                for (b bVar : list) {
-                    bVar.a(this.a);
+            return c;
+        }
+        return (lb9) invokeV.objValue;
+    }
+
+    public void d() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(ra9.a);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    }
                 }
             }
         }
     }
 
-    public void c(b bVar) {
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            if (this.e == null) {
-                this.e = new ArrayList();
-            }
-            this.e.add(bVar);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ProgressView progressView = this.d;
-            if (progressView != null) {
-                progressView.setCurrentState(ProgressView.State.DELETE);
-            }
-            this.b = this.d.getLastProgress();
-            kb9 kb9Var = this.c.k;
-            if (kb9Var != null) {
-                kb9Var.h();
-            }
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == 6) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            mb9 mb9Var = this.c.I;
-            if (mb9Var != null) {
-                return mb9Var.i();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int f = f();
-            if (f != 2 && f != 7) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.d.b()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        ProgressView progressView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f && (progressView = this.d) != null) {
-            progressView.setCurrentState(ProgressView.State.ROLLBACK);
-        }
-    }
-
-    public void n() {
-        kb9 kb9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.f) {
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
             return;
         }
-        ProgressView progressView = this.d;
-        if (progressView != null) {
-            progressView.setVisibility(0);
-            this.d.setCurrentState(ProgressView.State.START);
-        }
-        if (!this.f) {
-            this.f = true;
-            this.g = System.currentTimeMillis();
-        }
-        RecordVideoActivity recordVideoActivity = this.c;
-        if (recordVideoActivity != null && (kb9Var = recordVideoActivity.k) != null) {
-            kb9Var.L();
-            mb9 mb9Var = this.c.I;
-            if (mb9Var != null) {
-                mb9Var.n(this.b);
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
             }
+            hb5.k().h(this.b.getUrl(), true);
         }
+        File file = new File(ra9.a);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(ra9.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        hb5.k().l(downloadData2);
     }
 
-    public void o() {
-        kb9 kb9Var;
+    public String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.f) {
-            return;
-        }
-        ProgressView progressView = this.d;
-        if (progressView != null) {
-            progressView.setCurrentState(ProgressView.State.PAUSE);
-        }
-        this.f = false;
-        this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
-        ProgressView progressView2 = this.d;
-        if (progressView2 != null) {
-            int lastProgress = progressView2.getLastProgress();
-            int i = this.b;
-            if (lastProgress != i) {
-                this.d.c(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
             }
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                d();
+                if (this.a.size() <= 0) {
+                    return null;
+                }
+                return this.a.get(nameMd5FromUrl);
+            }
+            return hashMap.get(nameMd5FromUrl);
         }
-        RecordVideoActivity recordVideoActivity = this.c;
-        if (recordVideoActivity != null && (kb9Var = recordVideoActivity.k) != null) {
-            kb9Var.M();
-        }
+        return (String) invokeL.objValue;
     }
 }

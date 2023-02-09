@@ -144,11 +144,11 @@ public final class fl3 {
                 if (!z2) {
                     return false;
                 }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12f8, 0).show();
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f130f, 0).show();
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12f8, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f130f, 0).show();
                 }
                 if (!a) {
                     return false;

@@ -5,7 +5,7 @@ import com.baidu.searchbox.retrieve.file.FetchFileJob;
 import com.baidu.searchbox.retrieve.log.FetchLogJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerCancelJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerJob;
-import com.baidu.tieba.on9;
+import com.baidu.tieba.so9;
 import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,7 +43,7 @@ public class IFetchJob_FetchActions_ListProvider implements yj1 {
             arrayList.add(new FetchLogJob());
             arrayList.add(new FetchTimerCancelJob());
             arrayList.add(new FetchTimerJob());
-            arrayList.add(new on9());
+            arrayList.add(new so9());
             return arrayList;
         }
         return invokeV.objValue;

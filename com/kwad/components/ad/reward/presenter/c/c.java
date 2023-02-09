@@ -158,7 +158,7 @@ public final class c extends a implements RewardActionBarControl.d {
             super.aq();
             if (cc()) {
                 this.ts = this.hP.getVisibility();
-                getRootView().findViewById(R.id.obfuscated_res_0x7f09130b).setVisibility(8);
+                getRootView().findViewById(R.id.obfuscated_res_0x7f09131f).setVisibility(8);
                 this.nM.a(this.mPlayEndPageListener);
                 this.nM.ml.a(this);
             }
@@ -219,7 +219,7 @@ public final class c extends a implements RewardActionBarControl.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onCreate();
-            this.hP = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911c3);
+            this.hP = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d7);
         }
     }
 

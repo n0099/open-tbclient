@@ -62,7 +62,7 @@ public class mo6 extends PopupWindow implements View.OnClickListener {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090f15).getTop();
+                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090f26).getTop();
                 int y = (int) motionEvent.getY();
                 if (motionEvent.getAction() == 1 && y < top) {
                     this.a.dismiss();
@@ -127,14 +127,14 @@ public class mo6 extends PopupWindow implements View.OnClickListener {
     public final void b(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d024e, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d024f, (ViewGroup) null);
             this.d = inflate;
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09250c);
-            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924d2);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092474);
-            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090f15);
-            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f0913ed);
-            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f0913ee);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092557);
+            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09251d);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924be);
+            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090f26);
+            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091402);
+            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f091403);
             if (i == 1) {
                 SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             } else {

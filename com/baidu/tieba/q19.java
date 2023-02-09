@@ -1,21 +1,35 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class q19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public r19 f;
+    public String g;
+    public int h;
+    public List<String> i;
 
-    public abstract boolean a(MotionEvent motionEvent);
-
-    public abstract boolean b(MotionEvent motionEvent);
-
-    public abstract void c(View view2, Bundle bundle);
-
-    public abstract void d();
+    public q19() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

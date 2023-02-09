@@ -37,7 +37,7 @@ public class sc6 extends mc6<hi6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018f : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,18 +89,18 @@ public class sc6 extends mc6<hi6> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09052b);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09052c);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090536);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052d);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052f);
-            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090535);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090530);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090531);
-            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090532);
-            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090533);
-            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090534);
-            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052a);
+            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090536);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090537);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090541);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090538);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09053a);
+            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090540);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09053b);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09053c);
+            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09053d);
+            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09053e);
+            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09053f);
+            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090535);
             this.i.setDefaultResource(17170445);
             this.i.setDefaultBgResource(R.color.CAM_X0205);
             this.i.setDrawBorder(true);
@@ -108,7 +108,7 @@ public class sc6 extends mc6<hi6> {
             this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
             this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
             h().setOnClickListener(this);
-            this.v = view2.findViewById(R.id.obfuscated_res_0x7f090855);
+            this.v = view2.findViewById(R.id.obfuscated_res_0x7f090863);
         }
     }
 
@@ -124,7 +124,7 @@ public class sc6 extends mc6<hi6> {
             this.l.setText(hi6Var.c().title_small);
             this.m.setText(String.valueOf(hi6Var.c().game_score));
             t(hi6Var);
-            this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0750, StringHelper.numberUniform(hi6Var.c().game_score_num)));
+            this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0759, StringHelper.numberUniform(hi6Var.c().game_score_num)));
         }
     }
 

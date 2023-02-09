@@ -44,13 +44,13 @@ public class yy5 extends ok1<ej0> {
 
         /* renamed from: com.baidu.tieba.yy5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0499a implements hj0 {
+        public class C0500a implements hj0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean[] a;
             public final /* synthetic */ fj0 b;
 
-            public C0499a(a aVar, boolean[] zArr, fj0 fj0Var) {
+            public C0500a(a aVar, boolean[] zArr, fj0 fj0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class yy5 extends ok1<ej0> {
                 if (UrlSchemaJumpHelper.isHitBlackList(str)) {
                     return true;
                 }
-                jj0.a(context, str, null, new C0499a(this, new boolean[1], fj0Var), false);
+                jj0.a(context, str, null, new C0500a(this, new boolean[1], fj0Var), false);
                 return true;
             }
             return invokeLLLL.booleanValue;

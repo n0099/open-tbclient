@@ -83,16 +83,16 @@ public class s67 {
         c(vipAdFreeGuideLayout, str, str2, str3);
     }
 
-    public static void e(e19 e19Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
+    public static void e(i29 i29Var, FunAdNativeViewHolder funAdNativeViewHolder, String str, String str2, String str3, int i) {
         int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{e19Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{i29Var, funAdNativeViewHolder, str, str2, str3, Integer.valueOf(i)}) == null) {
             VipAdFreeGuideLayout vipAdFreeGuideLayout = funAdNativeViewHolder.d().getVipAdFreeGuideLayout();
-            if (e19Var != null && vipAdFreeGuideLayout != null) {
+            if (i29Var != null && vipAdFreeGuideLayout != null) {
                 if ("personalize".equals(str2)) {
-                    f = vw5.k().j(e19Var.g());
+                    f = vw5.k().j(i29Var.g());
                 } else {
-                    f = e19Var.f();
+                    f = i29Var.f();
                 }
                 if (f == 1) {
                     vipAdFreeGuideLayout.setVisibility(8);
@@ -102,16 +102,16 @@ public class s67 {
                     d(funAdNativeViewHolder, vipAdFreeGuideLayout, str, str2, str3, i);
                     vw5.k().c();
                     if ("personalize".equals(str2)) {
-                        vw5.k().p(e19Var.g(), 2);
+                        vw5.k().p(i29Var.g(), 2);
                     } else {
-                        e19Var.q(2);
+                        i29Var.q(2);
                     }
                 } else {
                     vipAdFreeGuideLayout.setVisibility(8);
                     if ("personalize".equals(str2)) {
-                        vw5.k().p(e19Var.g(), 1);
+                        vw5.k().p(i29Var.g(), 1);
                     } else {
-                        e19Var.q(1);
+                        i29Var.q(1);
                     }
                 }
             }

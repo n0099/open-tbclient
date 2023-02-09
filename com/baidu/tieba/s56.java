@@ -64,9 +64,9 @@ public class s56 extends BaseAdapter {
             }
             this.a = view2;
             this.b = (TbImageView) view2.findViewById(R.id.img_thumbnail);
-            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c2);
-            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c4);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c3);
+            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c4);
+            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c6);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c5);
         }
     }
 
@@ -133,7 +133,7 @@ public class s56 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) null);
                 aVar = new a(view2);
                 aVar.b.setIsRound(true);
                 aVar.b.setDrawBorder(false);

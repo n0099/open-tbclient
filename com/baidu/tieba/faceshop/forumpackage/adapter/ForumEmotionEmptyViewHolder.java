@@ -173,9 +173,9 @@ public class ForumEmotionEmptyViewHolder extends TypeAdapter.ViewHolder {
                 TextView filterView = this.a.getFilterView();
                 filterDropDownView.setVisibility(0);
                 if (vo6Var.a() == 0) {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f06c6);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f06cf);
                 } else {
-                    string = resources.getString(R.string.obfuscated_res_0x7f0f06c7);
+                    string = resources.getString(R.string.obfuscated_res_0x7f0f06d0);
                 }
                 filterView.setText(string);
                 if (vo6Var.b()) {

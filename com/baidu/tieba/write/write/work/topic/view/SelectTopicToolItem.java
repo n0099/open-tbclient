@@ -228,11 +228,11 @@ public class SelectTopicToolItem extends RelativeLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07d7, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092415);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092417);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092416);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914e0);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07e9, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09245f);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092461);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092460);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f5);
             setOnClickListener(new a(this));
             d();
         }

@@ -88,13 +88,13 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f091033);
-            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f091035);
-            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091034);
-            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f091037);
-            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f091032);
-            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091039);
-            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091036);
+            this.g = this.d.findViewById(R.id.obfuscated_res_0x7f091045);
+            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f091047);
+            this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091046);
+            this.l = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f091049);
+            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f091044);
+            this.j = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09104b);
+            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091048);
             String[] strArr = this.f;
             if (strArr != null && strArr.length == 3) {
                 this.j.setText(strArr[0]);
@@ -103,7 +103,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
             m45 m45Var = new m45();
             this.b.setTextSize(R.dimen.T_X06);
             this.b.setConfig(m45Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11ae));
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11c4));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
             this.l.setColumnWidth(ej.l(getContext()) / 5);
@@ -164,7 +164,7 @@ public class InterestSelectionStyleAFragment extends BaseInterestSelectionFragme
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02df, viewGroup, false);
+            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02e1, viewGroup, false);
             if (getArguments() != null) {
                 this.e = getArguments().getInt("scene");
                 this.f = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);

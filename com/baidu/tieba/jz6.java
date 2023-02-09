@@ -280,7 +280,7 @@ public class jz6 {
             imageView.setOnClickListener(this.h);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
-            ImageView imageView2 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0801, (View.OnClickListener) null);
+            ImageView imageView2 = (ImageView) this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d0813, (View.OnClickListener) null);
             this.f = imageView2;
             imageView2.setLayoutParams(layoutParams);
             this.f.setOnClickListener(this.h);

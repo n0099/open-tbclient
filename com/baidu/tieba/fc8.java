@@ -1,134 +1,92 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
-import com.baidu.tieba.jf;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fc8 {
+public class fc8 extends ae8 {
     public static /* synthetic */ Interceptable $ic;
-    public static fc8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public jf<byte[]> a;
-    public jf<byte[]> b;
+    public TextView c;
 
-    public fc8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fc8(BaseFragmentActivity baseFragmentActivity, View view2) {
+        super(baseFragmentActivity, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
+        this.c = null;
     }
 
-    public static synchronized fc8 b() {
+    @Override // com.baidu.tieba.ae8
+    public void c(ec8 ec8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ec8Var) == null) {
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f06);
+            this.c = textView;
+            textView.setVisibility(8);
+        }
+    }
+
+    public void f(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getPushStatusData() != null) {
+            int status = threadData.getPushStatusData().getStatus();
+            if (status == 1) {
+                g(true);
+            } else if (status == 2) {
+                g(false);
+            }
+        }
+    }
+
+    public TextView e() {
         InterceptResult invokeV;
-        fc8 fc8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (fc8.class) {
-                if (c == null) {
-                    c = new fc8();
-                }
-                fc8Var = c;
-            }
-            return fc8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (fc8) invokeV.objValue;
+        return (TextView) invokeV.objValue;
     }
 
-    public final void c() {
+    public void g(boolean z) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                i05.d();
-                this.a = i05.b("tb.pb_mark");
-            }
-            if (this.b == null) {
-                i05.d();
-                this.b = i05.b("tb.pb_normal");
-            }
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || (textView = this.c) == null) {
+            return;
         }
-    }
-
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        jf.b<byte[]> h;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (PBCacheBlockSwitch.getIsOn()) {
-                return null;
-            }
-            if (z) {
-                jf<byte[]> jfVar = this.a;
-                if (jfVar != null && str != null) {
-                    h = jfVar.h(str);
-                }
-                h = null;
-            } else {
-                jf<byte[]> jfVar2 = this.b;
-                if (jfVar2 != null && str != null) {
-                    h = jfVar2.h(str);
-                }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
+        if (z) {
+            textView.setText(R.string.obfuscated_res_0x7f0f1018);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f081058);
+            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
+            this.c.setClickable(true);
+        } else {
+            textView.setText(R.string.obfuscated_res_0x7f0f0285);
+            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            this.c.setClickable(false);
         }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                jf<byte[]> jfVar = this.a;
-                if (jfVar != null && str != null) {
-                    jfVar.i(str, new byte[0], 0L);
-                    return;
-                }
-                return;
-            }
-            jf<byte[]> jfVar2 = this.b;
-            if (jfVar2 != null && str != null) {
-                jfVar2.i(str, new byte[0], 0L);
-            }
-        }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) && bArr != null && str != null) {
-            c();
-            this.a.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) && str != null) {
-            c();
-            if (z) {
-                this.a.e(str, bArr, 86400000L);
-            } else {
-                this.b.e(str, bArr, 86400000L);
-            }
-        }
+        this.c.setVisibility(0);
     }
 }

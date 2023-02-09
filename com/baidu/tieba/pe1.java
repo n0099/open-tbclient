@@ -126,13 +126,13 @@ public class pe1 {
 
         /* renamed from: com.baidu.tieba.pe1$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0393b implements Runnable {
+        public class RunnableC0394b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ b b;
 
-            public RunnableC0393b(b bVar, int i) {
+            public RunnableC0394b(b bVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -228,7 +228,7 @@ public class pe1 {
         public void onPackageDownloadFail(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                fe1.a().b().run(new RunnableC0393b(this, i));
+                fe1.a().b().run(new RunnableC0394b(this, i));
             }
         }
 

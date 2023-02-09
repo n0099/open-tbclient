@@ -91,7 +91,7 @@ public abstract class yi5 {
                 for (int i = 0; i < size; i++) {
                     try {
                         wi5 wi5Var = this.eventDelegates.get(i);
-                        if (wi5Var != null && ((!wi5Var.b1() || (wi5Var.b1() && xi5Var.e() == wi5Var.getUniqueId())) && (z = wi5Var.y0(xi5Var)) && xi5Var.f())) {
+                        if (wi5Var != null && ((!wi5Var.a1() || (wi5Var.a1() && xi5Var.e() == wi5Var.getUniqueId())) && (z = wi5Var.w0(xi5Var)) && xi5Var.f())) {
                             return true;
                         }
                     } catch (Throwable th) {

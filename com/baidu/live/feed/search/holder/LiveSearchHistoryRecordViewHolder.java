@@ -36,7 +36,7 @@ public class LiveSearchHistoryRecordViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e52);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e63);
     }
 
     public void a(int i) {

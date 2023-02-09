@@ -28,7 +28,7 @@ import com.baidu.tieba.en6;
 import com.baidu.tieba.fn6;
 import com.baidu.tieba.gc5;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lg9;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -579,7 +579,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements xb5, View.
             this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            lg9.l(this.b, R.drawable.edittext_cursor);
+            ph9.l(this.b, R.drawable.edittext_cursor);
             this.b.setPadding(0, ej.g(context, R.dimen.obfuscated_res_0x7f0701e8), ej.g(context, R.dimen.obfuscated_res_0x7f0702db), ej.g(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
@@ -644,10 +644,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements xb5, View.
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             if (i == 0) {
-                lg9.l(this.b, R.drawable.edittext_cursor);
+                ph9.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
             } else {
-                lg9.l(this.b, R.drawable.edittext_cursor_1);
+                ph9.l(this.b, R.drawable.edittext_cursor_1);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
             }
             SkinManager.setBackgroundResource(this.c, R.drawable.topic_discuss_send_bg);

@@ -401,22 +401,22 @@ public class tn5 {
 
     public static boolean p(Object obj) {
         InterceptResult invokeL;
-        e19 e19Var;
+        i29 i29Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
             if (obj instanceof hy4) {
                 return true;
             }
             if (obj instanceof wz4) {
-                e19Var = ((wz4) obj).t.funAdData;
+                i29Var = ((wz4) obj).t.funAdData;
             } else if (obj instanceof ThreadData) {
-                e19Var = ((ThreadData) obj).funAdData;
+                i29Var = ((ThreadData) obj).funAdData;
             } else if (obj instanceof PostData) {
-                e19Var = ((PostData) obj).w0;
+                i29Var = ((PostData) obj).w0;
             } else {
-                e19Var = null;
+                i29Var = null;
             }
-            if (e19Var != null) {
+            if (i29Var != null) {
                 return true;
             }
             return false;

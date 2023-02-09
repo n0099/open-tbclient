@@ -26,7 +26,7 @@ public final /* synthetic */ class j27 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            return view2.findViewById(R.id.obfuscated_res_0x7f090bed);
+            return view2.findViewById(R.id.obfuscated_res_0x7f090bfe);
         }
         return (View) invokeL.objValue;
     }
@@ -38,9 +38,9 @@ public final /* synthetic */ class j27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
             if (z) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090df1);
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e02);
             } else {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090df2);
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e03);
             }
             textView.bringToFront();
             p15.d(textView).v(R.color.CAM_X0619);

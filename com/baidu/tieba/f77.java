@@ -137,7 +137,7 @@ public class f77 extends v9<MyGiftListActivity> {
                 } else if (BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.a.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.a), item.b)));
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                 }
             }
         }
@@ -172,7 +172,7 @@ public class f77 extends v9<MyGiftListActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2 == this.a.o) {
                 if (!ej.F()) {
-                    UtilHelper.showToast(this.a.a.getPageContext().getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe));
+                    UtilHelper.showToast(this.a.a.getPageContext().getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08));
                 } else {
                     CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.a.a.getPageContext().getPageActivity());
                 }
@@ -332,47 +332,47 @@ public class f77 extends v9<MyGiftListActivity> {
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.u = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d52);
-            this.w = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d53);
+            this.u = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d63);
+            this.w = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d64);
             this.u.setOnClickListener(this.a.E1());
-            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f090d55);
-            this.x = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d54);
+            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f090d66);
+            this.x = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d65);
         }
     }
 
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d05ed);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091d5e);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d05f2);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091da0);
             this.f = findViewById;
-            this.e = (BdListView) findViewById.findViewById(R.id.obfuscated_res_0x7f091414);
+            this.e = (BdListView) findViewById.findViewById(R.id.obfuscated_res_0x7f091429);
             NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.navigation_bar);
             this.b = navigationBar;
             MyGiftListActivity myGiftListActivity = this.a;
             if (myGiftListActivity.j == 1) {
-                navigationBar.setCenterTextTitle(myGiftListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f06d1));
+                navigationBar.setCenterTextTitle(myGiftListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f06da));
             } else {
-                String format = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08d4), myGiftListActivity.F1());
+                String format = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08dd), myGiftListActivity.F1());
                 if (this.t) {
-                    this.b.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0bf4));
+                    this.b.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0bfe));
                 } else {
                     this.b.setTitleText(format);
                 }
             }
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0917cf);
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f1, (ViewGroup) null, false);
+            this.c = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0917e8);
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f6, (ViewGroup) null, false);
             this.h = inflate;
             inflate.setVisibility(8);
-            View inflate2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ef, (ViewGroup) null, false);
+            View inflate2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f4, (ViewGroup) null, false);
             this.g = inflate2;
             inflate2.setVisibility(8);
-            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0926ba);
-            this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092268);
-            this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09226e);
-            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09226f);
-            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0926b5);
+            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f092719);
+            this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922ae);
+            this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922b4);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922b5);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092714);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.my_ybean);
                 this.o.setText(R.string.get_ybean);
@@ -380,11 +380,11 @@ public class f77 extends v9<MyGiftListActivity> {
                 this.p.setText(R.string.my_tdou);
                 this.o.setText(R.string.get_tdou);
             }
-            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092267);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922ad);
             this.o.setOnClickListener(this.z);
-            View inflate3 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ee, (ViewGroup) null, false);
+            View inflate3 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f3, (ViewGroup) null, false);
             this.i = inflate3;
-            this.j = inflate3.findViewById(R.id.obfuscated_res_0x7f090d45);
+            this.j = inflate3.findViewById(R.id.obfuscated_res_0x7f090d56);
             if (this.t) {
                 this.e.addHeaderView(this.g);
             } else {

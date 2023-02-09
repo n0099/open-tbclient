@@ -2,20 +2,20 @@ package rx.subjects;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.fda;
-import com.baidu.tieba.gda;
-import com.baidu.tieba.jfa;
-import com.baidu.tieba.jga;
-import com.baidu.tieba.kfa;
-import com.baidu.tieba.kga;
-import com.baidu.tieba.lha;
-import com.baidu.tieba.oda;
-import com.baidu.tieba.qga;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.uca;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.eea;
+import com.baidu.tieba.jea;
+import com.baidu.tieba.kea;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.nha;
+import com.baidu.tieba.oga;
+import com.baidu.tieba.oha;
+import com.baidu.tieba.pia;
+import com.baidu.tieba.sea;
+import com.baidu.tieba.uha;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.yda;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,13 +27,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes9.dex */
-public final class UnicastSubject<T> extends lha<T, T> {
+public final class UnicastSubject<T> extends pia<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final State<T> b;
 
     /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicLong implements vca, uca<T>, tca.a<T>, ada {
+    public static final class State<T> extends AtomicLong implements zda, yda<T>, xda.a<T>, eea {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9044104859202255786L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,18 +43,18 @@ public final class UnicastSubject<T> extends lha<T, T> {
         public Throwable error;
         public boolean missed;
         public final Queue<Object> queue;
-        public final AtomicReference<zca<? super T>> subscriber;
-        public final AtomicReference<gda> terminateOnce;
+        public final AtomicReference<dea<? super T>> subscriber;
+        public final AtomicReference<kea> terminateOnce;
 
-        public State(int i, gda gdaVar) {
-            AtomicReference<gda> atomicReference;
-            Queue<Object> jfaVar;
+        public State(int i, kea keaVar) {
+            AtomicReference<kea> atomicReference;
+            Queue<Object> ngaVar;
             Queue<Object> queue;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), gdaVar};
+                Object[] objArr = {Integer.valueOf(i), keaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,49 +65,49 @@ public final class UnicastSubject<T> extends lha<T, T> {
                 }
             }
             this.subscriber = new AtomicReference<>();
-            if (gdaVar != null) {
-                atomicReference = new AtomicReference<>(gdaVar);
+            if (keaVar != null) {
+                atomicReference = new AtomicReference<>(keaVar);
             } else {
                 atomicReference = null;
             }
             this.terminateOnce = atomicReference;
             if (i > 1) {
-                if (qga.b()) {
-                    queue = new kga<>(i);
+                if (uha.b()) {
+                    queue = new oha<>(i);
                 } else {
-                    queue = new kfa<>(i);
+                    queue = new oga<>(i);
                 }
             } else {
-                if (qga.b()) {
-                    jfaVar = new jga<>();
+                if (uha.b()) {
+                    ngaVar = new nha<>();
                 } else {
-                    jfaVar = new jfa<>();
+                    ngaVar = new nga<>();
                 }
-                queue = jfaVar;
+                queue = ngaVar;
             }
             this.queue = queue;
         }
 
-        public void call(zca<? super T> zcaVar) {
+        public void call(dea<? super T> deaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
-                if (this.subscriber.compareAndSet(null, zcaVar)) {
-                    zcaVar.b(this);
-                    zcaVar.f(this);
+            if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
+                if (this.subscriber.compareAndSet(null, deaVar)) {
+                    deaVar.b(this);
+                    deaVar.f(this);
                     return;
                 }
-                zcaVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
+                deaVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
             }
         }
 
-        @Override // com.baidu.tieba.vca
+        @Override // com.baidu.tieba.zda
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
                 int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                 if (i >= 0) {
                     if (i > 0) {
-                        oda.b(this, j);
+                        sea.b(this, j);
                         replay();
                         return;
                     } else if (this.done) {
@@ -121,26 +121,26 @@ public final class UnicastSubject<T> extends lha<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
+        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((zca) ((zca) obj));
+            call((dea) ((dea) obj));
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, zca<? super T> zcaVar) {
+        public boolean checkTerminated(boolean z, boolean z2, dea<? super T> deaVar) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), zcaVar})) == null) {
-                if (zcaVar.isUnsubscribed()) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), deaVar})) == null) {
+                if (deaVar.isUnsubscribed()) {
                     this.queue.clear();
                     return true;
                 } else if (z) {
                     Throwable th = this.error;
                     if (th != null) {
                         this.queue.clear();
-                        zcaVar.onError(th);
+                        deaVar.onError(th);
                         return true;
                     } else if (z2) {
-                        zcaVar.onCompleted();
+                        deaVar.onCompleted();
                         return true;
                     } else {
                         return false;
@@ -153,15 +153,15 @@ public final class UnicastSubject<T> extends lha<T, T> {
         }
 
         public void doTerminate() {
-            AtomicReference<gda> atomicReference;
-            gda gdaVar;
+            AtomicReference<kea> atomicReference;
+            kea keaVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (atomicReference = this.terminateOnce) != null && (gdaVar = atomicReference.get()) != null && atomicReference.compareAndSet(gdaVar, null)) {
-                gdaVar.call();
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (atomicReference = this.terminateOnce) != null && (keaVar = atomicReference.get()) != null && atomicReference.compareAndSet(keaVar, null)) {
+                keaVar.call();
             }
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -187,7 +187,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.done) {
@@ -209,7 +209,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048582, this, th) == null) && !this.done) {
@@ -232,7 +232,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.uca
+        @Override // com.baidu.tieba.yda
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && !this.done) {
@@ -249,11 +249,11 @@ public final class UnicastSubject<T> extends lha<T, T> {
                         return;
                     }
                 }
-                zca<? super T> zcaVar = this.subscriber.get();
+                dea<? super T> deaVar = this.subscriber.get();
                 try {
-                    zcaVar.onNext(t);
+                    deaVar.onNext(t);
                 } catch (Throwable th) {
-                    fda.g(th, zcaVar, t);
+                    jea.g(th, deaVar, t);
                 }
             }
         }
@@ -289,9 +289,9 @@ public final class UnicastSubject<T> extends lha<T, T> {
                     this.emitting = true;
                     Queue<Object> queue = this.queue;
                     while (true) {
-                        zca<? super T> zcaVar = this.subscriber.get();
-                        if (zcaVar != null) {
-                            if (checkTerminated(this.done, queue.isEmpty(), zcaVar)) {
+                        dea<? super T> deaVar = this.subscriber.get();
+                        if (deaVar != null) {
+                            if (checkTerminated(this.done, queue.isEmpty(), deaVar)) {
                                 return;
                             }
                             long j = get();
@@ -309,7 +309,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
                                 } else {
                                     z2 = false;
                                 }
-                                if (checkTerminated(z3, z2, zcaVar)) {
+                                if (checkTerminated(z3, z2, deaVar)) {
                                     return;
                                 }
                                 if (z2) {
@@ -317,13 +317,13 @@ public final class UnicastSubject<T> extends lha<T, T> {
                                 }
                                 Object obj = (Object) NotificationLite.e(poll);
                                 try {
-                                    zcaVar.onNext(obj);
+                                    deaVar.onNext(obj);
                                     j--;
                                     j2++;
                                 } catch (Throwable th) {
                                     queue.clear();
-                                    fda.e(th);
-                                    zcaVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                                    jea.e(th);
+                                    deaVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                     return;
                                 }
                             }
@@ -357,7 +357,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tca.a) newInitContext.callArgs[0]);
+                super((xda.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -366,16 +366,16 @@ public final class UnicastSubject<T> extends lha<T, T> {
         this.b = state;
     }
 
-    public static <T> UnicastSubject<T> D(int i, gda gdaVar) {
+    public static <T> UnicastSubject<T> D(int i, kea keaVar) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, gdaVar)) == null) {
-            return new UnicastSubject<>(new State(i, gdaVar));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, keaVar)) == null) {
+            return new UnicastSubject<>(new State(i, keaVar));
         }
         return (UnicastSubject) invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.uca
+    @Override // com.baidu.tieba.yda
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -383,7 +383,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.uca
+    @Override // com.baidu.tieba.yda
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -391,7 +391,7 @@ public final class UnicastSubject<T> extends lha<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.uca
+    @Override // com.baidu.tieba.yda
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {

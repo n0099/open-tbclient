@@ -1,82 +1,142 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.os.Handler;
+import android.graphics.SurfaceTexture;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.gw9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
 /* loaded from: classes4.dex */
-public class cf9 extends BaseOutputSurface {
+public abstract class cf9 implements gw9.b {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean o;
+    public static boolean p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public MultiMediaData b;
+    public TbPageContext a;
+    public boolean b;
+    public boolean c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public SurfaceTexture l;
+    public volatile boolean m;
+    public volatile boolean n;
 
-    public cf9(int i, int i2, boolean z, Handler handler) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947672979, "Lcom/baidu/tieba/cf9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947672979, "Lcom/baidu/tieba/cf9;");
+        }
+    }
+
+    public cf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new float[16];
-        this.b = new MultiMediaData();
-        init(i, i2, z, handler);
-        this.mFullScreenEXT.setMirror(true);
-        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
+        this.j = -1;
+        this.m = false;
+        this.n = false;
     }
 
-    public void a(int i, int i2, float f) {
-        float f2;
+    @Override // com.baidu.tieba.gw9.b
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-            MultiMediaData multiMediaData = this.b;
-            multiMediaData.type = 1;
-            multiMediaData.width = i;
-            multiMediaData.height = i2;
-            multiMediaData.rotation = f;
-            if (f != 90.0f && f != 270.0f) {
-                f2 = (i * 1.0f) / i2;
-            } else {
-                f2 = (i2 * 1.0f) / i;
-            }
-            if (f2 <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
-                this.b.scaleType = "center_crop";
-            } else {
-                this.b.scaleType = "center_inside";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gw9.b
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.n;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gw9.b
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gw9.b
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return p;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return o;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gw9.b
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.n = z;
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
-    public void drawImage(int i) {
+    @Override // com.baidu.tieba.gw9.b
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.drawImage(i);
-            if (this.mFullScreenEXT == null) {
-                return;
-            }
-            float[] fArr = new float[16];
-            Matrix.setIdentityM(fArr, 0);
-            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
-            this.mFullScreenEXT.setAngle(180.0f);
-            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
-            Matrix.setIdentityM(fArr, 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.m = z;
         }
     }
 }

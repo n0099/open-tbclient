@@ -236,19 +236,19 @@ public class FrsFoldingView extends LinearLayout {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.findViewById(R.id.obfuscated_res_0x7f090aab).setOnClickListener(new a(this));
+            this.h.findViewById(R.id.obfuscated_res_0x7f090abb).setOnClickListener(new a(this));
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d029d, (ViewGroup) this, true);
             this.h = inflate;
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090aad);
-            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0919a2);
-            this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0906a3);
-            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f090aab);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090abd);
+            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0919da);
+            this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0906ae);
+            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f090abb);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }

@@ -303,10 +303,10 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null || !(view2.getTag() instanceof g)) {
-                    view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d00d0, null);
+                    view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d00d1, null);
                     g gVar = new g(this.a);
-                    gVar.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f090645);
-                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092314);
+                    gVar.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f090650);
+                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
                     view2.setTag(gVar);
                 }
                 g gVar2 = (g) view2.getTag();
@@ -534,7 +534,7 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f043f));
+            v2(G(R.string.obfuscated_res_0x7f0f0441));
             x2(true);
             J2(false);
         }
@@ -605,7 +605,7 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
             return;
         }
         boolean isEmpty = this.H0.isEmpty();
-        TextView textView = (TextView) V.findViewById(R.id.obfuscated_res_0x7f092311);
+        TextView textView = (TextView) V.findViewById(R.id.obfuscated_res_0x7f092358);
         int i2 = 8;
         if (isEmpty) {
             i = 8;
@@ -616,14 +616,14 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
         if (!isEmpty) {
             textView.setText(H(R.string.obfuscated_res_0x7f0f01c9, d3().Z()));
         }
-        View findViewById = V.findViewById(R.id.obfuscated_res_0x7f090efe);
+        View findViewById = V.findViewById(R.id.obfuscated_res_0x7f090f0f);
         if (findViewById != null) {
             if (isEmpty) {
                 i2 = 0;
             }
             findViewById.setVisibility(i2);
         }
-        TextView textView2 = (TextView) V.findViewById(R.id.obfuscated_res_0x7f090929);
+        TextView textView2 = (TextView) V.findViewById(R.id.obfuscated_res_0x7f090937);
         if (isEmpty) {
             textView2.setText(H(R.string.obfuscated_res_0x7f0f01c4, d3().Z()));
         }
@@ -650,11 +650,11 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048597, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00cf, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00d0, viewGroup, false);
             U1(inflate);
-            this.I0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09070d);
+            this.I0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090718);
             this.G0 = c3();
-            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09017b);
+            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09017d);
             listView.setAdapter((ListAdapter) this.G0);
             listView.setOnItemClickListener(this);
             if (T1()) {

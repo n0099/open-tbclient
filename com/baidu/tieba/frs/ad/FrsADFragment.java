@@ -476,7 +476,7 @@ public class FrsADFragment extends BaseFragment implements it6, BdListView.p, kt
     }
 
     @Override // com.baidu.tieba.kt6
-    public void g1() {
+    public void f1() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.a == null) {
             return;
@@ -738,7 +738,7 @@ public class FrsADFragment extends BaseFragment implements it6, BdListView.p, kt
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02f6, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
             mu6 mu6Var = new mu6(this, inflate);
             this.a = mu6Var;
             mu6Var.l(this.p);

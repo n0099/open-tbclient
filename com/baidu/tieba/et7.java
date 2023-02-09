@@ -691,9 +691,9 @@ public class et7 extends v9 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && this.a.a != null) {
-                this.a.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.a.b.E(null);
-                this.a.b.S();
+                this.a.b.T();
                 this.a.a.V1();
             }
         }
@@ -845,12 +845,12 @@ public class et7 extends v9 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && view2 != null && (baseCardInfo instanceof it7)) {
                 it7 it7Var = (it7) baseCardInfo;
-                if (it7Var.C() && view2.getId() != R.id.obfuscated_res_0x7f091a9b && view2.getId() != R.id.user_name) {
+                if (it7Var.C() && view2.getId() != R.id.obfuscated_res_0x7f091ad3 && view2.getId() != R.id.user_name) {
                     it7Var.J(false);
                     this.b.U();
                 }
-                if (view2.getId() != R.id.obfuscated_res_0x7f091605) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f090572) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f09161b) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f09057d) {
                         Object tag = view2.getTag(R.id.item_data);
                         if (tag instanceof Boolean) {
                             String r = it7Var.r();
@@ -963,9 +963,9 @@ public class et7 extends v9 {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.a.b.E(null);
-                this.a.b.P();
+                this.a.b.Q();
                 this.a.a.V1();
             }
         }
@@ -1370,7 +1370,7 @@ public class et7 extends v9 {
                 return null;
             }
             this.h = viewGroup;
-            this.g = (NavigationBarShadowView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09173a);
+            this.g = (NavigationBarShadowView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091751);
             if (this.i == null) {
                 z35 z35Var = new z35(this.a.getPageContext());
                 this.i = z35Var;
@@ -1390,10 +1390,10 @@ public class et7 extends v9 {
             this.b.H(SkinManager.getColor(R.color.CAM_X0109));
             this.b.D(R.color.CAM_X0110);
             this.b.E(this.p);
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091cd4);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091d15);
             this.e = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.i);
-            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f091cdf);
+            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f091d21);
             ot7 ot7Var = new ot7(this.a.getPageContext(), this.f);
             this.d = ot7Var;
             ot7Var.h(new m(this));
@@ -1425,11 +1425,11 @@ public class et7 extends v9 {
         this.e.setVisibility(0);
         g0(false);
         if (z) {
-            this.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.g();
             this.b.E(this.p);
         } else {
-            this.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.g();
             this.b.F(this.mContext.getResources().getString(R.string.list_no_more));
             this.b.E(null);

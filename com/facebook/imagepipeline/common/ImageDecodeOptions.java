@@ -69,6 +69,15 @@ public class ImageDecodeOptions {
         return (ImageDecodeOptionsBuilder) invokeV.objValue;
     }
 
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "ImageDecodeOptions{" + toStringHelper().toString() + "}";
+        }
+        return (String) invokeV.objValue;
+    }
+
     public ImageDecodeOptions(ImageDecodeOptionsBuilder imageDecodeOptionsBuilder) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -144,15 +153,6 @@ public class ImageDecodeOptions {
             return i5 + i3;
         }
         return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ImageDecodeOptions{" + toStringHelper().toString() + "}";
-        }
-        return (String) invokeV.objValue;
     }
 
     public Objects.ToStringHelper toStringHelper() {

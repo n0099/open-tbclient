@@ -108,7 +108,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
                 finish();
             }
             this.a = VideoAggregationFragment.G1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09070d, this.a).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090718, this.a).commit();
         }
     }
 

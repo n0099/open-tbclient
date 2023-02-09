@@ -374,11 +374,11 @@ public class t07 {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, context) == null) && context != null && this.a == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0329, (ViewGroup) null);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032b, (ViewGroup) null);
             this.a = frameLayout;
             frameLayout.setOnClickListener(new c(this));
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090be6);
-            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090be5);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bf7);
+            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090bf6);
             this.c = imageView;
             imageView.setOnClickListener(new d(this));
             s();
@@ -408,7 +408,7 @@ public class t07 {
                     str = "";
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.g.getPageContext().getPageActivity(), this.j, this.k, str, p(), equals, null, null)));
-                if (this.g.Y0().getForum().isGameForumType()) {
+                if (this.g.X0().getForum().isGameForumType()) {
                     CustomMessage customMessage = new CustomMessage(2001622);
                     customMessage.setTag(this.g.getBaseFragmentActivity().getUniqueId());
                     CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001622);

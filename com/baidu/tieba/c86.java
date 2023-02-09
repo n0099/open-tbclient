@@ -93,16 +93,16 @@ public class c86 {
         if (alaEnterEffectData != null && context != null) {
             this.l = context;
             this.k = alaEnterEffectData;
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
             this.a = relativeLayout;
-            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0908d6);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913bb);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091473);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090701);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09210b);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09210c);
-            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090787);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090786);
+            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0908e4);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913d0);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091488);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09070c);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092151);
+            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092152);
+            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090792);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090791);
             c(alaEnterEffectData);
         }
     }
@@ -151,15 +151,15 @@ public class c86 {
                 this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
             } else {
                 this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dac);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607b0));
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dbe);
+                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607b1));
             }
         }
         AlaEnterEffectData alaEnterEffectData2 = this.k;
         if (alaEnterEffectData2.isOwn) {
             if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080da9);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607af));
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dbb);
+                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607b0));
                 this.e.setText(R.string.obfuscated_res_0x7f0f0251);
                 if (2 == this.k.categoryType) {
                     this.h.setVisibility(8);

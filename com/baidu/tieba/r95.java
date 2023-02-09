@@ -57,7 +57,7 @@ public class r95 {
                 str3 = "";
             }
             while (str.length() > 0 && measureText > f) {
-                str = rp5.m(str, rp5.e(str) - 1);
+                str = rp5.n(str, rp5.f(str) - 1);
                 measureText = textPaint.measureText(str);
             }
             return str + str3;

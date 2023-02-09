@@ -29,7 +29,7 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.en6;
 import com.baidu.tieba.fn6;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lg9;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -550,10 +550,10 @@ public class VideoPlayInputContainer extends LinearLayout implements xb5 {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
             if (i == 0) {
-                lg9.l(this.b, R.drawable.edittext_cursor);
+                ph9.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             } else {
-                lg9.l(this.b, R.drawable.edittext_cursor_1);
+                ph9.l(this.b, R.drawable.edittext_cursor_1);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             }
             i();
@@ -571,11 +571,11 @@ public class VideoPlayInputContainer extends LinearLayout implements xb5 {
             this.b.setGravity(16);
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            lg9.l(this.b, R.drawable.edittext_cursor);
+            ph9.l(this.b, R.drawable.edittext_cursor);
             this.b.setPadding(0, ej.g(context, R.dimen.obfuscated_res_0x7f0701e8), ej.g(context, R.dimen.obfuscated_res_0x7f0702db), ej.g(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f10a9));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f10bd));
             this.b.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -592,7 +592,7 @@ public class VideoPlayInputContainer extends LinearLayout implements xb5 {
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f11cc);
+            this.c.setText(R.string.obfuscated_res_0x7f0f11e2);
             this.c.setOnClickListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, 0, ej.g(context, R.dimen.tbds18));

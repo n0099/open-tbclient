@@ -48,7 +48,7 @@ import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.channel.model.ChannelTabNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.model.TabFeedNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedView;
-import com.baidu.tieba.i39;
+import com.baidu.tieba.m49;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.qy4;
 import com.baidu.tieba.r97;
@@ -103,7 +103,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements cf7, gt6 {
     public int L1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0867 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0879 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.gt6
@@ -210,7 +210,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements cf7, gt6 {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof PostWriteCallBackData) && (postWriteCallBackData = (PostWriteCallBackData) customResponsedMessage.getData()) != null) {
                 long g = dh.g(postWriteCallBackData.getPostId(), 0L);
                 long g2 = dh.g(postWriteCallBackData.getThreadId(), 0L);
-                long g3 = dh.g(i39.c(), 0L);
+                long g3 = dh.g(m49.c(), 0L);
                 if (g != 0 && g2 != 0 && g3 != 0) {
                     gh.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
                 }
@@ -547,7 +547,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements cf7, gt6 {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
@@ -559,7 +559,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements cf7, gt6 {
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
@@ -971,7 +971,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements cf7, gt6 {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f0952);
+                    showToast(R.string.obfuscated_res_0x7f0f095c);
                 }
             }
             df7 df7Var = this.d;
@@ -1077,8 +1077,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements cf7, gt6 {
                 if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                     builder.author = builder2.build(true);
                 }
-                builder.fname = i39.d();
-                builder.fid = Long.valueOf(dh.g(i39.d(), 0L));
+                builder.fname = m49.d();
+                builder.fid = Long.valueOf(dh.g(m49.d(), 0L));
                 qy4Var.parserProtobuf(builder.build(true));
                 this.e.m(qy4Var);
             }

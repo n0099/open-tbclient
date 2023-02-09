@@ -99,7 +99,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     }
 
     @Override // com.baidu.tieba.ol7
-    public void D0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
+    public void C0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, forumBroadcastMajorResidueData) == null) {
             this.b.u(forumBroadcastMajorResidueData);
@@ -120,7 +120,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         if (interceptable == null || interceptable.invokeL(1048579, this, pl7Var) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.a()) {
-                this.b.r(getString(R.string.obfuscated_res_0x7f0f0952), false);
+                this.b.r(getString(R.string.obfuscated_res_0x7f0f095c), false);
                 return;
             }
             rl7 rl7Var = this.b;
@@ -160,7 +160,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f0952);
+                    showToast(R.string.obfuscated_res_0x7f0f095c);
                 }
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
@@ -181,7 +181,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             super.onCreate(bundle);
             w1(bundle);
             this.a = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.d);
-            this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02a5, (ViewGroup) null);
+            this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02a6, (ViewGroup) null);
             this.b = new rl7(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
             setContentView(this.c);
             this.a.P();

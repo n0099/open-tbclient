@@ -140,7 +140,7 @@ public class gk6 extends v9 implements NoNetworkView.b {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = this.a.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05ac);
+                    str = this.a.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05b3);
                 }
                 TbSingleton.getInstance().setHotSearch(str);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921396));
@@ -387,14 +387,14 @@ public class gk6 extends v9 implements NoNetworkView.b {
     public final void G(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            this.e = (PullLeftViewPager) this.h.findViewById(R.id.obfuscated_res_0x7f090954);
+            this.e = (PullLeftViewPager) this.h.findViewById(R.id.obfuscated_res_0x7f090962);
             EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
             aVar.a = new EnterForumFragment();
             aVar.b = this.a.getResources().getString(R.string.my_forum);
             ((EnterForumFragment) aVar.a).L1(this);
             EnterForumTabPagerAdapter.a aVar2 = new EnterForumTabPagerAdapter.a();
             aVar2.a = new ForumSquareFragment();
-            aVar2.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f070f);
+            aVar2.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0718);
             aVar2.d = "ForumSquare";
             ArrayList arrayList = new ArrayList();
             this.g = arrayList;
@@ -428,7 +428,7 @@ public class gk6 extends v9 implements NoNetworkView.b {
             }
         }
         SkinManager.setBackgroundResource(this.q, R.drawable.personalize_tab_shadow);
-        this.d.E();
+        this.d.G();
         this.c.b();
         SkinManager.setBackgroundColorToTransparent(this.o, R.color.CAM_X0207, GradientDrawable.Orientation.LEFT_RIGHT);
         SkinManager.setBackgroundColorToTransparent(this.n, R.color.CAM_X0207, GradientDrawable.Orientation.RIGHT_LEFT);
@@ -591,11 +591,11 @@ public class gk6 extends v9 implements NoNetworkView.b {
     public final void D(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.h.findViewById(R.id.obfuscated_res_0x7f09094f);
+            NavigationBar navigationBar = (NavigationBar) this.h.findViewById(R.id.obfuscated_res_0x7f09095d);
             this.p = navigationBar;
             navigationBar.setNavHeight(this.t);
             this.p.hideBottomLine();
-            this.q = this.h.findViewById(R.id.obfuscated_res_0x7f090862);
+            this.q = this.h.findViewById(R.id.obfuscated_res_0x7f090870);
             Y(0);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.navigationBarGoSignall);
             this.m = imageView;
@@ -621,13 +621,13 @@ public class gk6 extends v9 implements NoNetworkView.b {
     public final void E(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0277, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0278, (ViewGroup) null);
             this.b = linearLayout;
-            ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091c70);
+            ForumHeaderView forumHeaderView = (ForumHeaderView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091cb1);
             this.c = forumHeaderView;
             forumHeaderView.setFrom(0);
             this.c.b();
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f09211c);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f092162);
             this.d = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
             this.d.setRectPaintColor(R.color.CAM_X0302);
@@ -640,8 +640,8 @@ public class gk6 extends v9 implements NoNetworkView.b {
             this.d.setTabPadding(ej.g(this.a.getContext(), R.dimen.tbds36), 0, ej.g(this.a.getContext(), R.dimen.tbds36), 0);
             this.d.setViewPager(this.e);
             this.d.setOnPageChangeListener(this.x);
-            this.o = this.b.findViewById(R.id.obfuscated_res_0x7f090950);
-            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f090951);
+            this.o = this.b.findViewById(R.id.obfuscated_res_0x7f09095e);
+            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f09095f);
         }
     }
 

@@ -478,13 +478,13 @@ public class FrsActivity extends BaseFragmentActivity implements bv5, VoiceManag
     }
 
     @Override // com.baidu.tieba.bv5
-    public av5 Z0(int i) {
+    public av5 Y0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             ez6 ez6Var = this.a;
             if (ez6Var instanceof bv5) {
-                return ez6Var.Z0(i);
+                return ez6Var.Y0(i);
             }
             return null;
         }
@@ -780,7 +780,7 @@ public class FrsActivity extends BaseFragmentActivity implements bv5, VoiceManag
     public void D1(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, view2, z) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090b61) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090b72) {
                 TbSingleton.getInstance().setFrsRootViewLoadingShow(z);
             } else if (view2.getId() == 16908290) {
                 TbSingleton.getInstance().setFrsContentViewLoadingShow(z);

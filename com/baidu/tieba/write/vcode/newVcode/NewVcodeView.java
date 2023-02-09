@@ -19,8 +19,8 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.ph9;
 import com.baidu.tieba.s35;
+import com.baidu.tieba.ti9;
 import com.baidu.tieba.u35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public ph9 c;
+    public ti9 c;
     public BaseWebView d;
     public View e;
     public s35 f;
@@ -144,10 +144,10 @@ public class NewVcodeView {
         }
     }
 
-    public void setPresenter(ph9 ph9Var) {
+    public void setPresenter(ti9 ti9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ph9Var) == null) {
-            this.c = ph9Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ti9Var) == null) {
+            this.c = ti9Var;
             this.i = false;
         }
     }
@@ -206,7 +206,7 @@ public class NewVcodeView {
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.custom_loading_text);
             this.g = textView;
-            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11d2));
+            textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11e8));
             u35 u35Var = new u35();
             this.h = u35Var;
             u35Var.a = 1000L;
@@ -263,7 +263,7 @@ public class NewVcodeView {
                         if (interceptable2 == null || interceptable2.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, i, str, str2) == null) {
                             super.onReceivedError(webView, i, str, str2);
                             this.a.h(false);
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                             this.a.a.finish();
                         }
                     }

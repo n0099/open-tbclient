@@ -823,7 +823,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             this.i = true;
             PbListView pbListView = this.c;
             if (pbListView != null) {
-                pbListView.S();
+                pbListView.T();
             }
             ku7 ku7Var = this.j;
             if (ku7Var == null) {
@@ -857,7 +857,7 @@ public class LegoListView extends FrameLayout implements BdListView.p, AbsListVi
             }
             if (this.e && !ej.F()) {
                 if (this.d.isEmpty()) {
-                    this.d.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.o), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0cfe), null, null);
+                    this.d.F(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, this.o), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d08), null, null);
                     this.d.notifyDataSetChanged();
                 }
             } else if (this.v) {

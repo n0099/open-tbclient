@@ -455,25 +455,25 @@ public final class LiveSearchPanel extends LinearLayout implements ib0.a {
         }
         this.i = new ib0(this);
         this.n = LiveFeedPageSdk.HOST_LIVE_TAB;
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0574, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7e);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0579, (ViewGroup) this, true);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f080d90);
         setGravity(16);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091484);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091499);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "findViewById(R.id.live_search_panel_search_tag)");
         this.a = (ImageView) findViewById;
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091483);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091498);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.live_s…panel_hint_text_switcher)");
         this.c = (TextSwitcher) findViewById2;
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091482);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091497);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "findViewById(R.id.live_search_panel_edit_text)");
         this.b = (EditText) findViewById3;
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f091480);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f091495);
         Intrinsics.checkExpressionValueIsNotNull(findViewById4, "findViewById(R.id.live_search_panel_delete)");
         this.d = (ImageView) findViewById4;
-        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091485);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f09149a);
         Intrinsics.checkExpressionValueIsNotNull(findViewById5, "findViewById(R.id.live_search_panel_split)");
         this.e = (ImageView) findViewById5;
-        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f091481);
+        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f091496);
         Intrinsics.checkExpressionValueIsNotNull(findViewById6, "findViewById(R.id.live_search_panel_done_btn)");
         this.f = (TextView) findViewById6;
         this.b.setFilters(new InputFilter[]{hb0.a()});
@@ -813,11 +813,11 @@ public final class LiveSearchPanel extends LinearLayout implements ib0.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             if (Intrinsics.areEqual(str, "day")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7e);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d80);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d90);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d92);
             } else if (Intrinsics.areEqual(str, "night")) {
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d7f);
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d81);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f080d91);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080d93);
             }
             this.b.setHintTextColor(fd0.f().a(getContext(), this.n, "color_858585"));
             this.b.setTextColor(fd0.f().a(getContext(), this.n, "color_1F1F1F"));

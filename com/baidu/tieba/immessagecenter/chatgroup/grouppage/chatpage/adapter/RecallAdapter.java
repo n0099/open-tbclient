@@ -56,10 +56,10 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c44);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f28);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c85);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f39);
             this.c = (TextView) view2.findViewById(R.id.user_name);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925bd);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09260b);
         }
     }
 
@@ -92,7 +92,7 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d4, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d5, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -141,29 +141,29 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                         int role = recallSysMsg.getUserFrom().getRole();
                         if (role != 2 && role != 3) {
                             if (role == 1) {
-                                holder.b.setText(R.string.obfuscated_res_0x7f0f087e);
+                                holder.b.setText(R.string.obfuscated_res_0x7f0f0887);
                             }
                         } else {
-                            holder.b.setText(R.string.obfuscated_res_0x7f0f0860);
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f0869);
                         }
                         holder.c.setText("");
-                        holder.d.setText(R.string.obfuscated_res_0x7f0f087c);
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f0885);
                     } else {
                         int role2 = recallSysMsg.getUserFrom().getRole();
                         if (role2 != 2 && role2 != 3) {
                             if (role2 == 1) {
-                                holder.b.setText(R.string.obfuscated_res_0x7f0f087e);
+                                holder.b.setText(R.string.obfuscated_res_0x7f0f0887);
                             }
                         } else {
-                            holder.b.setText(R.string.obfuscated_res_0x7f0f0860);
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f0869);
                         }
                         holder.c.setText(recallSysMsg.getUserTo().getUsername());
-                        holder.d.setText(R.string.obfuscated_res_0x7f0f087b);
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f0884);
                     }
                 } else if (msgType == 7015) {
                     holder.b.setText("");
                     holder.c.setText(recallSysMsg.getUserTo().getUsername());
-                    holder.d.setText(R.string.obfuscated_res_0x7f0f0882);
+                    holder.d.setText(R.string.obfuscated_res_0x7f0f088b);
                 }
             }
             pr7.a("c15095", 3, this.f, this.g, TbadkCoreApplication.getCurrentAccount());

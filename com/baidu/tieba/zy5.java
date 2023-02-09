@@ -24,7 +24,7 @@ public class zy5 extends ok1<sj0> {
 
         /* renamed from: com.baidu.tieba.zy5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0508a implements uj0 {
+        public class C0509a implements uj0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a f;
@@ -67,7 +67,7 @@ public class zy5 extends ok1<sj0> {
                 return invokeV.booleanValue;
             }
 
-            public C0508a(a aVar) {
+            public C0509a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -271,7 +271,7 @@ public class zy5 extends ok1<sj0> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new C0508a(this);
+                return new C0509a(this);
             }
             return (uj0) invokeV.objValue;
         }

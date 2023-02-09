@@ -37,14 +37,14 @@ public final class jz2 {
 
         /* renamed from: com.baidu.tieba.jz2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0324a implements Runnable {
+        public class RunnableC0327a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ Bitmap b;
             public final /* synthetic */ Rect c;
 
-            public RunnableC0324a(a aVar, int i, Bitmap bitmap, Rect rect) {
+            public RunnableC0327a(a aVar, int i, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public final class jz2 {
                 return;
             }
             Bitmap p = nm3.p();
-            ql3.f().execute(new RunnableC0324a(this, fz2.d(o), p, fz2.b(p, o, ju2.U().B(this.a))), "SwanNAArrivalCheck");
+            ql3.f().execute(new RunnableC0327a(this, fz2.d(o), p, fz2.b(p, o, ju2.U().B(this.a))), "SwanNAArrivalCheck");
         }
     }
 

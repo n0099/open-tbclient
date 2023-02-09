@@ -33,9 +33,9 @@ public class f73 {
             if (context == null) {
                 return null;
             }
-            int i2 = R.layout.obfuscated_res_0x7f0d00a6;
+            int i2 = R.layout.obfuscated_res_0x7f0d00a7;
             if (i != 1 && i == 2) {
-                i2 = R.layout.obfuscated_res_0x7f0d00a7;
+                i2 = R.layout.obfuscated_res_0x7f0d00a8;
             }
             return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
         }

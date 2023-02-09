@@ -13,7 +13,7 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gc5;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lz8;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -248,7 +248,7 @@ public class SendView extends TextView implements xb5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{lz8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), lz8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{p09.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), p09.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 

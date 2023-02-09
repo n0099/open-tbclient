@@ -84,11 +84,11 @@ public class np1 extends zw1 {
 
         /* renamed from: com.baidu.tieba.np1$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0361b implements Runnable {
+        public class RunnableC0360b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0361b(b bVar) {
+            public RunnableC0360b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class np1 extends zw1 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    o83.f(ds2.c(), R.string.obfuscated_res_0x7f0f1333).G();
+                    o83.f(ds2.c(), R.string.obfuscated_res_0x7f0f134a).G();
                 }
             }
         }
@@ -188,7 +188,7 @@ public class np1 extends zw1 {
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt != 0) {
                         if (this.a) {
-                            qm3.e0(new RunnableC0361b(this));
+                            qm3.e0(new RunnableC0360b(this));
                         }
                         this.c.N(this.b, optInt, jSONObject.optString("errmsg"), false);
                         return;
@@ -294,7 +294,7 @@ public class np1 extends zw1 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    o83.f(this.a.d.getContext(), R.string.obfuscated_res_0x7f0f1331).G();
+                    o83.f(this.a.d.getContext(), R.string.obfuscated_res_0x7f0f1348).G();
                 }
             }
         }
@@ -418,7 +418,7 @@ public class np1 extends zw1 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    o83.f(this.a.d.getContext(), R.string.obfuscated_res_0x7f0f1331).G();
+                    o83.f(this.a.d.getContext(), R.string.obfuscated_res_0x7f0f1348).G();
                 }
             }
         }
@@ -605,7 +605,7 @@ public class np1 extends zw1 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                o83 f = o83.f(this.a.getContext(), R.string.obfuscated_res_0x7f0f1332);
+                o83 f = o83.f(this.a.getContext(), R.string.obfuscated_res_0x7f0f1349);
                 f.l(10);
                 f.s(false);
                 f.z();
@@ -1101,7 +1101,7 @@ public class np1 extends zw1 {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            qm3.e0(new l(this, getContext().getString(R.string.obfuscated_res_0x7f0f1335), getContext().getString(R.string.obfuscated_res_0x7f0f1334), getContext().getString(R.string.obfuscated_res_0x7f0f13cf), getContext().getString(R.string.obfuscated_res_0x7f0f136b)));
+            qm3.e0(new l(this, getContext().getString(R.string.obfuscated_res_0x7f0f134c), getContext().getString(R.string.obfuscated_res_0x7f0f134b), getContext().getString(R.string.obfuscated_res_0x7f0f13e6), getContext().getString(R.string.obfuscated_res_0x7f0f1382)));
         }
     }
 

@@ -111,11 +111,11 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             }
             this.f = horizontalRecommendForumAdapter;
             this.a = view2;
-            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
             this.b = (BarImageView) this.a.findViewById(R.id.forum_icon);
             this.c = (ImageView) this.a.findViewById(R.id.square_icon);
             this.d = (TextView) this.a.findViewById(R.id.forum_name);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907dc);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907e8);
             this.a.setOnClickListener(new View$OnClickListenerC0097a(this, horizontalRecommendForumAdapter));
         }
 
@@ -208,11 +208,11 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             }
             this.h = horizontalRecommendForumAdapter;
             this.a = view2;
-            this.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+            this.g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
             this.b = (BarImageView) this.a.findViewById(R.id.forum_icon);
             this.c = (ImageView) this.a.findViewById(R.id.square_icon);
             this.d = (TextView) this.a.findViewById(R.id.forum_name);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907dc);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907e8);
             this.a.setOnClickListener(new a(this, horizontalRecommendForumAdapter));
         }
 

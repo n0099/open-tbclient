@@ -110,12 +110,12 @@ public class ForumSelectedView extends RelativeLayout implements View.OnClickLis
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c8, (ViewGroup) this, true);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d4);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905d7);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905d3);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0905d5);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01c9, (ViewGroup) this, true);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905df);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e1);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905de);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0905e0);
             setOnClickListener(this);
             c();
         }

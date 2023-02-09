@@ -332,28 +332,28 @@ public class sl7 extends v9<ForumDetailActivity> {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091eaf);
+            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ef1);
             TextView textView = new TextView(this.a.getActivity());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.c.addView(textView, 0);
             NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f06c1));
+            navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f06ca));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
             this.e = (NoNetworkView) this.a.findViewById(R.id.no_network_view);
-            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091eae);
+            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091ef0);
             this.g = customScrollView;
             customScrollView.setOnTouchListener(new c(this, null));
-            this.h = (ItemHeaderView) this.a.findViewById(R.id.obfuscated_res_0x7f091087);
-            this.i = (ItemInfoView) this.a.findViewById(R.id.obfuscated_res_0x7f09108d);
-            this.j = (ItemMsgManage) this.a.findViewById(R.id.obfuscated_res_0x7f091094);
-            this.k = (ItemEmotionView) this.a.findViewById(R.id.obfuscated_res_0x7f091080);
-            this.l = (ItemHotThreadView) this.a.findViewById(R.id.obfuscated_res_0x7f09108a);
-            ItemFootNavView itemFootNavView = (ItemFootNavView) this.a.findViewById(R.id.obfuscated_res_0x7f091081);
+            this.h = (ItemHeaderView) this.a.findViewById(R.id.obfuscated_res_0x7f09109a);
+            this.i = (ItemInfoView) this.a.findViewById(R.id.obfuscated_res_0x7f0910a0);
+            this.j = (ItemMsgManage) this.a.findViewById(R.id.obfuscated_res_0x7f0910a7);
+            this.k = (ItemEmotionView) this.a.findViewById(R.id.obfuscated_res_0x7f091093);
+            this.l = (ItemHotThreadView) this.a.findViewById(R.id.obfuscated_res_0x7f09109d);
+            ItemFootNavView itemFootNavView = (ItemFootNavView) this.a.findViewById(R.id.obfuscated_res_0x7f091094);
             this.m = itemFootNavView;
             itemFootNavView.setClickable(true);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091d73);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091db5);
             this.j.setMsgOnClickListener(this.a);
             this.k.setEmotionOnClickListener(this.a);
             this.j.setSwitchChangeListener(this.a);
@@ -376,9 +376,9 @@ public class sl7 extends v9<ForumDetailActivity> {
             if (this.n == null) {
                 j05 j05Var = new j05(this.a.getPageContext().getPageActivity());
                 this.n = j05Var;
-                j05Var.setMessageId(R.string.obfuscated_res_0x7f0f0d9a);
+                j05Var.setMessageId(R.string.obfuscated_res_0x7f0f0da6);
                 this.n.setPositiveButton(R.string.alert_yes_button, new a(this));
-                this.n.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
+                this.n.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
             }
             this.n.create(getPageContext()).show();
         }

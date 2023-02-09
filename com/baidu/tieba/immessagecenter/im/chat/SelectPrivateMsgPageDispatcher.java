@@ -16,9 +16,9 @@ import com.baidu.tieba.hl7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.kp5;
-import com.baidu.tieba.kt8;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.op5;
+import com.baidu.tieba.ou8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class SelectPrivateMsgPageDispatcher implements kt8 {
+public class SelectPrivateMsgPageDispatcher implements ou8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements kt8 {
         }
     }
 
-    @Override // com.baidu.tieba.kt8
+    @Override // com.baidu.tieba.ou8
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;

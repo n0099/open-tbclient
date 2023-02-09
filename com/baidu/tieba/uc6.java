@@ -324,7 +324,7 @@ public class uc6 extends lc6<zd6> implements lw5 {
             t(this.l);
             t(this.m);
             this.w.setOnClickListener(this);
-            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090f66));
+            HomeGroupUbsUIHelper.handleImgMask(view2.findViewById(R.id.obfuscated_res_0x7f090f77));
         }
     }
 
@@ -378,7 +378,7 @@ public class uc6 extends lc6<zd6> implements lw5 {
                         String latitude = ((zd6) this.k).a.getLatitude();
                         String longtitude = ((zd6) this.k).a.getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c2 = vs8.e().c();
+                            AppPosInfo c2 = zt8.e().c();
                             String str2 = c2.latitude;
                             String str3 = c2.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && ej.h(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {

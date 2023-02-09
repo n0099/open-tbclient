@@ -1,263 +1,649 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j7a;
+import com.baidu.tieba.m1a;
+import com.baidu.tieba.x1a;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.FunNativeAd2;
-import com.fun.ad.sdk.FunNativeView;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.http.GetRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.qq.e.comm.constants.Constants;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class q1a extends w1a<d2a> {
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public final class q1a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Double> a;
+    public static final Handler b;
+    public static FunAdSdk.SdkInitializeCallback c;
+    public static final Handler d;
+    public static final u6a e;
+    public static final j7a f;
+    public static boolean g;
+    public static volatile boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunNativeAdListenerHelper<d2a, TTNativeAd.AdInteractionListener> f;
 
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.NativeAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q1a a;
-
-        public a(q1a q1aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040360, "Lcom/baidu/tieba/q1a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q1aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = q1aVar;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
-        public void onNativeAdLoad(List<TTNativeAd> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.d("onNativeAdLoad", new Object[0]);
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onNativeAdLoad error: list is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTNativeAd tTNativeAd : list) {
-                    arrayList.add(new d2a(tTNativeAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q1a(FunAdType funAdType, Ssp.Pid pid) {
-        super(funAdType, pid, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948040360, "Lcom/baidu/tieba/q1a;");
                 return;
             }
         }
-        this.f = new FunNativeAdListenerHelper<>(this);
+        a = new HashMap();
+        b = new a(Looper.getMainLooper());
+        HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
+        handlerThread.start();
+        d = new b(handlerThread.getLooper());
+        e = new u6a();
+        f = new j7a();
     }
 
-    public void h(FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, funAdSlot) == null) {
-            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
-            Ssp.Pid pid = this.mPid;
-            this.e.loadNativeAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements TTNativeAd.AdInteractionListener {
+    /* loaded from: classes6.dex */
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final d2a a;
-        public final /* synthetic */ q1a b;
 
-        public b(q1a q1aVar, d2a d2aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q1aVar, d2aVar};
+                Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = q1aVar;
-            this.a = d2aVar;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdClick(this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 200) {
+                q1a.e(false);
             }
         }
+    }
 
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+    /* loaded from: classes6.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdClick(this.a);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-        public void onAdShow(TTNativeAd tTNativeAd) {
+        public final void a(p1a p1aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
-                LogPrinter.d();
-                this.b.f.onAdShow(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, p1aVar) == null) {
+                String str = FunAdSdk.getFunAdConfig().appId;
+                String str2 = null;
+                try {
+                    LogPrinter.v("Start load config from assets.", new Object[0]);
+                    AssetManager assets = FunAdSdk.getAppContext().getAssets();
+                    InputStream open = assets.open(str + ".json");
+                    StringWriter stringWriter = new StringWriter();
+                    InputStreamReader inputStreamReader = new InputStreamReader(open);
+                    char[] cArr = new char[4096];
+                    while (true) {
+                        int read = inputStreamReader.read(cArr);
+                        if (-1 == read) {
+                            break;
+                        }
+                        stringWriter.write(cArr, 0, read);
+                    }
+                    String stringWriter2 = stringWriter.toString();
+                    LogPrinter.v("Config from assets load over.", new Object[0]);
+                    open.close();
+                    if (!TextUtils.isEmpty(stringWriter2)) {
+                        str2 = a2a.a(stringWriter2, str);
+                        LogPrinter.v("Config from assets decrypted over.", new Object[0]);
+                    }
+                } catch (Exception e) {
+                    LogPrinter.e(e, "The initialized config from assets cannot be loaded.", new Object[0]);
+                }
+                if (!p1aVar.b(str2)) {
+                    LogPrinter.e("Config from assets parsed failed.", new Object[0]);
+                    if (FunAdSdk.isLogEnabled()) {
+                        throw new RuntimeException("Config from assets parsed failed");
+                    }
+                }
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:68:0x016a  */
+        @Override // android.os.Handler
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void handleMessage(@NonNull Message message) {
+            Response perform;
+            Reporter a;
+            int i;
+            JSONObject jSONObject;
+            int i2;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+                boolean z2 = true;
+                switch (message.what) {
+                    case 100:
+                        HashMap hashMap = new HashMap();
+                        try {
+                            JSONObject jSONObject2 = new JSONObject();
+                            HostAppInfo.fillReqParams(jSONObject2);
+                            Iterator<String> keys = jSONObject2.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                hashMap.put(next, jSONObject2.get(next));
+                            }
+                        } catch (JSONException unused) {
+                        }
+                        try {
+                            perform = new GetRequest("https://cd.xdplt.com/v2/z", new RequestParams(hashMap)).perform();
+                        } catch (IOException e) {
+                            LogPrinter.e(e);
+                        }
+                        if (perform != null && perform.getResponseCode() == 200) {
+                            try {
+                                jSONObject = new JSONObject(perform.getContent());
+                                i2 = jSONObject.getInt(Constants.KEYS.RET);
+                                LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
+                            } catch (JSONException e2) {
+                                LogPrinter.e(e2);
+                                a = v6a.a();
+                                i = -1;
+                            }
+                            if (i2 == 200) {
+                                String string = jSONObject.getJSONObject("data").getString("content");
+                                try {
+                                } catch (Exception e3) {
+                                    LogPrinter.e(e3);
+                                    a = v6a.a();
+                                    i = -2;
+                                }
+                                if (new p1a().b(a2a.a(string, FunAdSdk.getFunAdConfig().appId))) {
+                                    d2a.b.edit().putInt("key_cp_v", 5).putString("key_serv_las_d", string).apply();
+                                    q1a.a.clear();
+                                    d2a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                                    if (z2) {
+                                    }
+                                    q1a.c();
+                                    return;
+                                }
+                                a = v6a.a();
+                                i = -3;
+                                a.logEvent("k_ppcfg", "st", Integer.valueOf(i));
+                                z2 = false;
+                                d2a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                                if (z2) {
+                                }
+                                q1a.c();
+                                return;
+                            }
+                            z2 = false;
+                            d2a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                            if (z2) {
+                                q1a.b.sendEmptyMessage(200);
+                            }
+                            q1a.c();
+                            return;
+                        }
+                        LogPrinter.e("Pull ad config failed.", new Object[0]);
+                        z2 = false;
+                        d2a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
+                        if (z2) {
+                        }
+                        q1a.c();
+                        return;
+                    case 101:
+                        a(new p1a());
+                        break;
+                    case 102:
+                        String str = null;
+                        try {
+                            str = a2a.a(d2a.b.getString("key_serv_las_d", null), FunAdSdk.getFunAdConfig().appId);
+                        } catch (Exception e4) {
+                            LogPrinter.e(e4, "Parsing err from latest cipher occurs, abandon the err data", new Object[0]);
+                        }
+                        if (str == null) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        p1a p1aVar = new p1a();
+                        if (!z && !p1aVar.b(str)) {
+                            LogPrinter.e("Config parsed failed from latest cipher data,use cipher data from assets instead", new Object[0]);
+                        } else {
+                            z2 = z;
+                        }
+                        if (z2) {
+                            a(p1aVar);
+                            d2a.b.edit().remove("key_cp_v").remove("key_serv_las_d").apply();
+                            break;
+                        } else {
+                            d2a.b.edit().putInt("key_cp_v", 5).apply();
+                            break;
+                        }
+                    default:
+                        return;
+                }
+                q1a.b.obtainMessage(200).sendToTarget();
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public static int a(String str, Ssp.Pid pid) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            this.f.destroy((d2a) obj);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
+            x1a x1aVar = e.b;
+            synchronized (x1aVar.a) {
+                Deque<x1a.c> deque = x1aVar.a.get(str);
+                i = 0;
+                if (deque != null) {
+                    Iterator<x1a.c> descendingIterator = deque.descendingIterator();
+                    while (true) {
+                        if (!descendingIterator.hasNext()) {
+                            break;
+                        }
+                        x1a.c next = descendingIterator.next();
+                        if (next.a().contains(pid)) {
+                            i = next.b();
+                            break;
+                        }
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static z1a b(String str) {
+        InterceptResult invokeL;
+        z1a z1aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            u6a u6aVar = e;
+            synchronized (u6aVar) {
+                if (u6aVar.a == null) {
+                    LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
+                    z1aVar = null;
+                } else {
+                    z1aVar = u6aVar.c.get(str);
+                }
+            }
+            return z1aVar;
+        }
+        return (z1a) invokeL.objValue;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
+            SharedPreferences sharedPreferences = d2a.b;
+            long j = 0;
+            long j2 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
+            if (j2 > 0) {
+                long currentTimeMillis = System.currentTimeMillis() - j2;
+                if (currentTimeMillis >= 0) {
+                    long j3 = sharedPreferences.getInt("key_config_interval", 15) * 60 * 1000;
+                    if (currentTimeMillis < j3) {
+                        j = j3 - currentTimeMillis;
+                    }
+                }
+            }
+            long max = Math.max(10000L, j);
+            LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
+            Handler handler = d;
+            handler.removeMessages(100);
+            handler.sendEmptyMessageDelayed(100, max);
         }
     }
 
-    public void f(Activity activity, d2a d2aVar, ViewGroup viewGroup, com.fun.module.csj.g0 g0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
+    public static void d(k1a k1aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, d2aVar, viewGroup, g0Var, adInteractionListener) == null) {
-            ((TTNativeAd) d2aVar.a).setActivityForDownloadApp(activity);
-            ((TTNativeAd) d2aVar.a).registerViewForInteraction(viewGroup, g0Var.getClickViews(), g0Var.getCreativeViews(), adInteractionListener);
-            ((TTNativeAd) d2aVar.a).setDownloadListener(g0Var.getDownloadListener());
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, k1aVar) == null) {
+            h = true;
+            j7a j7aVar = f;
+            synchronized (j7aVar.b) {
+                j7aVar.e = k1aVar;
+                j7aVar.d = 1;
+                while (!j7aVar.c.isEmpty()) {
+                    j7a.a pollFirst = j7aVar.c.pollFirst();
+                    if (!j7a.f && pollFirst == null) {
+                        throw new AssertionError();
+                    }
+                    j7aVar.loadAd(pollFirst.a, pollFirst.b, pollFirst.c);
+                }
+            }
+            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = c;
+            if (sdkInitializeCallback != null) {
+                sdkInitializeCallback.onComplete();
+            }
+            c = null;
         }
     }
 
-    public final void g(Context context, d2a d2aVar, String str, ViewGroup viewGroup, List<View> list, List<View> list2, TTNativeAd.AdInteractionListener adInteractionListener, FunAdInteractionListener funAdInteractionListener) {
+    /* JADX WARN: Removed duplicated region for block: B:118:0x01f8  */
+    /* JADX WARN: Removed duplicated region for block: B:125:0x0209  */
+    /* JADX WARN: Removed duplicated region for block: B:127:0x020d  */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0238  */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0110 A[Catch: all -> 0x0265, TRY_LEAVE, TryCatch #0 {, blocks: (B:38:0x00a3, B:40:0x00a7, B:42:0x00ad, B:43:0x00b5, B:62:0x0110, B:46:0x00c6, B:47:0x00d3, B:49:0x00d9, B:50:0x00e3, B:52:0x00e9, B:54:0x00f9, B:56:0x0103, B:65:0x011a, B:69:0x0122, B:73:0x0134, B:72:0x0132, B:68:0x0120), top: B:143:0x00a3 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void e(boolean z) {
+        boolean z2;
+        boolean z3;
+        Set<w1a> set;
+        Set<u1a> set2;
+        boolean z4;
+        char c2;
+        String str;
+        boolean z5;
+        boolean z6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, d2aVar, str, viewGroup, list, list2, adInteractionListener, funAdInteractionListener}) == null) {
-            if (viewGroup instanceof FunNativeView) {
-                viewGroup = ((FunNativeView) viewGroup).getRoot();
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            char c3 = 0;
+            LogPrinter.v("tryInitialize", new Object[0]);
+            if (5 == d2a.b.getInt("key_cp_v", 5)) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            this.f.startShow(d2aVar, str, this.mPid, adInteractionListener, funAdInteractionListener);
-            if (context instanceof Activity) {
-                ((TTNativeAd) d2aVar.a).setActivityForDownloadApp((Activity) context);
+            if (!z2) {
+                d.obtainMessage(102).sendToTarget();
+                return;
             }
-            if (list == null) {
-                list = new ArrayList<>();
+            c();
+            FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
+            g1a b2 = d2a.b();
+            m1a.a = d2a.l();
+            Object[] objArr = new Object[2];
+            if (b2 != null) {
+                z3 = true;
+            } else {
+                z3 = false;
             }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
+            objArr[0] = Boolean.valueOf(z3);
+            objArr[1] = Boolean.valueOf(z);
+            LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
+            if (b2 == null) {
+                if (z) {
+                    d.obtainMessage(101).sendToTarget();
+                    return;
+                }
+                LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
+                j7a j7aVar = f;
+                synchronized (j7aVar.b) {
+                    j7aVar.d = -1;
+                    while (!j7aVar.c.isEmpty()) {
+                        j7a.a pollFirst = j7aVar.c.pollFirst();
+                        if (!j7a.f && pollFirst == null) {
+                            throw new AssertionError();
+                        }
+                        pollFirst.c.onError(pollFirst.b.getSid());
+                    }
+                }
+                return;
             }
-            ((TTNativeAd) d2aVar.a).registerViewForInteraction(viewGroup, list, list2, adInteractionListener);
-        }
-    }
+            u6a u6aVar = e;
+            synchronized (u6aVar) {
+                g1a g1aVar = u6aVar.a;
+                if (g1aVar != null) {
+                    if (g1aVar.equals(b2)) {
+                        LogPrinter.d("New AdConfig equals old one, give up updating it", new Object[0]);
+                    } else {
+                        g1a g1aVar2 = u6aVar.a;
+                        if (g1aVar2.a.size() == b2.a.size()) {
+                            HashSet hashSet = new HashSet(b2.a);
+                            for (Ssp ssp : g1aVar2.a) {
+                                Iterator it = hashSet.iterator();
+                                while (true) {
+                                    if (it.hasNext()) {
+                                        Ssp ssp2 = (Ssp) it.next();
+                                        if (ssp.type.equals(ssp2.type) && ssp.sspId.equals(ssp2.sspId)) {
+                                            it.remove();
+                                            z6 = true;
+                                            continue;
+                                            break;
+                                        }
+                                    } else {
+                                        z6 = false;
+                                        continue;
+                                        break;
+                                    }
+                                }
+                                if (!z6) {
+                                }
+                            }
+                            z5 = true;
+                            if (!z5) {
+                                LogPrinter.d("New AdConfig.ssps don't correspond to old ones, give up updating it", new Object[0]);
+                            }
+                        }
+                        z5 = false;
+                        if (!z5) {
+                        }
+                    }
+                    z4 = false;
+                }
+                g1a g1aVar3 = u6aVar.a;
+                if (g1aVar3 == null) {
+                    set = null;
+                } else {
+                    set = g1aVar3.b;
+                }
+                u6aVar.a(set, b2.b, new e2a(u6aVar));
+                g1a g1aVar4 = u6aVar.a;
+                if (g1aVar4 == null) {
+                    set2 = null;
+                } else {
+                    set2 = g1aVar4.c;
+                }
+                u6aVar.a(set2, b2.c, new t6a(u6aVar));
+                u6aVar.a = b2;
+                z4 = true;
+            }
+            if (!z4) {
+                LogPrinter.d("Do not need to reset FunAdFactory.", new Object[0]);
+                return;
+            }
+            HostAppInfo.updateCfgv(d2a.b.getLong("key_config_v", 0L));
+            if (!g) {
+                g = true;
+                y0a y0aVar = new m1a.a() { // from class: com.baidu.tieba.y0a
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
-            return new t1a((d2a) obj, str, this.mPid, this);
-        }
-        return (FunNativeAd) invokeLLL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
-            d2a d2aVar = (d2a) obj;
-            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, d2aVar, new t1a(d2aVar, str, this.mPid, this), new u1a(this, this, d2aVar));
-        }
-        return (FunNativeAd2) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    /* renamed from: l */
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, d2a d2aVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, d2aVar)) == null) {
-            onShowStart(d2aVar);
-            com.fun.module.csj.g0 a2 = r1a.a((TTNativeAd) d2aVar.a);
-            if (a2 == null) {
-                onAdError(d2aVar, 0, "AdView present failed");
-                return false;
+                    @Override // com.baidu.tieba.m1a.a
+                    public final void a(k1a k1aVar) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, k1aVar) == null) {
+                            q1a.d(k1aVar);
+                        }
+                    }
+                };
+                if (Looper.myLooper() == Looper.getMainLooper()) {
+                    HashMap hashMap = new HashMap();
+                    ArrayList arrayList = new ArrayList();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    for (Ssp ssp3 : b2.a) {
+                        if (!TextUtils.isEmpty(ssp3.sspId)) {
+                            if (funAdConfig.forbiddenPlatforms.contains(ssp3.type)) {
+                                Object[] objArr2 = new Object[1];
+                                objArr2[c3] = ssp3.type;
+                                LogPrinter.d("Ssp:%s is not initialized for type is forbidden", objArr2);
+                            } else {
+                                long currentTimeMillis2 = System.currentTimeMillis();
+                                String str2 = ssp3.type;
+                                str2.hashCode();
+                                int hashCode = str2.hashCode();
+                                if (hashCode != 3160) {
+                                    if (hashCode != 3175) {
+                                        if (hashCode != 3178) {
+                                            if (hashCode == 98810 && str2.equals(FunAdSdk.PLATFORM_CSJ)) {
+                                                c2 = 3;
+                                                if (c2 == 0) {
+                                                    if (c2 != 1) {
+                                                        if (c2 != 2) {
+                                                            if (c2 != 3) {
+                                                                str = null;
+                                                            } else {
+                                                                str = "com.fun.ad.sdk.channel.CsjModule";
+                                                            }
+                                                        } else {
+                                                            str = "com.fun.ad.sdk.channel.CMModule";
+                                                        }
+                                                    } else {
+                                                        str = "com.fun.ad.sdk.channel.CjModule";
+                                                    }
+                                                } else {
+                                                    str = "com.fun.ad.sdk.channel.BzModule";
+                                                }
+                                                if (str == null) {
+                                                    LogPrinter.d("sdk for %s init start", ssp3.type);
+                                                    m1a.f(ssp3.type, str, funAdConfig, hashMap, ssp3.sspId);
+                                                    LogPrinter.d("sdk for %s init end, used time :%s", ssp3.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
+                                                } else {
+                                                    arrayList.add(ssp3);
+                                                }
+                                                c3 = 0;
+                                            }
+                                            c2 = 65535;
+                                            if (c2 == 0) {
+                                            }
+                                            if (str == null) {
+                                            }
+                                            c3 = 0;
+                                        } else {
+                                            if (str2.equals(FunAdSdk.PLATFORM_CM)) {
+                                                c2 = 2;
+                                                if (c2 == 0) {
+                                                }
+                                                if (str == null) {
+                                                }
+                                                c3 = 0;
+                                            }
+                                            c2 = 65535;
+                                            if (c2 == 0) {
+                                            }
+                                            if (str == null) {
+                                            }
+                                            c3 = 0;
+                                        }
+                                    } else {
+                                        if (str2.equals(FunAdSdk.PLATFORM_CJ)) {
+                                            c2 = 1;
+                                            if (c2 == 0) {
+                                            }
+                                            if (str == null) {
+                                            }
+                                            c3 = 0;
+                                        }
+                                        c2 = 65535;
+                                        if (c2 == 0) {
+                                        }
+                                        if (str == null) {
+                                        }
+                                        c3 = 0;
+                                    }
+                                } else {
+                                    if (str2.equals(FunAdSdk.PLATFORM_BZ)) {
+                                        c2 = 0;
+                                        if (c2 == 0) {
+                                        }
+                                        if (str == null) {
+                                        }
+                                        c3 = 0;
+                                    }
+                                    c2 = 65535;
+                                    if (c2 == 0) {
+                                    }
+                                    if (str == null) {
+                                    }
+                                    c3 = 0;
+                                }
+                            }
+                        }
+                    }
+                    if (!arrayList.isEmpty()) {
+                        new Thread(new l1a(arrayList, funAdConfig, hashMap, currentTimeMillis, y0aVar)).start();
+                        return;
+                    } else {
+                        m1a.e(currentTimeMillis, y0aVar, funAdConfig, hashMap);
+                        return;
+                    }
+                }
+                throw new RuntimeException("Wrong thread");
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(a2);
-            f(activity, d2aVar, viewGroup, a2, new s1a(this, d2aVar, null, str));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            onLoadStart(funAdSlot);
-            h(funAdSlot);
         }
     }
 }

@@ -156,7 +156,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f12b9));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f12cf));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -168,18 +168,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080b50);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080b5f);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080b51);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080b60);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080b52);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080b61);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080949);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f080958);
             this.i.setSkinType(i);
         }
     }
@@ -187,17 +187,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092437);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092481);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ej.g(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092438);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0926e7);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0913f7);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0913f8);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f66);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f67);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092439);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090689);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092482);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092748);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09140c);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09140d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091faa);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092483);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090694);
         }
     }
 }

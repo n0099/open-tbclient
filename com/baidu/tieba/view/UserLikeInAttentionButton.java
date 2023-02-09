@@ -96,7 +96,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements p55
         n45 n45Var = new n45();
         n45Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
         setConfig(n45Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9));
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
     }
 
     @Override // com.baidu.tieba.p55
@@ -164,7 +164,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements p55
                 n45Var2.r(R.color.CAM_X0302, R.color.CAM_X0101);
                 setConfig(n45Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

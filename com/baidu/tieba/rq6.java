@@ -105,7 +105,7 @@ public class rq6 {
         this.o = new a(this, 2001304);
         this.a = context;
         this.n = tbPageContext;
-        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ce, (ViewGroup) null);
+        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d0, (ViewGroup) null);
         l();
         k();
     }
@@ -483,14 +483,14 @@ public class rq6 {
             NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.navigation_bar);
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f070f));
+            this.e.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0718));
             View addCustomView = this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
             this.g = addCustomView;
             TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
             this.f = textView;
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0710));
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090af9);
-            ForumHeaderView forumHeaderView = (ForumHeaderView) this.b.findViewById(R.id.obfuscated_res_0x7f090afa);
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0719));
+            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090b0a);
+            ForumHeaderView forumHeaderView = (ForumHeaderView) this.b.findViewById(R.id.obfuscated_res_0x7f090b0b);
             this.d = forumHeaderView;
             forumHeaderView.setFrom(1);
             this.d.setSearchHint(TbSingleton.getInstance().getHotSearch());

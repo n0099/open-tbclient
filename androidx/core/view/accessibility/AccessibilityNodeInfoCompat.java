@@ -1329,7 +1329,7 @@ public class AccessibilityNodeInfoCompat {
             SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view2.setTag(R.id.obfuscated_res_0x7f092139, sparseArray);
+                view2.setTag(R.id.obfuscated_res_0x7f09217f, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -1341,7 +1341,7 @@ public class AccessibilityNodeInfoCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) {
-            return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092139);
+            return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f09217f);
         }
         return (SparseArray) invokeL.objValue;
     }

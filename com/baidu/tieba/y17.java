@@ -175,7 +175,7 @@ public class y17 implements NetModel.k {
             j05Var.setCanceledOnTouchOutside(false);
             j05Var.setCancelable(false);
             j05Var.setMessage(str);
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a46, new c(this, j05Var));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a50, new c(this, j05Var));
             j05Var.create(this.a);
             j05Var.show();
         }
@@ -226,7 +226,7 @@ public class y17 implements NetModel.k {
         }
         if (x17Var.b != 0) {
             if (StringUtils.isNull(x17Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0d08);
                 return;
             } else {
                 this.a.showToast(x17Var.c);
@@ -254,7 +254,7 @@ public class y17 implements NetModel.k {
         }
         if (x17Var.b != 0) {
             if (StringUtils.isNull(x17Var.c)) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0d08);
                 return;
             } else {
                 this.a.showToast(x17Var.c);

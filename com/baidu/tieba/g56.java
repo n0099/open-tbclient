@@ -381,8 +381,8 @@ public class g56 {
             if (pbListView.c().getParent() == null) {
                 this.k.setNextPage(this.r);
             }
-            this.r.Q();
-            this.r.S();
+            this.r.R();
+            this.r.T();
         }
     }
 
@@ -390,11 +390,11 @@ public class g56 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.m == null) {
-                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f4, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f5, (ViewGroup) null);
                 this.m = inflate;
-                this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bae);
-                this.o = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090baf);
-                this.p = this.m.findViewById(R.id.obfuscated_res_0x7f090bb7);
+                this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bbf);
+                this.o = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090bc0);
+                this.p = this.m.findViewById(R.id.obfuscated_res_0x7f090bc8);
                 this.n.setOnClickListener(new c(this));
                 this.o.setOnClickListener(new d(this));
             }
@@ -418,13 +418,13 @@ public class g56 {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f0, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f1, (ViewGroup) null);
             this.g = inflate;
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f090bb8);
-            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090bb0);
-            this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090bb6);
-            this.k = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f09140a);
-            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0925ed);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f090bc9);
+            this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090bc1);
+            this.j = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090bc7);
+            this.k = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f09141f);
+            this.s = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f09263c);
             z35 z35Var = new z35(this.a);
             this.q = z35Var;
             z35Var.a0(this.f);
@@ -479,7 +479,7 @@ public class g56 {
     public void o(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && this.i != null) {
-            this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0747, StringHelper.numberUniformFormatExtra(i)));
+            this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0750, StringHelper.numberUniformFormatExtra(i)));
             if (i <= 1) {
                 this.j.setVisibility(8);
             } else {
@@ -495,10 +495,10 @@ public class g56 {
             if (i == 1) {
                 TextView textView2 = this.j;
                 if (textView2 != null) {
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f074b));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0754));
                 }
             } else if (i == 2 && (textView = this.j) != null) {
-                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f074c));
+                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0755));
             }
         }
     }

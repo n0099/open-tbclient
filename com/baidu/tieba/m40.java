@@ -33,7 +33,7 @@ public class m40 implements i40 {
 
         /* renamed from: com.baidu.tieba.m40$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class C0341a {
+        public static class C0343a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public String a;
@@ -41,7 +41,7 @@ public class m40 implements i40 {
             public String c;
             public int d;
 
-            public C0341a(Context context) {
+            public C0343a(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,9 +178,9 @@ public class m40 implements i40 {
             StringBuilder sb;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                C0341a c0341a = new C0341a(context);
-                String d = c0341a.d();
-                int c = c0341a.c();
+                C0343a c0343a = new C0343a(context);
+                String d = c0343a.d();
+                int c = c0343a.c();
                 if (TextUtils.isEmpty(d)) {
                     sb = new StringBuilder();
                 } else {

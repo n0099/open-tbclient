@@ -23,7 +23,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aw5;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.n21;
-import com.baidu.tieba.nr8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -168,7 +168,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                nr8.a(this.a.getContext(), str3, null, null, str);
+                rs8.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -219,7 +219,7 @@ public class AdAppInfoView extends FrameLayout {
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fa);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09087c);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09088a);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }

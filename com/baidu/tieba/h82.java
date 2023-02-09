@@ -286,7 +286,7 @@ public class h82 extends c82 implements d83.a {
                 if (view2 == null) {
                     return null;
                 }
-                this.G0 = new d83(this, (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901a1), 0);
+                this.G0 = new d83(this, (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901a3), 0);
             }
             return this.G0;
         }
@@ -331,7 +331,7 @@ public class h82 extends c82 implements d83.a {
             J2(false);
             t2(-1);
             C2(-16777216);
-            v2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1327));
+            v2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f133e));
             x2(true);
             b3();
         }
@@ -361,7 +361,7 @@ public class h82 extends c82 implements d83.a {
         if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || w83.b0() == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d8e);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dd0);
         textView.setTextIsSelectable(true);
         StringBuilder sb = new StringBuilder();
         sb.append(pl3.l(this.c0));
@@ -380,7 +380,7 @@ public class h82 extends c82 implements d83.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView textView = new TextView(getContext());
-            textView.setText(R.string.obfuscated_res_0x7f0f1326);
+            textView.setText(R.string.obfuscated_res_0x7f0f133d);
             textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06025a));
             textView.setOnClickListener(new b(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -397,7 +397,7 @@ public class h82 extends c82 implements d83.a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00ca, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00cb, viewGroup, false);
             U1(inflate);
             Y2(inflate);
             if (T1()) {

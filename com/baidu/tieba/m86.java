@@ -262,12 +262,12 @@ public class m86 {
                 if (this.a.D != null && this.a.b != null) {
                     if (BdNetTypeUtil.isNetWorkAvailable()) {
                         if (this.a.d == b96.c) {
-                            this.a.D.N(ej.g(this.a.b, R.dimen.tbds152));
+                            this.a.D.O(ej.g(this.a.b, R.dimen.tbds152));
                         }
                         this.a.s.setNextPage(this.a.D);
                         this.a.D.E(null);
                         if (this.a.K) {
-                            this.a.D.P();
+                            this.a.D.Q();
                             this.a.b.y1();
                             return;
                         }
@@ -339,18 +339,18 @@ public class m86 {
         this.M = new c(this);
         this.N = new d(this);
         this.b = barVoteActivity;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(barVoteActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013e, (ViewGroup) null);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(barVoteActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013f, (ViewGroup) null);
         this.j = relativeLayout;
         this.b.addContentView(relativeLayout, new FrameLayout.LayoutParams(-1, -1));
         BarVoteActivity barVoteActivity2 = this.b;
         barVoteActivity2.showLoadingView(this.j, false, ej.g(barVoteActivity2, R.dimen.obfuscated_res_0x7f0702bc));
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f09140d);
-        this.H = (ViewGroup) this.j.findViewById(R.id.obfuscated_res_0x7f0917ba);
-        this.o = this.j.findViewById(R.id.obfuscated_res_0x7f09171c);
-        View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f09171d);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091422);
+        this.H = (ViewGroup) this.j.findViewById(R.id.obfuscated_res_0x7f0917d3);
+        this.o = this.j.findViewById(R.id.obfuscated_res_0x7f091733);
+        View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f091734);
         this.q = findViewById;
         findViewById.setAlpha(0.0f);
-        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f09272c);
+        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f09278d);
         this.p = navigationBar;
         navigationBar.setCenterTextTitle(this.b.getResources().getString(R.string.bar_manager_recruit));
         if (this.p.getBarBgView() != null) {
@@ -362,16 +362,16 @@ public class m86 {
         this.r = textView;
         textView.setText(R.string.bar_election_rule);
         this.r.setOnClickListener(this.b);
-        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f09272a);
+        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f09278b);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b);
         this.i = linearLayoutManager;
         this.s.setLayoutManager(linearLayoutManager);
         VoteAdapter voteAdapter = new VoteAdapter(barVoteActivity.getPageContext());
         this.z = voteAdapter;
         this.s.setAdapter(voteAdapter);
-        this.l = (ViewGroup) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0931, (ViewGroup) null, false);
+        this.l = (ViewGroup) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0946, (ViewGroup) null, false);
         this.l.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.m = (TbImageView) this.l.findViewById(R.id.obfuscated_res_0x7f090dff);
+        this.m = (TbImageView) this.l.findViewById(R.id.obfuscated_res_0x7f090e10);
         this.m.setLayoutParams(new LinearLayout.LayoutParams(-1, (ej.l(this.b) * 884) / 1076));
         this.s.s(this.l);
         this.s.addOnScrollListener(this.M);
@@ -382,20 +382,20 @@ public class m86 {
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, this.C));
         this.n.setVisibility(4);
         this.s.r(this.n);
-        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092730);
+        VoteStatusCard voteStatusCard = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092791);
         this.t = voteStatusCard;
         voteStatusCard.setOnRefreshListener(this.L);
-        this.v = this.l.findViewById(R.id.obfuscated_res_0x7f090344);
-        this.w = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f090348);
-        SelectRuleView selectRuleView = (SelectRuleView) this.l.findViewById(R.id.obfuscated_res_0x7f090345);
+        this.v = this.l.findViewById(R.id.obfuscated_res_0x7f09034c);
+        this.w = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f090350);
+        SelectRuleView selectRuleView = (SelectRuleView) this.l.findViewById(R.id.obfuscated_res_0x7f09034d);
         this.x = selectRuleView;
         selectRuleView.setType(1);
-        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f092720);
-        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f09272e);
+        this.u = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f092781);
+        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f09278f);
         this.y = searchView;
         searchView.a(new e(this));
-        this.A = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f090a80);
-        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092738);
+        this.A = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f090a8e);
+        this.B = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092799);
         PbListView pbListView = new PbListView(this.b);
         this.D = pbListView;
         pbListView.c();
@@ -487,12 +487,12 @@ public class m86 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.d == b96.c) {
-                this.D.N(ej.g(this.b, R.dimen.tbds152));
+                this.D.O(ej.g(this.b, R.dimen.tbds152));
             }
             this.D.E(this.b);
             this.s.setNextPage(this.D);
             if (this.K) {
-                this.D.O();
+                this.D.P();
                 return;
             }
             this.D.F(this.b.getResources().getString(R.string.list_has_no_more));
@@ -565,7 +565,7 @@ public class m86 {
                 this.G = new lf5(this.b, this.J);
             }
             this.G.k(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds340));
-            this.G.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe));
+            this.G.m(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d08));
             this.G.attachView(this.k, true);
             this.G.p();
             this.G.onChangeSkinType();

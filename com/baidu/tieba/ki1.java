@@ -221,18 +221,18 @@ public class ki1 extends Dialog {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d022d);
+            setContentView(R.layout.obfuscated_res_0x7f0d022e);
             Window window = getWindow();
             if (window != null) {
                 window.setGravity(80);
                 window.setWindowAnimations(R.style.obfuscated_res_0x7f1003a6);
                 window.setLayout(-1, -2);
             }
-            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f0905b0);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0905b1);
+            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f0905bb);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0905bc);
             this.c = frameLayout;
             frameLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910db);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ee);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
             setOnCancelListener(new b(this));

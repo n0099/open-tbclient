@@ -39,13 +39,13 @@ public class dq3 extends zw1 {
 
         /* renamed from: com.baidu.tieba.dq3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0251a implements pn3<zd3<be3.e>> {
+        public class C0249a implements pn3<zd3<be3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ yw1.b a;
             public final /* synthetic */ a b;
 
-            public C0251a(a aVar, yw1.b bVar) {
+            public C0249a(a aVar, yw1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class dq3 extends zw1 {
                 if (b0 == null) {
                     return new w02(1001, "null swan runtime");
                 }
-                b0.e0().g(v83.K(), "mapp_i_get_bduss", new C0251a(this, bVar));
+                b0.e0().g(v83.K(), "mapp_i_get_bduss", new C0249a(this, bVar));
                 return w02.f();
             }
             return (w02) invokeLL.objValue;

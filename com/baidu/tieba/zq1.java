@@ -45,22 +45,22 @@ public class zq1 implements dt1 {
         public boolean c;
         public String d;
         public sw2 e;
-        public HandlerC0507b f;
+        public HandlerC0508b f;
         public a g;
 
         /* loaded from: classes7.dex */
         public class a extends eu2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0507b a;
+            public HandlerC0508b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0507b handlerC0507b) {
+            public a(b bVar, HandlerC0508b handlerC0508b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0507b};
+                    Object[] objArr = {bVar, handlerC0508b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class zq1 implements dt1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0507b;
+                this.a = handlerC0508b;
             }
 
             @Override // com.baidu.tieba.eu2, android.app.Application.ActivityLifecycleCallbacks
@@ -83,9 +83,9 @@ public class zq1 implements dt1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0507b handlerC0507b = this.a;
-                        if (handlerC0507b != null) {
-                            handlerC0507b.removeMessages(1);
+                        HandlerC0508b handlerC0508b = this.a;
+                        if (handlerC0508b != null) {
+                            handlerC0508b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -97,13 +97,13 @@ public class zq1 implements dt1 {
 
         /* renamed from: com.baidu.tieba.zq1$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class HandlerC0507b extends Handler {
+        public static class HandlerC0508b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public HandlerC0507b(Context context) {
+            public HandlerC0508b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class zq1 implements dt1 {
                 this.a = new WeakReference<>(context);
             }
 
-            public /* synthetic */ HandlerC0507b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0508b(Context context, a aVar) {
                 this(context);
             }
 
@@ -147,9 +147,9 @@ public class zq1 implements dt1 {
                     if ((context2 instanceof Activity) && !((Activity) context2).isFinishing()) {
                         Dialog dialog2 = new Dialog(this.a.get(), R.style.obfuscated_res_0x7f1001a2);
                         this.b = dialog2;
-                        dialog2.setContentView(R.layout.obfuscated_res_0x7f0d0853);
+                        dialog2.setContentView(R.layout.obfuscated_res_0x7f0d0865);
                         boolean a = ds2.M().a();
-                        View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f09134f);
+                        View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f091363);
                         if (a) {
                             i = 0;
                         } else {
@@ -184,7 +184,7 @@ public class zq1 implements dt1 {
             this.c = vl3.c(bundle, "compressed", false);
             this.d = vl3.g(bundle, "swanTmpPath");
             this.e = sw2Var;
-            this.f = new HandlerC0507b(context, null);
+            this.f = new HandlerC0508b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -255,9 +255,9 @@ public class zq1 implements dt1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0507b handlerC0507b = this.f;
-                if (handlerC0507b != null) {
-                    handlerC0507b.sendEmptyMessage(1);
+                HandlerC0508b handlerC0508b = this.f;
+                if (handlerC0508b != null) {
+                    handlerC0508b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -288,9 +288,9 @@ public class zq1 implements dt1 {
                         }
                     }
                 }
-                HandlerC0507b handlerC0507b2 = this.f;
-                if (handlerC0507b2 != null) {
-                    handlerC0507b2.sendEmptyMessage(2);
+                HandlerC0508b handlerC0508b2 = this.f;
+                if (handlerC0508b2 != null) {
+                    handlerC0508b2.sendEmptyMessage(2);
                 }
                 sw2 sw2Var = this.e;
                 if (sw2Var != null) {

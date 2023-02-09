@@ -26,7 +26,7 @@ public class x26 extends mc6<h26> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0872 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0884 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -59,8 +59,8 @@ public class x26 extends mc6<h26> {
         this.j = new w26(tbPageContext, str);
         ViewGroup viewGroup2 = (ViewGroup) h();
         this.l = viewGroup2;
-        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090f27);
-        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090f1d);
+        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090f38);
+        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090f2e);
         View view2 = new View(getContext());
         this.k.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), g().getResources().getDimensionPixelSize(R.dimen.tbds12));
         this.k.addView(this.i.h());

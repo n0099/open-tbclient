@@ -186,15 +186,15 @@ public final class n extends d implements View.OnClickListener {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f5);
-            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f8);
-            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fc);
-            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f0911fb);
-            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f6);
-            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f7);
-            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f4);
-            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0911f3);
+            this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091209);
+            this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f09120d);
+            this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091210);
+            this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f09120f);
+            this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09120a);
+            this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09120b);
+            this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091208);
+            this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091207);
             this.vM.setOnClickListener(this);
             this.vQ.setOnClickListener(this);
             this.vP.setOnClickListener(this);
@@ -295,17 +295,17 @@ public final class n extends d implements View.OnClickListener {
                     marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070390);
                 }
                 this.vM.setBackgroundColor(-1);
-                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060781));
-                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077d));
+                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060782));
+                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077e));
                 this.qC = com.kwad.sdk.b.kwai.a.A(this.mj);
                 com.kwad.sdk.b.kwai.a.i(this.mj, 49);
             } else {
                 if (marginLayoutParams != null) {
                     marginLayoutParams.bottomMargin = 0;
                 }
-                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060782));
-                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077e));
-                this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06077f));
+                this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060783));
+                this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06077f));
+                this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060780));
             }
             if (marginLayoutParams != null) {
                 this.vM.setLayoutParams(marginLayoutParams);

@@ -359,7 +359,7 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.p {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0081, (ViewGroup) null);
+            View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0082, (ViewGroup) null);
             setContentView(inflate);
             ft7 ft7Var = new ft7(getPageContext(), inflate);
             this.b = ft7Var;

@@ -890,8 +890,8 @@ public final class xo3 {
             aVar.x(str2);
             aVar.n(new eo3());
             aVar.m(true);
-            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1312), new i(activity));
-            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f1313), null);
+            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1329), new i(activity));
+            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f132a), null);
             aVar.X();
         }
     }

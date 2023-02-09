@@ -143,9 +143,9 @@ public class ex7 implements ag {
                     }
                     if (this.a.d != null) {
                         this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
-                        vs8.e().i(String.valueOf(this.a.h.getLatitude()));
-                        vs8.e().j(String.valueOf(this.a.h.getLongitude()));
-                        vs8.e().k(System.currentTimeMillis());
+                        zt8.e().i(String.valueOf(this.a.h.getLatitude()));
+                        zt8.e().j(String.valueOf(this.a.h.getLongitude()));
+                        zt8.e().k(System.currentTimeMillis());
                     }
                 }
             }

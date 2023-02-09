@@ -120,7 +120,7 @@ public abstract class m27 implements o27 {
             }
         }
         this.h = true;
-        lz8.b();
+        p09.b();
     }
 
     @Override // com.baidu.tieba.o27

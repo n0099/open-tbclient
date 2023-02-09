@@ -251,7 +251,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) this, true);
+            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a2, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
             marginLayoutParams.bottomMargin = ej.g(getContext(), R.dimen.M_H_X003);
@@ -261,12 +261,12 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.n = ej.g(getContext(), R.dimen.tbds115);
             this.m = ej.g(getContext(), R.dimen.tbds3);
             u = (((ej.l(getContext()) - (ej.g(getContext(), R.dimen.M_W_X004) * 5)) - ej.g(getContext(), R.dimen.M_W_X006)) - ej.g(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092314);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09071d);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09164f);
-            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f09032d);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f6c);
-            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f09034a);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090728);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091665);
+            this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090335);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090f7d);
+            this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f090352);
             this.h = (ImageView) findViewById(R.id.comment_icon);
             this.c = (EMTextView) findViewById(R.id.comment_num);
             this.g = (AgreeView) findViewById(R.id.agree_and_disagreeview);

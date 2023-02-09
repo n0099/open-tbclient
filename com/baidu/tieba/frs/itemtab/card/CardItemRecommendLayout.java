@@ -119,7 +119,7 @@ public class CardItemRecommendLayout extends LinearLayout implements ay {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c03);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c14);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -127,9 +127,9 @@ public class CardItemRecommendLayout extends LinearLayout implements ay {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(da.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c04);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c06);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c05);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c15);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c17);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c16);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -295,7 +295,7 @@ public class CardItemRecommendLayout extends LinearLayout implements ay {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0333, (ViewGroup) null));
+                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0335, (ViewGroup) null));
                 dVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -402,7 +402,7 @@ public class CardItemRecommendLayout extends LinearLayout implements ay {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0770);
+            this.a.setText(R.string.obfuscated_res_0x7f0f0779);
             p15 d2 = p15.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);

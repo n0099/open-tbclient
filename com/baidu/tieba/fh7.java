@@ -21,7 +21,7 @@ public class fh7 extends mc6<dh7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ba : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bb : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.mc6
@@ -56,7 +56,7 @@ public class fh7 extends mc6<dh7> {
                 return;
             }
         }
-        this.i = h().findViewById(R.id.obfuscated_res_0x7f09059e);
+        this.i = h().findViewById(R.id.obfuscated_res_0x7f0905a9);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

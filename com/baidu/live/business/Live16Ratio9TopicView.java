@@ -389,7 +389,7 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
                 if (view2 == null) {
                     View inflate = this.o.inflate();
                     this.p = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091456);
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f09146b);
                     this.q = liveBaseLottieView;
                     liveBaseLottieView.setRepeatCount(-1);
                     this.q.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
@@ -503,19 +503,19 @@ public class Live16Ratio9TopicView extends LiveBaseItemView {
             this.s = context;
             setNeedRatio(false);
             int e2 = (int) (((oa0.e(context) - (oa0.b(context, 12.0f) * 2)) - oa0.b(context, 7.0f)) / 2.0d);
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d054b, this);
-            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f09143b);
-            this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09143c);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0550, this);
+            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091450);
+            this.o = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146c);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091451);
             this.m = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = e2;
             layoutParams.height = (int) ((e2 * 9) / 16.0d);
             this.m.setLayoutParams(layoutParams);
-            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09143d);
-            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091443);
-            this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09143f);
-            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091439);
+            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091452);
+            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091458);
+            this.j = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
+            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09144e);
             float b2 = oa0.b(getContext(), 10.0f);
             this.r = new float[]{b2, b2, b2, b2, b2, b2, b2, b2};
             q();

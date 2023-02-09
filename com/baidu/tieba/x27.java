@@ -105,14 +105,14 @@ public class x27 {
         this.j = new a(this);
         if (frsSportsRecommendFragment != null && view2 != null) {
             this.a = frsSportsRecommendFragment.getPageContext();
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e06);
-            this.c = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090e08);
-            this.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090be9);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e17);
+            this.c = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090e19);
+            this.d = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bfa);
             this.e = (TextView) view2.findViewById(R.id.forum_name);
             this.b.setPageId(frsSportsRecommendFragment.getUniqueId());
             this.d.setPageId(frsSportsRecommendFragment.getUniqueId());
             this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02ef));
+            this.d.setContentDescription(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02f0));
             this.d.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
             this.d.setShowOval(true);
         }
@@ -178,7 +178,7 @@ public class x27 {
             if (StringHelper.getChineseAndEnglishLength(name) > 20) {
                 name = StringHelper.cutForumNameWithSuffix(name, 20, StringHelper.STRING_MORE);
             }
-            this.e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07a4), name));
+            this.e.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07ad), name));
             this.d.K(this.f.getForum().getImage_url(), 10, false);
             i();
             this.d.setOnClickListener(this.j);

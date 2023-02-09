@@ -1,171 +1,284 @@
 package com.baidu.tieba;
 
-import android.widget.CompoundButton;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class xb9 {
+public class xb9 extends ac9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public qv5 b;
-    public NEGFeedBackView.b c;
+    public long d;
 
-    /* loaded from: classes6.dex */
-    public class a implements NEGFeedBackView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xb9 a;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(py4 py4Var, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, py4Var, compoundButton, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(py4 py4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, py4Var) == null) {
-            }
-        }
-
-        public a(xb9 xb9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xb9Var;
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, py4 py4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, py4Var) == null) && arrayList != null && py4Var != null) {
-                StringBuilder sb = new StringBuilder();
-                int size = arrayList.size();
-                int i = 0;
-                for (int i2 = 0; i2 < size; i2++) {
-                    sb.append(arrayList.get(i2));
-                    sb.append(",");
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                int i3 = py4Var.n;
-                int i4 = 3;
-                if (i3 == 0) {
-                    i = 1;
-                } else if (i3 == 40) {
-                    i = 2;
-                } else if (i3 == 49 || i3 == 69) {
-                    i = 3;
-                }
-                boolean z = py4Var.r;
-                if (this.a.a) {
-                    if (!z) {
-                        i4 = 2;
-                    }
-                } else if (z) {
-                    i4 = 5;
-                } else {
-                    i4 = 4;
-                }
-                StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", py4Var.f()).param("nid", py4Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", py4Var.c()).param("obj_param1", py4Var.k).param("obj_source", py4Var.l).param("obj_id", py4Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
-            }
-        }
-    }
-
-    public xb9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xb9(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this);
+        this.d = 88200L;
     }
 
-    public void b() {
-        qv5 qv5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qv5Var = this.b) != null) {
-            qv5Var.h();
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void d(TbPageContext tbPageContext, VideoItemData videoItemData, boolean z) {
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0170 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00db A[Catch: all -> 0x01a7, Exception -> 0x01aa, TryCatch #8 {Exception -> 0x01aa, all -> 0x01a7, blocks: (B:13:0x002e, B:17:0x005b, B:19:0x0061, B:21:0x006d, B:24:0x0072, B:29:0x0082, B:33:0x00d5, B:35:0x00db, B:37:0x00e1, B:38:0x00ed, B:40:0x00f1, B:42:0x0123, B:43:0x0158, B:44:0x015d, B:49:0x0174, B:52:0x017c, B:30:0x00a0, B:54:0x019b), top: B:101:0x002e }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x01dc A[Catch: Exception -> 0x01d8, TRY_LEAVE, TryCatch #5 {Exception -> 0x01d8, blocks: (B:84:0x01d4, B:88:0x01dc), top: B:97:0x01d4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:97:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.tieba.ac9
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(String str) {
+        Throwable th;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
+        int dequeueOutputBuffer;
+        int dequeueInputBuffer;
+        boolean z;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) != null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-            return;
-        }
-        if (this.b == null) {
-            this.b = new qv5(tbPageContext);
-        }
-        py4 negFeedBackData = videoItemData.getNegFeedBackData();
-        if (negFeedBackData == null) {
-            negFeedBackData = new py4();
-        }
-        String str = videoItemData.thread_id;
-        String str2 = videoItemData.forum_id;
-        negFeedBackData.r = z;
-        negFeedBackData.o(str);
-        negFeedBackData.l(str2);
-        this.b.r(this.a);
-        this.b.p(this.c);
-        this.b.o(negFeedBackData);
-        this.b.q(true);
-        this.b.h();
-        this.b.s();
-        if (this.a) {
-            if (z) {
-                i = 3;
-            } else {
-                i = 2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            xb9 xb9Var = this;
+            FileInputStream fileInputStream = null;
+            try {
+                try {
+                    if (xb9Var.b == 0) {
+                        xb9Var.b = 48000;
+                    }
+                    if (xb9Var.c == 0) {
+                        xb9Var.c = 1;
+                    }
+                    xb9Var.d = (xb9Var.b * 16) / 8;
+                    FileInputStream fileInputStream2 = new FileInputStream(xb9Var.a);
+                    try {
+                        fileOutputStream = new FileOutputStream(str);
+                        try {
+                            MediaCodec f = f();
+                            f.start();
+                            ByteBuffer[] inputBuffers = f.getInputBuffers();
+                            ByteBuffer[] outputBuffers = f.getOutputBuffers();
+                            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                            byte[] bArr = new byte[4096];
+                            ByteBuffer[] byteBufferArr2 = outputBuffers;
+                            long j2 = 0;
+                            long j3 = 0;
+                            boolean z2 = false;
+                            int i2 = 0;
+                            boolean z3 = false;
+                            boolean z4 = false;
+                            int i3 = 0;
+                            while (!z3) {
+                                if (!z4 && (dequeueInputBuffer = f.dequeueInputBuffer(10000L)) >= 0) {
+                                    ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                                    byteBuffer.clear();
+                                    int remaining = byteBuffer.remaining();
+                                    if (remaining != bArr.length) {
+                                        bArr = new byte[remaining];
+                                    }
+                                    byte[] bArr2 = bArr;
+                                    if (!z2 && (i2 = fileInputStream2.read(bArr2)) == -1) {
+                                        i = i2;
+                                        z = true;
+                                    } else {
+                                        z = z2;
+                                        i = i2;
+                                    }
+                                    if (z) {
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                        byteBufferArr = inputBuffers;
+                                        i2 = i;
+                                        bArr = bArr2;
+                                        z2 = z;
+                                        j = 10000;
+                                        z4 = true;
+                                        dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                        if (dequeueOutputBuffer < 0) {
+                                            if ((bufferInfo.flags & 2) != 0) {
+                                                BdLog.i("audio encoder: codec config buffer");
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                            } else {
+                                                if (bufferInfo.size != 0) {
+                                                    ByteBuffer byteBuffer2 = byteBufferArr2[dequeueOutputBuffer];
+                                                    byteBuffer2.position(bufferInfo.offset);
+                                                    byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                                    BdLog.i(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                                    if (j2 < bufferInfo.presentationTimeUs) {
+                                                        long j4 = bufferInfo.presentationTimeUs;
+                                                        int i4 = bufferInfo.size;
+                                                        int i5 = i4 + 7;
+                                                        byteBuffer2.position(bufferInfo.offset);
+                                                        byteBuffer2.limit(bufferInfo.offset + i4);
+                                                        byte[] bArr3 = new byte[i5];
+                                                        xb9Var.e(bArr3, i5);
+                                                        byteBuffer2.get(bArr3, 7, i4);
+                                                        fileOutputStream.write(bArr3, 0, i5);
+                                                        BdLog.i(i5 + " bytes written.");
+                                                        j2 = j4;
+                                                    } else {
+                                                        BdLog.i("error sample! its presentationTimeUs should not lower than before.");
+                                                    }
+                                                }
+                                                f.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                                if ((bufferInfo.flags & 4) != 0) {
+                                                    xb9Var = this;
+                                                    inputBuffers = byteBufferArr;
+                                                    z3 = true;
+                                                }
+                                            }
+                                        } else if (dequeueOutputBuffer == -3) {
+                                            byteBufferArr2 = f.getOutputBuffers();
+                                        } else if (dequeueOutputBuffer == -2) {
+                                            BdLog.i("format change : " + f.getOutputFormat());
+                                        }
+                                        xb9Var = this;
+                                        inputBuffers = byteBufferArr;
+                                    } else {
+                                        int i6 = i;
+                                        byteBuffer.put(bArr2, 0, i6);
+                                        int i7 = i3 + i6;
+                                        byteBufferArr = inputBuffers;
+                                        f.queueInputBuffer(dequeueInputBuffer, 0, i6, j3, 0);
+                                        i3 = i7;
+                                        i2 = i6;
+                                        j3 = (long) (((i7 / 2.0d) * 1000000.0d) / xb9Var.d);
+                                        bArr = bArr2;
+                                        z2 = z;
+                                    }
+                                } else {
+                                    byteBufferArr = inputBuffers;
+                                }
+                                j = 10000;
+                                dequeueOutputBuffer = f.dequeueOutputBuffer(bufferInfo, j);
+                                if (dequeueOutputBuffer < 0) {
+                                }
+                                xb9Var = this;
+                                inputBuffers = byteBufferArr;
+                            }
+                            BdLog.i("acc encode done");
+                            fileInputStream2.close();
+                            fileOutputStream.close();
+                        } catch (Exception e) {
+                            e = e;
+                            fileInputStream = fileInputStream2;
+                            try {
+                                e.printStackTrace();
+                                if (fileInputStream != null) {
+                                    fileInputStream.close();
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileInputStream != null) {
+                                    try {
+                                        fileInputStream.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                        throw th;
+                                    }
+                                }
+                                if (fileOutputStream != null) {
+                                    fileOutputStream.close();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileInputStream = fileInputStream2;
+                            if (fileInputStream != null) {
+                            }
+                            if (fileOutputStream != null) {
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e3) {
+                        e = e3;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+            } catch (Exception e5) {
+                e = e5;
+                fileOutputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                fileOutputStream = null;
             }
-        } else if (z) {
-            i = 5;
-        } else {
-            i = 4;
         }
-        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", i).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+    }
+
+    public final void e(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+            int i2 = 0;
+            while (true) {
+                if (i2 < 13) {
+                    if (iArr[i2] == this.b) {
+                        break;
+                    }
+                    i2++;
+                } else {
+                    i2 = 4;
+                    break;
+                }
+            }
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & 2047) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
+        }
+    }
+
+    @TargetApi(16)
+    public final MediaCodec f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.c);
+            mediaFormat.setInteger("sample-rate", this.b);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
+        }
+        return (MediaCodec) invokeV.objValue;
     }
 }

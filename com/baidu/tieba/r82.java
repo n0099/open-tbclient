@@ -120,7 +120,7 @@ public class r82 extends u73 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00db, viewGroup, false);
+            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00dc, viewGroup, false);
             this.k = (FrameLayout) inflate.findViewById(R.id.ssl_certificate_container);
             p();
             return inflate;

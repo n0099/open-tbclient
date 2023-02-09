@@ -368,9 +368,9 @@ public class yv3 extends UnitedSchemeBaseDispatcher {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00cd, null);
+                    view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00ce, null);
                 }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092216);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225c);
                 textView.setTextColor(this.c);
                 textView.setText(getItem(i));
                 return view2;
@@ -1886,8 +1886,8 @@ public class yv3 extends UnitedSchemeBaseDispatcher {
                 aVar.p(R.drawable.obfuscated_res_0x7f080125);
                 aVar.B(R.string.obfuscated_res_0x7f0f0114, new p(this, callbackHandler, unitedSchemeEntity));
                 aVar.K(new o(this, callbackHandler, unitedSchemeEntity));
-                View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00cc, null);
-                ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f091408);
+                View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00cd, null);
+                ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09141d);
                 listView.setAdapter((ListAdapter) new a(this, arrayList, context, i2));
                 aVar.W(inflate);
                 aVar.j();

@@ -61,7 +61,7 @@ import com.baidu.tieba.ip7;
 import com.baidu.tieba.or7;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.p89;
+import com.baidu.tieba.t99;
 import com.baidu.tieba.tg5;
 import com.baidu.tieba.ug5;
 import com.baidu.tieba.view.RoundRelativeLayout;
@@ -318,7 +318,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
             if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (valueAnimator.getAnimatedValue() instanceof Integer) && ((Integer) valueAnimator.getAnimatedValue()).intValue() <= ChatFloatEntranceFragment.S && this.a.a.g.getVisibility() == 0) {
                 this.a.a.g.setVisibility(4);
                 if (this.a.a.m.getVisibility() != 0) {
-                    p89.a(this.a.a.c, 10L, this.a.a.m, 10L);
+                    t99.a(this.a.a.c, 10L, this.a.a.m, 10L);
                 }
             }
         }
@@ -772,27 +772,27 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 m mVar = new m();
                 mVar.a = view2;
-                mVar.c = (CardViewLayout) view2.findViewById(R.id.obfuscated_res_0x7f090627);
-                mVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090628);
-                mVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09062f);
-                mVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0913b9);
-                mVar.b = (BaseAdapterViewFlipper) view2.findViewById(R.id.obfuscated_res_0x7f090629);
-                mVar.j = view2.findViewById(R.id.obfuscated_res_0x7f091d22);
-                mVar.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090635);
-                mVar.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090632);
-                mVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090637);
-                mVar.m = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09061f);
-                mVar.o = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090622);
-                mVar.p = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a73);
-                mVar.l = view2.findViewById(R.id.obfuscated_res_0x7f091f71);
-                mVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902d2);
-                mVar.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091c9a);
-                mVar.u = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062b);
-                mVar.v = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09062a);
-                mVar.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09062d);
-                mVar.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09062c);
-                mVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090621);
-                mVar.n = (RoundTbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09061e);
+                mVar.c = (CardViewLayout) view2.findViewById(R.id.obfuscated_res_0x7f090632);
+                mVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090633);
+                mVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063a);
+                mVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0913ce);
+                mVar.b = (BaseAdapterViewFlipper) view2.findViewById(R.id.obfuscated_res_0x7f090634);
+                mVar.j = view2.findViewById(R.id.obfuscated_res_0x7f091d64);
+                mVar.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090640);
+                mVar.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063d);
+                mVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090642);
+                mVar.m = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062a);
+                mVar.o = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062d);
+                mVar.p = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a81);
+                mVar.l = view2.findViewById(R.id.obfuscated_res_0x7f091fb5);
+                mVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902d8);
+                mVar.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cdb);
+                mVar.u = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090636);
+                mVar.v = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090635);
+                mVar.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090638);
+                mVar.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090637);
+                mVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09062c);
+                mVar.n = (RoundTbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090629);
                 return mVar;
             }
             return (m) invokeL.objValue;
@@ -858,7 +858,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
     }
 
     @Override // com.baidu.tieba.tg5.b
-    public void S0() {
+    public void R0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !s2() && this.b) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921788));
@@ -947,7 +947,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
     }
 
     @Override // com.baidu.tieba.tg5.b
-    public void l1(boolean z) {
+    public void k1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.b = z;
@@ -965,17 +965,17 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
     }
 
     @Override // com.baidu.tieba.tg5.b
-    public boolean r1(String str) {
+    public boolean q1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
             return String.valueOf(this.m).equals(str);
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.baidu.tieba.tg5.b
-    public void O0() {
+    public void N0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.e && this.d != 2) {
             this.d = 2;
@@ -1027,9 +1027,9 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
     }
 
     @Override // com.baidu.tieba.tg5.b
-    public void o1() {
+    public void n1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             p2();
         }
     }
@@ -1044,7 +1044,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
 
     public final void q2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             long loopChatroomFrequency = TbSingleton.getInstance().getLoopChatroomFrequency() * 1000;
             P = loopChatroomFrequency;
             if (loopChatroomFrequency <= 0) {
@@ -1253,11 +1253,11 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
 
     public final void n2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || this.e) {
+        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || this.e) {
             return;
         }
         m mVar = this.a;
-        p89.a(mVar.m, 10L, mVar.c, 10L);
+        t99.a(mVar.m, 10L, mVar.c, 10L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(ObjectAnimator.ofInt(this.a.c, "width", Q, this.i), ObjectAnimator.ofInt(this.a.c, "height", Q, this.j), ObjectAnimator.ofInt(this.a.c, "marginRight", R, this.h));
         animatorSet.addListener(new c(this));
@@ -1332,7 +1332,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
             super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f090632 || view2.getId() == R.id.obfuscated_res_0x7f090637 || view2.getId() == R.id.obfuscated_res_0x7f090622) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09063d || view2.getId() == R.id.obfuscated_res_0x7f090642 || view2.getId() == R.id.obfuscated_res_0x7f09062d) {
                 if (TbadkCoreApplication.isLogin()) {
                     wg5 wg5Var = this.y;
                     if (wg5Var != null) {
@@ -1342,7 +1342,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
                     this.f = true;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
                 }
-                if (view2.getId() != R.id.obfuscated_res_0x7f090632 && view2.getId() != R.id.obfuscated_res_0x7f090637) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f09063d && view2.getId() != R.id.obfuscated_res_0x7f090642) {
                     i2 = 2;
                 } else {
                     i2 = 1;
@@ -1353,7 +1353,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
                 I2();
                 p2();
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090622) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09062d) {
                 G2(V);
                 this.a.r.setVisibility(8);
                 this.a.q.setVisibility(8);
@@ -1387,7 +1387,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02d6, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02d8, viewGroup, false);
             this.a = m.a(inflate);
             r2();
             return inflate;

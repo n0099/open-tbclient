@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface c20 {
     String getBDVCInfo();
 

@@ -234,14 +234,14 @@ public class n85 implements j85 {
                 SkinManager.setBackgroundResource(findViewById2, R.color.CAM_X0208);
                 SkinManager.setBackgroundResource(findViewById3, R.drawable.sign_remind_pic);
                 View findViewById4 = view2.findViewById(R.id.layout_content);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09251e);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092569);
                 TextView textView2 = (TextView) view2.findViewById(R.id.sign_remind_timer);
                 TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) view2.findViewById(R.id.push_permission_dialog_confirm_button1);
                 TextView textView3 = (TextView) view2.findViewById(R.id.push_permission_dialog_cancel_button1);
-                p15.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f090ece)).f(R.color.CAM_X0208);
-                p15.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09161c)).f(R.color.CAM_X0208);
+                p15.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f090edf)).f(R.color.CAM_X0208);
+                p15.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091632)).f(R.color.CAM_X0208);
                 SkinManager.setBackgroundColor(findViewById4, R.color.CAM_X0208);
-                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922e6), R.color.CAM_X0306);
+                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232d), R.color.CAM_X0306);
                 p15 d = p15.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X05);
@@ -263,7 +263,7 @@ public class n85 implements j85 {
                     tBSpecificationBtn.setConfig(new m45());
                 }
                 if (this.a == 3 && tBSpecificationBtn != null) {
-                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0459));
+                    tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f045b));
                     textView3.setText(TbadkCoreApplication.getInst().getString(R.string.protocol_cancel));
                 }
                 a aVar = new a(this);

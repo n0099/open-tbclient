@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class y88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z98 a;
+    public aa8 a;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -56,18 +56,18 @@ public class y88 {
                 return;
             }
         }
-        this.a = z98.a(p35.m().s("key_pb_guide_enter_forum", ""));
+        this.a = aa8.a(p35.m().s("key_pb_guide_enter_forum", ""));
     }
 
     public /* synthetic */ y88(a aVar) {
         this();
     }
 
-    public void d(z98 z98Var) {
+    public void d(aa8 aa8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z98Var) == null) {
-            this.a = z98Var;
-            p35.m().B("key_pb_guide_enter_forum", z98Var.toString());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aa8Var) == null) {
+            this.a = aa8Var;
+            p35.m().B("key_pb_guide_enter_forum", aa8Var.toString());
         }
     }
 
@@ -104,8 +104,8 @@ public class y88 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            z98 z98Var = this.a;
-            if (z98Var != null && z98Var.a) {
+            aa8 aa8Var = this.a;
+            if (aa8Var != null && aa8Var.a) {
                 return true;
             }
             return false;

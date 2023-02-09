@@ -24,7 +24,7 @@ import java.util.List;
 public class k98 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hg8> a;
+    public List<tg8> a;
     public Context b;
     public int c;
     public int d;
@@ -98,17 +98,17 @@ public class k98 extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<hg8> list = this.a;
+            List<tg8> list = this.a;
             if (list != null && list.size() > 0) {
                 if (i >= 0 && i < this.a.size()) {
-                    hg8 hg8Var = this.a.get(i);
-                    if (hg8Var == null) {
+                    tg8 tg8Var = this.a.get(i);
+                    if (tg8Var == null) {
                         return super.getItemViewType(i);
                     }
-                    if (hg8Var.getType() == 0) {
+                    if (tg8Var.getType() == 0) {
                         return 0;
                     }
-                    if (hg8Var.getType() == 3) {
+                    if (tg8Var.getType() == 3) {
                         return 1;
                     }
                     return super.getItemViewType(i);
@@ -128,19 +128,19 @@ public class k98 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof a)) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01d7, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01d8, (ViewGroup) null);
                 aVar = new a();
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918d1);
+                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918f3);
                 view2.setTag(aVar);
             }
-            hg8 item = getItem(i);
-            if (item instanceof ig8) {
-                ig8 ig8Var = (ig8) item;
-                if (!StringUtils.isNull(ig8Var.e) && !"1".equals(ig8Var.e)) {
+            tg8 item = getItem(i);
+            if (item instanceof ug8) {
+                ug8 ug8Var = (ug8) item;
+                if (!StringUtils.isNull(ug8Var.e) && !"1".equals(ug8Var.e)) {
                     aVar.a.setVisibility(0);
                     ViewGroup.LayoutParams layoutParams = aVar.a.getLayoutParams();
                     int i2 = this.c;
-                    int c = ig8Var.c(i2);
+                    int c = ug8Var.c(i2);
                     if (layoutParams == null) {
                         layoutParams = new AbsListView.LayoutParams(i2, c);
                     } else {
@@ -148,7 +148,7 @@ public class k98 extends BaseAdapter {
                         layoutParams.width = i2;
                     }
                     aVar.a.setLayoutParams(layoutParams);
-                    aVar.a.K(ig8Var.d(), 17, false);
+                    aVar.a.K(ug8Var.d(), 17, false);
                 } else {
                     aVar.a.setVisibility(8);
                 }
@@ -173,11 +173,11 @@ public class k98 extends BaseAdapter {
                 int i2 = this.d;
                 textView.setPadding(i2, 0, i2, 0);
             }
-            hg8 item = getItem(i);
-            if (item instanceof kg8) {
-                kg8 kg8Var = (kg8) item;
-                textView.setText(kg8Var.b());
-                int d = kg8Var.d();
+            tg8 item = getItem(i);
+            if (item instanceof wg8) {
+                wg8 wg8Var = (wg8) item;
+                textView.setText(wg8Var.b());
+                int d = wg8Var.d();
                 if (d != 1) {
                     if (d != 2) {
                         textView.setGravity(3);
@@ -187,15 +187,15 @@ public class k98 extends BaseAdapter {
                 } else {
                     textView.setGravity(17);
                 }
-                if (!StringUtils.isNull(kg8Var.e())) {
-                    if (!SkinManager.setViewTextColor(textView, kg8Var.e())) {
+                if (!StringUtils.isNull(wg8Var.e())) {
+                    if (!SkinManager.setViewTextColor(textView, wg8Var.e())) {
                         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                     }
                 } else {
                     SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 }
-                if (kg8Var.f() > 0) {
-                    textView.setTextSize(0, kg8Var.f());
+                if (wg8Var.f() > 0) {
+                    textView.setTextSize(0, wg8Var.f());
                 }
             }
             return textView;
@@ -206,11 +206,11 @@ public class k98 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: b */
-    public hg8 getItem(int i) {
+    public tg8 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<hg8> list = this.a;
+            List<tg8> list = this.a;
             if (list != null && list.size() > 0) {
                 int size = this.a.size();
                 if (i >= 0 && i < size) {
@@ -219,10 +219,10 @@ public class k98 extends BaseAdapter {
             }
             return null;
         }
-        return (hg8) invokeI.objValue;
+        return (tg8) invokeI.objValue;
     }
 
-    public void d(List<hg8> list) {
+    public void d(List<tg8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.clear();
@@ -237,7 +237,7 @@ public class k98 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<hg8> list = this.a;
+            List<tg8> list = this.a;
             if (list == null) {
                 return 0;
             }

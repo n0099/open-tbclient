@@ -566,7 +566,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
                 BdTopToast bdTopToast = new BdTopToast(this.a.getPageContext().getPageActivity());
                 bdTopToast.h(false);
-                bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f0b51));
+                bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f0b5b));
                 bdTopToast.i(this.a.E.C());
             }
         }

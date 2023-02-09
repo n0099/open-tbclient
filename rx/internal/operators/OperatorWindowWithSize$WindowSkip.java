@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gda;
-import com.baidu.tieba.lha;
-import com.baidu.tieba.oda;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.vca;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.kea;
+import com.baidu.tieba.pia;
+import com.baidu.tieba.sea;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,18 +15,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes9.dex */
-public final class OperatorWindowWithSize$WindowSkip<T> extends zca<T> implements gda {
+public final class OperatorWindowWithSize$WindowSkip<T> extends dea<T> implements kea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zca<? super tca<T>> e;
+    public final dea<? super xda<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
     public int i;
-    public lha<T, T> j;
+    public pia<T, T> j;
 
     /* loaded from: classes9.dex */
-    public final class WindowSkipProducer extends AtomicBoolean implements vca {
+    public final class WindowSkipProducer extends AtomicBoolean implements zda {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends zca<T> implement
             this.this$0 = operatorWindowWithSize$WindowSkip;
         }
 
-        @Override // com.baidu.tieba.vca
+        @Override // com.baidu.tieba.zda
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -59,10 +59,10 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends zca<T> implement
                     if (i != 0) {
                         OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = this.this$0;
                         if (get() || !compareAndSet(false, true)) {
-                            operatorWindowWithSize$WindowSkip.e(oda.c(j, operatorWindowWithSize$WindowSkip.g));
+                            operatorWindowWithSize$WindowSkip.e(sea.c(j, operatorWindowWithSize$WindowSkip.g));
                             return;
                         } else {
-                            operatorWindowWithSize$WindowSkip.e(oda.a(oda.c(j, operatorWindowWithSize$WindowSkip.f), oda.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
+                            operatorWindowWithSize$WindowSkip.e(sea.a(sea.c(j, operatorWindowWithSize$WindowSkip.f), sea.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
                             return;
                         }
                     }
@@ -73,7 +73,7 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends zca<T> implement
         }
     }
 
-    @Override // com.baidu.tieba.gda
+    @Override // com.baidu.tieba.kea
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h.decrementAndGet() == 0) {
@@ -81,33 +81,33 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends zca<T> implement
         }
     }
 
-    @Override // com.baidu.tieba.uca
+    @Override // com.baidu.tieba.yda
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            lha<T, T> lhaVar = this.j;
-            if (lhaVar != null) {
+            pia<T, T> piaVar = this.j;
+            if (piaVar != null) {
                 this.j = null;
-                lhaVar.onCompleted();
+                piaVar.onCompleted();
             }
             this.e.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.uca
+    @Override // com.baidu.tieba.yda
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            lha<T, T> lhaVar = this.j;
-            if (lhaVar != null) {
+            pia<T, T> piaVar = this.j;
+            if (piaVar != null) {
                 this.j = null;
-                lhaVar.onError(th);
+                piaVar.onError(th);
             }
             this.e.onError(th);
         }
     }
 
-    @Override // com.baidu.tieba.uca
+    @Override // com.baidu.tieba.yda
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {

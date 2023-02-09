@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ed6;
-import com.baidu.tieba.f09;
+import com.baidu.tieba.j19;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.nv7;
@@ -425,7 +425,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public void v(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, t) == null) {
-            int c = f09.c(this.i, t.getScheme());
+            int c = j19.c(this.i, t.getScheme());
             zu7 zu7Var = this.k;
             if (zu7Var != null) {
                 zu7Var.a(c, null);

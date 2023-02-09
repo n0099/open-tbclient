@@ -44,9 +44,9 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.robotfloor.
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.NoSlidingLinearLayout;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lg9;
-import com.baidu.tieba.lz8;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.p15;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.sj;
 import com.baidu.tieba.uj;
 import com.baidu.tieba.vd5;
@@ -183,14 +183,14 @@ public class GroupInputTool implements LifecycleObserver, uj {
         public final void C() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.n = (GroupChatRobotTopHeadView) this.f.findViewById(R.id.obfuscated_res_0x7f091018);
+                this.n = (GroupChatRobotTopHeadView) this.f.findViewById(R.id.obfuscated_res_0x7f09102a);
             }
         }
 
         public final void D() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.q = (GroupChatUserReplyView) this.f.findViewById(R.id.obfuscated_res_0x7f090dbf);
+                this.q = (GroupChatUserReplyView) this.f.findViewById(R.id.obfuscated_res_0x7f090dd0);
             }
         }
 
@@ -225,10 +225,10 @@ public class GroupInputTool implements LifecycleObserver, uj {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, view2)) == null) {
                 g gVar = new g();
-                gVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090da4);
-                gVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ca5);
-                gVar.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d9f);
-                gVar.e = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090623);
+                gVar.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090db5);
+                gVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ce6);
+                gVar.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090db0);
+                gVar.e = (NoSlidingLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062e);
                 gVar.k = (NoSlidingLinearLayout) view2.findViewById(R.id.mask_view);
                 return gVar;
             }
@@ -269,7 +269,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
                 return;
             }
             SpanGroupEditText g = this.a.g();
-            g.setId(R.id.obfuscated_res_0x7f090d9d);
+            g.setId(R.id.obfuscated_res_0x7f090dae);
             g.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT);
             g.setMinHeight(context.getResources().getDimensionPixelSize(R.dimen.M_H_X003));
             g.setMaxLines(5);
@@ -279,7 +279,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
             g.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.T_X06));
             g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             g.setHintTextColor(context.getResources().getColor(R.color.CAM_X0109));
-            lg9.l(g, R.drawable.edittext_cursor);
+            ph9.l(g, R.drawable.edittext_cursor);
             g.setLineSpacing(ej.g(context, R.dimen.M_T_X002), 1.0f);
             g.setPadding(ej.g(context, R.dimen.M_W_X006), ej.g(context, R.dimen.M_H_X004), ej.g(context, R.dimen.M_W_X006), ej.g(context, R.dimen.M_H_X004));
             g.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
@@ -288,7 +288,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
         public final void B(GroupChatFragment groupChatFragment, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupChatFragment, context) == null) {
-                GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) this.f.findViewById(R.id.obfuscated_res_0x7f090db5);
+                GroupChatRobotFloorView groupChatRobotFloorView = (GroupChatRobotFloorView) this.f.findViewById(R.id.obfuscated_res_0x7f090dc6);
                 this.o = groupChatRobotFloorView;
                 groupChatRobotFloorView.setPageContext(groupChatFragment.getPageContext());
                 this.o.l(TbadkCoreApplication.getInst().getSkinType());
@@ -306,7 +306,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
                 if (i == 0) {
                     this.r = SkinManager.getColor(R.color.CAM_X0212);
                 } else if (i == 1) {
-                    this.r = lz8.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
+                    this.r = p09.a(SkinManager.getColor(R.color.CAM_X0302), 0.06f);
                 } else {
                     this.r = SkinManager.getColor(R.color.CAM_X0212);
                 }
@@ -824,7 +824,7 @@ public class GroupInputTool implements LifecycleObserver, uj {
         View findViewById;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (z() == null || (findViewById = z().findViewById(R.id.obfuscated_res_0x7f090d9e)) == null || findViewById.getVisibility() != 0) {
+            if (z() == null || (findViewById = z().findViewById(R.id.obfuscated_res_0x7f090daf)) == null || findViewById.getVisibility() != 0) {
                 return false;
             }
             return true;

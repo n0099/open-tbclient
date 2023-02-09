@@ -41,11 +41,11 @@ import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.da;
 import com.baidu.tieba.k95;
-import com.baidu.tieba.lz8;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.on;
-import com.baidu.tieba.p89;
+import com.baidu.tieba.p09;
 import com.baidu.tieba.ro;
+import com.baidu.tieba.t99;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
@@ -164,14 +164,14 @@ public final class BottomCommonTipLayout extends FrameLayout {
                     if (i == 2) {
                         BottomCommonTipLayout bottomCommonTipLayout = this.a.get();
                         Intrinsics.checkNotNull(bottomCommonTipLayout);
-                        p89.b(bottomCommonTipLayout, this.b);
+                        t99.b(bottomCommonTipLayout, this.b);
                         return;
                     }
                     return;
                 }
                 BottomCommonTipLayout bottomCommonTipLayout2 = this.a.get();
                 Intrinsics.checkNotNull(bottomCommonTipLayout2);
-                p89.d(bottomCommonTipLayout2, this.b);
+                t99.d(bottomCommonTipLayout2, this.b);
             }
         }
     }
@@ -407,7 +407,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
             }
             n45 n45Var = new n45();
             if (!TextUtils.isEmpty(memberBroadcastData.getBtnBackgroundColor()) && !TextUtils.isEmpty(memberBroadcastData.getBtnTextColor())) {
-                n45Var.q(lz8.f(memberBroadcastData.getBtnBackgroundColor()), lz8.f(memberBroadcastData.getBtnTextColor()));
+                n45Var.q(p09.f(memberBroadcastData.getBtnBackgroundColor()), p09.f(memberBroadcastData.getBtnTextColor()));
             } else {
                 n45Var.w(R.color.CAM_X0108);
             }
@@ -425,7 +425,7 @@ public final class BottomCommonTipLayout extends FrameLayout {
                 }
             });
             if (!TextUtils.isEmpty(memberBroadcastData.getTextColor())) {
-                this.f.setTextColor(lz8.f(memberBroadcastData.getTextColor()));
+                this.f.setTextColor(p09.f(memberBroadcastData.getTextColor()));
             }
             m(memberBroadcastData.getTbRichText());
         }

@@ -164,13 +164,13 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements ay {
             setPadding(g, 0, g, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08f1));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08fa));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08f2));
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08fb));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, ej.g(getContext(), R.dimen.tbds75));
             int g2 = ej.g(getContext(), R.dimen.M_W_X004);
             layoutParams2.setMargins(g2, ej.g(getContext(), R.dimen.M_H_X005), g2, ej.g(getContext(), R.dimen.tbds38));

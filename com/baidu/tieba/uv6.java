@@ -46,7 +46,7 @@ public class uv6 extends as6<ls6, ReadProgressViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d034b, viewGroup, false), this.c.getPageActivity());
+            return new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d034d, viewGroup, false), this.c.getPageActivity());
         }
         return (ReadProgressViewHolder) invokeL.objValue;
     }

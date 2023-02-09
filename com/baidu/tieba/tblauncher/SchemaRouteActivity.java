@@ -32,6 +32,7 @@ import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
@@ -54,7 +55,7 @@ import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.ap5;
-import com.baidu.tieba.cb8;
+import com.baidu.tieba.ar8;
 import com.baidu.tieba.cq5;
 import com.baidu.tieba.cr4;
 import com.baidu.tieba.d25;
@@ -65,8 +66,6 @@ import com.baidu.tieba.h25;
 import com.baidu.tieba.je5;
 import com.baidu.tieba.ng5;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.s89;
-import com.baidu.tieba.st8;
 import com.baidu.tieba.t9;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.tieba.tblauncher.dispatcher.EnterForumDispatcher;
@@ -76,7 +75,8 @@ import com.baidu.tieba.ur4;
 import com.baidu.tieba.ut7;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.w99;
+import com.baidu.tieba.wu8;
 import com.baidu.tieba.yn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -95,31 +95,31 @@ public class SchemaRouteActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public final BdUniDispatchSchemeController.b a;
 
-    /* JADX WARN: Removed duplicated region for block: B:128:0x03f9 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x03fa  */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x0413  */
-    /* JADX WARN: Removed duplicated region for block: B:149:0x04e4  */
-    /* JADX WARN: Removed duplicated region for block: B:150:0x054b  */
-    /* JADX WARN: Removed duplicated region for block: B:153:0x0555  */
-    /* JADX WARN: Removed duplicated region for block: B:156:0x05bc  */
-    /* JADX WARN: Removed duplicated region for block: B:157:0x062e  */
-    /* JADX WARN: Removed duplicated region for block: B:160:0x0639  */
-    /* JADX WARN: Removed duplicated region for block: B:176:0x06c4  */
-    /* JADX WARN: Removed duplicated region for block: B:182:0x0717  */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x0767  */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x0776  */
-    /* JADX WARN: Removed duplicated region for block: B:199:0x0782  */
-    /* JADX WARN: Removed duplicated region for block: B:202:0x078d  */
-    /* JADX WARN: Removed duplicated region for block: B:205:0x0798  */
-    /* JADX WARN: Removed duplicated region for block: B:208:0x07a3  */
-    /* JADX WARN: Removed duplicated region for block: B:211:0x07ae  */
-    /* JADX WARN: Removed duplicated region for block: B:214:0x07b9  */
-    /* JADX WARN: Removed duplicated region for block: B:217:0x07c4  */
-    /* JADX WARN: Removed duplicated region for block: B:218:0x07c8  */
-    /* JADX WARN: Removed duplicated region for block: B:226:0x07e7  */
-    /* JADX WARN: Removed duplicated region for block: B:229:0x07fe  */
-    /* JADX WARN: Removed duplicated region for block: B:309:0x0659 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:315:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x03f7 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x03f8  */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0411  */
+    /* JADX WARN: Removed duplicated region for block: B:149:0x04e2  */
+    /* JADX WARN: Removed duplicated region for block: B:150:0x0549  */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x0553  */
+    /* JADX WARN: Removed duplicated region for block: B:156:0x05ba  */
+    /* JADX WARN: Removed duplicated region for block: B:157:0x062c  */
+    /* JADX WARN: Removed duplicated region for block: B:160:0x0637  */
+    /* JADX WARN: Removed duplicated region for block: B:176:0x06c2  */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x0715  */
+    /* JADX WARN: Removed duplicated region for block: B:193:0x0765  */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0774  */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x0780  */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x078b  */
+    /* JADX WARN: Removed duplicated region for block: B:205:0x0796  */
+    /* JADX WARN: Removed duplicated region for block: B:208:0x07a1  */
+    /* JADX WARN: Removed duplicated region for block: B:211:0x07ac  */
+    /* JADX WARN: Removed duplicated region for block: B:214:0x07b7  */
+    /* JADX WARN: Removed duplicated region for block: B:217:0x07c2  */
+    /* JADX WARN: Removed duplicated region for block: B:218:0x07c6  */
+    /* JADX WARN: Removed duplicated region for block: B:226:0x07e5  */
+    /* JADX WARN: Removed duplicated region for block: B:229:0x07fc  */
+    /* JADX WARN: Removed duplicated region for block: B:306:0x0657 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:310:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -141,7 +141,7 @@ public class SchemaRouteActivity extends BaseActivity {
         ur4.e(intent.getData());
         ur4.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
-        st8.d().a(intent.getData());
+        wu8.d().a(intent.getData());
         if (TextUtils.isEmpty(dataString)) {
             return;
         }
@@ -507,22 +507,22 @@ public class SchemaRouteActivity extends BaseActivity {
                                     }
                                 }
                                 if (dataString.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_RANK_LIST)) {
-                                    s89.c(getPageContext());
+                                    w99.c(getPageContext());
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                                    wp8.e(this, dataString, true);
+                                    ar8.e(this, dataString, true);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                                    wp8.a(this, dataString);
+                                    ar8.a(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                                    wp8.d(this, dataString);
+                                    ar8.d(this, dataString);
                                 }
                                 if (dataString.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                                    wp8.b(this, dataString);
+                                    ar8.b(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                                    wp8.c(this, dataString);
+                                    ar8.c(this, dataString);
                                 }
                                 if (dataString.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                                     UrlSchemaJumpHelper.jumpGamePlayPage(this, dataString);
@@ -574,14 +574,7 @@ public class SchemaRouteActivity extends BaseActivity {
             } else {
                 String queryParameter37 = intent.getData().getQueryParameter("obj_param1");
                 if (!BdUniDispatchSchemeController.PARAM_VIDEO.equals(queryParameter37) && !"2".equals(queryParameter37)) {
-                    String[] strArr = {""};
-                    Uri data2 = intent.getData();
-                    if (BdUniDispatchSchemeController.isUniScheme(data2)) {
-                        BdUniDispatchSchemeController.getInstance().parsePbScheme(data2, new a(this, strArr, intent));
-                    } else if (StringUtils.isNull(strArr[0])) {
-                        strArr[0] = data2.getQueryParameter("thread_id");
-                        cb8.a.c(strArr[0], intent.getDataString());
-                    }
+                    sendMessage(new CustomMessage(2004001, PbActivityConfig.createCfgFromUri(getActivity(), intent.getData())));
                 } else {
                     String queryParameter38 = intent.getData().getQueryParameter("tid");
                     ArrayList arrayList4 = new ArrayList();
@@ -611,47 +604,9 @@ public class SchemaRouteActivity extends BaseActivity {
     public class a implements BdUniDispatchSchemeController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Intent b;
-        public final /* synthetic */ SchemaRouteActivity c;
-
-        public a(SchemaRouteActivity schemaRouteActivity, String[] strArr, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {schemaRouteActivity, strArr, intent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = schemaRouteActivity;
-            this.a = strArr;
-            this.b = intent;
-        }
-
-        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-                this.a[0] = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TID);
-                cb8.a.c(this.a[0], this.b.getDataString());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements BdUniDispatchSchemeController.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SchemaRouteActivity a;
 
-        public b(SchemaRouteActivity schemaRouteActivity) {
+        public a(SchemaRouteActivity schemaRouteActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -694,7 +649,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 return;
             }
         }
-        this.a = new b(this);
+        this.a = new a(this);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.vj5

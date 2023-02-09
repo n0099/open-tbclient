@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.card.ala.AlaVideoContainer;
-import com.baidu.tieba.yn8;
+import com.baidu.tieba.cp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nd6 implements vn8 {
+public class nd6 implements zo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlaVideoContainer a;
     public ThreadData b;
     public AlaInfoData c;
     public boolean d;
-    public yn8 e;
-    public yn8.b f;
+    public cp8 e;
+    public cp8.b f;
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class nd6 implements vn8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class nd6 implements vn8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -53,7 +53,7 @@ public class nd6 implements vn8 {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements yn8.b {
+    public class a implements cp8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nd6 a;
@@ -76,7 +76,7 @@ public class nd6 implements vn8 {
             this.a = nd6Var;
         }
 
-        @Override // com.baidu.tieba.yn8.b
+        @Override // com.baidu.tieba.cp8.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -104,9 +104,9 @@ public class nd6 implements vn8 {
         this.f = new a(this);
         this.a = alaVideoContainer;
         if (alaVideoContainer != null) {
-            yn8 yn8Var = new yn8();
-            this.e = yn8Var;
-            yn8Var.l(this.a.getVideoView());
+            cp8 cp8Var = new cp8();
+            this.e = cp8Var;
+            cp8Var.l(this.a.getVideoView());
             this.e.i(this.f);
         }
     }
@@ -126,7 +126,7 @@ public class nd6 implements vn8 {
         }
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class nd6 implements vn8 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,7 +154,7 @@ public class nd6 implements vn8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class nd6 implements vn8 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -178,7 +178,7 @@ public class nd6 implements vn8 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vn8
+    @Override // com.baidu.tieba.zo8
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -186,9 +186,9 @@ public class nd6 implements vn8 {
             if (alaVideoContainer != null && alaVideoContainer.getVideoView() != null) {
                 this.a.getVideoView().stopPlayback();
                 this.a.p();
-                yn8 yn8Var = this.e;
-                if (yn8Var != null) {
-                    yn8Var.n();
+                cp8 cp8Var = this.e;
+                if (cp8Var != null) {
+                    cp8Var.n();
                 }
             }
             this.d = false;

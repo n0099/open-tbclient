@@ -82,28 +82,28 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
             super.onCreate(bundle);
             qm3.g(this, c0);
             oz3.q();
-            setContentView(R.layout.obfuscated_res_0x7f0d00b0);
+            setContentView(R.layout.obfuscated_res_0x7f0d00b1);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra("type");
                 intent.getStringExtra("packageName");
                 wl3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091021);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091023);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091033);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091035);
             if (TextUtils.equals(this.a, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014d));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f091022).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f091034).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f09101f).setBackgroundResource(R.color.obfuscated_res_0x7f0603ca);
+                findViewById(R.id.obfuscated_res_0x7f091031).setBackgroundResource(R.color.obfuscated_res_0x7f0603ca);
                 oz3.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f091022).setVisibility(8);
+                findViewById(R.id.obfuscated_res_0x7f091034).setVisibility(8);
                 if (fm3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
                 } else if (fm3.n()) {
@@ -113,7 +113,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
-                findViewById(R.id.obfuscated_res_0x7f09101f).setBackgroundResource(R.color.obfuscated_res_0x7f060399);
+                findViewById(R.id.obfuscated_res_0x7f091031).setBackgroundResource(R.color.obfuscated_res_0x7f060399);
                 oz3.o();
             }
             findViewById.setOnClickListener(new a(this));

@@ -71,7 +71,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         }
                     } else if (hashMap.get("upload_result") != null && (hashMap.get("upload_result") instanceof Boolean)) {
                         if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0641)).k();
+                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f064a)).k();
                             if (this.a.a != null) {
                                 this.a.a.i();
                             }
@@ -81,7 +81,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                             if (!TextUtils.isEmpty(str)) {
                                 ej.N(this.a.getActivity(), str);
                             } else {
-                                ej.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0587));
+                                ej.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f058e));
                             }
                             this.a.a.l();
                         }
@@ -167,7 +167,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         } else if (m68.l().k() == null) {
             this.a.i();
         } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f0583));
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f0587));
         }
     }
 

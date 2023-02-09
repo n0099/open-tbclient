@@ -1,16 +1,16 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.fda;
-import com.baidu.tieba.lda;
-import com.baidu.tieba.mda;
-import com.baidu.tieba.nha;
-import com.baidu.tieba.tca;
-import com.baidu.tieba.uca;
-import com.baidu.tieba.vga;
-import com.baidu.tieba.wga;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.aia;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.eea;
+import com.baidu.tieba.jea;
+import com.baidu.tieba.pea;
+import com.baidu.tieba.qea;
+import com.baidu.tieba.ria;
+import com.baidu.tieba.xda;
+import com.baidu.tieba.yda;
+import com.baidu.tieba.zha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,38 +23,38 @@ import java.util.Map;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes9.dex */
-public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
+public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements xda.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tca<T1> a;
-    public final tca<T2> b;
-    public final lda<? super T1, ? extends tca<D1>> c;
-    public final lda<? super T2, ? extends tca<D2>> d;
-    public final mda<? super T1, ? super tca<T2>, ? extends R> e;
+    public final xda<T1> a;
+    public final xda<T2> b;
+    public final pea<? super T1, ? extends xda<D1>> c;
+    public final pea<? super T2, ? extends xda<D2>> d;
+    public final qea<? super T1, ? super xda<T2>, ? extends R> e;
 
     /* loaded from: classes9.dex */
-    public final class ResultManager extends HashMap<Integer, uca<T2>> implements ada {
+    public final class ResultManager extends HashMap<Integer, yda<T2>> implements eea {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3035156013812425335L;
         public transient /* synthetic */ FieldHolder $fh;
         public final RefCountSubscription cancel;
-        public final nha group;
+        public final ria group;
         public boolean leftDone;
         public int leftIds;
         public boolean rightDone;
         public int rightIds;
         public final Map<Integer, T2> rightMap;
-        public final zca<? super R> subscriber;
+        public final dea<? super R> subscriber;
         public final /* synthetic */ OnSubscribeGroupJoin this$0;
 
-        public Map<Integer, uca<T2>> leftMap() {
+        public Map<Integer, yda<T2>> leftMap() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (Map) invokeV.objValue;
         }
 
         /* loaded from: classes9.dex */
-        public final class a extends zca<D1> {
+        public final class a extends dea<D1> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final int e;
@@ -81,9 +81,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onCompleted() {
-                uca<T2> remove;
+                yda<T2> remove;
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
                     this.f = false;
@@ -97,7 +97,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -105,7 +105,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onNext(D1 d1) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d1) == null) {
@@ -115,7 +115,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
         }
 
         /* loaded from: classes9.dex */
-        public final class b extends zca<T1> {
+        public final class b extends dea<T1> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResultManager e;
@@ -138,7 +138,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 this.e = resultManager;
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -146,7 +146,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onCompleted() {
                 ArrayList arrayList;
                 Interceptable interceptable = $ic;
@@ -165,7 +165,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onNext(T1 t1) {
                 int i;
                 ArrayList<Object> arrayList;
@@ -173,14 +173,14 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t1) == null) {
                     try {
                         PublishSubject D = PublishSubject.D();
-                        vga vgaVar = new vga(D);
+                        zha zhaVar = new zha(D);
                         synchronized (this.e) {
                             ResultManager resultManager = this.e;
                             i = resultManager.leftIds;
                             resultManager.leftIds = i + 1;
-                            this.e.leftMap().put(Integer.valueOf(i), vgaVar);
+                            this.e.leftMap().put(Integer.valueOf(i), zhaVar);
                         }
-                        tca a = tca.a(new a(D, this.e.cancel));
+                        xda a = xda.a(new a(D, this.e.cancel));
                         a aVar = new a(this.e, i);
                         this.e.group.a(aVar);
                         this.e.this$0.c.call(t1).B(aVar);
@@ -190,17 +190,17 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                         }
                         this.e.subscriber.onNext(call);
                         for (Object obj : arrayList) {
-                            vgaVar.onNext(obj);
+                            zhaVar.onNext(obj);
                         }
                     } catch (Throwable th) {
-                        fda.f(th, this);
+                        jea.f(th, this);
                     }
                 }
             }
         }
 
         /* loaded from: classes9.dex */
-        public final class c extends zca<D2> {
+        public final class c extends dea<D2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final int e;
@@ -227,7 +227,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f) {
@@ -239,7 +239,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -247,7 +247,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onNext(D2 d2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
@@ -257,7 +257,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
         }
 
         /* loaded from: classes9.dex */
-        public final class d extends zca<T2> {
+        public final class d extends dea<T2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ResultManager e;
@@ -280,7 +280,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 this.e = resultManager;
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -288,7 +288,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onCompleted() {
                 ArrayList arrayList;
                 Interceptable interceptable = $ic;
@@ -307,10 +307,10 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onNext(T2 t2) {
                 int i;
-                ArrayList<uca> arrayList;
+                ArrayList<yda> arrayList;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t2) == null) {
                     try {
@@ -326,22 +326,22 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                         synchronized (this.e) {
                             arrayList = new ArrayList(this.e.leftMap().values());
                         }
-                        for (uca ucaVar : arrayList) {
-                            ucaVar.onNext(t2);
+                        for (yda ydaVar : arrayList) {
+                            ydaVar.onNext(t2);
                         }
                     } catch (Throwable th) {
-                        fda.f(th, this);
+                        jea.f(th, this);
                     }
                 }
             }
         }
 
-        public ResultManager(OnSubscribeGroupJoin onSubscribeGroupJoin, zca<? super R> zcaVar) {
+        public ResultManager(OnSubscribeGroupJoin onSubscribeGroupJoin, dea<? super R> deaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {onSubscribeGroupJoin, zcaVar};
+                Object[] objArr = {onSubscribeGroupJoin, deaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -353,16 +353,16 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
             }
             this.this$0 = onSubscribeGroupJoin;
             this.rightMap = new HashMap();
-            this.subscriber = zcaVar;
-            this.group = new nha();
+            this.subscriber = deaVar;
+            this.group = new ria();
             this.cancel = new RefCountSubscription(this.group);
         }
 
-        public void complete(List<uca<T2>> list) {
+        public void complete(List<yda<T2>> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null) {
-                for (uca<T2> ucaVar : list) {
-                    ucaVar.onCompleted();
+                for (yda<T2> ydaVar : list) {
+                    ydaVar.onCompleted();
                 }
                 this.subscriber.onCompleted();
                 this.cancel.unsubscribe();
@@ -382,7 +382,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
         }
 
         public void errorAll(Throwable th) {
-            ArrayList<uca> arrayList;
+            ArrayList<yda> arrayList;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
                 synchronized (this) {
@@ -390,8 +390,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                     leftMap().clear();
                     this.rightMap.clear();
                 }
-                for (uca ucaVar : arrayList) {
-                    ucaVar.onError(th);
+                for (yda ydaVar : arrayList) {
+                    ydaVar.onError(th);
                 }
                 this.subscriber.onError(th);
                 this.cancel.unsubscribe();
@@ -410,7 +410,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
             }
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -420,7 +420,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -430,43 +430,43 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class a<T> implements tca.a<T> {
+    public static final class a<T> implements xda.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final RefCountSubscription a;
-        public final tca<T> b;
+        public final xda<T> b;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public final class C0746a extends zca<T> {
+        public final class C0747a extends dea<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final zca<? super T> e;
-            public final ada f;
+            public final dea<? super T> e;
+            public final eea f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0746a(a aVar, zca<? super T> zcaVar, ada adaVar) {
-                super(zcaVar);
+            public C0747a(a aVar, dea<? super T> deaVar, eea eeaVar) {
+                super(deaVar);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, zcaVar, adaVar};
+                    Object[] objArr = {aVar, deaVar, eeaVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
-                        super((zca) newInitContext.callArgs[0]);
+                        super((dea) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.e = zcaVar;
-                this.f = adaVar;
+                this.e = deaVar;
+                this.f = eeaVar;
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onCompleted() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -475,7 +475,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onError(Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -484,7 +484,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.uca
+            @Override // com.baidu.tieba.yda
             public void onNext(T t) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
@@ -493,12 +493,12 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
             }
         }
 
-        public a(tca<T> tcaVar, RefCountSubscription refCountSubscription) {
+        public a(xda<T> xdaVar, RefCountSubscription refCountSubscription) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tcaVar, refCountSubscription};
+                Object[] objArr = {xdaVar, refCountSubscription};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -509,36 +509,36 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements tca.a<R> {
                 }
             }
             this.a = refCountSubscription;
-            this.b = tcaVar;
+            this.b = xdaVar;
         }
 
-        public void call(zca<? super T> zcaVar) {
+        public void call(dea<? super T> deaVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
-                ada a = this.a.a();
-                C0746a c0746a = new C0746a(this, zcaVar, a);
-                c0746a.b(a);
-                this.b.B(c0746a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
+                eea a = this.a.a();
+                C0747a c0747a = new C0747a(this, deaVar, a);
+                c0747a.b(a);
+                this.b.B(c0747a);
             }
         }
 
-        @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
+        @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((zca) ((zca) obj));
+            call((dea) ((dea) obj));
         }
     }
 
-    public void call(zca<? super R> zcaVar) {
+    public void call(dea<? super R> deaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zcaVar) == null) {
-            ResultManager resultManager = new ResultManager(this, new wga(zcaVar));
-            zcaVar.b(resultManager);
+        if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
+            ResultManager resultManager = new ResultManager(this, new aia(deaVar));
+            deaVar.b(resultManager);
             resultManager.init();
         }
     }
 
-    @Override // com.baidu.tieba.tca.a, com.baidu.tieba.hda
+    @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((zca) ((zca) obj));
+        call((dea) ((dea) obj));
     }
 }

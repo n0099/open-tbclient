@@ -1,155 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FestivalTipData;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public final class ue9 {
+public class ue9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThemeColorInfo a;
-    public final ThemeColorInfo b;
+    public final Spannable a;
+    public ys5 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948208256, "Lcom/baidu/tieba/ue9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948208256, "Lcom/baidu/tieba/ue9;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    @JvmStatic
-    public static final ue9 a(FestivalTipData festivalTipData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? c.a(festivalTipData) : (ue9) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof ue9) {
-                ue9 ue9Var = (ue9) obj;
-                return Intrinsics.areEqual(this.a, ue9Var.a) && Intrinsics.areEqual(this.b, ue9Var.b);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "FestivalTipViewStyle(backgroundColor=" + this.a + ", textColor=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final ue9 a(FestivalTipData festivalTipData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
-                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
-                ThemeColorInfo themeColorInfo = festivalTipData.background_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo, "festivalTipData.background_color");
-                ThemeColorInfo themeColorInfo2 = festivalTipData.font_color;
-                Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "festivalTipData.font_color");
-                return new ue9(themeColorInfo, themeColorInfo2);
-            }
-            return (ue9) invokeL.objValue;
-        }
-    }
-
-    public ue9(ThemeColorInfo backgroundColor, ThemeColorInfo textColor) {
+    public ue9(Spannable spannable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundColor, textColor};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {spannable};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-        Intrinsics.checkNotNullParameter(textColor, "textColor");
-        this.a = backgroundColor;
-        this.b = textColor;
+        this.b = null;
+        this.a = spannable;
     }
 
-    public final ThemeColorInfo b() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        ys5 ys5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (!(view2 instanceof TextView)) {
+                return false;
+            }
+            TextView textView = (TextView) view2;
+            if (action == 3 && (ys5Var = this.b) != null) {
+                ys5Var.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                view2.invalidate();
+                this.b = null;
+                return false;
+            }
+            if (action == 1 || action == 0) {
+                int x = (int) motionEvent.getX();
+                int y = (int) motionEvent.getY();
+                Layout layout = textView.getLayout();
+                if (layout == null) {
+                    return false;
+                }
+                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
+                Spannable spannable = this.a;
+                if (spannable == null) {
+                    return false;
+                }
+                ys5[] ys5VarArr = (ys5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ys5.class);
+                if (ys5VarArr != null && ys5VarArr.length != 0 && ys5VarArr[0] != null) {
+                    if (action == 1) {
+                        ys5VarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                        ys5VarArr[0].onClick(textView);
+                        view2.invalidate();
+                    } else {
+                        this.b = ys5VarArr[0];
+                        Spannable spannable2 = this.a;
+                        Selection.setSelection(spannable2, spannable2.getSpanStart(ys5VarArr[0]), this.a.getSpanEnd(ys5VarArr[0]));
+                        view2.invalidate();
+                    }
+                    return true;
+                }
+                ys5 ys5Var2 = this.b;
+                if (ys5Var2 != null) {
+                    ys5Var2.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                    view2.invalidate();
+                }
+                Selection.removeSelection(this.a);
+            }
+            return false;
         }
-        return (ThemeColorInfo) invokeV.objValue;
-    }
-
-    public final ThemeColorInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ThemeColorInfo) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

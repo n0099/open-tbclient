@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class r05 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int n = 2131235177;
+    public static final int n = 2131235199;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public ViewGroup b;
@@ -166,7 +166,7 @@ public class r05 implements View.OnClickListener {
                 this.c.setText(es4Var.e);
             }
             if (dj.isEmpty(es4Var.f)) {
-                this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02d7));
+                this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02d8));
             } else {
                 this.d.setText(es4Var.f);
             }
@@ -218,7 +218,7 @@ public class r05 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             this.c.setText(this.a.getResources().getString(R.string.task_already_finish));
-            this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02d7));
+            this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02d8));
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0302, 1);
             SkinManager.setViewTextColor(this.d, R.color.CAM_X0101, 1);
             i();

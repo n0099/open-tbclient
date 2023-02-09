@@ -66,10 +66,10 @@ public class nu5 {
                         this.a.c.a(z2);
                     }
                     if (this.a.d != null) {
-                        c19 c19Var = new c19();
-                        c19Var.a = this.a.d.getThreadId();
-                        c19Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, c19Var));
+                        g29 g29Var = new g29();
+                        g29Var.a = this.a.d.getThreadId();
+                        g29Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, g29Var));
                         return;
                     }
                     return;

@@ -98,9 +98,9 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
         }
     }
 
-    public void q() {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             k();
         }
     }

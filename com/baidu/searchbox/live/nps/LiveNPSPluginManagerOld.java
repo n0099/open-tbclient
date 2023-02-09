@@ -2429,7 +2429,7 @@ public class LiveNPSPluginManagerOld {
                 pluginLoadCallback2.onResult(OneKeyLoginResult.ONE_KEY_LOGIN_CODE_CONNECTION_TIMEOUT, "old arch can not install", null, "download");
                 this.mCurrentCallback = null;
             }
-            showNormalToast(R.string.obfuscated_res_0x7f0f0ad7, 0);
+            showNormalToast(R.string.obfuscated_res_0x7f0f0ae1, 0);
         }
     }
 

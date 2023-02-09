@@ -316,13 +316,13 @@ public class s76 extends BaseAdapter {
         SkinManager.setViewTextColor(eVar.j, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         SkinManager.setViewTextColor(eVar.o, R.color.CAM_X0305, 1, TbadkApplication.getInst().getSkinType());
         if (TbadkApplication.getInst().getSkinType() == 1) {
-            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080fce);
-            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080fce);
-            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080fce);
+            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080fe3);
+            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080fe3);
+            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080fe3);
         } else {
-            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080fcd);
-            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080fcd);
-            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080fcd);
+            eVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080fe2);
+            eVar.g.setDefaultResource(R.drawable.obfuscated_res_0x7f080fe2);
+            eVar.l.setDefaultResource(R.drawable.obfuscated_res_0x7f080fe2);
         }
         SkinManager.setBackgroundColor(eVar.p, R.color.CAM_X0204);
     }
@@ -369,7 +369,7 @@ public class s76 extends BaseAdapter {
             SkinManager.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_gray);
         } else if (i == 1) {
             textView.setText(R.string.obfuscated_res_0x7f0f01f7);
-            SkinManager.setViewTextColor(textView, (int) R.color.obfuscated_res_0x7f06079f);
+            SkinManager.setViewTextColor(textView, (int) R.color.obfuscated_res_0x7f0607a0);
             SkinManager.setBackgroundResource(textView, R.drawable.bg_ala_person_privilege_status_bg_green);
         } else if (i == 2) {
             textView.setText(R.string.obfuscated_res_0x7f0f01f5);
@@ -408,25 +408,25 @@ public class s76 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
             t76 t76Var = this.b.get(i);
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e2, viewGroup, false);
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e3, viewGroup, false);
                 eVar = new e(this, null);
-                eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b2);
-                eVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901ad);
-                eVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b5);
-                eVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901b8);
-                eVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bb);
-                eVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b3);
-                eVar.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901ae);
-                eVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b6);
-                eVar.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901b9);
-                eVar.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bc);
-                eVar.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b4);
-                eVar.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901af);
-                eVar.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b7);
-                eVar.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901ba);
-                eVar.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bd);
-                eVar.p = view2.findViewById(R.id.obfuscated_res_0x7f0901b0);
-                eVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b1);
+                eVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b4);
+                eVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901af);
+                eVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b7);
+                eVar.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901ba);
+                eVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bd);
+                eVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b5);
+                eVar.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901b0);
+                eVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b8);
+                eVar.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901bb);
+                eVar.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901be);
+                eVar.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b6);
+                eVar.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901b1);
+                eVar.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b9);
+                eVar.n = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901bc);
+                eVar.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901bf);
+                eVar.p = view2.findViewById(R.id.obfuscated_res_0x7f0901b2);
+                eVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901b3);
             } else {
                 eVar = (e) view2.getTag();
             }

@@ -130,7 +130,7 @@ public class fz6 {
                 return false;
             }
             if (StringUtils.isNull(blockPopInfoData.block_info)) {
-                str = tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0732);
+                str = tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f073b);
             } else {
                 str = blockPopInfoData.block_info;
             }

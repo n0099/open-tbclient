@@ -499,7 +499,7 @@ public final class je3 {
             return;
         }
         if (bitmap == null) {
-            o83.f(context, R.string.obfuscated_res_0x7f0f13d6).G();
+            o83.f(context, R.string.obfuscated_res_0x7f0f13ed).G();
         } else if (w83.b0() == null) {
         } else {
             ExecutorUtilsExt.postOnElastic(new b(w83.b0().W(), context, i, tt2Var, bitmap, ut2Var), "add quick app shortcut", 2);

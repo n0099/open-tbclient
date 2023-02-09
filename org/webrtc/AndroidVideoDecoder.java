@@ -6,7 +6,7 @@ import android.os.SystemClock;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nca;
+import com.baidu.tieba.rda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,7 +73,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     @Override // org.webrtc.VideoDecoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoDecoder() {
-        return nca.$default$createNativeVideoDecoder(this);
+        return rda.$default$createNativeVideoDecoder(this);
     }
 
     @Override // org.webrtc.VideoDecoder

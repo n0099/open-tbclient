@@ -1,216 +1,96 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.text.TextUtils;
-import android.view.Surface;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes5.dex */
-public class mw9 {
+public class mw9 extends jw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean B;
 
-    public static MediaCodec a(MediaFormat mediaFormat) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.iw9, com.baidu.tieba.xw9
+    public void a(rw9 rw9Var, SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mediaFormat)) == null) {
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(i(mediaFormat));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            return createDecoderByType;
-        }
-        return (MediaCodec) invokeL.objValue;
-    }
-
-    public static MediaExtractor b(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str);
-            return mediaExtractor;
-        }
-        return (MediaExtractor) invokeL.objValue;
-    }
-
-    public static int e(MediaExtractor mediaExtractor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaExtractor)) == null) {
-            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-                if (j(mediaExtractor.getTrackFormat(i))) {
-                    mediaExtractor.selectTrack(i);
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int f(MediaExtractor mediaExtractor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaExtractor)) == null) {
-            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-                if (k(mediaExtractor.getTrackFormat(i))) {
-                    mediaExtractor.selectTrack(i);
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
-            return h(th, 5);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 16)
-    public static String i(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, mediaFormat)) == null) {
-            return mediaFormat.getString("mime");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 16)
-    public static boolean j(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, mediaFormat)) == null) {
-            return i(mediaFormat).startsWith("audio/");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean k(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, mediaFormat)) == null) {
-            return i(mediaFormat).startsWith(FileUtils.VIDEO_FILE_START);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static MediaCodec c(MediaFormat mediaFormat, Surface surface) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mediaFormat, surface)) == null) {
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(i(mediaFormat));
-            createDecoderByType.configure(mediaFormat, surface, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            return createDecoderByType;
-        }
-        return (MediaCodec) invokeLL.objValue;
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && !TextUtils.isEmpty(str2)) {
-            cw9.j(str, str2);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, rw9Var, surfaceTexture) == null) {
+            rw9Var.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
+            rw9Var.f(surfaceTexture);
         }
     }
 
-    public static MediaCodec d(MediaCodecInfo mediaCodecInfo, MediaFormat mediaFormat, AtomicReference<Surface> atomicReference) throws IOException {
-        InterceptResult invokeLLL;
+    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, mediaCodecInfo, mediaFormat, atomicReference)) == null) {
-            MediaCodec createByCodecName = MediaCodec.createByCodecName(mediaCodecInfo.getName());
-            createByCodecName.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            atomicReference.set(createByCodecName.createInputSurface());
-            createByCodecName.start();
-            return createByCodecName;
-        }
-        return (MediaCodec) invokeLLL.objValue;
-    }
-
-    public static String h(Throwable th, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, th, i)) == null) {
-            if (th == null) {
-                return "no exception";
-            }
-            StackTraceElement[] stackTrace = th.getStackTrace();
-            if (stackTrace != null && stackTrace.length > 0) {
-                if (i > stackTrace.length) {
-                    i = stackTrace.length;
-                }
-                StringBuilder sb = new StringBuilder();
-                for (int i2 = 0; i2 < i; i2++) {
-                    StackTraceElement stackTraceElement = stackTrace[i2];
-                    if (i2 == 0) {
-                        sb.append("->");
-                        sb.append(th.toString());
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            GLES20.glBindFramebuffer(36160, i2);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            GLES20.glClear(16640);
+            if (this.z) {
+                if (z) {
+                    int i8 = this.j;
+                    int i9 = this.k;
+                    if (i8 > i9) {
+                        int i10 = this.p;
+                        float f = (i10 * 1.0f) / i8;
+                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
+                    } else {
+                        GLES20.glViewport(0, 0, this.p, this.q);
                     }
-                    sb.append("->");
-                    sb.append("at ");
-                    sb.append(stackTraceElement.getClassName());
-                    sb.append(".");
-                    sb.append(stackTraceElement.getMethodName());
-                    sb.append("(");
-                    sb.append(stackTraceElement.getFileName());
-                    sb.append(":");
-                    sb.append(stackTraceElement.getLineNumber());
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                    this.o.drawFrame(this.l, fArr2);
                 }
-                return sb.toString();
+                if (z2) {
+                    GLES20.glViewport(0, 0, this.p, this.q);
+                } else {
+                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                }
+                this.mFullScreen2D.drawFrame(i, fArr);
+            } else {
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(i, fArr);
+                if (z) {
+                    int i11 = i4 + this.w;
+                    int i12 = this.q;
+                    int i13 = this.k;
+                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
+                    this.o.drawFrame(this.l, fArr2);
+                }
             }
-            return th.toString();
+            GLES20.glBindFramebuffer(36160, 0);
         }
-        return (String) invokeLI.objValue;
     }
 
-    public static MediaCodecInfo m(String str) {
+    public boolean j(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            int codecCount = MediaCodecList.getCodecCount();
-            for (int i = 0; i < codecCount; i++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
-                if (codecInfoAt.isEncoder()) {
-                    for (String str2 : codecInfoAt.getSupportedTypes()) {
-                        if (str2.equalsIgnoreCase(str)) {
-                            return codecInfoAt;
-                        }
-                    }
-                    continue;
-                }
-            }
-            return null;
-        }
-        return (MediaCodecInfo) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
     }
 
-    public static void n(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i) {
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65549, null, mediaFormat, mediaFormat2, str, i) == null) {
-            if (mediaFormat != null && mediaFormat.containsKey(str) && mediaFormat.getInteger(str) > 0) {
-                i = mediaFormat.getInteger(str);
-            }
-            if (mediaFormat2 != null) {
-                mediaFormat2.setInteger(str, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onDrawFrame(pg0 pg0Var, int i, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, pg0Var, i, fArr) == null) && this.s && this.l != 0) {
+            try {
+                this.mTextureId = i;
+                this.m.updateTexImage();
+                this.m.getTransformMatrix(this.n);
+                f();
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
+            } catch (Throwable th) {
+                gx9.c("followvideo", th.toString());
             }
         }
     }

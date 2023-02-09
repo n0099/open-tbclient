@@ -44,13 +44,13 @@ public class wm3 {
 
         /* renamed from: com.baidu.tieba.wm3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0479a implements Runnable {
+        public class RunnableC0477a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0479a(a aVar, Activity activity) {
+            public RunnableC0477a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,11 +145,11 @@ public class wm3 {
             }
             super.onActivityCreated(activity, bundle);
             if (activity != null && activity.getIntent() != null) {
-                RunnableC0479a runnableC0479a = new RunnableC0479a(this, activity);
+                RunnableC0477a runnableC0477a = new RunnableC0477a(this, activity);
                 if (dl3.a()) {
-                    runnableC0479a.run();
+                    runnableC0477a.run();
                 } else {
-                    ql3.j(runnableC0479a, "moveTaskToFront");
+                    ql3.j(runnableC0477a, "moveTaskToFront");
                 }
             }
         }

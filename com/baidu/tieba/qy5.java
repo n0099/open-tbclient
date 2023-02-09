@@ -325,7 +325,7 @@ public class qy5 {
                 this.a = new e(countDownTextView, null);
                 String str = this.b;
                 if (TextUtils.isEmpty(str)) {
-                    str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1266);
+                    str = pageActivity.getResources().getString(R.string.obfuscated_res_0x7f0f127c);
                 }
                 if (splashAdView.n) {
                     countDownTextView.d(str, 6);

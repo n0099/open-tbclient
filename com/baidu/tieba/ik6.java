@@ -208,7 +208,7 @@ public class ik6 {
                 return;
             }
             if (this.b == null) {
-                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0279, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d027a, (ViewGroup) null);
                 this.b = inflate;
                 inflate.setOnClickListener(new c(this));
             }

@@ -32,7 +32,7 @@ public class tp7 {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
             float measureText = textPaint.measureText(str);
             while (str.length() > 0 && measureText > f) {
-                str = rp5.m(str, rp5.e(str) - 1);
+                str = rp5.n(str, rp5.f(str) - 1);
                 measureText = textPaint.measureText(str);
             }
             return str;

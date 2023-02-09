@@ -32,6 +32,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b49;
 import com.baidu.tieba.ca;
 import com.baidu.tieba.dh5;
 import com.baidu.tieba.dj;
@@ -42,7 +43,6 @@ import com.baidu.tieba.pj;
 import com.baidu.tieba.rj;
 import com.baidu.tieba.w55;
 import com.baidu.tieba.wj;
-import com.baidu.tieba.x29;
 import com.baidu.tieba.x55;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
@@ -91,7 +91,7 @@ public class VoiceManager extends BroadcastReceiver {
     public PermissionJudgePolicy mPermissionJudgePolicy;
     public boolean mPhoneSpeaker;
     public k mPlayCall;
-    public CustomResponsedMessage<x29> mRecorderManagerRespMsg;
+    public CustomResponsedMessage<b49> mRecorderManagerRespMsg;
     public yg<x55> mResourceCall;
     public l mSensorListener;
     public final BroadcastReceiver mVoicePlayerReceiver;
@@ -550,7 +550,7 @@ public class VoiceManager extends BroadcastReceiver {
                                 if (intExtra2 == 2) {
                                     a = wj.a(R.string.voice_err_io);
                                 } else {
-                                    a = wj.a(R.string.obfuscated_res_0x7f0f1677);
+                                    a = wj.a(R.string.obfuscated_res_0x7f0f168f);
                                 }
                                 playView3.onShowErr(5, a);
                             }
@@ -909,7 +909,7 @@ public class VoiceManager extends BroadcastReceiver {
         this.mVoicePlayerReceiver = new g(this);
         initConfig();
         bUseMedaiPlayer = !isVoiceUseSoftDecoder();
-        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, x29.class);
+        this.mRecorderManagerRespMsg = MessageManager.getInstance().runTask(2001271, b49.class);
         this.mSensorListener = new l(this, null);
     }
 
@@ -1295,19 +1295,19 @@ public class VoiceManager extends BroadcastReceiver {
         return (VoiceData.VoiceModel) invokeV.objValue;
     }
 
-    public x29 getRecorderManager() {
+    public b49 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            CustomResponsedMessage<x29> customResponsedMessage = this.mRecorderManagerRespMsg;
+            CustomResponsedMessage<b49> customResponsedMessage = this.mRecorderManagerRespMsg;
             if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                x29 data = this.mRecorderManagerRespMsg.getData();
+                b49 data = this.mRecorderManagerRespMsg.getData();
                 data.a(this.context);
                 return data;
             }
             return null;
         }
-        return (x29) invokeV.objValue;
+        return (b49) invokeV.objValue;
     }
 
     public boolean isPlaying() {
@@ -1667,7 +1667,7 @@ public class VoiceManager extends BroadcastReceiver {
                     if (this.mPlayCall == null) {
                         this.mPlayCall = new k(this, null);
                     }
-                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f1675));
+                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f168d));
                     FieldBuilder fieldBuilder = new FieldBuilder();
                     if (voiceModel != null) {
                         fieldBuilder.append("id", voiceModel.getId());
@@ -1812,7 +1812,7 @@ public class VoiceManager extends BroadcastReceiver {
                     this.mPlayCall = new k(this, null);
                 }
                 if (!new File(str).exists()) {
-                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f1675));
+                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f168d));
                     return;
                 }
                 registSensor();

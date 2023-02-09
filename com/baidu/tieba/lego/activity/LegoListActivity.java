@@ -23,8 +23,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.av7;
 import com.baidu.tieba.ew7;
-import com.baidu.tieba.f09;
 import com.baidu.tieba.iu7;
+import com.baidu.tieba.j19;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
@@ -163,7 +163,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            f09.c(this.b.getPageContext(), this.a);
+            j19.c(this.b.getPageContext(), this.a);
         }
     }
 
@@ -509,7 +509,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
             super.setHideStatusImmersiveStyle(this.h);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0537);
+            setContentView(R.layout.obfuscated_res_0x7f0d053b);
             registerListener(this.u);
             ew7 ew7Var = new ew7();
             ew7Var.a = this.e;
@@ -521,10 +521,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             this.w = u0;
             u0.onCreate(getPageContext());
             this.c = new qu7(this);
-            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a72);
-            this.t = (LegoBottomView) findViewById(R.id.obfuscated_res_0x7f0913c0);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09172e);
-            tv7 tv7Var = new tv7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09136e));
+            this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090a80);
+            this.t = (LegoBottomView) findViewById(R.id.obfuscated_res_0x7f0913d5);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091745);
+            tv7 tv7Var = new tv7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091382));
             this.s = tv7Var;
             tv7Var.C0(this);
             this.s.h0();
@@ -536,7 +536,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 this.b.W1(this.e);
                 this.b.U1(this.g);
                 this.b.setPrimary(true);
-                beginTransaction.replace(R.id.obfuscated_res_0x7f090a68, this.b);
+                beginTransaction.replace(R.id.obfuscated_res_0x7f090a76, this.b);
             } else {
                 LegoListFragment.o2();
                 LegoListFragment legoListFragment = new LegoListFragment();
@@ -553,7 +553,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 this.a.u2(this.i);
                 this.a.y2(this.j);
                 this.a.setFrom(this.q);
-                beginTransaction.replace(R.id.obfuscated_res_0x7f090a68, this.a);
+                beginTransaction.replace(R.id.obfuscated_res_0x7f090a76, this.a);
             }
             if (this.h) {
                 this.c.d();

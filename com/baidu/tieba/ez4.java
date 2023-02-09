@@ -62,4 +62,15 @@ public class ez4 {
             intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
         }
     }
+
+    public void d(pp8 pp8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, pp8Var) != null) || pp8Var == null) {
+            return;
+        }
+        pp8Var.g = this.a;
+        pp8Var.f = this.b;
+        pp8Var.l = this.c;
+        pp8Var.o = this.d;
+    }
 }

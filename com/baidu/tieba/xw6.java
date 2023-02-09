@@ -73,7 +73,7 @@ public class xw6 {
                 boolean z = false;
                 if (!rr6.f().i() && !qr6.h().j()) {
                     if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0d08);
                         return false;
                     }
                     if (this.a.b instanceof FrsNewAreaFragment) {
@@ -91,9 +91,9 @@ public class xw6 {
                     this.a.e = i;
                     if (this.a.e != 7) {
                         gp5.c();
-                        i29.a();
+                        m39.a();
                     } else {
-                        i29.b();
+                        m39.b();
                     }
                     if (this.a.b instanceof FrsNewAreaFragment) {
                         ((FrsNewAreaFragment) this.a.b).m2().W(this.a.d.w(this.a.e));
@@ -132,11 +132,11 @@ public class xw6 {
         this.g = new a(this);
         if (baseFragment != null && relativeLayout != null) {
             this.b = baseFragment;
-            View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0352, relativeLayout);
+            View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0354, relativeLayout);
             this.a = inflate;
             inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092015);
-            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092016);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092059);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f09205a);
             this.d = frsTabSortSwitchButton;
             frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
             this.e = this.d.getState();

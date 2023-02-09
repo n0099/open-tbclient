@@ -59,9 +59,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09089c);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090264);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090263);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908aa);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090268);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090267);
         }
     }
 
@@ -174,7 +174,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0858, viewGroup, false));
+            return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086a, viewGroup, false));
         }
         return (a) invokeLI.objValue;
     }

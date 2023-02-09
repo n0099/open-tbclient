@@ -141,7 +141,7 @@ public class yx1 extends px1 {
             this.e.h.n2(this.e.g);
             yx1 yx1Var = this.e;
             SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.c);
-            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f12fa);
+            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f1311);
             yx1Var.f = swanAppWebPopWindow;
             if (TextUtils.equals(this.d, "protect")) {
                 SwanAppWebPopWindow swanAppWebPopWindow2 = this.e.f;

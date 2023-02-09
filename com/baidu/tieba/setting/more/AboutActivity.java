@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fu8;
 import com.baidu.tieba.gu7;
-import com.baidu.tieba.iu8;
-import com.baidu.tieba.nu8;
-import com.baidu.tieba.ou8;
+import com.baidu.tieba.jv8;
+import com.baidu.tieba.mv8;
 import com.baidu.tieba.p35;
+import com.baidu.tieba.rv8;
 import com.baidu.tieba.setting.model.AboutModel;
+import com.baidu.tieba.sv8;
 import com.baidu.tieba.u85;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,16 +35,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fu8 a;
+    public jv8 a;
     public AboutModel b;
     public c c;
     public String d;
-    public nu8 e;
-    public ou8 f;
+    public rv8 e;
+    public sv8 f;
     public int g;
 
     /* loaded from: classes6.dex */
-    public class a implements iu8 {
+    public class a implements mv8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -67,7 +67,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.iu8
+        @Override // com.baidu.tieba.mv8
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -98,7 +98,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new nu8(aboutActivity.getActivity());
+                        aboutActivity.e = new rv8(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
@@ -214,9 +214,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 aboutModel.cancelLoadData();
             }
             this.b.K();
-            fu8 fu8Var = this.a;
-            if (fu8Var != null) {
-                fu8Var.E();
+            jv8 jv8Var = this.a;
+            if (jv8Var != null) {
+                jv8Var.E();
             }
         }
     }
@@ -231,17 +231,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            fu8 fu8Var = this.a;
-            if (fu8Var != null) {
-                fu8Var.F();
+            jv8 jv8Var = this.a;
+            if (jv8Var != null) {
+                jv8Var.F();
             }
-            nu8 nu8Var = this.e;
-            if (nu8Var != null) {
-                nu8Var.dismiss();
+            rv8 rv8Var = this.e;
+            if (rv8Var != null) {
+                rv8Var.dismiss();
             }
-            ou8 ou8Var = this.f;
-            if (ou8Var != null) {
-                ou8Var.i();
+            sv8 sv8Var = this.f;
+            if (sv8Var != null) {
+                sv8Var.i();
                 this.f = null;
             }
         }
@@ -252,9 +252,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            fu8 fu8Var = this.a;
-            if (fu8Var != null) {
-                fu8Var.M(i);
+            jv8 jv8Var = this.a;
+            if (jv8Var != null) {
+                jv8Var.M(i);
             }
         }
     }
@@ -264,10 +264,10 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new ou8(this);
-            fu8 fu8Var = new fu8(this, new a(this));
-            this.a = fu8Var;
-            fu8Var.K();
+            this.f = new sv8(this);
+            jv8 jv8Var = new jv8(this, new a(this));
+            this.a = jv8Var;
+            jv8Var.K();
             H1();
         }
     }
@@ -276,9 +276,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         u85 u85Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            fu8 fu8Var = this.a;
-            if (fu8Var != null) {
-                fu8Var.F();
+            jv8 jv8Var = this.a;
+            if (jv8Var != null) {
+                jv8Var.F();
             }
             if (obj != null) {
                 u85Var = (u85) obj;
@@ -298,14 +298,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                         sendMessage(customMessage);
                     }
                 }
-                fu8 fu8Var2 = this.a;
-                if (fu8Var2 != null) {
-                    fu8Var2.K();
+                jv8 jv8Var2 = this.a;
+                if (jv8Var2 != null) {
+                    jv8Var2.K();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0cfe));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0d08));
         }
     }
 
@@ -339,9 +339,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            fu8 fu8Var = this.a;
-            if (fu8Var != null) {
-                fu8Var.K();
+            jv8 jv8Var = this.a;
+            if (jv8Var != null) {
+                jv8Var.K();
             }
         }
     }

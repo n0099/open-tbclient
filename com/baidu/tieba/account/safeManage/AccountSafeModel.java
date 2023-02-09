@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.cu8;
+import com.baidu.tieba.gv8;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public cu8 b;
+    public gv8 b;
     public String c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -61,21 +61,21 @@ public class AccountSafeModel extends BdBaseModel {
         return (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public cu8 H() {
+    public gv8 H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (cu8) invokeV.objValue;
+        return (gv8) invokeV.objValue;
     }
 
     public final SimpleUser I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            cu8 cu8Var = this.b;
-            if (cu8Var != null && cu8Var.f() != null) {
+            gv8 gv8Var = this.b;
+            if (gv8Var != null && gv8Var.f() != null) {
                 return this.b.f();
             }
             return null;
@@ -136,10 +136,10 @@ public class AccountSafeModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public void M(cu8 cu8Var) {
+    public void M(gv8 gv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cu8Var) == null) {
-            this.b = cu8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gv8Var) == null) {
+            this.b = gv8Var;
             K();
         }
     }

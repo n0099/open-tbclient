@@ -39,12 +39,12 @@ public class f81 {
 
         /* renamed from: com.baidu.tieba.f81$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0266a implements Runnable {
+        public class RunnableC0265a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0266a(a aVar) {
+            public RunnableC0265a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -130,7 +130,7 @@ public class f81 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 n91.a("WebViewInit", "内核在宿主内成功初始化");
                 int unused = f81.a = 3;
-                ck0.b(new RunnableC0266a(this));
+                ck0.b(new RunnableC0265a(this));
             }
         }
 
@@ -185,12 +185,12 @@ public class f81 {
 
         /* renamed from: com.baidu.tieba.f81$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0267b implements Runnable {
+        public class RunnableC0266b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0267b(b bVar) {
+            public RunnableC0266b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -252,7 +252,7 @@ public class f81 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 n91.a("WebViewInit", "内核在SDK内初始化失败");
                 int unused = f81.a = 4;
-                ck0.b(new RunnableC0267b(this));
+                ck0.b(new RunnableC0266b(this));
             }
         }
     }

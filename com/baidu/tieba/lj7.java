@@ -113,9 +113,9 @@ public class lj7 extends u9<MsglistActivity<?>> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b.mContext == null) {
                 return;
             }
-            rf8 rf8Var = new rf8(TbadkCoreApplication.getInst());
-            rf8Var.b(this.b.mContext.getUniqueId());
-            rf8Var.c(String.valueOf(this.a.getUserId()));
+            dg8 dg8Var = new dg8(TbadkCoreApplication.getInst());
+            dg8Var.b(this.b.mContext.getUniqueId());
+            dg8Var.c(String.valueOf(this.a.getUserId()));
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1));
         }
 

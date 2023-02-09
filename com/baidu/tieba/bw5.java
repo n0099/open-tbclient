@@ -40,7 +40,7 @@ public class bw5 implements su5, View.OnClickListener, TbTabLayout.c {
     public boolean j;
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

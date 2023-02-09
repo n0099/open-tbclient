@@ -64,7 +64,7 @@ public class k2 extends WebViewClient {
                     d1 c = e1.a(m2Var.a).c(new f1(this.a.c), 4);
                     c.a("desc", str + "&errcode:" + i + "&fileurl:" + str2).a();
                 }
-                Toast.makeText(this.a.a, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f16bb, 0).show();
+                Toast.makeText(this.a.a, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f16d3, 0).show();
             }
         }
     }

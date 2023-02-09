@@ -331,7 +331,7 @@ public class tx6 {
         Context context;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && (editText = this.i) != null && (context = this.a) != null) {
-            editText.setHint(String.format(context.getString(R.string.obfuscated_res_0x7f0f0700), i(i)));
+            editText.setHint(String.format(context.getString(R.string.obfuscated_res_0x7f0f0709), i(i)));
         }
     }
 
@@ -339,7 +339,7 @@ public class tx6 {
         TextView textView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (textView = this.f) != null) {
-            textView.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0702), i(i)));
+            textView.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f070b), i(i)));
         }
     }
 
@@ -352,34 +352,34 @@ public class tx6 {
             d2.v(R.color.CAM_X0107);
             d2.A(R.string.F_X02);
             p15.d(this.e).v(R.color.CAM_X0111);
-            this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08098c, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08099b, SkinManager.getColor(R.color.CAM_X0107), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.j.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0111));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                lg9.l(this.i, R.drawable.edittext_cursor);
-                lg9.l(this.j, R.drawable.edittext_cursor);
+                ph9.l(this.i, R.drawable.edittext_cursor);
+                ph9.l(this.j, R.drawable.edittext_cursor);
                 return;
             }
-            lg9.l(this.i, R.drawable.edittext_cursor_1);
-            lg9.l(this.j, R.drawable.edittext_cursor_1);
+            ph9.l(this.i, R.drawable.edittext_cursor_1);
+            ph9.l(this.j, R.drawable.edittext_cursor_1);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c0, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c2, (ViewGroup) null);
             this.b = inflate;
             this.c = inflate.findViewById(R.id.item_divider);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910ba);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09107b);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d0);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09108e);
             this.i = (EditText) this.b.findViewById(R.id.item_title);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910bc);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f092313);
-            this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f091078);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091079);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d2);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f09235a);
+            this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f09108b);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09108c);
             sx6.P(this.e, 0, 30);
             sx6.P(this.g, 0, 1000);
             this.i.addTextChangedListener(new a(this));

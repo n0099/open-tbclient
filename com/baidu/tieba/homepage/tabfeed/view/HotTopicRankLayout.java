@@ -137,7 +137,7 @@ public class HotTopicRankLayout extends LinearLayout implements ay, zx<ag7>, Vie
             this.e = findViewById(R.id.layout_into);
             this.g = findViewById(R.id.divider_line_top);
             this.h = findViewById(R.id.divider_line_bottom);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09071d);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090728);
             this.c = findViewById(R.id.title_layout);
             int g = ej.g(getContext(), R.dimen.M_H_X004);
             int g2 = ej.g(getContext(), R.dimen.M_H_X004);

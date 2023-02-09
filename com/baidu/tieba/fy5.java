@@ -70,7 +70,7 @@ public class fy5 {
                     }
                     if (charSequence2String.trim().length() == 0) {
                         if (charSequence2String.length() > 0) {
-                            this.a.g.showToast(R.string.obfuscated_res_0x7f0f0996);
+                            this.a.g.showToast(R.string.obfuscated_res_0x7f0f09a0);
                             return;
                         }
                         return;
@@ -153,9 +153,9 @@ public class fy5 {
         this.h = new a(this);
         this.g = tbPageContext;
         this.f = tbPageContext.getPageActivity();
-        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091785);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091789);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091784);
+        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09179e);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a2);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09179d);
         this.b.setOnClickListener(this.h);
         this.c.setOnClickListener(this.h);
         b bVar = new b(this);

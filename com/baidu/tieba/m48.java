@@ -147,7 +147,7 @@ public class m48 {
         this.h = false;
         this.j = new b(this);
         this.g = collectTabActivity;
-        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f092119);
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f09215f);
         this.b = fragmentTabHost;
         fragmentTabHost.setup(this.g.getSupportFragmentManager());
         this.b.setOnPageChangeListener(this.j);
@@ -157,7 +157,7 @@ public class m48 {
         this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.my_mark));
         TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, this.g).findViewById(R.id.right_textview);
         this.a = textView;
-        textView.setText(R.string.obfuscated_res_0x7f0f055b);
+        textView.setText(R.string.obfuscated_res_0x7f0f055e);
         this.a.setOnClickListener(this.g);
         this.e.onChangeSkinType(this.g.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         k(TbadkCoreApplication.getInst().getSkinType());
@@ -169,7 +169,7 @@ public class m48 {
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.a.setEnabled(z);
             if (!z) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f055b);
+                this.a.setText(R.string.obfuscated_res_0x7f0f055e);
                 SkinManager.setNavbarTitleColor(this.a, R.color.navi_op_text, R.color.navi_op_text_skin);
             }
         }
@@ -204,9 +204,9 @@ public class m48 {
             this.h = z;
             TextView textView = this.a;
             if (z) {
-                i2 = R.string.obfuscated_res_0x7f0f052c;
+                i2 = R.string.obfuscated_res_0x7f0f052f;
             } else {
-                i2 = R.string.obfuscated_res_0x7f0f055b;
+                i2 = R.string.obfuscated_res_0x7f0f055e;
             }
             textView.setText(i2);
             int skinType = TbadkCoreApplication.getInst().getSkinType();

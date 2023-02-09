@@ -817,7 +817,7 @@ public class fo6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, kVar) == null) {
             if (d68.o().p()) {
-                ej.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0630);
+                ej.P(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f0639);
                 return;
             }
             qe5 qe5Var = new qe5();

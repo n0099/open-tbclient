@@ -44,7 +44,7 @@ public class zw5 extends xi0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bj0Var, map, fj0Var)) == null) {
             super.b(context, bj0Var, map, fj0Var);
-            return nr8.d(context, bj0Var.d());
+            return rs8.d(context, bj0Var.d());
         }
         return invokeLLLL.booleanValue;
     }

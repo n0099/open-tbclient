@@ -49,13 +49,13 @@ import com.baidu.tieba.enterForum.tabfeed.message.TabFeedListSocketResponsedMess
 import com.baidu.tieba.gh;
 import com.baidu.tieba.hk6;
 import com.baidu.tieba.kp5;
-import com.baidu.tieba.n19;
-import com.baidu.tieba.o09;
 import com.baidu.tieba.oo5;
 import com.baidu.tieba.op5;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.qf5;
+import com.baidu.tieba.r29;
 import com.baidu.tieba.rf5;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.sf5;
 import com.baidu.tieba.tf5;
 import com.baidu.tieba.uf;
@@ -244,8 +244,8 @@ public class EnterForumDelegateStatic extends qf5 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
-                BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.a, R.layout.obfuscated_res_0x7f0d027a, null);
-                TextView textView = (TextView) bubbleLayout.findViewById(R.id.obfuscated_res_0x7f090952);
+                BubbleLayout bubbleLayout = (BubbleLayout) View.inflate(this.a, R.layout.obfuscated_res_0x7f0d027b, null);
+                TextView textView = (TextView) bubbleLayout.findViewById(R.id.obfuscated_res_0x7f090960);
                 textView.setOnClickListener(new a(this));
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
                 bubbleLayout.d(SkinManager.getColor(R.color.cp_link_tip_a_alpha95));
@@ -905,15 +905,15 @@ public class EnterForumDelegateStatic extends qf5 {
     public static void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            o09.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
+            s19.e(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST, TbConfig.URL_ENTER_FORUM_AD, EnterForumAdResponsedMessage.class, false, false, true, false);
         }
     }
 
     public static void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            o09.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
-            o09.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+            s19.h(309651, TabFeedListSocketResponsedMessage.class, false, false);
+            s19.c(309651, CmdConfigHttp.CMD_TAB_FEED_LIST, TbConfig.URL_TAB_FEED_LIST, TabFeedListHttpResponsedMessage.class, false, false, true, false);
         }
     }
 
@@ -995,7 +995,7 @@ public class EnterForumDelegateStatic extends qf5 {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            n19.d();
+            r29.d();
             if (d == null) {
                 EnterForumModel enterForumModel = new EnterForumModel(null);
                 d = enterForumModel;
@@ -1014,21 +1014,21 @@ public class EnterForumDelegateStatic extends qf5 {
     public static void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            o09.h(303011, forumRecommendSocketResponseMessage.class, false, false);
-            o09.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
-            o09.h(309683, ForumGuideSocketResponseMessage.class, false, false);
-            o09.c(309683, CmdConfigHttp.CMD_ENTER_FORUM_DATA, "c/f/forum/forumGuide", ForumGuideHttpResponseMessage.class, false, false, true, false);
-            o09.h(309685, SetLikeForumSocketResponseMessage.class, false, false);
-            o09.c(309685, CmdConfigHttp.CMD_SET_LIKE_FORUM, "c/c/forum/setLikeForumSort", SetLikeForumHttpResponseMessage.class, false, false, false, false);
+            s19.h(303011, forumRecommendSocketResponseMessage.class, false, false);
+            s19.c(303011, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, "c/f/forum/forumrecommend", forumRecommendHttpResponseMessage.class, false, false, false, false);
+            s19.h(309683, ForumGuideSocketResponseMessage.class, false, false);
+            s19.c(309683, CmdConfigHttp.CMD_ENTER_FORUM_DATA, "c/f/forum/forumGuide", ForumGuideHttpResponseMessage.class, false, false, true, false);
+            s19.h(309685, SetLikeForumSocketResponseMessage.class, false, false);
+            s19.c(309685, CmdConfigHttp.CMD_SET_LIKE_FORUM, "c/c/forum/setLikeForumSort", SetLikeForumHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public static void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            o09.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
-            o09.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
-            o09.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
+            s19.h(309601, RecentlyVisitedForumSocketResponseMessage.class, false, false);
+            s19.c(309601, CmdConfigHttp.CMD_GET_HISTORY_FORUM, "c/f/forum/gethistoryforum", RecentlyVisitedForumHttpResponseMessage.class, false, false, false, false);
+            s19.e(CmdConfigHttp.CMD_DELETE_HISTORY_FORUM, "c/c/forum/delHistoryForum", null, false, false, false, false);
         }
     }
 

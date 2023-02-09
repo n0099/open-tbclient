@@ -30,8 +30,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.h55;
-import com.baidu.tieba.lg9;
 import com.baidu.tieba.p15;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.rc;
 import com.baidu.tieba.rp5;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
@@ -235,7 +235,7 @@ public class RichTextEditor extends LinearLayout {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (rp5.c(spanned.toString()) - (i4 - i3)) + rp5.c(charSequence.toString()) > this.a) {
+                if (spanned != null && charSequence != null && (rp5.d(spanned.toString()) - (i4 - i3)) + rp5.d(charSequence.toString()) > this.a) {
                     if (this.b.k != null) {
                         this.b.k.a();
                     }
@@ -312,7 +312,7 @@ public class RichTextEditor extends LinearLayout {
         this.m = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081059));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08106e));
         setShowDividers(2);
         this.a = new a(this);
     }
@@ -629,7 +629,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(ej.g(getContext(), R.dimen.M_T_X002), 1.0f);
-            lg9.l(spanGroupEditText, R.drawable.edittext_cursor);
+            ph9.l(spanGroupEditText, R.drawable.edittext_cursor);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
             p15.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
@@ -641,7 +641,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setForumId(this.g);
             spanGroupEditText.setOnClickListener(this.e);
             spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f09111f, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f091133, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;

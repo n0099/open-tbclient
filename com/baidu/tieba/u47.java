@@ -36,12 +36,12 @@ public class u47 implements View.OnClickListener {
 
         /* renamed from: com.baidu.tieba.u47$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0437a implements Runnable {
+        public class RunnableC0438a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0437a(a aVar) {
+            public RunnableC0438a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class u47 implements View.OnClickListener {
                 this.a.e = new PopupWindow(h, -2, g);
                 GreyUtil.grey(this.a.e);
                 this.a.e.showAtLocation(this.a.d, 53, g2, g3);
-                this.a.f.postDelayed(new RunnableC0437a(this), 3000L);
+                this.a.f.postDelayed(new RunnableC0438a(this), 3000L);
             }
         }
     }
@@ -121,7 +121,7 @@ public class u47 implements View.OnClickListener {
                 return;
             }
         }
-        this.a = R.string.obfuscated_res_0x7f0f02c7;
+        this.a = R.string.obfuscated_res_0x7f0f02c8;
         this.f = new Handler();
         this.g = new a(this);
         this.c = tbPageContext;
@@ -180,7 +180,7 @@ public class u47 implements View.OnClickListener {
             if (this.c != null && view2 != null && !StringUtils.isNull(currentAccount)) {
                 this.d = view2;
                 if (this.b) {
-                    this.a = R.string.obfuscated_res_0x7f0f02c7;
+                    this.a = R.string.obfuscated_res_0x7f0f02c8;
                     String str = currentAccount + "frs_god_new_post_tip_count";
                     int n = p35.m().n(str, 0);
                     if (n >= 3) {

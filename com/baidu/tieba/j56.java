@@ -121,17 +121,17 @@ public class j56 implements View.OnClickListener {
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244e);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d2d);
-            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9b);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09245c);
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d2f);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092458);
-            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914c5);
-            this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f9c);
-            this.l = view2.findViewById(R.id.obfuscated_res_0x7f0914bb);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fab);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092499);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092498);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d6f);
+            this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fac);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a6);
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d71);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a2);
+            this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914da);
+            this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fad);
+            this.l = view2.findViewById(R.id.obfuscated_res_0x7f0914d0);
             TextView textView = (TextView) view2.findViewById(R.id.tvAlaLivingLogView);
             this.m = textView;
             textView.setTextSize(0, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07032c));
@@ -172,7 +172,7 @@ public class j56 implements View.OnClickListener {
         this.a = 3;
         this.g = new a(this);
         this.b = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f8, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00f9, (ViewGroup) null, false);
         this.d = inflate;
         this.c = new b(inflate);
         c().setOnClickListener(this);
@@ -215,8 +215,8 @@ public class j56 implements View.OnClickListener {
             this.c.j.setText(this.e.getTitle());
             if (this.e.getAuthor() != null) {
                 String name_show = this.e.getAuthor().getName_show();
-                if (rp5.e(name_show) > 10) {
-                    name_show = rp5.m(name_show, 10) + StringHelper.STRING_MORE;
+                if (rp5.f(name_show) > 10) {
+                    name_show = rp5.n(name_show, 10) + StringHelper.STRING_MORE;
                 }
                 this.c.g.setText(name_show);
             }

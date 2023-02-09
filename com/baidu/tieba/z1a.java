@@ -1,54 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.tieba.y1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.AdReporter;
-import java.util.ArrayList;
-import java.util.List;
+import com.fun.ad.sdk.FunAdLoader;
 /* loaded from: classes7.dex */
-public class z1a<A extends y1a> extends AdReporter<A> {
+public class z1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z1a(String str, String str2, String str3) {
-        super(str, str2, str3);
+    /* loaded from: classes7.dex */
+    public interface a {
+        FunAdLoader a(k1a k1aVar);
+    }
+
+    public z1a(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.utils.AdReporter
-    public List onReport(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, str)) == null) {
-            y1a y1aVar = (y1a) obj;
-            if (y1aVar == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(Pair.create("csj_rq_id", y1aVar.a()));
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
+        this.a = aVar;
     }
 }

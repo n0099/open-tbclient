@@ -132,7 +132,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0320, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0322, this);
         a();
     }
 
@@ -141,9 +141,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c5a);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090c59);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c57);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c6b);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090c6a);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c68);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }

@@ -51,12 +51,12 @@ import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.tieba.r75;
 import com.baidu.tieba.s75;
 import com.baidu.tieba.sn5;
-import com.baidu.tieba.sn9;
 import com.baidu.tieba.ti;
 import com.baidu.tieba.tk5;
 import com.baidu.tieba.tn5;
 import com.baidu.tieba.u85;
 import com.baidu.tieba.wallet.YYLiveConfig;
+import com.baidu.tieba.wo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -503,7 +503,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteYYLiveTabConfigData() {
-        sn9 x;
+        wo9 x;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65562, this) == null) && (x = this.mModel.x()) != null) {
             TbSingleton.getInstance().setYYLiveTabConfig(x);

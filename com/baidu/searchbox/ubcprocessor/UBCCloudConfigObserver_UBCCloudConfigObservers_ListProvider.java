@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ubcprocessor;
 
-import com.baidu.tieba.vy9;
 import com.baidu.tieba.yj1;
+import com.baidu.tieba.zz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new vy9());
+            arrayList.add(new zz9());
             return arrayList;
         }
         return invokeV.objValue;

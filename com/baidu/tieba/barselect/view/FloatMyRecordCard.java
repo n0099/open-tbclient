@@ -142,16 +142,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092531);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09257c);
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d7d);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092721);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0916b7);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d8e);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092782);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f0916ce);
         }
     }
 
@@ -161,7 +161,7 @@ public class FloatMyRecordCard extends LinearLayout {
             this.a = getContext();
             setOrientation(0);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0290, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0291, (ViewGroup) this, true);
             b();
         }
     }

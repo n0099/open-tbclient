@@ -41,29 +41,29 @@ public class jf6 implements if6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<String> a;
-        public bv9 b;
+        public fw9 b;
         public final /* synthetic */ jf6 c;
 
         /* loaded from: classes5.dex */
-        public class a implements bv9 {
+        public class a implements fw9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.bv9
+            @Override // com.baidu.tieba.fw9
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.bv9
+            @Override // com.baidu.tieba.fw9
             public void b(long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.bv9
+            @Override // com.baidu.tieba.fw9
             public void c(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -111,7 +111,7 @@ public class jf6 implements if6 {
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:48:0x010d, code lost:
-            if (com.baidu.tieba.xw9.h(r6, r7[0], r1, r5.b) != false) goto L18;
+            if (com.baidu.tieba.by9.h(r6, r7[0], r1, r5.b) != false) goto L18;
          */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00bf  */
         /* JADX WARN: Removed duplicated region for block: B:54:0x011d A[LOOP:0: B:52:0x0117->B:54:0x011d, LOOP_END] */
@@ -127,7 +127,7 @@ public class jf6 implements if6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sb, listArr)) == null) {
                 if (listArr[0] != null && listArr[0].size() != 0) {
-                    String str = n99.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+                    String str = ra9.f + "rec_tmp_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
                     if (!StringUtils.isNull(str)) {
                         File file = new File(str);
                         if (!file.getParentFile().exists()) {
@@ -138,7 +138,7 @@ public class jf6 implements if6 {
                     try {
                         if (listArr[0].size() == 1) {
                             try {
-                                z = x89.b(listArr[0].get(0), str, this.b);
+                                z = ba9.b(listArr[0].get(0), str, this.b);
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 if (sb != null) {
@@ -257,7 +257,7 @@ public class jf6 implements if6 {
                 this.a.addAll(listArr[0]);
                 Iterator<String> it = this.a.iterator();
                 while (it.hasNext()) {
-                    if (av9.a(it.next()) <= 0) {
+                    if (ew9.a(it.next()) <= 0) {
                         return "";
                     }
                 }
@@ -272,9 +272,9 @@ public class jf6 implements if6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 super.onPostExecute((b) str);
-                bv9 bv9Var = this.b;
-                if (bv9Var != null) {
-                    bv9Var.a();
+                fw9 fw9Var = this.b;
+                if (fw9Var != null) {
+                    fw9Var.a();
                 }
                 if (this.c.c != null) {
                     this.c.c.c(str);
@@ -321,7 +321,7 @@ public class jf6 implements if6 {
                 return false;
             }
             if (FileHelper.getAvailableSize() < 52428800) {
-                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b25)).k();
+                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b2f)).k();
                 return false;
             }
             b bVar = this.b;
@@ -333,7 +333,7 @@ public class jf6 implements if6 {
                 this.b = bVar2;
                 bVar2.execute(list);
             } else {
-                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b26)).k();
+                BdToast.b(this.d.getPageActivity(), this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b30)).k();
             }
             return false;
         }
@@ -348,7 +348,7 @@ public class jf6 implements if6 {
             for (int i = 0; i < list.size(); i++) {
                 String str = list.get(i);
                 if (!TextUtils.isEmpty(str)) {
-                    f += nw9.f(str);
+                    f += rx9.f(str);
                 }
             }
             if (f < 3000.0f) {

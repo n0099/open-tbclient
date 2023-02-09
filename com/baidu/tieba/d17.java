@@ -72,7 +72,7 @@ public class d17 {
     public RelativeLayout j;
     public xw6 k;
     public boolean l;
-    public ag9 m;
+    public eh9 m;
     public BannerView.b n;
     public CustomMessageListener o;
     public CustomMessageListener p;
@@ -463,7 +463,7 @@ public class d17 {
             if (this.l) {
                 return false;
             }
-            this.e.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ae4));
+            this.e.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aee));
             this.e.g();
             return true;
         }
@@ -491,16 +491,16 @@ public class d17 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.c.setNextPage(this.e);
-            this.e.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.e.S();
+            this.e.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.e.T();
         }
     }
 
     public void O() {
-        ag9 ag9Var;
+        eh9 eh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (ag9Var = this.m) != null) {
-            ag9Var.i(2000);
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (eh9Var = this.m) != null) {
+            eh9Var.i(2000);
         }
     }
 
@@ -557,10 +557,10 @@ public class d17 {
     }
 
     public void t() {
-        ag9 ag9Var;
+        eh9 eh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (ag9Var = this.m) != null) {
-            ag9Var.d();
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (eh9Var = this.m) != null) {
+            eh9Var.d();
         }
     }
 
@@ -673,16 +673,16 @@ public class d17 {
     }
 
     public void u(int i, int i2) {
-        ag9 ag9Var;
+        eh9 eh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) && (ag9Var = this.m) != null) {
-            ag9Var.i(100);
+        if ((interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) && (eh9Var = this.m) != null) {
+            eh9Var.i(100);
         }
     }
 
     public void A(String str) {
         ThreadData threadData;
-        e19 e19Var;
+        i29 i29Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !StringUtils.isNull(str) && !ListUtils.isEmpty(this.f.j())) {
             Iterator<Cdo> it = this.f.j().iterator();
@@ -701,7 +701,7 @@ public class d17 {
                         it.remove();
                         i2 = i;
                     }
-                } else if ((next instanceof wz4) && (threadData = ((wz4) next).t) != null && (e19Var = threadData.funAdData) != null && e19Var.i()) {
+                } else if ((next instanceof wz4) && (threadData = ((wz4) next).t) != null && (i29Var = threadData.funAdData) != null && i29Var.i()) {
                     it.remove();
                     i3 = i;
                 }
@@ -717,14 +717,14 @@ public class d17 {
                 this.e.F(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.load_more));
                 BdTypeRecyclerView bdTypeRecyclerView = this.c;
                 if (bdTypeRecyclerView.getChildAt(bdTypeRecyclerView.getChildCount() - 1) == this.e.c()) {
-                    this.e.S();
+                    this.e.T();
                     this.a.b();
                     return;
                 }
                 this.e.g();
                 return;
             }
-            this.e.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ae4));
+            this.e.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0aee));
             this.e.g();
         }
     }
@@ -802,7 +802,7 @@ public class d17 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.c.setNextPage(this.e);
-            this.e.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.e.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.e.g();
             this.e.F(this.a.getResources().getString(R.string.list_has_no_more));
         }
@@ -862,7 +862,7 @@ public class d17 {
 
     public final void l() {
         ThreadData threadData;
-        e19 e19Var;
+        i29 i29Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             c17 c17Var = this.f;
@@ -871,8 +871,8 @@ public class d17 {
                 while (it.hasNext()) {
                     Cdo next = it.next();
                     if (!(next instanceof yu5) && !(next instanceof sx5)) {
-                        if ((next instanceof wz4) && (threadData = ((wz4) next).t) != null && (e19Var = threadData.funAdData) != null) {
-                            e19Var.p(true);
+                        if ((next instanceof wz4) && (threadData = ((wz4) next).t) != null && (i29Var = threadData.funAdData) != null) {
+                            i29Var.p(true);
                             it.remove();
                         }
                     } else {
@@ -930,8 +930,8 @@ public class d17 {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, view2) == null) {
-            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bc6);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090bc8);
+            this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090bd7);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090bd9);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
             this.c.setFadingEdgeLength(0);
@@ -950,7 +950,7 @@ public class d17 {
             this.e.H(SkinManager.getColor(R.color.CAM_X0107));
             this.e.D(R.color.CAM_X0110);
             this.c.setOnSrollToBottomListener(this.a);
-            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c27);
+            this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c38);
             this.f = new c17(this.a, this.c);
             D(false);
             this.j = new RelativeLayout(this.a.getContext());
@@ -960,7 +960,7 @@ public class d17 {
             this.a.registerListener(this.p);
             this.a.registerListener(this.q);
             if (this.m == null) {
-                this.m = new ag9(this.a.getPageContext(), this.c);
+                this.m = new eh9(this.a.getPageContext(), this.c);
             }
         }
     }

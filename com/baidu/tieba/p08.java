@@ -94,23 +94,23 @@ public class p08 implements ShareChannelService {
                     if (i != 8) {
                         return false;
                     }
-                    boolean b = k09.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
+                    boolean b = o19.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
                     if (!b) {
-                        ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f120e));
+                        ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1224));
                         return b;
                     }
                     return b;
                 }
-                boolean b2 = k09.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
+                boolean b2 = o19.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
                 if (!b2) {
-                    ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f122d));
+                    ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1243));
                     return b2;
                 }
                 return b2;
             }
-            boolean b3 = k09.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
+            boolean b3 = o19.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
             if (!b3) {
-                ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1234));
+                ej.Q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f124a));
                 return b3;
             }
             return b3;

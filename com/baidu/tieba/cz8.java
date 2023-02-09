@@ -1,51 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.stamp.model.FetchStampModel;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.data.ErrorData;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class cz8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public FetchStampModel a;
-    public zy8 b;
+public interface cz8 {
+    void onError(String str, ErrorData errorData);
 
-    public cz8(TbPageContext tbPageContext, zy8<vy8> zy8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zy8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = zy8Var;
-        this.a = new FetchStampModel(tbPageContext, zy8Var);
-    }
+    void onNoData(ErrorData errorData);
 
-    public void a() {
-        FetchStampModel fetchStampModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.cancelLoadData();
-        }
-    }
-
-    public void b() {
-        FetchStampModel fetchStampModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fetchStampModel = this.a) != null) {
-            fetchStampModel.loadData();
-        }
-    }
+    void onSucc(String str, List<String> list, List<Cdo> list2);
 }

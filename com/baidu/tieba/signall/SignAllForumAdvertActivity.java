@@ -193,13 +193,13 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d07eb);
+            setContentView(R.layout.obfuscated_res_0x7f0d07fd);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fdc);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091fd7);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fd6);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092020);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09201b);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09201a);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             zg.h().m(this.a, 10, new a(this), null);
             this.d.K(this.a, 10, false);

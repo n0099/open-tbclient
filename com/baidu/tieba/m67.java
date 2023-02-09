@@ -599,13 +599,13 @@ public class m67 {
                 imageView.setImageDrawable(null);
             } else if (d.gdtNative != null) {
                 imageView.setVisibility(0);
-                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f6, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL);
             } else if (d.ksNative != null) {
                 imageView.setVisibility(0);
-                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f7, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080803, WebPManager.ResourceStateType.NORMAL);
             } else if (d.csjNative != null) {
                 imageView.setVisibility(0);
-                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f5, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080801, WebPManager.ResourceStateType.NORMAL);
             } else {
                 imageView.setVisibility(8);
                 imageView.setImageDrawable(null);
@@ -666,13 +666,13 @@ public class m67 {
             imageView.setVisibility(8);
             imageView.setImageDrawable(null);
         } else if (d.gdtNative != null) {
-            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807fa, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080806, WebPManager.ResourceStateType.NORMAL);
             imageView.setVisibility(0);
         } else if (d.ksNative != null) {
-            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807fb, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080807, WebPManager.ResourceStateType.NORMAL);
             imageView.setVisibility(0);
         } else if (d.csjNative != null) {
-            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0807f9, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f080805, WebPManager.ResourceStateType.NORMAL);
             imageView.setVisibility(0);
         } else {
             imageView.setVisibility(8);
@@ -835,13 +835,13 @@ public class m67 {
         }
     }
 
-    public static void N(int i, String str, String str2, e19 e19Var) {
+    public static void N(int i, String str, String str2, i29 i29Var) {
         List<String> list;
         String str3;
         String str4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), str, str2, e19Var}) == null) && e19Var != null && e19Var.e() != null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) e19Var.e();
+        if ((interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), str, str2, i29Var}) == null) && i29Var != null && i29Var.e() != null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) i29Var.e();
             String str5 = null;
             if (funNativeAd2 != null && funNativeAd2.getNativeInfo() != null) {
                 String title = funNativeAd2.getNativeInfo().getTitle();
@@ -855,8 +855,8 @@ public class m67 {
                 str4 = null;
             }
             String valueOf = String.valueOf(i);
-            String g = e19Var.g();
-            String d = e19Var.d();
+            String g = i29Var.g();
+            String d = i29Var.d();
             if (list != null) {
                 str5 = list.toString();
             }
@@ -864,14 +864,14 @@ public class m67 {
         }
     }
 
-    public static void a(StatisticItem statisticItem, e19 e19Var) {
+    public static void a(StatisticItem statisticItem, i29 i29Var) {
         List<String> list;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, null, statisticItem, e19Var) == null) && statisticItem != null && e19Var != null && e19Var.e() != null) {
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) e19Var.e();
-            statisticItem.param("tid", e19Var.g());
-            statisticItem.param("fid", e19Var.d());
+        if ((interceptable == null || interceptable.invokeLL(65550, null, statisticItem, i29Var) == null) && statisticItem != null && i29Var != null && i29Var.e() != null) {
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) i29Var.e();
+            statisticItem.param("tid", i29Var.g());
+            statisticItem.param("fid", i29Var.d());
             statisticItem.param(TiebaStatic.Params.AD_TYPE, x(funNativeAd2));
             statisticItem.param(TiebaStatic.Params.AD_SOURCE, t(funNativeAd2));
             String str2 = null;

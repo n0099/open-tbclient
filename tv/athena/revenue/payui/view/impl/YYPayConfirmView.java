@@ -16,11 +16,11 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fla;
-import com.baidu.tieba.nla;
-import com.baidu.tieba.ska;
-import com.baidu.tieba.sla;
+import com.baidu.tieba.ana;
+import com.baidu.tieba.jma;
+import com.baidu.tieba.rma;
 import com.baidu.tieba.wla;
+import com.baidu.tieba.wma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,37 +34,37 @@ import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
 /* loaded from: classes9.dex */
-public class YYPayConfirmView extends LinearLayout implements sla {
+public class YYPayConfirmView extends LinearLayout implements wma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public sla.a c;
+    public wma.a c;
     public GridView d;
     public TextView e;
     public View f;
     public Button g;
     public TextView h;
     public PayUIKitConfig i;
-    public wla j;
+    public ana j;
     public GiftBagsInfo k;
     public List<GiftBagItemInfo> l;
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, windowParams) == null) {
@@ -128,18 +128,18 @@ public class YYPayConfirmView extends LinearLayout implements sla {
         this.b = i2;
         this.i = payUIKitConfig;
         e(context);
-        ska.d(this.a, this.b, "15", "", "", "");
+        wla.d(this.a, this.b, "15", "", "", "");
     }
 
-    @Override // com.baidu.tieba.sla
-    public void setCallback(sla.a aVar) {
+    @Override // com.baidu.tieba.wma
+    public void setCallback(wma.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.c = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.sla
+    @Override // com.baidu.tieba.wma
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, giftBagsInfo) == null) {
@@ -165,11 +165,11 @@ public class YYPayConfirmView extends LinearLayout implements sla {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             RLog.info("YYPayConfirmView", "onContinueBtnClick");
-            sla.a aVar = this.c;
+            wma.a aVar = this.c;
             if (aVar != null) {
                 aVar.a();
             }
-            ska.d(this.a, this.b, "16", "", "", "");
+            wla.d(this.a, this.b, "16", "", "", "");
         }
     }
 
@@ -207,7 +207,7 @@ public class YYPayConfirmView extends LinearLayout implements sla {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, nla.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_confirm_giveup_view, (ViewGroup) this, true);
+            LayoutInflater.from(new ContextThemeWrapper(context, rma.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_confirm_giveup_view, (ViewGroup) this, true);
             Button button = (Button) findViewById(R.id.btn_continue);
             this.g = button;
             button.setOnClickListener(new a(this));
@@ -215,9 +215,9 @@ public class YYPayConfirmView extends LinearLayout implements sla {
             this.d = gridView;
             int i = 0;
             gridView.setSelector(new ColorDrawable(0));
-            wla wlaVar = new wla(context, this.l, this.i);
-            this.j = wlaVar;
-            this.d.setAdapter((ListAdapter) wlaVar);
+            ana anaVar = new ana(context, this.l, this.i);
+            this.j = anaVar;
+            this.d.setAdapter((ListAdapter) anaVar);
             GridView gridView2 = this.d;
             if (!c()) {
                 i = 8;
@@ -229,7 +229,7 @@ public class YYPayConfirmView extends LinearLayout implements sla {
         }
     }
 
-    @Override // com.baidu.tieba.qla
+    @Override // com.baidu.tieba.uma
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -248,7 +248,7 @@ public class YYPayConfirmView extends LinearLayout implements sla {
                 this.l.clear();
                 this.l.addAll(this.k.giftbag);
                 this.j.notifyDataSetChanged();
-                fla.a(this.l.size(), this.f, this.d);
+                jma.a(this.l.size(), this.f, this.d);
                 i();
                 h();
                 g();

@@ -399,7 +399,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof SocketResponsedMessage)) {
                     if ((socketResponsedMessage instanceof ResponsePassFriendMessage) && (error = (responsePassFriendMessage = (ResponsePassFriendMessage) socketResponsedMessage).getError()) != 0 && error != 3100098) {
                         if (StringUtils.isNull(responsePassFriendMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                         } else {
                             errorString = responsePassFriendMessage.getErrorString();
                         }
@@ -408,7 +408,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
             }
         }
     }
@@ -654,8 +654,8 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nVar)) == null) {
             l05 l05Var = new l05(getPageContext().getPageActivity());
-            l05Var.k(R.string.obfuscated_res_0x7f0f0dc6);
-            l05Var.j(new String[]{getPageContext().getString(R.string.obfuscated_res_0x7f0f04d5)}, nVar);
+            l05Var.k(R.string.obfuscated_res_0x7f0f0dd2);
+            l05Var.j(new String[]{getPageContext().getString(R.string.obfuscated_res_0x7f0f04d8)}, nVar);
             return l05Var;
         }
         return (l05) invokeL.objValue;
@@ -707,7 +707,7 @@ public class NewFriendsActivity extends BaseActivity<NewFriendsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0667);
+            setContentView(R.layout.obfuscated_res_0x7f0d066d);
             ey5 ey5Var = new ey5(this);
             this.b = ey5Var;
             ey5Var.p(this.g);

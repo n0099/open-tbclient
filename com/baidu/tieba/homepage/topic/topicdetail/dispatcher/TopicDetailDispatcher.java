@@ -4,14 +4,14 @@ import android.content.Context;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ap5;
-import com.baidu.tieba.kt8;
+import com.baidu.tieba.ou8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class TopicDetailDispatcher implements kt8 {
+public class TopicDetailDispatcher implements ou8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class TopicDetailDispatcher implements kt8 {
         }
     }
 
-    @Override // com.baidu.tieba.kt8
+    @Override // com.baidu.tieba.ou8
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         Interceptable interceptable = $ic;

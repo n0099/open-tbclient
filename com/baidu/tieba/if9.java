@@ -1,183 +1,206 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.media.CamcorderProfile;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.ef9;
-import com.baidu.tieba.gf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.core.ImageLoader;
-import java.io.File;
-import java.util.List;
-import java.util.Vector;
+import java.util.Objects;
 /* loaded from: classes4.dex */
-public class if9 {
+public class if9 implements Comparable<if9> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile if9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public gf9 a;
-    public List<nf9> b;
+    public final int a;
+    public final int b;
+    public int c;
 
-    /* loaded from: classes4.dex */
-    public class a implements mf9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ if9 a;
-
-        public a(if9 if9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {if9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = if9Var;
-        }
-
-        @Override // com.baidu.tieba.mf9
-        public void a(ef9.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                ef9.a().c(bVar);
-                if (!hw9.e(this.a.b)) {
-                    if9 if9Var = this.a;
-                    if9Var.h((nf9) hw9.c(if9Var.b, 0));
-                    hw9.g(this.a.b, 0);
-                }
-            }
-        }
-    }
-
-    public if9() {
+    public if9(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new Vector();
-        this.a = new gf9.b().d();
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
     }
 
-    public void i(of9 of9Var, ff9 ff9Var) {
+    public if9(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, of9Var, ff9Var) == null) {
-            List<nf9> c2 = kf9.c(of9Var, ff9Var);
-            if (!hw9.e(c2)) {
-                for (nf9 nf9Var : c2) {
-                    h(nf9Var);
-                }
-            }
-        }
-    }
-
-    public void j(pf9 pf9Var, ff9 ff9Var) {
-        nf9 b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, pf9Var, ff9Var) == null) && (b = kf9.b(pf9Var, ff9Var)) != null) {
-            h(b);
-        }
-    }
-
-    public static if9 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (if9.class) {
-                    if (c == null) {
-                        c = new if9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (if9) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
-            return;
-        }
-        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
-    }
-
-    public lf9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            return this.a.b;
-        }
-        return (lf9) invokeV.objValue;
-    }
-
-    public Bitmap d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Bitmap a2 = g().a(str);
-            if (a2 != null && !a2.isRecycled()) {
-                return a2;
-            }
-            Bitmap a3 = e().a(str);
-            if (a3 == null || a3.isRecycled()) {
-                return null;
-            }
-            return a3;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public final void h(nf9 nf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nf9Var) == null) {
-            c();
-            ef9.b b = ef9.a().b();
-            if (b != null) {
-                b.m(this.a.a);
-                b.setDataSource(nf9Var.a);
-                b.h(nf9Var, new a(this));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.b.add(nf9Var);
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull if9 if9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, if9Var)) == null) {
+            int i = this.a;
+            int i2 = this.b;
+            int i3 = i * i2;
+            int i4 = if9Var.a;
+            int i5 = if9Var.b;
+            if (i3 == i4 * i5) {
+                return this.c - if9Var.c;
+            }
+            return (i * i2) - (i4 * i5);
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return g(this, i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public bf9 e() {
+    public CamcorderProfile b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 720 && this.b == 480) {
+                return CamcorderProfile.get(4);
+            }
+            if (this.a == 1280 && this.b == 720) {
+                return CamcorderProfile.get(5);
+            }
+            if (this.a == 1920 && this.b == 1080) {
+                return CamcorderProfile.get(6);
+            }
+            if (this.a == 3840 && this.b == 2160) {
+                return CamcorderProfile.get(8);
+            }
+            return CamcorderProfile.get(5);
+        }
+        return (CamcorderProfile) invokeV.objValue;
+    }
+
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c();
-            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.c.b(), str)) {
-                this.a.c.d(str);
-            }
-            return this.a.c;
+            return this.c;
         }
-        return (bf9) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (this == obj) {
+                return true;
+            }
+            if (!(obj instanceof if9)) {
+                return false;
+            }
+            if9 if9Var = (if9) obj;
+            if (this.a != if9Var.a || this.b != if9Var.b || this.c != if9Var.c) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean g(if9 if9Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, if9Var, i)) == null) {
+            if (if9Var.e() == 720 && if9Var.d() == 480) {
+                return CamcorderProfile.hasProfile(i, 2002);
+            }
+            if (if9Var.e() == 1280 && if9Var.d() == 720) {
+                return CamcorderProfile.hasProfile(i, 2003);
+            }
+            if (if9Var.e() == 1920 && if9Var.d() == 1080) {
+                return CamcorderProfile.hasProfile(i, 2004);
+            }
+            if (if9Var.e() == 3840 && if9Var.d() == 2160) {
+                return CamcorderProfile.hasProfile(i, 2005);
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c()));
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a + "x" + this.b + " " + this.c + "p";
+        }
+        return (String) invokeV.objValue;
     }
 }

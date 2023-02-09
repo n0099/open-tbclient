@@ -185,7 +185,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                         String address = reverseGeoCodeResult.getAddress();
                         de4 de4Var = this.a;
                         if (address == null) {
-                            address = de4Var.getResources().getString(R.string.obfuscated_res_0x7f0f15cd);
+                            address = de4Var.getResources().getString(R.string.obfuscated_res_0x7f0f15e4);
                         }
                         de4Var.L0 = address;
                         this.a.O0.setText(this.a.L0);
@@ -194,7 +194,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                         String sematicDescription = reverseGeoCodeResult.getSematicDescription();
                         de4 de4Var2 = this.a;
                         if (sematicDescription == null) {
-                            sematicDescription = de4Var2.getResources().getString(R.string.obfuscated_res_0x7f0f15cd);
+                            sematicDescription = de4Var2.getResources().getString(R.string.obfuscated_res_0x7f0f15e4);
                         }
                         de4Var2.K0 = sematicDescription;
                         this.a.N0.setText(this.a.K0);
@@ -202,7 +202,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                     w52.i("map", "mAddress +" + this.a.L0 + " mName" + this.a.K0);
                     return;
                 }
-                this.a.N0.setText(R.string.obfuscated_res_0x7f0f15cd);
+                this.a.N0.setText(R.string.obfuscated_res_0x7f0f15e4);
             }
         }
     }
@@ -506,7 +506,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
     public final void n3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d5f);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d70);
             this.T0 = imageView;
             imageView.setOnClickListener(new e(this));
         }
@@ -549,18 +549,18 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             this.S0 = view2;
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091518);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09152d);
             this.M0 = imageView;
             imageView.setOnClickListener(new a(this));
-            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09151e);
-            this.O0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09151d);
+            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091533);
+            this.O0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091532);
         }
     }
 
     public final void o3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
-            TextureMapView textureMapView = (TextureMapView) view2.findViewById(R.id.obfuscated_res_0x7f09035d);
+            TextureMapView textureMapView = (TextureMapView) view2.findViewById(R.id.obfuscated_res_0x7f090365);
             this.G0 = textureMapView;
             BaiduMap map = textureMapView.getMap();
             this.H0 = map;
@@ -620,7 +620,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                 if (TextUtils.isEmpty(this.L0)) {
                     q3(latLng);
                 } else {
-                    this.K0 = getResources().getString(R.string.obfuscated_res_0x7f0f15cc);
+                    this.K0 = getResources().getString(R.string.obfuscated_res_0x7f0f15e3);
                 }
             }
             this.H0.setMapStatus(MapStatusUpdateFactory.newLatLng(latLng));
@@ -653,9 +653,9 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
         if (popupWindow != null && popupWindow.x()) {
             return;
         }
-        View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d00bf, null);
+        View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d00c0, null);
         inflate.setOnClickListener(new c(this));
-        OpenLocationBottomMenu openLocationBottomMenu = (OpenLocationBottomMenu) inflate.findViewById(R.id.obfuscated_res_0x7f091837);
+        OpenLocationBottomMenu openLocationBottomMenu = (OpenLocationBottomMenu) inflate.findViewById(R.id.obfuscated_res_0x7f091851);
         this.R0 = openLocationBottomMenu;
         openLocationBottomMenu.setFragment(this);
         PopupWindow popupWindow2 = new PopupWindow(activity);
@@ -677,7 +677,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048600, this, layoutInflater, viewGroup, bundle)) == null) {
             w52.i("map", "start MapLocationFragment");
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0087, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0088, viewGroup, false);
             U1(inflate);
             x2(Z1());
             J2(false);

@@ -295,8 +295,8 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
             if (layoutParams3 != null) {
                 layoutParams3.addRule(11);
-                layoutParams3.addRule(6, R.id.obfuscated_res_0x7f09036b);
-                layoutParams3.addRule(8, R.id.obfuscated_res_0x7f09036b);
+                layoutParams3.addRule(6, R.id.obfuscated_res_0x7f090373);
+                layoutParams3.addRule(8, R.id.obfuscated_res_0x7f090373);
                 layoutParams3.rightMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
             }
         }
@@ -320,8 +320,8 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             RelativeLayout.LayoutParams layoutParams3 = layoutParams2;
             if (layoutParams3 != null) {
                 layoutParams3.addRule(9);
-                layoutParams3.addRule(6, R.id.obfuscated_res_0x7f09036b);
-                layoutParams3.addRule(8, R.id.obfuscated_res_0x7f09036b);
+                layoutParams3.addRule(6, R.id.obfuscated_res_0x7f090373);
+                layoutParams3.addRule(8, R.id.obfuscated_res_0x7f090373);
                 layoutParams3.leftMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
             }
         }

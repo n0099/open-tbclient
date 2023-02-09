@@ -154,14 +154,14 @@ public class GroupChatActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0039);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090b4f);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090b60);
             if (bundle == null) {
                 this.d = new GroupChatFragment();
                 Intent intent = getIntent();
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                mo5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090b4f, this.d);
+                mo5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090b60, this.d);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);

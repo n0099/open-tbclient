@@ -711,11 +711,11 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         boolean z2 = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         this.c = this.b.findViewById(R.id.code_container);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091a93);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091acb);
         this.i = this.b.findViewById(R.id.loading_container);
         this.e = (EditText) this.b.findViewById(R.id.check_code);
         this.f = (TextView) this.b.findViewById(R.id.get_code);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091bb0);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091beb);
         this.h = this.b.findViewById(R.id.separate_line);
         a(this.d, context.getString(R.string.sapi_sdk_sms_hint_input_phone));
         a(this.e, context.getString(R.string.sapi_sdk_sms_hint_input_check_code));

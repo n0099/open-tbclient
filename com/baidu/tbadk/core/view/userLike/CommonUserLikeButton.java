@@ -51,7 +51,7 @@ public class CommonUserLikeButton extends TextView implements p55 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
         this.c = false;
         this.f = false;
         f();
@@ -94,7 +94,7 @@ public class CommonUserLikeButton extends TextView implements p55 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
         this.c = false;
         this.f = false;
         f();
@@ -120,7 +120,7 @@ public class CommonUserLikeButton extends TextView implements p55 {
             }
         }
         this.a = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
         this.c = false;
         this.f = false;
         f();

@@ -9,9 +9,9 @@ public class a27 {
 
     public abstract void a();
 
-    public abstract void b(uz8 uz8Var);
+    public abstract void b(y09 y09Var);
 
-    public abstract void c(uz8 uz8Var, int i, c27 c27Var);
+    public abstract void c(y09 y09Var, int i, c27 c27Var);
 
     public abstract void d();
 }

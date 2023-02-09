@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a7a;
+import com.baidu.tieba.e8a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class TrackableBase implements a7a {
+public class TrackableBase implements e8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;

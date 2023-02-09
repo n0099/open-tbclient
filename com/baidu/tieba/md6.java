@@ -261,7 +261,7 @@ public class md6 extends s05 {
                     this.a.n.dismiss();
                 }
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    ej.P(this.a.l, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.l, R.string.obfuscated_res_0x7f0f0d08);
                 } else {
                     this.a.i0(null, false);
                 }
@@ -334,7 +334,7 @@ public class md6 extends s05 {
                     this.a.o.dismiss();
                 }
                 if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                    ej.P(this.a.l, R.string.obfuscated_res_0x7f0f0cfe);
+                    ej.P(this.a.l, R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 this.a.i0(null, true);
@@ -833,7 +833,7 @@ public class md6 extends s05 {
                 if (z) {
                     i2 = R.string.cancel_top;
                 } else {
-                    i2 = R.string.obfuscated_res_0x7f0f1508;
+                    i2 = R.string.obfuscated_res_0x7f0f151f;
                 }
                 this.r.add(new q05(3, Z(i2, new Object[0]), this.m));
             }
@@ -866,7 +866,7 @@ public class md6 extends s05 {
                 this.r.add(new q05(10, Z(R.string.multi_shield, new Object[0]), this.m));
             }
             if (zr6.g() && this.v.isSelf() && !this.v.isBjh()) {
-                this.r.add(new q05(1, Z(R.string.obfuscated_res_0x7f0f04d5, new Object[0]), this.m));
+                this.r.add(new q05(1, Z(R.string.obfuscated_res_0x7f0f04d8, new Object[0]), this.m));
             }
             this.m.k(this.r);
         }
@@ -962,8 +962,8 @@ public class md6 extends s05 {
             if (this.k == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04d5, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f038b, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04d8, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f038c, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.k.getPageActivity());
             tBAlertBuilder.w(R.string.del_my_thread_confirm);
             tBAlertBuilder.m(R.string.del_my_thread_confirm_subtitle);
@@ -995,8 +995,8 @@ public class md6 extends s05 {
             if (this.k == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f1238, TBAlertConfig.OperateBtnStyle.MAIN);
-            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f038b, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f124e, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f038c, TBAlertConfig.OperateBtnStyle.SECONDARY);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.k.getPageActivity());
             tBAlertBuilder.w(R.string.musk_my_thread_confirm);
             tBAlertBuilder.m(R.string.musk_my_thread_confirm_subtitle);

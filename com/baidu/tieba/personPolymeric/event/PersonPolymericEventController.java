@@ -39,10 +39,10 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 import com.baidu.tbadk.data.MembershipUserInfo;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.jm6;
-import com.baidu.tieba.om8;
 import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.sl8;
+import com.baidu.tieba.sn8;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
+import com.baidu.tieba.wm8;
 import com.baidu.tieba.ya5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes5.dex */
-public class PersonPolymericEventController extends om8 {
+public class PersonPolymericEventController extends sn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sl8 e;
+    public wm8 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, sl8 sl8Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, wm8 wm8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sl8Var};
+            Object[] objArr = {tbPageContext, wm8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,10 +80,10 @@ public class PersonPolymericEventController extends om8 {
                 return;
             }
         }
-        this.e = sl8Var;
+        this.e = wm8Var;
     }
 
-    @Override // com.baidu.tieba.om8, com.baidu.tieba.nd9
+    @Override // com.baidu.tieba.sn8, com.baidu.tieba.re9
     public void a(View view2, jm6 jm6Var) {
         UserData userData;
         String str;
@@ -141,8 +141,8 @@ public class PersonPolymericEventController extends om8 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    sl8 sl8Var = this.e;
-                    if (sl8Var != null && sl8Var.l() != null) {
+                    wm8 wm8Var = this.e;
+                    if (wm8Var != null && wm8Var.l() != null) {
                         TiebaStatic.log("c12207");
                         this.e.l().e();
                         return;

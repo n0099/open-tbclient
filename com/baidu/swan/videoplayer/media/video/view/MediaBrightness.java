@@ -131,14 +131,14 @@ public final class MediaBrightness extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d085f, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0871, (ViewGroup) this, true);
             this.a = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090efa);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091335);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f0b);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091349);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706f1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081255);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08126b);
             this.a.setLayoutParams(layoutParams);
         }
     }

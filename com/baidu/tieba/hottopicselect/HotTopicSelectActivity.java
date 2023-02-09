@@ -73,7 +73,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
     public final AdapterView.OnItemClickListener z;
 
     @Override // com.baidu.tieba.kl5
-    public boolean M0() {
+    public boolean L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -544,7 +544,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
             hideLoadingView(this.r);
             this.m.setVisibility(8);
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0cfe));
+                this.u.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d08));
                 this.u.setVisibility(0);
             } else if (!TextUtils.isEmpty(str)) {
                 this.u.setTextOption(NoDataViewFactory.e.a(R.string.refresh_view_title_text));
@@ -654,7 +654,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
     public final void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091efc);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091f3f);
             this.s = editText;
             editText.setCompoundDrawablePadding(ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070303));
             this.s.setOnFocusChangeListener(new e(this));
@@ -667,12 +667,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
     public final void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.r = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090b55);
+            this.r = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090b66);
             this.t = (TextView) findViewById(R.id.btn_confirm);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09240d);
-            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f09067a);
-            this.m = findViewById(R.id.obfuscated_res_0x7f090e79);
-            this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090e73);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092457);
+            this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f090685);
+            this.m = findViewById(R.id.obfuscated_res_0x7f090e8a);
+            this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090e84);
             this.u = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0702c0)), null, null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
@@ -681,7 +681,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
             xi7 xi7Var = new xi7(getPageContext());
             this.q = xi7Var;
             this.n.setAdapter((ListAdapter) xi7Var);
-            this.o = (ExpandableListView) findViewById(R.id.obfuscated_res_0x7f090e74);
+            this.o = (ExpandableListView) findViewById(R.id.obfuscated_res_0x7f090e85);
             aj7 aj7Var = new aj7(getPageContext());
             this.p = aj7Var;
             this.o.setAdapter(aj7Var);
@@ -701,9 +701,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
         if ((interceptable == null || interceptable.invokeLZ(1048587, this, yi7Var, z) == null) && yi7Var != null && !ListUtils.isEmpty(yi7Var.b())) {
             if (TextUtils.isEmpty(yi7Var.a())) {
                 if (z) {
-                    i = R.string.obfuscated_res_0x7f0f089c;
+                    i = R.string.obfuscated_res_0x7f0f08a5;
                 } else {
-                    i = R.string.obfuscated_res_0x7f0f089d;
+                    i = R.string.obfuscated_res_0x7f0f08a6;
                 }
                 yi7Var.e(getString(i));
             }
@@ -716,9 +716,9 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, linearLayout, navigationBar)) == null) {
-            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03af, (ViewGroup) navigationBar.getContentLayout(), true);
+            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03b1, (ViewGroup) navigationBar.getContentLayout(), true);
             this.e.setVisibility(8);
-            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03b1, (ViewGroup) linearLayout, true);
+            LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03b3, (ViewGroup) linearLayout, true);
             return this;
         }
         return (kl5) invokeLL.objValue;

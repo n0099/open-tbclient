@@ -101,29 +101,29 @@ public class t37 {
         if (context == null) {
             return;
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030a, (ViewGroup) null);
         this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090e05);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090e08);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e06);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090e16);
+        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090e19);
+        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e17);
         this.j = tbImageView;
         tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080fa6);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090be9);
+        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080fbb);
+        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090bfa);
         TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
         this.e = textView;
         SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090bd8);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090a07);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a06);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090e20);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a09);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0b);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a08);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0a);
+        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090be9);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090a15);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a14);
+        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090e31);
+        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a17);
+        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a19);
+        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a16);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090a18);
         this.k.setOnClickListener(new a(this, context));
         this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02ef));
+        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02f0));
         this.d.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds4));
         this.d.setShowOval(true);
         this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
@@ -138,6 +138,6 @@ public class t37 {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
         this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802de, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802e1, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

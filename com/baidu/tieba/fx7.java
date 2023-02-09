@@ -359,9 +359,9 @@ public class fx7 implements ag {
                     this.a.f = System.currentTimeMillis();
                     this.a.e = address;
                     this.a.c.a(0, "", this.a.e, this.a.f, this.a.i);
-                    vs8.e().i(String.valueOf(address.getLatitude()));
-                    vs8.e().j(String.valueOf(address.getLongitude()));
-                    vs8.e().k(System.currentTimeMillis());
+                    zt8.e().i(String.valueOf(address.getLatitude()));
+                    zt8.e().j(String.valueOf(address.getLongitude()));
+                    zt8.e().k(System.currentTimeMillis());
                 }
             }
         }

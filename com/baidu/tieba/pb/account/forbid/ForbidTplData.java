@@ -21,6 +21,7 @@ public class ForbidTplData extends OrmObject implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
         public String errMsg;
         public int errno;
+        public String userMsg;
 
         public ErrorInfo() {
             Interceptable interceptable = $ic;
@@ -37,6 +38,7 @@ public class ForbidTplData extends OrmObject implements Serializable {
             }
             this.errno = 0;
             this.errMsg = "";
+            this.userMsg = "";
         }
     }
 

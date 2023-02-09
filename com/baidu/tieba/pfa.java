@@ -1,64 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.bea;
+import com.baidu.tieba.xda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes5.dex */
-public abstract class pfa<E> extends nfa<E> {
+public final class pfa<T> implements xda.a<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> producerNode;
+    public final bea.c<T> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061502, "Lcom/baidu/tieba/pfa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948061502, "Lcom/baidu/tieba/pfa;");
-                return;
-            }
-        }
-        a = qga.a(pfa.class, "producerNode");
-    }
-
-    public pfa() {
+    public pfa(bea.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = cVar;
     }
 
-    public final LinkedQueueNode<E> a() {
-        InterceptResult invokeV;
+    public void call(dea<? super T> deaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) qga.a.f(this, a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, deaVar) == null) {
+            nfa nfaVar = new nfa(deaVar);
+            deaVar.b(nfaVar);
+            this.a.call(nfaVar);
         }
-        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final void b(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.producerNode = linkedQueueNode;
-        }
+    @Override // com.baidu.tieba.xda.a, com.baidu.tieba.lea
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((dea) ((dea) obj));
     }
 }

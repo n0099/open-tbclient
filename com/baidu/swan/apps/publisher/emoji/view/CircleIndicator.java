@@ -224,8 +224,8 @@ public class CircleIndicator extends View {
             Paint paint = new Paint();
             this.h = paint;
             paint.setAntiAlias(true);
-            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060aca);
-            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060acb);
+            this.k = getResources().getColor(R.color.obfuscated_res_0x7f060acb);
+            this.l = getResources().getColor(R.color.obfuscated_res_0x7f060acc);
             this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070106);
         }
     }

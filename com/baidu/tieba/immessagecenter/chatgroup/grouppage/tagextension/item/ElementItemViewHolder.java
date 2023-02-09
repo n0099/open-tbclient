@@ -78,8 +78,8 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09214b);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09214a);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092191);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092190);
         view2.setOnClickListener(new a(this, vr7Var));
     }
 
@@ -130,9 +130,9 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
             jr7 jr7Var2 = this.e;
             if (jr7Var2 != null && jr7Var2.h()) {
                 if (z) {
-                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a45, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a54, R.color.CAM_X0304, null);
                 } else {
-                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a46, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080a55, R.color.CAM_X0304, null);
                 }
             }
             p15 d2 = p15.d(this.c);

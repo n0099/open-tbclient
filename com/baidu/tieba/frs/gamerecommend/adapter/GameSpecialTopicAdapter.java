@@ -61,15 +61,15 @@ public class GameSpecialTopicAdapter extends as6<ii6, CardFrsGameSpecialTopicHol
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09054b);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d0e);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090d0d);
-            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d0c);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090556);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d1f);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090d1e);
+            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d1d);
             this.d = cardFrsGameSpecialTopicLayout;
             cardFrsGameSpecialTopicLayout.setItemSpace(ej.g(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((ej.g(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090856);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090857);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f090864);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f090865);
         }
     }
 
@@ -181,7 +181,7 @@ public class GameSpecialTopicAdapter extends as6<ii6, CardFrsGameSpecialTopicHol
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder = new CardFrsGameSpecialTopicHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d018f, viewGroup, false));
+            CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder = new CardFrsGameSpecialTopicHolder(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0190, viewGroup, false));
             cardFrsGameSpecialTopicHolder.d.setViewPool(this.m);
             return cardFrsGameSpecialTopicHolder;
         }

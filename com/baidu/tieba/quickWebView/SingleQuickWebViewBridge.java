@@ -5,9 +5,9 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.jq8;
+import com.baidu.tieba.b39;
+import com.baidu.tieba.nr8;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.x19;
 import com.baidu.tieba.yo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,16 +23,16 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public jq8 mProxy;
+    public nr8 mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, jq8 jq8Var) {
+    public SingleQuickWebViewBridge(Context context, nr8 nr8Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, jq8Var};
+            Object[] objArr = {context, nr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +44,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = jq8Var;
+        this.mProxy = nr8Var;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.t19
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.x29
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public x19 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public b39 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -90,28 +90,28 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            jq8 jq8Var = this.mProxy;
-            if (jq8Var != null) {
-                jq8Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+            nr8 nr8Var = this.mProxy;
+            if (nr8Var != null) {
+                nr8Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            x19Var.w(str);
-            return x19Var;
+            b39Var.w(str);
+            return b39Var;
         }
-        return (x19) invokeLLLL.objValue;
+        return (b39) invokeLLLL.objValue;
     }
 
-    public x19 requestByNativeToH5(HashMap<String, String> hashMap) {
+    public b39 requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (hashMap != null && hashMap.get("result") != null) {
-                x19Var.o(hashMap.get("result"));
-                x19Var.w(hashMap.get("NotificationKey"));
+                b39Var.o(hashMap.get("result"));
+                b39Var.w(hashMap.get("NotificationKey"));
             }
-            x19Var.z(true);
-            return x19Var;
+            b39Var.z(true);
+            return b39Var;
         }
-        return (x19) invokeL.objValue;
+        return (b39) invokeL.objValue;
     }
 }

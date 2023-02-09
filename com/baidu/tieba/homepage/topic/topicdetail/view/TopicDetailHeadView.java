@@ -108,16 +108,16 @@ public class TopicDetailHeadView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08bc, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923c3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08cf, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09240d);
             this.b = tbImageView;
             tbImageView.setDrawingCacheEnabled(true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c5);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0923c7);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923c6);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0923c8);
-            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f0923c9);
-            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f0923ca);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09240f);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092411);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092410);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092412);
+            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f092413);
+            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f092414);
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
             layoutParams.height = ((ej.l(getContext()) - ej.g(getContext(), R.dimen.tbds88)) * 9) / 16;
             this.e.setLayoutParams(layoutParams);
@@ -142,11 +142,11 @@ public class TopicDetailHeadView extends RelativeLayout {
             this.c.setText(ng7Var.b);
             if (StringUtils.isNull(ng7Var.c)) {
                 this.d.setVisibility(8);
-                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081296);
+                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812ac);
             } else {
                 this.d.setVisibility(0);
                 this.e.K(ng7Var.c, 10, false);
-                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081297);
+                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812ad);
             }
             if (ng7Var.e == null) {
                 this.f.setVisibility(8);

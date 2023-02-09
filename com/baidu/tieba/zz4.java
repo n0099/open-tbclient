@@ -62,7 +62,7 @@ public class zz4 extends PostData {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public String o1() {
+    public String p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -71,7 +71,7 @@ public class zz4 extends PostData {
         return (String) invokeV.objValue;
     }
 
-    public String p1() {
+    public String q1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -80,7 +80,7 @@ public class zz4 extends PostData {
         return (String) invokeV.objValue;
     }
 
-    public void q1(JSONObject jSONObject) {
+    public void r1(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
@@ -94,7 +94,7 @@ public class zz4 extends PostData {
         }
     }
 
-    public void r1(TopNews topNews) {
+    public void s1(TopNews topNews) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, topNews) != null) || topNews == null) {
             return;

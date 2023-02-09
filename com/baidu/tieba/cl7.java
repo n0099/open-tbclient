@@ -95,7 +95,7 @@ public class cl7 {
 
         /* renamed from: com.baidu.tieba.cl7$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0244b implements Runnable {
+        public class RunnableC0243b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
@@ -103,7 +103,7 @@ public class cl7 {
             public final /* synthetic */ int c;
             public final /* synthetic */ b d;
 
-            public RunnableC0244b(b bVar, int i, String str, int i2) {
+            public RunnableC0243b(b bVar, int i, String str, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -273,7 +273,7 @@ public class cl7 {
         public final void h(int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-                gh.a().post(new RunnableC0244b(this, i, str, i2));
+                gh.a().post(new RunnableC0243b(this, i, str, i2));
             }
         }
 

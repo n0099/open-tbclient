@@ -65,7 +65,7 @@ public class d88 extends a88 {
             if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
                 this.a.b.closeLoadingDialog();
                 BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0daf), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0dbb), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
             }
         }
     }
@@ -104,13 +104,13 @@ public class d88 extends a88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f091525) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09153a) {
                 s();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091839) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091853) {
                 t();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090165) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090167) {
                 r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b63) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b9e) {
                 u();
             }
         }
@@ -120,7 +120,7 @@ public class d88 extends a88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0da6), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0db2), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
         }
     }
 
@@ -138,7 +138,7 @@ public class d88 extends a88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             BaseActivity baseActivity = this.b;
-            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0daa), "http://privacy.baidu.com/mdetail?id=288", false).start();
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0db6), "http://privacy.baidu.com/mdetail?id=288", false).start();
         }
     }
 
@@ -153,16 +153,16 @@ public class d88 extends a88 {
             if (a2 != 2) {
                 if (a2 == 3) {
                     BaseActivity baseActivity = this.b;
-                    new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0da9), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+                    new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0db5), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
                     return;
                 }
                 return;
             }
             BaseActivity baseActivity2 = this.b;
-            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0da8), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0db4), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
             return;
         }
         BaseActivity baseActivity3 = this.b;
-        new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0da7), AgreementView.s, false).start();
+        new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0db3), AgreementView.s, false).start();
     }
 }

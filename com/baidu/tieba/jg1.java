@@ -144,7 +144,7 @@ public class jg1 {
                 return;
             }
             this.c.x("8", 119501, "cashier/launchpayment", i, this.a);
-            this.b.b(th, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f043d));
+            this.b.b(th, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f043f));
         }
 
         /* JADX DEBUG: Method merged with bridge method */

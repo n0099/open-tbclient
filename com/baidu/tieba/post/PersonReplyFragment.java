@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
-import com.baidu.tieba.bp8;
-import com.baidu.tieba.dp8;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ep8;
+import com.baidu.tieba.eq8;
+import com.baidu.tieba.fq8;
+import com.baidu.tieba.hq8;
+import com.baidu.tieba.iq8;
 import com.baidu.tieba.lf5;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.y35;
@@ -47,13 +47,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, ap8 {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, eq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public ep8 d;
+    public iq8 d;
     public boolean e;
     public NoDataView f;
     public lf5 g;
@@ -64,7 +64,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public int l;
     public int m;
     public boolean n;
-    public bp8 o;
+    public fq8 o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -287,15 +287,15 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             hideLoadingView(this.a);
             O1(false);
-            dp8.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0cfe), true);
+            hq8.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0d08), true);
             this.b.setVisibility(8);
         }
     }
 
-    public void T1(bp8 bp8Var) {
+    public void T1(fq8 fq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bp8Var) == null) {
-            this.o = bp8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fq8Var) == null) {
+            this.o = fq8Var;
         }
     }
 
@@ -356,12 +356,12 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         }
     }
 
-    @Override // com.baidu.tieba.ap8
-    public void L0() {
-        ep8 ep8Var;
+    @Override // com.baidu.tieba.eq8
+    public void K0() {
+        iq8 iq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ep8Var = this.d) != null) {
-            ep8Var.f(true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iq8Var = this.d) != null) {
+            iq8Var.f(true);
         }
     }
 
@@ -380,9 +380,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            ep8 ep8Var = this.d;
-            if (ep8Var != null) {
-                ep8Var.e();
+            iq8 iq8Var = this.d;
+            if (iq8Var != null) {
+                iq8Var.e();
                 this.d.i(null);
             }
         }
@@ -426,9 +426,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public final void R1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ep8 ep8Var = new ep8(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-            this.d = ep8Var;
-            ep8Var.i(this.q);
+            iq8 iq8Var = new iq8(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
+            this.d = iq8Var;
+            iq8Var.i(this.q);
             this.b.setAdapter((ListAdapter) this.d);
             this.b.setOnItemClickListener(new d(this));
         }
@@ -456,9 +456,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             this.h.H(i);
             SkinManager.setBackgroundColor(this.a, this.m, i);
-            ep8 ep8Var = this.d;
-            if (ep8Var != null) {
-                ep8Var.notifyDataSetChanged();
+            iq8 iq8Var = this.d;
+            if (iq8Var != null) {
+                iq8Var.notifyDataSetChanged();
             }
         }
     }
@@ -468,10 +468,10 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d074e, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d075f, viewGroup, false);
             this.a = inflate;
-            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091422);
-            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f091737);
+            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091437);
+            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f09174e);
             this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070232)), NoDataViewFactory.e.d(null, getArguments().getString("key_empty_view_text")), null);
             return this.a;
         }
@@ -487,7 +487,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 this.l = i3;
                 this.d.f(false);
                 this.j.setVisibility(0);
-                this.i.S();
+                this.i.T();
             }
             if (i == 0 && (childAt = absListView.getChildAt(0)) != null && childAt.getTop() == 0) {
                 this.c.a();

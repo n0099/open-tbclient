@@ -158,9 +158,9 @@ public class rb3 extends ta3 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811de));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f4));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811dd));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f3));
                 }
             }
         }
@@ -181,9 +181,9 @@ public class rb3 extends ta3 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00cd, null);
+                    view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00ce, null);
                 }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092216);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09225c);
                 textView.setTextColor(this.c);
                 textView.setText(getItem(i));
                 b(view2, i);
@@ -352,11 +352,11 @@ public class rb3 extends ta3 {
                 z73Var.n(new eo3());
                 z73Var.s(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3));
                 z73Var.p(R.drawable.obfuscated_res_0x7f080125);
-                z73Var.F(R.color.obfuscated_res_0x7f060a74);
+                z73Var.F(R.color.obfuscated_res_0x7f060a75);
                 z73Var.B(R.string.obfuscated_res_0x7f0f0114, new b(this, callbackHandler, unitedSchemeEntity));
                 z73Var.K(new a(this, callbackHandler, unitedSchemeEntity));
-                View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00cc, null);
-                ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f091408);
+                View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00cd, null);
+                ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09141d);
                 listView.setSelector(new ColorDrawable(0));
                 listView.setAdapter((ListAdapter) new c(this, arrayList, context, i));
                 z73Var.W(inflate);

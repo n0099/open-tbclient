@@ -18,9 +18,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bl5;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.i95;
-import com.baidu.tieba.ku8;
 import com.baidu.tieba.m85;
 import com.baidu.tieba.o85;
+import com.baidu.tieba.ov8;
 import com.baidu.tieba.qt5;
 import com.baidu.tieba.rw4;
 import com.baidu.tieba.setting.model.MsgRemindModel;
@@ -33,7 +33,7 @@ import java.util.Date;
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ku8 a;
+    public ov8 a;
     public MsgRemindModel b;
     public final qt5 c;
     public MsgRemindModel.f d;
@@ -205,9 +205,9 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ku8 ku8Var = new ku8(this);
-            this.a = ku8Var;
-            ku8Var.D(this);
+            ov8 ov8Var = new ov8(this);
+            this.a = ov8Var;
+            ov8Var.D(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
@@ -329,7 +329,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             }
             if (!a2) {
                 this.a.P(false);
-                showNetRefreshView(this.a.B(), getString(R.string.obfuscated_res_0x7f0f171e), getString(R.string.obfuscated_res_0x7f0f0833), getString(R.string.go_to_open), true, getNetRefreshListener());
+                showNetRefreshView(this.a.B(), getString(R.string.obfuscated_res_0x7f0f1736), getString(R.string.obfuscated_res_0x7f0f083c), getString(R.string.go_to_open), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
                 setNetRefreshViewEmotionMarginTop(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;

@@ -73,7 +73,7 @@ public class e67 {
 
         void n(Activity activity, String str, ViewGroup viewGroup, i iVar, g gVar);
 
-        r99 o(Object obj);
+        va9 o(Object obj);
     }
 
     /* loaded from: classes4.dex */
@@ -639,7 +639,7 @@ public class e67 {
         return invokeL.booleanValue;
     }
 
-    public r99 I(Object obj) {
+    public va9 I(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
@@ -649,7 +649,7 @@ public class e67 {
             }
             return fVar.o(obj);
         }
-        return (r99) invokeL.objValue;
+        return (va9) invokeL.objValue;
     }
 
     public void c(String str) {

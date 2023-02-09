@@ -233,8 +233,8 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ad, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090191);
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ae, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
         }
     }
 

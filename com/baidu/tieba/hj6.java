@@ -141,7 +141,7 @@ public class hj6 extends dc5 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.q(7);
             super.t(3);
-            on onVar = new on(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080734), false);
+            on onVar = new on(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08073d), false);
             super.s(onVar);
             super.r(onVar);
         }

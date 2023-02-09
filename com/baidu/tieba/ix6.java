@@ -111,7 +111,7 @@ public class ix6 extends qn<mx6, ForumRuleDetailSelfVH> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            ForumRuleDetailSelfVH forumRuleDetailSelfVH = new ForumRuleDetailSelfVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c5, viewGroup, false));
+            ForumRuleDetailSelfVH forumRuleDetailSelfVH = new ForumRuleDetailSelfVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c7, viewGroup, false));
             this.viewholder = forumRuleDetailSelfVH;
             return forumRuleDetailSelfVH;
         }
@@ -236,7 +236,7 @@ public class ix6 extends qn<mx6, ForumRuleDetailSelfVH> {
         if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (forumRulesShowActivity = this.a) == null) {
             return;
         }
-        String string = forumRulesShowActivity.getString(R.string.obfuscated_res_0x7f0f0707);
+        String string = forumRulesShowActivity.getString(R.string.obfuscated_res_0x7f0f0710);
         String format = String.format(string, this.d + "");
         if (this.a.x1() != null) {
             BdTopToast bdTopToast = new BdTopToast(this.a);

@@ -52,9 +52,9 @@ public class ConcernEmotionTipAdapter extends qn<h97, ConcernEmotionTipViewHolde
                 }
             }
             this.d = 3;
-            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0914d2);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910dc);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092480);
+            this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0914e7);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910ef);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ca);
         }
 
         public void a(int i, int i2) {
@@ -118,7 +118,7 @@ public class ConcernEmotionTipAdapter extends qn<h97, ConcernEmotionTipViewHolde
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ed, viewGroup, false));
+            return new ConcernEmotionTipViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ee, viewGroup, false));
         }
         return (ConcernEmotionTipViewHolder) invokeL.objValue;
     }
@@ -136,9 +136,9 @@ public class ConcernEmotionTipAdapter extends qn<h97, ConcernEmotionTipViewHolde
             }
             if (h97Var.getType() == h97.f) {
                 if (h97Var.a == 2) {
-                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0452));
+                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0454));
                 } else {
-                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0451));
+                    concernEmotionTipViewHolder.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0453));
                 }
             }
             int i2 = h97Var.a;

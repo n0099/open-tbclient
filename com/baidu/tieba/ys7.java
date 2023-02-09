@@ -263,7 +263,7 @@ public class ys7 extends v9 implements NoNetworkView.b {
             textView.setText(this.a.getContext().getString(R.string.im_send_private_msg));
             this.h.setGravity(16);
             this.h.setLayoutParams(new ViewGroup.LayoutParams(-2, -1));
-            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a66, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a75, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
             p15 d = p15.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
@@ -305,7 +305,7 @@ public class ys7 extends v9 implements NoNetworkView.b {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05ad, (ViewGroup) null);
+            TbTabLayout tbTabLayout = (TbTabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b2, (ViewGroup) null);
             this.b = tbTabLayout;
             tbTabLayout.setupWithViewPager(this.c);
             int tabCount = this.b.getTabCount();
@@ -339,7 +339,7 @@ public class ys7 extends v9 implements NoNetworkView.b {
                     }
                 }
             }
-            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a66, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a75, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
             p15 d = p15.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
@@ -359,12 +359,12 @@ public class ys7 extends v9 implements NoNetworkView.b {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = (BdBaseViewPager) this.f.findViewById(R.id.obfuscated_res_0x7f091618);
+            this.c = (BdBaseViewPager) this.f.findViewById(R.id.obfuscated_res_0x7f09162e);
             MessageFragmentPagerAdapter.a aVar = new MessageFragmentPagerAdapter.a();
             ChatAggregationFragment chatAggregationFragment = new ChatAggregationFragment();
             this.g = chatAggregationFragment;
             aVar.a = chatAggregationFragment;
-            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b75);
+            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b7f);
             ArrayList arrayList = new ArrayList();
             this.e = arrayList;
             arrayList.add(aVar);

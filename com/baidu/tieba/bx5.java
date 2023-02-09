@@ -75,7 +75,7 @@ public class bx5 implements NadAsyncRequester.b {
 
     public void d(int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * tq8.a) {
+        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * xr8.a) {
             return;
         }
         this.e.i(map, i);
@@ -103,12 +103,12 @@ public class bx5 implements NadAsyncRequester.b {
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
                 next.j = this.b;
-                if (qq8.l(next) && this.d) {
+                if (ur8.l(next) && this.d) {
                     it.remove();
                 } else {
                     int m = next.m();
                     if (m != 0) {
-                        zs8.h(next, 0, m);
+                        du8.h(next, 0, m);
                         it.remove();
                     }
                 }

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.s99;
+import com.baidu.tieba.wa9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -250,7 +250,7 @@ public class TbLiveCyberView extends CyberVideoView {
             if (dj.isEmpty(str)) {
                 return str;
             }
-            if (s99.c().d()) {
+            if (wa9.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }

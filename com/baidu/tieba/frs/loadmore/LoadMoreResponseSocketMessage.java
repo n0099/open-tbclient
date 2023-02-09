@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.baidu.tieba.Cdo;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.iy4;
-import com.baidu.tieba.vs8;
-import com.baidu.tieba.ys8;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -96,7 +96,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            vs8.e().h(threadListResIdl.data.asp_shown_info);
+            zt8.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 != null && (orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -126,13 +126,13 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         this.threadList.add(iy4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = ys8.b(threadInfo);
+                        JSONObject b = cu8.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                ys8.f().h("FRS", arrayList);
+                cu8.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

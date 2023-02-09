@@ -22,8 +22,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.dv7;
 import com.baidu.tieba.ed6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.f09;
 import com.baidu.tieba.il5;
+import com.baidu.tieba.j19;
 import com.baidu.tieba.jv7;
 import com.baidu.tieba.kv7;
 import com.baidu.tieba.lego.card.model.PlayPicInfoCard;
@@ -103,7 +103,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
                 f.d(TiebaStatic.Params.OBJ_URL, bVar.c);
                 f.b("obj_locate", this.b.getStatPosition());
                 f.a(this.a);
-                f09.c(this.b.i, bVar.c);
+                j19.c(this.b.i, bVar.c);
             }
         }
     }
@@ -212,7 +212,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.getImageResList().get(0) != null) {
-                f09.c(this.b.i, this.a.getImageResList().get(0).c);
+                j19.c(this.b.i, this.a.getImageResList().get(0).c);
                 ed6.b().d(true);
             }
         }
@@ -250,7 +250,7 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.b)) {
                 return;
             }
-            f09.c(this.b.i, this.a.b);
+            j19.c(this.b.i, this.a.b);
         }
     }
 
@@ -617,29 +617,29 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            View inflate = LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01ae, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01af, (ViewGroup) null);
             this.n = inflate;
-            this.m = (BannerFlowView) l(inflate, R.id.obfuscated_res_0x7f09031a);
+            this.m = (BannerFlowView) l(inflate, R.id.obfuscated_res_0x7f090322);
             if (this.i.getOrignalPage() instanceof SwipeBackLayout.c) {
                 this.m.setSwipeControlInterface((SwipeBackLayout.c) this.i.getOrignalPage());
             }
             this.m.setDisableParentEvent(false);
             this.m.setMaxScrollCountLimit(100);
-            this.t = (TbImageView) l(this.n, R.id.obfuscated_res_0x7f090a76);
+            this.t = (TbImageView) l(this.n, R.id.obfuscated_res_0x7f090a84);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             layoutParams.height = (int) ((ej.l(getContext()) * 0.5f) + 0.5f);
             this.m.setLayoutParams(layoutParams);
-            this.q = (TextView) l(this.n, R.id.obfuscated_res_0x7f09231e);
-            this.p = (LinearLayout) l(this.n, R.id.obfuscated_res_0x7f0914c7);
-            this.r = (TextView) l(this.n, R.id.obfuscated_res_0x7f092333);
-            this.s = (IndicatorView) l(this.n, R.id.obfuscated_res_0x7f091001);
-            this.o = (TextView) l(this.n, R.id.obfuscated_res_0x7f092341);
-            RelativeLayout relativeLayout = (RelativeLayout) l(this.n, R.id.obfuscated_res_0x7f0903fe);
+            this.q = (TextView) l(this.n, R.id.obfuscated_res_0x7f092365);
+            this.p = (LinearLayout) l(this.n, R.id.obfuscated_res_0x7f0914dc);
+            this.r = (TextView) l(this.n, R.id.obfuscated_res_0x7f09237c);
+            this.s = (IndicatorView) l(this.n, R.id.obfuscated_res_0x7f091013);
+            this.o = (TextView) l(this.n, R.id.obfuscated_res_0x7f09238a);
+            RelativeLayout relativeLayout = (RelativeLayout) l(this.n, R.id.obfuscated_res_0x7f090407);
             this.u = relativeLayout;
             this.v = (TextView) l(relativeLayout, R.id.forum_name);
-            this.w = (TbImageView) l(this.u, R.id.obfuscated_res_0x7f090ee5);
-            this.x = (TextView) l(this.u, R.id.obfuscated_res_0x7f092216);
-            this.y = (CommonImageButton) l(this.u, R.id.obfuscated_res_0x7f0917f2);
+            this.w = (TbImageView) l(this.u, R.id.obfuscated_res_0x7f090ef6);
+            this.x = (TextView) l(this.u, R.id.obfuscated_res_0x7f09225c);
+            this.y = (CommonImageButton) l(this.u, R.id.obfuscated_res_0x7f09180b);
             return this.n;
         }
         return (View) invokeV.objValue;

@@ -162,7 +162,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             kl5 kl5Var = this.h;
-            if (kl5Var != null && !kl5Var.M0()) {
+            if (kl5Var != null && !kl5Var.L0()) {
                 return;
             }
             if (this.b != null) {
@@ -269,7 +269,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091d75);
+            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091db7);
             x1();
             v1();
             w1();
@@ -304,7 +304,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.mCenterText.setTextSize(0, ej.g(getPageContext().getPageActivity(), R.dimen.tbds44));
-            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f0515), new b(this));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f0518), new b(this));
             this.e = addTextButton;
             addTextButton.setTextSize(0, ej.g(getPageContext().getPageActivity(), R.dimen.tbds44));
             this.c.setIsCorner(true);

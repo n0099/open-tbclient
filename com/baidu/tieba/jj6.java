@@ -45,12 +45,12 @@ public class jj6 {
 
         /* renamed from: com.baidu.tieba.jj6$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0323a implements ac5.a {
+        public class C0326a implements ac5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0323a(a aVar) {
+            public C0326a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -94,7 +94,7 @@ public class jj6 {
             }
             this.c = jj6Var;
             this.a = new ArrayList<>();
-            this.b = new C0323a(this);
+            this.b = new C0326a(this);
             setPriority(4);
             setParallel(jj6.d);
         }

@@ -474,12 +474,12 @@ public class sq7 {
         this.o = false;
         this.p = new a(this, 2001304);
         this.b = view2;
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f090d9e);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f090daf);
         this.i = jVar;
-        this.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091016);
-        this.f = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091014);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091015);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091013);
+        this.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091028);
+        this.f = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091026);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091027);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091025);
         this.c = gr7.a(view2.getContext(), this.d, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004));
         tr7 b2 = gr7.b(view2.getContext(), this.f, UtilHelper.getDimenPixelSize(R.dimen.M_W_X004));
         this.e = b2;

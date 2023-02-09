@@ -174,8 +174,8 @@ public class SecondFloorFragment extends BaseFragment {
                 d dVar = new d();
                 dVar.a = view2;
                 dVar.b = (AlaRecommendLayout) view2.findViewById(R.id.recommend_layout);
-                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c85);
-                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c87);
+                dVar.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091cc6);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cc8);
                 return dVar;
             }
             return (d) invokeL.objValue;
@@ -328,7 +328,7 @@ public class SecondFloorFragment extends BaseFragment {
     public final void P1(@Nullable List<AlaLiveInfo> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1070), Integer.valueOf(list.size())));
+            this.a.d.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1084), Integer.valueOf(list.size())));
             this.a.b.setData(new pd6(getUniqueId(), list, this.f));
             TbSingleton tbSingleton = TbSingleton.getInstance();
             if (tbSingleton.isFirstEnterBigPicPage()) {
@@ -358,7 +358,7 @@ public class SecondFloorFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00ef, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00f0, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }

@@ -110,11 +110,11 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ay {
                 CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.a;
                 cardItemRecentUpdateLayout.i = !cardItemRecentUpdateLayout.i;
                 if (!this.a.i) {
-                    this.a.g.setText(R.string.obfuscated_res_0x7f0f0624);
+                    this.a.g.setText(R.string.obfuscated_res_0x7f0f062b);
                     this.a.f.setMaxLines(3);
                     return;
                 }
-                this.a.g.setText(R.string.obfuscated_res_0x7f0f068e);
+                this.a.g.setText(R.string.obfuscated_res_0x7f0f0697);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v45(10)));
@@ -202,17 +202,17 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ay {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a1, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a2);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09109f);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0910a1);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910a0);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a2, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b5);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b2);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0910b4);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f0624))));
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f062b))));
             p15 d = p15.d(this.f);
             d.z(R.dimen.T_X06);
             d.w(R.dimen.M_T_X002);
@@ -221,7 +221,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements ay {
             this.f.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f0624);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f062b);
             p15.d(this.f).z(R.dimen.T_X06);
             this.g.setPadding(ej.g(context, R.dimen.M_W_X005), ej.g(context, R.dimen.M_H_X005), 0, ej.g(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);

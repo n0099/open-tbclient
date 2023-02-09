@@ -24,14 +24,8 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements p5
     public n45 q;
     public n45 r;
     public View.OnClickListener s;
-    public boolean t;
-
-    @Override // com.baidu.tieba.p55
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-        }
-    }
+    public View.OnClickListener t;
+    public boolean u;
 
     @Override // com.baidu.tieba.p55
     public void c(int i) {
@@ -105,28 +99,11 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements p5
         init();
     }
 
-    @Override // com.baidu.tieba.p55
-    public void b(boolean z, int i, boolean z2) {
+    public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
-            q(z);
-            setVisibility(0);
-            if (z && (onClickListener = this.s) != null) {
-                onClickListener.onClick(this);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p55
-    public void d(boolean z, int i) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            q(z);
-            if (z && (onClickListener = this.s) != null) {
-                onClickListener.onClick(this);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.s) != null) {
+            onClickListener.onClick(view2);
         }
     }
 
@@ -148,22 +125,54 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements p5
     public void setAfterStatusUpdateListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.s = onClickListener;
+            this.t = onClickListener;
+        }
+    }
+
+    public void setFollowIconSize(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.q.g(i);
         }
     }
 
     public void setIsShowIcon(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.t = z;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.u = z;
         }
     }
 
     @Override // android.view.View
     public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.setVisibility(i);
+        }
+    }
+
+    @Override // com.baidu.tieba.p55
+    public void b(boolean z, int i, boolean z2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
+            q(z);
+            setVisibility(0);
+            if (z && (onClickListener = this.t) != null) {
+                onClickListener.onClick(this);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.p55
+    public void d(boolean z, int i) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            q(z);
+            if (z && (onClickListener = this.t) != null) {
+                onClickListener.onClick(this);
+            }
         }
     }
 
@@ -171,7 +180,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements p5
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.o = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba);
             setTextSize(R.dimen.T_X08);
             setText(this.p);
             n45 n45Var = new n45();
@@ -201,7 +210,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements p5
                 setVisibility(0);
                 setClickable(true);
                 setText(this.p);
-                if (this.t) {
+                if (this.u) {
                     UtilHelper.addFollowUserIconStyle(this.q);
                 }
                 setConfig(this.q);

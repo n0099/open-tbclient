@@ -95,10 +95,10 @@ public class CommonImageButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0536, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053a, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f73);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f79);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f84);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f8a);
         }
     }
 

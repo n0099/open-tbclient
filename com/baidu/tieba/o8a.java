@@ -1,21 +1,43 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.IntentSender;
+import android.content.ServiceConnection;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.session.XRSessionAnchor;
+import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.exceptions.FatalException;
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public final class o8a {
+public class o8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public boolean e;
+    public final Queue<Runnable> a;
+    public Context b;
+    public volatile int c;
+    public com.google.a.b.a.a.a.a d;
+    public BroadcastReceiver e;
+    public Context f;
+    public final ServiceConnection g;
+    public final AtomicReference<f8a> h;
 
     public o8a() {
         Interceptable interceptable = $ic;
@@ -27,167 +49,198 @@ public final class o8a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static Bundle l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putCharSequence("package.name", XRSessionAnchor.apkinfo);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    public final void p() {
+        f8a andSet;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (andSet = this.h.getAndSet(null)) != null) {
+            andSet.a();
+        }
+    }
+
+    public final synchronized void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                Log.i("ARCore-InstallService", "Install service disconnected");
+                this.c = v8a.a;
+                this.d = null;
+                p();
+            }
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public o8a(byte b) {
+        this();
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Byte.valueOf(b)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = 1.0f;
-        this.d = 1.0f;
+        this.a = new ArrayDeque();
+        this.c = v8a.a;
+        this.g = new q8a(this);
+        this.h = new AtomicReference<>();
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public static void b(Activity activity, Bundle bundle, p8a p8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = 0.0f;
-            this.b = 0.0f;
-            this.c = 1.0f;
-            this.d = 1.0f;
-            this.e = false;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, activity, bundle, p8aVar) == null) {
+            PendingIntent pendingIntent = (PendingIntent) bundle.getParcelable("resolution.intent");
+            if (pendingIntent != null) {
+                try {
+                    activity.startIntentSenderForResult(pendingIntent.getIntentSender(), NodeType.E_STREET_POI, new Intent(activity, activity.getClass()), 0, 0, 0);
+                    return;
+                } catch (IntentSender.SendIntentException e) {
+                    p8aVar.b(new FatalException("Installation Intent failed", e));
+                    return;
+                }
+            }
+            Log.e("ARCore-InstallService", "Did not get pending intent.");
+            p8aVar.b(new FatalException("Installation intent failed to unparcel."));
         }
     }
 
-    public final void f(float f, float f2, float f3, float f4, ImageView.ScaleType scaleType) {
+    public final synchronized void k(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), scaleType}) == null) && f != 0.0f && f2 != 0.0f && f3 != 0.0f && f4 != 0.0f) {
-            g();
-            float f5 = (f - f3) / 2.0f;
-            float f6 = (f2 - f4) / 2.0f;
-            float f7 = f3 / f4;
-            float f8 = f / f2;
-            float f9 = f2 / f4;
-            float f10 = f / f3;
-            boolean z = false;
-            switch (n8a.$EnumSwitchMapping$0[scaleType.ordinal()]) {
-                case 1:
-                    this.a = f5;
-                    this.b = f6;
-                    return;
-                case 2:
-                    if (f7 > f8) {
-                        this.e = false;
-                        this.c = f9;
-                        this.d = f9;
-                        this.a = (f - (f3 * f9)) / 2.0f;
+        if (interceptable == null || interceptable.invokeL(1048581, this, runnable) == null) {
+            synchronized (this) {
+                int i = this.c - 1;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            runnable.run();
+                        }
                         return;
                     }
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    this.b = (f2 - (f4 * f10)) / 2.0f;
+                    this.a.offer(runnable);
                     return;
-                case 3:
-                    if (f3 < f && f4 < f2) {
-                        this.a = f5;
-                        this.b = f6;
-                        return;
-                    } else if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        this.b = (f2 - (f4 * f10)) / 2.0f;
-                        return;
-                    } else {
-                        this.e = false;
-                        this.c = f9;
-                        this.d = f9;
-                        this.a = (f - (f3 * f9)) / 2.0f;
-                        return;
-                    }
-                case 4:
-                    if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        this.b = (f2 - (f4 * f10)) / 2.0f;
-                        return;
-                    }
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    this.a = (f - (f3 * f9)) / 2.0f;
+                }
+                throw new com.google.ar.core.ab();
+            }
+        }
+    }
+
+    public static void n(Activity activity, p8a p8aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, activity, p8aVar) == null) {
+            try {
+                activity.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=com.google.ar.core")));
+            } catch (ActivityNotFoundException e) {
+                p8aVar.b(new FatalException("Failed to launch installer.", e));
+            }
+        }
+    }
+
+    public synchronized void e(Context context, ArCoreApk.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, aVar) == null) {
+            synchronized (this) {
+                try {
+                    k(new r8a(this, context, aVar));
+                } catch (com.google.ar.core.ab unused) {
+                    Log.e("ARCore-InstallService", "Play Store install service could not be bound.");
+                    aVar.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+                }
+            }
+        }
+    }
+
+    public synchronized void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                p();
+                int i = this.c - 1;
+                if (i == 1 || i == 2) {
+                    this.b.unbindService(this.g);
+                    this.b = null;
+                    this.c = v8a.a;
+                }
+                if (this.e != null) {
+                    this.f.unregisterReceiver(this.e);
+                }
+            }
+        }
+    }
+
+    public void c(Activity activity, p8a p8aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, p8aVar) == null) {
+            f8a f8aVar = new f8a(activity, p8aVar);
+            f8a andSet = this.h.getAndSet(f8aVar);
+            if (andSet != null) {
+                andSet.a();
+            }
+            f8aVar.start();
+            if (this.e == null) {
+                s8a s8aVar = new s8a(this, p8aVar);
+                this.e = s8aVar;
+                this.f = activity;
+                activity.registerReceiver(s8aVar, new IntentFilter("com.google.android.play.core.install.ACTION_INSTALL_STATUS"));
+            }
+            try {
+                k(new t8a(this, activity, p8aVar));
+            } catch (com.google.ar.core.ab unused) {
+                Log.w("ARCore-InstallService", "requestInstall bind failed, launching fullscreen.");
+                n(activity, p8aVar);
+            }
+        }
+    }
+
+    public synchronized void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            synchronized (this) {
+                this.b = context;
+                if (context.bindService(new Intent("com.google.android.play.core.install.BIND_INSTALL_SERVICE").setPackage("com.android.vending"), this.g, 1)) {
+                    this.c = v8a.b;
                     return;
-                case 5:
-                    if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        return;
-                    }
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    return;
-                case 6:
-                    if (f7 > f8) {
-                        this.e = true;
-                        this.c = f10;
-                        this.d = f10;
-                        this.b = f2 - (f4 * f10);
-                        return;
-                    }
-                    this.e = false;
-                    this.c = f9;
-                    this.d = f9;
-                    this.a = f - (f3 * f9);
-                    return;
-                case 7:
-                    Math.max(f10, f9);
-                    if (f10 > f9) {
-                        z = true;
-                    }
-                    this.e = z;
-                    this.c = f10;
-                    this.d = f9;
-                    return;
-                default:
-                    this.e = true;
-                    this.c = f10;
-                    this.d = f10;
-                    return;
+                }
+                this.c = v8a.a;
+                this.b = null;
+                Log.w("ARCore-InstallService", "bindService returned false.");
+                context.unbindService(this.g);
+            }
+        }
+    }
+
+    public final synchronized void f(IBinder iBinder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iBinder) == null) {
+            synchronized (this) {
+                com.google.a.b.a.a.a.a a = com.google.a.b.a.a.a.b.a(iBinder);
+                Log.i("ARCore-InstallService", "Install service connected");
+                this.d = a;
+                this.c = v8a.c;
+                for (Runnable runnable : this.a) {
+                    runnable.run();
+                }
             }
         }
     }

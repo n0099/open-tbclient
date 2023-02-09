@@ -102,15 +102,15 @@ public class z97 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(b(5, g(R.string.tab_name_topic_rank), ""));
-            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f141b), ""));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f141a), "game"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1417), "digital"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1418), "entertainment"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1419), "films"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1415), "campus"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1414), "animes"));
-            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f141e), "sports"));
-            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f141c), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
+            arrayList.add(b(6, g(R.string.obfuscated_res_0x7f0f1432), ""));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1431), "game"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f142e), "digital"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f142f), "entertainment"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1430), "films"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f142c), "campus"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f142b), "animes"));
+            arrayList.add(b(201, g(R.string.obfuscated_res_0x7f0f1435), "sports"));
+            arrayList.add(a(202, g(R.string.obfuscated_res_0x7f0f1433), AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL, this.b));
             return arrayList;
         }
         return (List) invokeV.objValue;

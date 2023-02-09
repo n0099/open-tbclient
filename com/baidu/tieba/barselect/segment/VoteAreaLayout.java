@@ -141,12 +141,12 @@ public class VoteAreaLayout extends CardBasicLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f092719);
+            RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f09277a);
             this.e = roundAndShadowLinearLayout;
             roundAndShadowLinearLayout.setRadius(ej.g(this.d, R.dimen.tbds8));
             this.g = (TextView) findViewById(R.id.vote_num);
-            this.h = (TrapezoidButton) findViewById(R.id.obfuscated_res_0x7f09271b);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09271c);
+            this.h = (TrapezoidButton) findViewById(R.id.obfuscated_res_0x7f09277c);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09277d);
             this.f = findViewById(R.id.button_container);
         }
     }
@@ -161,7 +161,7 @@ public class VoteAreaLayout extends CardBasicLayout {
             setGravity(16);
             setMinimumHeight(ej.g(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d092e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0943, (ViewGroup) this, true);
             b();
         }
     }

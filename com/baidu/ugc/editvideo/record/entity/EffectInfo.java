@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.entity;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ot9;
+import com.baidu.tieba.su9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return (EffectInfo) new ot9().b(str, EffectInfo.class);
+                return (EffectInfo) new su9().b(str, EffectInfo.class);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -146,7 +146,7 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return new ot9().a(effectInfo);
+                return new su9().a(effectInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

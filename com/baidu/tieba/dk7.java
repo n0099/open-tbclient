@@ -78,7 +78,7 @@ public class dk7 extends u9<OfficialBarFeedActivity> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dk7(TbPageContext<OfficialBarFeedActivity> tbPageContext, boolean z) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d06b1);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d06b7);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,12 +110,12 @@ public class dk7 extends u9<OfficialBarFeedActivity> {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = (BarImageView) k(R.id.obfuscated_res_0x7f090332);
-            this.d = (TextView) k(R.id.obfuscated_res_0x7f090340);
-            this.e = (TextView) k(R.id.obfuscated_res_0x7f091613);
-            this.f = (LinearLayout) k(R.id.obfuscated_res_0x7f091077);
-            this.g = (RelativeLayout) k(R.id.obfuscated_res_0x7f091816);
-            View k = k(R.id.obfuscated_res_0x7f091817);
+            this.c = (BarImageView) k(R.id.obfuscated_res_0x7f09033a);
+            this.d = (TextView) k(R.id.obfuscated_res_0x7f090348);
+            this.e = (TextView) k(R.id.obfuscated_res_0x7f091629);
+            this.f = (LinearLayout) k(R.id.obfuscated_res_0x7f09108a);
+            this.g = (RelativeLayout) k(R.id.obfuscated_res_0x7f091830);
+            View k = k(R.id.obfuscated_res_0x7f091831);
             this.b = k;
             if (this.k) {
                 k.setVisibility(8);
@@ -182,7 +182,7 @@ public class dk7 extends u9<OfficialBarFeedActivity> {
         }
         if (!this.k && nl7Var != null) {
             this.c.K(nl7Var.c(), 10, false);
-            this.d.setText(String.format("%s%s", nl7Var.a(), context.getString(R.string.obfuscated_res_0x7f0f06ad)));
+            this.d.setText(String.format("%s%s", nl7Var.a(), context.getString(R.string.obfuscated_res_0x7f0f06b6)));
         }
         long j = aVar.m * 1000;
         if (this.k) {

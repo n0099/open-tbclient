@@ -6,8 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.vn9;
+import com.baidu.tieba.yo9;
+import com.baidu.tieba.zo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class BaseChromiumApplication extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
-    public un9<c> b;
+    public yo9<c> b;
 
     /* loaded from: classes7.dex */
     public interface c {
@@ -218,7 +218,7 @@ public class BaseChromiumApplication extends Application {
                 return;
             }
         }
-        this.b = new un9<>();
+        this.b = new yo9<>();
         this.a = z;
     }
 
@@ -227,7 +227,7 @@ public class BaseChromiumApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            vn9.b(this);
+            zo9.b(this);
         }
     }
 

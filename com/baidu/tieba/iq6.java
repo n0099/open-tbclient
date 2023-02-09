@@ -28,7 +28,7 @@ public class iq6 extends as6<jq6, PrivateMgrApplyViewHolder> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: n */
-    public static final int obfuscated = 2131303271;
+    public static final int obfuscated = 2131303330;
     public transient /* synthetic */ FieldHolder $fh;
     public t95 l;
     public View.OnClickListener m;
@@ -125,7 +125,7 @@ public class iq6 extends as6<jq6, PrivateMgrApplyViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new PrivateMgrApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0775, (ViewGroup) null));
+            return new PrivateMgrApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0787, (ViewGroup) null));
         }
         return (PrivateMgrApplyViewHolder) invokeL.objValue;
     }
@@ -148,12 +148,12 @@ public class iq6 extends as6<jq6, PrivateMgrApplyViewHolder> {
                     SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
                 }
                 int a2 = jq6Var.a();
-                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f146e);
+                String string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1485);
                 if (a2 == -1) {
                     int c = jq6Var.c();
                     String numberUniformFormat = StringHelper.numberUniformFormat(c);
                     if (c > 0) {
-                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1468), numberUniformFormat);
+                        string = String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f147f), numberUniformFormat);
                         privateMgrApplyViewHolder.c.setOnClickListener(this.m);
                         privateMgrApplyViewHolder.b.setText(string);
                         privateMgrApplyViewHolder.c.setTag(obfuscated, jq6Var.b());
@@ -172,12 +172,12 @@ public class iq6 extends as6<jq6, PrivateMgrApplyViewHolder> {
                     privateMgrApplyViewHolder.f = this.f;
                 } else {
                     if (a2 == 0) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f146c);
+                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1483);
                     } else if (a2 == 1) {
-                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f146a);
+                        string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1481);
                     } else {
                         if (a2 == 2) {
-                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1469);
+                            string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1480);
                         }
                         z = false;
                     }

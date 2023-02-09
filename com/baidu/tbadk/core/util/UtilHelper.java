@@ -145,11 +145,11 @@ import com.baidu.tieba.jo5;
 import com.baidu.tieba.k35;
 import com.baidu.tieba.k85;
 import com.baidu.tieba.lj;
-import com.baidu.tieba.nr8;
 import com.baidu.tieba.on;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.pm;
 import com.baidu.tieba.qm;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.ry4;
 import com.baidu.tieba.t9;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
@@ -1029,7 +1029,7 @@ public class UtilHelper {
     public static void quitDialog(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65687, null, activity) == null) {
-            new j05(activity).setTitle(R.string.obfuscated_res_0x7f0f0994).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new j05.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+            new j05(activity).setTitle(R.string.obfuscated_res_0x7f0f099e).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new j05.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Activity val$activity;
@@ -1061,7 +1061,7 @@ public class UtilHelper {
                         this.val$activity.finish();
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new j05.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new j05.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2924,7 +2924,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z6 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            nr8.a(TbadkCoreApplication.getInst(), string2, lj.c(string2), intent.getExtras().getString("ext_info", ""), null);
+                            rs8.a(TbadkCoreApplication.getInst(), string2, lj.c(string2), intent.getExtras().getString("ext_info", ""), null);
                         } else {
                             ca c = da.c(context);
                             if (c instanceof BaseActivity) {
@@ -4240,7 +4240,7 @@ public class UtilHelper {
                 intent.putExtra("android.intent.extra.TEXT", str2);
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f1223)));
+                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f1239)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -4262,7 +4262,7 @@ public class UtilHelper {
                 intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.share_format), str3, str4, str5));
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f1223)));
+                context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f1239)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }

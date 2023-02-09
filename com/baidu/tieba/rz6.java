@@ -274,8 +274,8 @@ public class rz6 {
             for (qn qnVar : this.d) {
                 if (qnVar instanceof as6) {
                     ((as6) qnVar).v();
-                } else if (qnVar instanceof dr8) {
-                    ((dr8) qnVar).onDestroy();
+                } else if (qnVar instanceof hs8) {
+                    ((hs8) qnVar).onDestroy();
                 }
             }
         }

@@ -2,10 +2,10 @@ package com.baidu.turbonet.net;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ao9;
-import com.baidu.tieba.eo9;
-import com.baidu.tieba.wn9;
-import com.baidu.tieba.zn9;
+import com.baidu.tieba.ap9;
+import com.baidu.tieba.dp9;
+import com.baidu.tieba.ep9;
+import com.baidu.tieba.ip9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,17 +47,17 @@ public class OkHttp3Interceptor implements Interceptor {
     public TurbonetEngine b;
 
     /* loaded from: classes7.dex */
-    public class a implements ao9 {
+    public class a implements ep9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo9 a;
+        public final /* synthetic */ ip9 a;
 
-        public a(OkHttp3Interceptor okHttp3Interceptor, eo9 eo9Var) {
+        public a(OkHttp3Interceptor okHttp3Interceptor, ip9 ip9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {okHttp3Interceptor, eo9Var};
+                Object[] objArr = {okHttp3Interceptor, ip9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,10 +67,10 @@ public class OkHttp3Interceptor implements Interceptor {
                     return;
                 }
             }
-            this.a = eo9Var;
+            this.a = ip9Var;
         }
 
-        @Override // com.baidu.tieba.ao9
+        @Override // com.baidu.tieba.ep9
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -78,7 +78,7 @@ public class OkHttp3Interceptor implements Interceptor {
             }
         }
 
-        @Override // com.baidu.tieba.ao9
+        @Override // com.baidu.tieba.ep9
         public void onComplete(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
@@ -86,7 +86,7 @@ public class OkHttp3Interceptor implements Interceptor {
             }
         }
 
-        @Override // com.baidu.tieba.ao9
+        @Override // com.baidu.tieba.ep9
         public void b(Exception exc, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
@@ -96,18 +96,18 @@ public class OkHttp3Interceptor implements Interceptor {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements ao9 {
+    public class b implements ep9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wn9 a;
+        public final /* synthetic */ ap9 a;
         public final /* synthetic */ OkHttp3Interceptor b;
 
-        public b(OkHttp3Interceptor okHttp3Interceptor, wn9 wn9Var) {
+        public b(OkHttp3Interceptor okHttp3Interceptor, ap9 ap9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {okHttp3Interceptor, wn9Var};
+                Object[] objArr = {okHttp3Interceptor, ap9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -118,42 +118,42 @@ public class OkHttp3Interceptor implements Interceptor {
                 }
             }
             this.b = okHttp3Interceptor;
-            this.a = wn9Var;
+            this.a = ap9Var;
         }
 
-        @Override // com.baidu.tieba.ao9
+        @Override // com.baidu.tieba.ep9
         public void a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                wn9 wn9Var = this.a;
-                wn9Var.e = j;
-                wn9Var.c();
-                wn9 wn9Var2 = this.a;
-                wn9Var2.c = -12;
-                wn9Var2.d(this.b.b);
+                ap9 ap9Var = this.a;
+                ap9Var.e = j;
+                ap9Var.c();
+                ap9 ap9Var2 = this.a;
+                ap9Var2.c = -12;
+                ap9Var2.d(this.b.b);
             }
         }
 
-        @Override // com.baidu.tieba.ao9
+        @Override // com.baidu.tieba.ep9
         public void onComplete(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                wn9 wn9Var = this.a;
-                wn9Var.e = j;
-                wn9Var.c();
-                wn9 wn9Var2 = this.a;
-                wn9Var2.c = 0;
-                wn9Var2.d(this.b.b);
+                ap9 ap9Var = this.a;
+                ap9Var.e = j;
+                ap9Var.c();
+                ap9 ap9Var2 = this.a;
+                ap9Var2.c = 0;
+                ap9Var2.d(this.b.b);
             }
         }
 
-        @Override // com.baidu.tieba.ao9
+        @Override // com.baidu.tieba.ep9
         public void b(Exception exc, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
-                wn9 wn9Var = this.a;
-                wn9Var.e = j;
-                wn9Var.c();
+                ap9 ap9Var = this.a;
+                ap9Var.e = j;
+                ap9Var.c();
                 this.a.a(exc);
                 this.a.d(this.b.b);
             }
@@ -255,8 +255,8 @@ public class OkHttp3Interceptor implements Interceptor {
             if (c == null) {
                 return chain.proceed(request);
             }
-            wn9 wn9Var = new wn9(request.url().toString());
-            wn9Var.b = request.method();
+            ap9 ap9Var = new ap9(request.url().toString());
+            ap9Var.b = request.method();
             Request.Builder newBuilder = request.newBuilder();
             RequestBody body = request.body();
             if (body != null) {
@@ -281,8 +281,8 @@ public class OkHttp3Interceptor implements Interceptor {
                 newBuilder.header("Cookie", b(loadForRequest));
             }
             Response proceed = chain.proceed(newBuilder.build());
-            wn9Var.b();
-            wn9Var.d = proceed.code();
+            ap9Var.b();
+            ap9Var.d = proceed.code();
             ResponseBody body2 = proceed.body();
             if (body2 instanceof RealResponseBody) {
                 realResponseBody = (RealResponseBody) body2;
@@ -297,7 +297,7 @@ public class OkHttp3Interceptor implements Interceptor {
             }
             if (realResponseBody != null) {
                 try {
-                    c.set(realResponseBody, Okio.buffer(Okio.source(new zn9(body2.source().inputStream(), new b(this, wn9Var)))));
+                    c.set(realResponseBody, Okio.buffer(Okio.source(new dp9(body2.source().inputStream(), new b(this, ap9Var)))));
                 } catch (IllegalAccessException e2) {
                     Log.e("tn_OkHttp3Intercept", "Can not set ProxyInputStream to Okio's InputStream", e2);
                 }
@@ -317,43 +317,43 @@ public class OkHttp3Interceptor implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
             Request request = chain.request();
             if (e != null && !this.b.f() && (!d || chain.call() != null)) {
-                eo9 eo9Var = new eo9(new URL(request.url().toString()), this.b);
-                eo9Var.p();
+                ip9 ip9Var = new ip9(new URL(request.url().toString()), this.b);
+                ip9Var.p();
                 if (d && chain.call().isCanceled()) {
-                    eo9Var.disconnect();
+                    ip9Var.disconnect();
                     return c(chain, request);
                 }
                 if (d) {
-                    eo9Var.setReadTimeout(chain.readTimeoutMillis());
-                    eo9Var.setConnectTimeout(chain.connectTimeoutMillis());
+                    ip9Var.setReadTimeout(chain.readTimeoutMillis());
+                    ip9Var.setConnectTimeout(chain.connectTimeoutMillis());
                 }
                 Headers headers = request.headers();
                 for (String str : headers.names()) {
-                    eo9Var.addRequestProperty(str, headers.get(str));
+                    ip9Var.addRequestProperty(str, headers.get(str));
                 }
                 List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
                 if (loadForRequest != null && !loadForRequest.isEmpty()) {
-                    eo9Var.addRequestProperty("Cookie", b(loadForRequest));
+                    ip9Var.addRequestProperty("Cookie", b(loadForRequest));
                 }
-                eo9Var.setRequestMethod(request.method());
+                ip9Var.setRequestMethod(request.method());
                 try {
                     if (request.body() != null) {
                         if (request.body().contentType() != null) {
-                            eo9Var.setRequestProperty("Content-Type", request.body().contentType().toString());
+                            ip9Var.setRequestProperty("Content-Type", request.body().contentType().toString());
                         }
-                        eo9Var.setDoOutput(true);
-                        OutputStream outputStream = eo9Var.getOutputStream();
+                        ip9Var.setDoOutput(true);
+                        OutputStream outputStream = ip9Var.getOutputStream();
                         BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
                         request.body().writeTo(buffer);
                         buffer.flush();
                         outputStream.close();
                     }
-                    int responseCode = eo9Var.getResponseCode();
+                    int responseCode = ip9Var.getResponseCode();
                     if (d && chain.call().isCanceled()) {
-                        eo9Var.disconnect();
+                        ip9Var.disconnect();
                         return c(chain, request);
                     }
-                    String str2 = eo9Var.y().e().toString();
+                    String str2 = ip9Var.y().e().toString();
                     try {
                         protocol = Protocol.get(str2);
                     } catch (IOException unused) {
@@ -361,9 +361,9 @@ public class OkHttp3Interceptor implements Interceptor {
                         protocol = Protocol.HTTP_1_1;
                     }
                     Response.Builder builder = new Response.Builder();
-                    builder.request(request).protocol(protocol).code(responseCode).message(eo9Var.getResponseMessage());
+                    builder.request(request).protocol(protocol).code(responseCode).message(ip9Var.getResponseMessage());
                     Headers.Builder builder2 = new Headers.Builder();
-                    for (Map.Entry<String, List<String>> entry : eo9Var.getHeaderFields().entrySet()) {
+                    for (Map.Entry<String, List<String>> entry : ip9Var.getHeaderFields().entrySet()) {
                         for (String str3 : entry.getValue()) {
                             if (entry.getKey() != null && !entry.getKey().isEmpty() && entry.getValue() != null) {
                                 builder.addHeader(entry.getKey(), str3);
@@ -379,11 +379,11 @@ public class OkHttp3Interceptor implements Interceptor {
                         }
                     }
                     if (responseCode >= 200 && responseCode < 400) {
-                        errorStream = eo9Var.getInputStream();
+                        errorStream = ip9Var.getInputStream();
                     } else {
-                        errorStream = eo9Var.getErrorStream();
+                        errorStream = ip9Var.getErrorStream();
                     }
-                    BufferedSource buffer2 = Okio.buffer(Okio.source(new zn9(errorStream, new a(this, eo9Var))));
+                    BufferedSource buffer2 = Okio.buffer(Okio.source(new dp9(errorStream, new a(this, ip9Var))));
                     if (builder2.get("Content-Length") == null) {
                         j = -1L;
                     } else {
@@ -403,14 +403,14 @@ public class OkHttp3Interceptor implements Interceptor {
                     } catch (Exception e3) {
                         Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
                     }
-                    String responseMessage = eo9Var.getResponseMessage();
+                    String responseMessage = ip9Var.getResponseMessage();
                     if (responseMessage == null) {
                         responseMessage = "";
                     }
                     return builder.message(responseMessage).build();
                 } catch (IOException e4) {
                     Log.e("tn_OkHttp3Intercept", "Write data or build connection caught exception: " + e4.toString());
-                    eo9Var.disconnect();
+                    ip9Var.disconnect();
                     return c(chain, request);
                 }
             }

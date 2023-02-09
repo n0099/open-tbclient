@@ -447,7 +447,7 @@ public class u66 implements o76, n76 {
             this.e.onChangeSkinType(this.d, i);
             this.e.getBackground().mutate().setAlpha(0);
             SkinManager.setNavbarTitleColor(this.e.mTextTitle, R.color.CAM_X0101, R.color.CAM_X0101);
-            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f081142);
+            SkinManager.setNavbarIconSrc(this.m, R.drawable.selector_topbar_return_white, R.drawable.obfuscated_res_0x7f081157);
             this.f.setDivider(SkinManager.getDrawable(i, (int) R.color.CAM_X0204));
             this.f.setDividerHeight(this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4));
             SkinManager.setBackgroundColor(this.g, R.color.CAM_X0201);
@@ -472,9 +472,9 @@ public class u66 implements o76, n76 {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d0103, null);
+            View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d0104, null);
             this.g = inflate;
-            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f090214);
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f090218);
             this.e = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (this.o) {
@@ -486,11 +486,11 @@ public class u66 implements o76, n76 {
                 this.n = this.e.setCenterTextTitle(this.d.getString(R.string.ala_live));
             } else {
                 StringBuilder sb = new StringBuilder();
-                sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f06ad));
+                sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f06b6));
                 this.n = this.e.setCenterTextTitle(sb.toString());
             }
-            this.h = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f090215);
-            BdTypeListView bdTypeListView = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f090213);
+            this.h = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f090219);
+            BdTypeListView bdTypeListView = (BdTypeListView) this.g.findViewById(R.id.obfuscated_res_0x7f090217);
             this.f = bdTypeListView;
             bdTypeListView.setItemsCanFocus(true);
             this.f.setVisibility(8);
@@ -535,7 +535,7 @@ public class u66 implements o76, n76 {
                 return;
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f06ad));
+            sb.append(UtilHelper.getFixedBarText(this.p, 5, true, true) + this.d.getResources().getString(R.string.obfuscated_res_0x7f0f06b6));
             this.n = this.e.setCenterTextTitle(sb.toString());
         }
     }

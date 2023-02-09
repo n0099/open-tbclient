@@ -57,7 +57,7 @@ public class yo7 {
     public String l;
     public boolean m;
     public int n;
-    public ud8 o;
+    public ce8 o;
     public ReplyPrivacyCheckController p;
     public View.OnClickListener q;
     public kd5 r;
@@ -207,11 +207,11 @@ public class yo7 {
                     } else {
                         j05Var.setMessage(postWriteCallBackData.getErrorString());
                     }
-                    j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new a(this));
+                    j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new a(this));
                     j05Var.setPositiveButton(R.string.open_now, new b(this));
                     j05Var.create(this.a.a).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 2));
-                } else if (k89.d(i)) {
+                } else if (o99.d(i)) {
                     this.a.k();
                 } else if (a85Var != null || i == 227001) {
                 } else {
@@ -282,7 +282,7 @@ public class yo7 {
         @Override // com.baidu.tieba.kd5
         public boolean a() {
             InterceptResult invokeV;
-            fg9 g;
+            jh9 g;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (this.a.k == null) {
@@ -780,7 +780,7 @@ public class yo7 {
                         this.b.addView(this.d.b());
                     }
                     if (this.o == null) {
-                        this.o = new ud8();
+                        this.o = new ce8();
                     }
                     if (this.d.s() != null) {
                         this.o.m(this.d.s().i());
@@ -887,7 +887,7 @@ public class yo7 {
             }
             j05 j05Var = new j05(tbPageContext.getPageActivity());
             j05Var.setMessage(str);
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a46, new f(this));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0a50, new f(this));
             j05Var.create(this.a).show();
         }
     }

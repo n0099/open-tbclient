@@ -334,19 +334,19 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ay {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032f, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0331, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09231c);
-            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091096);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092363);
+            this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910a9);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002a);
             this.h = (EMTextView) this.a.findViewById(R.id.item_score);
-            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f09109b);
+            RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ae);
             this.i = rankStarView;
             rankStarView.setStarSpacing(ej.g(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090e9f);
-            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091089);
-            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09109d);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090eb0);
+            this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09109c);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910b0);
             this.d.setOnClickListener(this.p);
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
@@ -368,7 +368,7 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements ay {
             d2.v(R.color.CAM_X0105);
             p15.d(this.h).v(R.color.CAM_X0305);
             p15.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809ad, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }

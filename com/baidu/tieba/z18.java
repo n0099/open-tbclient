@@ -148,19 +148,19 @@ public class z18 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof a)) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05a1, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05a6, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e3);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e4);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e5);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090855);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092229);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09222a);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09222b);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090863);
             }
             w18 item = getItem(i);
             if (item != null) {
                 aVar.a.setText(item.f());
                 aVar.b.setText(a(String.valueOf(item.a()), item.b()));
                 if (item.d()) {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f098b), TextView.BufferType.EDITABLE);
+                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0995), TextView.BufferType.EDITABLE);
                     aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
                     aVar.c.setBackgroundDrawable(null);
                     aVar.c.setOnClickListener(null);

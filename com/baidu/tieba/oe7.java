@@ -141,7 +141,7 @@ public class oe7 {
             z = false;
             i3 = 0;
         }
-        StatisticItem c = gz8.c(threadData, "a002", "common_click", i2, i, z, str, null, i3);
+        StatisticItem c = k09.c(threadData, "a002", "common_click", i2, i, z, str, null, i3);
         if (c == null) {
             return;
         }
@@ -171,7 +171,7 @@ public class oe7 {
         if (PermissionUtil.isBrowseMode()) {
             c.param(TiebaStatic.Params.PURE_BROWSING, 1);
         }
-        iz8.g().c(bdUniqueId, c);
+        m09.g().c(bdUniqueId, c);
         g(threadData, i2);
         e(threadData, i2);
     }
@@ -202,10 +202,10 @@ public class oe7 {
                 if (i != 9) {
                     k = null;
                 } else {
-                    k = gz8.k("c13693", threadData, 1);
+                    k = k09.k("c13693", threadData, 1);
                 }
             } else {
-                k = gz8.k("c13692", threadData, 1);
+                k = k09.k("c13692", threadData, 1);
             }
             TiebaStatic.log(k);
         }
@@ -283,8 +283,8 @@ public class oe7 {
             z = false;
             i2 = 0;
         }
-        String b = gz8.b(threadData.getTid(), str, "", threadData.getBaijiahaoData());
-        StatisticItem d = gz8.d(threadData, "a002", "common_exp", i, z, str, null, i2);
+        String b = k09.b(threadData.getTid(), str, "", threadData.getBaijiahaoData());
+        StatisticItem d = k09.d(threadData, "a002", "common_exp", i, z, str, null, i2);
         if (d == null) {
             return;
         }
@@ -306,7 +306,7 @@ public class oe7 {
         if (PermissionUtil.isBrowseMode()) {
             d.param(TiebaStatic.Params.PURE_BROWSING, 1);
         }
-        iz8.g().d(bdUniqueId, b, d);
+        m09.g().d(bdUniqueId, b, d);
         if (oc7.d()) {
             oc7.c(b);
             if (oc7.b() >= 10) {

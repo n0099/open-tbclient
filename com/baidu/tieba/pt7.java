@@ -93,13 +93,13 @@ public class pt7 {
         }
         this.g = new a(this);
         this.a = x9Var;
-        View inflate = LayoutInflater.from(x9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06b9, (ViewGroup) null);
+        View inflate = LayoutInflater.from(x9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06bf, (ViewGroup) null);
         this.b = inflate;
         ImageView imageView = (ImageView) inflate.findViewById(R.id.img_close);
         this.c = imageView;
         imageView.setOnClickListener(this.g);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091833);
-        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09045a);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09184d);
+        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090463);
         this.e.setConfig(new n45());
         this.e.setText(x9Var.getString(R.string.go_to_open));
         this.e.setOnClickListener(this.g);

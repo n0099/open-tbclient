@@ -18,9 +18,9 @@ import com.baidu.tbadk.widget.LineCountNotifyTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dv7;
-import com.baidu.tieba.h29;
 import com.baidu.tieba.il5;
 import com.baidu.tieba.kv7;
+import com.baidu.tieba.l39;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
 import com.baidu.tieba.nv7;
 import com.baidu.tieba.pu7;
@@ -262,7 +262,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 this.r.setVisibility(8);
                 this.u.setVisibility(8);
             }
-            h29 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            l39 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(String.valueOf(onePicInfoCard.getItemId()))) {
                 this.x = R.color.CAM_X0108;
             } else {
@@ -278,19 +278,19 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a8, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a9, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = (TbImageView) l(viewGroup, R.id.obfuscated_res_0x7f090f97);
-            this.o = (LineCountNotifyTextView) l(this.m, R.id.obfuscated_res_0x7f09182e);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09082d);
-            View view2 = (View) l(this.m, R.id.obfuscated_res_0x7f090ea0);
-            this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090ea9);
-            this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f0914e6);
-            this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090ee6);
-            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f092219);
-            this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f0914ed);
-            this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090ee7);
-            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f09221a);
+            this.n = (TbImageView) l(viewGroup, R.id.obfuscated_res_0x7f090fa8);
+            this.o = (LineCountNotifyTextView) l(this.m, R.id.obfuscated_res_0x7f091848);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09083b);
+            View view2 = (View) l(this.m, R.id.obfuscated_res_0x7f090eb1);
+            this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090eba);
+            this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f0914fb);
+            this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090ef7);
+            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f09225f);
+            this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f091502);
+            this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090ef8);
+            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f092260);
             return this.m;
         }
         return (View) invokeV.objValue;

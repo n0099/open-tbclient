@@ -115,7 +115,7 @@ public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09041e || view2.getId() == R.id.obfuscated_res_0x7f091acf) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090427 || view2.getId() == R.id.obfuscated_res_0x7f091b0a) {
                 onRetryClick();
             }
         }

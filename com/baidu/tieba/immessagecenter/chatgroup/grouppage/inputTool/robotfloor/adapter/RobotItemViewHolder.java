@@ -49,11 +49,11 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d54);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d52);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d51);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d53);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091d5c);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d96);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d94);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d93);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d95);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091d9e);
         this.h = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
         this.h.setFocusable(false);
@@ -99,7 +99,7 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
             if (!TextUtils.isEmpty(this.i.getRobortAvatar())) {
                 this.f.K(this.i.getRobortAvatar(), 12, false);
             } else {
-                this.f.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f77), 24, false);
+                this.f.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f8c), 24, false);
             }
             if (this.h.getAdapter() != this.i.getAdapter()) {
                 if (this.h.getAdapter() != null) {

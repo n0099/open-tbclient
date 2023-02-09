@@ -13,7 +13,7 @@ import com.baidu.rtc.RtcParameterSettings;
 import com.baidu.rtc.SdpPrefer;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.rtc.logreport.SLIReportInterface;
-import com.baidu.tieba.mca;
+import com.baidu.tieba.qda;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -213,7 +213,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onConnectionChange(PeerConnection.PeerConnectionState peerConnectionState) {
-            mca.$default$onConnectionChange(this, peerConnectionState);
+            qda.$default$onConnectionChange(this, peerConnectionState);
         }
 
         @Override // org.webrtc.PeerConnection.Observer
@@ -226,7 +226,7 @@ public class PeerConnectionClient implements DataChannel.Observer {
         @Override // org.webrtc.PeerConnection.Observer
         @CalledByNative("Observer")
         public /* synthetic */ void onTrack(RtpTransceiver rtpTransceiver) {
-            mca.$default$onTrack(this, rtpTransceiver);
+            qda.$default$onTrack(this, rtpTransceiver);
         }
 
         public PCObserver(PeerConnectionClient peerConnectionClient) {

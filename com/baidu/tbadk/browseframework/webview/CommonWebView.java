@@ -27,8 +27,8 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.ih;
 import com.baidu.tieba.qu4;
-import com.baidu.tieba.s19;
-import com.baidu.tieba.u19;
+import com.baidu.tieba.w29;
+import com.baidu.tieba.y29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,9 +50,9 @@ public class CommonWebView extends WebView {
     public h j;
     public i k;
     public g l;
-    public s19 m;
+    public w29 m;
     public CommonTbJsBridge n;
-    public u19 o;
+    public y29 o;
 
     /* loaded from: classes3.dex */
     public interface d {
@@ -97,7 +97,7 @@ public class CommonWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements u19 {
+    public class a implements y29 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonWebView a;
@@ -120,15 +120,15 @@ public class CommonWebView extends WebView {
             this.a = commonWebView;
         }
 
-        @Override // com.baidu.tieba.u19
+        @Override // com.baidu.tieba.y29
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 CommonWebView commonWebView = this.a;
-                s19 s19Var = commonWebView.m;
-                if (s19Var != null) {
-                    return s19Var.c(commonWebView.getWebView(), str, jsPromptResult);
+                w29 w29Var = commonWebView.m;
+                if (w29Var != null) {
+                    return w29Var.c(commonWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -486,10 +486,10 @@ public class CommonWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(u19 u19Var) {
+    public void setOnJsPromptCallback(y29 y29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, u19Var) == null) {
-            this.o = u19Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, y29Var) == null) {
+            this.o = y29Var;
         }
     }
 
@@ -607,7 +607,7 @@ public class CommonWebView extends WebView {
             BrowserHelper.a(getSettings());
             this.c = new c(this);
             this.d = new k(this, null);
-            this.m = new s19();
+            this.m = new w29();
             setWebViewClient(this.c);
             setWebChromeClient(this.d);
             if (Build.VERSION.SDK_INT >= 11) {

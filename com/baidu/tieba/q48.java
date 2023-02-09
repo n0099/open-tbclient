@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q48 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static final float m;
@@ -66,7 +66,7 @@ public class q48 extends BaseAdapter {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements OriginalThreadCardView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -319,7 +319,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,7 +347,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -372,19 +372,19 @@ public class q48 extends BaseAdapter {
                     return;
                 }
             }
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f84);
-            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091f85);
-            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f8a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f8b);
-            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091f89);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc8);
+            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091fc9);
+            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fce);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fcf);
+            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091fcd);
             this.l = new q55(q48Var.a, this.d);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f86);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091faa);
-            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091f93);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f88);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f8f);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f87);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091fa8);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fca);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fee);
+            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091fd7);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fcc);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fd3);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fcb);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091fec);
             b(this.b);
         }
 
@@ -405,7 +405,7 @@ public class q48 extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class h extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -431,20 +431,20 @@ public class q48 extends BaseAdapter {
                     return;
                 }
             }
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e6e);
-            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915a3);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915a4);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e71);
-            this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e70);
-            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0915a9);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e7f);
+            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915b9);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ba);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e82);
+            this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e81);
+            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0915bf);
             this.l = new q55(q48Var.a, this.d);
-            this.n = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915a7);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915a8);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915a6);
-            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f090e6f);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09177b);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915a5);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092230);
+            this.n = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915bd);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915be);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915bc);
+            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f090e80);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091794);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915bb);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092276);
             b(this.b);
             this.n.setPlaceHolder(1);
         }
@@ -696,7 +696,7 @@ public class q48 extends BaseAdapter {
                         if (view2 != null && (view2.getTag() instanceof g)) {
                             gVar = (g) view2.getTag();
                         } else {
-                            view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c7, (ViewGroup) null);
+                            view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c8, (ViewGroup) null);
                             gVar = new g(this, view2);
                             view2.setTag(gVar);
                         }
@@ -721,24 +721,24 @@ public class q48 extends BaseAdapter {
                     if (view2 != null && (view2.getTag() instanceof f)) {
                         fVar = (f) view2.getTag();
                     } else {
-                        view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c5, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06cb, (ViewGroup) null);
                         fVar = new f(this, null);
-                        fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09187f);
-                        fVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091b9a);
+                        fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09189a);
+                        fVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091bd5);
                         view2.setTag(fVar);
                     }
                     fVar.a.setVisibility(0);
                     if (this.g) {
                         fVar.b.setVisibility(0);
-                        fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0ae6));
+                        fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0af0));
                         SkinManager.setViewTextColor(fVar.a, R.color.common_color_10039, 1);
                     } else if (!this.h) {
                         fVar.b.setVisibility(8);
-                        fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d32));
+                        fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0d3c));
                         SkinManager.setViewTextColor(fVar.a, R.color.common_color_10005, 1);
                     } else {
                         fVar.b.setVisibility(8);
-                        fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0ae6));
+                        fVar.a.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0af0));
                         SkinManager.setViewTextColor(fVar.a, R.color.common_color_10039, 1);
                     }
                 }
@@ -746,7 +746,7 @@ public class q48 extends BaseAdapter {
                 if (view2 != null && (view2.getTag() instanceof h)) {
                     hVar = (h) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a6, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a8, (ViewGroup) null);
                     hVar = new h(this, view2);
                     view2.setTag(hVar);
                 }

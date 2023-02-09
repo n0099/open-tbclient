@@ -210,12 +210,12 @@ public class CreateBarGuideActivity extends BaseActivity<CreateBarGuideActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (StringUtils.isNull(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f14ed);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f1504);
             }
             j05 j05Var = new j05(getActivity());
             j05Var.setTitle(str);
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new b(this, j05Var));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new c(this, j05Var));
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new b(this, j05Var));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new c(this, j05Var));
             j05Var.create(getPageContext());
             j05Var.show();
         }

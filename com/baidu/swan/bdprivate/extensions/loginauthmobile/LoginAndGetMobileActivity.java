@@ -137,7 +137,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             uq3.a().onResult(i);
             if (i != 0) {
-                o83.f(this, R.string.obfuscated_res_0x7f0f1391).H(true);
+                o83.f(this, R.string.obfuscated_res_0x7f0f13a8).H(true);
             } else {
                 finish();
             }
@@ -164,7 +164,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.flags &= -1025;
             getWindow().setAttributes(attributes);
-            setContentView(R.layout.obfuscated_res_0x7f0d00b9);
+            setContentView(R.layout.obfuscated_res_0x7f0d00ba);
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 this.b = extras.getString("app_name", "");
@@ -180,9 +180,9 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public final void q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d5e);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091da0);
             this.a = linearLayout;
-            linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b4e));
+            linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b50));
             this.a.getBackground().mutate().setAlpha(0);
         }
     }

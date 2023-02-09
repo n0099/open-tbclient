@@ -52,7 +52,7 @@ public class ie7 {
             if (app == null) {
                 return -1;
             }
-            return rq8.b(app);
+            return vr8.b(app);
         }
         return invokeL.intValue;
     }
@@ -226,7 +226,7 @@ public class ie7 {
                 App app = builder.app.get(i);
                 if (app != null) {
                     App.Builder builder2 = new App.Builder(app);
-                    builder2.pos = Integer.valueOf(rq8.b(app));
+                    builder2.pos = Integer.valueOf(vr8.b(app));
                     App build = builder2.build(false);
                     builder.app.remove(i);
                     builder.app.add(i, build);
@@ -300,17 +300,17 @@ public class ie7 {
             while (it.hasNext()) {
                 App next = it.next();
                 if (next != null) {
-                    int b = rq8.b(next);
+                    int b = vr8.b(next);
                     if (b <= 0) {
                         it.remove();
-                        zs8.h(l(next), 1, 23);
+                        du8.h(l(next), 1, 23);
                     } else {
                         int i3 = i + i2 + 1;
                         if (b <= i3) {
                             i2++;
                         } else {
                             it.remove();
-                            zs8.i(l(next), 1, 2, b, i3);
+                            du8.i(l(next), 1, 2, b, i3);
                         }
                     }
                 } else {
@@ -351,7 +351,7 @@ public class ie7 {
                     }
                 }
             }
-            List<AdvertAppInfo> f = mr8.l().f();
+            List<AdvertAppInfo> f = qs8.l().f();
             if (f != null) {
                 f.clear();
             }
@@ -366,28 +366,28 @@ public class ie7 {
                     }
                     AdvertAppInfo c = wd7Var.c();
                     if (c == null) {
-                        zs8.h(wd7Var.c(), 1, 100);
+                        du8.h(wd7Var.c(), 1, 100);
                     } else {
                         int m = c.m();
                         if (m != 0) {
-                            zs8.h(wd7Var.c(), 1, m);
+                            du8.h(wd7Var.c(), 1, m);
                             if (m != 28 && m != 31) {
                                 c.c = -1001;
                             }
                         }
                         if (wd7Var.getPosition() <= 0) {
-                            zs8.h(wd7Var.c(), 1, 23);
+                            du8.h(wd7Var.c(), 1, 23);
                             c.c = -1001;
                         }
                         if (c.h()) {
                             try {
                                 if (TextUtils.isEmpty(c.p)) {
-                                    zs8.h(wd7Var.c(), 1, 26);
-                                } else if (k09.b(TbadkCoreApplication.getInst().getContext(), c.p) && lu5.a().p()) {
-                                    zs8.h(wd7Var.c(), 1, 3);
+                                    du8.h(wd7Var.c(), 1, 26);
+                                } else if (o19.b(TbadkCoreApplication.getInst().getContext(), c.p) && lu5.a().p()) {
+                                    du8.h(wd7Var.c(), 1, 3);
                                 }
                             } catch (Exception unused) {
-                                zs8.h(wd7Var.c(), 1, 100);
+                                du8.h(wd7Var.c(), 1, 100);
                             }
                         }
                         linkedList.add(wd7Var);
@@ -456,7 +456,7 @@ public class ie7 {
                 App app = builder.app.get(i2);
                 if (app != null) {
                     App.Builder builder2 = new App.Builder(app);
-                    rq8.c(builder2, i);
+                    vr8.c(builder2, i);
                     App build = builder2.build(false);
                     builder.app.remove(i2);
                     builder.app.add(i2, build);
@@ -493,17 +493,17 @@ public class ie7 {
                     while (it.hasNext()) {
                         App next = it.next();
                         if (next != null) {
-                            int b = rq8.b(next);
+                            int b = vr8.b(next);
                             if (b <= 0) {
                                 it.remove();
-                                zs8.h(l(next), 1, 23);
+                                du8.h(l(next), 1, 23);
                             } else {
                                 int i7 = i4 + i6 + 1;
                                 if (b <= i7) {
                                     i6++;
                                 } else {
                                     it.remove();
-                                    zs8.i(l(next), 1, 2, b, i7);
+                                    du8.i(l(next), 1, 2, b, i7);
                                 }
                             }
                         } else {
@@ -597,17 +597,17 @@ public class ie7 {
                 while (it.hasNext()) {
                     App next = it.next();
                     if (next != null) {
-                        int b = rq8.b(next);
+                        int b = vr8.b(next);
                         if (b <= 0) {
                             it.remove();
-                            zs8.h(l(next), 1, 23);
+                            du8.h(l(next), 1, 23);
                         } else {
                             int i3 = i + i2 + 1;
                             if (b <= i3) {
                                 i2++;
                             } else {
                                 it.remove();
-                                zs8.i(l(next), 1, 2, b, i3);
+                                du8.i(l(next), 1, 2, b, i3);
                             }
                         }
                     } else {
@@ -648,27 +648,27 @@ public class ie7 {
                 wd7 wd7Var = new wd7();
                 wd7Var.f(app);
                 if (app != null) {
-                    i = rq8.b(app);
+                    i = vr8.b(app);
                 } else {
                     i = -1;
                 }
                 if (i < 0) {
-                    zs8.h(wd7Var.c(), 1, 33);
+                    du8.h(wd7Var.c(), 1, 33);
                     builder2.app.remove(size);
                 } else {
                     int i2 = count + size;
                     if (i > i2) {
-                        zs8.i(wd7Var.v(), 1, 2, i, i2);
+                        du8.i(wd7Var.v(), 1, 2, i, i2);
                         builder2.app.remove(size);
                     } else {
                         AdvertAppInfo c = wd7Var.c();
                         if (c == null) {
-                            zs8.h(wd7Var.c(), 1, 100);
+                            du8.h(wd7Var.c(), 1, 100);
                             builder2.app.remove(size);
                         } else {
                             int m = c.m();
                             if (m != 0) {
-                                zs8.h(wd7Var.c(), 1, m);
+                                du8.h(wd7Var.c(), 1, m);
                                 builder2.app.remove(size);
                             }
                         }

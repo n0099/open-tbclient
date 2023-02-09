@@ -2,7 +2,7 @@ package com.baidu.searchbox.dns;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.cw8;
+import com.baidu.tieba.gx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class HttpDnsRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return cw8.a();
+            return gx8.a();
         }
         return (IHttpDnsConfig) invokeV.objValue;
     }

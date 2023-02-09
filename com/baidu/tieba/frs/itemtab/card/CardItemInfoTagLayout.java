@@ -68,13 +68,13 @@ public class CardItemInfoTagLayout extends FrameLayout implements ay {
 
             /* renamed from: com.baidu.tieba.frs.itemtab.card.CardItemInfoTagLayout$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class View$OnClickListenerC0285a implements View.OnClickListener {
+            public class View$OnClickListenerC0284a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View a;
                 public final /* synthetic */ a b;
 
-                public View$OnClickListenerC0285a(a aVar, b bVar, View view2) {
+                public View$OnClickListenerC0284a(a aVar, b bVar, View view2) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +146,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements ay {
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }
-                this.a.setOnClickListener(new View$OnClickListenerC0285a(this, bVar, view2));
+                this.a.setOnClickListener(new View$OnClickListenerC0284a(this, bVar, view2));
                 frameLayout.addView(this.a);
             }
 

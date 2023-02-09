@@ -150,10 +150,10 @@ public class mn6 extends BaseAdapter {
                 item.isSelect = true;
                 this.b.b.add(item);
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0906ad) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0906b8) {
                 imageView = (ImageView) view2;
             } else {
-                imageView = (ImageView) ((RelativeLayout) view2.getParent()).findViewById(R.id.obfuscated_res_0x7f0906ad);
+                imageView = (ImageView) ((RelativeLayout) view2.getParent()).findViewById(R.id.obfuscated_res_0x7f0906b8);
             }
             if (imageView != null) {
                 if (item.isSelect) {
@@ -362,13 +362,13 @@ public class mn6 extends BaseAdapter {
                 if (itemViewType == 1) {
                     if (view2 == null) {
                         fVar2 = new f(this, null);
-                        view3 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01e2, viewGroup, false);
+                        view3 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01e3, viewGroup, false);
                         fVar2.a = view3;
                         ViewGroup.LayoutParams layoutParams = view3.getLayoutParams();
                         layoutParams.height = this.c;
                         fVar2.a.setLayoutParams(layoutParams);
-                        fVar2.b = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f0906ac);
-                        fVar2.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0906ad);
+                        fVar2.b = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f0906b7);
+                        fVar2.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f0906b8);
                         view3.setTag(fVar2);
                         SkinManager.setBackgroundColor(view3, R.color.CAM_X0201, this.f);
                     } else {
@@ -411,16 +411,16 @@ public class mn6 extends BaseAdapter {
             }
             if (view2 == null) {
                 fVar = new f(this, null);
-                view2 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01e2, viewGroup, false);
+                view2 = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01e3, viewGroup, false);
                 fVar.a = view2;
                 ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
                 layoutParams2.height = this.c;
                 fVar.a.setLayoutParams(layoutParams2);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906ac);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0906b7);
                 fVar.b = tbImageView;
                 ((RelativeLayout.LayoutParams) tbImageView.getLayoutParams()).setMargins(0, 0, 0, 0);
                 fVar.b.setScaleType(ImageView.ScaleType.CENTER);
-                view2.findViewById(R.id.obfuscated_res_0x7f0906ad).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f0906b8).setVisibility(8);
                 view2.setTag(fVar);
                 SkinManager.setBackgroundColor(view2, R.color.white_alpha0, this.f);
             } else {

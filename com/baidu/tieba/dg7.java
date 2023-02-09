@@ -49,7 +49,7 @@ public class dg7 extends qn<gg7, LocalChannelTopicHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ca, viewGroup, false));
+            return new LocalChannelTopicHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d04cc, viewGroup, false));
         }
         return (LocalChannelTopicHolder) invokeL.objValue;
     }

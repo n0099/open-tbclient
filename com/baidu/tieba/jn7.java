@@ -282,9 +282,9 @@ public abstract class jn7<T> implements dn7 {
             d2.f(R.color.CAM_X0207);
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                lg9.l(this.c, R.drawable.edittext_cursor);
+                ph9.l(this.c, R.drawable.edittext_cursor);
             } else {
-                lg9.l(this.c, R.drawable.edittext_cursor_1);
+                ph9.l(this.c, R.drawable.edittext_cursor_1);
             }
             this.c.setHintTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
             p15.d(this.d).x(R.color.CAM_X0107);
@@ -347,7 +347,7 @@ public abstract class jn7<T> implements dn7 {
             this.c.setLineSpacing(ej.g(context, R.dimen.M_T_X002), 1.0f);
             TextView textView = (TextView) this.i.findViewById(R.id.im_share_op_container_cancel_btn);
             this.d = textView;
-            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f038b));
+            textView.setText(context.getString(R.string.obfuscated_res_0x7f0f038c));
             TextView textView2 = (TextView) this.i.findViewById(R.id.im_share_op_container_share_btn);
             this.e = textView2;
             textView2.setText(context.getString(R.string.action_share));

@@ -323,8 +323,8 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07aa, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0910c7);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07bc, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0910dd);
             this.a = tbImageView;
             tbImageView.setTagTextSize(ej.g(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
@@ -332,13 +332,13 @@ public class RichImageItem extends FrameLayout {
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907d5);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907ce);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0907e1);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907da);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
             this.a.setLongIconSupport(true);
-            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f055b));
+            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f055e));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
             f();
@@ -372,7 +372,7 @@ public class RichImageItem extends FrameLayout {
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }
-                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f055b));
+                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f055e));
             } else if (this.d.getImageType() == 1) {
                 String filePath = this.d.getFilePath();
                 if (!dj.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {

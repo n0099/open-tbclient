@@ -262,41 +262,41 @@ public class mw6 extends as6<wz4, AutoVideoCardViewHolder<ThreadData>> implement
         }
     }
 
-    public final lo8 a0(ThreadData threadData) {
+    public final pp8 a0(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
             if (threadData == null) {
                 return null;
             }
-            lo8 lo8Var = new lo8();
+            pp8 pp8Var = new pp8();
             String str = "3";
             if (100 == t().tabType) {
                 if (!threadData.isFloor5Video()) {
                     str = "25";
                 }
-                lo8Var.a = str;
+                pp8Var.a = str;
             } else {
                 if (!threadData.isFloor5Video()) {
                     str = "2";
                 }
-                lo8Var.a = str;
+                pp8Var.a = str;
             }
             if (this.p.e == 501) {
-                lo8Var.a = "frs_tab";
+                pp8Var.a = "frs_tab";
             }
-            lo8Var.d = this.p.c;
-            lo8Var.c = threadData.getTid();
-            lo8Var.f = threadData.mRecomSource;
-            lo8Var.g = threadData.mRecomReason;
-            lo8Var.h = threadData.mRecomWeight;
-            lo8Var.l = threadData.mRecomAbTag;
+            pp8Var.d = this.p.c;
+            pp8Var.c = threadData.getTid();
+            pp8Var.f = threadData.mRecomSource;
+            pp8Var.g = threadData.mRecomReason;
+            pp8Var.h = threadData.mRecomWeight;
+            pp8Var.l = threadData.mRecomAbTag;
             if (threadData.getThreadVideoInfo() != null) {
-                lo8Var.m = threadData.getThreadVideoInfo().video_md5;
+                pp8Var.m = threadData.getThreadVideoInfo().video_md5;
             }
-            return lo8Var;
+            return pp8Var;
         }
-        return (lo8) invokeL.objValue;
+        return (pp8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -17,7 +17,7 @@ public class oe4 extends qe4 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oe4(@NonNull Context context) {
-        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0dbe), "com.baidu.BaiduMap");
+        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0dca), "com.baidu.BaiduMap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

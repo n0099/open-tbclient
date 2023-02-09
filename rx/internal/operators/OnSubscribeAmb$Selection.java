@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qda;
+import com.baidu.tieba.uea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,10 +10,10 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<qda<T>> {
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<uea<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<qda<T>> ambSubscribers;
+    public final Collection<uea<T>> ambSubscribers;
 
     public OnSubscribeAmb$Selection() {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public final class OnSubscribeAmb$Selection<T> extends AtomicReference<qda<T>> {
     }
 
     public void unsubscribeLosers() {
-        qda<T> qdaVar;
+        uea<T> ueaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qdaVar = get()) != null) {
-            unsubscribeOthers(qdaVar);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ueaVar = get()) != null) {
+            unsubscribeOthers(ueaVar);
         }
     }
 
-    public void unsubscribeOthers(qda<T> qdaVar) {
+    public void unsubscribeOthers(uea<T> ueaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qdaVar) == null) {
-            for (qda<T> qdaVar2 : this.ambSubscribers) {
-                if (qdaVar2 != qdaVar) {
-                    qdaVar2.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ueaVar) == null) {
+            for (uea<T> ueaVar2 : this.ambSubscribers) {
+                if (ueaVar2 != ueaVar) {
+                    ueaVar2.unsubscribe();
                 }
             }
             this.ambSubscribers.clear();

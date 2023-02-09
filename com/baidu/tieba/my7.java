@@ -209,7 +209,7 @@ public class my7 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return e29.k();
+                return i39.k();
             }
             return (List) invokeV.objValue;
         }
@@ -516,7 +516,7 @@ public class my7 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (!str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !str.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_LIST_NEW)) {
-                    s89.b();
+                    w99.b();
                     return true;
                 }
                 return false;
@@ -544,9 +544,9 @@ public class my7 {
             if (!z) {
                 this.c.u();
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f147e);
+                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1495);
                 } else {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0cfe);
+                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d08);
                 }
                 this.c.t(a2);
                 return;

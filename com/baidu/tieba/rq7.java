@@ -242,7 +242,7 @@ public class rq7 {
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-                if (charSequence == null || rp5.b(this.a) <= 0) {
+                if (charSequence == null || rp5.c(this.a) <= 0) {
                     this.b.h = true;
                 } else {
                     this.b.h = false;
@@ -414,7 +414,7 @@ public class rq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Context context = this.a;
-            BdToast b2 = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f0866));
+            BdToast b2 = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f086f));
             b2.f(R.drawable.icon_toast_game_error);
             b2.k();
         }

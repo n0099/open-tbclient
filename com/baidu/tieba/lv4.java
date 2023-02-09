@@ -43,11 +43,11 @@ public class lv4 {
 
         /* renamed from: com.baidu.tieba.lv4$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0338a extends Thread {
+        public class C0341a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0338a(a aVar) {
+            public C0341a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class lv4 {
                     o = currentTimeMillis;
                 }
                 if (currentTimeMillis - o > lv4.a) {
-                    new C0338a(this).start();
+                    new C0341a(this).start();
                     p35.m().A("key_clear_resource", currentTimeMillis);
                 }
             }

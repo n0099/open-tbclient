@@ -216,12 +216,12 @@ public class ho6 {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (tbPageContext = this.b) == null) {
             return;
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d080b, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d081d, (ViewGroup) null);
         this.c = inflate;
         if (inflate == null) {
             return;
         }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f092047);
+        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f09208b);
         a aVar = new a(this);
         this.d.setDisableParentEvent(false);
         this.d.setCoverFlowFactory(aVar);

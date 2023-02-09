@@ -17,7 +17,7 @@ import com.baidu.searchbox.anr.utils.Utils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
-import com.baidu.tieba.j6a;
+import com.baidu.tieba.n7a;
 import com.baidu.tieba.vf1;
 import com.baidu.tieba.xf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,7 +47,7 @@ public class ANRMonitor implements IANRMonitor {
     public static String sANRTimeStamp;
     public static long sLastTimes;
     public transient /* synthetic */ FieldHolder $fh;
-    public j6a mANRWatchDog;
+    public n7a mANRWatchDog;
     public int mAnrWatchTimeOut;
     public FileObserver mFileObserver;
     public boolean mMonitorStarted;
@@ -69,7 +69,7 @@ public class ANRMonitor implements IANRMonitor {
     }
 
     /* loaded from: classes2.dex */
-    public static class ANRListenerImpl implements j6a.f {
+    public static class ANRListenerImpl implements n7a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -87,7 +87,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // com.baidu.tieba.j6a.f
+        @Override // com.baidu.tieba.n7a.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -236,9 +236,9 @@ public class ANRMonitor implements IANRMonitor {
     public void stopANRMonitor() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mMonitorStarted) {
-            j6a j6aVar = this.mANRWatchDog;
-            if (j6aVar != null) {
-                j6aVar.interrupt();
+            n7a n7aVar = this.mANRWatchDog;
+            if (n7aVar != null) {
+                n7aVar.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;
@@ -329,9 +329,9 @@ public class ANRMonitor implements IANRMonitor {
             } else {
                 this.mAnrWatchTimeOut = i;
             }
-            j6a j6aVar = new j6a(this.mAnrWatchTimeOut);
-            this.mANRWatchDog = j6aVar;
-            j6aVar.e();
+            n7a n7aVar = new n7a(this.mAnrWatchTimeOut);
+            this.mANRWatchDog = n7aVar;
+            n7aVar.e();
             this.mANRWatchDog.c(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 String str = TAG;

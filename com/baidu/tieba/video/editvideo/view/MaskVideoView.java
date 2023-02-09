@@ -16,9 +16,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
 import com.baidu.tieba.a48;
-import com.baidu.tieba.aa9;
-import com.baidu.tieba.ga9;
+import com.baidu.tieba.eb9;
 import com.baidu.tieba.gh;
+import com.baidu.tieba.kb9;
 import com.baidu.tieba.u38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -217,8 +217,8 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ArrayList<aa9.a> f = aa9.f(this.a);
-                    byte[] e = aa9.e(this.a);
+                    ArrayList<eb9.a> f = eb9.f(this.a);
+                    byte[] e = eb9.e(this.a);
                     for (int i = 0; i < 3; i++) {
                         int length = e.length;
                         byte[] bArr = new byte[length];
@@ -229,8 +229,8 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                         int width = this.a.getWidth();
                         int height = this.a.getHeight();
                         faceunity.fuRenderToNV21Image(bArr, width, height, 0, this.b.n, 0);
-                        Bitmap b = aa9.b(bArr, width, height);
-                        boolean a = aa9.a(b, f);
+                        Bitmap b = eb9.b(bArr, width, height);
+                        boolean a = eb9.a(b, f);
                         if (a) {
                             this.b.r.k.s0(b, true);
                             this.a.recycle();
@@ -320,10 +320,10 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             this.d = mediaPlayer;
         }
 
-        public void n(ga9 ga9Var) {
+        public void n(kb9 kb9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, ga9Var) == null) && ga9Var != null) {
-                this.o = ga9Var.c;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, kb9Var) == null) && kb9Var != null) {
+                this.o = kb9Var.c;
                 this.b.requestRender();
             }
         }
@@ -624,11 +624,11 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
     }
 
-    public void setFilter(ga9 ga9Var) {
+    public void setFilter(kb9 kb9Var) {
         e eVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, ga9Var) == null) && (eVar = this.b) != null) {
-            eVar.n(ga9Var);
+        if ((interceptable == null || interceptable.invokeL(1048595, this, kb9Var) == null) && (eVar = this.b) != null) {
+            eVar.n(kb9Var);
         }
     }
 

@@ -32,12 +32,12 @@ public class my extends dz {
     }
 
     @Override // com.baidu.tieba.dz
-    public qo8 t() {
+    public up8 t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new to8(this.b, this.i);
+            return new xp8(this.b, this.i);
         }
-        return (qo8) invokeV.objValue;
+        return (up8) invokeV.objValue;
     }
 }

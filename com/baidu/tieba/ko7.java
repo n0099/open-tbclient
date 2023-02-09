@@ -22,12 +22,12 @@ public class ko7 {
 
         /* renamed from: com.baidu.tieba.ko7$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0325a extends kp5<Integer> {
+        public class C0330a extends kp5<Integer> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
 
-            public C0325a(a aVar, boolean z) {
+            public C0330a(a aVar, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,7 +133,7 @@ public class ko7 {
                 kl7.w().q();
                 jl7.w().q();
             }
-            op5.c(new C0325a(this, isNull), new b(this));
+            op5.c(new C0330a(this, isNull), new b(this));
         }
     }
 

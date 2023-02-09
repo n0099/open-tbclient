@@ -55,7 +55,7 @@ import com.baidu.tieba.homepage.personalize.PersonalizePageView;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
 import com.baidu.tieba.homepage.personalize.view.HomePageYoungsterTopView;
 import com.baidu.tieba.message.RequestBlessMessage;
-import com.baidu.tieba.tt8;
+import com.baidu.tieba.xu8;
 import com.baidu.tieba.y35;
 import com.baidu.tieba.yi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -100,13 +100,13 @@ public class mc7 {
     public BdUniqueId L;
     public gz.a M;
     public ThreadInfo N;
-    public tt8 O;
+    public xu8 O;
     public PollingModel P;
     public m95 Q;
     public RecyclerView.OnScrollListener R;
     public View.OnTouchListener S;
     public yi6.b T;
-    public final tt8.b U;
+    public final xu8.b U;
     public final CustomMessageListener V;
     public final CustomMessageListener W;
     public final CustomMessageListener X;
@@ -146,7 +146,7 @@ public class mc7 {
     public wb p0;
     public final fe7 q;
     public CustomMessageListener q0;
-    public x09 r;
+    public b29 r;
     public CustomMessageListener r0;
     public mk5 s;
     public CustomMessageListener s0;
@@ -155,7 +155,7 @@ public class mc7 {
     public yi6 u;
     public CustomMessageListener u0;
     public boolean v;
-    public bo8 w;
+    public fp8 w;
     public int x;
     public int y;
     public boolean z;
@@ -1200,12 +1200,12 @@ public class mc7 {
     }
 
     /* loaded from: classes5.dex */
-    public class j0 implements tt8.b {
+    public class j0 implements xu8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mc7 a;
 
-        @Override // com.baidu.tieba.tt8.b
+        @Override // com.baidu.tieba.xu8.b
         public void onFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -1230,11 +1230,11 @@ public class mc7 {
             this.a = mc7Var;
         }
 
-        @Override // com.baidu.tieba.tt8.b
-        public void a(wt8 wt8Var) {
+        @Override // com.baidu.tieba.xu8.b
+        public void a(av8 av8Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, wt8Var) == null) && this.a.k != null && this.a.q != null) {
-                this.a.q.m(this.a.d, wt8Var, this.a.k.getFirstVisiblePosition());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, av8Var) == null) && this.a.k != null && this.a.q != null) {
+                this.a.q.m(this.a.d, av8Var, this.a.k.getFirstVisiblePosition());
                 this.a.n.y(this.a.d);
             }
         }
@@ -1874,7 +1874,7 @@ public class mc7 {
                     this.d.s.e();
                     ed6.b().d(true);
                     kw5.c().h("page_recommend", "show_");
-                    iz8.g().h(this.d.H, false);
+                    m09.g().h(this.d.H, false);
                     this.c = false;
                     if (this.d.w != null && this.d.A && !this.d.z) {
                         this.d.w.m(this.d.x, this.d.y, this.d.v, 1);
@@ -2169,9 +2169,9 @@ public class mc7 {
         bdTypeRecyclerView.setOnScrollListener(this.R);
         this.p = new xt6();
         l0();
-        bo8 bo8Var = new bo8(this.j, this.k);
-        this.w = bo8Var;
-        bo8Var.p(2);
+        fp8 fp8Var = new fp8(this.j, this.k);
+        this.w = fp8Var;
+        fp8Var.p(2);
         this.w.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.b = new jc7(this.d, this.n);
         SmartBubbleAnimatedView smartBubbleAnimatedView = new SmartBubbleAnimatedView(tbPageContext.getContext());
@@ -2261,7 +2261,7 @@ public class mc7 {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z2)) == null) {
-            String e2 = qq8.e(this.d, z2);
+            String e2 = ur8.e(this.d, z2);
             int W = W(z2);
             wn5 wn5Var = new wn5();
             wn5Var.b = e2;
@@ -2353,9 +2353,9 @@ public class mc7 {
     public void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bo8 bo8Var = this.w;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.w;
+            if (fp8Var != null) {
+                fp8Var.h();
             }
             xt6 xt6Var = this.p;
             if (xt6Var != null) {
@@ -2388,9 +2388,9 @@ public class mc7 {
     public void J0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            bo8 bo8Var = this.w;
-            if (bo8Var != null && !this.z && this.A) {
-                bo8Var.n(this.x, this.y, this.v, true);
+            fp8 fp8Var = this.w;
+            if (fp8Var != null && !this.z && this.A) {
+                fp8Var.n(this.x, this.y, this.v, true);
             }
             if (!this.B) {
                 return;
@@ -2399,7 +2399,7 @@ public class mc7 {
             if (bigdaySwipeRefreshLayout != null && !bigdaySwipeRefreshLayout.u()) {
                 boolean z2 = this.C;
                 if (z2) {
-                    iz8.g().h(this.H, false);
+                    m09.g().h(this.H, false);
                     if (n0(false)) {
                         W0(3, this.i);
                     } else if (this.D > 0) {
@@ -2416,9 +2416,9 @@ public class mc7 {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
             }
             this.E = false;
-            tt8 tt8Var = this.O;
-            if (tt8Var != null) {
-                tt8Var.d();
+            xu8 xu8Var = this.O;
+            if (xu8Var != null) {
+                xu8Var.d();
             }
         }
     }
@@ -2546,9 +2546,9 @@ public class mc7 {
         BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            x09 x09Var = this.r;
-            if (x09Var != null) {
-                i3 = x09Var.b(i2);
+            b29 b29Var = this.r;
+            if (b29Var != null) {
+                i3 = b29Var.b(i2);
             } else {
                 i3 = -1;
             }
@@ -2612,30 +2612,30 @@ public class mc7 {
         }
     }
 
-    public bo8 i0() {
+    public fp8 i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return this.w;
         }
-        return (bo8) invokeV.objValue;
+        return (fp8) invokeV.objValue;
     }
 
-    public tt8 j0() {
+    public xu8 j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return this.O;
         }
-        return (tt8) invokeV.objValue;
+        return (xu8) invokeV.objValue;
     }
 
     public void l0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            x09 x09Var = new x09("new_index", null);
-            this.r = x09Var;
-            x09Var.d();
+            b29 b29Var = new b29("new_index", null);
+            this.r = b29Var;
+            b29Var.d();
         }
     }
 
@@ -2913,9 +2913,9 @@ public class mc7 {
                 }
                 td7Var.s(z5);
                 this.n.z(linkedList, i2);
-                bo8 bo8Var = this.w;
-                if (bo8Var != null && this.A) {
-                    bo8Var.n(this.x, this.y, this.v, true);
+                fp8 fp8Var = this.w;
+                if (fp8Var != null && this.A) {
+                    fp8Var.n(this.x, this.y, this.v, true);
                 }
                 z5 = true;
             }
@@ -2928,7 +2928,7 @@ public class mc7 {
             }
             Anti anti = dataRes.anti;
             if (anti != null && (blockPopInfo = anti.block_pop_info) != null) {
-                d89.h(blockPopInfo);
+                h99.h(blockPopInfo);
             }
             fz4 fz4Var = new fz4();
             fz4Var.a(dataRes.recom_post_topic);
@@ -2997,9 +2997,9 @@ public class mc7 {
         MessageManager.getInstance().registerListener(this.l0);
         this.m0.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.m0);
-        bo8 bo8Var = this.w;
-        if (bo8Var != null) {
-            bo8Var.u(bdUniqueId);
+        fp8 fp8Var = this.w;
+        if (fp8Var != null) {
+            fp8Var.u(bdUniqueId);
         }
         this.b.i(bdUniqueId);
         this.h0.setTag(bdUniqueId);
@@ -3013,17 +3013,17 @@ public class mc7 {
     }
 
     public void M0(int i2, List<Cdo> list, int i3) {
-        x09 x09Var;
+        b29 b29Var;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3)}) != null) || (x09Var = this.r) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), list, Integer.valueOf(i3)}) != null) || (b29Var = this.r) == null) {
             return;
         }
         if (i2 == 0) {
-            x09Var.d();
+            b29Var.d();
         }
         if (list != null && !list.isEmpty()) {
-            int[] iArr = x09.e;
+            int[] iArr = b29.e;
             int i5 = 0;
             int i6 = 0;
             for (int i7 = 0; i7 < list.size() && i5 < iArr.length && (i4 = iArr[i5]) >= 0; i7++) {
@@ -3041,9 +3041,9 @@ public class mc7 {
     public final void T(List<Cdo> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048595, this, list, i2) == null) {
-            Set<Cdo> a2 = qq8.a(list, this.f, "HOME");
+            Set<Cdo> a2 = ur8.a(list, this.f, "HOME");
             if (a2.size() > 0) {
-                iz8.g().c(this.H, gz8.e("a002", "common_fill", true, a2.size()));
+                m09.g().c(this.H, k09.e("a002", "common_fill", true, a2.size()));
             }
         }
     }
@@ -3121,7 +3121,7 @@ public class mc7 {
             int i2 = this.i;
             boolean z2 = this.C;
             if (z2) {
-                iz8.g().h(this.H, false);
+                m09.g().h(this.H, false);
                 if (n0(false)) {
                     c2 = 3;
                 } else if (this.D <= 0) {
@@ -3227,9 +3227,9 @@ public class mc7 {
             s97.d().j(System.currentTimeMillis(), 1);
             this.f = 1;
             this.E = true;
-            tt8 tt8Var = this.O;
-            if (tt8Var != null) {
-                tt8Var.e();
+            xu8 xu8Var = this.O;
+            if (xu8Var != null) {
+                xu8Var.e();
             }
             this.P.n0("live,level,icon,festival_info,live_follow_second_floor,member_broadcast,live_index_second_floor");
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.FALSE));
@@ -3255,11 +3255,11 @@ public class mc7 {
             if (u97Var != null) {
                 u97Var.f(z2);
             }
-            bo8 bo8Var = this.w;
-            if (bo8Var == null) {
+            fp8 fp8Var = this.w;
+            if (fp8Var == null) {
                 return;
             }
-            bo8Var.r(!z2);
+            fp8Var.r(!z2);
             ThreadCardViewHolder e02 = e0();
             boolean z3 = false;
             if (e02 != null && e02.a() != null) {
@@ -3274,9 +3274,9 @@ public class mc7 {
             }
             if (!z2) {
                 if (this.O == null) {
-                    tt8 tt8Var = new tt8();
-                    this.O = tt8Var;
-                    tt8Var.h(this.U);
+                    xu8 xu8Var = new xu8();
+                    this.O = xu8Var;
+                    xu8Var.h(this.U);
                 }
                 this.O.g();
             }
@@ -3349,7 +3349,7 @@ public class mc7 {
         while (it.hasNext()) {
             App next = it.next();
             if (next != null) {
-                int b2 = rq8.b(next);
+                int b2 = vr8.b(next);
                 if (b2 < 0) {
                     it.remove();
                 } else if (b2 < i2 + i3 + 1) {
@@ -3516,8 +3516,8 @@ public class mc7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            bo8 bo8Var = this.w;
-            if (bo8Var != null && bo8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
+            fp8 fp8Var = this.w;
+            if (fp8Var != null && fp8Var.j() != null && (this.w.j().getTag() instanceof ThreadCardViewHolder)) {
                 return (ThreadCardViewHolder) this.w.j().getTag();
             }
             return null;

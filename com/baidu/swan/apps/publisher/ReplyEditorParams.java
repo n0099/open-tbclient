@@ -219,7 +219,7 @@ public class ReplyEditorParams implements Parcelable {
             }
             Application c2 = ds2.c();
             String c3 = z53.c(jSONObject, "sendBackgroundColor", "#3388FF");
-            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060ace);
+            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060acf);
             try {
                 i2 = SwanAppConfigData.t(c3);
             } catch (Exception e2) {
@@ -228,7 +228,7 @@ public class ReplyEditorParams implements Parcelable {
                 }
                 i2 = color;
             }
-            String d = z53.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f13b6)), 20, StringHelper.STRING_MORE);
+            String d = z53.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f13cd)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove("emoji");

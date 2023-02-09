@@ -64,12 +64,12 @@ public class EmotionCategoryAdapter extends qn<jo6, EmotionCategoryViewHolder> {
                 return;
             }
             this.b = (TextView) view2.findViewById(R.id.emotion_title);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908e1);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908f0);
-            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f0578));
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908ef);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908fe);
+            this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f057b));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f0905bb);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f0905c6);
         }
 
         public void b(int i) {
@@ -109,7 +109,7 @@ public class EmotionCategoryAdapter extends qn<jo6, EmotionCategoryViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d024f, viewGroup, false));
+            EmotionCategoryViewHolder emotionCategoryViewHolder = new EmotionCategoryViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0250, viewGroup, false));
             emotionCategoryViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
             return emotionCategoryViewHolder;
         }

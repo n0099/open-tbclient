@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.d29;
-import com.baidu.tieba.o09;
+import com.baidu.tieba.h39;
 import com.baidu.tieba.p35;
+import com.baidu.tieba.s19;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.yb;
@@ -179,7 +179,7 @@ public class LocationModel extends BdBaseModel {
     public static void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            o09.h(303017, LocationSocketResponsedMessage.class, false, false);
+            s19.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void O(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            d29.a().e(z);
-            p35.m().w("no_longer_show_address", d29.a().c());
+            h39.a().e(z);
+            p35.m().w("no_longer_show_address", h39.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void N(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = d29.a().b();
+            LocationData b2 = h39.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             J(locationData);
-            d29.a().f(System.currentTimeMillis());
-            d29.a().d(locationData);
+            h39.a().f(System.currentTimeMillis());
+            h39.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

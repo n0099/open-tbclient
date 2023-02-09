@@ -139,14 +139,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             }
         }
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091ca1);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091ce2);
         int f = nm3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i3 = (int) (f * 1.5f);
         this.h = i3;
         this.g = i3;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091c9f);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091ce0);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -179,7 +179,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009c, viewGroup, false);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, viewGroup, false);
             this.i = inflate;
             return inflate;
         }

@@ -126,7 +126,7 @@ public class hr6 {
             return;
         }
         if (!ej.F()) {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
             return;
         }
         c();

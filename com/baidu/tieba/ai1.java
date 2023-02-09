@@ -68,7 +68,7 @@ public class ai1 {
                     str2 = null;
                 }
                 ChannelListView channelListView = this.b;
-                channelListView.S(xh1.a().getString(R.string.obfuscated_res_0x7f0f0e33) + str2, str);
+                channelListView.S(xh1.a().getString(R.string.obfuscated_res_0x7f0f0e3f) + str2, str);
                 hh1 hh1Var = new hh1("1");
                 hh1Var.b(new SdkException("pay_platform error --> " + str, th).getStackMessage());
                 kh1.e(hh1Var);

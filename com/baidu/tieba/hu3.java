@@ -197,7 +197,7 @@ public class hu3 implements pu1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f1309, R.string.obfuscated_res_0x7f0f130b, R.string.obfuscated_res_0x7f0f130f};
+            int[] iArr = {R.string.obfuscated_res_0x7f0f1320, R.string.obfuscated_res_0x7f0f1322, R.string.obfuscated_res_0x7f0f1326};
             if (!yl3.a(context, "android.permission.SET_WALLPAPER")) {
                 int[] iArr2 = new int[2];
                 System.arraycopy(iArr, 0, iArr2, 0, 2);

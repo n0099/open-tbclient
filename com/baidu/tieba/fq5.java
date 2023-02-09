@@ -88,9 +88,9 @@ public class fq5 {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                b39.g().f(true, postWriteCallBackData, b, c, d);
+                f49.g().f(true, postWriteCallBackData, b, c, d);
             } else {
-                b39.g().f(false, a, null, c, d);
+                f49.g().f(false, a, null, c, d);
             }
             a = null;
             b = null;

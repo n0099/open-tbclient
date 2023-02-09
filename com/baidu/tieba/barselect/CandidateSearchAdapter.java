@@ -63,7 +63,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0909, (ViewGroup) null));
+            return new CandidateSearchItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d091e, (ViewGroup) null));
         }
         return (CandidateSearchItemHolder) invokeLI.objValue;
     }

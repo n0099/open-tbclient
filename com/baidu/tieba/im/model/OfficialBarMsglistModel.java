@@ -183,9 +183,9 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             }
             int i = this.mUserType;
             if (i == 1) {
-                str = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d90), this.mUser.getUserName());
+                str = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d9c), this.mUser.getUserName());
             } else if (i == 4) {
-                str = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d8f), this.mUser.getUserName());
+                str = String.format(this.mActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d9b), this.mUser.getUserName());
             } else {
                 str = "";
             }

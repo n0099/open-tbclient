@@ -1,52 +1,50 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rt9;
-import com.baidu.tieba.yt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Vector;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qt9 implements yt9.a {
+public class qt9 {
     public static /* synthetic */ Interceptable $ic;
-    public static qt9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, yt9> a;
-    public pt9 b;
-    public ExecutorService c;
-    public wt9 d;
-    public Handler e;
-
-    public void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
+    public st9 a;
+    public Timer b;
+    public TimerTask c;
+    public int d;
+    public Vector<Integer> e;
+    public long f;
+    public boolean g;
+    public boolean h;
+    public rt9 i;
+    public int j;
+    public float k;
+    public long l;
+    public Vector<Integer> m;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ qt9 b;
+        public final /* synthetic */ qt9 a;
 
-        public a(qt9 qt9Var, String str) {
+        public a(qt9 qt9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qt9Var, str};
+                Object[] objArr = {qt9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,15 +54,20 @@ public class qt9 implements yt9.a {
                     return;
                 }
             }
-            this.b = qt9Var;
-            this.a = str;
+            this.a = qt9Var;
         }
 
-        @Override // java.lang.Runnable
+        @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
-                this.b.a.remove(this.a);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h) {
+                    this.a.j();
+                } else {
+                    this.a.q();
+                }
+                qt9 qt9Var = this.a;
+                qt9Var.h = qt9Var.l(qt9Var.j);
             }
         }
     }
@@ -96,49 +99,15 @@ public class qt9 implements yt9.a {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (yt9 yt9Var : this.a.a.values()) {
-                    if (yt9Var != null && yt9Var.isRunning()) {
-                        yt9Var.pause();
-                    }
-                }
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qt9 a;
-
-        public c(qt9 qt9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qt9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            this.a.g = false;
+            if (this.a.c != null) {
+                this.a.c.cancel();
             }
-            this.a = qt9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (yt9 yt9Var : this.a.a.values()) {
-                    if (yt9Var != null && yt9Var.isRunning()) {
-                        yt9Var.cancel();
-                    }
-                }
+            if (this.a.b != null) {
+                this.a.b.purge();
             }
         }
     }
@@ -156,150 +125,164 @@ public class qt9 implements yt9.a {
                 return;
             }
         }
-        this.e = new Handler(Looper.getMainLooper());
-        this.a = new LinkedHashMap();
-        i(new pt9());
+        this.d = 0;
+        this.e = new Vector<>();
+        this.g = false;
+        this.h = false;
+        this.i = new rt9();
+        this.j = 0;
+        this.k = 0.0f;
+        this.l = 0L;
+        this.m = new Vector<>();
+        this.b = new Timer();
     }
 
-    public void c(String str) {
+    public final boolean l(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                yt9 yt9Var = this.a.get(e);
-                if (yt9Var != null) {
-                    yt9Var.cancel();
-                }
-                this.a.remove(e);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int nextInt = new Random().nextInt(100);
+            if (i <= 0 || i > 100 || nextInt > i) {
+                return false;
             }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d++;
+            this.i.a = k(this.m);
+            this.i.b = k(this.e);
+            this.i.c = this.m.size() + "";
+            this.i.f = Float.toString(sx9.a());
+            this.i.d = this.k;
+            gx9.b("report ar frame data");
+            ot9.a(String.valueOf(this.d), this.a, this.i);
+            q();
         }
     }
 
-    public final String e(String str) {
+    public final String k(List<Integer> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null) {
-                return String.valueOf(str.hashCode());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (lx9.e(list)) {
+                return "";
             }
-            throw new IllegalArgumentException("Tag can't be null!");
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            float f = 0.0f;
+            float f2 = 0.0f;
+            for (int i = 0; i < list.size(); i++) {
+                Integer num = list.get(i);
+                if (num != null) {
+                    f2 += num.intValue();
+                    jSONArray.put(num);
+                }
+            }
+            float size = f2 / list.size();
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                Integer num2 = list.get(i2);
+                if (num2 != null) {
+                    f = (float) (f + Math.pow(num2.intValue() - size, 2.0d));
+                }
+            }
+            float size2 = f / list.size();
+            try {
+                jSONObject.put("avg", size);
+                jSONObject.put("vari", size2);
+                jSONObject.put("val", jSONArray.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public final boolean j(String str) {
-        InterceptResult invokeL;
-        yt9 yt9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.a.containsKey(str) && (yt9Var = this.a.get(str)) != null && yt9Var.isRunning()) {
-                iw9.d("DownloadInfo has been started!");
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        yt9 yt9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e) && (yt9Var = this.a.get(e)) != null) {
-                return yt9Var.isRunning();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static qt9 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (qt9.class) {
-                    if (f == null) {
-                        f = new qt9();
-                    }
-                }
-            }
-            return f;
-        }
-        return (qt9) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.post(new c(this));
-        }
-    }
-
     public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.post(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.yt9.a
-    public void a(String str, yt9 yt9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, yt9Var) == null) {
-            this.e.post(new a(this, str));
-        }
-    }
-
-    public void f(rt9 rt9Var, String str, tt9 tt9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, rt9Var, str, tt9Var) == null) {
-            String e = e(str);
-            if (!j(e)) {
-                eu9 eu9Var = new eu9(rt9Var, new bu9(this.d, tt9Var), this.c, e, this.b, this);
-                this.a.put(e, eu9Var);
-                eu9Var.start();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = false;
+            Timer timer = this.b;
+            if (timer != null) {
+                timer.cancel();
+                this.b = null;
+            }
+            TimerTask timerTask = this.c;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.c = null;
             }
         }
     }
 
-    public void g(String str, String str2, String str3, tt9 tt9Var) {
+    public void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, tt9Var) == null) {
-            rt9.b bVar = new rt9.b();
-            bVar.d(str);
-            bVar.b(new File(str2));
-            bVar.c(str3);
-            f(bVar.a(), str, tt9Var);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.l = System.currentTimeMillis();
         }
     }
 
-    public final void i(@NonNull pt9 pt9Var) {
+    public final void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pt9Var) == null) {
-            if (pt9Var.b() <= pt9Var.a()) {
-                this.b = pt9Var;
-                this.c = Executors.newFixedThreadPool(pt9Var.a());
-                this.d = new cu9(this.e);
-                return;
-            }
-            throw new IllegalArgumentException("thread num must < max thread num");
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f = 0L;
+            this.l = 0L;
+            this.e.clear();
+            this.m.clear();
+            this.i.a();
+            this.k = 0.0f;
         }
     }
 
-    public void l(String str) {
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                yt9 yt9Var = this.a.get(e);
-                if (yt9Var != null && yt9Var.isRunning()) {
-                    yt9Var.pause();
-                }
-                this.a.remove(e);
-            }
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            gx9.b("stopTimer");
+            yx9.a().postDelayed(new b(this), 1000L);
         }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.h || !this.g) {
+            return;
+        }
+        if (this.f <= 0) {
+            this.f = System.currentTimeMillis();
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        int i = (int) (currentTimeMillis - this.f);
+        if (i < 0) {
+            return;
+        }
+        this.e.add(Integer.valueOf(i));
+        this.f = currentTimeMillis;
+    }
+
+    public void o() {
+        int currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !this.h || !this.g || this.l <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.l)) < 0) {
+            return;
+        }
+        this.m.add(Integer.valueOf(currentTimeMillis));
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || this.g || this.b == null) {
+            return;
+        }
+        gx9.b("startTimer");
+        this.g = true;
+        this.c = new a(this);
+        this.b.purge();
+        this.b.schedule(this.c, 0L, 1000L);
     }
 }

@@ -164,7 +164,7 @@ public final class e extends b {
             cVar.mApkDownloadHelper = new com.kwad.components.core.c.a.c(adTemplate);
             cVar.cN = this.cN;
             cVar.dp = new com.kwad.sdk.core.video.videoview.a(this.mContext);
-            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f09116b);
+            KSFrameLayout kSFrameLayout = (KSFrameLayout) this.iB.findViewById(R.id.obfuscated_res_0x7f09117f);
             cVar.gq = kSFrameLayout;
             com.kwad.components.ad.interstitial.c.b bVar = new com.kwad.components.ad.interstitial.c.b(kSFrameLayout, 100);
             cVar.gt = bVar;
@@ -267,7 +267,7 @@ public final class e extends b {
     public final int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d0449 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? R.layout.obfuscated_res_0x7f0d044b : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View

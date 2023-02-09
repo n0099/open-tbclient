@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
 /* loaded from: classes3.dex */
 public interface ao9 {
-    void a(long j);
+    void n(int i);
 
-    void b(Exception exc, long j);
-
-    void onComplete(long j);
+    void o1(VideoInfo videoInfo);
 }

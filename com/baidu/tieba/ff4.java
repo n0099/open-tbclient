@@ -127,7 +127,7 @@ public class ff4 extends PopupWindow implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f0904ad || id == R.id.obfuscated_res_0x7f0915aa) {
+            if (id == R.id.obfuscated_res_0x7f0904b8 || id == R.id.obfuscated_res_0x7f0915c0) {
                 T(true);
             }
         }
@@ -177,12 +177,12 @@ public class ff4 extends PopupWindow implements View.OnClickListener {
         int b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.S).inflate(R.layout.obfuscated_res_0x7f0d008d, (ViewGroup) null);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.S).inflate(R.layout.obfuscated_res_0x7f0d008e, (ViewGroup) null);
             this.V = frameLayout;
-            this.Q = frameLayout.findViewById(R.id.obfuscated_res_0x7f0915aa);
-            this.U = (MainMenuView) this.V.findViewById(R.id.obfuscated_res_0x7f090189);
+            this.Q = frameLayout.findViewById(R.id.obfuscated_res_0x7f0915c0);
+            this.U = (MainMenuView) this.V.findViewById(R.id.obfuscated_res_0x7f09018b);
             if (bp4.d() && (this.S instanceof Activity)) {
-                FrameLayout frameLayout2 = (FrameLayout) this.V.findViewById(R.id.obfuscated_res_0x7f0915f2);
+                FrameLayout frameLayout2 = (FrameLayout) this.V.findViewById(R.id.obfuscated_res_0x7f091608);
                 if (bp4.e((Activity) this.S)) {
                     b = bp4.a((Activity) this.S);
                 } else {

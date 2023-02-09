@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0688a {
+    public static class C0689a {
         public static a a = new a();
     }
 
@@ -30,7 +30,7 @@ public class a {
     }
 
     public static a a() {
-        return C0688a.a;
+        return C0689a.a;
     }
 
     private void a(com.ss.android.download.api.model.c cVar) {

@@ -329,7 +329,7 @@ public class CoverSeekBar extends FrameLayout {
         }
         this.a = 10;
         this.l = new b(this);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b4, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b6, this);
         g();
     }
 
@@ -363,8 +363,8 @@ public class CoverSeekBar extends FrameLayout {
             this.d = ej.l(getContext()) / 10;
             this.e = ej.g(getContext(), R.dimen.obfuscated_res_0x7f070238);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f8e);
-            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f090761);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f9f);
+            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09076c);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }
     }

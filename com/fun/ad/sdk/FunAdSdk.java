@@ -8,15 +8,15 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b1a;
-import com.baidu.tieba.c0a;
-import com.baidu.tieba.d6a;
-import com.baidu.tieba.e6a;
-import com.baidu.tieba.f6a;
-import com.baidu.tieba.i6a;
-import com.baidu.tieba.m0a;
-import com.baidu.tieba.q5a;
-import com.baidu.tieba.z0a;
+import com.baidu.tieba.d2a;
+import com.baidu.tieba.f2a;
+import com.baidu.tieba.g1a;
+import com.baidu.tieba.h7a;
+import com.baidu.tieba.i7a;
+import com.baidu.tieba.j7a;
+import com.baidu.tieba.m7a;
+import com.baidu.tieba.q1a;
+import com.baidu.tieba.u6a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +59,7 @@ public final class FunAdSdk {
     public static final String PLATFORM_SIG = "sig";
     public static final String PLATFORM_TA = "ta";
     public static final String PLATFORM_VIVO = "vivo";
-    public static d6a a;
+    public static h7a a;
     public static FunAdConfig b;
     public static RewardEnv c;
     public static Set<String> d;
@@ -138,10 +138,10 @@ public final class FunAdSdk {
         }
     }
 
-    public static d6a getAdCallback() {
+    public static h7a getAdCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a : (d6a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a : (h7a) invokeV.objValue;
     }
 
     public static Context getAppContext() {
@@ -199,7 +199,7 @@ public final class FunAdSdk {
     public static boolean isSdkInitializeComplete() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? m0a.h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? q1a.h : invokeV.booleanValue;
     }
 
     public static void removeForbiddenAid(Pair<String, String> pair) {
@@ -246,8 +246,8 @@ public final class FunAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            e6a.a.getClass();
-            return z0a.m() + b1a.a();
+            i7a.a.getClass();
+            return d2a.m() + f2a.a();
         }
         return invokeV.doubleValue;
     }
@@ -257,7 +257,7 @@ public final class FunAdSdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             if (f) {
-                return m0a.f;
+                return q1a.f;
             }
             throw new RuntimeException("FunAdSdk not initialized, please call init first.");
         }
@@ -271,7 +271,7 @@ public final class FunAdSdk {
             FunAdConfig funAdConfig = b;
             if (funAdConfig == null) {
                 LogPrinter.e("It's not suggest get this status before init!", new Object[0]);
-                return z0a.b.getBoolean("key_psn_rec_s", true);
+                return d2a.b.getBoolean("key_psn_rec_s", true);
             }
             return funAdConfig.runtimeAdConfig.personalRecommendStatus;
         }
@@ -281,32 +281,32 @@ public final class FunAdSdk {
     public static double getARPU(String str) {
         InterceptResult invokeL;
         double d2;
-        c0a c0aVar;
+        g1a g1aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            Double d3 = e6a.a.a.get(str);
+            Double d3 = i7a.a.a.get(str);
             if (d3 != null) {
                 d2 = d3.doubleValue();
             } else {
                 d2 = -2.0d;
             }
             if (d2 == -2.0d) {
-                Map<String, Double> map = m0a.a;
+                Map<String, Double> map = q1a.a;
                 Double d4 = null;
                 if (!TextUtils.isEmpty(str)) {
-                    Map<String, Double> map2 = m0a.a;
+                    Map<String, Double> map2 = q1a.a;
                     Double d5 = map2.get(str);
                     if (d5 == null) {
                         map2.clear();
-                        q5a q5aVar = m0a.e;
-                        synchronized (q5aVar) {
-                            c0aVar = q5aVar.a;
+                        u6a u6aVar = q1a.e;
+                        synchronized (u6aVar) {
+                            g1aVar = u6aVar.a;
                         }
-                        if (c0aVar == null) {
+                        if (g1aVar == null) {
                             LogPrinter.d("No adConfig found now.", new Object[0]);
                         } else {
                             HashMap hashMap = new HashMap();
-                            for (Ssp ssp : c0aVar.a) {
+                            for (Ssp ssp : g1aVar.a) {
                                 for (Ssp.Pid pid : ssp.pids) {
                                     hashMap.put(pid.pid, Double.valueOf(pid.basePrice));
                                     if (pid.pid.equals(str)) {
@@ -314,7 +314,7 @@ public final class FunAdSdk {
                                     }
                                 }
                             }
-                            m0a.a.putAll(hashMap);
+                            q1a.a.putAll(hashMap);
                             LogPrinter.d("No target basePrice found for pid:%s", str);
                         }
                     }
@@ -334,7 +334,7 @@ public final class FunAdSdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            SharedPreferences sharedPreferences = z0a.b;
+            SharedPreferences sharedPreferences = d2a.b;
             String string = sharedPreferences.getString("key_bd_tk", null);
             if (TextUtils.isEmpty(string)) {
                 String substring = UUID.randomUUID().toString().replace("-", "").substring(0, 16);
@@ -348,22 +348,22 @@ public final class FunAdSdk {
 
     public static String getPlatformId(String str) {
         InterceptResult invokeL;
-        c0a c0aVar;
+        g1a g1aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
-            Map<String, Double> map = m0a.a;
+            Map<String, Double> map = q1a.a;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            q5a q5aVar = m0a.e;
-            synchronized (q5aVar) {
-                c0aVar = q5aVar.a;
+            u6a u6aVar = q1a.e;
+            synchronized (u6aVar) {
+                g1aVar = u6aVar.a;
             }
-            if (c0aVar == null) {
+            if (g1aVar == null) {
                 LogPrinter.d("No adConfig found now.", new Object[0]);
                 return null;
             }
-            for (Ssp ssp : c0aVar.a) {
+            for (Ssp ssp : g1aVar.a) {
                 if (ssp.type.equals(str)) {
                     return ssp.sspId;
                 }
@@ -389,7 +389,7 @@ public final class FunAdSdk {
                         }
                         b = funAdConfig;
                         FunRuntimeAdConfig funRuntimeAdConfig = funAdConfig.runtimeAdConfig;
-                        SharedPreferences sharedPreferences = z0a.b;
+                        SharedPreferences sharedPreferences = d2a.b;
                         funRuntimeAdConfig.personalRecommendStatus = sharedPreferences.getBoolean("key_psn_rec_s", true);
                         b.moduleInitManager.setCallBack(sdkInitializeCallback);
                         Flavors.PLUGIN_RC.init(b.appContext);
@@ -397,10 +397,10 @@ public final class FunAdSdk {
                             sharedPreferences.edit().putLong("key_flt", System.currentTimeMillis()).apply();
                         }
                         if (funAdCallback != null) {
-                            if (funAdCallback instanceof d6a) {
-                                a = (d6a) funAdCallback;
+                            if (funAdCallback instanceof h7a) {
+                                a = (h7a) funAdCallback;
                             } else {
-                                a = new d6a(funAdCallback) { // from class: com.fun.ad.sdk.FunAdSdk.1
+                                a = new h7a(funAdCallback) { // from class: com.fun.ad.sdk.FunAdSdk.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ FunAdCallback a;
@@ -423,7 +423,7 @@ public final class FunAdSdk {
                                         this.a = funAdCallback;
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdClicked(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, pid) == null) {
@@ -431,7 +431,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdClose(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pid) == null) {
@@ -439,7 +439,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdLoad(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, pid) == null) {
@@ -447,7 +447,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdLoadError(Ssp.Pid pid, int i, String str) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeLIL(1048579, this, pid, i, str) == null) {
@@ -455,7 +455,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdLoaded(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048580, this, pid) == null) {
@@ -463,7 +463,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdShow(Ssp.Pid pid) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeL(1048581, this, pid) == null) {
@@ -471,7 +471,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onAdShowError(Ssp.Pid pid, int i, String str) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeLIL(1048582, this, pid, i, str) == null) {
@@ -479,7 +479,7 @@ public final class FunAdSdk {
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.d6a
+                                    @Override // com.baidu.tieba.h7a
                                     public void onRewardedVideo(Ssp.Pid pid, boolean z, int i) {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{pid, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -489,17 +489,17 @@ public final class FunAdSdk {
                                 };
                             }
                         }
-                        i6a.a aVar = i6a.a;
-                        i6a.b = System.currentTimeMillis();
-                        i6a.c = SystemClock.currentThreadTimeMillis();
+                        m7a.a aVar = m7a.a;
+                        m7a.b = System.currentTimeMillis();
+                        m7a.c = SystemClock.currentThreadTimeMillis();
                         f = true;
-                        m0a.c = sdkInitializeCallback;
-                        m0a.e(true);
-                        f6a f6aVar = m0a.f;
+                        q1a.c = sdkInitializeCallback;
+                        q1a.e(true);
+                        j7a j7aVar = q1a.f;
                         Flavors.CPM_AWARE.init();
-                        i6a.a aVar2 = i6a.a;
-                        aVar2.c = System.currentTimeMillis() - i6a.b;
-                        aVar2.d = SystemClock.currentThreadTimeMillis() - i6a.c;
+                        m7a.a aVar2 = m7a.a;
+                        aVar2.c = System.currentTimeMillis() - m7a.b;
+                        aVar2.d = SystemClock.currentThreadTimeMillis() - m7a.c;
                         return true;
                     }
                     throw new IllegalStateException("This method could only be called on main thread.");
@@ -517,7 +517,7 @@ public final class FunAdSdk {
             FunAdConfig funAdConfig = b;
             if (funAdConfig != null) {
                 funAdConfig.runtimeAdConfig.updatePersonalRecommendStatus(z);
-                z0a.b.edit().putBoolean("key_psn_rec_s", z).apply();
+                d2a.b.edit().putBoolean("key_psn_rec_s", z).apply();
                 return;
             }
             throw new RuntimeException("Settings for this status must after the init method!");

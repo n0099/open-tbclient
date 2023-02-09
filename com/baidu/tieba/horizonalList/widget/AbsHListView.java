@@ -44,7 +44,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bi7;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
-import com.baidu.tieba.n39;
+import com.baidu.tieba.r49;
 import com.baidu.tieba.th7;
 import com.baidu.tieba.uh7;
 import com.baidu.tieba.vh7;
@@ -2980,7 +2980,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         this.mActivePointerId = -1;
         this.mDirection = 0;
         initAbsListView();
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, n39.HListView, i2, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, r49.HListView, i2, 0);
         if (obtainStyledAttributes != null) {
             drawable = obtainStyledAttributes.getDrawable(0);
             boolean z5 = obtainStyledAttributes.getBoolean(1, false);

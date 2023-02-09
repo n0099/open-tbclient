@@ -681,7 +681,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
             this.a.W0 = i;
             this.a.H0.setText(this.a.H0.getText().toString().substring(0, 20));
             this.a.H0.setSelection(20);
-            x63.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f13b3);
+            x63.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f13ca);
             this.a.p3();
         }
     }
@@ -723,7 +723,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
             s63.d(this.G0, this.I0);
             ImageView imageView = this.K0;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08123f);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081255);
             }
         }
     }
@@ -741,7 +741,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
     public final void r3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08123e);
+            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081254);
             this.K0.setClickable(false);
         }
     }
@@ -749,7 +749,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
     public final void s3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081238);
+            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f08124e);
             this.M0.setClickable(false);
         }
     }
@@ -757,7 +757,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
     public final void t3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08123f);
+            this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081255);
             this.K0.setClickable(true);
         }
     }
@@ -765,7 +765,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
     public final void u3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081223);
+            this.M0.setImageResource(R.drawable.obfuscated_res_0x7f081239);
             this.M0.setClickable(true);
         }
     }
@@ -818,8 +818,8 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             a83.a aVar = new a83.a(getContext());
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f13aa);
-            aVar.v(R.string.obfuscated_res_0x7f0f13ae);
+            aVar.U(R.string.obfuscated_res_0x7f0f13c1);
+            aVar.v(R.string.obfuscated_res_0x7f0f13c5);
             aVar.O(R.string.obfuscated_res_0x7f0f011c, new b(this));
             aVar.X();
         }
@@ -829,10 +829,10 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             a83.a aVar = new a83.a(getActivity());
-            aVar.U(R.string.obfuscated_res_0x7f0f13be);
-            aVar.B(R.string.obfuscated_res_0x7f0f13bb, new d(this));
-            aVar.v(R.string.obfuscated_res_0x7f0f13bd);
-            aVar.O(R.string.obfuscated_res_0x7f0f13bc, new c(this));
+            aVar.U(R.string.obfuscated_res_0x7f0f13d5);
+            aVar.B(R.string.obfuscated_res_0x7f0f13d2, new d(this));
+            aVar.v(R.string.obfuscated_res_0x7f0f13d4);
+            aVar.O(R.string.obfuscated_res_0x7f0f13d3, new c(this));
             aVar.X();
         }
     }
@@ -891,9 +891,9 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             if (z) {
-                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08123c);
+                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081252);
             } else {
-                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f08123f);
+                this.K0.setImageResource(R.drawable.obfuscated_res_0x7f081255);
             }
         }
     }
@@ -934,7 +934,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048603, this, layoutInflater, viewGroup, bundle)) == null) {
             super.x0(layoutInflater, viewGroup, bundle);
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0854, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0866, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
@@ -946,15 +946,15 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
             if (b1) {
                 Log.d("SwanAppPublisher", "init view");
             }
-            this.H0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091b38);
+            this.H0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091b73);
             if (this.R0.supportTitle().booleanValue()) {
-                view2.findViewById(R.id.obfuscated_res_0x7f091b39).setVisibility(0);
+                view2.findViewById(R.id.obfuscated_res_0x7f091b74).setVisibility(0);
                 this.H0.setHint(this.R0.getTitleHint());
                 this.H0.setListener(this.Z0);
                 this.H0.setMaxSize(20);
                 this.H0.setOnFocusChangeListener(new f(this));
             } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f091b39).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f091b74).setVisibility(8);
             }
             this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090113);
             if (this.R0.supportEmoji().booleanValue() && !TextUtils.isEmpty(this.R0.getEmojiPath().trim())) {
@@ -962,42 +962,42 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
             } else {
                 this.K0.setVisibility(8);
             }
-            this.G0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908d8);
-            view2.findViewById(R.id.obfuscated_res_0x7f09171b).setBackgroundColor(this.R0.getNavBarBgColor());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bc4);
+            this.G0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908e6);
+            view2.findViewById(R.id.obfuscated_res_0x7f091732).setBackgroundColor(this.R0.getNavBarBgColor());
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c05);
             textView.setText(this.R0.getNavBarTitle());
             textView.setTextColor(this.R0.getNavBarTextColor());
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09067c);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090687);
             this.P0 = imageView;
             imageView.setOnClickListener(this);
-            this.J0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b34);
+            this.J0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b6f);
             if (this.R0.supportTarget().booleanValue() && !TextUtils.isEmpty(this.R0.getTarget().trim())) {
                 TextView textView2 = this.J0;
                 textView2.setText("发布到 " + this.R0.getTarget());
             } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f091b35).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f091b70).setVisibility(8);
             }
-            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09223f);
-            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091b1a);
+            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092285);
+            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091b55);
             this.I0 = emojiEditText;
             emojiEditText.setOnKeyListener(new g(this));
             this.I0.setHint(this.R0.getContentHint());
             this.I0.setListener(this.a1);
             this.I0.setMaxSize(4999);
             this.I0.setOnFocusChangeListener(new h(this));
-            view2.findViewById(R.id.obfuscated_res_0x7f090730).setOnTouchListener(new i(this));
-            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bbc);
+            view2.findViewById(R.id.obfuscated_res_0x7f09073b).setOnTouchListener(new i(this));
+            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf7);
             this.O0 = textView3;
             textView3.setText(this.R0.getPublishText());
             this.O0.setOnClickListener(this);
             this.O0.setClickable(false);
-            TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904af);
+            TextView textView4 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ba);
             textView4.setText(this.R0.getCancelText());
             textView4.setTextColor(this.R0.getCancelTextColor());
             textView4.setOnClickListener(this);
             textView4.setOnTouchListener(new j(this));
-            this.M0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090128);
-            this.L0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f091aa6);
+            this.M0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09012a);
+            this.L0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f091ade);
             if (this.R0.supportImage().booleanValue()) {
                 this.M0.setVisibility(0);
                 this.M0.setOnClickListener(this);
@@ -1010,7 +1010,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
                 this.M0.setVisibility(8);
                 this.L0.setVisibility(8);
             }
-            this.Y0 = getResources().getColor(R.color.obfuscated_res_0x7f060ad9);
+            this.Y0 = getResources().getColor(R.color.obfuscated_res_0x7f060ada);
         }
     }
 
@@ -1143,16 +1143,16 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091bbc) {
+            if (id == R.id.obfuscated_res_0x7f091bf7) {
                 t63.onEvent("pub_clk");
                 x3();
-            } else if (id == R.id.obfuscated_res_0x7f0904af) {
+            } else if (id == R.id.obfuscated_res_0x7f0904ba) {
                 t63.onEvent("cancel_clk");
                 C3();
-            } else if (id == R.id.obfuscated_res_0x7f090128) {
+            } else if (id == R.id.obfuscated_res_0x7f09012a) {
                 t63.onEvent("pic_clk_bar");
                 x63.i(this.L0.getLeftCount(), this);
-            } else if (id == R.id.obfuscated_res_0x7f09067c) {
+            } else if (id == R.id.obfuscated_res_0x7f090687) {
                 this.H0.setText("");
             }
         }
@@ -1174,7 +1174,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
                 this.O0.setTextColor(this.R0.getPublishTextColor());
             } else if (!z && this.O0.isClickable()) {
                 this.O0.setClickable(false);
-                this.O0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ada));
+                this.O0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060adb));
             }
         }
     }
@@ -1186,21 +1186,21 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
                 Log.d("SwanAppPublisher", "go publish");
             }
             if (!SwanAppNetworkUtils.i(getContext())) {
-                x63.h(getContext(), R.string.obfuscated_res_0x7f0f13ac);
+                x63.h(getContext(), R.string.obfuscated_res_0x7f0f13c3);
             } else if (this.U0 == null) {
             } else {
                 String obj = this.H0.getText().toString();
                 String obj2 = this.I0.getText().toString();
                 List<String> w3 = w3();
                 if (this.R0.supportTitle().booleanValue() && TextUtils.isEmpty(obj.trim())) {
-                    x63.h(getContext(), R.string.obfuscated_res_0x7f0f13a9);
+                    x63.h(getContext(), R.string.obfuscated_res_0x7f0f13c0);
                 } else if (TextUtils.isEmpty(obj2.trim()) && (w3 == null || w3.size() == 0)) {
-                    x63.h(getContext(), R.string.obfuscated_res_0x7f0f13a9);
+                    x63.h(getContext(), R.string.obfuscated_res_0x7f0f13c0);
                 } else if (w3 != null && w3.size() > 0) {
                     ViewGroup viewGroup = (ViewGroup) getActivity().findViewById(16908290);
-                    e83.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f13ab));
+                    e83.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f13c2));
                     this.O0.setClickable(false);
-                    this.O0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ada));
+                    this.O0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060adb));
                     ql3.f().execute(new l(this, w3, obj, obj2, viewGroup));
                 } else {
                     try {

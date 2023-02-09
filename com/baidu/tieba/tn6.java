@@ -175,25 +175,25 @@ public class tn6 {
         this.G = -1;
         this.K = new b(this);
         this.a = tbPageContext;
-        tbPageContext.getOrignalPage().setContentView(R.layout.obfuscated_res_0x7f0d0285);
-        this.b = tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0909ef);
+        tbPageContext.getOrignalPage().setContentView(R.layout.obfuscated_res_0x7f0d0286);
+        this.b = tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0909fd);
         NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.view_navigation_bar);
         this.c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.g = this.c.setTitleText("");
         this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.view_no_network);
-        this.o = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909f1);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b3);
+        this.o = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909ff);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
         this.p = textView;
         ((LinearLayout.LayoutParams) textView.getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070282);
-        this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f2);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909fa);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f8);
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f9);
-        this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f0);
-        this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f7);
-        this.t = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f6);
-        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0909fb);
+        this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a00);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a08);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a06);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a07);
+        this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909fe);
+        this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090a05);
+        this.t = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f090a04);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a09);
         this.H = tbImageView;
         tbImageView.setDefaultResource(0);
         this.H.setDefaultBgResource(0);
@@ -204,9 +204,9 @@ public class tn6 {
             BdLog.e(e);
         }
         this.t.setOnItemClickListener(new a(this));
-        this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909f3);
-        this.m = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f5);
-        this.n = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0909f4);
+        this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a01);
+        this.m = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a03);
+        this.n = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a02);
         TbadkApplication.getInst().getSkinType();
         this.I = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026e);
         this.J = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07026e);
@@ -219,7 +219,7 @@ public class tn6 {
         this.q = cashBitmap2.getWidth();
         this.s = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027a);
         this.w = new sn6(this.a, R.style.obfuscated_res_0x7f1003a9);
-        this.E = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f090719);
+        this.E = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f090724);
         i(tbPageContext);
     }
 
@@ -267,7 +267,7 @@ public class tn6 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.j.setVisibility(0);
             this.l.setVisibility(8);
-            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0547));
+            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f054a));
             SkinManager.setViewTextColor(this.j, R.color.common_color_10172, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_content_buy_d);
         }
@@ -278,7 +278,7 @@ public class tn6 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.j.setVisibility(0);
             this.l.setVisibility(8);
-            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d8b));
+            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d97));
             SkinManager.setViewTextColor(this.j, R.color.common_color_10172, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_content_buy_d);
         }
@@ -300,7 +300,7 @@ public class tn6 {
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
             this.j.setVisibility(0);
             this.l.setVisibility(8);
-            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0380));
+            this.j.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0381));
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);
         }
@@ -534,7 +534,7 @@ public class tn6 {
         if ((interceptable == null || interceptable.invokeL(1048602, this, facePackageDetailModel) == null) && facePackageDetailModel != null && facePackageDetailModel.O() != null && facePackageDetailModel.O().faces_list != null) {
             FacePackageData facePackageData = facePackageDetailModel.O().faces_list;
             if (facePackageData.buy_status == 1) {
-                this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08bf));
+                this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08c8));
                 this.i.setVisibility(0);
             } else {
                 this.i.setVisibility(8);

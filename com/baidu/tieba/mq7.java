@@ -46,7 +46,7 @@ public class mq7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            return (mq7) view2.getTag(R.id.obfuscated_res_0x7f09216e);
+            return (mq7) view2.getTag(R.id.obfuscated_res_0x7f0921b4);
         }
         return (mq7) invokeL.objValue;
     }
@@ -61,7 +61,7 @@ public class mq7 {
     public static void d(@NonNull View view2, @NonNull mq7 mq7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, view2, mq7Var) == null) {
-            view2.setTag(R.id.obfuscated_res_0x7f09216e, mq7Var);
+            view2.setTag(R.id.obfuscated_res_0x7f0921b4, mq7Var);
         }
     }
 }

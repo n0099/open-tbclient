@@ -95,11 +95,11 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements p
             } else {
                 n45 n45Var2 = new n45();
                 n45Var2.t(R.color.CAM_X0302);
-                n45Var2.i(R.drawable.obfuscated_res_0x7f08095c, 0, TBSpecificationButtonConfig.IconType.SVG);
+                n45Var2.i(R.drawable.obfuscated_res_0x7f08096b, 0, TBSpecificationButtonConfig.IconType.SVG);
                 n45Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
                 setConfig(n45Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

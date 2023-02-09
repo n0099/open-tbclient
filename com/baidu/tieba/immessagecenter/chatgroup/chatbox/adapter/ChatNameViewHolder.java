@@ -101,12 +101,12 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
                 if (this.a.h.d()) {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f080781);
+                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08078d);
                     ChatNameViewHolder chatNameViewHolder = this.a;
                     pp7.d(chatNameViewHolder, chatNameViewHolder.g);
                     int unused = ChatNameViewHolder.i = 1;
                 } else {
-                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f080780);
+                    this.a.f.setImageResource(R.drawable.obfuscated_res_0x7f08078c);
                     ChatNameViewHolder chatNameViewHolder2 = this.a;
                     pp7.a(chatNameViewHolder2, chatNameViewHolder2.g);
                     int unused2 = ChatNameViewHolder.i = 2;
@@ -135,10 +135,10 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091716);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dae);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dc7);
-        this.g = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090db9);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172d);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090dbf);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090dd8);
+        this.g = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090dca);
         this.g.setLayoutManager(new a(this, view2.getContext()));
         this.g.setFocusable(false);
         this.d.setOnClickListener(new b(this));
@@ -164,8 +164,8 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
             this.h = yp7Var;
             this.e.setText(yp7Var.b());
             ImageView imageView = this.f;
-            int i4 = R.drawable.obfuscated_res_0x7f080781;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080781);
+            int i4 = R.drawable.obfuscated_res_0x7f08078d;
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08078d);
             if (this.g.getAdapter() != this.h.getAdapter()) {
                 if (this.g.getAdapter() != null) {
                     this.g.swapAdapter(this.h.getAdapter(), true);
@@ -184,7 +184,7 @@ public class ChatNameViewHolder extends BaseItemViewHolder {
             recyclerView.setVisibility(i3);
             ImageView imageView2 = this.f;
             if (this.h.d()) {
-                i4 = R.drawable.obfuscated_res_0x7f080780;
+                i4 = R.drawable.obfuscated_res_0x7f08078c;
             }
             imageView2.setImageResource(i4);
             o();

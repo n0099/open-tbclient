@@ -392,7 +392,7 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
                 if (view2 == null) {
                     View inflate = this.n.inflate();
                     this.o = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091456);
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f09146b);
                     this.p = liveBaseLottieView;
                     liveBaseLottieView.setRepeatCount(-1);
                     this.p.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");
@@ -506,18 +506,18 @@ public class Live4Ratio5TopicView extends LiveBaseItemView {
             setNeedRatio(true);
             setAspectRatio(1.25f);
             this.s = context;
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d054e, this);
-            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
-            this.n = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
-            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09143e);
-            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091443);
-            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091436);
-            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091437);
-            this.m = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09143f);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09142c);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0553, this);
+            this.h = (BannerView) inflate.findViewById(R.id.obfuscated_res_0x7f091469);
+            this.n = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146c);
+            this.j = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091453);
+            this.k = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091458);
+            this.l = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f09144b);
+            this.i = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144c);
+            this.m = (TextSwitcher) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091441);
             this.r = findViewById;
             findViewById.getLayoutParams().height = oa0.b(getContext(), 35.0f);
-            this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080d48, null));
+            this.r.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080d5a, null));
             r();
             q();
             this.j.setOnClickListener(new a(this));

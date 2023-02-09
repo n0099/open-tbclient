@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ly8 extends by8 {
+public class ly8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ny8> c;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public dy8 e;
 
     public ly8() {
         Interceptable interceptable = $ic;
@@ -28,40 +31,70 @@ public class ly8 extends by8 {
                 return;
             }
         }
-        this.c = new ArrayList<>();
+        this.e = new dy8();
     }
 
-    public ArrayList<ny8> h() {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public dy8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (dy8) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.by8
-    public void d(JSONObject jSONObject) throws Exception {
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<ny8> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ny8 ny8Var = new ny8();
-                    ny8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(ny8Var);
-                }
-            }
-            i(arrayList);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    public void i(ArrayList<ny8> arrayList) {
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
-            g(null);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.c(jSONObject.optJSONObject("error"));
+            this.a = jSONObject.optInt("forum_id");
+            jSONObject.optString("forum_name");
+            this.b = jSONObject.optInt("signed");
+            jSONObject.optInt("is_on");
+            jSONObject.optInt("is_filter");
+            this.c = jSONObject.optInt("sign_day_count");
+            this.d = jSONObject.optInt("cur_score");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

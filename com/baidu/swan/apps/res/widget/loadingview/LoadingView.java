@@ -132,18 +132,18 @@ public class LoadingView extends FrameLayout implements f83<LoadingView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (x23.e()) {
-                view2 = g33.a().d(R.layout.obfuscated_res_0x7f0d00b8);
+                view2 = g33.a().d(R.layout.obfuscated_res_0x7f0d00b9);
             } else {
                 view2 = null;
             }
             if (view2 != null) {
                 addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07069c)));
             } else {
-                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b8, (ViewGroup) this, true);
+                LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00b9, (ViewGroup) this, true);
             }
             this.a = findViewById(R.id.root_container);
             this.b = (SmoothProgressBar) findViewById(R.id.loading_bar);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0915fe);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091614);
             setPageResources();
         }
     }

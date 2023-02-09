@@ -43,7 +43,7 @@ public class e36 extends mc6<a26> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d086a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d087c : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -61,7 +61,7 @@ public class e36 extends mc6<a26> {
 
         /* renamed from: com.baidu.tieba.e36$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0255a extends AlaBannerViewHolder<SdkLiveInfoData> {
+        public class C0253a extends AlaBannerViewHolder<SdkLiveInfoData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public View a;
@@ -72,7 +72,7 @@ public class e36 extends mc6<a26> {
             public final /* synthetic */ a f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0255a(a aVar, View view2) {
+            public C0253a(a aVar, View view2) {
                 super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -96,9 +96,9 @@ public class e36 extends mc6<a26> {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f09206f);
-                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c57);
-                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091c58);
+                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f0920b3);
+                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c98);
+                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091c99);
                 }
             }
 
@@ -204,7 +204,7 @@ public class e36 extends mc6<a26> {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-                return new C0255a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d086b, viewGroup, false));
+                return new C0253a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d087d, viewGroup, false));
             }
             return (AlaBannerViewHolder) invokeLI.objValue;
         }
@@ -291,10 +291,10 @@ public class e36 extends mc6<a26> {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.k = h().findViewById(R.id.obfuscated_res_0x7f091c56);
-            this.m = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091c59);
-            this.l = h().findViewById(R.id.obfuscated_res_0x7f091c55);
-            this.i = (AlaBannerRecyclerView) h().findViewById(R.id.obfuscated_res_0x7f091c93);
+            this.k = h().findViewById(R.id.obfuscated_res_0x7f091c97);
+            this.m = (TextView) h().findViewById(R.id.obfuscated_res_0x7f091c9a);
+            this.l = h().findViewById(R.id.obfuscated_res_0x7f091c96);
+            this.i = (AlaBannerRecyclerView) h().findViewById(R.id.obfuscated_res_0x7f091cd4);
             this.i.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
             z();
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(getContext(), this.r, false);

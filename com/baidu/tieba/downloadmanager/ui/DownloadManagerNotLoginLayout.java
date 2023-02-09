@@ -128,13 +128,13 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023d, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023e, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090881);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090882);
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090880);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09088f);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090890);
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09088e);
             m45 m45Var = new m45();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0415));
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0416));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
             this.d.setConfig(m45Var);

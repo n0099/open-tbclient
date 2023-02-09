@@ -24,7 +24,7 @@ public class l47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsActivity a;
-    public vz8 b;
+    public z09 b;
     public HttpMessageListener c;
     public CustomMessageListener d;
 
@@ -36,12 +36,12 @@ public class l47 {
 
         /* renamed from: com.baidu.tieba.l47$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0327a implements View.OnClickListener {
+        public class View$OnClickListenerC0332a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0327a(a aVar) {
+            public View$OnClickListenerC0332a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,20 +107,20 @@ public class l47 {
                     screenTopToast.m(this.a.a.getString(R.string.frs_recommend_suc_tip_title));
                     screenTopToast.l(this.a.a.getString(R.string.frs_recommend_suc_tip_content));
                     screenTopToast.k(this.a.a.getString(R.string.dialog_confirm_see));
-                    screenTopToast.j(new View$OnClickListenerC0327a(this));
-                    screenTopToast.n((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b61));
+                    screenTopToast.j(new View$OnClickListenerC0332a(this));
+                    screenTopToast.n((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b72));
                     return;
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.a.a);
                 bdTopToast.h(false);
                 bdTopToast.g(pushMsg);
-                bdTopToast.i((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b61));
+                bdTopToast.i((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b72));
                 return;
             }
             BdTopToast bdTopToast2 = new BdTopToast(this.a.a);
             bdTopToast2.h(false);
             bdTopToast2.g(httpResponsedMessage.getErrorString());
-            bdTopToast2.i((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b61));
+            bdTopToast2.i((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b72));
         }
     }
 
@@ -195,7 +195,7 @@ public class l47 {
                 screenTopToast.m(this.a.a.getString(R.string.frs_recommend_fail_month_tip));
                 screenTopToast.k(this.a.a.getString(R.string.frs_recommend_fail_tip_btn));
                 screenTopToast.j(new a(this));
-                screenTopToast.n((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b61));
+                screenTopToast.n((ViewGroup) this.a.a.findViewById(R.id.obfuscated_res_0x7f090b72));
             }
         }
     }
@@ -220,10 +220,10 @@ public class l47 {
         this.a = frsActivity;
     }
 
-    public void c(vz8 vz8Var) {
+    public void c(z09 z09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vz8Var) == null) {
-            this.b = vz8Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, z09Var) == null) {
+            this.b = z09Var;
         }
     }
 }

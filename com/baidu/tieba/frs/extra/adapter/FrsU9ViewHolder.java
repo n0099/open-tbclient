@@ -22,8 +22,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.da;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.p09;
 import com.baidu.tieba.qv4;
+import com.baidu.tieba.t19;
 import com.baidu.tieba.xz4;
 import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,9 +86,9 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                     TiebaStatic.eventStat(this.a.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
                     UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
                 }
-            } else if (view2 == this.a.c && this.a.l != null && !TextUtils.isEmpty(this.a.l.o1())) {
+            } else if (view2 == this.a.c && this.a.l != null && !TextUtils.isEmpty(this.a.l.p1())) {
                 TiebaStatic.eventStat(this.a.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.a.getPageActivity()), new String[]{this.a.l.o1()});
+                UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.a.getPageActivity()), new String[]{this.a.l.p1()});
             }
         }
     }
@@ -134,16 +134,16 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         h();
     }
 
-    public void f(p09 p09Var) {
+    public void f(t19 t19Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, p09Var) != null) || p09Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, t19Var) != null) || t19Var == null) {
             return;
         }
-        xz4 c = p09Var.c();
-        zz4 f = p09Var.f();
+        xz4 c = t19Var.c();
+        zz4 f = t19Var.f();
         this.k = c;
         this.l = f;
-        if (p09Var.h()) {
+        if (t19Var.h()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
@@ -192,9 +192,9 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 }
             }
         }
-        if (this.l != null && !StringUtils.isNull(f.p1())) {
+        if (this.l != null && !StringUtils.isNull(f.q1())) {
             this.c.setVisibility(0);
-            this.j.setText(f.p1());
+            this.j.setText(f.q1());
             return;
         }
         this.c.setVisibility(8);

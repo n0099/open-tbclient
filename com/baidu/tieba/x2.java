@@ -619,7 +619,7 @@ public class x2 extends g1 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.mo6getInput().a1();
+                this.d.mo6getInput().Z0();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

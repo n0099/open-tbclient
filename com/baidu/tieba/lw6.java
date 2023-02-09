@@ -309,7 +309,7 @@ public class lw6 extends as6<wz4, ThreadCardViewHolder<ThreadData>> implements j
             }
             FrsViewData frsViewData = this.b;
             if (frsViewData != null && (((i2 = frsViewData.frsCurrentTabId) == 503 || i2 == 1) && i == 0)) {
-                qv8.a("frs", true);
+                uw8.a("frs", true);
             }
             threadCardViewHolder.a().b(this.m);
             threadCardViewHolder.a().r(i);

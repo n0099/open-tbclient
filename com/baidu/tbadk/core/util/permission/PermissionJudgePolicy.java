@@ -471,7 +471,7 @@ public class PermissionJudgePolicy {
                 j05Var.setCanceledOnTouchOutside(false);
                 j05Var.setTitle(R.string.request_permission_default_title);
                 j05Var.setMessageId(getPermissionDescriptionId(str));
-                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a26, new j05.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a30, new j05.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -513,7 +513,7 @@ public class PermissionJudgePolicy {
                             }
                         }
                     }
-                }).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new j05.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+                }).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new j05.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PermissionJudgePolicy this$0;

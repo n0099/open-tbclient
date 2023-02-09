@@ -155,7 +155,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d024d);
+            setContentView(R.layout.obfuscated_res_0x7f0d024e);
             y1(bundle);
             z1();
         }
@@ -172,7 +172,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 z = false;
             }
             layoutMode.l(z);
-            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f0908f5));
+            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f090903));
             this.a.onChangeSkinType(getPageContext(), i);
         }
     }
@@ -239,9 +239,9 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f058a));
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0591));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090d5c);
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090d6d);
             if (this.l != 0 && this.m != 0) {
                 layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
             } else {
@@ -260,7 +260,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 gifInfo.mStaticUrl = this.j;
             }
             this.b.i0(gifInfo);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0908f4);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090902);
             if (!TextUtils.isEmpty(this.h)) {
                 this.c.K(this.h, 10, false);
             } else {
@@ -269,10 +269,10 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                     new on(f, false).h(this.c);
                 }
             }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090918);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090926);
             this.d = textView;
             textView.setText(this.g);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e4);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f2);
             this.e = textView2;
             textView2.setOnClickListener(new b(this));
         }

@@ -174,8 +174,8 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
             j05 j05Var = new j05(this.i.getPageActivity());
             j05Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f037c, new b(this, buttonCard));
-            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new c(this));
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f037d, new b(this, buttonCard));
+            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new c(this));
             j05Var.create(this.i).show();
         }
     }
@@ -253,10 +253,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d017c, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d017d, (ViewGroup) null);
             this.m = relativeLayout;
-            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09041c);
-            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f0921fc);
+            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090425);
+            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f092242);
             return this.m;
         }
         return (View) invokeV.objValue;

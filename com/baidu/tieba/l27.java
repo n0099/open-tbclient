@@ -101,15 +101,15 @@ public class l27 extends i27 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
             o();
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092029);
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09206d);
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.findViewById(R.id.obfuscated_res_0x7f090be3).setVisibility(8);
-            this.c.findViewById(R.id.obfuscated_res_0x7f092776).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f090bf4).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f0927d7).setVisibility(8);
         }
     }
 
@@ -180,22 +180,22 @@ public class l27 extends i27 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0924c4);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09250e);
             this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02b9));
+            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02ba));
             this.d.setTextSize(R.dimen.T_X08);
             n45 n45Var = new n45();
             n45Var.r(R.color.CAM_X0901, R.color.CAM_X0105);
             this.d.setConfig(n45Var);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09250a);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f092555);
             this.e = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
             n45 n45Var2 = new n45();
             n45Var2.w(R.color.CAM_X0105);
             n45Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
-            n45Var2.i(R.drawable.obfuscated_res_0x7f08099c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            n45Var2.i(R.drawable.obfuscated_res_0x7f0809ab, 0, TBSpecificationButtonConfig.IconType.WEBP);
             this.e.setConfig(n45Var2);
-            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1241));
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1257));
         }
     }
 }

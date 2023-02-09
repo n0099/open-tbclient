@@ -53,7 +53,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
 
         /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0358a implements f68 {
+        public class C0357a implements f68 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g68 a;
@@ -62,18 +62,18 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
 
             /* renamed from: com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0359a extends BdAsyncTask<Void, Void, Boolean> {
+            public class C0358a extends BdAsyncTask<Void, Void, Boolean> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ C0358a b;
+                public final /* synthetic */ C0357a b;
 
-                public C0359a(C0358a c0358a, String str) {
+                public C0358a(C0357a c0357a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0358a, str};
+                        Object[] objArr = {c0357a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -83,7 +83,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                             return;
                         }
                     }
-                    this.b = c0358a;
+                    this.b = c0357a;
                     this.a = str;
                 }
 
@@ -143,7 +143,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                 }
             }
 
-            public C0358a(a aVar, g68 g68Var, Boolean bool, f68 f68Var) {
+            public C0357a(a aVar, g68 g68Var, Boolean bool, f68 f68Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,7 +197,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
             public void onSuccess(String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                    new C0359a(this, str).execute(new Void[0]);
+                    new C0358a(this, str).execute(new Void[0]);
                 }
             }
         }
@@ -249,7 +249,7 @@ public class NewFaceGroupDownloadModel extends FaceBaseModel {
                     }
                     return;
                 }
-                b68.c(data, new C0358a(this, data, bool, f68Var));
+                b68.c(data, new C0357a(this, data, bool, f68Var));
             }
         }
     }

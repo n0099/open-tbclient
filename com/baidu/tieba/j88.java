@@ -89,7 +89,7 @@ public class j88 implements h88, View.OnClickListener {
         public void onFailure(WebAuthResult webAuthResult) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f11fe), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f1214), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.a.a.M1();
             }
         }
@@ -145,7 +145,7 @@ public class j88 implements h88, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f148c), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14a3), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.M1();
             }
         }
@@ -191,23 +191,23 @@ public class j88 implements h88, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
             this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d07e5, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f0907f8);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090812);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090691);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090692);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09081f);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09081d);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0925b3);
+            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d07f7, viewGroup, true);
+            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090805);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f09081f);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f09069c);
+            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09069d);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09082c);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09082a);
+            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f092601);
             this.i = (TbImageView) inflate.findViewById(R.id.user_avatar);
             this.j = (TextView) inflate.findViewById(R.id.user_name);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925dd);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091525);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091bfb);
-            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f092766);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f092769);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f0927e1);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f091650);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09262b);
+            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09153a);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091c3c);
+            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f0927c7);
+            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f0927ca);
+            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f09284a);
+            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f091666);
             this.b.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -275,7 +275,7 @@ public class j88 implements h88, View.OnClickListener {
         }
         this.i.K(storageModel.url, 10, false);
         this.j.setText(this.r.displayname);
-        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11fd, this.r.app));
+        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1213, this.r.app));
     }
 
     public final void f() {
@@ -332,23 +332,23 @@ public class j88 implements h88, View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
             int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f0907f8 && id != R.id.obfuscated_res_0x7f090691 && id != R.id.obfuscated_res_0x7f090692) {
-                if (id == R.id.obfuscated_res_0x7f091525) {
+            if (id != R.id.obfuscated_res_0x7f090805 && id != R.id.obfuscated_res_0x7f09069c && id != R.id.obfuscated_res_0x7f09069d) {
+                if (id == R.id.obfuscated_res_0x7f09153a) {
                     e();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f091bfb) {
+                } else if (id == R.id.obfuscated_res_0x7f091c3c) {
                     g();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f092766) {
+                } else if (id == R.id.obfuscated_res_0x7f0927c7) {
                     i();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f092769) {
+                } else if (id == R.id.obfuscated_res_0x7f0927ca) {
                     j();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f0927e1) {
+                } else if (id == R.id.obfuscated_res_0x7f09284a) {
                     k();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f091650) {
+                } else if (id == R.id.obfuscated_res_0x7f091666) {
                     f();
                     return;
                 } else {

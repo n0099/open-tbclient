@@ -72,7 +72,7 @@ public class EmotionChangeModel extends BdBaseModel {
                     no6Var = (no6) extra;
                 }
                 if (no6Var != null && (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) != null) {
-                    no6Var.N0(emotionCenterResponseMessage.data);
+                    no6Var.M0(emotionCenterResponseMessage.data);
                 }
             }
         }

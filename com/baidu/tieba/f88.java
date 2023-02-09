@@ -50,7 +50,7 @@ public class f88 extends a88 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                 BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f11fe), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f1214), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
             }
         }
 
@@ -101,7 +101,7 @@ public class f88 extends a88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f091525) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09153a) {
                 r();
             }
         }

@@ -1,26 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public interface pg8 {
-    PbModel.h H0();
+public class pg8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<tg8> a;
 
-    VideoPbCommentFloatFragment J();
+    public pg8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+    }
 
-    PbModel M();
+    public ArrayList<tg8> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
 
-    AbsPbActivity N();
+    public final boolean b(ExcContent excContent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            if (longValue == 2 || longValue == 0 || longValue == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    void finish();
-
-    TbPageContext getPageContext();
-
-    void registerListener(MessageListener<?> messageListener);
-
-    PbFragment v1();
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        wg8 wg8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
+            loop0: while (true) {
+                wg8Var = null;
+                for (ExcContent excContent : list) {
+                    if (excContent != null && excContent.type != null) {
+                        if (b(excContent)) {
+                            sg8 a = vg8.a(tbPageContext, excContent);
+                            if (a == null) {
+                                continue;
+                            } else if (a.a()) {
+                                if (wg8Var != null) {
+                                    this.a.add(wg8Var);
+                                }
+                                this.a.add(a);
+                            } else {
+                                if (wg8Var == null) {
+                                    wg8Var = new wg8();
+                                }
+                                wg8Var.c(a.b());
+                            }
+                        } else {
+                            if (wg8Var != null) {
+                                this.a.add(wg8Var);
+                            }
+                            this.a.add(vg8.b(excContent));
+                        }
+                    }
+                }
+                break loop0;
+            }
+            if (wg8Var != null) {
+                this.a.add(wg8Var);
+            }
+        }
+    }
 }

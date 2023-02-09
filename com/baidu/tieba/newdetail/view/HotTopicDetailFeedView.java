@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bo8;
 import com.baidu.tieba.da;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fp8;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.lf5;
@@ -43,7 +43,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public lf5 e;
     public PbListView f;
     public RecyclerView.OnScrollListener g;
-    public bo8 h;
+    public fp8 h;
     public int i;
     public RecyclerView.OnScrollListener j;
     public e k;
@@ -345,9 +345,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             this.c.d(list);
-            bo8 bo8Var = this.h;
-            if (bo8Var != null) {
-                bo8Var.n(this.b.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
+            fp8 fp8Var = this.h;
+            if (fp8Var != null) {
+                fp8Var.n(this.b.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
             }
         }
     }
@@ -362,9 +362,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            bo8 bo8Var = this.h;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.h;
+            if (fp8Var != null) {
+                fp8Var.h();
             }
             gh.a().removeCallbacks(this.k);
         }
@@ -398,19 +398,19 @@ public class HotTopicDetailFeedView extends FrameLayout {
     }
 
     public void k() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (bo8Var = this.h) != null) {
-            bo8Var.z();
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (fp8Var = this.h) != null) {
+            fp8Var.z();
             this.h.r(false);
         }
     }
 
     public void l() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bo8Var = this.h) != null) {
-            bo8Var.r(true);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (fp8Var = this.h) != null) {
+            fp8Var.r(true);
             BdTypeRecyclerView bdTypeRecyclerView = this.b;
             if (bdTypeRecyclerView != null) {
                 this.h.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.b.getLastVisiblePosition(), false, true);
@@ -450,9 +450,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
             addView(this.b);
             ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070413);
             if (this.h == null) {
-                bo8 bo8Var = new bo8(this.a, this.b);
-                this.h = bo8Var;
-                bo8Var.p(2);
+                fp8 fp8Var = new fp8(this.a, this.b);
+                this.h = fp8Var;
+                fp8Var.p(2);
                 this.h.u(this.a.getUniqueId());
             }
             this.b.setRecyclerListener(new c(this));
@@ -475,9 +475,9 @@ public class HotTopicDetailFeedView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (bdTypeRecyclerView = this.b) != null && (pbListView = this.f) != null) {
             bdTypeRecyclerView.setNextPage(pbListView);
             this.f.J(R.dimen.tbfontsize33);
-            this.f.N(0);
+            this.f.O(0);
             this.f.v(ej.g(getContext(), R.dimen.tbds182));
-            this.f.S();
+            this.f.T();
         }
     }
 
@@ -488,7 +488,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (bdTypeRecyclerView = this.b) != null && (pbListView = this.f) != null) {
             bdTypeRecyclerView.setNextPage(pbListView);
             this.f.g();
-            this.f.N(0);
+            this.f.O(0);
             this.f.F(getContext().getResources().getString(R.string.list_no_more));
         }
     }
@@ -506,7 +506,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
             if (z) {
                 this.e.n(getResources().getString(R.string.refresh_view_title_text));
             } else {
-                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f0920));
+                this.e.n(getResources().getString(R.string.obfuscated_res_0x7f0f092a));
             }
             this.e.b().setClickable(false);
         }

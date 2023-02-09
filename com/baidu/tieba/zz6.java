@@ -34,12 +34,12 @@ public class zz6 extends qn<k07, a> {
 
         /* renamed from: com.baidu.tieba.zz6$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0510a implements View.OnClickListener {
+        public class View$OnClickListenerC0511a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0510a(a aVar, zz6 zz6Var) {
+            public View$OnClickListenerC0511a(a aVar, zz6 zz6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,9 +89,9 @@ public class zz6 extends qn<k07, a> {
                 }
             }
             view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf7);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bf6);
-            this.a.setOnClickListener(new View$OnClickListenerC0510a(this, zz6Var));
+            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c08);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c07);
+            this.a.setOnClickListener(new View$OnClickListenerC0511a(this, zz6Var));
         }
 
         public void e(int i) {
@@ -143,7 +143,7 @@ public class zz6 extends qn<k07, a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new a(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d032e, (ViewGroup) null));
+            return new a(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0330, (ViewGroup) null));
         }
         return (a) invokeL.objValue;
     }

@@ -366,7 +366,7 @@ public class g95 {
                         str = str.substring(0, 10) + StringHelper.STRING_MORE;
                     }
                     sb.append(str);
-                    sb.append(inst.getString(R.string.obfuscated_res_0x7f0f06ad));
+                    sb.append(inst.getString(R.string.obfuscated_res_0x7f0f06b6));
                 }
             }
             return sb.toString();

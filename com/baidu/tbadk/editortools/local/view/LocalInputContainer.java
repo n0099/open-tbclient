@@ -34,9 +34,9 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.en6;
 import com.baidu.tieba.fn6;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lg9;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.p15;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.qc5;
 import com.baidu.tieba.xb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -613,9 +613,9 @@ public class LocalInputContainer extends RelativeLayout implements xb5 {
             p15.d(this).f(R.color.CAM_X0207);
             p15.d(this.b).v(R.color.CAM_X0107);
             if (i == 0) {
-                lg9.l(this.c, R.drawable.edittext_cursor);
+                ph9.l(this.c, R.drawable.edittext_cursor);
             } else {
-                lg9.l(this.c, R.drawable.edittext_cursor_1);
+                ph9.l(this.c, R.drawable.edittext_cursor_1);
             }
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));

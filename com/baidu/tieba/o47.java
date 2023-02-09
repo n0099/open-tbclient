@@ -116,7 +116,7 @@ public class o47 {
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.b.getContext());
                 bdTopToast.h(false);
-                bdTopToast.g(this.b.getString(R.string.obfuscated_res_0x7f0f06b1));
+                bdTopToast.g(this.b.getString(R.string.obfuscated_res_0x7f0f06ba));
                 bdTopToast.i(this.c.r0());
             }
         }
@@ -174,7 +174,7 @@ public class o47 {
                 }
                 BdTopToast bdTopToast = new BdTopToast(baseFragment.getContext());
                 bdTopToast.h(false);
-                bdTopToast.g(baseFragment.getString(R.string.obfuscated_res_0x7f0f06b1));
+                bdTopToast.g(baseFragment.getString(R.string.obfuscated_res_0x7f0f06ba));
                 bdTopToast.i(gs6Var.r0());
             } else {
                 f(baseFragment, view2, gs6Var);

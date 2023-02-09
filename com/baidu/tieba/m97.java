@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.tieba.k97;
-import com.baidu.tieba.q09;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     public k97 d;
     public boolean e;
     public LikeModel f;
-    public q09 g;
+    public u19 g;
     public b h;
     public n45 i;
     public n45 j;
@@ -65,7 +65,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     }
 
     /* loaded from: classes5.dex */
-    public class b extends w9 implements q09.a {
+    public class b extends w9 implements u19.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public k97.a a;
@@ -94,7 +94,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             this(m97Var);
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -102,7 +102,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             }
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -168,7 +168,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
         this.r = new TextView[3];
         this.s = new TextView[3];
         this.t = new FollowUserButton[3];
-        this.u = new int[]{R.id.obfuscated_res_0x7f091c62, R.id.obfuscated_res_0x7f091c63, R.id.obfuscated_res_0x7f091c64};
+        this.u = new int[]{R.id.obfuscated_res_0x7f091ca3, R.id.obfuscated_res_0x7f091ca4, R.id.obfuscated_res_0x7f091ca5};
         this.v = new int[]{R.color.CAM_X0301, R.color.CAM_X0305, R.color.CAM_X0312};
         this.k = tbPageContext;
         this.l = b2;
@@ -208,8 +208,8 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 if (aVarArr2[i3] != null) {
                     this.n[i3].K(aVarArr2[i3].b(), 10, false);
                     this.p[i3].setText(this.d.d[i3].c());
-                    this.s[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1056, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i3].f())}));
-                    this.r[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1054, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i3].a())}));
+                    this.s[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f106a, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i3].f())}));
+                    this.r[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1068, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(this.d.d[i3].a())}));
                     this.t[i3].setTag(Integer.valueOf(i3));
                     o(this.t[i3], this.d.d[i3].l());
                     TextView textView = this.o[i3];
@@ -232,7 +232,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                     } else if (!StringUtils.isNull(this.d.d[i3].h()) && UbsABTestHelper.isRecommendBarHotText()) {
                         this.q[i3].setText(this.d.d[i3].h());
                     } else {
-                        this.q[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1055));
+                        this.q[i3].setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1069));
                     }
                 }
             }
@@ -245,7 +245,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             return;
         }
         if (!ej.F()) {
-            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0cfe));
+            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0d08));
         } else if (aVar == null || StringUtils.isNull(aVar.c()) || aVar.g() <= 0 || !ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
         } else {
             if (this.h == null) {
@@ -271,16 +271,16 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
             return;
         }
         if (!ej.F()) {
-            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0cfe));
+            UtilHelper.showToast(this.k.getPageActivity(), this.k.getString(R.string.obfuscated_res_0x7f0f0d08));
         } else if (aVar == null || StringUtils.isNull(aVar.c()) || aVar.g() <= 0 || !ViewHelper.checkUpIsLogin(this.k.getPageActivity())) {
         } else {
             if (this.h == null) {
                 this.h = new b(this, null);
             }
             if (this.g == null) {
-                q09 q09Var = new q09();
-                this.g = q09Var;
-                q09Var.b(this.h);
+                u19 u19Var = new u19();
+                this.g = u19Var;
+                u19Var.b(this.h);
             }
             this.h.d(followUserButton, aVar);
             this.e = true;
@@ -300,7 +300,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
     public final void k(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c65);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ca6);
             this.i.v(R.color.CAM_X0109);
             this.i.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
             this.j.t(R.color.CAM_X0304);
@@ -311,13 +311,13 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                 View findViewById = view2.findViewById(this.u[i]);
                 findViewById.setTag(Integer.valueOf(i));
                 findViewById.setOnClickListener(this);
-                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c61);
-                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c6b);
-                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c67);
-                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c60);
-                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c5e);
-                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c69);
-                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091c5d);
+                this.n[i] = (BarImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ca2);
+                this.o[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091cac);
+                this.p[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ca8);
+                this.q[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091ca1);
+                this.r[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091c9f);
+                this.s[i] = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091caa);
+                this.t[i] = (FollowUserButton) findViewById.findViewById(R.id.obfuscated_res_0x7f091c9e);
                 this.t[i].setOnClickListener(this);
                 int i2 = i + 1;
                 this.o[i].setText(String.valueOf(i2));
@@ -352,7 +352,7 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
                     param = param.param("obj_name", this.d.a);
                 }
                 TiebaStatic.log(param);
-            } else if (id == R.id.obfuscated_res_0x7f091c62 || id == R.id.obfuscated_res_0x7f091c63 || id == R.id.obfuscated_res_0x7f091c64) {
+            } else if (id == R.id.obfuscated_res_0x7f091ca3 || id == R.id.obfuscated_res_0x7f091ca4 || id == R.id.obfuscated_res_0x7f091ca5) {
                 FrsActivityConfig callFrom = new FrsActivityConfig(this.k.getPageActivity()).createNormalCfg(aVar.c(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
                 if (UbsABTestHelper.isRecommendBarHotText()) {
                     Intent intent = callFrom.getIntent();
@@ -420,9 +420,9 @@ public class m97 extends BdBaseViewPagerAdapter.a implements View.OnClickListene
         followUserButton.setConfig(n45Var);
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         if (z) {
-            i = R.string.obfuscated_res_0x7f0f0698;
+            i = R.string.obfuscated_res_0x7f0f06a1;
         } else {
-            i = R.string.obfuscated_res_0x7f0f02b9;
+            i = R.string.obfuscated_res_0x7f0f02ba;
         }
         followUserButton.setText(inst.getString(i));
         followUserButton.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());

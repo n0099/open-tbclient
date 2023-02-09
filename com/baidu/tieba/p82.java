@@ -758,7 +758,7 @@ public class p82 {
     public final void d(LinearLayout linearLayout, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, i2, i3) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00d3, (ViewGroup) linearLayout, false);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00d4, (ViewGroup) linearLayout, false);
             TextView textView = (TextView) inflate.findViewById(R.id.ssl_header_text);
             textView.setTextColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603ef));
             textView.setText(i2);
@@ -818,7 +818,7 @@ public class p82 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, sslCertificate, sslError)) == null) {
             View j2 = j(sslCertificate);
-            LinearLayout linearLayout = (LinearLayout) j2.findViewById(R.id.obfuscated_res_0x7f091ac8);
+            LinearLayout linearLayout = (LinearLayout) j2.findViewById(R.id.obfuscated_res_0x7f091b01);
             j2.findViewById(R.id.ssl_divider).setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603a6));
             if (sslError == null) {
                 c(linearLayout, R.string.obfuscated_res_0x7f0f01d0);
@@ -857,9 +857,9 @@ public class p82 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sslCertificate)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00d2, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00d3, (ViewGroup) null);
             int color = this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603ef);
-            ViewGroup viewGroup = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0903b7);
+            ViewGroup viewGroup = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0903bf);
             for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
                 View childAt = viewGroup.getChildAt(i2);
                 if (childAt instanceof TextView) {
@@ -871,7 +871,7 @@ public class p82 {
             SslCertificate.DName issuedTo = sslCertificate.getIssuedTo();
             if (issuedTo != null) {
                 ((TextView) inflate.findViewById(R.id.to_common)).setText(issuedTo.getCName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092367)).setText(issuedTo.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b1)).setText(issuedTo.getOName());
                 ((TextView) inflate.findViewById(R.id.to_org_unit)).setText(issuedTo.getUName());
             }
             SslCertificate.DName issuedBy = sslCertificate.getIssuedBy();
@@ -955,10 +955,10 @@ public class p82 {
                 }
                 return false;
             }
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b2, (ViewGroup) null);
-            EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0925f3);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b3, (ViewGroup) null);
+            EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f092642);
             editText.setText(str3);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915fe)).setText(str2);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091614)).setText(str2);
             a83.a aVar = new a83.a(this.a);
             aVar.U(R.string.obfuscated_res_0x7f0f015a);
             aVar.W(inflate);

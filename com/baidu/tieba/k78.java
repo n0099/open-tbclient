@@ -171,20 +171,20 @@ public class k78 implements InterestedForumModel.d, x78, View.OnClickListener, I
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a.e()) {
                 this.g.setEnabled(true);
-                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f12b7));
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f12cd));
             } else {
                 this.g.setEnabled(false);
-                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f09da));
+                this.g.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f09e4));
             }
             o45 o45Var = new o45();
             this.f.setTextSize(R.dimen.T_X06);
             if (!this.a.f()) {
-                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f09e0));
+                this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f09ea));
                 o45Var.q(R.color.CAM_X0304);
                 this.f.setConfig(o45Var);
                 return;
             }
-            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f09e2));
+            this.f.setText(this.h.getString(R.string.obfuscated_res_0x7f0f09ec));
             o45Var.s(R.color.CAM_X0105);
             this.f.setConfig(o45Var);
         }
@@ -225,12 +225,12 @@ public class k78 implements InterestedForumModel.d, x78, View.OnClickListener, I
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.e.G(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09dc), ej.g(this.d.getContext(), R.dimen.tbds178));
+            this.e.G(this.d.getContext().getString(R.string.obfuscated_res_0x7f0f09e6), ej.g(this.d.getContext(), R.dimen.tbds178));
             this.e.J(R.dimen.tbds36);
             this.e.D(R.color.CAM_X0109);
             this.e.g();
             this.e.E(null);
-            this.e.N(ej.g(this.d.getContext(), R.dimen.tbds217));
+            this.e.O(ej.g(this.d.getContext(), R.dimen.tbds217));
         }
     }
 
@@ -309,10 +309,10 @@ public class k78 implements InterestedForumModel.d, x78, View.OnClickListener, I
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.L();
-            this.e.S();
+            this.e.M();
+            this.e.T();
             this.e.F(this.d.getContext().getString(R.string.list_loading));
-            this.e.N(ej.g(this.d.getContext(), R.dimen.tbds217));
+            this.e.O(ej.g(this.d.getContext(), R.dimen.tbds217));
         }
     }
 
@@ -341,9 +341,9 @@ public class k78 implements InterestedForumModel.d, x78, View.OnClickListener, I
                 }
             } else if (view2 != this.f || jo5.a()) {
             } else {
-                if (this.h.getString(R.string.obfuscated_res_0x7f0f09e0).equals(this.f.getText())) {
+                if (this.h.getString(R.string.obfuscated_res_0x7f0f09ea).equals(this.f.getText())) {
                     l(true);
-                } else if (this.h.getString(R.string.obfuscated_res_0x7f0f09e2).equals(this.f.getText())) {
+                } else if (this.h.getString(R.string.obfuscated_res_0x7f0f09ec).equals(this.f.getText())) {
                     l(false);
                 }
                 a();

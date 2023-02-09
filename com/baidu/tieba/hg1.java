@@ -333,7 +333,7 @@ public class hg1 implements gg1 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     bg1 bg1Var = this.c.d;
-                    bg1Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f85));
+                    bg1Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f99));
                 }
             }
         }
@@ -368,7 +368,7 @@ public class hg1 implements gg1 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.d.a(this.a, -1000, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f85));
+                    this.b.d.a(this.a, -1000, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f99));
                 }
             }
         }
@@ -458,7 +458,7 @@ public class hg1 implements gg1 {
                                 sb2.append(responseCode);
                                 sb2.append(", response ");
                                 sb2.append(c3);
-                                bg1Var.a(new IOException(sb2.toString()), responseCode, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f85));
+                                bg1Var.a(new IOException(sb2.toString()), responseCode, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f99));
                             }
                         }
                     }
@@ -471,7 +471,7 @@ public class hg1 implements gg1 {
                             if (this.e.b) {
                                 this.e.a.post(new c(this, th));
                             } else {
-                                this.d.a(th, -1000, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f85));
+                                this.d.a(th, -1000, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f0f99));
                             }
                         }
                         rh1.a(null, dataOutputStream);
@@ -526,7 +526,7 @@ public class hg1 implements gg1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, dg1Var, cg1Var, bg1Var) == null) {
             if (!fg1.b(xh1.a())) {
-                bg1Var.a(new Exception(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR), 119501, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f043d));
+                bg1Var.a(new Exception(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR), 119501, xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f043f));
             } else {
                 lh1.a(new b(this, str, dg1Var, cg1Var, bg1Var));
             }

@@ -1,8 +1,8 @@
 package rx.internal.schedulers;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.aha;
-import com.baidu.tieba.kda;
+import com.baidu.tieba.eia;
+import com.baidu.tieba.oea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public final class GenericScheduledExecutorServiceFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            kda<? extends ScheduledExecutorService> a = aha.a();
+            oea<? extends ScheduledExecutorService> a = eia.a();
             if (a == null) {
                 return createDefault();
             }

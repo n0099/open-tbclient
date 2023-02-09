@@ -215,7 +215,7 @@ public class t35 extends ReplacementSpan {
             this.i.setShader(null);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if ((skinType == 1 || skinType == 4) && this.j != null) {
-                this.i.setColor(SelectorHelper.getResources().getColor(R.color.obfuscated_res_0x7f0607b1));
+                this.i.setColor(SelectorHelper.getResources().getColor(R.color.obfuscated_res_0x7f0607b2));
                 if (this.m) {
                     this.i.setStyle(Paint.Style.FILL);
                 } else {

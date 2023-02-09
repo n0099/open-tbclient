@@ -104,7 +104,7 @@ public class o68 extends BaseAdapter {
                         if (!TextUtils.isEmpty(this.a.d.l)) {
                             BdToast.b(pageActivity, this.a.d.l).k();
                         } else {
-                            BdToast.b(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f0632)).k();
+                            BdToast.b(pageActivity, pageActivity.getText(R.string.obfuscated_res_0x7f0f063b)).k();
                         }
                     }
                 }
@@ -132,8 +132,8 @@ public class o68 extends BaseAdapter {
         public final void b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f65);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f34);
+                this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f77);
                 view2.setOnClickListener(new a(this));
             }
         }
@@ -295,7 +295,7 @@ public class o68 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 bVar = new b(this);
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) null);
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0545, (ViewGroup) null);
                 bVar.b(view3);
                 view3.setTag(bVar);
             } else {

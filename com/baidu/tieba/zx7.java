@@ -101,7 +101,7 @@ public class zx7 extends qn<ey7, SearchSuggestCommonViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new SearchSuggestCommonViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07c2, viewGroup, false));
+            return new SearchSuggestCommonViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d4, viewGroup, false));
         }
         return (SearchSuggestCommonViewHolder) invokeL.objValue;
     }

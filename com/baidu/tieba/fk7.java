@@ -372,16 +372,16 @@ public class fk7 extends v9<OfficialBarTipActivity> {
             navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.subscribe_forum_list));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
             this.c.showBottomLine();
-            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091d75);
+            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091db7);
             this.g = viewGroup;
             this.e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
-            View inflate = LayoutInflater.from(this.f.getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d03cd, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.f.getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) null);
             this.m = inflate;
             inflate.setVisibility(8);
-            TextView textView = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f09026d);
+            TextView textView = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090271);
             this.n = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0908b4);
+            TextView textView2 = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0908c2);
             this.o = textView2;
             textView2.setVisibility(0);
             this.m = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.m, (View.OnClickListener) null);
@@ -396,7 +396,7 @@ public class fk7 extends v9<OfficialBarTipActivity> {
             OfficialBarTipListAdapter officialBarTipListAdapter = new OfficialBarTipListAdapter(officialBarTipActivity);
             this.b = officialBarTipListAdapter;
             this.a.setAdapter((ListAdapter) officialBarTipListAdapter);
-            this.d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d93), null);
+            this.d = NoDataViewFactory.a(officialBarTipActivity.getPageContext().getPageActivity(), this.g, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d9f), null);
         }
     }
 
@@ -412,7 +412,7 @@ public class fk7 extends v9<OfficialBarTipActivity> {
                 } else {
                     w(false);
                 }
-                this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f038b));
+                this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f038c));
                 this.n.setOnClickListener(new e(this, officialBarTipActivity));
                 this.h = true;
                 return;
@@ -421,7 +421,7 @@ public class fk7 extends v9<OfficialBarTipActivity> {
             this.n.setVisibility(8);
             this.b.v(false);
             this.b.notifyDataSetChanged();
-            this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f055b));
+            this.o.setText(officialBarTipActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f055e));
             this.h = false;
         }
     }

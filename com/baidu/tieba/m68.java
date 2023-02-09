@@ -103,12 +103,12 @@ public class m68 {
 
             /* renamed from: com.baidu.tieba.m68$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0344a implements GetEmotionInfosModel.b {
+            public class C0346a implements GetEmotionInfosModel.b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public C0344a(b bVar) {
+                public C0346a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public class m68 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a.b.size() > 0) {
-                        new GetEmotionInfosModel().I(this.a.b, new C0344a(this));
+                        new GetEmotionInfosModel().I(this.a.b, new C0346a(this));
                         return;
                     }
                     UploadFaceGroupModel uploadFaceGroupModel = new UploadFaceGroupModel();
@@ -199,7 +199,7 @@ public class m68 {
 
         /* renamed from: com.baidu.tieba.m68$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0343a implements m {
+        public class C0345a implements m {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i68 a;
@@ -207,7 +207,7 @@ public class m68 {
             public final /* synthetic */ AtomicInteger c;
             public final /* synthetic */ a d;
 
-            public C0343a(a aVar, i68 i68Var, FaceData faceData, AtomicInteger atomicInteger) {
+            public C0345a(a aVar, i68 i68Var, FaceData faceData, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -324,7 +324,7 @@ public class m68 {
                     }
                     for (int i4 = 0; i4 < this.d.size() && i68Var.a(); i4++) {
                         FaceData faceData2 = this.d.get(i4);
-                        this.i.B(faceData2.imageFileInfo, new C0343a(this, i68Var, faceData2, atomicInteger));
+                        this.i.B(faceData2.imageFileInfo, new C0345a(this, i68Var, faceData2, atomicInteger));
                     }
                     return;
                 }

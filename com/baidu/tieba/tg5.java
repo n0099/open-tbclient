@@ -16,9 +16,9 @@ public interface tg5 {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void O0();
+        void N0();
 
-        void S0();
+        void R0();
 
         void c();
 
@@ -30,11 +30,11 @@ public interface tg5 {
 
         boolean j0();
 
-        void l1(boolean z);
+        void k1(boolean z);
 
-        void o1();
+        void n1();
 
-        boolean r1(String str);
+        boolean q1(String str);
 
         void x1(long j, String str, boolean z, boolean z2);
 

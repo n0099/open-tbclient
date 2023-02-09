@@ -1,109 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
 public class px9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return i != 5 ? -1 : 0;
-                        }
-                        return 1;
-                    }
-                    return 3;
-                }
-                return 4;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948077560, "Lcom/baidu/tieba/px9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 6;
-        }
-        return invokeI.intValue;
-    }
-
-    public px9(String str, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948077560, "Lcom/baidu/tieba/px9;");
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
-        this.c = z2;
+        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    public String b(byte[] bArr) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
-                short[] sArr = new short[5];
-                int[] iArr = new int[8];
-                int i3 = 5;
-                for (int i4 = 0; i4 < 5; i4++) {
-                    int i5 = (i2 * 5) + i4;
-                    if (i5 < bArr.length) {
-                        sArr[i4] = (short) (bArr[i5] & 255);
-                    } else {
-                        sArr[i4] = 0;
-                        i3--;
-                    }
-                }
-                int a = a(i3);
-                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
-                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
-                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
-                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
-                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
-                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
-                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
-                iArr[7] = (byte) (sArr[4] & 31);
-                int i6 = 0;
-                while (true) {
-                    i = 8 - a;
-                    if (i6 >= i) {
-                        break;
-                    }
-                    char charAt = this.a.charAt(iArr[i6]);
-                    if (this.c) {
-                        charAt = Character.toLowerCase(charAt);
-                    }
-                    byteArrayOutputStream.write(charAt);
-                    i6++;
-                }
-                if (this.b) {
-                    while (i < 8) {
-                        byteArrayOutputStream.write(61);
-                        i++;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-            return new String(byteArrayOutputStream.toByteArray());
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return c(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
         }
         return (String) invokeL.objValue;
     }

@@ -116,25 +116,25 @@ public class l07 extends sw4 {
             this.a.clear();
             if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
                 if (!dj.isEmpty(apkDetail.developer)) {
-                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0513), itemInfo.apk_detail.developer, null));
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0516), itemInfo.apk_detail.developer, null));
                 }
                 if (!dj.isEmpty(itemInfo.apk_detail.publisher)) {
-                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ffa), itemInfo.apk_detail.publisher, null));
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f100e), itemInfo.apk_detail.publisher, null));
                 }
                 if (!dj.isEmpty(itemInfo.apk_detail.version)) {
-                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04aa), itemInfo.apk_detail.version, null));
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04ad), itemInfo.apk_detail.version, null));
                 }
                 if (!dj.isEmpty(itemInfo.apk_detail.update_time)) {
-                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15da), itemInfo.apk_detail.update_time, null));
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15f1), itemInfo.apk_detail.update_time, null));
                 }
                 if (dh.g(itemInfo.apk_detail.size, 0L) > 0) {
-                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0666), StringHelper.getFormatSize(dh.g(itemInfo.apk_detail.size, 0L)), null));
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f066f), StringHelper.getFormatSize(dh.g(itemInfo.apk_detail.size, 0L)), null));
                 }
                 int intValue = itemInfo.apk_detail.need_network.intValue();
                 int i2 = R.string.editor_dialog_yes;
                 if (intValue > 0) {
                     ArrayList<q07> arrayList = this.a;
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a24);
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a2e);
                     Resources resources = TbadkCoreApplication.getInst().getResources();
                     if (itemInfo.apk_detail.need_network.intValue() == 1) {
                         i = R.string.editor_dialog_yes;
@@ -145,7 +145,7 @@ public class l07 extends sw4 {
                 }
                 if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
                     ArrayList<q07> arrayList2 = this.a;
-                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08c5);
+                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08ce);
                     Resources resources2 = TbadkCoreApplication.getInst().getResources();
                     if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
                         i2 = R.string.editor_dialog_no;

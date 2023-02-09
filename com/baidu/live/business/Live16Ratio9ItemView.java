@@ -156,25 +156,25 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
             this.y = context;
             setNeedRatio(false);
             int e = (int) (((oa0.e(context) - (oa0.b(context, 12.0f) * 2)) - oa0.b(context, 7.0f)) / 2.0d);
-            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d054a, this);
-            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09143a);
-            this.u = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09143c);
+            View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d054f, this);
+            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144f);
+            this.u = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09146c);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091451);
             this.p = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = e;
             layoutParams.height = (int) ((e * 9) / 16.0d);
             this.p.setLayoutParams(layoutParams);
-            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09143d);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091443);
-            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09143f);
-            this.l = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091437);
-            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091439);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091440);
-            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091442);
-            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0914af);
-            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b0);
-            this.t = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b7);
+            this.i = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091452);
+            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091458);
+            this.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
+            this.l = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09144c);
+            this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09144e);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f091455);
+            this.o = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091457);
+            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0914c4);
+            this.s = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914c5);
+            this.t = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914cc);
             float b = oa0.b(getContext(), 10.0f);
             this.x = new float[]{b, b, b, b, b, b, b, b};
         }
@@ -323,7 +323,7 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
                 if (view2 == null) {
                     View inflate = this.u.inflate();
                     this.v = inflate;
-                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f091456);
+                    LiveBaseLottieView liveBaseLottieView = (LiveBaseLottieView) inflate.findViewById(R.id.obfuscated_res_0x7f09146b);
                     this.w = liveBaseLottieView;
                     liveBaseLottieView.setRepeatCount(-1);
                     this.w.setAnimationFromUrl("https://ala-rmb-gift.bj.bcebos.com/lottie/android/liveshow_room_viewing.json");

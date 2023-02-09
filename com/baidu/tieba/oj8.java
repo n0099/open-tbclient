@@ -1,79 +1,67 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oj8 {
+public class oj8 extends qn<fk8, CardViewHolder<vk8>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    public static void a(ej8 ej8Var, TbPageContext<?> tbPageContext) {
-        Uri parse;
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oj8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, ej8Var, tbPageContext) == null) && ej8Var != null && tbPageContext != null) {
-            int i = ej8Var.m;
-            boolean z = false;
-            if (i == 1) {
-                if (!TextUtils.isEmpty(ej8Var.g)) {
-                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{ej8Var.g});
-                }
-            } else if (i == 2) {
-                if (!TextUtils.isEmpty(ej8Var.g) && (parse = Uri.parse(ej8Var.g)) != null) {
-                    String queryParameter = parse.getQueryParameter("paramfromna");
-                    if (!TextUtils.isEmpty(queryParameter)) {
-                        ej8Var.g = b(ej8Var.g, queryParameter);
-                    }
-                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
-                        str = parse.getQueryParameter("title");
-                        z = true;
-                    } else {
-                        str = "";
-                    }
-                    BrowserHelper.A(z, tbPageContext.getPageActivity(), str, ej8Var.g);
-                }
-            } else if (i == 3 && !TextUtils.isEmpty(ej8Var.g)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ej8Var.g));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
     }
 
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public CardViewHolder<vk8> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
-                StringBuilder sb = new StringBuilder(str);
-                boolean z = false;
-                for (String str3 : split) {
-                    if ("skin".equalsIgnoreCase(str3)) {
-                        sb.append("&skin=");
-                        sb.append(SkinManager.getCurrentSkinTypeString());
-                    } else if ("user_id".equalsIgnoreCase(str3)) {
-                        sb.append("&user_id=");
-                        sb.append(TbadkCoreApplication.getCurrentAccountId());
-                    } else if ("comparams".equalsIgnoreCase(str3)) {
-                        z = true;
-                    }
-                }
-                if (z) {
-                    return lj5.g(sb.toString());
-                }
-                return sb.toString();
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new vk8(this.a));
         }
-        return (String) invokeLL.objValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fk8 fk8Var, CardViewHolder<vk8> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fk8Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(fk8Var);
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

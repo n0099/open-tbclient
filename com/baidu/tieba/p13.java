@@ -300,13 +300,13 @@ public class p13 {
             if (i2 != 0) {
                 if (i2 != 1) {
                     if (i2 != 2) {
-                        return context.getString(R.string.obfuscated_res_0x7f0f1318);
+                        return context.getString(R.string.obfuscated_res_0x7f0f132f);
                     }
-                    return context.getString(R.string.obfuscated_res_0x7f0f1317);
+                    return context.getString(R.string.obfuscated_res_0x7f0f132e);
                 }
-                return context.getString(R.string.obfuscated_res_0x7f0f1319);
+                return context.getString(R.string.obfuscated_res_0x7f0f1330);
             }
-            return context.getString(R.string.obfuscated_res_0x7f0f131a);
+            return context.getString(R.string.obfuscated_res_0x7f0f1331);
         }
         return (String) invokeIL.objValue;
     }

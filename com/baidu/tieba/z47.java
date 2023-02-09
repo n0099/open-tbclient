@@ -22,10 +22,10 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.q09;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,12 +39,12 @@ public class z47 {
     public FrsFragment a;
     public List<TBSpecificationBtn> b;
     public LikeModel c;
-    public q09 d;
+    public u19 d;
     public boolean e;
     public AntiHelper.k f;
     public CustomMessageListener g;
     public w9 h;
-    public q09.a i;
+    public u19.a i;
 
     /* loaded from: classes7.dex */
     public class a implements AntiHelper.k {
@@ -115,7 +115,7 @@ public class z47 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof g09)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof k19)) {
                 this.a.f(customResponsedMessage.getData());
             }
         }
@@ -156,12 +156,12 @@ public class z47 {
     }
 
     /* loaded from: classes7.dex */
-    public class d implements q09.a {
+    public class d implements u19.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z47 a;
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -186,29 +186,29 @@ public class z47 {
             this.a = z47Var;
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void b(String str, long j) {
-            FrsViewData Y0;
+            FrsViewData X0;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) && this.a.a != null && (Y0 = this.a.a.Y0()) != null && Y0.getForum() != null) {
-                String name = Y0.getForum().getName();
-                String id = Y0.getForum().getId();
+            if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) && this.a.a != null && (X0 = this.a.a.X0()) != null && X0.getForum() != null) {
+                String name = X0.getForum().getName();
+                String id = X0.getForum().getId();
                 if (j == dh.g(id, 0L) && TextUtils.equals(name, str)) {
                     b57 s0 = this.a.a.s0();
                     if (s0 != null) {
                         s0.c0(str);
                     }
-                    Y0.getForum().setLike(0);
+                    X0.getForum().setLike(0);
                     if (s0 != null) {
                         s0.X(0);
                     }
                     this.a.a.l5(Boolean.TRUE);
                     this.a.l(false, id);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2003004, id));
-                    g09 g09Var = new g09();
-                    g09Var.y(0);
-                    g09Var.v(id);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, g09Var));
+                    k19 k19Var = new k19();
+                    k19Var.y(0);
+                    k19Var.v(id);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, k19Var));
                 }
             }
         }
@@ -244,11 +244,11 @@ public class z47 {
             if (interceptable == null || interceptable.invokeL(1048576, this, j05Var) == null) {
                 j05Var.dismiss();
                 if (this.a.a != null && this.a.d != null) {
-                    FrsViewData Y0 = this.a.a.Y0();
+                    FrsViewData X0 = this.a.a.X0();
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        if (Y0 != null && Y0.getForum() != null) {
-                            this.a.d.c(Y0.getForum().getName(), dh.g(Y0.getForum().getId(), 0L));
+                        if (X0 != null && X0.getForum() != null) {
+                            this.a.d.c(X0.getForum().getName(), dh.g(X0.getForum().getId(), 0L));
                             return;
                         }
                         return;
@@ -357,10 +357,10 @@ public class z47 {
 
     public final void f(Object obj) {
         FrsFragment frsFragment;
-        FrsViewData Y0;
+        FrsViewData X0;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (frsFragment = this.a) != null && (Y0 = frsFragment.Y0()) != null && Y0.getForum() != null && obj != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (frsFragment = this.a) != null && (X0 = frsFragment.X0()) != null && X0.getForum() != null && obj != null) {
             if (AntiHelper.m(this.c.getErrorCode(), this.c.getErrorString())) {
                 if (AntiHelper.t(this.a.getActivity(), this.c.V(), this.f) != null) {
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_BAR));
@@ -368,38 +368,38 @@ public class z47 {
                 }
                 return;
             }
-            String name = Y0.getForum().getName();
-            String id = Y0.getForum().getId();
-            g09 g09Var = null;
-            if (obj instanceof g09) {
-                g09Var = (g09) obj;
+            String name = X0.getForum().getName();
+            String id = X0.getForum().getId();
+            k19 k19Var = null;
+            if (obj instanceof k19) {
+                k19Var = (k19) obj;
             }
             boolean z2 = false;
-            if (g09Var != null && this.c.getErrorCode() == 0) {
+            if (k19Var != null && this.c.getErrorCode() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            if (g09Var.d() == 3250013) {
-                BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), g09Var.e());
+            if (k19Var.d() == 3250013) {
+                BdToast b2 = BdToast.b(TbadkCoreApplication.getInst().getContext(), k19Var.e());
                 b2.g(BdToast.ToastIcon.FAILURE);
                 b2.d(3000);
                 b2.k();
             } else {
                 z2 = z;
             }
-            if (g09Var != null && z2) {
+            if (k19Var != null && z2) {
                 b57 s0 = this.a.s0();
                 if (s0 != null) {
                     s0.c0(name);
                 }
-                g09Var.y(1);
-                Y0.updateLikeData(g09Var);
-                Y0.setLikeFeedForumDataList(g09Var.f());
+                k19Var.y(1);
+                X0.updateLikeData(k19Var);
+                X0.setLikeFeedForumDataList(k19Var.f());
                 if (s0 != null) {
-                    s0.k0(Y0, this.e);
-                    if (!ListUtils.isEmpty(g09Var.k())) {
-                        s0.u0(g09Var.k());
+                    s0.k0(X0, this.e);
+                    if (!ListUtils.isEmpty(k19Var.k())) {
+                        s0.u0(k19Var.k());
                     }
                 }
                 this.e = true;
@@ -408,7 +408,7 @@ public class z47 {
                     ((FrsActivity) this.a.getActivity()).s1().d(id);
                 }
                 l(true, id);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, g09Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, k19Var));
                 e();
             } else if (this.c.getErrorCode() == 22) {
                 FrsFragment frsFragment3 = this.a;
@@ -424,26 +424,26 @@ public class z47 {
         FrsFragment frsFragment;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (frsFragment = this.a) != null && this.c != null) {
-            FrsViewData Y0 = frsFragment.Y0();
+            FrsViewData X0 = frsFragment.X0();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                if (Y0 != null && Y0.getForum() != null) {
+                if (X0 != null && X0.getForum() != null) {
                     if (FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND.equals(this.a.w3())) {
-                        TiebaStatic.log(new StatisticItem("c10356").param("fid", Y0.getForum().getId()));
+                        TiebaStatic.log(new StatisticItem("c10356").param("fid", X0.getForum().getId()));
                     } else if (FrsActivityConfig.FRS_FROM_SQUARE_HOT.equals(this.a.w3())) {
-                        TiebaStatic.log(new StatisticItem("c10590").param("obj_type", 2).param("fid", Y0.getForum().getId()));
+                        TiebaStatic.log(new StatisticItem("c10590").param("obj_type", 2).param("fid", X0.getForum().getId()));
                     } else if (FrsActivityConfig.FRS_FROM_SQUARE_TOP.equals(this.a.w3())) {
-                        TiebaStatic.log(new StatisticItem("c10587").param("obj_type", 2).param("fid", Y0.getForum().getId()));
+                        TiebaStatic.log(new StatisticItem("c10587").param("obj_type", 2).param("fid", X0.getForum().getId()));
                     } else if (FrsActivityConfig.FRS_FROM_SQUARE_RECOMMEND.equals(this.a.w3())) {
-                        TiebaStatic.log(new StatisticItem("c10578").param("obj_type", 2).param("fid", Y0.getForum().getId()));
+                        TiebaStatic.log(new StatisticItem("c10578").param("obj_type", 2).param("fid", X0.getForum().getId()));
                     }
                     this.c.setFrom("recom_flist_like_frs");
                     if (FrsActivityConfig.FRS_FROM_SQUARE.equals(this.a.w3())) {
                         TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "square_frs_focus", "click", 1, new Object[0]);
                     } else if (FrsActivityConfig.FRS_FROM_FOLLOWED_RECOMMEND.equals(this.a.w3())) {
-                        TiebaStatic.log(new StatisticItem("c10359").param("fid", Y0.getForum().getId()));
+                        TiebaStatic.log(new StatisticItem("c10359").param("fid", X0.getForum().getId()));
                     }
-                    this.c.Z(Y0.getForum().getName(), Y0.getForum().getId(), "FRS");
+                    this.c.Z(X0.getForum().getName(), X0.getForum().getId(), "FRS");
                     this.e = z;
                     return;
                 }
@@ -466,9 +466,9 @@ public class z47 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            q09 q09Var = new q09();
-            this.d = q09Var;
-            q09Var.a("from_frs");
+            u19 u19Var = new u19();
+            this.d = u19Var;
+            u19Var.a("from_frs");
             this.d.b(this.i);
         }
     }
@@ -508,16 +508,16 @@ public class z47 {
             return;
         }
         j05 j05Var = new j05(frsFragment.getActivity());
-        FrsViewData Y0 = this.a.Y0();
-        if (Y0 != null && Y0.getForum() != null && Y0.getForum().getName() != null) {
-            str = Y0.getForum().getName();
+        FrsViewData X0 = this.a.X0();
+        if (X0 != null && X0.getForum() != null && X0.getForum().getName() != null) {
+            str = X0.getForum().getName();
         } else {
             str = "";
         }
         if (!StringUtils.isNull(str)) {
             j05Var.setMessage(String.format(this.a.getString(R.string.attention_cancel_dialog_content), str));
         } else {
-            j05Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f02bf));
+            j05Var.setMessage(this.a.getString(R.string.obfuscated_res_0x7f0f02c0));
         }
         j05Var.setPositiveButton(this.a.getString(R.string.editor_dialog_yes), new e(this));
         j05Var.setNegativeButton(this.a.getString(R.string.editor_dialog_no), new f(this));

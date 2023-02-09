@@ -1395,32 +1395,32 @@ public class n67 implements e67.f {
     }
 
     @Override // com.baidu.tieba.e67.f
-    public r99 o(Object obj) {
+    public va9 o(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, obj)) == null) {
-            r99 r99Var = null;
+            va9 va9Var = null;
             if (obj instanceof FunNativeAd2) {
                 FunNativeAd2 funNativeAd2 = (FunNativeAd2) obj;
                 int s = m67.s(funNativeAd2);
                 if (s == -1) {
                     return null;
                 }
-                r99Var = new r99();
+                va9Var = new va9();
                 String c2 = m67.c(funNativeAd2, s);
                 if (dj.isEmpty(c2)) {
                     c2 = "推广";
                 }
-                r99Var.k(c2);
-                r99Var.l(m67.v(funNativeAd2, s));
-                r99Var.j(m67.q(funNativeAd2, s));
-                r99Var.g(m67.n(funNativeAd2));
-                r99Var.h(m67.b(funNativeAd2));
-                r99Var.i(s);
+                va9Var.k(c2);
+                va9Var.l(m67.v(funNativeAd2, s));
+                va9Var.j(m67.q(funNativeAd2, s));
+                va9Var.g(m67.n(funNativeAd2));
+                va9Var.h(m67.b(funNativeAd2));
+                va9Var.i(s);
             }
-            return r99Var;
+            return va9Var;
         }
-        return (r99) invokeL.objValue;
+        return (va9) invokeL.objValue;
     }
 
     public final ModuleConfigKs.Builder w() {

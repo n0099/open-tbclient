@@ -240,12 +240,12 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                         }
                         return;
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 String errorString = responseMemberPayMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0cfe);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d08);
                 }
                 this.a.showToast(errorString);
             }
@@ -289,7 +289,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 for (int i = 0; i < count; i++) {
                     this.a.s.getItem(i).C1(bool);
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f14e6);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f14fd);
             }
         }
     }
@@ -588,7 +588,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.q.setPosition(this.u);
             this.o.setText(F1(this.t));
             if (this.t == 2) {
-                SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080b10, TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080b1f, TbadkCoreApplication.getInst().getSkinType());
             } else {
                 SkinManager.setImageResource(this.n, R.drawable.icon_tbvip_commonvip, TbadkCoreApplication.getInst().getSkinType());
             }
@@ -629,9 +629,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 != 2) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f1462);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f1479);
             }
-            return getResources().getString(R.string.obfuscated_res_0x7f0f1465);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f147c);
         }
         return (String) invokeI.objValue;
     }
@@ -880,10 +880,10 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             j05Var.setCancelable(true);
             j05Var.setTitleShowCenter(true);
             j05Var.setMessageShowCenter(true);
-            j05Var.setTitle(getString(R.string.obfuscated_res_0x7f0f145d));
-            j05Var.setMessage(getString(R.string.obfuscated_res_0x7f0f145b));
-            j05Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f0828), new h(this));
-            j05Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f145c), new i(this));
+            j05Var.setTitle(getString(R.string.obfuscated_res_0x7f0f1474));
+            j05Var.setMessage(getString(R.string.obfuscated_res_0x7f0f1472));
+            j05Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f0831), new h(this));
+            j05Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f1473), new i(this));
             j05Var.create(getPageContext()).show();
         }
     }
@@ -892,26 +892,26 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         LinearLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0599);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923b1);
+            setContentView(R.layout.obfuscated_res_0x7f0d059e);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923fb);
             this.l = findViewById;
             findViewById.setOnClickListener(new d(this));
-            this.j = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091564);
+            this.j = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09157a);
             int g2 = ej.g(getPageContext().getContext(), R.dimen.tbds43);
             this.z = g2;
             this.j.setRoundLayoutRadius(new float[]{g2, g2, g2, g2, 0.0f, 0.0f, 0.0f, 0.0f});
             this.k = (RelativeLayout) findViewById(R.id.navigation_bar);
-            this.E = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09174b);
-            this.H = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09239d);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090423);
+            this.E = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091763);
+            this.H = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923e7);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09042c);
             this.m = imageView;
             imageView.setOnClickListener(new e(this));
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f09244c);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09245a);
-            this.B = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f0926df);
-            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091002);
-            this.q = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0915e6);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f092119);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f092496);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a4);
+            this.B = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f092740);
+            this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091014);
+            this.q = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0915fc);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215f);
             this.r = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.r.setOnPageChangeListener(this);
@@ -922,7 +922,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.r.getFragmentTabWidget().setDviderRectHeight(ej.g(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.E.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f09239d);
+            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0923e7);
             this.r.setLayoutParams(layoutParams2);
             if (this.A) {
                 this.B.setGuideContent(sw5.e().h(), sw5.e().g());
@@ -931,11 +931,11 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 this.p.setVisibility(8);
                 this.B.setCloseClickListener(new f(this));
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams3.addRule(3, R.id.obfuscated_res_0x7f0926df);
+                layoutParams3.addRule(3, R.id.obfuscated_res_0x7f092740);
                 this.r.setLayoutParams(layoutParams3);
             }
-            this.F = findViewById(R.id.obfuscated_res_0x7f0915ce);
-            this.G = findViewById(R.id.obfuscated_res_0x7f0915cf);
+            this.F = findViewById(R.id.obfuscated_res_0x7f0915e4);
+            this.G = findViewById(R.id.obfuscated_res_0x7f0915e5);
             if (StringHelper.equals(this.D, "1") && getActivity() != null) {
                 if (TbDimenManager.getInstance().needAdapt()) {
                     TbDimenManager.getInstance().adaptDimen(getActivity().getBaseContext());
@@ -959,10 +959,10 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
             this.B.f();
-            SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f080ea5);
-            SkinManager.setImageResource(this.H, R.drawable.obfuscated_res_0x7f081309);
+            SkinManager.setImageResource(this.E, R.drawable.obfuscated_res_0x7f080eb7);
+            SkinManager.setImageResource(this.H, R.drawable.obfuscated_res_0x7f081320);
             if (this.t == 2) {
-                SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080b10, i2);
+                SkinManager.setImageResource(this.n, R.drawable.obfuscated_res_0x7f080b1f, i2);
             } else {
                 SkinManager.setImageResource(this.n, R.drawable.icon_tbvip_commonvip, i2);
             }

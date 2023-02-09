@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.m99;
-import com.baidu.tieba.ma9;
 import com.baidu.tieba.pm;
+import com.baidu.tieba.qa9;
+import com.baidu.tieba.qb9;
 import com.baidu.tieba.qm;
 import com.baidu.tieba.ve6;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
@@ -180,8 +180,8 @@ public class LocalVideoActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof m99)) {
-                    return new CustomResponsedMessage<>(2921466, new ma9((m99) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof qa9)) {
+                    return new CustomResponsedMessage<>(2921466, new qb9((qa9) customMessage.getData()));
                 }
                 return null;
             }

@@ -225,7 +225,7 @@ public class k82 extends c82 {
             this.a.b = this.b.toString();
             k82 c3 = k82.c3(this.a, "default_webview");
             um4 a = sm4Var.a();
-            a.a(R.id.obfuscated_res_0x7f090174, c3);
+            a.a(R.id.obfuscated_res_0x7f090176, c3);
             a.d(null);
             a.e();
         }
@@ -582,14 +582,14 @@ public class k82 extends c82 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
             U1(inflate);
             fv1 k = k();
             this.G0 = k;
             k.Y(Z2());
             this.H0 = this.G0.r();
             this.G0.loadUrl(this.I0);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a8);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901aa);
             this.G0.j(frameLayout, this.H0.covertToView());
             W2(frameLayout);
             if (T1()) {

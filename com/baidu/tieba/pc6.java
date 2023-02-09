@@ -40,7 +40,7 @@ public class pc6 extends mc6<ci6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0187 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0188 : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,7 +115,7 @@ public class pc6 extends mc6<ci6> {
                 SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
                 SkinManager.setBackgroundResource(this.r, R.color.CAM_X0204);
                 SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
-                h29 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                l39 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
                 if (readThreadHistory != null && readThreadHistory.d(this.s.getThreadData().getId())) {
                     SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
                 } else {
@@ -131,17 +131,17 @@ public class pc6 extends mc6<ci6> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09053e);
-            this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09053d);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090549);
+            this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090548);
             this.k = (TbImageView) view2.findViewById(R.id.img_thumbnail);
             this.l = (ImageView) view2.findViewById(R.id.img_play);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090546);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090547);
-            this.o = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090544);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090526);
-            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090525);
-            this.r = view2.findViewById(R.id.obfuscated_res_0x7f09051e);
-            this.k.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808c7);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090551);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090552);
+            this.o = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09054f);
+            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090531);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090530);
+            this.r = view2.findViewById(R.id.obfuscated_res_0x7f090529);
+            this.k.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808d3);
             int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.tbds326);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
             layoutParams.width = dimensionPixelSize;
@@ -181,7 +181,7 @@ public class pc6 extends mc6<ci6> {
             }
             this.k.K(str, 10, false);
             this.n.setText(ci6Var.getThreadData().getTitle());
-            h29 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            l39 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(ci6Var.getThreadData().getId())) {
                 SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
             } else {

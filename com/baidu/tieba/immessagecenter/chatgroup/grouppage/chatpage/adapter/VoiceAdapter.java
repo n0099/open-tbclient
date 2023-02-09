@@ -116,7 +116,7 @@ public class VoiceAdapter extends BaseChatAdapter<VoiceMsg, ViewHolder> {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 16;
             chatVoiceView.setLayoutParams(layoutParams);
-            chatVoiceView.setId(R.id.obfuscated_res_0x7f090dc0);
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090dd1);
             chatVoiceView.setVoiceManager(this.g);
             chatVoiceView.setOnClickListener(chatVoiceView);
             return chatVoiceView;

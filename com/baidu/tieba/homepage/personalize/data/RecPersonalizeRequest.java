@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.cu8;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.vs8;
 import com.baidu.tieba.yn5;
 import com.baidu.tieba.yo5;
-import com.baidu.tieba.ys8;
 import com.baidu.tieba.yy4;
+import com.baidu.tieba.zt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -90,8 +90,8 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = ys8.f().d("HOME");
-            builder.app_pos = vs8.e().c();
+            builder.ad_context_list = cu8.f().d("HOME");
+            builder.app_pos = zt8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
                 yy4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(dh.g(pbToHomeUpdateData.a, 0L));

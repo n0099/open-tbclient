@@ -63,12 +63,12 @@ public class fd3 extends x83 {
 
         /* renamed from: com.baidu.tieba.fd3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0276a implements pn3<zd3<be3.e>> {
+        public class C0275a implements pn3<zd3<be3.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0276a(a aVar) {
+            public C0275a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,7 +148,7 @@ public class fd3 extends x83 {
                         z2 = true;
                     }
                     if (z2) {
-                        this.e.c(this.d, this.b, this.c, new C0276a(this));
+                        this.e.c(this.d, this.b, this.c, new C0275a(this));
                         return;
                     }
                     if (wd3Var.j > 0) {

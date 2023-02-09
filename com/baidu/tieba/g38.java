@@ -52,11 +52,11 @@ public class g38 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             this.c = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0886, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0898, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921cc);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0921cb);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092212);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092211);
             return this.a;
         }
         return (View) invokeL.objValue;
@@ -72,7 +72,7 @@ public class g38 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f142f), Integer.valueOf(i)));
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f1446), Integer.valueOf(i)));
         }
     }
 }

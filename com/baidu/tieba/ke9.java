@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes5.dex */
 public interface ke9 {
-    void a();
+    VideoItemModel I0();
 
-    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
+    void r0(int i);
 
-    void c();
-
-    void d(CloudMusicData.MusicTagList musicTagList);
-
-    void e(int i);
+    int s();
 }

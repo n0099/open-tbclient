@@ -126,15 +126,15 @@ public class r36 extends q36 {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 bVar = new b(null);
-                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d081b, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091c46);
+                view3 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d082d, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f091c87);
                 bVar.a = tbImageView;
                 tbImageView.setDefaultResource(R.drawable.ala_bitmap_default_color_bg);
-                bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c49);
-                bVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c45);
-                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c4a);
-                bVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c47);
-                bVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c48);
+                bVar.b = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c8a);
+                bVar.c = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c86);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c8b);
+                bVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c88);
+                bVar.f = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c89);
                 SkinManager.setBackgroundColor(view3, R.color.CAM_X0201);
                 SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0109);
@@ -183,7 +183,7 @@ public class r36 extends q36 {
                     name_show = StringHelper.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE);
                 }
                 bVar.d.setText(name_show);
-                bVar.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f128f, StringHelper.numberUniformFormatExtra(item.a.getThreadAlaInfo().audience_count)));
+                bVar.c.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f12a5, StringHelper.numberUniformFormatExtra(item.a.getThreadAlaInfo().audience_count)));
                 view3.setOnClickListener(new a(this, item));
                 StatisticItem statisticItem = new StatisticItem("c12658");
                 statisticItem.param("tid", item.a.getTid());

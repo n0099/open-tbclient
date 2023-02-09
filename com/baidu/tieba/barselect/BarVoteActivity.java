@@ -227,7 +227,7 @@ public class BarVoteActivity extends BaseActivity {
             } else if (view2.getId() == R.id.pb_more) {
                 m86 m86Var = this.c;
                 if (m86Var != null && m86Var.v() != null) {
-                    this.c.v().P();
+                    this.c.v().Q();
                 }
                 y1();
             }

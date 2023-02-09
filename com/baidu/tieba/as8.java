@@ -1,26 +1,39 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface as8 extends IAdBaseAsyncController {
+public class as8 implements dv5<zr8> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(int i);
+    public as8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
-
-    void c(AdvertAppInfo advertAppInfo, boolean z);
-
-    @Nullable
-    br8 i(AdvertAppInfo advertAppInfo);
-
-    void loadAd();
-
-    void m(AdvertAppInfo advertAppInfo);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.dv5
+    /* renamed from: b */
+    public zr8 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new zr8();
+        }
+        return (zr8) invokeV.objValue;
+    }
 }

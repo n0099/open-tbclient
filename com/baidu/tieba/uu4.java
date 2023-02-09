@@ -56,25 +56,25 @@ public class uu4 implements vb6 {
         return invokeLLLLL.booleanValue;
     }
 
-    public x19 c(WebView webView, HashMap<String, Object> hashMap) {
+    public b39 c(WebView webView, HashMap<String, Object> hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
-            x19 x19Var = new x19();
+            b39 b39Var = new b39();
             if (hashMap == null) {
-                return x19Var;
+                return b39Var;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("skin", hashMap.get("skin"));
                 a(webView, CommonTbJsBridge.CHANGE_SKIN_TYPE, jSONObject);
-                x19Var.o(jSONObject.toString());
+                b39Var.o(jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return x19Var;
+            return b39Var;
         }
-        return (x19) invokeLL.objValue;
+        return (b39) invokeLL.objValue;
     }
 
     public final String d() {

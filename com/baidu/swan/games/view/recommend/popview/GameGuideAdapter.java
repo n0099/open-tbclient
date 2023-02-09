@@ -57,7 +57,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908ae);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908bc);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -104,7 +104,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0861, (ViewGroup) null));
+            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0873, (ViewGroup) null));
             aVar.itemView.setOnClickListener(this);
             sc4.a(aVar.itemView);
             return aVar;

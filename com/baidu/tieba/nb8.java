@@ -3,14 +3,15 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
 import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.gz;
 import com.baidu.tieba.vy;
@@ -25,8 +26,9 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public TbPageContext<?> b;
-    public jo c;
-    public ld6<ae6> d;
+    public boolean c;
+    public jo d;
+    public ld6<ae6> e;
 
     /* loaded from: classes5.dex */
     public class a extends ld6<ae6> {
@@ -57,11 +59,8 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
         /* renamed from: d */
         public void a(View view2, ae6 ae6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ae6Var) == null) {
-                ed6.b().d(true);
-                if (view2 != null && ae6Var != null && ae6Var.getThreadData() != null && !StringUtils.isNull(ae6Var.getThreadData().getTid())) {
-                    this.b.w(view2, ae6Var);
-                }
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ae6Var) == null) && view2 != null && ae6Var != null && ae6Var.getThreadData() != null && !StringUtils.isNull(ae6Var.getThreadData().getTid())) {
+                this.b.w(view2, ae6Var);
             }
         }
     }
@@ -97,10 +96,10 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
                 ae6 ae6Var = (ae6) cdo;
                 ae6Var.f = 1;
-                if (this.a.d != null) {
-                    this.a.d.a(threadCardViewHolder.getView(), ae6Var);
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), ae6Var);
                 }
-                ThreadCardUtils.jumpToPB((sw4) ae6Var, view2.getContext(), ae6Var.C, false, lx.a((jo) viewGroup, view2, i));
+                ThreadCardUtils.jumpToPB((sw4) ae6Var, view2.getContext(), ae6Var.C, false);
                 threadCardViewHolder.a().p(new gz.a(1));
             }
         }
@@ -125,14 +124,15 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
                 return;
             }
         }
-        this.d = new a(this);
+        this.c = true;
+        this.e = new a(this);
         this.b = tbPageContext;
     }
 
     public void x(jo joVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, joVar) == null) {
-            this.c = joVar;
+            this.d = joVar;
         }
     }
 
@@ -143,10 +143,15 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            vy.b bVar = new vy.b(this.b.getPageActivity());
+            vy.b bVar = new vy.b(this.b.getPageActivity(), false);
             bVar.l().k(true);
-            bVar.o(new tx(this.b.getPageActivity()));
-            ThreadCardViewHolder<ae6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.TOP, viewGroup, this.c));
+            iy iyVar = new iy(this.b.getPageActivity());
+            iyVar.u("pb");
+            iyVar.v(this.c);
+            bVar.n(iyVar);
+            vy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            k.s(0);
+            ThreadCardViewHolder<ae6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.i(this.a);
             setOnAdapterItemClickListener(new b(this));
             return threadCardViewHolder;
@@ -161,16 +166,23 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ae6Var, threadCardViewHolder})) == null) {
-            if (ae6Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || ae6Var.a == null) {
-                return null;
+            if (ae6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && ae6Var.a != null) {
+                ae6Var.I(ae6Var.position + 1);
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(ae6Var);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.e);
+                iy iyVar = (iy) threadCardViewHolder.a().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) iyVar.f.d.getLayoutParams();
+                layoutParams.width = ae6Var.j;
+                layoutParams.height = ae6Var.k;
+                if (iyVar.f.d.getVisibility() != 8) {
+                    iyVar.f.d.setLayoutParams(layoutParams);
+                }
+                xg8.n(ae6Var, this.b);
+                return threadCardViewHolder.getView();
             }
-            ae6Var.I(ae6Var.position + 1);
-            threadCardViewHolder.a().r(i);
-            threadCardViewHolder.p(false, Align.ALIGN_RIGHT_TOP, null);
-            threadCardViewHolder.e(ae6Var);
-            threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.a().q(this.d);
-            return threadCardViewHolder.getView();
+            return null;
         }
         return (View) invokeCommon.objValue;
     }
@@ -178,14 +190,12 @@ public class nb8 extends qn<ae6, ThreadCardViewHolder<ae6>> {
     public final void w(View view2, ae6 ae6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, ae6Var) == null) {
-            int id = view2.getId();
-            if (ae6Var == null) {
-                return;
-            }
-            if (id != R.id.forum_head_image && id != R.id.forum_head_barname && id != R.id.forum_head_info_attention && id != R.id.forum_head_info_thread) {
-                lg8.m(ae6Var, 1, this.b);
-            } else {
-                lg8.m(ae6Var, 2, this.b);
+            if (view2.getId() == R.id.thread_card_root) {
+                xg8.m(ae6Var, 1, this.b);
+            } else if (view2 instanceof TbImageView) {
+                xg8.m(ae6Var, 3, this.b);
+            } else if (view2.getId() == R.id.thread_card_title || view2.getId() == R.id.thread_card_abstract) {
+                xg8.m(ae6Var, 1, this.b);
             }
         }
     }

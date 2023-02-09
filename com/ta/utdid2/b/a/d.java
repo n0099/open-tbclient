@@ -42,7 +42,7 @@ public class d {
         public Map a;
 
         /* renamed from: a  reason: collision with other field name */
-        public WeakHashMap<b.InterfaceC0727b, Object> f28a;
+        public WeakHashMap<b.InterfaceC0728b, Object> f28a;
         public final File b;
 
         /* renamed from: c  reason: collision with other field name */
@@ -54,14 +54,14 @@ public class d {
 
         /* renamed from: com.ta.utdid2.b.a.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public final class C0728a implements b.a {
+        public final class C0729a implements b.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
             public final Map<String, Object> b;
             public boolean k;
 
-            public C0728a(a aVar) {
+            public C0729a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class d {
                 InterceptResult invokeV;
                 boolean z;
                 ArrayList arrayList;
-                HashSet<b.InterfaceC0727b> hashSet;
+                HashSet<b.InterfaceC0728b> hashSet;
                 boolean e;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -221,9 +221,9 @@ public class d {
                     if (z) {
                         for (int size = arrayList.size() - 1; size >= 0; size--) {
                             String str = (String) arrayList.get(size);
-                            for (b.InterfaceC0727b interfaceC0727b : hashSet) {
-                                if (interfaceC0727b != null) {
-                                    interfaceC0727b.a(this.a, str);
+                            for (b.InterfaceC0728b interfaceC0728b : hashSet) {
+                                if (interfaceC0728b != null) {
+                                    interfaceC0728b.a(this.a, str);
                                 }
                             }
                         }
@@ -255,7 +255,7 @@ public class d {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new C0728a(this);
+                return new C0729a(this);
             }
             return (b.a) invokeV.objValue;
         }

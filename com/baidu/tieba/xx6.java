@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xx6 extends as6<tz8, FrsFeedItemViewHolder> {
+public class xx6 extends as6<x09, FrsFeedItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public vx6 l;
@@ -49,20 +49,20 @@ public class xx6 extends as6<tz8, FrsFeedItemViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d030a, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d030c, (ViewGroup) null);
             this.l = new vx6(this.c, inflate, 2, this.m, this.mPageId);
             return new FrsFeedItemViewHolder(inflate);
         }
         return (FrsFeedItemViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, tz8 tz8Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
+    public View F(int i, View view2, ViewGroup viewGroup, x09 x09Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tz8Var, frsFeedItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) tz8Var, (tz8) frsFeedItemViewHolder);
-            if (tz8Var != null) {
-                this.l.o(tz8Var.b(), tz8Var.a());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x09Var, frsFeedItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) x09Var, (x09) frsFeedItemViewHolder);
+            if (x09Var != null) {
+                this.l.o(x09Var.b(), x09Var.a());
             }
             return view2;
         }
@@ -71,7 +71,7 @@ public class xx6 extends as6<tz8, FrsFeedItemViewHolder> {
 
     @Override // com.baidu.tieba.as6, com.baidu.tieba.qn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (tz8) obj, (FrsFeedItemViewHolder) viewHolder);
+        F(i, view2, viewGroup, (x09) obj, (FrsFeedItemViewHolder) viewHolder);
         return view2;
     }
 }

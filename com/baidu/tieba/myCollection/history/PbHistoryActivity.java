@@ -175,9 +175,9 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 j05 j05Var = new j05(this.a.getPageContext().getPageActivity());
-                j05Var.setMessageId(R.string.obfuscated_res_0x7f0f0e95);
-                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new a(this));
-                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
+                j05Var.setMessageId(R.string.obfuscated_res_0x7f0f0ea3);
+                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new a(this));
+                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
                 j05Var.create(this.a.getPageContext()).show();
             }
         }
@@ -496,24 +496,24 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             this.j = pbHistoryCacheModel;
             pbHistoryCacheModel.Y(this.k);
             registerListener(this.l);
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06f3, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06fb, (ViewGroup) null);
             this.a = relativeLayout;
             setContentView(relativeLayout);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setCenterTextTitle(getPageContext().getString(R.string.my_history));
-            this.c = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f091739);
+            this.c = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f091750);
             TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.clear_all_text));
             this.d = addTextButton;
             addTextButton.setOnClickListener(new d(this));
             this.d.setVisibility(8);
-            this.e = (BdListView) findViewById(R.id.obfuscated_res_0x7f091408);
+            this.e = (BdListView) findViewById(R.id.obfuscated_res_0x7f09141d);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ej.g(getActivity(), R.dimen.obfuscated_res_0x7f070307)));
             this.e.x(textView, 0);
-            this.f = new gj5<>(getPageContext(), w48.class, R.layout.obfuscated_res_0x7f0d06f4, null);
-            this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070268)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0e97)), null, null);
+            this.f = new gj5<>(getPageContext(), w48.class, R.layout.obfuscated_res_0x7f0d06fc, null);
+            this.f.f(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070268)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0ea5)), null, null);
             this.e.setAdapter((ListAdapter) this.f);
             this.e.setOnItemClickListener(new e(this));
             this.e.setOnScrollListener(this.m);

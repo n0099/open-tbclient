@@ -102,15 +102,15 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements ay, zx<d85> 
                 this.d = (LinearLayout) view2.findViewById(R.id.voice_room_talking_layout);
                 this.c = (TBLottieAnimationView) view2.findViewById(R.id.voice_room_talking_lottie);
                 this.e = (TextView) view2.findViewById(R.id.voice_room_talking_text);
-                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092711);
-                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f09270f);
+                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092772);
+                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f092770);
                 int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds58);
                 this.g.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.CAM_X0402, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds28));
                 this.g.setStrokeStyle(1);
                 this.g.setLoadImageType(12);
-                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09270e);
-                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09270b);
-                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092708);
+                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09276f);
+                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09276c);
+                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092769);
                 this.itemView.setOnClickListener(this);
             }
 
@@ -244,7 +244,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements ay, zx<d85> 
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                return new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d035d, viewGroup, false));
+                return new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d035f, viewGroup, false));
             }
             return (a) invokeLI.objValue;
         }
@@ -420,7 +420,7 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements ay, zx<d85> 
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d035e, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0360, (ViewGroup) this, true);
             setOrientation(0);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             this.c = (PullLeftRefreshLayout) findViewById(R.id.refresh_layout);

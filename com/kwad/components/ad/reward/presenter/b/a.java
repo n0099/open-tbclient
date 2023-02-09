@@ -47,9 +47,9 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912b2);
-            this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b3);
-            this.sU = findViewById(R.id.obfuscated_res_0x7f091208);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912c6);
+            this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912c7);
+            this.sU = findViewById(R.id.obfuscated_res_0x7f09121c);
         }
     }
 
@@ -75,7 +75,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
                 if (this.sV == null) {
                     this.sV = new t(this.bF, this.sU, this.nM.mApkDownloadHelper, this);
                 }
-                this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b6));
+                this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ca));
             }
         }
     }

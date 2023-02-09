@@ -68,8 +68,8 @@ public class ou5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && mr8.l().i() != null) {
-                mr8.l().i().b();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && qs8.l().i() != null) {
+                qs8.l().i().b();
             }
         }
     }
@@ -270,8 +270,8 @@ public class ou5 {
         MessageManager.getInstance().registerListener(this.f);
         MessageManager.getInstance().registerListener(this.d);
         MessageManager.getInstance().registerListener(this.g);
-        if (mr8.l().i() != null) {
-            mr8.l().i().c();
+        if (qs8.l().i() != null) {
+            qs8.l().i().c();
         }
         pu5.b().c(new e(this));
     }
@@ -296,7 +296,7 @@ public class ou5 {
                 BaseVM.m(7);
                 return false;
             }
-            hr8 i3 = mr8.l().i();
+            ls8 i3 = qs8.l().i();
             if (i3 != null) {
                 i = i3.a();
             } else {

@@ -164,9 +164,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String[] strArr = {this.a.getPageContext().getString(R.string.delete_account_only), this.a.getPageContext().getString(R.string.delete_account_and_group_cache), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f038b)};
+                String[] strArr = {this.a.getPageContext().getString(R.string.delete_account_only), this.a.getPageContext().getString(R.string.delete_account_and_group_cache), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f038c)};
                 l05 l05Var = new l05(this.a.getPageContext().getPageActivity());
-                l05Var.k(R.string.obfuscated_res_0x7f0f0994);
+                l05Var.k(R.string.obfuscated_res_0x7f0f099e);
                 l05Var.j(strArr, new a(this, view2));
                 l05Var.c(this.a.getPageContext());
                 l05Var.m();
@@ -263,7 +263,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0070, TBAlertConfig.OperateBtnStyle.MAIN);
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getActivity());
                 tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0071);
-                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f1506);
+                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f151d);
                 tBAlertBuilder.u(aVar);
                 tBAlertBuilder.j(false);
                 aVar.a(new a(this, tBAlertBuilder.z()));
@@ -422,7 +422,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     }
                 } else {
                     AccountActivity accountActivity = this.d;
-                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f12e7));
+                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f12fe));
                     this.d.b.remove(this.a);
                     this.a = null;
                     this.d.c.notifyDataSetChanged();
@@ -521,7 +521,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!this.a.c.a()) {
                     this.a.c.c(true);
-                    this.a.h.setText(R.string.obfuscated_res_0x7f0f052c);
+                    this.a.h.setText(R.string.obfuscated_res_0x7f0f052f);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                         SkinManager.setViewTextColor(this.a.h, R.color.navi_op_text, 1);
                     } else {
@@ -531,7 +531,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
                 this.a.c.c(false);
-                this.a.h.setText(R.string.obfuscated_res_0x7f0f055b);
+                this.a.h.setText(R.string.obfuscated_res_0x7f0f055e);
                 SkinManager.setViewTextColor(this.a.h, R.color.navi_op_text, 1);
                 this.a.c.notifyDataSetChanged();
             }
@@ -1016,7 +1016,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             df5.b(0, 0, 0, 2, 3);
             V1("account delete");
         }
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f04f1), new g(this, z2));
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f04f4), new g(this, z2));
         i iVar = new i(this, z, accountData);
         this.k = iVar;
         iVar.setPriority(3);
@@ -1115,13 +1115,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             View addCustomView = this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
             TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
             this.h = textView;
-            textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f055b));
+            textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f055e));
             SkinManager.setViewTextColor(this.h, R.color.navi_op_text, 1);
             addCustomView.setOnClickListener(new c(this));
             nw5 nw5Var = new nw5(this, this.i);
             this.c = nw5Var;
             nw5Var.b(this.b);
-            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f091408);
+            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f09141d);
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.d.addHeaderView(textView2);

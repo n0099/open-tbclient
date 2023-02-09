@@ -92,9 +92,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
             this.mContext = context;
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0433, this);
-            this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091185);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091186);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0435, this);
+            this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091199);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09119a);
             this.ca = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.components.ad.draw.view.DrawDownloadProgressBar.1
                 public static /* synthetic */ Interceptable $ic;

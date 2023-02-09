@@ -227,7 +227,7 @@ public class p85 {
                         aVar.i = null;
                     }
                     int serverErrorCode = this.a.getServerErrorCode();
-                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.h) || k89.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
+                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.h) || o99.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
                         return;
                     }
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);

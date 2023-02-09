@@ -178,14 +178,14 @@ public class CouponListView extends FrameLayout {
                     this.b.g.notifyDataSetChanged();
                     this.b.f.d(true, this.a);
                 } else if (i == 1) {
-                    View inflate = View.inflate(this.b.getContext(), R.layout.obfuscated_res_0x7f0d0211, null);
+                    View inflate = View.inflate(this.b.getContext(), R.layout.obfuscated_res_0x7f0d0212, null);
                     PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b0d)).setText(aVar.b);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b08)).setOnClickListener(new a(this, popupWindow));
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b48)).setText(aVar.b);
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b43)).setOnClickListener(new a(this, popupWindow));
                     popupWindow.A(new b(this));
                     popupWindow.D(this.b, 0, 0, 0);
                 } else {
-                    Toast.makeText(this.b.getContext(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f048a), 0).show();
+                    Toast.makeText(this.b.getContext(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f048d), 0).show();
                 }
             }
         }
@@ -601,11 +601,11 @@ public class CouponListView extends FrameLayout {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01fd, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01fe, (ViewGroup) this, true);
             this.c = (PolyFrameLayout) findViewById(R.id.root_layout);
-            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09074e);
-            this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f09074f);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090311);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090759);
+            this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f09075a);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090319);
             this.a = findViewById;
             findViewById.setOnClickListener(new b(this));
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));

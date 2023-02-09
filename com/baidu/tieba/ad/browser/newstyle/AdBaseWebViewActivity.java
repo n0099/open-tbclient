@@ -32,7 +32,7 @@ import com.baidu.tieba.fw4;
 import com.baidu.tieba.fx5;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.lu5;
-import com.baidu.tieba.nr8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.ui;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -246,7 +246,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     return;
                 }
                 this.a.a.f();
@@ -589,7 +589,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
-            return nr8.l(str, getApplicationContext());
+            return rs8.l(str, getApplicationContext());
         }
         return invokeL.booleanValue;
     }

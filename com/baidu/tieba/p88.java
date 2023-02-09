@@ -15,7 +15,7 @@ public class p88 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PayVcodeActivity a;
-    public u19 b;
+    public y29 b;
 
     public p88(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
@@ -35,10 +35,10 @@ public class p88 extends WebChromeClient {
         this.a = payVcodeActivity;
     }
 
-    public void a(u19 u19Var) {
+    public void a(y29 y29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u19Var) == null) {
-            this.b = u19Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, y29Var) == null) {
+            this.b = y29Var;
         }
     }
 
@@ -48,8 +48,8 @@ public class p88 extends WebChromeClient {
         PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            u19 u19Var = this.b;
-            if ((u19Var != null && u19Var.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !ih.f(payVcodeActivity.getPageContext())) {
+            y29 y29Var = this.b;
+            if ((y29Var != null && y29Var.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !ih.f(payVcodeActivity.getPageContext())) {
                 return true;
             }
             return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);

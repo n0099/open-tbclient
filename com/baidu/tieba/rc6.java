@@ -31,7 +31,7 @@ public class rc6 extends mc6<fi6> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018c : invokeV.intValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -91,17 +91,17 @@ public class rc6 extends mc6<fi6> {
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090521);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090522);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090523);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090524);
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052b);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052c);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052d);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052e);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052f);
             this.j.setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.l.setOnClickListener(this);
             this.m.setOnClickListener(this);
-            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090856);
-            this.o = view2.findViewById(R.id.obfuscated_res_0x7f090857);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f090864);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f090865);
         }
     }
 

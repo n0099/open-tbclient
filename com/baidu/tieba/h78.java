@@ -90,7 +90,7 @@ public class h78 extends qn<q78, InterestedForumStyleAMoreViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0407, viewGroup, false));
+            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0409, viewGroup, false));
         }
         return (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
     }
@@ -140,7 +140,7 @@ public class h78 extends qn<q78, InterestedForumStyleAMoreViewHolder> {
     public final void w(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, q78 q78Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleAMoreViewHolder, q78Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f09de));
+            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
             if (q78Var.c()) {
                 interestedForumStyleAMoreViewHolder.b.setVisibility(0);
             } else {

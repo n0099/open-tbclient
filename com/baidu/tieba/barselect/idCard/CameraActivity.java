@@ -889,7 +889,7 @@ public class CameraActivity extends BaseActivity {
             j05Var.setCanceledOnTouchOutside(false);
             j05Var.setTitle(R.string.request_permission_default_title);
             j05Var.setMessageId(R.string.request_permission_camera);
-            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a26, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this, activity)).create(getPageContext());
+            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0a30, new e(this, activity)).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(this, activity)).create(getPageContext());
             j05Var.show();
         }
     }
@@ -940,28 +940,28 @@ public class CameraActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d014c);
-            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f0921df);
-            this.f = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090705);
-            CameraView cameraView = (CameraView) findViewById(R.id.obfuscated_res_0x7f0904ac);
+            setContentView(R.layout.obfuscated_res_0x7f0d014d);
+            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f092225);
+            this.f = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090710);
+            CameraView cameraView = (CameraView) findViewById(R.id.obfuscated_res_0x7f0904b7);
             this.h = cameraView;
             cameraView.getCameraControl().i(this.n);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913de);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913f3);
             this.g = imageView;
             imageView.setOnClickListener(this.p);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921de);
-            findViewById(R.id.obfuscated_res_0x7f090238).setOnClickListener(this.o);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f092224);
+            findViewById(R.id.obfuscated_res_0x7f09023c).setOnClickListener(this.o);
             this.m.setOnClickListener(this.q);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09082e);
-            this.f.findViewById(R.id.obfuscated_res_0x7f090700).setOnClickListener(this.v);
-            this.f.findViewById(R.id.obfuscated_res_0x7f0904af).setOnClickListener(this.w);
-            findViewById(R.id.obfuscated_res_0x7f091d79).setOnClickListener(this.x);
-            this.j = (CropView) findViewById(R.id.obfuscated_res_0x7f09077c);
-            this.e = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f09077a);
-            this.k = (FrameOverlayView) findViewById(R.id.obfuscated_res_0x7f091870);
-            this.e.findViewById(R.id.obfuscated_res_0x7f090700).setOnClickListener(this.u);
-            this.l = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f09077b);
-            this.e.findViewById(R.id.obfuscated_res_0x7f0904af).setOnClickListener(this.t);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09083c);
+            this.f.findViewById(R.id.obfuscated_res_0x7f09070b).setOnClickListener(this.v);
+            this.f.findViewById(R.id.obfuscated_res_0x7f0904ba).setOnClickListener(this.w);
+            findViewById(R.id.obfuscated_res_0x7f091dbb).setOnClickListener(this.x);
+            this.j = (CropView) findViewById(R.id.obfuscated_res_0x7f090787);
+            this.e = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090785);
+            this.k = (FrameOverlayView) findViewById(R.id.obfuscated_res_0x7f09188a);
+            this.e.findViewById(R.id.obfuscated_res_0x7f09070b).setOnClickListener(this.u);
+            this.l = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f090786);
+            this.e.findViewById(R.id.obfuscated_res_0x7f0904ba).setOnClickListener(this.t);
             T1(getResources().getConfiguration());
             R1();
             this.h.setAutoPictureCallback(this.r);
@@ -975,7 +975,7 @@ public class CameraActivity extends BaseActivity {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             if (i2 != 800) {
                 if (i2 == 801 && (iArr.length <= 0 || iArr[0] != 0)) {
-                    ej.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f12ce);
+                    ej.P(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f12e4);
                 }
             } else if (iArr.length > 0 && iArr[0] == 0) {
                 this.h.getCameraControl().g();

@@ -135,12 +135,12 @@ public class o98 {
         this.i = 0L;
         this.k = false;
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01da, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01db, (ViewGroup) null);
         this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066e);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090670);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090671);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09066f);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090679);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09067b);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09067c);
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09067a);
     }
 
     public void i(c cVar) {
@@ -184,9 +184,9 @@ public class o98 {
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.h = z;
             if (z) {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080426);
+                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08042a);
             } else {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080425);
+                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080429);
             }
             this.d.setVisibility(0);
         }
@@ -229,7 +229,7 @@ public class o98 {
         TextView textView = this.e;
         if (textView != null) {
             textView.setVisibility(0);
-            this.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03fe, StringHelper.numFormatOver10000(j)));
+            this.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03ff, StringHelper.numFormatOver10000(j)));
         }
         TextView textView2 = this.e;
         if (textView2 != null && textView2.getVisibility() == 8) {
@@ -242,7 +242,7 @@ public class o98 {
         if ((interceptable != null && interceptable.invokeL(1048585, this, excellentPbThreadInfo) != null) || excellentPbThreadInfo == null) {
             return;
         }
-        j(R.string.obfuscated_res_0x7f0f03fa);
+        j(R.string.obfuscated_res_0x7f0f03fb);
         l(excellentPbThreadInfo.zan.zansum.longValue());
         o(excellentPbThreadInfo.zan.is_zan.booleanValue());
         this.d.setOnClickListener(new a(this));

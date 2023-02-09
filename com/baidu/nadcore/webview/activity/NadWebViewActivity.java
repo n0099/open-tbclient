@@ -124,7 +124,7 @@ public class NadWebViewActivity extends BaseActivity implements SlideInterceptor
     }
 
     @Override // com.baidu.tieba.u91
-    public void Y0() {
+    public void a1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }

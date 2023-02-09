@@ -56,7 +56,7 @@ public class wp6 extends qn<xp6, ComplaintBarlordViewHolder> {
                 if (this.a.a == 1 || this.a.a == 4) {
                     str = str + "?isNightModel=1";
                 }
-                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f0449), str, true));
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f044b), str, true));
                 customMessage.setTag(this.a.mPageId);
                 MessageManager.getInstance().sendMessage(customMessage);
             }
@@ -92,7 +92,7 @@ public class wp6 extends qn<xp6, ComplaintBarlordViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0402, viewGroup, false));
+            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0404, viewGroup, false));
         }
         return (ComplaintBarlordViewHolder) invokeL.objValue;
     }

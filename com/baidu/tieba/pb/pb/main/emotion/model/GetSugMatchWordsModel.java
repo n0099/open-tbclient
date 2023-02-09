@@ -31,7 +31,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void onFail(String str);
+        void onFail(int i, String str);
 
         void onSuccess(List<String> list);
     }
@@ -87,7 +87,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
                 GetSugMatchWordsModel.c.addAll(getSugMatchWordsResponseMessage.getData());
                 return;
             }
-            this.a.a.onFail(getSugMatchWordsResponseMessage.getErrorString());
+            this.a.a.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
         }
     }
 

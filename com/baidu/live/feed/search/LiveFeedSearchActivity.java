@@ -1215,7 +1215,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this.this$0, 1);
-                    Drawable drawable = ContextCompat.getDrawable(this.this$0.getApplicationContext(), R.drawable.obfuscated_res_0x7f080d87);
+                    Drawable drawable = ContextCompat.getDrawable(this.this$0.getApplicationContext(), R.drawable.obfuscated_res_0x7f080d99);
                     if (drawable != null) {
                         dividerItemDecoration.setDrawable(drawable);
                     }
@@ -1258,7 +1258,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this.this$0, 1);
-                    Drawable drawable = ContextCompat.getDrawable(this.this$0.getApplicationContext(), R.drawable.obfuscated_res_0x7f080d88);
+                    Drawable drawable = ContextCompat.getDrawable(this.this$0.getApplicationContext(), R.drawable.obfuscated_res_0x7f080d9a);
                     if (drawable != null) {
                         dividerItemDecoration.setDrawable(drawable);
                     }
@@ -1745,20 +1745,20 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
             if (Intrinsics.areEqual(str, "day")) {
                 ImageView imageView = this.b;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080d6e);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080d80);
                 }
                 Button button = this.f;
                 if (button != null) {
-                    button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d77);
+                    button.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d89);
                 }
             } else if (Intrinsics.areEqual(str, "night")) {
                 ImageView imageView2 = this.b;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080d6f);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080d81);
                 }
                 Button button2 = this.f;
                 if (button2 != null) {
-                    button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d78);
+                    button2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d8a);
                 }
             }
             View view3 = this.e;
@@ -1944,40 +1944,40 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091462);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091477);
             ((ViewGroup) findViewById).setPadding(0, pc0.e(getApplicationContext()), 0, 0);
             this.a = findViewById;
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091461);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091476);
             imageView.setOnClickListener(new b(this));
             this.b = imageView;
-            this.e = findViewById(R.id.obfuscated_res_0x7f091460);
-            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f09145f);
-            this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09145d);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091465);
-            this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f091ec3);
-            this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09145b);
-            this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09145c);
-            this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091463);
-            this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091488);
-            this.E = findViewById(R.id.obfuscated_res_0x7f091489);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914b6);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091475);
+            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f091474);
+            this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091472);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09147a);
+            this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f091f06);
+            this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091470);
+            this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091471);
+            this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091478);
+            this.D = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09149d);
+            this.E = findViewById(R.id.obfuscated_res_0x7f09149e);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914cb);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "findViewById(R.id.livesh…arch_recommend_more_live)");
             this.F = (LoadRecyclerView) findViewById2;
-            this.o = findViewById(R.id.obfuscated_res_0x7f09147f);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091478);
-            this.q = findViewById(R.id.obfuscated_res_0x7f091475);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f091474);
-            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f091486);
-            this.r = findViewById(R.id.obfuscated_res_0x7f091479);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f091468);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f091466);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f091467);
-            EmptyView emptyView = (EmptyView) findViewById(R.id.obfuscated_res_0x7f091458);
+            this.o = findViewById(R.id.obfuscated_res_0x7f091494);
+            this.p = findViewById(R.id.obfuscated_res_0x7f09148d);
+            this.q = findViewById(R.id.obfuscated_res_0x7f09148a);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f091489);
+            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f09149b);
+            this.r = findViewById(R.id.obfuscated_res_0x7f09148e);
+            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f09147d);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f09147b);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09147c);
+            EmptyView emptyView = (EmptyView) findViewById(R.id.obfuscated_res_0x7f09146d);
             this.z = emptyView;
             if (emptyView != null) {
                 emptyView.a(LiveFeedPageSdk.HOST_LIVE_TAB);
             }
-            ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f091459);
+            ErrorView errorView = (ErrorView) findViewById(R.id.obfuscated_res_0x7f09146e);
             this.y = errorView;
             if (errorView != null) {
                 errorView.c(LiveFeedPageSdk.HOST_LIVE_TAB);
@@ -1986,7 +1986,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
             if (errorView2 != null) {
                 errorView2.setActionCallback(new k(this));
             }
-            LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f09145a);
+            LoadingView loadingView = (LoadingView) findViewById(R.id.obfuscated_res_0x7f09146f);
             this.x = loadingView;
             if (loadingView != null) {
                 loadingView.c(LiveFeedPageSdk.HOST_LIVE_TAB);
@@ -2209,9 +2209,9 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
                     view2 = viewStub.inflate();
                 }
                 this.h = view2;
-                this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09147c);
-                this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09147e);
-                this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09147d);
+                this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091491);
+                this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091493);
+                this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091492);
             } else if (view3 != null) {
                 view3.setVisibility(0);
             }
@@ -2234,7 +2234,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
                     Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
                     ILiveFeedPageInvoke invoker = liveFeedPageSdk.getInvoker();
                     if (invoker != null) {
-                        invoker.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0ab0));
+                        invoker.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0aba));
                     }
                 }
                 qa0.d("sp_key_search_incognito_mode", true);
@@ -2246,7 +2246,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
                 Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk2, "LiveFeedPageSdk.getInstance()");
                 ILiveFeedPageInvoke invoker2 = liveFeedPageSdk2.getInvoker();
                 if (invoker2 != null) {
-                    invoker2.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0ab1));
+                    invoker2.showToast(this, getResources().getString(R.string.obfuscated_res_0x7f0f0abb));
                 }
             }
             qa0.d("sp_key_search_incognito_mode", false);
@@ -2259,7 +2259,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
         if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {
             pc0.h(this, false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0570);
+            setContentView(R.layout.obfuscated_res_0x7f0d0575);
             LiveFeedPageSdk.getInstance().setContext(this);
             if (bundle != null) {
                 finish();
@@ -2327,20 +2327,20 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
             if (Intrinsics.areEqual(str, "day")) {
                 ImageView imageView = this.i;
                 if (imageView != null) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080d75);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080d87);
                 }
                 ImageView imageView2 = this.u;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080d83);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f080d95);
                 }
             } else if (Intrinsics.areEqual(str, "night")) {
                 ImageView imageView3 = this.i;
                 if (imageView3 != null) {
-                    imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080d76);
+                    imageView3.setImageResource(R.drawable.obfuscated_res_0x7f080d88);
                 }
                 ImageView imageView4 = this.u;
                 if (imageView4 != null) {
-                    imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080d84);
+                    imageView4.setImageResource(R.drawable.obfuscated_res_0x7f080d96);
                 }
             }
             TextView textView = this.j;

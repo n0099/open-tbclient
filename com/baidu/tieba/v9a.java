@@ -1,128 +1,400 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.ProtocolException;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okio.BufferedSource;
+import okio.ByteString;
 /* loaded from: classes6.dex */
 public final class v9a {
     public static /* synthetic */ Interceptable $ic;
-    public static final v9a[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
+    public final BufferedSource a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public int f;
+    public long g;
+    public FieldEncoding h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197003, "Lcom/baidu/tieba/v9a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948197003, "Lcom/baidu/tieba/v9a;");
-                return;
-            }
-        }
-        d = new v9a[]{new v9a("", 0, ""), new v9a("", 0, " "), new v9a(" ", 0, " "), new v9a("", 12, ""), new v9a("", 10, " "), new v9a("", 0, " the "), new v9a(" ", 0, ""), new v9a("s ", 0, " "), new v9a("", 0, " of "), new v9a("", 10, ""), new v9a("", 0, " and "), new v9a("", 13, ""), new v9a("", 1, ""), new v9a(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new v9a("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new v9a(" ", 10, " "), new v9a("", 0, " in "), new v9a("", 0, " to "), new v9a("e ", 0, " "), new v9a("", 0, "\""), new v9a("", 0, "."), new v9a("", 0, "\">"), new v9a("", 0, "\n"), new v9a("", 3, ""), new v9a("", 0, PreferencesUtil.RIGHT_MOUNT), new v9a("", 0, " for "), new v9a("", 14, ""), new v9a("", 2, ""), new v9a("", 0, " a "), new v9a("", 0, " that "), new v9a(" ", 10, ""), new v9a("", 0, ". "), new v9a(".", 0, ""), new v9a(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new v9a("", 15, ""), new v9a("", 0, " with "), new v9a("", 0, "'"), new v9a("", 0, " from "), new v9a("", 0, " by "), new v9a("", 16, ""), new v9a("", 17, ""), new v9a(" the ", 0, ""), new v9a("", 4, ""), new v9a("", 0, ". The "), new v9a("", 11, ""), new v9a("", 0, " on "), new v9a("", 0, " as "), new v9a("", 0, " is "), new v9a("", 7, ""), new v9a("", 1, "ing "), new v9a("", 0, "\n\t"), new v9a("", 0, ":"), new v9a(" ", 0, ". "), new v9a("", 0, "ed "), new v9a("", 20, ""), new v9a("", 18, ""), new v9a("", 6, ""), new v9a("", 0, "("), new v9a("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new v9a("", 8, ""), new v9a("", 0, " at "), new v9a("", 0, "ly "), new v9a(" the ", 0, " of "), new v9a("", 5, ""), new v9a("", 9, ""), new v9a(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new v9a("", 10, "\""), new v9a(".", 0, "("), new v9a("", 11, " "), new v9a("", 10, "\">"), new v9a("", 0, "=\""), new v9a(" ", 0, "."), new v9a(".com/", 0, ""), new v9a(" the ", 0, " of the "), new v9a("", 10, "'"), new v9a("", 0, ". This "), new v9a("", 0, ","), new v9a(".", 0, " "), new v9a("", 10, "("), new v9a("", 10, "."), new v9a("", 0, " not "), new v9a(" ", 0, "=\""), new v9a("", 0, "er "), new v9a(" ", 11, " "), new v9a("", 0, "al "), new v9a(" ", 11, ""), new v9a("", 0, "='"), new v9a("", 11, "\""), new v9a("", 10, ". "), new v9a(" ", 0, "("), new v9a("", 0, "ful "), new v9a(" ", 10, ". "), new v9a("", 0, "ive "), new v9a("", 0, "less "), new v9a("", 11, "'"), new v9a("", 0, "est "), new v9a(" ", 10, "."), new v9a("", 11, "\">"), new v9a(" ", 0, "='"), new v9a("", 10, ","), new v9a("", 0, "ize "), new v9a("", 11, "."), new v9a("Â ", 0, ""), new v9a(" ", 0, ","), new v9a("", 10, "=\""), new v9a("", 11, "=\""), new v9a("", 0, "ous "), new v9a("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new v9a("", 10, "='"), new v9a(" ", 10, ","), new v9a(" ", 11, "=\""), new v9a(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new v9a("", 11, ","), new v9a("", 11, "("), new v9a("", 11, ". "), new v9a(" ", 11, "."), new v9a("", 11, "='"), new v9a(" ", 11, ". "), new v9a(" ", 10, "=\""), new v9a(" ", 11, "='"), new v9a(" ", 10, "='")};
-    }
-
-    public v9a(String str, int i, String str2) {
+    public v9a(BufferedSource bufferedSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {bufferedSource};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
+        this.b = 0L;
+        this.c = Long.MAX_VALUE;
+        this.e = 2;
+        this.f = -1;
+        this.g = -1L;
+        this.a = bufferedSource;
     }
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    public final void a(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e == i) {
+                this.e = 6;
+                return;
             }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, v9a v9aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), v9aVar})) == null) {
-            int i4 = i;
-            for (byte b : v9aVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = v9aVar.b;
-            int a = x9a.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - x9a.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
+            long j = this.b;
+            long j2 = this.c;
+            if (j <= j2) {
+                if (j == j2) {
+                    this.c = this.g;
+                    this.g = -1L;
+                    this.e = 6;
+                    return;
                 }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
+                this.e = 7;
+                return;
+            }
+            throw new IOException("Expected to end at " + this.c + " but was " + this.b);
+        }
+    }
+
+    public final long b() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 2) {
+                long j = this.c - this.b;
+                this.a.require(j);
+                this.e = 6;
+                this.b = this.c;
+                this.c = this.g;
+                this.g = -1L;
+                return j;
+            }
+            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.e);
+        }
+        return invokeV.longValue;
+    }
+
+    public int i() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i = this.e;
+            if (i != 5 && i != 2) {
+                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(4L);
+            this.b += 4;
+            int readIntLe = this.a.readIntLe();
+            a(5);
+            return readIntLe;
+        }
+        return invokeV.intValue;
+    }
+
+    public long j() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int i = this.e;
+            if (i != 1 && i != 2) {
+                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(8L);
+            this.b += 8;
+            long readLongLe = this.a.readLongLe();
+            a(1);
+            return readLongLe;
+        }
+        return invokeV.longValue;
+    }
+
+    public long m() throws IOException {
+        InterceptResult invokeV;
+        byte readByte;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            long j = 0;
+            for (int i2 = 0; i2 < 64; i2 += 7) {
+                this.b++;
+                j |= (readByte & ByteCompanionObject.MAX_VALUE) << i2;
+                if ((this.a.readByte() & 128) == 0) {
+                    a(0);
+                    return j;
+                }
+            }
+            throw new ProtocolException("WireInput encountered a malformed varint");
+        }
+        return invokeV.longValue;
+    }
+
+    public long c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == 2) {
+                int i = this.d + 1;
+                this.d = i;
+                if (i <= 65) {
+                    long j = this.g;
+                    this.g = -1L;
+                    this.e = 6;
+                    return j;
+                }
+                throw new IOException("Wire recursion limit exceeded");
+            }
+            throw new IllegalStateException("Unexpected call to beginMessage()");
+        }
+        return invokeV.longValue;
+    }
+
+    public int l() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            int e = e();
+            a(0);
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (this.e == 6) {
+                int i = this.d - 1;
+                this.d = i;
+                if (i >= 0 && this.g == -1) {
+                    if (this.b != this.c && i != 0) {
+                        throw new IOException("Expected to end at " + this.c + " but was " + this.b);
+                    }
+                    this.c = j;
+                    return;
+                }
+                throw new IllegalStateException("No corresponding call to beginMessage()");
+            }
+            throw new IllegalStateException("Unexpected call to endMessage()");
+        }
+    }
+
+    public final void n(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (this.b < this.c && !this.a.exhausted()) {
+                int e = e();
+                if (e != 0) {
+                    int i2 = e >> 3;
+                    int i3 = e & 7;
+                    if (i3 != 0) {
+                        if (i3 != 1) {
+                            if (i3 != 2) {
+                                if (i3 != 3) {
+                                    if (i3 != 4) {
+                                        if (i3 == 5) {
+                                            this.e = 5;
+                                            i();
+                                        } else {
+                                            throw new ProtocolException("Unexpected field encoding: " + i3);
+                                        }
+                                    } else if (i2 == i) {
+                                        return;
+                                    } else {
+                                        throw new ProtocolException("Unexpected end group");
+                                    }
+                                } else {
+                                    n(i2);
+                                }
+                            } else {
+                                long e2 = e();
+                                this.b += e2;
+                                this.a.skip(e2);
+                            }
+                        } else {
+                            this.e = 1;
+                            j();
                         }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
                     } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
+                        this.e = 0;
+                        m();
+                    }
+                } else {
+                    throw new ProtocolException("Unexpected tag 0");
+                }
+            }
+            throw new EOFException();
+        }
+    }
+
+    public final int e() throws IOException {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.b++;
+            byte readByte = this.a.readByte();
+            if (readByte >= 0) {
+                return readByte;
+            }
+            int i2 = readByte & ByteCompanionObject.MAX_VALUE;
+            this.b++;
+            byte readByte2 = this.a.readByte();
+            if (readByte2 >= 0) {
+                i = readByte2 << 7;
+            } else {
+                i2 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+                this.b++;
+                byte readByte3 = this.a.readByte();
+                if (readByte3 >= 0) {
+                    i = readByte3 << 14;
+                } else {
+                    i2 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                    this.b++;
+                    byte readByte4 = this.a.readByte();
+                    if (readByte4 >= 0) {
+                        i = readByte4 << 21;
+                    } else {
+                        int i3 = i2 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                        this.b++;
+                        byte readByte5 = this.a.readByte();
+                        int i4 = i3 | (readByte5 << 28);
+                        if (readByte5 < 0) {
+                            for (int i5 = 0; i5 < 5; i5++) {
+                                this.b++;
+                                if (this.a.readByte() >= 0) {
+                                    return i4;
+                                }
+                            }
+                            throw new ProtocolException("Malformed VARINT");
+                        }
+                        return i4;
                     }
                 }
             }
-            for (byte b3 : v9aVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
+            return i2 | i;
         }
-        return invokeCommon.intValue;
+        return invokeV.intValue;
+    }
+
+    public int f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.e;
+            if (i == 7) {
+                this.e = 2;
+                return this.f;
+            } else if (i == 6) {
+                while (this.b < this.c && !this.a.exhausted()) {
+                    int e = e();
+                    if (e != 0) {
+                        int i2 = e >> 3;
+                        this.f = i2;
+                        int i3 = e & 7;
+                        if (i3 != 0) {
+                            if (i3 != 1) {
+                                if (i3 != 2) {
+                                    if (i3 != 3) {
+                                        if (i3 != 4) {
+                                            if (i3 == 5) {
+                                                this.h = FieldEncoding.FIXED32;
+                                                this.e = 5;
+                                                return i2;
+                                            }
+                                            throw new ProtocolException("Unexpected field encoding: " + i3);
+                                        }
+                                        throw new ProtocolException("Unexpected end group");
+                                    }
+                                    n(i2);
+                                } else {
+                                    this.h = FieldEncoding.LENGTH_DELIMITED;
+                                    this.e = 2;
+                                    int e2 = e();
+                                    if (e2 >= 0) {
+                                        if (this.g == -1) {
+                                            long j = this.c;
+                                            this.g = j;
+                                            long j2 = this.b + e2;
+                                            this.c = j2;
+                                            if (j2 <= j) {
+                                                return this.f;
+                                            }
+                                            throw new EOFException();
+                                        }
+                                        throw new IllegalStateException();
+                                    }
+                                    throw new ProtocolException("Negative length: " + e2);
+                                }
+                            } else {
+                                this.h = FieldEncoding.FIXED64;
+                                this.e = 1;
+                                return i2;
+                            }
+                        } else {
+                            this.h = FieldEncoding.VARINT;
+                            this.e = 0;
+                            return i2;
+                        }
+                    } else {
+                        throw new ProtocolException("Unexpected tag 0");
+                    }
+                }
+                return -1;
+            } else {
+                throw new IllegalStateException("Unexpected call to nextTag()");
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public FieldEncoding g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.h;
+        }
+        return (FieldEncoding) invokeV.objValue;
+    }
+
+    public ByteString h() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a.readByteString(b());
+        }
+        return (ByteString) invokeV.objValue;
+    }
+
+    public String k() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.readUtf8(b());
+        }
+        return (String) invokeV.objValue;
     }
 }

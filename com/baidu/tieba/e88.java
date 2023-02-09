@@ -43,22 +43,22 @@ public class e88 extends b88 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0926dc);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09273d);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = ((ej.j(tbPageContext.getPageActivity()) / 2) + ej.g(tbPageContext.getPageActivity(), R.dimen.tbds239)) - ej.g(tbPageContext.getPageActivity(), R.dimen.tbds140);
         this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c5);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0926d9);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092613);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09273a);
         this.p = viewStub2;
         viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ed);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091839);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ee);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090165);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922ef);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b63);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092334);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091853);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092335);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090167);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092336);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b9e);
     }
 
     @Override // com.baidu.tieba.b88
@@ -124,15 +124,15 @@ public class e88 extends b88 {
             if (i != 1) {
                 if (i != 2) {
                     if (i == 3) {
-                        this.s.setText(R.string.obfuscated_res_0x7f0f0da9);
+                        this.s.setText(R.string.obfuscated_res_0x7f0f0db5);
                         return;
                     }
                     return;
                 }
-                this.s.setText(R.string.obfuscated_res_0x7f0f0da8);
+                this.s.setText(R.string.obfuscated_res_0x7f0f0db4);
                 return;
             }
-            this.s.setText(R.string.obfuscated_res_0x7f0f0da7);
+            this.s.setText(R.string.obfuscated_res_0x7f0f0db3);
         }
     }
 }

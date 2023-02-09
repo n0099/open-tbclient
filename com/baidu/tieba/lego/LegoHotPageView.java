@@ -347,7 +347,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.m) {
                 if (this.a.c != null) {
-                    this.a.c.S();
+                    this.a.c.T();
                 }
                 this.a.h.g();
             }

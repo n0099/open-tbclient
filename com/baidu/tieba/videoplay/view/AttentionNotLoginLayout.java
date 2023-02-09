@@ -65,7 +65,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, v) == null) {
             Intrinsics.checkNotNullParameter(v, "v");
-            if (v.getId() == R.id.obfuscated_res_0x7f0902dc) {
+            if (v.getId() == R.id.obfuscated_res_0x7f0902e3) {
                 boolean checkUpIsLogin = ViewHelper.checkUpIsLogin(getContext());
                 if (!checkUpIsLogin) {
                     TbSingleton.loginFrom = 1;
@@ -127,21 +127,21 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0126, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0127, (ViewGroup) this, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context).inflate(R.…login_layout, this, true)");
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902d9);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0902df);
             if (findViewById != null) {
                 this.b = (ImageView) findViewById;
-                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902de);
+                View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f0902e5);
                 if (findViewById2 != null) {
                     this.a = (TextView) findViewById2;
-                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902dc);
+                    View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902e3);
                     if (findViewById3 != null) {
                         this.c = (TBSpecificationBtn) findViewById3;
                         m45 m45Var = new m45();
                         TBSpecificationBtn tBSpecificationBtn = this.c;
                         if (tBSpecificationBtn != null) {
-                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f040f));
+                            tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f0410));
                         }
                         TBSpecificationBtn tBSpecificationBtn2 = this.c;
                         if (tBSpecificationBtn2 != null) {

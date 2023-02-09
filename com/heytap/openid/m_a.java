@@ -18,7 +18,7 @@ public interface m_a extends IInterface {
     @Keep
     /* renamed from: com.heytap.openid.m_a$m_a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static abstract class AbstractBinderC0542m_a extends Binder implements m_a {
+    public static abstract class AbstractBinderC0543m_a extends Binder implements m_a {
         public static /* synthetic */ Interceptable $ic;
         @Keep
         public static final String m_a;
@@ -27,13 +27,13 @@ public interface m_a extends IInterface {
         @Keep
         /* renamed from: com.heytap.openid.m_a$m_a$m_a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0543m_a implements m_a {
+        public static class C0544m_a implements m_a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             @Keep
             public IBinder m_a;
 
-            public C0543m_a(IBinder iBinder) {
+            public C0544m_a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

@@ -58,6 +58,7 @@ import com.baidu.tbadk.editortools.sendtool.SendNoLaunchView;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b49;
 import com.baidu.tieba.cq7;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.e75;
@@ -90,7 +91,6 @@ import com.baidu.tieba.vq7;
 import com.baidu.tieba.w9;
 import com.baidu.tieba.wb5;
 import com.baidu.tieba.wq7;
-import com.baidu.tieba.x29;
 import com.baidu.tieba.xb5;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.xq7;
@@ -235,12 +235,12 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
 
         /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputTool.GroupInputViewController$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0317b implements oo5<Object> {
+        public class C0319b implements oo5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0317b(b bVar) {
+            public C0319b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -300,7 +300,7 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
             ImageFileInfo imageFileInfo;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (imageFileInfo = this.a) != null && imageFileInfo.getFilePath() != null) {
-                op5.b(new a(this), new C0317b(this));
+                op5.b(new a(this), new C0319b(this));
             }
         }
     }
@@ -1885,7 +1885,7 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
         return (ToolState) invokeV.objValue;
     }
 
-    public x29 i0() {
+    public b49 i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
@@ -1895,7 +1895,7 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
             }
             return null;
         }
-        return (x29) invokeV.objValue;
+        return (b49) invokeV.objValue;
     }
 
     public xq7 j0() {
@@ -2593,7 +2593,7 @@ public class GroupInputViewController implements VoiceManager.j, LifecycleObserv
                     if (!TextUtils.isEmpty(skillDTO2.getExp())) {
                         M0(skillDTO2.getExp());
                     } else if (z2) {
-                        M0(this.h.getString(R.string.obfuscated_res_0x7f0f088c));
+                        M0(this.h.getString(R.string.obfuscated_res_0x7f0f0895));
                     }
                     Y0(1, !TextUtils.isEmpty(this.f));
                     P0(false);

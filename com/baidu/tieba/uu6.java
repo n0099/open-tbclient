@@ -63,23 +63,23 @@ public class uu6 extends qn<wu6, CardViewHolder<ru6>> {
         public void a(View view2, wu6 wu6Var) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, wu6Var) == null) && view2 != null && wu6Var != null) {
-                if ((view2.getId() == R.id.video_container || view2.getId() == R.id.obfuscated_res_0x7f092613 || view2.getId() == R.id.obfuscated_res_0x7f09162e) && view2.getTag() != null && (view2.getTag() instanceof ru6)) {
+                if ((view2.getId() == R.id.video_container || view2.getId() == R.id.obfuscated_res_0x7f092663 || view2.getId() == R.id.obfuscated_res_0x7f091644) && view2.getTag() != null && (view2.getTag() instanceof ru6)) {
                     ru6 ru6Var = (ru6) view2.getTag();
-                    if (this.b.b != null && this.b.b != ru6Var && (view2.getId() == R.id.video_container || view2.getId() == R.id.obfuscated_res_0x7f09162e)) {
+                    if (this.b.b != null && this.b.b != ru6Var && (view2.getId() == R.id.video_container || view2.getId() == R.id.obfuscated_res_0x7f091644)) {
                         this.b.b.P();
                     }
                     if (this.b.b != ru6Var) {
                         this.b.b = ru6Var;
                     }
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f092314) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09235b) {
                     StatisticItem statisticItem = new StatisticItem("c12411");
                     statisticItem.param("fid", wu6Var.a);
                     if (TbadkCoreApplication.isLogin()) {
                         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
                     }
                     TiebaStatic.log(statisticItem);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09015c) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f09015e) {
                     StatisticItem statisticItem2 = new StatisticItem("c12414");
                     statisticItem2.param("fid", wu6Var.a);
                     if (TbadkCoreApplication.isLogin()) {
@@ -87,8 +87,8 @@ public class uu6 extends qn<wu6, CardViewHolder<ru6>> {
                     }
                     TiebaStatic.log(statisticItem2);
                 } else if (view2.getId() != R.id.thread_info_commont_container && view2.getId() != R.id.card_root_view) {
-                    if (view2.getId() != R.id.obfuscated_res_0x7f0925ac && view2.getId() != R.id.user_name) {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f0902d4) {
+                    if (view2.getId() != R.id.obfuscated_res_0x7f0925f9 && view2.getId() != R.id.user_name) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f0902da) {
                             StatisticItem statisticItem3 = new StatisticItem("c12413");
                             statisticItem3.param("fid", wu6Var.a);
                             if (TbadkCoreApplication.isLogin()) {
@@ -96,7 +96,7 @@ public class uu6 extends qn<wu6, CardViewHolder<ru6>> {
                             }
                             TiebaStatic.log(statisticItem3);
                             return;
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f09162e) {
+                        } else if (view2.getId() == R.id.obfuscated_res_0x7f091644) {
                             StatisticItem statisticItem4 = new StatisticItem("c12416");
                             statisticItem4.param("fid", wu6Var.a);
                             if (TbadkCoreApplication.isLogin()) {

@@ -1,112 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumHttpResMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumReqMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumSocketResMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class au8 {
+public class au8 implements dt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public bu8 c;
-    public b d;
-    public wb e;
+    public final bx5 a;
+    public Map<String, AdvertAppInfo> b;
+    public yt8 c;
+    public int d;
+    public final Set<String> e;
+    public boolean f;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(bu8 bu8Var);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends wb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ au8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(au8 au8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {au8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = au8Var;
-        }
-
-        @Override // com.baidu.tieba.wb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            bu8 bu8Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
-                bu8Var = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
-            } else if (responsedMessage instanceof ForbiddenForumSocketResMsg) {
-                bu8Var = ((ForbiddenForumSocketResMsg) responsedMessage).getPageData();
-            } else {
-                bu8Var = null;
-            }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (bu8Var == null || ListUtils.isEmpty(bu8Var.a))) {
-                    if (this.a.d != null) {
-                        this.a.d.a(null);
-                    }
-                } else if (bu8Var != null) {
-                    this.a.c.a.addAll(bu8Var.a);
-                    if (!ListUtils.isEmpty(bu8Var.a)) {
-                        this.a.c.b = bu8Var.b;
-                        au8.c(this.a);
-                    } else {
-                        this.a.c.b = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(bu8Var);
-                    }
-                }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public au8(BdUniqueId bdUniqueId) {
+    public au8(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -116,83 +45,154 @@ public class au8 {
                 return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        i();
-        h();
-        this.c = new bu8();
+        this.e = new LinkedHashSet();
+        this.f = false;
+        bx5 bx5Var = new bx5(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
+        this.a = bx5Var;
+        bx5Var.e(false);
+        this.b = new HashMap();
+        this.d = lu5.a().c();
     }
 
-    public static /* synthetic */ int c(au8 au8Var) {
-        int i = au8Var.b;
-        au8Var.b = i + 1;
-        return i;
-    }
-
-    public void k(b bVar) {
+    @Override // com.baidu.tieba.dt8
+    public View b(@NonNull String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            this.f = z;
+            return this.c.b(this.b.get(str), z);
+        }
+        return (View) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, advertAppInfo) == null) {
+            this.b.put(str, advertAppInfo);
         }
     }
 
-    public void f(String str) {
-        bu8 bu8Var;
-        String str2;
+    @Override // com.baidu.tieba.dt8
+    public AdvertAppInfo d(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bu8Var = this.c) != null && !ListUtils.isEmpty(bu8Var.a)) {
-            for (zt8 zt8Var : this.c.a) {
-                if (zt8Var != null && (str2 = zt8Var.c) != null && str2.equals(str)) {
-                    this.c.a.remove(zt8Var);
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.get(str);
+        }
+        return (AdvertAppInfo) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public boolean f(@NonNull String str) {
+        InterceptResult invokeL;
+        AdvertAppInfo advertAppInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || (advertAppInfo = this.b.get(str)) == null || ur8.l(advertAppInfo)) {
+                return false;
             }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public void g(@NonNull wn5 wn5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wn5Var) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("forum_id", wn5Var.c);
+            hashMap.put("forum_name", wn5Var.d);
+            this.a.d(this.d, hashMap);
         }
     }
 
-    public bu8 g() {
+    @Override // com.baidu.tieba.dt8
+    public void k(@NonNull AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo) == null) {
+            du8.h(advertAppInfo, 0, 2);
+        }
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.c.f(this.b.get(str));
+        }
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public int getAdCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = 0;
+            if (this.b.isEmpty()) {
+                return 0;
+            }
+            for (AdvertAppInfo advertAppInfo : this.b.values()) {
+                if (!ur8.l(advertAppInfo)) {
+                    i++;
+                }
+            }
+            return i;
         }
-        return (bu8) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void i() {
+    @Override // com.baidu.tieba.dt8
+    public void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ol5 ol5Var = new ol5(309692);
-            ol5Var.setResponsedClass(ForbiddenForumSocketResMsg.class);
-            ol5Var.g(true);
-            ol5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ol5Var);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
-            forbiddenForumReqMsg.pageSize = 20;
-            forbiddenForumReqMsg.pageNum = this.b;
-            forbiddenForumReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
+        if (interceptable == null || interceptable.invokeLLZ(1048582, this, tbPageContext, hVar, z) == null) {
+            this.c = new yt8(tbPageContext, z, hVar);
         }
     }
 
-    public final void h() {
+    @Override // com.baidu.tieba.dt8
+    public void j(@NonNull String str) {
+        AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, o09.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (advertAppInfo = this.b.get(str)) == null) {
+            return;
+        }
+        du8.o(advertAppInfo);
+        hv7.b(hv7.a(advertAppInfo));
+        boolean add = this.e.add(str);
+        if (!this.f && add) {
+            this.c.d();
+        } else {
+            this.c.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return !this.b.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dt8
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.c.e();
+            this.a.b();
+            this.e.clear();
         }
     }
 }

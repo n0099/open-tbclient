@@ -18,7 +18,7 @@ import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 import com.baidu.tbadk.newFriends.ResponseUnreadPointNum;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.jt8;
+import com.baidu.tieba.nu8;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.pf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -598,30 +598,30 @@ public class PersonRedTipManager {
         if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             SparseArray sparseArray = new SparseArray();
             if (this.mIsNewAddressList) {
-                sparseArray.append(4, new jt8.a(this.mShowFriendTip, this.maddressListNewCount));
+                sparseArray.append(4, new nu8.a(this.mShowFriendTip, this.maddressListNewCount));
             }
             if (this.mIsShowFansNewMsg) {
-                sparseArray.append(2, new jt8.a(this.mShowFanTip, this.mFans));
+                sparseArray.append(2, new nu8.a(this.mShowFanTip, this.mFans));
             }
             if (this.mIsShowGiftsNewMsg) {
-                sparseArray.append(1, new jt8.a(this.mShowGifTip, this.mGift));
+                sparseArray.append(1, new nu8.a(this.mShowGifTip, this.mGift));
             }
             if (this.mIsShowBookmarkNewMsg) {
-                sparseArray.append(3, new jt8.a(this.mShowBookTip, this.mBookMarks));
+                sparseArray.append(3, new nu8.a(this.mShowBookTip, this.mBookMarks));
             }
             if (this.mHasNewVersion) {
-                sparseArray.append(5, new jt8.a(this.mShowSettingTip, 0));
+                sparseArray.append(5, new nu8.a(this.mShowSettingTip, 0));
             }
             if (this.mIsShowMemberCenerNewMsg) {
-                sparseArray.append(7, new jt8.a(this.mShowMemberTip, 0));
+                sparseArray.append(7, new nu8.a(this.mShowMemberTip, 0));
             }
             if (this.mIsShowActivityNewMsg) {
-                sparseArray.append(9, new jt8.a(this.mShowActivityTip, 0));
+                sparseArray.append(9, new nu8.a(this.mShowActivityTip, 0));
             }
             if (this.mIsFeedbackNewMsg) {
-                sparseArray.append(10, new jt8.a(this.mShowFeedbackTip, 0));
+                sparseArray.append(10, new nu8.a(this.mShowFeedbackTip, 0));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new jt8(sparseArray)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new nu8(sparseArray)));
             updateTabTip();
         }
     }
@@ -865,16 +865,16 @@ public class PersonRedTipManager {
             return;
         }
         SparseArray sparseArray = new SparseArray();
-        sparseArray.append(4, new jt8.a(this.mShowFriendTip, this.maddressListNewCount));
-        sparseArray.append(2, new jt8.a(this.mShowFanTip, this.mFans));
-        sparseArray.append(1, new jt8.a(this.mShowGifTip, this.mGift));
-        sparseArray.append(3, new jt8.a(this.mShowBookTip, this.mBookMarks));
-        sparseArray.append(5, new jt8.a(this.mShowSettingTip, 0));
-        sparseArray.append(7, new jt8.a(this.mShowMemberTip, 0));
-        sparseArray.append(9, new jt8.a(this.mShowActivityTip, 0));
-        sparseArray.append(10, new jt8.a(this.mShowFeedbackTip, 0));
-        sparseArray.append(11, new jt8.a(this.mShowNewGodInvitedTip, 0));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new jt8(sparseArray)));
+        sparseArray.append(4, new nu8.a(this.mShowFriendTip, this.maddressListNewCount));
+        sparseArray.append(2, new nu8.a(this.mShowFanTip, this.mFans));
+        sparseArray.append(1, new nu8.a(this.mShowGifTip, this.mGift));
+        sparseArray.append(3, new nu8.a(this.mShowBookTip, this.mBookMarks));
+        sparseArray.append(5, new nu8.a(this.mShowSettingTip, 0));
+        sparseArray.append(7, new nu8.a(this.mShowMemberTip, 0));
+        sparseArray.append(9, new nu8.a(this.mShowActivityTip, 0));
+        sparseArray.append(10, new nu8.a(this.mShowFeedbackTip, 0));
+        sparseArray.append(11, new nu8.a(this.mShowNewGodInvitedTip, 0));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001435, new nu8(sparseArray)));
     }
 
     public void updateRedTipState(int i2, boolean z, boolean z2) {

@@ -74,7 +74,7 @@ public class lb2 implements t53 {
 
         /* renamed from: com.baidu.tieba.lb2$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0329c extends wa2 {
+        public class C0334c extends wa2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -84,16 +84,16 @@ public class lb2 implements t53 {
             public class a extends va2 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0329c e;
+                public final /* synthetic */ C0334c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0329c c0329c, String str, String str2) {
+                public a(C0334c c0334c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0329c, str, str2};
+                        Object[] objArr = {c0334c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class lb2 implements t53 {
                             return;
                         }
                     }
-                    this.e = c0329c;
+                    this.e = c0334c;
                 }
 
                 @Override // com.baidu.tieba.va2
@@ -123,7 +123,7 @@ public class lb2 implements t53 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0329c(c cVar, Context context) {
+            public C0334c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -282,7 +282,7 @@ public class lb2 implements t53 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return new C0329c(this, AppRuntime.getAppContext());
+                return new C0334c(this, AppRuntime.getAppContext());
             }
             return (sa2) invokeV.objValue;
         }

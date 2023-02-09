@@ -70,10 +70,10 @@ public class d58 implements c58, y35.g {
                 if ((this.a.h == null && this.a.a == null && this.a.b == null) || !BdNetTypeUtil.isNetWorkAvailable()) {
                     return;
                 }
-                this.a.h.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.a.h.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                 this.a.h.E(null);
                 if (this.a.b.hasMore()) {
-                    this.a.h.P();
+                    this.a.h.Q();
                     this.a.b.b();
                 }
             }
@@ -295,7 +295,7 @@ public class d58 implements c58, y35.g {
         NavigationBar navigationBar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (nearbyFriendsActivity = this.a) != null && (navigationBar = this.c) != null) {
-            navigationBar.setCenterTextTitle(nearbyFriendsActivity.getString(R.string.obfuscated_res_0x7f0f0cf0));
+            navigationBar.setCenterTextTitle(nearbyFriendsActivity.getString(R.string.obfuscated_res_0x7f0f0cfa));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -325,9 +325,9 @@ public class d58 implements c58, y35.g {
             return;
         }
         this.c = (NavigationBar) nearbyFriendsActivity.findViewById(R.id.navigation_bar);
-        this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090711);
+        this.d = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09071c);
         this.e = (BdSwipeRefreshLayout) this.a.findViewById(R.id.refresh_layout);
-        this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09175d);
+        this.f = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091776);
         z();
         B();
         A();
@@ -343,16 +343,16 @@ public class d58 implements c58, y35.g {
                 return;
             }
             this.f.setNextPage(this.h);
-            this.h.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.h.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.h.E(null);
             if (this.b.hasMore()) {
                 this.h.s(false);
-                this.h.P();
+                this.h.Q();
                 this.b.b();
                 return;
             }
             this.h.s(true);
-            this.h.F(this.a.getString(R.string.obfuscated_res_0x7f0f0cf5));
+            this.h.F(this.a.getString(R.string.obfuscated_res_0x7f0f0cff));
             this.h.g();
         }
     }

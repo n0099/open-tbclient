@@ -159,7 +159,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
             setNeedRatio(true);
             setAspectRatio(1.25f);
             this.k = context;
-            this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d054c, this).findViewById(R.id.obfuscated_res_0x7f091497);
+            this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0551, this).findViewById(R.id.obfuscated_res_0x7f0914ac);
             j();
         }
     }

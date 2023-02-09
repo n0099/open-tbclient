@@ -42,13 +42,13 @@ public class lx5 {
 
         /* renamed from: com.baidu.tieba.lx5$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0340a extends BdRunnable {
+        public class C0342a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0340a(a aVar, JSONObject jSONObject) {
+            public C0342a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

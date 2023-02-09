@@ -301,7 +301,7 @@ public final class NadRewardLottieDialog extends NadRewardVideoDialog {
             View findViewById = N1().findViewById(R.id.close_img);
             Intrinsics.checkNotNullExpressionValue(findViewById, "dialogContent.findViewById(R.id.close_img)");
             AdImageView adImageView = (AdImageView) findViewById;
-            View findViewById2 = N1().findViewById(R.id.obfuscated_res_0x7f092314);
+            View findViewById2 = N1().findViewById(R.id.obfuscated_res_0x7f09235b);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "dialogContent.findViewById(R.id.title)");
             TextView textView2 = (TextView) findViewById2;
             View findViewById3 = N1().findViewById(R.id.coin_count);

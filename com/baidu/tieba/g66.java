@@ -88,7 +88,7 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fe : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? R.layout.obfuscated_res_0x7f0d0300 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.jd6
@@ -162,11 +162,11 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
         layoutParams.bottomMargin = 0;
         this.y = (LinearLayout) h.findViewById(R.id.video_card_content_layout);
         this.A.setOnClickListener(this);
-        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09261d);
+        TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09266d);
         this.C = tbImageView;
         tbImageView.setDefaultResource(R.drawable.pic_frs_studio_photo);
         this.C.setDefaultBgResource(R.color.transparent);
-        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904e6);
+        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904f1);
         this.v = cardUserInfoLayout;
         cardUserInfoLayout.setUserAfterClickListener(this.U);
         this.B = (TextView) h.findViewById(R.id.text_title);
@@ -202,7 +202,7 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f092226);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09226c);
         this.w = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.w.b.getCommentContainer().setOnClickListener(this);
@@ -219,7 +219,7 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
         z56 z56Var = new z56(tbPageContext, this.v.getSuffixContainer());
         this.T = z56Var;
         z56Var.d(f());
-        this.G = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f092227);
+        this.G = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09226d);
         this.H = (LinearLayout) h.findViewById(R.id.forum_friends_now_looking);
         this.I = (TextView) h.findViewById(R.id.tv_forum_friends_now_looking);
         this.J = (ImageView) h.findViewById(R.id.image_forum_friends_now_looking);
@@ -583,7 +583,7 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
                         String latitude = ((ThreadData) this.k).getLatitude();
                         String longtitude = ((ThreadData) this.k).getLongtitude();
                         if (UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude) && UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                            AppPosInfo c = vs8.e().c();
+                            AppPosInfo c = zt8.e().c();
                             String str2 = c.latitude;
                             String str3 = c.longitude;
                             if (UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3) && ej.h(Double.parseDouble(str2), Double.parseDouble(str3), Double.parseDouble(latitude), Double.parseDouble(longtitude)) <= 50.0d) {

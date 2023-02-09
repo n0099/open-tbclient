@@ -101,7 +101,7 @@ public class p05 implements View.OnClickListener {
         this.h = ej.g(activity, R.dimen.tbds29);
         View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
         this.c = (ViewGroup) inflate.findViewById(R.id.layout_container);
-        this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090318);
+        this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090320);
         this.e = (TextView) inflate.findViewById(R.id.toast_tv);
         this.b = inflate;
         this.d.setBackgroundDrawable(b());
@@ -143,12 +143,12 @@ public class p05 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.a != null && !TextUtils.isEmpty(str)) {
-                String f = rp5.f(str, 34);
-                int w = ej.w(this.e.getPaint(), f);
+                String g = rp5.g(str, 34);
+                int w = ej.w(this.e.getPaint(), g);
                 ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
                 layoutParams.width = w + (this.m * 2);
                 this.c.setLayoutParams(layoutParams);
-                this.e.setText(f);
+                this.e.setText(g);
             }
             return this;
         }

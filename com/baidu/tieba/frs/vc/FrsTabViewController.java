@@ -52,11 +52,11 @@ import com.baidu.tieba.frs.FrsTabViewPager;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.frs.tab.TabData;
 import com.baidu.tieba.h57;
-import com.baidu.tieba.i29;
 import com.baidu.tieba.i37;
-import com.baidu.tieba.i39;
 import com.baidu.tieba.it6;
 import com.baidu.tieba.kt6;
+import com.baidu.tieba.m39;
+import com.baidu.tieba.m49;
 import com.baidu.tieba.mu4;
 import com.baidu.tieba.nv7;
 import com.baidu.tieba.p15;
@@ -532,7 +532,7 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PublishProgressData publishProgressData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !i39.g() && i39.a() != null && this.a.a != null && publishProgressData.isCurrentForum(this.a.a.l()) && this.a.p != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !m49.g() && m49.a() != null && this.a.a != null && publishProgressData.isCurrentForum(this.a.a.l()) && this.a.p != null) {
                 this.a.p.c(publishProgressData);
             }
         }
@@ -675,11 +675,11 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
         this.H = new g(this);
         this.a = frsFragment;
         this.A.a(view2, onClickListener);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c93);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090c8e);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090862);
-        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090c91);
-        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c90);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ca4);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090c9f);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090870);
+        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090ca2);
+        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ca1);
         this.e = tbTabLayout;
         tbTabLayout.setOnTabSelectedListener(this);
         this.e.setSelectedTabTextBlod(true);
@@ -692,13 +692,13 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
         this.s.Q(C(R.dimen.tbds34));
         this.s.R(C(R.dimen.tbds10));
         this.s.m(this.H);
-        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090ca9);
+        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090cba);
         this.l = new FragmentAdapter(this, this.a.getActivity().getSupportFragmentManager(), null);
         this.f.addOnPageChangeListener(this.C);
         RelativeLayout relativeLayout = new RelativeLayout(this.a.getContext());
         this.g = relativeLayout;
         this.n = new yw6(frsFragment, relativeLayout);
-        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091bc1);
+        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091c00);
         this.p = publishProgressView;
         publishProgressView.setVisibility(8);
     }
@@ -894,7 +894,7 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
     public void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.s.T(this.a.getString(R.string.obfuscated_res_0x7f0f0411), "key_show_frs_tab_click_to_refresh_tip");
+            this.s.T(this.a.getString(R.string.obfuscated_res_0x7f0f0412), "key_show_frs_tab_click_to_refresh_tip");
         }
     }
 
@@ -1494,8 +1494,8 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
                     if (P()) {
                         FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(x, 0);
                         FrsFragment frsFragment = this.a;
-                        if (frsFragment != null && frsFragment.Q0() != null && frsTabInfo != null) {
-                            this.a.Q0().V0(frsTabInfo.tab_id.intValue());
+                        if (frsFragment != null && frsFragment.P0() != null && frsTabInfo != null) {
+                            this.a.P0().V0(frsTabInfo.tab_id.intValue());
                         }
                     } else {
                         FrsFragment frsFragment2 = this.a;
@@ -1508,7 +1508,7 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
                                 if (this.n != null && frsViewData.getForum() != null) {
                                     this.n.j(x);
                                     this.n.k(frsViewData.getForum().getId());
-                                    this.n.g(this.a.Q0().b0());
+                                    this.n.g(this.a.P0().b0());
                                     if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
                                         this.n.g(FrsTabTestHelper.getFrsNewAreaTabSort());
                                     }
@@ -1773,9 +1773,9 @@ public class FrsTabViewController implements h57, TbTabLayout.c {
                                             if (next.tab_type == frsTabInfo.tab_type) {
                                                 p47.i("503~" + str + str2, next.tab_id.intValue());
                                                 if (7 == h2) {
-                                                    i29.b();
+                                                    m39.b();
                                                 } else {
-                                                    i29.a();
+                                                    m39.a();
                                                 }
                                             }
                                         }

@@ -26,8 +26,8 @@ import com.baidu.tieba.da;
 import com.baidu.tieba.dh5;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.n39;
 import com.baidu.tieba.p15;
+import com.baidu.tieba.r49;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -198,7 +198,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, n39.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, r49.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);
@@ -533,10 +533,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.voice_image_content);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ad7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091aca);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b12);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b03);
             this.f = (AudioAnimationView) findViewById(R.id.audioAnimationView);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091b9a);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091bd5);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);

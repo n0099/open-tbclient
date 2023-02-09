@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.RemoveFansController;
 import com.baidu.tieba.hp6;
-import com.baidu.tieba.jd9;
+import com.baidu.tieba.ne9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,8 +18,8 @@ public class ip6 {
     public TbPageContext a;
     public RemoveFansController b;
     public hp6 c;
-    public oh8 d;
-    public jd9 e;
+    public si8 d;
+    public ne9 e;
     public e f;
 
     /* loaded from: classes5.dex */
@@ -96,7 +96,7 @@ public class ip6 {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements jd9.d {
+    public class c implements ne9.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ip6 a;
@@ -119,7 +119,7 @@ public class ip6 {
             this.a = ip6Var;
         }
 
-        @Override // com.baidu.tieba.jd9.d
+        @Override // com.baidu.tieba.ne9.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -133,7 +133,7 @@ public class ip6 {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements jd9.c {
+    public class d implements ne9.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ip6 a;
@@ -156,7 +156,7 @@ public class ip6 {
             this.a = ip6Var;
         }
 
-        @Override // com.baidu.tieba.jd9.c
+        @Override // com.baidu.tieba.ne9.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.d == null) {
@@ -205,10 +205,10 @@ public class ip6 {
     }
 
     public void d() {
-        jd9 jd9Var;
+        ne9 ne9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (jd9Var = this.e) != null) {
-            jd9Var.e();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ne9Var = this.e) != null) {
+            ne9Var.e();
         }
     }
 
@@ -223,18 +223,18 @@ public class ip6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.d == null) {
-                jd9 jd9Var = new jd9(this.a.getContext());
-                this.e = jd9Var;
-                jd9Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f045f));
+                ne9 ne9Var = new ne9(this.a.getContext());
+                this.e = ne9Var;
+                ne9Var.h(this.a.getString(R.string.obfuscated_res_0x7f0f0461));
                 ArrayList arrayList = new ArrayList();
-                jd9.b bVar = new jd9.b(this.a.getString(R.string.obfuscated_res_0x7f0f0459), this.e);
+                ne9.b bVar = new ne9.b(this.a.getString(R.string.obfuscated_res_0x7f0f045b), this.e);
                 bVar.h(new c(this));
                 arrayList.add(bVar);
                 this.e.g(new d(this));
                 this.e.f(arrayList);
-                oh8 oh8Var = new oh8(this.a.getPageActivity(), this.e.b());
-                this.d = oh8Var;
-                oh8Var.a(0.7f);
+                si8 si8Var = new si8(this.a.getPageActivity(), this.e.b());
+                this.d = si8Var;
+                si8Var.a(0.7f);
             }
             this.d.show();
         }

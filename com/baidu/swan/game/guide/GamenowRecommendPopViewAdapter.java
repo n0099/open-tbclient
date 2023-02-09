@@ -52,7 +52,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908ae);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0908bc);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -97,7 +97,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ab, viewGroup, false));
+            a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ac, viewGroup, false));
             aVar.itemView.setOnClickListener(this);
             return aVar;
         }

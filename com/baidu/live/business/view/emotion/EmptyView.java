@@ -84,11 +84,11 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0552, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0557, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09092c);
-        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09092e);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09093a);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f09093c);
     }
 
     public void a(String str) {
@@ -100,9 +100,9 @@ public class EmptyView extends LinearLayout {
             this.a.setLayoutParams(layoutParams);
             setImageResource(fd0.f().b(str));
             if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a9d);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0aa7);
             } else {
-                this.b.setText(R.string.obfuscated_res_0x7f0f0a9c);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0aa6);
             }
             this.b.setTextColor(fd0.f().a(getContext(), str, "color_8585852"));
         }

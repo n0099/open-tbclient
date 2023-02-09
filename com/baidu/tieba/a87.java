@@ -30,7 +30,7 @@ public class a87 {
             if (i != 1) {
                 k = null;
             } else {
-                k = gz8.k("c13692", threadData, 3);
+                k = k09.k("c13692", threadData, 3);
             }
             TiebaStatic.log(k);
         }

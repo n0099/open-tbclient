@@ -115,7 +115,7 @@ public class g78 extends qn<p78, InterestedForumStyleAForumViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new InterestedForumStyleAForumViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0406, viewGroup, false));
+            return new InterestedForumStyleAForumViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0408, viewGroup, false));
         }
         return (InterestedForumStyleAForumViewHolder) invokeL.objValue;
     }
@@ -188,13 +188,13 @@ public class g78 extends qn<p78, InterestedForumStyleAForumViewHolder> {
             interestedForumStyleAForumViewHolder.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             interestedForumStyleAForumViewHolder.b.setPlaceHolder(1);
             interestedForumStyleAForumViewHolder.b.K(p78Var.a(), 10, false);
-            interestedForumStyleAForumViewHolder.c.setText(p78Var.f() + this.mContext.getString(R.string.obfuscated_res_0x7f0f06ad));
+            interestedForumStyleAForumViewHolder.c.setText(p78Var.f() + this.mContext.getString(R.string.obfuscated_res_0x7f0f06b6));
             if (!StringUtils.isNull(p78Var.h())) {
-                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09db, p78Var.h()));
+                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09e5, p78Var.h()));
             } else {
-                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09df));
+                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09e9));
             }
-            interestedForumStyleAForumViewHolder.e.setText(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f044c), StringHelper.numberUniformFormatExtraWithRoundInt(p78Var.g())));
+            interestedForumStyleAForumViewHolder.e.setText(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtraWithRoundInt(p78Var.g())));
             interestedForumStyleAForumViewHolder.f.setText(String.format(this.mContext.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(p78Var.i())));
             B(interestedForumStyleAForumViewHolder.h, p78Var.k());
         }

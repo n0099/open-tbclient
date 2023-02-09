@@ -53,14 +53,14 @@ public class c78 implements Object<List<EmotionPackageData>> {
         }
         this.i = false;
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ea, (ViewGroup) null, false);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ec, (ViewGroup) null, false);
         this.e = inflate;
         NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         this.j = noNetworkView;
         noNetworkView.a(this);
-        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091ff8);
-        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f09091e);
-        this.d = new y68(this.e.findViewById(R.id.obfuscated_res_0x7f09091d), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0586));
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09203c);
+        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f09092c);
+        this.d = new y68(this.e.findViewById(R.id.obfuscated_res_0x7f09092b), tbPageContext.getString(R.string.obfuscated_res_0x7f0f058d));
         this.b.setDivider(null);
         this.b.setOverScrollMode(2);
         this.b.setVerticalScrollBarEnabled(false);
@@ -167,7 +167,7 @@ public class c78 implements Object<List<EmotionPackageData>> {
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a != null && this.g != null) {
             e();
             this.g.setVisibility(0);
-            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070237)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0588)), null, true);
+            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070237)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f058f)), null, true);
             this.h = b;
             b.setVisibility(0);
             this.h.d(this.a);

@@ -257,7 +257,7 @@ public class CoinClickDialog extends Activity {
                     this.a.finish();
                 }
                 if (i == -2 && TextUtils.equals(vy3.o.I(), az3.a)) {
-                    ((CheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f0905bf)).setChecked(false);
+                    ((CheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f0905ca)).setChecked(false);
                 }
             }
         }
@@ -303,13 +303,13 @@ public class CoinClickDialog extends Activity {
     public final void h(GameGuideConfigInfo gameGuideConfigInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, gameGuideConfigInfo) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092484);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092485);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ac);
-            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ad);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090496);
-            ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090676);
-            ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09239b)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ce);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924cf);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f6);
+            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f7);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904a1);
+            ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090681);
+            ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0923e5)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
             if (this.a) {
                 textView.setText(gameGuideConfigInfo.dialogInfo.maxNumsTips);
             } else {
@@ -337,7 +337,7 @@ public class CoinClickDialog extends Activity {
             }
             textView3.setText(str3);
             textView4.setText(gameGuideConfigInfo.dialogInfo.guideTips2);
-            findViewById(R.id.obfuscated_res_0x7f0910db).setOnClickListener(new a(this, (CheckBox) findViewById(R.id.obfuscated_res_0x7f0905bf)));
+            findViewById(R.id.obfuscated_res_0x7f0910ee).setOnClickListener(new a(this, (CheckBox) findViewById(R.id.obfuscated_res_0x7f0905ca)));
             constraintLayout.setOnClickListener(new b(this));
             this.e = new c(this);
             GamenowDownloadButtomView j = gz3.n().j(this.e, "wdview", "0", this.b, this.c);
@@ -352,7 +352,7 @@ public class CoinClickDialog extends Activity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             fl3.e(this);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d009a);
+            setContentView(R.layout.obfuscated_res_0x7f0d009b);
             if (w83.b0() != null && fm3.p(w83.b0().w())) {
                 fm3.s(this);
             }

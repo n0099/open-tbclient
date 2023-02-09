@@ -309,28 +309,28 @@ public class ay5 extends BaseAdapter {
                 if (view2 != 0 && view2.getTag() != null && (view2.getTag() instanceof d)) {
                     dVar3 = (d) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007e, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007f, (ViewGroup) null);
                     dVar3 = new d(this, null);
-                    dVar3.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090137);
-                    dVar3.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090139);
-                    dVar3.c = view2.findViewById(R.id.obfuscated_res_0x7f090136);
+                    dVar3.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090139);
+                    dVar3.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013b);
+                    dVar3.c = view2.findViewById(R.id.obfuscated_res_0x7f090138);
                     view2.setTag(dVar3);
                 }
                 SkinManager.setImageResource(dVar3.a, R.drawable.icon_new_friend);
                 SkinManager.setViewTextColor(dVar3.b, this.d, 1);
                 SkinManager.setBackgroundResource(dVar3.c, R.color.CAM_X0204);
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-                c((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090138), this.c);
+                c((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013a), this.c);
                 return view2;
             } else if (getItemViewType(i) == 5) {
                 if (view2 != 0 && view2.getTag() != null && (view2.getTag() instanceof d)) {
                     dVar2 = (d) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007e, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007f, (ViewGroup) null);
                     dVar2 = new d(this, null);
-                    dVar2.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090137);
-                    dVar2.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090139);
-                    dVar2.c = view2.findViewById(R.id.obfuscated_res_0x7f090136);
+                    dVar2.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090139);
+                    dVar2.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013b);
+                    dVar2.c = view2.findViewById(R.id.obfuscated_res_0x7f090138);
                     view2.setTag(dVar2);
                 }
                 SkinManager.setImageResource(dVar2.a, R.drawable.icon_add_friend);
@@ -338,16 +338,16 @@ public class ay5 extends BaseAdapter {
                 dVar2.b.setText(this.a.getResources().getString(R.string.find_new_friend));
                 SkinManager.setBackgroundResource(dVar2.c, R.color.CAM_X0204);
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090138)).setVisibility(8);
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09013a)).setVisibility(8);
                 return view2;
             } else if (getItemViewType(i) == 1) {
                 if (view2 != 0 && view2.getTag() != null && (view2.getTag() instanceof d)) {
                     dVar = (d) view2.getTag();
                 } else {
-                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007d, (ViewGroup) null);
+                    view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007e, (ViewGroup) null);
                     dVar = new d(this, null);
-                    dVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090134);
-                    dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090135);
+                    dVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090136);
+                    dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090137);
                     view2.setTag(dVar);
                 }
                 SkinManager.setImageResource(dVar.a, R.drawable.icon_me_group);
@@ -360,10 +360,10 @@ public class ay5 extends BaseAdapter {
                     if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof c)) {
                         cVar = (c) view2.getTag();
                     } else {
-                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007c, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007d, (ViewGroup) null);
                         cVar = new c(this, null);
-                        cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090133);
-                        cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090132);
+                        cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090135);
+                        cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090134);
                         view2.setTag(cVar);
                     }
                     if (item.a() != null) {
@@ -379,12 +379,12 @@ public class ay5 extends BaseAdapter {
                         bVar = (b) view2.getTag();
                     } else {
                         bVar = new b(this, null);
-                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007a, (ViewGroup) null);
-                        bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09012f);
-                        bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090130);
-                        bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907f2);
-                        bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907f3);
-                        bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09012e);
+                        view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d007b, (ViewGroup) null);
+                        bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090131);
+                        bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090132);
+                        bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907ff);
+                        bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090800);
+                        bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f090130);
                         view2.setTag(bVar);
                     }
                     if (item.e() != null) {

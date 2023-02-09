@@ -48,7 +48,7 @@ public final class Pinger {
             }
         }
         INSTANCE = new Pinger();
-        pingHandler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.gz9
+        pingHandler = new Handler(new Handler.Callback() { // from class: com.baidu.tieba.k0a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

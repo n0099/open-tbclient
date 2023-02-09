@@ -149,7 +149,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e4);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e5);
             this.a = new m48(this);
             registerListener(this.b);
             r1();

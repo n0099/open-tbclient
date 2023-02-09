@@ -150,7 +150,7 @@ public class g82 extends c82 {
             V1(view2);
             t2(-1);
             C2(-16777216);
-            v2(G(R.string.obfuscated_res_0x7f0f1324));
+            v2(G(R.string.obfuscated_res_0x7f0f133b));
             x2(true);
             J2(false);
         }
@@ -206,7 +206,7 @@ public class g82 extends c82 {
     public final void X2(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 != null && this.H0 != null) {
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f17);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f28);
             w83 b0 = w83.b0();
             if (b0 != null) {
                 textView.setText(b0.Y().K());
@@ -215,13 +215,13 @@ public class g82 extends c82 {
             if (optJSONObject == null) {
                 return;
             }
-            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f18)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
-            TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f1a);
+            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f29)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
+            TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f2b);
             xh4 g = u43.g(this.H0.optString("pluginProvider"));
             if (g != null) {
                 textView2.setText(g.s);
             }
-            ((Button) view2.findViewById(R.id.obfuscated_res_0x7f090f19)).setOnClickListener(new a(this, optJSONObject));
+            ((Button) view2.findViewById(R.id.obfuscated_res_0x7f090f2a)).setOnClickListener(new a(this, optJSONObject));
         }
     }
 
@@ -230,7 +230,7 @@ public class g82 extends c82 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d083d, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d084f, viewGroup, false);
             U1(inflate);
             X2(inflate);
             if (T1()) {

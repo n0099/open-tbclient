@@ -1,100 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.ThemeColorInfo;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThemeRecommand;
 /* loaded from: classes7.dex */
-public final class z89 {
+public class z89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    public static final int a(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        ThemeElement themeElement;
-        String str;
-        ThemeElement themeElement2;
-        ThemeElement themeElement3;
+    public z89() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            boolean z = true;
-            String str2 = "";
-            if (skinType == 0 ? (themeElement = themeColorInfoInfo.day) != null && (str = themeElement.common_color) != null : skinType == 1 ? (themeElement2 = themeColorInfoInfo.night) != null && (str = themeElement2.common_color) != null : skinType == 4 && (themeElement3 = themeColorInfoInfo.dark) != null && (str = themeElement3.common_color) != null) {
-                str2 = str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (str2.length() <= 0) {
-                z = false;
-            }
-            if (z) {
-                return lz8.f(str2);
-            }
-            return Integer.MAX_VALUE;
         }
-        return invokeL.intValue;
     }
 
-    public static final String b(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        String str;
-        ThemeElement themeElement;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 0) {
-                if (skinType != 1) {
-                    if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (str = themeElement.dark_color) == null) {
-                        return "";
-                    }
-                } else {
-                    ThemeElement themeElement2 = themeColorInfoInfo.night;
-                    if (themeElement2 == null || (str = themeElement2.dark_color) == null) {
-                        return "";
-                    }
-                }
-            } else {
-                ThemeElement themeElement3 = themeColorInfoInfo.day;
-                if (themeElement3 == null || (str = themeElement3.dark_color) == null) {
-                    return "";
-                }
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static final String c(ThemeColorInfo themeColorInfoInfo) {
-        InterceptResult invokeL;
-        String str;
-        ThemeElement themeElement;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, themeColorInfoInfo)) == null) {
-            Intrinsics.checkNotNullParameter(themeColorInfoInfo, "themeColorInfoInfo");
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != 0) {
-                if (skinType != 1) {
-                    if (skinType != 4 || (themeElement = themeColorInfoInfo.dark) == null || (str = themeElement.light_color) == null) {
-                        return "";
-                    }
-                } else {
-                    ThemeElement themeElement2 = themeColorInfoInfo.night;
-                    if (themeElement2 == null || (str = themeElement2.light_color) == null) {
-                        return "";
-                    }
-                }
-            } else {
-                ThemeElement themeElement3 = themeColorInfoInfo.day;
-                if (themeElement3 == null || (str = themeElement3.light_color) == null) {
-                    return "";
-                }
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(ThemeRecommand themeRecommand) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, themeRecommand) != null) || themeRecommand == null) {
+            return;
+        }
+        this.a = themeRecommand.icon;
+        this.b = themeRecommand.tip_text;
+        this.c = themeRecommand.button_text;
+        String str = themeRecommand.button_url;
     }
 }

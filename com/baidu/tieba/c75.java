@@ -210,9 +210,9 @@ public class c75 {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
                 if (optJSONObject2 != null) {
-                    l29.c(optJSONObject2.optInt("chunk_size"));
-                    l29.b(optJSONObject2.optInt("block_size"));
-                    l29.d(optJSONObject2.optInt("data_size"));
+                    p39.c(optJSONObject2.optInt("chunk_size"));
+                    p39.b(optJSONObject2.optInt("block_size"));
+                    p39.d(optJSONObject2.optInt("data_size"));
                 }
                 PerformanceLoggerHelper.getInstance().setSmallFlowInterval(jSONObject.optLong("small_flow_time_out"));
                 JSONArray optJSONArray = jSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH);

@@ -47,8 +47,8 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.f68;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.g09;
 import com.baidu.tieba.j05;
+import com.baidu.tieba.k19;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.lf5;
 import com.baidu.tieba.m68;
@@ -501,7 +501,7 @@ public class NewFaceShopActivity extends BaseActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof g09) || ((g09) customResponsedMessage.getData()).n() != 1) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof k19) || ((k19) customResponsedMessage.getData()).n() != 1) {
                 return;
             }
             this.a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
@@ -664,16 +664,16 @@ public class NewFaceShopActivity extends BaseActivity {
                     this.c.showToast(this.a.getErrorString());
                     this.c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else {
-                    g09 g09Var = (g09) obj;
-                    if (g09Var != null) {
+                    k19 k19Var = (k19) obj;
+                    if (k19Var != null) {
                         TbadkApplication.getInst().addLikeForum(this.b);
-                        g09Var.y(1);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, g09Var));
+                        k19Var.y(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, k19Var));
                         this.c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
                         return;
                     }
                     NewFaceShopActivity newFaceShopActivity = this.c;
-                    newFaceShopActivity.showToast(newFaceShopActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0cfe));
+                    newFaceShopActivity.showToast(newFaceShopActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d08));
                     this.c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 }
             }
@@ -964,7 +964,7 @@ public class NewFaceShopActivity extends BaseActivity {
     public void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cfe);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d08);
             if (this.h == null) {
                 lf5 lf5Var = new lf5(this.f.getPageActivity(), new l(this));
                 this.h = lf5Var;
@@ -1050,7 +1050,7 @@ public class NewFaceShopActivity extends BaseActivity {
         }
         if (d68.o().q()) {
             loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
-            ej.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f0636);
+            ej.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f063f);
             return;
         }
         TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
@@ -1074,7 +1074,7 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(stringExtra)) {
                 this.b = this.a;
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0664);
+            setContentView(R.layout.obfuscated_res_0x7f0d066a);
             L1();
             BrowserHelper.h(getApplicationContext());
             loadUrl(this.b);
@@ -1104,7 +1104,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
             if (d68.o().q()) {
                 loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
-                ej.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f0636);
+                ej.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f063f);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
@@ -1133,7 +1133,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048592, this, jSONObject) == null) {
             if (d68.o().q()) {
                 loadUrl("javascript:__js_bridge_emoticon_sort_action()");
-                ej.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f0636);
+                ej.P(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f063f);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);

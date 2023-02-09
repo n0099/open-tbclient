@@ -163,12 +163,12 @@ public class yq3 {
                 a83.a aVar = new a83.a(context);
                 aVar.n(new eo3());
                 a83 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1306);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1305));
+                aVar.U(R.string.obfuscated_res_0x7f0f131d);
+                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f131c));
                 aVar.y();
                 aVar.J(ds2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1307, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1304, a2);
+                aVar.O(R.string.obfuscated_res_0x7f0f131e, a2);
+                aVar.B(R.string.obfuscated_res_0x7f0f131b, a2);
                 aVar.a();
                 c.setCancelable(false);
                 c.show();

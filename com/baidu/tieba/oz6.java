@@ -65,7 +65,7 @@ public class oz6 implements pz6 {
             return;
         }
         if (!TextUtils.isEmpty(liveFuseForumData.schema) && liveFuseForumData.schema.contains("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank")) {
-            s89.a(1, this.d, liveFuseForumData.type.intValue());
+            w99.a(1, this.d, liveFuseForumData.type.intValue());
         } else if (liveFuseForumData.type.intValue() == 6) {
             k("c15057");
         } else {
@@ -93,7 +93,7 @@ public class oz6 implements pz6 {
             k("c15058");
         }
         if (!TextUtils.isEmpty(liveFuseForumData.schema) && liveFuseForumData.schema.contains("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank")) {
-            s89.a(2, this.d, liveFuseForumData.type.intValue());
+            w99.a(2, this.d, liveFuseForumData.type.intValue());
         }
     }
 
@@ -112,7 +112,7 @@ public class oz6 implements pz6 {
         if (liveFuseForumData.type.intValue() == 6) {
             k("c15058");
         } else if (!TextUtils.isEmpty(liveFuseForumData.schema) && liveFuseForumData.schema.contains("https://tieba.baidu.com/mo/q/hybrid/hotTopicRank")) {
-            s89.a(2, this.d, liveFuseForumData.type.intValue());
+            w99.a(2, this.d, liveFuseForumData.type.intValue());
         } else {
             TiebaStatic.log(new StatisticItem("c14702").param("obj_type", e(i, liveFuseForumData)).param("fid", this.d));
             String str = liveFuseForumData.schema;

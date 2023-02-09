@@ -12,13 +12,13 @@ public interface hr2 extends tm2 {
     public interface a {
         void a(int i);
 
-        void b(String str);
+        void b(int i);
 
-        void c(@NonNull String str);
+        void c(String str);
 
-        void d(String str);
+        void d(@NonNull String str);
 
-        void e(int i);
+        void e(String str);
 
         void f();
 

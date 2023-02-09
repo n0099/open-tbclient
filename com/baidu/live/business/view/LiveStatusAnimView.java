@@ -112,13 +112,13 @@ public class LiveStatusAnimView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0566, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144e);
-            this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09144f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091450);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d056b, this);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091463);
+            this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f091464);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091465);
             this.c.loop(true);
-            this.e = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091444);
-            this.f = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091445);
+            this.e = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f091459);
+            this.f = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09145a);
         }
     }
 
@@ -242,12 +242,12 @@ public class LiveStatusAnimView extends FrameLayout {
                 gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_768CAE"), fd0.f().a(this.a, this.h, "color_768CAE")});
                 if (!"day".equals(fd0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
                     if (!"tieba".equals(LiveFeedPageSdk.getInstance().getHost()) && !LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d64);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d76);
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d63);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d75);
                     }
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d63);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d75);
                 }
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
@@ -256,12 +256,12 @@ public class LiveStatusAnimView extends FrameLayout {
                 gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_4E6EF2"), fd0.f().a(this.a, this.h, "color_4E6EF2")});
                 if (!"day".equals(fd0.f().r()) && !LiveFeedPageSdk.IMMERSION.equals(this.h) && !"recommend".equals(this.h) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.h)) {
                     if (!"tieba".equals(LiveFeedPageSdk.getInstance().getHost()) && !LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d66);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d78);
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d65);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d77);
                     }
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d65);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d77);
                 }
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
@@ -276,7 +276,7 @@ public class LiveStatusAnimView extends FrameLayout {
                     this.b.setVisibility(4);
                 } else {
                     gradientDrawable2.setColors(new int[]{fd0.f().a(this.a, this.h, "color_FF3333"), fd0.f().a(this.a, this.h, "color_FF3333")});
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d69);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d7b);
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     this.b.setVisibility(0);
                 }

@@ -1,25 +1,23 @@
 package com.baidu.tieba;
-
-import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes6.dex */
 public interface ut9 {
-    void a(DownloadException downloadException);
+    boolean available();
 
-    void b(DownloadException downloadException);
+    int availableBytes();
 
-    void onConnectCanceled();
+    void clearQueues();
 
-    void onConnected(long j, long j2, boolean z);
+    void close();
 
-    void onConnecting();
+    void flush();
 
-    void onDownloadCanceled();
+    int getBytes(byte[] bArr, int i);
 
-    void onDownloadCompleted(String str);
+    void initVoiceChanger(int i, int i2, int i3, int i4);
 
-    void onDownloadPaused();
+    boolean putBytes(byte[] bArr, int i);
 
-    void onDownloadProgress(long j, long j2, int i);
+    void setVoiceChangeType(int[] iArr);
 
-    void onStarted();
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

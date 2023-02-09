@@ -164,8 +164,8 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 j05Var.setCanceledOnTouchOutside(false);
                 j05Var.setAutoNight(false);
                 j05Var.setMessageId(R.string.obfuscated_res_0x7f0f020c);
-                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0459, new a(this));
-                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this));
+                j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045b, new a(this));
+                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));
                 j05Var.create(this.a.getPageContext());
                 j05Var.show();
             } else if (this.a.a != null) {

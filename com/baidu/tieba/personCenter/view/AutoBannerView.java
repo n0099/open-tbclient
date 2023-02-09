@@ -17,9 +17,9 @@ import com.baidu.tieba.da;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.fv4;
 import com.baidu.tieba.u15;
-import com.baidu.tieba.ui8;
 import com.baidu.tieba.v15;
 import com.baidu.tieba.y15;
+import com.baidu.tieba.yj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +30,8 @@ import java.util.List;
 public class AutoBannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<ui8> a;
-    public List<ui8> b;
+    public CoverFlowView<yj8> a;
+    public List<yj8> b;
     public fv4 c;
 
     /* loaded from: classes5.dex */
@@ -195,7 +195,7 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void d(List<ui8> list) {
+    public void d(List<yj8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -204,7 +204,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void e(int i) {
-        CoverFlowView<ui8> coverFlowView;
+        CoverFlowView<yj8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.t();
@@ -236,7 +236,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setIndicatorVisible(int i) {
-        CoverFlowView<ui8> coverFlowView;
+        CoverFlowView<yj8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setIndicatorVisible(i);
@@ -244,7 +244,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<ui8> coverFlowView;
+        CoverFlowView<yj8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
@@ -266,7 +266,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void f() {
-        CoverFlowView<ui8> coverFlowView;
+        CoverFlowView<yj8> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.x();

@@ -95,9 +95,9 @@ public class z07 {
             frsSmartLoadMoreModel.W(this.f);
             this.b.c0(this.f);
             this.e = frsFragment.u1();
-            FrsModelController Q0 = frsFragment.Q0();
-            this.d = Q0;
-            this.c.setSortType(Q0.l0());
+            FrsModelController P0 = frsFragment.P0();
+            this.d = P0;
+            this.c.setSortType(P0.l0());
             this.b.setSortType(this.d.l0());
             return;
         }
@@ -174,27 +174,27 @@ public class z07 {
         }
     }
 
-    public ArrayList<Cdo> c(boolean z, boolean z2, ArrayList<Cdo> arrayList, x09 x09Var, boolean z3, int i, List<AdMixFloor> list) {
+    public ArrayList<Cdo> c(boolean z, boolean z2, ArrayList<Cdo> arrayList, b29 b29Var, boolean z3, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, x09Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) {
-            return d(z, z2, arrayList, x09Var, false, z3, i, list);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, b29Var, Boolean.valueOf(z3), Integer.valueOf(i), list})) == null) {
+            return d(z, z2, arrayList, b29Var, false, z3, i, list);
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList<Cdo> d(boolean z, boolean z2, ArrayList<Cdo> arrayList, x09 x09Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
+    public ArrayList<Cdo> d(boolean z, boolean z2, ArrayList<Cdo> arrayList, b29 b29Var, boolean z3, boolean z4, int i, List<AdMixFloor> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, x09Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), arrayList, b29Var, Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), list})) == null) {
             if (this.d == null) {
                 return arrayList;
             }
-            boolean D0 = this.a.Q0().D0();
+            boolean D0 = this.a.P0().D0();
             if (this.d.E0()) {
                 return this.c.I(z, D0, arrayList, z3, z4, i, list);
             }
-            return this.b.N(z, D0, z2, arrayList, x09Var, list, i);
+            return this.b.N(z, D0, z2, arrayList, b29Var, list, i);
         }
         return (ArrayList) invokeCommon.objValue;
     }
@@ -288,7 +288,7 @@ public class z07 {
                             this.b.setSortType(this.d.l0());
                             long g = dh.g(str2, 0L);
                             if (this.d.o0() != null) {
-                                str3 = qq8.e(this.d.o0().getThreadList(), false);
+                                str3 = ur8.e(this.d.o0().getThreadList(), false);
                             } else {
                                 str3 = "";
                             }

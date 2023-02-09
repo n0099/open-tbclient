@@ -762,10 +762,10 @@ public class vz5 implements zp3 {
             this.a.setCanceledOnTouchOutside(false);
             this.a.setCancelable(false);
             this.a.a(true);
-            this.a.setContentView(R.layout.obfuscated_res_0x7f0d057f);
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0584);
             View findViewById = this.a.findViewById(R.id.root_container);
             ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.loading_bar);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0915fe);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091614);
             if (findViewById != null) {
                 findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.novel_loading_bg));
             }

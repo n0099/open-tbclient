@@ -131,7 +131,7 @@ public class LogoActivity extends BaseFragmentActivity {
             if (Build.VERSION.SDK_INT > 16) {
                 getWindow().getDecorView().setSystemUiVisibility(1028);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d0584);
+            setContentView(R.layout.obfuscated_res_0x7f0d0589);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 lv5 lv5Var = new lv5(this);
                 this.b = lv5Var;

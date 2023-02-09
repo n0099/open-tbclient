@@ -119,8 +119,8 @@ public class fk6 {
                     this.a.d.l(this.a.h);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f0a7e), 2));
-                arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f15d9), 1));
+                arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f0a88), 2));
+                arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f15f0), 1));
                 this.a.d.k(arrayList, this.a.b);
                 this.a.d.n(this.a.a);
             }
@@ -266,10 +266,10 @@ public class fk6 {
             int i = this.b;
             if (i != 1) {
                 if (i == 2) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f0a7e);
+                    textView.setText(R.string.obfuscated_res_0x7f0f0a88);
                 }
             } else {
-                textView.setText(R.string.obfuscated_res_0x7f0f15d9);
+                textView.setText(R.string.obfuscated_res_0x7f0f15f0);
             }
             this.a.setOnClickListener(this.i);
             s(this.g);

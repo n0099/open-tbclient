@@ -43,15 +43,15 @@ public class x37 {
         }
     }
 
-    public static void c(x09 x09Var, List<Cdo> list, List<Cdo> list2) {
+    public static void c(b29 b29Var, List<Cdo> list, List<Cdo> list2) {
         int[] iArr;
         int indexOf;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, x09Var, list, list2) == null) && x09Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
-            for (int i : x09.f) {
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, b29Var, list, list2) == null) && b29Var != null && ListUtils.getCount(list) > 0 && ListUtils.getCount(list2) > 0) {
+            for (int i : b29.f) {
                 Cdo cdo = (Cdo) ListUtils.getItem(list, i);
                 if (cdo != null && (indexOf = list2.indexOf(cdo)) >= 0) {
-                    x09Var.a(i, indexOf);
+                    b29Var.a(i, indexOf);
                 }
             }
         }

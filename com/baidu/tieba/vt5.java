@@ -208,10 +208,10 @@ public class vt5 extends ut5 implements View.OnClickListener {
             lt5 lt5Var = this.e.c;
             if (lt5Var == null) {
                 LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.b);
-                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f09245a);
+                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f0924a4);
                 RelativeLayout relativeLayout = (RelativeLayout) i(R.id.rv_topbar);
-                Button button = (Button) i(R.id.obfuscated_res_0x7f090426);
-                Button button2 = (Button) i(R.id.obfuscated_res_0x7f090422);
+                Button button = (Button) i(R.id.obfuscated_res_0x7f09042f);
+                Button button2 = (Button) i(R.id.obfuscated_res_0x7f09042b);
                 button.setTag("submit");
                 button2.setTag("cancel");
                 button.setOnClickListener(this);
@@ -244,7 +244,7 @@ public class vt5 extends ut5 implements View.OnClickListener {
             } else {
                 lt5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
             }
-            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f0922e6);
+            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f09232d);
             linearLayout.setBackgroundColor(this.e.H);
             z(linearLayout);
         }

@@ -42,15 +42,15 @@ public final class c extends a {
     public final void M(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0467, this);
-            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09122a);
-            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f091228);
-            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091229);
-            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091223);
-            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091224);
-            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091221);
-            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09122b);
-            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091222);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0469, this);
+            this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f09123e);
+            this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f09123c);
+            this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09123d);
+            this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f091237);
+            this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f091238);
+            this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f091235);
+            this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09123f);
+            this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091236);
         }
     }
 }

@@ -1,11 +1,11 @@
 package rx.internal.schedulers;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.aha;
-import com.baidu.tieba.efa;
-import com.baidu.tieba.gda;
-import com.baidu.tieba.nha;
+import com.baidu.tieba.eea;
+import com.baidu.tieba.eia;
+import com.baidu.tieba.iga;
+import com.baidu.tieba.kea;
+import com.baidu.tieba.ria;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,27 +16,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes9.dex */
-public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, ada {
+public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, eea {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3962399486978279857L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gda action;
-    public final efa cancel;
+    public final kea action;
+    public final iga cancel;
 
     /* loaded from: classes9.dex */
-    public static final class Remover extends AtomicBoolean implements ada {
+    public static final class Remover extends AtomicBoolean implements eea {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final nha parent;
+        public final ria parent;
         public final ScheduledAction s;
 
-        public Remover(ScheduledAction scheduledAction, nha nhaVar) {
+        public Remover(ScheduledAction scheduledAction, ria riaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scheduledAction, nhaVar};
+                Object[] objArr = {scheduledAction, riaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,10 +47,10 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 }
             }
             this.s = scheduledAction;
-            this.parent = nhaVar;
+            this.parent = riaVar;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
@@ -70,19 +70,19 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     }
 
     /* loaded from: classes9.dex */
-    public static final class Remover2 extends AtomicBoolean implements ada {
+    public static final class Remover2 extends AtomicBoolean implements eea {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 247232374289553518L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final efa parent;
+        public final iga parent;
         public final ScheduledAction s;
 
-        public Remover2(ScheduledAction scheduledAction, efa efaVar) {
+        public Remover2(ScheduledAction scheduledAction, iga igaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scheduledAction, efaVar};
+                Object[] objArr = {scheduledAction, igaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,10 +93,10 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 }
             }
             this.s = scheduledAction;
-            this.parent = efaVar;
+            this.parent = igaVar;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(false, true)) {
@@ -116,7 +116,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     }
 
     /* loaded from: classes9.dex */
-    public final class a implements ada {
+    public final class a implements eea {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Future<?> a;
@@ -141,7 +141,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
             this.a = future;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ada
+        @Override // com.baidu.tieba.eea
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -164,12 +164,12 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public ScheduledAction(gda gdaVar) {
+    public ScheduledAction(kea keaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gdaVar};
+            Object[] objArr = {keaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -179,16 +179,16 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = gdaVar;
-        this.cancel = new efa();
+        this.action = keaVar;
+        this.cancel = new iga();
     }
 
-    public ScheduledAction(gda gdaVar, efa efaVar) {
+    public ScheduledAction(kea keaVar, iga igaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gdaVar, efaVar};
+            Object[] objArr = {keaVar, igaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -198,16 +198,16 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = gdaVar;
-        this.cancel = new efa(new Remover2(this, efaVar));
+        this.action = keaVar;
+        this.cancel = new iga(new Remover2(this, igaVar));
     }
 
-    public ScheduledAction(gda gdaVar, nha nhaVar) {
+    public ScheduledAction(kea keaVar, ria riaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gdaVar, nhaVar};
+            Object[] objArr = {keaVar, riaVar};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -217,28 +217,28 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
                 return;
             }
         }
-        this.action = gdaVar;
-        this.cancel = new efa(new Remover(this, nhaVar));
+        this.action = keaVar;
+        this.cancel = new iga(new Remover(this, riaVar));
     }
 
-    public void add(ada adaVar) {
+    public void add(eea eeaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, adaVar) == null) {
-            this.cancel.a(adaVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, eeaVar) == null) {
+            this.cancel.a(eeaVar);
         }
     }
 
-    public void addParent(efa efaVar) {
+    public void addParent(iga igaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, efaVar) == null) {
-            this.cancel.a(new Remover2(this, efaVar));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, igaVar) == null) {
+            this.cancel.a(new Remover2(this, igaVar));
         }
     }
 
     public void signalError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, th) == null) {
-            aha.j(th);
+            eia.j(th);
             Thread currentThread = Thread.currentThread();
             currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
         }
@@ -251,14 +251,14 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         }
     }
 
-    public void addParent(nha nhaVar) {
+    public void addParent(ria riaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nhaVar) == null) {
-            this.cancel.a(new Remover(this, nhaVar));
+        if (interceptable == null || interceptable.invokeL(1048579, this, riaVar) == null) {
+            this.cancel.a(new Remover(this, riaVar));
         }
     }
 
-    @Override // com.baidu.tieba.ada
+    @Override // com.baidu.tieba.eea
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -268,7 +268,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ada
+    @Override // com.baidu.tieba.eea
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.cancel.isUnsubscribed()) {

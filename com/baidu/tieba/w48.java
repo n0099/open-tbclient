@@ -50,14 +50,14 @@ public class w48 extends ej5<v48, zi5> {
             }
         }
         this.f = view2;
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092314);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09071d);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090728);
         this.h = textView;
         textView.setSingleLine();
         this.h.setEllipsize(TextUtils.TruncateAt.END);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922df);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091493);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0913eb);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092326);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914a8);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091400);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +75,7 @@ public class w48 extends ej5<v48, zi5> {
                 if (v48Var.j() == 49) {
                     if (StringUtils.isNull(v48Var.c())) {
                         if (StringUtils.isNull(v48Var.m())) {
-                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0e96));
+                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0ea4));
                         } else {
                             this.g.setText(v48Var.m());
                         }
@@ -84,7 +84,7 @@ public class w48 extends ej5<v48, zi5> {
                     }
                 } else if (v48Var.i() != null) {
                     if (v48Var.q()) {
-                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0e98), v48Var.i()));
+                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0ea6), v48Var.i()));
                     } else {
                         this.g.setText(v48Var.i());
                     }
@@ -92,9 +92,9 @@ public class w48 extends ej5<v48, zi5> {
             }
             if (this.h != null) {
                 if (v48Var.j() == 49 && !TextUtils.isEmpty(v48Var.m())) {
-                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0e99), v48Var.m()));
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0ea7), v48Var.m()));
                 } else if (v48Var.j() == 49) {
-                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0e99), e(R.string.obfuscated_res_0x7f0f0e96)));
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0ea7), e(R.string.obfuscated_res_0x7f0f0ea4)));
                 } else if (v48Var.d() != null) {
                     this.h.setText(v48Var.d());
                 }
@@ -118,7 +118,7 @@ public class w48 extends ej5<v48, zi5> {
         }
     }
 
-    @Override // com.baidu.tieba.d09
+    @Override // com.baidu.tieba.h19
     @SuppressLint({"ResourceAsColor"})
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;

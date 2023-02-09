@@ -55,12 +55,12 @@ import com.baidu.tieba.gb5;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.hb5;
 import com.baidu.tieba.j05;
-import com.baidu.tieba.ld9;
 import com.baidu.tieba.lr5;
 import com.baidu.tieba.me5;
 import com.baidu.tieba.on;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.pe5;
+import com.baidu.tieba.pe9;
 import com.baidu.tieba.x9;
 import com.baidu.tieba.ye5;
 import com.baidu.tieba.yg;
@@ -1005,7 +1005,7 @@ public class UrlDragImageView extends RelativeLayout {
                 progressBar.setVisibility(8);
             }
             gh.a().removeCallbacks(this.e0);
-            ld9.a().d(-1);
+            pe9.a().d(-1);
             ImageUrlData imageUrlData = this.J;
             if (imageUrlData != null) {
                 hb5.k().f(TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl), 13);
@@ -1683,7 +1683,7 @@ public class UrlDragImageView extends RelativeLayout {
                 j05 j05Var = new j05(a2.getPageActivity());
                 j05Var.setMessageId(R.string.original_img_down_no_wifi_tip);
                 j05Var.setPositiveButton(R.string.alert_yes_button, new c(this, j05Var, nameMd5FromUrl));
-                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this, j05Var));
+                j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(this, j05Var));
                 j05Var.create(a2);
                 j05Var.show();
             } else {
@@ -1838,7 +1838,7 @@ public class UrlDragImageView extends RelativeLayout {
             addView(this.f, layoutParams);
             ProgressBar progressBar = new ProgressBar(this.b, null, 16843399);
             this.c = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08103b));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081050));
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
             this.c.setLayoutParams(layoutParams2);

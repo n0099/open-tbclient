@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.forumSquare.ForumSquareActivity;
-import com.baidu.tieba.q09;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.u19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,14 +42,14 @@ public class zq6 extends mc6<wq6> {
     public String q;
     public wq6 r;
     public LikeModel s;
-    public q09 t;
+    public u19 t;
     public boolean u;
 
     @Override // com.baidu.tieba.mc6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d080d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d081f : invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
@@ -83,7 +83,7 @@ public class zq6 extends mc6<wq6> {
                 this.a.u = false;
                 if (this.a.s.getErrorCode() == 22) {
                     ej.Q(this.a.b.getPageActivity(), this.a.b.getString(R.string.had_liked_forum));
-                } else if (!(obj instanceof g09)) {
+                } else if (!(obj instanceof k19)) {
                 } else {
                     if (this.a.s.getErrorCode() != 0) {
                         ej.Q(this.a.b.getPageActivity(), this.a.s.getErrorString());
@@ -91,7 +91,7 @@ public class zq6 extends mc6<wq6> {
                     }
                     this.a.y(true);
                     if (be5.b.a().a("jump_to_frs")) {
-                        BdToastData l = ((g09) obj).l();
+                        BdToastData l = ((k19) obj).l();
                         if (l == null || l.toJson() == null) {
                             this.a.w(null);
                             return;
@@ -107,7 +107,7 @@ public class zq6 extends mc6<wq6> {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements q09.a {
+    public class b implements u19.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zq6 a;
@@ -130,7 +130,7 @@ public class zq6 extends mc6<wq6> {
             this.a = zq6Var;
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -138,7 +138,7 @@ public class zq6 extends mc6<wq6> {
             }
         }
 
-        @Override // com.baidu.tieba.q09.a
+        @Override // com.baidu.tieba.u19.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -171,12 +171,12 @@ public class zq6 extends mc6<wq6> {
         this.q = TbadkCoreApplication.getInst().getString(R.string.forum_post_num);
         View h = h();
         this.i = h;
-        this.j = (BarImageView) h.findViewById(R.id.obfuscated_res_0x7f090333);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090340);
-        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0907dc);
-        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0915e8);
-        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b36);
-        this.o = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090b04);
+        this.j = (BarImageView) h.findViewById(R.id.obfuscated_res_0x7f09033b);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090348);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0907e8);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0915fe);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b71);
+        this.o = (TBSpecificationBtn) h.findViewById(R.id.obfuscated_res_0x7f090b15);
     }
 
     @Override // android.view.View.OnClickListener
@@ -269,7 +269,7 @@ public class zq6 extends mc6<wq6> {
             return;
         }
         if (!ej.F()) {
-            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0cfe));
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0d08));
             return;
         }
         wq6 wq6Var = this.r;
@@ -297,7 +297,7 @@ public class zq6 extends mc6<wq6> {
             return;
         }
         if (!ej.F()) {
-            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0cfe));
+            UtilHelper.showToast(this.b.getPageActivity(), this.b.getString(R.string.obfuscated_res_0x7f0f0d08));
             return;
         }
         wq6 wq6Var = this.r;
@@ -305,9 +305,9 @@ public class zq6 extends mc6<wq6> {
             return;
         }
         if (this.t == null) {
-            q09 q09Var = new q09();
-            this.t = q09Var;
-            q09Var.b(new b(this));
+            u19 u19Var = new u19();
+            this.t = u19Var;
+            u19Var.b(new b(this));
         }
         this.u = true;
         this.t.c(this.r.h(), this.r.f());

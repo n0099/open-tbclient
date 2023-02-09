@@ -62,15 +62,15 @@ public class da6 implements tb6 {
         return invokeLLL.booleanValue;
     }
 
-    public final boolean g(TbPageContext<?> tbPageContext, String str, x19 x19Var) {
+    public final boolean g(TbPageContext<?> tbPageContext, String str, b39 b39Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, x19Var)) == null) {
-            if (x19Var == null || x19Var.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, str, b39Var)) == null) {
+            if (b39Var == null || b39Var.i() || !SchemeActionManager.getInstance().doSchemeAction(tbPageContext, str)) {
                 return false;
             }
-            x19Var.r(true);
-            x19Var.y(0);
+            b39Var.r(true);
+            b39Var.y(0);
             return true;
         }
         return invokeLLL.booleanValue;
@@ -79,9 +79,9 @@ public class da6 implements tb6 {
     @Override // com.baidu.tieba.tb6
     public void c(vb6 vb6Var, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vb6Var, obj) == null) && (obj instanceof v19)) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vb6Var, obj) == null) && (obj instanceof z29)) {
             this.b.add(vb6Var);
-            this.c.a((v19) obj);
+            this.c.a((z29) obj);
         }
     }
 
@@ -122,31 +122,31 @@ public class da6 implements tb6 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
-            z19 z19Var = new z19();
-            String a = b29.a(str);
-            String d = b29.d(str);
-            String b = b29.b(str);
-            z19Var.f(a);
-            z19Var.h(d);
-            x19 x19Var = new x19();
-            x19Var.v(b);
+            d39 d39Var = new d39();
+            String a = f39.a(str);
+            String d = f39.d(str);
+            String b = f39.b(str);
+            d39Var.f(a);
+            d39Var.h(d);
+            b39 b39Var = new b39();
+            b39Var.v(b);
             if (dj.isEmpty(a) || dj.isEmpty(d) || dj.isEmpty(b)) {
-                x19Var.y(101);
+                b39Var.y(101);
             }
             try {
-                z19Var.j(b29.f(str));
+                d39Var.j(f39.f(str));
             } catch (JSONException unused) {
-                z19Var.j(new JSONObject());
-                x19Var.y(101);
+                d39Var.j(new JSONObject());
+                b39Var.y(101);
             }
-            z19Var.i(b29.e(str));
-            z19Var.g(b29.c(str));
-            x19 c = this.c.c(webView, z19Var, x19Var);
+            d39Var.i(f39.e(str));
+            d39Var.g(f39.c(str));
+            b39 c = this.c.c(webView, d39Var, b39Var);
             if (c.g()) {
                 this.c.d(webView, c);
                 return false;
             }
-            g(jz8.a(webView.getContext()), str, c);
+            g(n09.a(webView.getContext()), str, c);
             return false;
         }
         return invokeLL.booleanValue;

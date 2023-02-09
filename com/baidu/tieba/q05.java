@@ -315,7 +315,7 @@ public class q05 implements t05 {
             eMTextView.setText(this.h);
             this.d.setGravity(this.k);
             this.d.setTag(tag);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090855);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090863);
             this.e = findViewById;
             findViewById.setVisibility(8);
             ImageView imageView = (ImageView) this.c.findViewById(R.id.item_image);
@@ -336,7 +336,7 @@ public class q05 implements t05 {
             this.d = eMTextView;
             eMTextView.setText(this.h);
             this.d.setGravity(this.k);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090855);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f090863);
             this.e = findViewById;
             if (this.m) {
                 findViewById.setVisibility(0);

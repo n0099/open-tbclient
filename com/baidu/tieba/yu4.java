@@ -136,7 +136,7 @@ public class yu4 {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092314);
+            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09235b);
             this.e = (TextView) this.a.findViewById(R.id.first_rank_num);
             this.f = (TextView) this.a.findViewById(R.id.first_thread_content);
             this.r = (TbImageView) this.a.findViewById(R.id.first_thread_img);

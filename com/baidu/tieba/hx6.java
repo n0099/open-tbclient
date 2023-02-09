@@ -61,7 +61,7 @@ public class hx6 extends qn<nx6, ForumRuleDetailItemVH> {
                     Cdo cdo = (Cdo) this.b.c.get(this.a);
                     if (cdo instanceof nx6) {
                         ui.a(TbRichTextView.c0(((nx6) cdo).b(), false).toString());
-                        ej.P(this.b.a, R.string.obfuscated_res_0x7f0f0705);
+                        ej.P(this.b.a, R.string.obfuscated_res_0x7f0f070e);
                     }
                 }
                 return false;
@@ -99,7 +99,7 @@ public class hx6 extends qn<nx6, ForumRuleDetailItemVH> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.a, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c2, viewGroup, false));
+            ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.a, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c4, viewGroup, false));
             this.viewholder = forumRuleDetailItemVH;
             return forumRuleDetailItemVH;
         }

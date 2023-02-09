@@ -36,14 +36,14 @@ public class r67 {
     public PopupWindow f;
 
     /* loaded from: classes6.dex */
-    public class a implements ra8 {
+    public class a implements ua8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r67 a;
 
-        @Override // com.baidu.tieba.ra8
+        @Override // com.baidu.tieba.ua8
         public /* synthetic */ void onStart() {
-            qa8.a(this);
+            ta8.a(this);
         }
 
         public a(r67 r67Var) {
@@ -64,7 +64,7 @@ public class r67 {
             this.a = r67Var;
         }
 
-        @Override // com.baidu.tieba.ra8
+        @Override // com.baidu.tieba.ua8
         public void onStop() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

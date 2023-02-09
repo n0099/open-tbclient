@@ -1,7 +1,7 @@
 package com.baidu.turbonet.net;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tn9;
+import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,12 +109,12 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
             try {
                 this.c.e();
             } catch (Exception unused) {
-                tn9.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                xo9.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
             }
             try {
                 this.a.close();
             } catch (Exception unused2) {
-                tn9.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                xo9.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             i(bidirectionalStream, urlResponseInfo);
         }
@@ -124,16 +124,16 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void b(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo, TurbonetException turbonetException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bidirectionalStream, urlResponseInfo, turbonetException) == null) {
-            tn9.h("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), turbonetException);
+            xo9.h("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), turbonetException);
             try {
                 this.c.e();
             } catch (Exception unused) {
-                tn9.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                xo9.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
             }
             try {
                 this.a.close();
             } catch (Exception unused2) {
-                tn9.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                xo9.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             if (!this.b) {
                 j(bidirectionalStream, urlResponseInfo, turbonetException);
@@ -146,7 +146,7 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bidirectionalStream, urlResponseInfo, byteBuffer, Boolean.valueOf(z)}) == null) {
             byteBuffer.flip();
-            tn9.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
+            xo9.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
             this.a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
             this.a.flush();
             if (!z) {
@@ -170,7 +170,7 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
                 z2 = false;
             }
             bidirectionalStream.b(byteBuffer, z2);
-            tn9.h("ChromiumNetwork", "****** onWriteCompleted ******, total writen bytes is %d", Integer.valueOf(b));
+            xo9.h("ChromiumNetwork", "****** onWriteCompleted ******, total writen bytes is %d", Integer.valueOf(b));
         }
     }
 
@@ -178,15 +178,15 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void d(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bidirectionalStream, urlResponseInfo) == null) {
-            tn9.h("ChromiumNetwork", "****** onResponseHeaderReceived ******", new Object[0]);
-            tn9.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
+            xo9.h("ChromiumNetwork", "****** onResponseHeaderReceived ******", new Object[0]);
+            xo9.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
             this.a = new PipedOutputStreamAndroid25();
             try {
                 d.execute(new a(this, bidirectionalStream, urlResponseInfo, new PipedInputStreamAndroid25(this.a, 4096)));
                 bidirectionalStream.a(ByteBuffer.allocateDirect(32768));
                 this.b = true;
             } catch (Exception e) {
-                tn9.c("ChromiumNetwork", "Exception in onResponseStarted ", e);
+                xo9.c("ChromiumNetwork", "Exception in onResponseStarted ", e);
                 throw e;
             }
         }
@@ -197,7 +197,7 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bidirectionalStream) == null) {
             boolean z = false;
-            tn9.h("ChromiumNetwork", "****** onStreamReady ******", new Object[0]);
+            xo9.h("ChromiumNetwork", "****** onStreamReady ******", new Object[0]);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.c.c());
             int b = this.c.b(allocateDirect);
             allocateDirect.flip();
@@ -212,11 +212,11 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void g(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, bidirectionalStream, urlResponseInfo) == null) {
-            tn9.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
+            xo9.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
             try {
                 this.a.close();
             } catch (Exception unused) {
-                tn9.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                xo9.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
         }
     }

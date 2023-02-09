@@ -86,8 +86,8 @@ public class gf5 extends ef5 {
         }
         this.h = 0;
         this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091eca);
-        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09070d);
+        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090718);
         this.c = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
         this.d = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
         this.e = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);

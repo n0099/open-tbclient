@@ -55,29 +55,29 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b19;
 import com.baidu.tieba.c45;
 import com.baidu.tieba.ct5;
-import com.baidu.tieba.d19;
+import com.baidu.tieba.d29;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.e19;
 import com.baidu.tieba.ea5;
+import com.baidu.tieba.f29;
 import com.baidu.tieba.ga5;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.i29;
 import com.baidu.tieba.oa5;
 import com.baidu.tieba.on;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.ra5;
 import com.baidu.tieba.ro;
-import com.baidu.tieba.se9;
 import com.baidu.tieba.sz4;
 import com.baidu.tieba.t35;
-import com.baidu.tieba.u09;
-import com.baidu.tieba.ue9;
 import com.baidu.tieba.vy4;
+import com.baidu.tieba.wf9;
 import com.baidu.tieba.xs5;
+import com.baidu.tieba.y19;
+import com.baidu.tieba.yf9;
 import com.baidu.tieba.yg;
-import com.baidu.tieba.z09;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -136,9 +136,9 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public String I;
     public FullLengthNovel I0;
     public SkinInfo J;
-    public se9 J0;
+    public wf9 J0;
     public String K;
-    public ue9 K0;
+    public yf9 K0;
     public AgreeData L;
     public d L0;
     public boolean M;
@@ -173,9 +173,9 @@ public class PostData implements PreLoadImageProvider, Cdo {
     @Deprecated
     public String g;
     public Item g0;
-    public ArrayList<d19> h;
+    public ArrayList<h29> h;
     public boolean h0;
-    public ArrayList<d19> i;
+    public ArrayList<h29> i;
     public List<PbContent> i0;
     public int j;
     public int j0;
@@ -186,7 +186,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public PraiseData o;
     public SmallTailInfo p;
     public vy4 q;
-    public u09 r;
+    public y19 r;
     public Item r0;
     public String s;
     public int s0;
@@ -197,12 +197,12 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public HashMap<String, MetaData> v;
     public List<CardLinkInfoData> v0;
     public ga5 w;
-    public e19 w0;
+    public i29 w0;
     public oa5 x;
     public long x0;
     public boolean y;
     public String y0;
-    public z09 z;
+    public d29 z;
     public boolean z0;
 
     /* loaded from: classes6.dex */
@@ -210,9 +210,9 @@ public class PostData implements PreLoadImageProvider, Cdo {
         void onClick();
     }
 
-    public void f1(String str) {
+    public void g1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048644, this, str) == null) {
         }
     }
 
@@ -485,7 +485,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public TbRichTextVoiceInfo q0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
             TbRichTextVoiceInfo tbRichTextVoiceInfo = this.G;
             if (tbRichTextVoiceInfo != null) {
                 return tbRichTextVoiceInfo;
@@ -558,7 +558,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
         this.k = new ArrayList<>();
         this.o = new PraiseData();
         this.q = new vy4();
-        this.r = new u09();
+        this.r = new y19();
         this.H = new ArrayList<>();
         this.O = 0;
         this.L = new AgreeData();
@@ -632,9 +632,9 @@ public class PostData implements PreLoadImageProvider, Cdo {
         return (String) invokeV.objValue;
     }
 
-    public void m1() {
+    public void n1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048663, this) != null) || this.h == null) {
+        if ((interceptable != null && interceptable.invokeV(1048665, this) != null) || this.h == null) {
             return;
         }
         int i = -1;
@@ -648,20 +648,20 @@ public class PostData implements PreLoadImageProvider, Cdo {
             }
         }
         for (int i2 = 0; i2 < this.h.size(); i2++) {
-            d19 d19Var = this.h.get(i2);
-            if (d19.k(i, d19Var.getType())) {
-                this.i.get(size - 1).e(d19Var.h());
+            h29 h29Var = this.h.get(i2);
+            if (h29.k(i, h29Var.getType())) {
+                this.i.get(size - 1).e(h29Var.h());
             } else {
-                if (d19Var.getType() != 3 && d19Var.getType() != 2 && d19Var.getType() != 11) {
-                    d19 d19Var2 = new d19();
-                    d19Var2.l(0);
-                    d19Var2.e(d19Var.h());
-                    this.i.add(d19Var2);
+                if (h29Var.getType() != 3 && h29Var.getType() != 2 && h29Var.getType() != 11) {
+                    h29 h29Var2 = new h29();
+                    h29Var2.l(0);
+                    h29Var2.e(h29Var.h());
+                    this.i.add(h29Var2);
                     i = 0;
                     size++;
                 }
-                this.i.add(d19Var);
-                i = d19Var.getType();
+                this.i.add(h29Var);
+                i = h29Var.getType();
                 size++;
             }
         }
@@ -754,70 +754,70 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public void S0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
+            this.y = z;
+        }
+    }
+
+    public void T0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
             this.U = z;
         }
     }
 
-    public void T0(Boolean bool) {
+    public void U0(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, bool) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, bool) == null) {
             this.z0 = bool.booleanValue();
         }
     }
 
-    public void U0(int i) {
+    public void V0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
             this.B0 = i;
-        }
-    }
-
-    public void V0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048618, this, z) == null) {
-            this.G0 = z;
         }
     }
 
     public void W0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+            this.G0 = z;
+        }
+    }
+
+    public void X0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048622, this, z) == null) {
             this.l = z;
         }
     }
 
-    public void X0(OriginalThreadInfo originalThreadInfo) {
+    public void Y0(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, originalThreadInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048624, this, originalThreadInfo) == null) {
             this.V = originalThreadInfo;
         }
     }
 
-    public void Y0(int i) {
+    public void Z0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
             this.a = i;
         }
     }
 
-    public void Z0(PraiseData praiseData) {
+    public void a1(PraiseData praiseData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, praiseData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, praiseData) == null) {
             this.o = praiseData;
         }
     }
 
-    public void a1(TbRichText tbRichText) {
+    public void b1(TbRichText tbRichText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, tbRichText) == null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, tbRichText) == null) {
             this.n = tbRichText;
-        }
-    }
-
-    public void b1(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, bool) == null) {
-            this.M0 = bool;
         }
     }
 
@@ -830,32 +830,32 @@ public class PostData implements PreLoadImageProvider, Cdo {
         }
     }
 
-    public void c1(int i) {
+    public void c1(Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+        if (interceptable == null || interceptable.invokeL(1048634, this, bool) == null) {
+            this.M0 = bool;
+        }
+    }
+
+    public void d1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
             this.j = i;
         }
     }
 
-    public void d1(SmallTailInfo smallTailInfo) {
+    public void e1(SmallTailInfo smallTailInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, smallTailInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, smallTailInfo) == null) {
             this.p = smallTailInfo;
         }
     }
 
-    public void e1(long j) {
+    public void f1(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048641, this, j) == null) {
             this.e = j;
             StringHelper.getFormatTime(j);
-        }
-    }
-
-    public void g1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048644, this, z) == null) {
-            this.D0 = z;
         }
     }
 
@@ -874,16 +874,23 @@ public class PostData implements PreLoadImageProvider, Cdo {
         return (Drawable) invokeL.objValue;
     }
 
-    public void h1(HashMap<String, MetaData> hashMap) {
+    public void h1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048649, this, z) == null) {
+            this.D0 = z;
+        }
+    }
+
+    public void i1(HashMap<String, MetaData> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048652, this, hashMap) == null) {
             this.v = hashMap;
         }
     }
 
-    public void i1(Post post) {
+    public void j1(Post post) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048652, this, post) == null) {
+        if (interceptable == null || interceptable.invokeL(1048654, this, post) == null) {
             if (post.custom_figure != null) {
                 VirtualImageCustomFigure virtualImageCustomFigure = new VirtualImageCustomFigure();
                 this.E0 = virtualImageCustomFigure;
@@ -897,9 +904,9 @@ public class PostData implements PreLoadImageProvider, Cdo {
         }
     }
 
-    public void j1(int i) {
+    public void k1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048654, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048657, this, i) == null) {
             this.N0 = i;
         }
     }
@@ -908,7 +915,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
         InterceptResult invokeZ;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048675, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048676, this, z)) == null) {
             if (z) {
                 i = 2;
             } else {
@@ -922,22 +929,22 @@ public class PostData implements PreLoadImageProvider, Cdo {
         return invokeZ.booleanValue;
     }
 
-    public se9 B() {
+    public wf9 B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.J0;
         }
-        return (se9) invokeV.objValue;
+        return (wf9) invokeV.objValue;
     }
 
-    public ue9 C() {
+    public yf9 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.K0;
         }
-        return (ue9) invokeV.objValue;
+        return (yf9) invokeV.objValue;
     }
 
     public void C0() {
@@ -1259,19 +1266,6 @@ public class PostData implements PreLoadImageProvider, Cdo {
         return invokeV.longValue;
     }
 
-    public boolean k1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
-            OriginalThreadInfo originalThreadInfo = this.V;
-            if (originalThreadInfo == null || !originalThreadInfo.H || this.x0 != originalThreadInfo.e) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
     public HashMap<String, MetaData> l0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1281,6 +1275,19 @@ public class PostData implements PreLoadImageProvider, Cdo {
         return (HashMap) invokeV.objValue;
     }
 
+    public boolean l1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
+            OriginalThreadInfo originalThreadInfo = this.V;
+            if (originalThreadInfo == null || !originalThreadInfo.H || this.x0 != originalThreadInfo.e) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public String m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1288,13 +1295,6 @@ public class PostData implements PreLoadImageProvider, Cdo {
             return this.I;
         }
         return (String) invokeV.objValue;
-    }
-
-    public void n1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048665, this) == null) && this.E == 0) {
-            this.E = 1;
-        }
     }
 
     public ea5 o() {
@@ -1315,10 +1315,17 @@ public class PostData implements PreLoadImageProvider, Cdo {
         return (VirtualImageCustomFigure) invokeV.objValue;
     }
 
+    public void o1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048668, this) == null) && this.E == 0) {
+            this.E = 1;
+        }
+    }
+
     public AgreeData p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
             return this.L;
         }
         return (AgreeData) invokeV.objValue;
@@ -1327,7 +1334,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public VirtualImageCustomState p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
             return this.F0;
         }
         return (VirtualImageCustomState) invokeV.objValue;
@@ -1336,7 +1343,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
             return this.L.agreeType;
         }
         return invokeV.intValue;
@@ -1345,7 +1352,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public MetaData r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
             return this.f;
         }
         return (MetaData) invokeV.objValue;
@@ -1354,7 +1361,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public int r0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
             return this.N0;
         }
         return invokeV.intValue;
@@ -1364,7 +1371,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
         InterceptResult invokeV;
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             if ((TextUtils.isEmpty(this.g) || this.g.equals("0")) && (metaData = this.f) != null) {
                 return metaData.getUserId();
             }
@@ -1376,7 +1383,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048676, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
             return this.s;
         }
         return (String) invokeV.objValue;
@@ -1385,7 +1392,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public boolean t0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
             if (f0() > 0 && d0() != null && d0().size() > 0) {
                 return true;
             }
@@ -1397,7 +1404,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public List<CardLinkInfoData> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048678, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
             return this.v0;
         }
         return (List) invokeV.objValue;
@@ -1406,7 +1413,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public boolean u0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
             return this.Z;
         }
         return invokeV.booleanValue;
@@ -1415,25 +1422,25 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public boolean v0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
             return this.G0;
         }
         return invokeV.booleanValue;
     }
 
-    public z09 w() {
+    public d29 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
             return this.z;
         }
-        return (z09) invokeV.objValue;
+        return (d29) invokeV.objValue;
     }
 
     public boolean w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048682, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
             return this.Y;
         }
         return invokeV.booleanValue;
@@ -1442,7 +1449,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public long x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
             return this.L.disAgreeNum;
         }
         return invokeV.longValue;
@@ -1451,7 +1458,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public boolean x0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048684, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
             return this.y;
         }
         return invokeV.booleanValue;
@@ -1460,7 +1467,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
             return this.t;
         }
         return (String) invokeV.objValue;
@@ -1469,7 +1476,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public boolean y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048686, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
             return this.l;
         }
         return invokeV.booleanValue;
@@ -1478,7 +1485,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public ArrayList<PostData> z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048688, this)) == null) {
             return this.m;
         }
         return (ArrayList) invokeV.objValue;
@@ -1533,7 +1540,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
             }
             post.is_ntitle.intValue();
             this.j = post.sub_post_number.intValue();
-            this.z = new z09(post.tpoint_post);
+            this.z = new d29(post.tpoint_post);
             List<PbContent> list = post.content;
             this.i0 = post.content;
             post.is_wonderful_post.intValue();
@@ -1603,7 +1610,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
                         PostData postData = new PostData();
                         subPostList.is_giftpost.intValue();
                         postData.L.parseProtobuf(subPostList.agree);
-                        postData.h1(this.v);
+                        postData.i1(this.v);
                         postData.M0(this.Z);
                         postData.z0(subPostList, false, threadData, F());
                         this.k.add(postData);
@@ -1708,15 +1715,15 @@ public class PostData implements PreLoadImageProvider, Cdo {
 
     public String E() {
         InterceptResult invokeV;
-        b19 a2;
+        f29 a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             PreLoadImageInfo D = D();
             if (D != null && !StringUtils.isNull(D.imgUrl)) {
                 return D.imgUrl;
             }
-            z09 z09Var = this.z;
-            if (z09Var != null && (a2 = z09Var.a()) != null && !StringUtils.isNull(a2.a())) {
+            d29 d29Var = this.z;
+            if (d29Var != null && (a2 = d29Var.a()) != null && !StringUtils.isNull(a2.a())) {
                 return a2.a();
             }
             return null;
@@ -1733,14 +1740,14 @@ public class PostData implements PreLoadImageProvider, Cdo {
                     return;
                 }
                 if (this.i == null || this.i.size() == 0) {
-                    m1();
+                    n1();
                 }
-                ArrayList<d19> arrayList = this.i;
+                ArrayList<h29> arrayList = this.i;
                 if (arrayList != null) {
                     StringBuilder sb = new StringBuilder();
-                    Iterator<d19> it = arrayList.iterator();
+                    Iterator<h29> it = arrayList.iterator();
                     while (it.hasNext()) {
-                        d19 next = it.next();
+                        h29 next = it.next();
                         if (next.getType() == 0) {
                             if (next.j() != null) {
                                 sb.append((CharSequence) next.j());
@@ -1865,10 +1872,10 @@ public class PostData implements PreLoadImageProvider, Cdo {
         FestivalTipData festivalTipData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048592, this, post) == null) && post != null && (festivalTipData = post.festival_tip_data) != null && !TextUtils.isEmpty(festivalTipData.text)) {
-            this.J0 = se9.a(post.festival_tip_data);
+            this.J0 = wf9.a(post.festival_tip_data);
             FestivalTipData festivalTipData2 = post.festival_tip_data;
             if (festivalTipData2.background_color != null && festivalTipData2.font_color != null) {
-                this.K0 = ue9.a(festivalTipData2);
+                this.K0 = yf9.a(festivalTipData2);
             }
         }
     }
@@ -1961,8 +1968,8 @@ public class PostData implements PreLoadImageProvider, Cdo {
                 if (F() == 1) {
                     return P0;
                 }
-                e19 e19Var = this.w0;
-                if (e19Var != null && e19Var.h()) {
+                i29 i29Var = this.w0;
+                if (i29Var != null && i29Var.h()) {
                     if (this.w0.i()) {
                         return AdvertAppInfo.G;
                     }
@@ -2007,7 +2014,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
         }
     }
 
-    public void l1(TbPageContext tbPageContext, boolean z) {
+    public void m1(TbPageContext tbPageContext, boolean z) {
         TbRichText tbRichText;
         String str;
         SpannableString spannableString;
@@ -2019,7 +2026,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
         int i;
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048660, this, tbPageContext, z) == null) && !this.a0 && tbPageContext != null && (tbRichText = this.n) != null && tbRichText.I() != null) {
+        if ((interceptable == null || interceptable.invokeLZ(1048663, this, tbPageContext, z) == null) && !this.a0 && tbPageContext != null && (tbRichText = this.n) != null && tbRichText.I() != null) {
             BdUniqueId uniqueId = tbPageContext.getUniqueId();
             if (z) {
                 str = " 楼主";
@@ -2158,7 +2165,7 @@ public class PostData implements PreLoadImageProvider, Cdo {
     public void z0(SubPostList subPostList, boolean z, @Nullable ThreadData threadData, int i) {
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048688, this, new Object[]{subPostList, Boolean.valueOf(z), threadData, Integer.valueOf(i)}) != null) || subPostList == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048689, this, new Object[]{subPostList, Boolean.valueOf(z), threadData, Integer.valueOf(i)}) != null) || subPostList == null) {
             return;
         }
         try {

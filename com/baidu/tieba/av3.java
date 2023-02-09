@@ -180,9 +180,9 @@ public class av3 implements qt1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
                 if (z) {
-                    i = R.string.obfuscated_res_0x7f0f130d;
+                    i = R.string.obfuscated_res_0x7f0f1324;
                 } else {
-                    i = R.string.obfuscated_res_0x7f0f130a;
+                    i = R.string.obfuscated_res_0x7f0f1321;
                 }
                 o83.f(this.a, i).v();
             }

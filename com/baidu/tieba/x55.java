@@ -80,7 +80,7 @@ public class x55 {
                 case 2:
                     return wj.a(R.string.voice_cache_error_no_space);
                 case 3:
-                    return wj.a(R.string.obfuscated_res_0x7f0f0cfe);
+                    return wj.a(R.string.obfuscated_res_0x7f0f0d08);
                 case 4:
                     return wj.a(R.string.voice_cache_error_no_file);
                 case 5:

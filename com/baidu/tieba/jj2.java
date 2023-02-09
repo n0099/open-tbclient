@@ -27,12 +27,12 @@ public class jj2 {
 
         /* renamed from: com.baidu.tieba.jj2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0322a implements pn3<Exception> {
+        public class C0325a implements pn3<Exception> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0322a(a aVar) {
+            public C0325a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class jj2 {
                     return;
                 }
                 w52.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                bi3.o(this.b, new C0322a(this));
+                bi3.o(this.b, new C0325a(this));
             }
         }
     }

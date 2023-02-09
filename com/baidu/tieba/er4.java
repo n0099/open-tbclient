@@ -124,7 +124,7 @@ public class er4 extends Dialog implements View.OnClickListener {
                 layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             }
             this.e.addView(this.f, layoutParams);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fa8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb9);
             this.g = imageView;
             imageView.setImageDrawable(this.i);
             ImageView imageView2 = (ImageView) findViewById(R.id.img_btn_close);

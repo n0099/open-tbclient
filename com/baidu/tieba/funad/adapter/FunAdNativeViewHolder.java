@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.e19;
 import com.baidu.tieba.e67;
 import com.baidu.tieba.funAd.http.FunAdRecordHttpMessage;
 import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.tieba.funad.view.FunAbsAdView;
 import com.baidu.tieba.g67;
+import com.baidu.tieba.i29;
 import com.baidu.tieba.i67;
 import com.baidu.tieba.m67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<FunAdNativeViewHolder> a;
         public final int b;
-        public final e19 c;
+        public final i29 c;
 
         @Override // com.baidu.tieba.e67.i
         public void a(String str) {
@@ -64,12 +64,12 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
         }
 
-        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, e19 e19Var) {
+        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, i29 i29Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), e19Var};
+                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), i29Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -81,7 +81,7 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
             this.a = new WeakReference<>(funAdNativeViewHolder);
             this.b = i;
-            this.c = e19Var;
+            this.c = i29Var;
         }
 
         @Override // com.baidu.tieba.e67.i
@@ -273,13 +273,13 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         return (String) invokeV.objValue;
     }
 
-    public void m(@NonNull e19 e19Var, int i) {
+    public void m(@NonNull i29 i29Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, e19Var, i) == null) {
-            Object e = e19Var.e();
+        if (interceptable == null || interceptable.invokeLI(1048588, this, i29Var, i) == null) {
+            Object e = i29Var.e();
             if (e == null) {
                 e = e67.m().n(this.b, this.d);
-                e19Var.o(e);
+                i29Var.o(e);
                 if (!TextUtils.isEmpty(this.g) && e != null) {
                     FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
                     FunNativeAd2 funNativeAd2 = (FunNativeAd2) e;
@@ -307,11 +307,11 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", e()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", g67.a));
             }
             this.c.d(0);
-            this.c.f(e19Var, this.b);
+            this.c.f(i29Var, this.b);
             this.c.e(this.a);
             FunNativeAd2 funNativeAd22 = (FunNativeAd2) obj;
             ViewGroup c = this.c.c(funNativeAd22);
-            e67.m().F(this.b, obj, new a(this, i, e19Var), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
+            e67.m().F(this.b, obj, new a(this, i, i29Var), c, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem(), this.d);
             if (a(funNativeAd22) && c != null && (c.getParent() instanceof ViewGroup)) {
                 ViewGroup viewGroup = (ViewGroup) c.getParent();
                 if (viewGroup.getChildCount() > 1) {

@@ -103,16 +103,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06b2, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091608);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09160f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09160e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091614);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06b8, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09161e);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091625);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091624);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09162a);
             this.f = findViewById(R.id.black_mask);
             this.b.setConrers(15);
             this.b.setRadius(ej.g(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f090f6b);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091677);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090f7c);
+            this.h = findViewById(R.id.obfuscated_res_0x7f09168d);
             c();
         }
     }
@@ -120,7 +120,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08096e, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);

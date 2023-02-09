@@ -477,7 +477,7 @@ public class pv5 {
                 }
                 TBSpecificationBtn tBSpecificationBtn = this.t;
                 if (tBSpecificationBtn != null) {
-                    tBSpecificationBtn.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0459));
+                    tBSpecificationBtn.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f045b));
                     return;
                 }
                 return;

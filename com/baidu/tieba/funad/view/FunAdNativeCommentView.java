@@ -22,8 +22,8 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e19;
 import com.baidu.tieba.e67;
+import com.baidu.tieba.i29;
 import com.baidu.tieba.m67;
 import com.baidu.tieba.p15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0361 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d0363 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -84,7 +84,7 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     public final void l(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, tbImageView) == null) {
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08074b);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080756);
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             tbImageView.setIsLongPic(false);
             tbImageView.setIsSmartCrop(false);
@@ -204,14 +204,14 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull e19 e19Var, @NonNull Activity activity) {
+    public void f(@NonNull i29 i29Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, e19Var, activity) == null) {
-            super.f(e19Var, activity);
-            if (e19Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, i29Var, activity) == null) {
+            super.f(i29Var, activity);
+            if (i29Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) e19Var.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) i29Var.e();
             this.w.setText(this.c);
             this.u.K(m67.j(funNativeAd2), 10, false);
             if (m67.m(funNativeAd2) != null) {
@@ -231,18 +231,18 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
-            this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cc3);
-            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f092385);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092386);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f092384);
-            this.x = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09135c);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090ccd);
+            this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cd4);
+            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d0);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.x = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091370);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090cde);
             this.A = findViewById;
             findViewById.setAlpha(0.5f);
             this.A.setOnClickListener(null);
-            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cc1);
-            this.z = findViewById(R.id.obfuscated_res_0x7f090cbb);
-            this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090cd4);
+            this.y = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cd2);
+            this.z = findViewById(R.id.obfuscated_res_0x7f090ccc);
+            this.s = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f090ce5);
             this.e.setVisibility(8);
             l(this.u);
             RelativeLayout relativeLayout = this.d;

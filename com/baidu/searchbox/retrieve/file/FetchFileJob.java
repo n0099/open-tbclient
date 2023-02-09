@@ -16,9 +16,9 @@ import com.baidu.searchbox.retrieve.upload.FetchResult;
 import com.baidu.searchbox.retrieve.upload.FetchTaskObj;
 import com.baidu.searchbox.retrieve.upload.FetchUploadManager;
 import com.baidu.searchbox.retrieve.upload.IUploadListener;
-import com.baidu.tieba.ky9;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.oz9;
+import com.baidu.tieba.pz9;
+import com.baidu.tieba.rz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -206,15 +206,15 @@ public class FetchFileJob extends IFetchJob {
             List<String> list = fetchBean.mPathList;
             if (list != null && list.size() != 0) {
                 statFetchData(StatConstants.VALUE_TYPE_CHECK_PARAM, true, fetchBean, "", "", null);
-                ly9 ly9Var = (ly9) ServiceManager.getService(ly9.a);
-                if (ly9Var == null) {
+                pz9 pz9Var = (pz9) ServiceManager.getService(pz9.a);
+                if (pz9Var == null) {
                     if (DEBUG) {
                         Log.d(TAG, "loss voyager impl component");
                         return;
                     }
                     return;
                 }
-                ly9Var.g(list, "fetchlog", fetchBean.mMaxFileSize * 1024, new ky9(this, fetchBean) { // from class: com.baidu.searchbox.retrieve.file.FetchFileJob.2
+                pz9Var.g(list, "fetchlog", fetchBean.mMaxFileSize * 1024, new oz9(this, fetchBean) { // from class: com.baidu.searchbox.retrieve.file.FetchFileJob.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ FetchFileJob this$0;
@@ -239,7 +239,7 @@ public class FetchFileJob extends IFetchJob {
                         this.val$fetchBean = fetchBean;
                     }
 
-                    @Override // com.baidu.tieba.ky9
+                    @Override // com.baidu.tieba.oz9
                     public void onFailure(String str, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeLL(1048576, this, str, jSONObject) != null) {
@@ -249,14 +249,14 @@ public class FetchFileJob extends IFetchJob {
                         if (!TextUtils.equals("dir not found", str)) {
                             FetchFileJob fetchFileJob = this.this$0;
                             FetchFileData.FetchBean fetchBean2 = this.val$fetchBean;
-                            ny9.a(jSONObject, str);
+                            rz9.a(jSONObject, str);
                             fetchFileJob.reportTaskDone(fetchBean2, "", "2", jSONObject);
                             return;
                         }
                         this.this$0.reportTaskDone(this.val$fetchBean, "", "1", jSONObject);
                     }
 
-                    @Override // com.baidu.tieba.ky9
+                    @Override // com.baidu.tieba.oz9
                     public void onSuccess(String str, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) != null) {

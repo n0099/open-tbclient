@@ -345,7 +345,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.k == null) {
-                this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0577, (ViewGroup) null);
+                this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d057c, (ViewGroup) null);
                 S1();
                 if (viewGroup != null) {
                     this.r = (((viewGroup.getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - ej.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
@@ -423,12 +423,12 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     public final void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.l = (BdSwipeRefreshLayout) this.k.findViewById(R.id.obfuscated_res_0x7f09149e);
+            this.l = (BdSwipeRefreshLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0914b3);
             this.b = (LinearLayout) this.k.findViewById(R.id.top_container);
             z35 z35Var = new z35(getPageContext());
             this.o = z35Var;
             this.l.setProgressView(z35Var);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f09149b);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f0914b0);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a));
             this.m.setFadingEdgeLength(0);
@@ -460,8 +460,8 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
                 this.m.setNextPage(this.p);
             }
             this.p.v(ej.g(this.a, R.dimen.tbds182));
-            this.p.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ae6));
-            this.p.S();
+            this.p.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0af0));
+            this.p.T();
         }
     }
 

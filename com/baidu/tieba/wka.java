@@ -1,51 +1,68 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.tieba.yma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
-public class wka {
+public class wka implements yma.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public Dialog b;
+    public yja c;
+    public tla d;
+    public qla e;
+    public Dialog f;
+    public IYYPayWayView g;
+    public AppCustomExpand h;
+    public IYYPayWayView.b i;
+    public IPayCallback<CurrencyChargeMessage> j;
 
-    public static mka a(int i, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeIL;
-        MiddleRevenueConfig middleRevenueConfig;
+    public wka(Activity activity, Dialog dialog, yja yjaVar, qla qlaVar, tla tlaVar, Dialog dialog2, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
-            ProductInfo productInfo = new ProductInfo();
-            productInfo.cid = 0;
-            productInfo.productId = "";
-            productInfo.srcCurrencySymbol = "";
-            productInfo.srcAmount = i / 100.0d;
-            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
-                productInfo.destAmount = i;
-                return new mka(productInfo, 4);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, dialog, yjaVar, qlaVar, tlaVar, dialog2, iYYPayWayView, appCustomExpand, bVar, iPayCallback};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            productInfo.destAmount = i;
-            return new mka(productInfo);
         }
-        return (mka) invokeIL.objValue;
+        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
+        this.a = activity;
+        this.b = dialog;
+        this.c = yjaVar;
+        this.d = tlaVar;
+        this.e = qlaVar;
+        this.f = dialog2;
+        this.g = iYYPayWayView;
+        this.h = appCustomExpand;
+        this.i = bVar;
+        this.j = iPayCallback;
     }
 
-    public static IAppPayService b(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.tieba.yma.a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
-                return null;
-            }
-            return revenue.getAppPayService();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            RLog.info("PaySignViewCallback", "onBtnConfirm");
+            this.c.f(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
+            gma.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
         }
-        return (IAppPayService) invokeII.objValue;
     }
 }

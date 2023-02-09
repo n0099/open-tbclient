@@ -291,7 +291,7 @@ public class j82 extends k82 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dc, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
             U1(inflate);
             fv1 k = k();
             this.G0 = k;
@@ -300,7 +300,7 @@ public class j82 extends k82 {
             ro3.a().i(this.I0);
             oo3.c().m("0");
             this.G0.loadUrl(this.I0);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a8);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901aa);
             this.O0 = frameLayout;
             this.G0.j(frameLayout, this.H0.covertToView());
             W2(this.O0);

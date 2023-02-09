@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az8;
+import com.baidu.tieba.e09;
 import com.baidu.tieba.on;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.rz4;
@@ -55,7 +55,7 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public az8 b;
+    public e09 b;
     public List<ImageView> c;
 
     /* loaded from: classes6.dex */
@@ -285,7 +285,7 @@ public class SignStampIconsView extends LinearLayout {
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fz8
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j09
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -321,9 +321,9 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        az8 az8Var = this.b;
-        if (az8Var != null) {
-            az8Var.a(aVar);
+        e09 e09Var = this.b;
+        if (e09Var != null) {
+            e09Var.a(aVar);
         }
     }
 
@@ -401,10 +401,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(az8 az8Var) {
+    public void setSignStampIconClickListener(e09 e09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, az8Var) == null) {
-            this.b = az8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, e09Var) == null) {
+            this.b = e09Var;
         }
     }
 }

@@ -1,11 +1,10 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface d9a {
-    void onCancel();
-
-    void onComplete(JSONObject jSONObject);
-
-    void onError(e9a e9aVar);
+public final class d9a {
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public transient /* synthetic */ FieldHolder $fh;
 }

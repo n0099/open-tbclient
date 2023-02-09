@@ -129,26 +129,26 @@ public class so7 {
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03df, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e1, (ViewGroup) null);
                 this.b = inflate;
-                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f092314);
-                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091bfa);
+                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
+                ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c3b);
                 this.d = imageView;
                 imageView.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_qq40_svg));
                 this.d.setOnClickListener(this);
-                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091bff);
+                ImageView imageView2 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c40);
                 this.e = imageView2;
                 imageView2.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_qqzone40_svg));
                 this.e.setOnClickListener(this);
-                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092765);
+                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0927c6);
                 this.f = imageView3;
                 imageView3.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_wechat40_svg));
                 this.f.setOnClickListener(this);
-                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092767);
+                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0927c8);
                 this.g = imageView4;
                 imageView4.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_circle40_svg));
                 this.g.setOnClickListener(this);
-                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092764);
+                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0927c5);
                 this.h = imageView5;
                 imageView5.setImageDrawable(this.a.getDrawable(R.drawable.icon_share_wechatexpression));
                 this.h.setOnClickListener(this);
@@ -263,7 +263,7 @@ public class so7 {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
                 ej.P(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
             } else if (view2 == this.d) {
-                if (k09.b(this.a, "com.tencent.mobileqq")) {
+                if (o19.b(this.a, "com.tencent.mobileqq")) {
                     if (c(b) && b.b() != null && b.b().contains(4)) {
                         a95.f(b, this.a, 8, null);
                         return;
@@ -275,7 +275,7 @@ public class so7 {
                 Activity activity = this.a;
                 BdToast.b(activity, activity.getText(R.string.share_qq_not_install)).k();
             } else if (view2 == this.e) {
-                if (k09.b(this.a, "com.tencent.mobileqq")) {
+                if (o19.b(this.a, "com.tencent.mobileqq")) {
                     if (c(b) && b.b() != null && b.b().contains(4)) {
                         a95.f(b, this.a, 4, null);
                         return;

@@ -161,22 +161,22 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             boolean equals = "recommend".equals(this.c);
-            int i = R.layout.obfuscated_res_0x7f0d0559;
+            int i = R.layout.obfuscated_res_0x7f0d055e;
             if (!equals && !"baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
                 if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d055a;
+                    i = R.layout.obfuscated_res_0x7f0d055f;
                 } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d055b;
+                    i = R.layout.obfuscated_res_0x7f0d0560;
                 } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-                    i = R.layout.obfuscated_res_0x7f0d055c;
+                    i = R.layout.obfuscated_res_0x7f0d0561;
                 }
             }
             LayoutInflater.from(getContext()).inflate(i, this);
-            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091d5e);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0914f5);
+            this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091da0);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09150a);
             this.i = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f6);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09150b);
         }
     }
 

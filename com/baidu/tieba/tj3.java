@@ -93,12 +93,12 @@ public class tj3 extends qj3 {
 
         /* renamed from: com.baidu.tieba.tj3$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0430b implements nj3 {
+        public class C0433b implements nj3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0430b(b bVar) {
+            public C0433b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -299,9 +299,9 @@ public class tj3 extends qj3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0430b c0430b = new C0430b(this);
-            this.g = c0430b;
-            tj3Var.c.setConnectListener(c0430b);
+            C0433b c0433b = new C0433b(this);
+            this.g = c0433b;
+            tj3Var.c.setConnectListener(c0433b);
         }
 
         @Override // com.baidu.tieba.rj3

@@ -1,57 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.wca;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.operators.NotificationLite;
+import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
 /* loaded from: classes6.dex */
-public class vea implements gda {
+public final class vea<T, R> extends dea<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gda a;
-    public final wca.a b;
-    public final long c;
+    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
+    public final int f;
+    public boolean g;
 
-    public vea(gda gdaVar, wca.a aVar, long j) {
+    public vea(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gdaVar, aVar, Long.valueOf(j)};
+            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = gdaVar;
-        this.b = aVar;
-        this.c = j;
+        this.e = onSubscribeCombineLatest$LatestCoordinator;
+        this.f = i;
+        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
     }
 
-    @Override // com.baidu.tieba.gda
-    public void call() {
+    public void g(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            e(j);
         }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                fda.c(e);
-                throw null;
+    }
+
+    @Override // com.baidu.tieba.yda
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            if (this.g) {
+                eia.j(th);
+                return;
             }
+            this.e.onError(th);
+            this.g = true;
+            this.e.combine(null, this.f);
         }
-        if (this.b.isUnsubscribed()) {
+    }
+
+    @Override // com.baidu.tieba.yda
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.g) {
             return;
         }
-        this.a.call();
+        this.e.combine(NotificationLite.h(t), this.f);
+    }
+
+    @Override // com.baidu.tieba.yda
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+            return;
+        }
+        this.g = true;
+        this.e.combine(null, this.f);
     }
 }

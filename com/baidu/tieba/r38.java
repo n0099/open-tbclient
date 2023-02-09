@@ -18,7 +18,7 @@ public class r38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-    public nm8 b;
+    public rn8 b;
     public b c;
     public int d;
     public boolean e;
@@ -26,7 +26,7 @@ public class r38 {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(nm8 nm8Var, int i);
+        void a(rn8 rn8Var, int i);
     }
 
     /* loaded from: classes6.dex */

@@ -528,7 +528,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f0914e7);
+                    View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f0914fc);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.ll_limit)");
                     return (LinearLayout) findViewById;
                 }

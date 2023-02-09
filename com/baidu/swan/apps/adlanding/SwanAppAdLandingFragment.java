@@ -1461,7 +1461,7 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
     public final void i4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0845, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) null);
             this.n1.addView(relativeLayout, new FrameLayout.LayoutParams(-1, this.z1));
             SimpleDraweeView simpleDraweeView = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900ca);
             SimpleDraweeView simpleDraweeView2 = (SimpleDraweeView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0900d7);
@@ -1566,7 +1566,7 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
             z73Var.t(false);
             z73Var.n(new eo3());
             z73Var.p(R.drawable.obfuscated_res_0x7f080125);
-            z73Var.F(R.color.obfuscated_res_0x7f060a74);
+            z73Var.F(R.color.obfuscated_res_0x7f060a75);
             z73Var.K(new g(this));
             z73Var.W(this.I1);
             z73Var.j();
@@ -1607,11 +1607,11 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
     public final void g4() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            View inflate = View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0093, null);
+            View inflate = View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0094, null);
             this.I1 = inflate;
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0900d3)).setOnClickListener(new d(this));
             ((TextView) this.I1.findViewById(R.id.obfuscated_res_0x7f0900d2)).setOnClickListener(new e(this));
-            ((ImageView) this.I1.findViewById(R.id.obfuscated_res_0x7f09068d)).setOnClickListener(new f(this));
+            ((ImageView) this.I1.findViewById(R.id.obfuscated_res_0x7f090698)).setOnClickListener(new f(this));
             TextView textView = new TextView(getContext());
             this.F1 = textView;
             textView.setText("温馨提示：您已访问至第三方页面");
@@ -1635,7 +1635,7 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0846, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0858, (ViewGroup) null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             if (this.q1.booleanValue()) {
                 i2 = this.z1;
@@ -1666,7 +1666,7 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
             } else {
                 simpleDraweeView2.setVisibility(8);
             }
-            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811e7));
+            simpleDraweeView.getHierarchy().setPlaceholderImage(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811fd));
             if (this.q1.booleanValue()) {
                 str = this.B1;
             } else {
@@ -1704,9 +1704,9 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
             int optInt = jSONObject.optInt("act", ActionType.LP.value());
             this.c1 = optInt;
             if (optInt == ActionType.DL.value()) {
-                G = G(R.string.obfuscated_res_0x7f0f1342);
+                G = G(R.string.obfuscated_res_0x7f0f1359);
             } else {
-                G = G(R.string.obfuscated_res_0x7f0f134b);
+                G = G(R.string.obfuscated_res_0x7f0f1362);
             }
             this.d1 = G;
             this.e1 = jSONObject.optString("appname", "");
@@ -1738,7 +1738,7 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
     public final void h4(ViewGroup viewGroup, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, viewGroup, viewGroup2) == null) {
-            this.o1 = (LinearLayout) ((LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0844, (ViewGroup) null)).findViewById(R.id.obfuscated_res_0x7f0900a4);
+            this.o1 = (LinearLayout) ((LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0856, (ViewGroup) null)).findViewById(R.id.obfuscated_res_0x7f0900a4);
             CustomerAdScrollView customerAdScrollView = new CustomerAdScrollView(getContext());
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setOrientation(1);
@@ -1902,10 +1902,10 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00dd, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
             U1(inflate);
-            this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0920cd);
-            this.R0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901a8);
+            this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f092113);
+            this.R0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901aa);
             l4();
             n4();
             f4(this.n1);

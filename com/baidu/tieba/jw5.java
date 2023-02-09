@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.sq9;
+import com.baidu.tieba.wr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -155,7 +155,7 @@ public class jw5 {
             if (dj.isEmpty(e)) {
                 return 0;
             }
-            SampleResult a = rq9.a(e);
+            SampleResult a = vr9.a(e);
             if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
                 return 0;
             }
@@ -172,7 +172,7 @@ public class jw5 {
                 return false;
             }
             try {
-                sq9.a aVar = new sq9.a();
+                wr9.a aVar = new wr9.a();
                 aVar.e(TbadkCoreApplication.getInst());
                 aVar.j(false);
                 aVar.n(30L);
@@ -180,7 +180,7 @@ public class jw5 {
                 aVar.l(false);
                 aVar.o(15L);
                 aVar.k(1000);
-                rq9.b(aVar.c());
+                vr9.b(aVar.c());
                 return true;
             } catch (Exception e) {
                 e.printStackTrace();

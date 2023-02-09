@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g29;
 import com.baidu.tieba.ik7;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.k39;
 import com.baidu.tieba.mj7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -78,7 +78,7 @@ public class MsgPhotoLiveCardVew extends mj7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G > 0) {
-                g29 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+                k39 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
                 if (this.a.I == 1) {
                     TiebaStatic.log(TbadkCoreStatisticKey.PHOTO_LIVE_GREATCALL_MSG);
                     if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.f(String.valueOf(this.a.G)) > 0) {
@@ -134,7 +134,7 @@ public class MsgPhotoLiveCardVew extends mj7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgPhotoLiveCardVew(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05c0);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d05c5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -210,15 +210,15 @@ public class MsgPhotoLiveCardVew extends mj7 {
     public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.J = (LinearLayout) k(R.id.obfuscated_res_0x7f091675);
-            this.K = (ClickableHeaderImageView) k(R.id.obfuscated_res_0x7f0902f4);
+            this.J = (LinearLayout) k(R.id.obfuscated_res_0x7f09168b);
+            this.K = (ClickableHeaderImageView) k(R.id.obfuscated_res_0x7f0902fc);
             this.L = (TextView) k(R.id.author_name);
-            this.M = (TextView) k(R.id.obfuscated_res_0x7f0904a7);
-            this.N = (TextView) k(R.id.obfuscated_res_0x7f0904a4);
-            this.O = (TextView) k(R.id.obfuscated_res_0x7f0904a6);
-            this.Q = (LinearLayout) k(R.id.obfuscated_res_0x7f0902e8);
-            this.P = (TextView) k(R.id.obfuscated_res_0x7f091caf);
-            this.R = (TextView) k(R.id.obfuscated_res_0x7f0904e8);
+            this.M = (TextView) k(R.id.obfuscated_res_0x7f0904b2);
+            this.N = (TextView) k(R.id.obfuscated_res_0x7f0904af);
+            this.O = (TextView) k(R.id.obfuscated_res_0x7f0904b1);
+            this.Q = (LinearLayout) k(R.id.obfuscated_res_0x7f0902f0);
+            this.P = (TextView) k(R.id.obfuscated_res_0x7f091cf0);
+            this.R = (TextView) k(R.id.obfuscated_res_0x7f0904f3);
             this.J.setOnClickListener(new a(this));
         }
     }

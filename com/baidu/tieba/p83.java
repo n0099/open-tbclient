@@ -69,7 +69,7 @@ public class p83 {
 
         /* renamed from: com.baidu.tieba.p83$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class animation.Animation$AnimationListenerC0373a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0370a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -90,17 +90,17 @@ public class p83 {
 
             /* renamed from: com.baidu.tieba.p83$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class RunnableC0374a implements Runnable {
+            public class RunnableC0371a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ animation.Animation$AnimationListenerC0373a a;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0370a a;
 
-                public RunnableC0374a(animation.Animation$AnimationListenerC0373a animation_animation_animationlistenerc0373a) {
+                public RunnableC0371a(animation.Animation$AnimationListenerC0370a animation_animation_animationlistenerc0370a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {animation_animation_animationlistenerc0373a};
+                        Object[] objArr = {animation_animation_animationlistenerc0370a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -110,7 +110,7 @@ public class p83 {
                             return;
                         }
                     }
-                    this.a = animation_animation_animationlistenerc0373a;
+                    this.a = animation_animation_animationlistenerc0370a;
                 }
 
                 @Override // java.lang.Runnable
@@ -127,14 +127,14 @@ public class p83 {
             public class b implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ animation.Animation$AnimationListenerC0373a a;
+                public final /* synthetic */ animation.Animation$AnimationListenerC0370a a;
 
-                public b(animation.Animation$AnimationListenerC0373a animation_animation_animationlistenerc0373a) {
+                public b(animation.Animation$AnimationListenerC0370a animation_animation_animationlistenerc0370a) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {animation_animation_animationlistenerc0373a};
+                        Object[] objArr = {animation_animation_animationlistenerc0370a};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -144,7 +144,7 @@ public class p83 {
                             return;
                         }
                     }
-                    this.a = animation_animation_animationlistenerc0373a;
+                    this.a = animation_animation_animationlistenerc0370a;
                 }
 
                 @Override // java.lang.Runnable
@@ -157,7 +157,7 @@ public class p83 {
                 }
             }
 
-            public animation.Animation$AnimationListenerC0373a(a aVar) {
+            public animation.Animation$AnimationListenerC0370a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -180,7 +180,7 @@ public class p83 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                     if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0374a(this));
+                        this.a.a.post(new RunnableC0371a(this));
                     }
                     View view2 = this.a.b;
                     if (view2 != null) {
@@ -218,7 +218,7 @@ public class p83 {
                     return;
                 }
                 Animation loadAnimation = AnimationUtils.loadAnimation((Context) weakReference.get(), R.anim.obfuscated_res_0x7f010028);
-                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0373a(this));
+                loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0370a(this));
                 this.a.startAnimation(loadAnimation);
             }
         }
@@ -497,13 +497,13 @@ public class p83 {
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{activity, charSequence, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             Resources resources = ds2.c().getResources();
             e = z;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d8, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d9, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-            linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43).setVisibility(8);
-            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e44);
+            linearLayout.findViewById(R.id.obfuscated_res_0x7f090e54).setVisibility(8);
+            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e55);
             progressBar.setVisibility(0);
             progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c7));
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e45);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e56);
             if (!TextUtils.isEmpty(charSequence) && textView != null) {
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060252));
                 textView.setText(charSequence);
@@ -519,14 +519,14 @@ public class p83 {
         if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{activity, charSequence, drawable, view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             Resources resources = activity.getResources();
             e = z;
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d8, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d9, (ViewGroup) null);
             linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e45);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e56);
             if (textView != null && !TextUtils.isEmpty(charSequence)) {
                 textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060252));
                 textView.setText(charSequence);
             }
-            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e43);
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e54);
             if (imageView != null) {
                 if (view2 != null) {
                     new r83(activity).a(imageView, view2);
@@ -566,13 +566,13 @@ public class p83 {
             return;
         }
         e = z;
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d6, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d7, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913b3);
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913be);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d25);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d26);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d27);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913c8);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913d3);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d67);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d68);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d69);
         if (!TextUtils.isEmpty(charSequence)) {
             textView.setTextColor(l83.a);
             if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
@@ -601,7 +601,7 @@ public class p83 {
                     if (!TextUtils.isEmpty(charSequence2)) {
                         linearLayout2.setVisibility(8);
                     } else {
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d1c)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
+                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d5e)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
                         textView2.setText(charSequence2);
@@ -673,11 +673,11 @@ public class p83 {
         if (i2 == null) {
             return;
         }
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d7, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00d8, (ViewGroup) null);
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         boolean z2 = true;
         linearLayout.setClickable(true);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09221f);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f092265);
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.left_icon);
         simpleDraweeView.setVisibility(0);
         if (view2 != null) {
@@ -692,9 +692,9 @@ public class p83 {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(q83.a(activity, 15.0f), 0, 0, 0);
             linearLayout2.setLayoutParams(layoutParams);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092314);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09235b);
             TextView textView2 = (TextView) linearLayout.findViewById(R.id.sub_title);
-            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09182a);
+            TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091844);
             if (TextUtils.isEmpty(charSequence)) {
                 if (!TextUtils.isEmpty(charSequence2)) {
                     if (z2) {
@@ -718,13 +718,13 @@ public class p83 {
                     textView3.setVisibility(0);
                     textView3.setTextColor(l83.a);
                 }
-                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f090434);
-                LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091114);
-                TextView textView4 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090472);
+                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09043d);
+                LinearLayout linearLayout3 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091128);
+                TextView textView4 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09047b);
                 textView4.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c3));
-                TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091117);
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09111a);
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d27);
+                TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09112b);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09112e);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d69);
                 if (!TextUtils.isEmpty(charSequence3)) {
                     if (toastRightAreaStyle == ToastRightAreaStyle.BUTTON) {
                         frameLayout.setVisibility(0);
@@ -758,9 +758,9 @@ public class p83 {
             return;
         }
         z2 = false;
-        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092314);
+        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09235b);
         TextView textView22 = (TextView) linearLayout.findViewById(R.id.sub_title);
-        TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09182a);
+        TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091844);
         if (TextUtils.isEmpty(charSequence)) {
         }
     }

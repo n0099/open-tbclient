@@ -293,7 +293,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (view2 == this.a.a.m) {
                 if (this.a.c != null && this.a.a.B() > 0 && this.a.a.C() != null) {
                     if (!ej.F()) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     } else if (!TbadkCoreApplication.isLogin()) {
                         TbadkCoreApplication.getInst().login(this.a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.a.getPageContext().getPageActivity())));
                     } else {
@@ -500,7 +500,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 this.a.a.G();
                 if (i != 0) {
                     if (StringUtils.isNull(str)) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0cfe);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     } else {
                         this.a.showToast(str);
                     }
@@ -519,10 +519,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
                 this.a.a.G();
                 if (i != 0) {
-                    new u35().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11c6));
+                    new u35().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11dc));
                     return;
                 }
-                new u35().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11c7));
+                new u35().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11dd));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.m));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
@@ -536,7 +536,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.a.G();
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0821);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f082a);
             }
         }
     }
@@ -577,7 +577,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 if (this.a.n != null && str.equalsIgnoreCase(this.a.n.b())) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.m));
                 }
-                new u35().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11c7));
+                new u35().d(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11dd));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
                 this.a.setResult(-1, intent);
@@ -802,13 +802,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                             j05 j05Var = new j05(getActivity());
                             j05Var.setMessageShowCenter(true);
                             if (this.k <= 0) {
-                                j05Var.setTitle(R.string.obfuscated_res_0x7f0f08ce);
+                                j05Var.setTitle(R.string.obfuscated_res_0x7f0f08d7);
                             } else {
-                                j05Var.setTitle(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b9a), Integer.valueOf(this.k)));
+                                j05Var.setTitle(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ba4), Integer.valueOf(this.k)));
                             }
-                            j05Var.setMessageId(R.string.obfuscated_res_0x7f0f0831);
-                            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this, j05Var));
-                            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f080d, new e(this, j05Var));
+                            j05Var.setMessageId(R.string.obfuscated_res_0x7f0f083a);
+                            j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(this, j05Var));
+                            j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0816, new e(this, j05Var));
                             j05Var.create(getPageContext());
                             j05Var.show();
                             return false;
@@ -818,8 +818,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                     } else {
                         j05 j05Var2 = new j05(getActivity());
                         j05Var2.setButtonTextColor(R.color.CAM_X0305);
-                        j05Var2.setTitle(R.string.obfuscated_res_0x7f0f0dbc);
-                        j05Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new b(this, j05Var2));
+                        j05Var2.setTitle(R.string.obfuscated_res_0x7f0f0dc8);
+                        j05Var2.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this, j05Var2));
                         j05Var2.setPositiveButton(R.string.open_now, new c(this, j05Var2));
                         j05Var2.create(getPageContext());
                         j05Var2.show();
@@ -828,9 +828,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 } else if (cy4Var.k < i2) {
                     j05 j05Var3 = new j05(getActivity());
                     j05Var3.setMessageShowCenter(true);
-                    j05Var3.setTitle(R.string.obfuscated_res_0x7f0f0817);
-                    j05Var3.setMessage(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0a8b), Integer.valueOf(cy4Var.k)));
-                    j05Var3.setNegativeButton(R.string.obfuscated_res_0x7f0f0a46, new a(this, j05Var3));
+                    j05Var3.setTitle(R.string.obfuscated_res_0x7f0f0820);
+                    j05Var3.setMessage(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0a95), Integer.valueOf(cy4Var.k)));
+                    j05Var3.setNegativeButton(R.string.obfuscated_res_0x7f0f0a50, new a(this, j05Var3));
                     j05Var3.create(getPageContext());
                     j05Var3.show();
                     return false;
@@ -838,10 +838,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             } else {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 if (currentTimeMillis < cy4Var.h) {
-                    new u35().c(getResources().getString(R.string.obfuscated_res_0x7f0f081a));
+                    new u35().c(getResources().getString(R.string.obfuscated_res_0x7f0f0823));
                     return false;
                 } else if (currentTimeMillis > cy4Var.i) {
-                    new u35().c(getResources().getString(R.string.obfuscated_res_0x7f0f0819));
+                    new u35().c(getResources().getString(R.string.obfuscated_res_0x7f0f0822));
                     return false;
                 }
             }
@@ -926,7 +926,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             GiftTabView giftTabView = new GiftTabView(this, this.t);
             this.a = giftTabView;
             TextView textView = giftTabView.p;
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0823);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f082c);
             Object[] objArr = new Object[1];
             if (TextUtils.isEmpty(this.h)) {
                 str = this.g;

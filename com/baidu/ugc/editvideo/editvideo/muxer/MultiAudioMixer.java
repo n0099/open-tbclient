@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cw9;
+import com.baidu.tieba.gx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,7 +100,7 @@ public abstract class MultiAudioMixer {
                 }
                 for (int i = 0; i < bArr.length; i++) {
                     if (bArr[i].length != bArr2.length) {
-                        cw9.d("column of the road of audio + " + i + " is diffrent.");
+                        gx9.d("column of the road of audio + " + i + " is diffrent.");
                         return null;
                     }
                 }

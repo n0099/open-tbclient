@@ -226,7 +226,7 @@ public class wp7 extends v9 implements vp7 {
                         np7.a(this.a.a);
                         BdTopToast bdTopToast = new BdTopToast(this.a.a.getContext());
                         bdTopToast.h(true);
-                        bdTopToast.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f086b));
+                        bdTopToast.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0874));
                         bdTopToast.i((ViewGroup) this.a.a.getPageActivity().findViewById(16908290));
                     }
                 }
@@ -455,7 +455,7 @@ public class wp7 extends v9 implements vp7 {
             if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
                 BdTopToast bdTopToast = new BdTopToast(this.b.a.getContext());
                 bdTopToast.h(true);
-                bdTopToast.g(this.b.a.getResources().getString(R.string.obfuscated_res_0x7f0f0870));
+                bdTopToast.g(this.b.a.getResources().getString(R.string.obfuscated_res_0x7f0f0879));
                 bdTopToast.i((ViewGroup) this.b.a.getPageActivity().findViewById(16908290));
             }
         }
@@ -796,43 +796,43 @@ public class wp7 extends v9 implements vp7 {
                 i2 = (width - 1005) / 4;
             }
             this.g.setHorizontalSpacing(i2);
-            L(this.h, R.drawable.obfuscated_res_0x7f08045c);
-            L(this.j, R.drawable.obfuscated_res_0x7f080460);
-            L(this.k, R.drawable.obfuscated_res_0x7f08045d);
-            L(this.l, R.drawable.obfuscated_res_0x7f08045f);
-            L(this.i, R.drawable.obfuscated_res_0x7f08045e);
+            L(this.h, R.drawable.obfuscated_res_0x7f080460);
+            L(this.j, R.drawable.obfuscated_res_0x7f080464);
+            L(this.k, R.drawable.obfuscated_res_0x7f080461);
+            L(this.l, R.drawable.obfuscated_res_0x7f080463);
+            L(this.i, R.drawable.obfuscated_res_0x7f080462);
         }
     }
 
     public final void u() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07cb, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07dd, (ViewGroup) null);
             this.b = inflate;
-            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090db6);
-            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090daf);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db3);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db2);
-            this.g = (FlowLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090d98);
-            EMTextView eMTextView = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da9);
+            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090dc7);
+            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dc0);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc4);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc3);
+            this.g = (FlowLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090da9);
+            EMTextView eMTextView = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dba);
             this.h = eMTextView;
             eMTextView.setOnClickListener(new d(this));
-            EMTextView eMTextView2 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dad);
+            EMTextView eMTextView2 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbe);
             this.j = eMTextView2;
             eMTextView2.setOnClickListener(new e(this));
-            EMTextView eMTextView3 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090daa);
+            EMTextView eMTextView3 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbb);
             this.k = eMTextView3;
             eMTextView3.setOnClickListener(new f(this));
-            EMTextView eMTextView4 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dac);
+            EMTextView eMTextView4 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbd);
             this.l = eMTextView4;
             eMTextView4.setOnClickListener(new g(this));
-            EMTextView eMTextView5 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d96);
+            EMTextView eMTextView5 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090da7);
             this.m = eMTextView5;
             eMTextView5.setOnClickListener(new h(this));
-            EMTextView eMTextView6 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dab);
+            EMTextView eMTextView6 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbc);
             this.i = eMTextView6;
             eMTextView6.setOnClickListener(new i(this));
-            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0903bd);
+            this.n = this.b.findViewById(R.id.obfuscated_res_0x7f0903c5);
             if (!w()) {
                 E();
             }
@@ -882,19 +882,19 @@ public class wp7 extends v9 implements vp7 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             x9<T> x9Var = this.mContext;
             if (x9Var != 0) {
-                str = String.format(x9Var.getString(R.string.obfuscated_res_0x7f0f086d), this.B) + "\n" + String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f086e), new Object[0]);
+                str = String.format(x9Var.getString(R.string.obfuscated_res_0x7f0f0876), this.B) + "\n" + String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f0877), new Object[0]);
             } else {
                 str = null;
             }
             l lVar = new l(this, 2001304);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getPageActivity());
             this.D = tBAlertBuilder;
-            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f086c);
+            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0875);
             if (!dj.isEmpty(str)) {
                 this.D.q(str);
             }
             this.D.o(true);
-            this.D.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0515, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f086c, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+            this.D.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0518, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0875, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
             this.D.i();
             this.D.j(false);
             this.D.z();

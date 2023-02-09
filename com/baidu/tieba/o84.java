@@ -32,7 +32,7 @@ public class o84 extends w43 implements t53 {
     public int f;
 
     /* loaded from: classes5.dex */
-    public class a implements hda<String> {
+    public class a implements lea<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class o84 extends w43 implements t53 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hda
+        @Override // com.baidu.tieba.lea
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -168,7 +168,7 @@ public class o84 extends w43 implements t53 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            tca.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
+            xda.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
         }
     }
 }

@@ -50,11 +50,11 @@ import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tbadk.core.view.ThreadSourceShareAndPraiseLayout;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.cp8;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.yn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +70,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
     public TbVideoViewContainer C;
     public TextView D;
     public View E;
-    public io8 F;
+    public mp8 F;
     public ThreadData G;
     public View H;
     public TextView I;
@@ -79,7 +79,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
     public int L;
     public boolean M;
     public String N;
-    public yn8 O;
+    public cp8 O;
     public Animation P;
     public c57 Q;
     public TbImageView R;
@@ -89,7 +89,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
     public View V;
     public int W;
     public Handler X;
-    public qo8 Y;
+    public up8 Y;
     public VideoLoadingProgressView.c Z;
     public String a0;
     public TbImageView.f b0;
@@ -102,7 +102,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
     public ThreadCommentAndPraiseInfoLayout i;
     public final View.OnClickListener i0;
     public ThreadSourceShareAndPraiseLayout j;
-    public yn8.b j0;
+    public cp8.b j0;
     public ThreadUserInfoLayout k;
     public ThreadGodReplyLayout l;
     public HeadPendantClickableView m;
@@ -380,7 +380,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
     }
 
     /* loaded from: classes7.dex */
-    public class h implements yn8.b {
+    public class h implements cp8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zw6 a;
@@ -403,7 +403,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             this.a = zw6Var;
         }
 
-        @Override // com.baidu.tieba.yn8.b
+        @Override // com.baidu.tieba.cp8.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
@@ -505,19 +505,19 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
     }
 
     /* loaded from: classes7.dex */
-    public class k implements qo8 {
+    public class k implements up8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zw6 a;
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -527,7 +527,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -537,7 +537,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             return (View) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -547,7 +547,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -557,7 +557,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -567,7 +567,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -584,7 +584,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -605,7 +605,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -615,63 +615,63 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
-        public void setStatistic(lo8 lo8Var) {
+        @Override // com.baidu.tieba.up8
+        public void setStatistic(pp8 pp8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, lo8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, pp8Var) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.qo8
+        @Override // com.baidu.tieba.up8
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -1051,7 +1051,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
         this.h = 3;
         this.w = tbPageContext;
         View h2 = h();
-        this.u = h2.findViewById(R.id.obfuscated_res_0x7f090855);
+        this.u = h2.findViewById(R.id.obfuscated_res_0x7f090863);
         this.x = (RelativeLayout) h2.findViewById(R.id.layout_root);
         this.R = (TbImageView) h2.findViewById(R.id.frs_normal_item_star_view);
         this.y = (LinearLayout) h2.findViewById(R.id.video_card_content_layout);
@@ -1073,9 +1073,9 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
         this.o = textView;
         textView.setVisibility(8);
         this.o.setOnClickListener(this.g0);
-        io8 io8Var = new io8((ViewGroup) h2.findViewById(R.id.auto_video_loading_container));
-        this.F = io8Var;
-        io8Var.f(this.Z);
+        mp8 mp8Var = new mp8((ViewGroup) h2.findViewById(R.id.auto_video_loading_container));
+        this.F = mp8Var;
+        mp8Var.f(this.Z);
         this.z = (TextView) h2.findViewById(R.id.text_title);
         ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout = (ThreadCommentAndPraiseInfoLayout) h2.findViewById(R.id.text_bottom);
         this.i = threadCommentAndPraiseInfoLayout;
@@ -1127,9 +1127,9 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
         this.C.getControl().setContinuePlayEnable(true);
         this.C.getControl().setOperableVideoContainer(this.Y);
         this.C.getControl().setOnSurfaceDestroyedListener(this.f0);
-        yn8 yn8Var = new yn8();
-        this.O = yn8Var;
-        yn8Var.l(this.C.getControl());
+        cp8 cp8Var = new cp8();
+        this.O = cp8Var;
+        cp8Var.l(this.C.getControl());
         this.O.i(this.j0);
         this.H = h2.findViewById(R.id.auto_video_black_mask);
         this.D = (TextView) h2.findViewById(R.id.auto_video_error_tips);
@@ -1191,11 +1191,11 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
         }
     }
 
-    public void a0(lo8 lo8Var) {
+    public void a0(pp8 pp8Var) {
         TbVideoViewContainer tbVideoViewContainer;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, lo8Var) == null) && (tbVideoViewContainer = this.C) != null && tbVideoViewContainer.getControl() != null) {
-            this.C.getControl().setVideoStatData(lo8Var);
+        if ((interceptable == null || interceptable.invokeL(1048596, this, pp8Var) == null) && (tbVideoViewContainer = this.C) != null && tbVideoViewContainer.getControl() != null) {
+            this.C.getControl().setVideoStatData(pp8Var);
         }
     }
 
@@ -1388,9 +1388,9 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             TbVideoViewContainer tbVideoViewContainer = this.C;
             if (tbVideoViewContainer != null && tbVideoViewContainer.getControl() != null) {
                 this.C.getControl().stopPlayback();
-                yn8 yn8Var = this.O;
-                if (yn8Var != null) {
-                    yn8Var.n();
+                cp8 cp8Var = this.O;
+                if (cp8Var != null) {
+                    cp8Var.n();
                 }
             }
             this.M = false;
@@ -1541,7 +1541,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
                     str = valueOf;
                 }
                 String str2 = "floor5";
-                if (this.G.getLastReadPid() > 0 && i29.c()) {
+                if (this.G.getLastReadPid() > 0 && m39.c()) {
                     PbActivityConfig createHistoryCfg = new PbActivityConfig(this.w.getPageActivity()).createHistoryCfg(this.G.getTid(), String.valueOf(this.G.getLastReadPid()), false, true, "frs_page");
                     if (this.W == 501) {
                         str2 = "frs_tab";
@@ -1625,7 +1625,7 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
                     String str = p35.m().s("nani_key_pre_h5_link", TbConfig.NANI_DEFAULT_H5_PREFIX) + "/" + this.G.getTid();
                     span_str.append((CharSequence) this.G.generateNaniTail(new a(this, 2, str, str)));
                 }
-                this.z.setOnTouchListener(new qd9(span_str));
+                this.z.setOnTouchListener(new ue9(span_str));
                 this.z.setText(span_str);
                 this.Q.a(this.G);
                 c0(this.G);
@@ -1695,20 +1695,20 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
             if (this.W == 501) {
                 str = "frs_tab";
             }
-            lo8 lo8Var = new lo8();
-            lo8Var.a = str;
-            lo8Var.c = this.G.getTid();
-            lo8Var.d = this.G.getFid() + "";
-            lo8Var.e = TbadkCoreApplication.getCurrentAccount();
+            pp8 pp8Var = new pp8();
+            pp8Var.a = str;
+            pp8Var.c = this.G.getTid();
+            pp8Var.d = this.G.getFid() + "";
+            pp8Var.e = TbadkCoreApplication.getCurrentAccount();
             ThreadData threadData2 = this.G;
-            lo8Var.f = threadData2.mRecomSource;
+            pp8Var.f = threadData2.mRecomSource;
             String str2 = threadData2.mRecomAbTag;
-            lo8Var.l = str2;
-            lo8Var.g = str2;
-            lo8Var.h = threadData2.mRecomWeight;
-            lo8Var.i = "";
-            lo8Var.m = threadData2.getThreadVideoInfo().video_md5;
-            ao8.e(this.G.getThreadVideoInfo().video_md5, "", "1", lo8Var, this.C.getControl().getPcdnState());
+            pp8Var.l = str2;
+            pp8Var.g = str2;
+            pp8Var.h = threadData2.mRecomWeight;
+            pp8Var.i = "";
+            pp8Var.m = threadData2.getThreadVideoInfo().video_md5;
+            ep8.e(this.G.getThreadVideoInfo().video_md5, "", "1", pp8Var, this.C.getControl().getPcdnState());
         }
     }
 
@@ -1726,9 +1726,9 @@ public class zw6 extends mc6<ThreadData> implements jd6, Object {
                 }
                 this.M = true;
                 this.C.getControl().setVideoPath(this.N, this.G.getId());
-                yn8 yn8Var = this.O;
-                if (yn8Var != null) {
-                    yn8Var.m();
+                cp8 cp8Var = this.O;
+                if (cp8Var != null) {
+                    cp8Var.m();
                 }
                 X();
             }

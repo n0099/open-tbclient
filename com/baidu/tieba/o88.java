@@ -48,7 +48,7 @@ public class o88 extends v9<PayVcodeActivity> {
             }
         }
         this.a = payVcodeActivity;
-        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d06e3);
+        payVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d06e9);
         p(payVcodeActivity);
     }
 
@@ -138,16 +138,16 @@ public class o88 extends v9<PayVcodeActivity> {
     public final void p(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, payVcodeActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0918c1);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0918bb);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0918dc);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0918d6);
             this.e = textView;
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
-            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0925f6);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092758);
-            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918bf);
-            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918c0);
-            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918c2);
+            this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f092645);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0927b9);
+            this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918da);
+            this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918db);
+            this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0918dd);
             this.f.setHorizontalScrollBarEnabled(false);
             this.f.setHorizontalScrollbarOverlay(false);
             this.f.setScrollBarStyle(33554432);

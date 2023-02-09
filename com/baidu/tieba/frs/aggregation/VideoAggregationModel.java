@@ -150,7 +150,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     VideoAggregationModel.J(this.a);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05e4);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05eb);
                     }
                     this.a.g.a(errorString);
                     return;
@@ -207,7 +207,7 @@ public class VideoAggregationModel extends BdBaseModel {
                     VideoAggregationModel.J(this.a);
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05e4);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f05eb);
                     }
                     this.a.g.a(errorString);
                     return;

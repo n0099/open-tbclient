@@ -325,11 +325,11 @@ public class PictureView extends FrameLayout {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083c, this);
-            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0927f2);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091ab0);
-            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091caa);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091ab1);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084e, this);
+            this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09285b);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091ae9);
+            this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091ceb);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091aea);
             this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
             this.d.setZoomRange(1.0f, 3.0f);
             this.d.setDoubleTapEnabled(true);

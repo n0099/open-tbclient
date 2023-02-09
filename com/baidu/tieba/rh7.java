@@ -55,7 +55,7 @@ public class rh7 {
     public hh7 k;
     public View l;
     public FrameLayout m;
-    public bo8 n;
+    public fp8 n;
     public NEGFeedBackView.b o;
     public q97 p;
     public int q;
@@ -499,10 +499,10 @@ public class rh7 {
     }
 
     public void G() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (bo8Var = this.n) != null && this.t) {
-            bo8Var.n(this.q, this.r, this.u, true);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (fp8Var = this.n) != null && this.t) {
+            fp8Var.n(this.q, this.r, this.u, true);
         }
     }
 
@@ -535,10 +535,10 @@ public class rh7 {
     }
 
     public void Y() {
-        bo8 bo8Var;
+        fp8 fp8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (bo8Var = this.n) != null) {
-            bo8Var.y();
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (fp8Var = this.n) != null) {
+            fp8Var.y();
         }
     }
 
@@ -640,11 +640,11 @@ public class rh7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             this.s = z;
-            bo8 bo8Var = this.n;
-            if (bo8Var == null) {
+            fp8 fp8Var = this.n;
+            if (fp8Var == null) {
                 return;
             }
-            bo8Var.r(!z);
+            fp8Var.r(!z);
             ThreadCardViewHolder q = q();
             boolean z2 = false;
             if (q != null && q.a() != null) {
@@ -668,7 +668,7 @@ public class rh7 {
                 this.d.setNextPage(this.i);
             }
             this.i.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1646));
+            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f165d));
             this.i.E(onClickListener);
             this.i.g();
         }
@@ -705,9 +705,9 @@ public class rh7 {
             if (hh7Var != null) {
                 hh7Var.d();
             }
-            bo8 bo8Var = this.n;
-            if (bo8Var != null) {
-                bo8Var.h();
+            fp8 fp8Var = this.n;
+            if (fp8Var != null) {
+                fp8Var.h();
             }
             p();
             MessageManager.getInstance().unRegisterListener(this.z);
@@ -745,8 +745,8 @@ public class rh7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            bo8 bo8Var = this.n;
-            if (bo8Var != null && bo8Var.j() != null && (this.n.j().getTag() instanceof ThreadCardViewHolder)) {
+            fp8 fp8Var = this.n;
+            if (fp8Var != null && fp8Var.j() != null && (this.n.j().getTag() instanceof ThreadCardViewHolder)) {
                 return (ThreadCardViewHolder) this.n.j().getTag();
             }
             return null;
@@ -786,9 +786,9 @@ public class rh7 {
                 this.d.setNextPage(this.i);
             }
             this.i.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ae6));
+            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0af0));
             this.i.E(null);
-            this.i.S();
+            this.i.T();
         }
     }
 
@@ -800,7 +800,7 @@ public class rh7 {
                 this.d.setNextPage(this.i);
             }
             this.i.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1649));
+            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1660));
             this.i.E(null);
             this.i.g();
         }
@@ -866,11 +866,11 @@ public class rh7 {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0907, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d091c, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092670);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f092673);
+            this.m = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0926cd);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.c.findViewById(R.id.obfuscated_res_0x7f0926d0);
             this.d = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.b.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -880,11 +880,11 @@ public class rh7 {
                 this.p.p(this.a.getArguments().getString("tab_name"));
             }
             this.p.o(this.b);
-            bo8 bo8Var = new bo8(this.b, this.d);
-            this.n = bo8Var;
-            bo8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            fp8 fp8Var = new fp8(this.b, this.d);
+            this.n = fp8Var;
+            fp8Var.w(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.n.u(this.v);
-            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092674);
+            this.e = (BigdaySwipeRefreshLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0926d1);
             ud7 ud7Var = new ud7(this.b);
             this.f = ud7Var;
             this.e.setProgressView(ud7Var);
@@ -908,7 +908,7 @@ public class rh7 {
             this.g = je7Var;
             je7Var.a(this.v);
             this.k.i(this.g);
-            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f09266d);
+            this.l = this.c.findViewById(R.id.obfuscated_res_0x7f0926ca);
             n();
         }
     }

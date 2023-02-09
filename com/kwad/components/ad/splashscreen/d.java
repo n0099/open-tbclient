@@ -76,8 +76,8 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
             this.xV = i;
             ViewGroup jt = jt();
             this.iB = jt;
-            this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0912db);
-            DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f0912e4);
+            this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0912ef);
+            DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f0912f8);
             this.mDetailVideoView = detailVideoView;
             detailVideoView.setAd(true);
             this.mDetailVideoView.setVisibility(8);
@@ -215,7 +215,7 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             int i = this.xV;
-            return i == 1 ? R.layout.obfuscated_res_0x7f0d0487 : i == 0 ? R.layout.obfuscated_res_0x7f0d0488 : i == 2 ? R.layout.obfuscated_res_0x7f0d0485 : i == 3 ? R.layout.obfuscated_res_0x7f0d0486 : R.layout.obfuscated_res_0x7f0d0488;
+            return i == 1 ? R.layout.obfuscated_res_0x7f0d0489 : i == 0 ? R.layout.obfuscated_res_0x7f0d048a : i == 2 ? R.layout.obfuscated_res_0x7f0d0487 : i == 3 ? R.layout.obfuscated_res_0x7f0d0488 : R.layout.obfuscated_res_0x7f0d048a;
         }
         return invokeV.intValue;
     }
@@ -260,9 +260,9 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && com.kwad.components.ad.splashscreen.d.c.d(getContext(), getWidth(), getHeight()) && this.xV != 0) {
             if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 2) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0912d9), -1, 16, 16, -1);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0912ed), -1, 16, 16, -1);
             } else if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 3) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0912d9), -1, 16, -1, 16);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0912ed), -1, 16, -1, 16);
             }
         }
     }

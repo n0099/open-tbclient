@@ -225,7 +225,7 @@ public class td5 extends nb5 {
                 p.l = 1;
             }
             if (!this.c) {
-                if (z29.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
+                if (d49.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, b.getContext()), wb5.class)) != null && (wb5Var = (wb5) runTask.getData()) != null) {
                     wb5Var.l = 2;
                     b.d(wb5Var);
                 }

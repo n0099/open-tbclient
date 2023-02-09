@@ -20,10 +20,10 @@ public class rp5 {
     public static TextView a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean g(char c) {
+    public static boolean h(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) {
             if (c < 'a' || c > 'z') {
                 if (c < 'A' || c > 'Z') {
                     return (c >= '0' && c <= '9') || c == ' ';
@@ -35,52 +35,44 @@ public class rp5 {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean h(char c) {
+    public static boolean i(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
     }
 
-    public static int a(Editable editable) {
+    public static int a(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (h(c)) {
+                return 1;
+            }
+            return 2;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int b(Editable editable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, editable)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, editable)) == null) {
             if (editable == null) {
                 return 0;
             }
-            return c(editable.toString());
+            return d(editable.toString());
         }
         return invokeL.intValue;
     }
 
-    public static int b(EditText editText) {
+    public static int c(EditText editText) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, editText)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, editText)) == null) {
             if (editText == null) {
                 return 0;
             }
-            return a(editText.getText());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                if (g(str.charAt(i2))) {
-                    i++;
-                } else {
-                    i += 2;
-                }
-            }
-            return i;
+            return b(editText.getText());
         }
         return invokeL.intValue;
     }
@@ -92,28 +84,12 @@ public class rp5 {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            int codePointCount = str.codePointCount(0, str.length());
-            int i = 0;
-            for (int i2 = 1; i2 <= codePointCount; i2++) {
-                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
-                i++;
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0;
-            }
             int i = 0;
             for (int i2 = 0; i2 < str.length(); i2++) {
-                if (' ' == str.charAt(i2)) {
+                if (h(str.charAt(i2))) {
                     i++;
+                } else {
+                    i += 2;
                 }
             }
             return i;
@@ -131,11 +107,25 @@ public class rp5 {
             int codePointCount = str.codePointCount(0, str.length());
             int i = 0;
             for (int i2 = 1; i2 <= codePointCount; i2++) {
-                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
-                if (substring.length() >= 2) {
-                    i += 2;
-                } else {
-                    i += c(substring);
+                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
+                i++;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (' ' == str.charAt(i2)) {
+                    i++;
                 }
             }
             return i;
@@ -143,37 +133,39 @@ public class rp5 {
         return invokeL.intValue;
     }
 
-    public static String f(String str, int i) {
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
+                if (substring.length() >= 2) {
+                    i += 2;
+                } else {
+                    i += d(substring);
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String g(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
-            if (c(str) > i) {
-                return k(str, 0, i - 2) + StringHelper.STRING_MORE;
+            if (d(str) > i) {
+                return l(str, 0, i - 2) + StringHelper.STRING_MORE;
             }
             return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
-            int codePointCount = str.codePointCount(0, str.length());
-            int i2 = 1;
-            String str2 = str;
-            while (i2 <= codePointCount) {
-                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-                if (d(substring) > i) {
-                    break;
-                }
-                i2++;
-                str2 = substring;
-            }
-            return str2;
         }
         return (String) invokeLI.objValue;
     }
@@ -198,10 +190,30 @@ public class rp5 {
         return (String) invokeLI.objValue;
     }
 
-    public static Pair<Integer, Integer> i(String str, int i, int i2) {
+    public static String n(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (f(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static Pair<Integer, Integer> j(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, str, i, i2)) == null) {
             try {
                 if (a == null) {
                     a = new TextView(TbadkCoreApplication.getInst().getContext());
@@ -222,10 +234,10 @@ public class rp5 {
         return (Pair) invokeLII.objValue;
     }
 
-    public static String k(String str, int i, int i2) {
+    public static String l(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65547, null, str, i, i2)) == null) {
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(str) && i <= i2) {
                 if (i >= 0 && i2 >= 0) {
@@ -234,12 +246,12 @@ public class rp5 {
                         char charAt = str.charAt(i4);
                         if (i3 >= i2) {
                             if (i3 == i2) {
-                                if (h(sb.charAt(sb.length() - 1))) {
+                                if (i(sb.charAt(sb.length() - 1))) {
                                     sb.append(charAt);
                                     return sb.toString();
                                 }
                                 return sb.toString();
-                            } else if (sb.length() > 2 && h(sb.charAt(sb.length() - 2))) {
+                            } else if (sb.length() > 2 && i(sb.charAt(sb.length() - 2))) {
                                 return sb.toString();
                             } else {
                                 return sb.deleteCharAt(sb.length() - 1).toString();
@@ -248,7 +260,7 @@ public class rp5 {
                         if (i3 >= i) {
                             sb.append(charAt);
                         }
-                        if (g(charAt)) {
+                        if (h(charAt)) {
                             i3++;
                         } else {
                             i3 += 2;

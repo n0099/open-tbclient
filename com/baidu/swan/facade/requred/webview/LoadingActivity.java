@@ -312,13 +312,13 @@ public class LoadingActivity extends Activity implements pn3<a93.a> {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a6);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a3);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a8);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a5);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a6);
             this.b = lottieAnimationView;
             lottieAnimationView.setImageAssetsFolder("swan-loading/images/");
             this.b.setAnimation("swan-loading/aiapps_so_download_anim_first.json");
-            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a5);
+            LottieAnimationView lottieAnimationView2 = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0901a7);
             this.c = lottieAnimationView2;
             lottieAnimationView2.setImageAssetsFolder("swan-loading/images/");
             this.c.setAnimation("swan-loading/aiapps_so_download_anim_second.json");
@@ -332,7 +332,7 @@ public class LoadingActivity extends Activity implements pn3<a93.a> {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017c);
+            SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09017e);
             this.a = swanAppActionBar;
             swanAppActionBar.f(-16777216, false);
             this.a.setRightExitOnClickListener(new d(this));

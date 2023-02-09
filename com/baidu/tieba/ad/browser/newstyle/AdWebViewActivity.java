@@ -64,16 +64,16 @@ import com.baidu.tieba.n21;
 import com.baidu.tieba.nj0;
 import com.baidu.tieba.o25;
 import com.baidu.tieba.r25;
-import com.baidu.tieba.s19;
-import com.baidu.tieba.t19;
 import com.baidu.tieba.t25;
 import com.baidu.tieba.tk0;
 import com.baidu.tieba.tk5;
-import com.baidu.tieba.u19;
 import com.baidu.tieba.u25;
 import com.baidu.tieba.uw4;
 import com.baidu.tieba.v25;
 import com.baidu.tieba.v61;
+import com.baidu.tieba.w29;
+import com.baidu.tieba.x29;
+import com.baidu.tieba.y29;
 import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -97,8 +97,8 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     public ix5 A;
     public cl0 B;
     public TBAdWebView t;
-    public s19 u;
-    public u19 v;
+    public w29 u;
+    public y29 v;
     public t25 w;
     public boolean x;
     public boolean y;
@@ -379,7 +379,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
     }
 
     /* loaded from: classes3.dex */
-    public class c implements u19 {
+    public class c implements y29 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdWebViewActivity a;
@@ -402,7 +402,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
             this.a = adWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.u19
+        @Override // com.baidu.tieba.y29
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -1032,9 +1032,9 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2001308, (Class) null);
-            s19 s19Var = new s19();
-            this.u = s19Var;
-            s19Var.a(new XiubaTbJsBridge(getPageContext()));
+            w29 w29Var = new w29();
+            this.u = w29Var;
+            w29Var.a(new XiubaTbJsBridge(getPageContext()));
             this.u.a(new CommonTbJsBridge(getPageContext()));
             this.u.a(buildGameDownloadJSPrompt());
             if (this.e) {
@@ -1050,7 +1050,7 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ApkDownloadView apkDownloadView = new ApkDownloadView(this);
             apkDownloadView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            apkDownloadView.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0804d1);
+            apkDownloadView.setBackgroundSkin(R.drawable.obfuscated_res_0x7f0804d5);
             apkDownloadView.setForegroundSkin(R.color.black_alpha15);
             apkDownloadView.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
             apkDownloadView.setTextSize(R.dimen.tbds42);
@@ -1139,26 +1139,26 @@ public class AdWebViewActivity extends AdBaseWebViewActivity implements BaseAdWe
         }
     }
 
-    public final t19 buildGameDownloadJSPrompt() {
+    public final x29 buildGameDownloadJSPrompt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, t19.class, getPageContext());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001386, x29.class, getPageContext());
             if (runTask != null && runTask.getData() != null) {
-                return (t19) runTask.getData();
+                return (x29) runTask.getData();
             }
             return null;
         }
-        return (t19) invokeV.objValue;
+        return (x29) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity
     public void webViewDestory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            s19 s19Var = this.u;
-            if (s19Var != null) {
-                s19Var.h();
+            w29 w29Var = this.u;
+            if (w29Var != null) {
+                w29Var.h();
             }
             TBAdWebView tBAdWebView = this.t;
             if (tBAdWebView != null) {

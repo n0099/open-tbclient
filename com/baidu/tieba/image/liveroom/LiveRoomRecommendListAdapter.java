@@ -113,15 +113,15 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
                     return;
                 }
             }
-            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090390);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090396);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090392);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f090395);
+            this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090398);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09039e);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09039a);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09039d);
             this.e = tBLottieAnimationView;
             tBLottieAnimationView.setImageAssetsFolder("lottie_live_icon");
             this.e.setRepeatCount(-1);
             SkinManager.setLottieAnimation(this.e, R.raw.obfuscated_res_0x7f110047);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090393);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09039b);
             a();
         }
 
@@ -311,7 +311,7 @@ public class LiveRoomRecommendListAdapter extends RecyclerView.Adapter<LiveRoomV
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0576, viewGroup, false);
+            View inflate = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d057b, viewGroup, false);
             int[] s = ej.s(this.c.getPageActivity());
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             inflate.setLayoutParams(new FrameLayout.LayoutParams((s[0] - dimenPixelSize) / 2, ((int) ((((s[0] - dimenPixelSize) - UtilHelper.getDimenPixelSize(R.dimen.M_W_X004)) / 2) * 1.25d)) + dimenPixelSize));

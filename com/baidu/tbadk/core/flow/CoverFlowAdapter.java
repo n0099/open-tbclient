@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.nr8;
+import com.baidu.tieba.rs8;
 import com.baidu.tieba.s15;
 import com.baidu.tieba.t15;
 import com.baidu.tieba.ux4;
@@ -171,7 +171,7 @@ public class CoverFlowAdapter<T extends t15> extends PagerAdapter {
                     tbImageView.setOnClickListener(this.d);
                     if ((this.b.get(i) instanceof ux4) && !((ux4) this.b.get(i)).n()) {
                         ux4 ux4Var = (ux4) this.b.get(i);
-                        nr8.k(ux4Var.j(), tbImageView2, ux4Var.k(), ej.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                        rs8.k(ux4Var.j(), tbImageView2, ux4Var.k(), ej.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }

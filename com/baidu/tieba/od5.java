@@ -55,7 +55,7 @@ import com.baidu.tbadk.editortools.pb.ImageModel;
 import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.j09;
+import com.baidu.tieba.n19;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,7 +67,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class od5 extends pb5 implements j09.g {
+public class od5 extends pb5 implements n19.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
@@ -136,12 +136,12 @@ public class od5 extends pb5 implements j09.g {
                     this.a.R(true);
                     WriteData W = this.a.g.W();
                     this.a.L();
-                    j09.z(this.a.l, null);
+                    n19.z(this.a.l, null);
                     if (W == null) {
                         return;
                     }
                     if (W.getType() == 2) {
-                        j09.p(W.getThreadId(), this.a);
+                        n19.p(W.getThreadId(), this.a);
                     }
                 } else if (writeData != null && a85Var != null && !TextUtils.isEmpty(a85Var.d())) {
                     writeData.setVcodeMD5(a85Var.b());
@@ -518,7 +518,7 @@ public class od5 extends pb5 implements j09.g {
     public void q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
-            j09.p(str, this);
+            n19.p(str, this);
         }
     }
 
@@ -820,7 +820,7 @@ public class od5 extends pb5 implements j09.g {
                     this.e = null;
                     this.s = null;
                     if (!TextUtils.isEmpty(this.l)) {
-                        j09.z(this.l, null);
+                        n19.z(this.l, null);
                     }
                     R(true);
                     NewWriteModel.d dVar = this.u;
@@ -1113,7 +1113,7 @@ public class od5 extends pb5 implements j09.g {
             W.setContent(this.c);
             W.setVideoInfo(this.s);
             W.setVoiceModel(this.e);
-            j09.z(str, W);
+            n19.z(str, W);
         }
     }
 
@@ -1190,7 +1190,7 @@ public class od5 extends pb5 implements j09.g {
         }
     }
 
-    @Override // com.baidu.tieba.j09.g
+    @Override // com.baidu.tieba.n19.g
     public void a(WriteData writeData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048602, this, writeData) != null) || writeData == null) {

@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.ct5;
 import com.baidu.tieba.fl;
 import com.baidu.tieba.ft5;
-import com.baidu.tieba.se9;
-import com.baidu.tieba.ue9;
+import com.baidu.tieba.wf9;
 import com.baidu.tieba.ws5;
+import com.baidu.tieba.yf9;
 import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,8 +42,8 @@ public class TbRichTextData extends OrmObject {
     public TbRichTextTiebaPlusInfo o;
     public List<ft5> p;
     public zs5 q;
-    public se9 r;
-    public ue9 s;
+    public wf9 r;
+    public yf9 s;
 
     public void j0(TbRichTextLinkButtonInfo tbRichTextLinkButtonInfo) {
         Interceptable interceptable = $ic;
@@ -183,17 +183,17 @@ public class TbRichTextData extends OrmObject {
         this.n = tbRichTextEvaluateItemInfo;
     }
 
-    public void e0(se9 se9Var) {
+    public void e0(wf9 wf9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, se9Var) == null) {
-            this.r = se9Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, wf9Var) == null) {
+            this.r = wf9Var;
         }
     }
 
-    public void f0(ue9 ue9Var) {
+    public void f0(yf9 yf9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, ue9Var) == null) {
-            this.s = ue9Var;
+        if (interceptable == null || interceptable.invokeL(1048601, this, yf9Var) == null) {
+            this.s = yf9Var;
         }
     }
 
@@ -327,22 +327,22 @@ public class TbRichTextData extends OrmObject {
         return (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
-    public se9 L() {
+    public wf9 L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.r;
         }
-        return (se9) invokeV.objValue;
+        return (wf9) invokeV.objValue;
     }
 
-    public ue9 M() {
+    public yf9 M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.s;
         }
-        return (ue9) invokeV.objValue;
+        return (yf9) invokeV.objValue;
     }
 
     public int N() {

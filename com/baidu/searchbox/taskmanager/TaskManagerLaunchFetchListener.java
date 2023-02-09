@@ -3,7 +3,7 @@ package com.baidu.searchbox.taskmanager;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.tieba.db8;
+import com.baidu.tieba.fb8;
 import com.baidu.tieba.g25;
 import com.baidu.tieba.nc;
 import com.baidu.tieba.pb.pb.main.PbModel;
@@ -59,13 +59,13 @@ public class TaskManagerLaunchFetchListener implements AppLaunchInfoFetcher.a {
             if (TextUtils.equals(str, SchemaRouteActivity.class.getName())) {
                 String dataString = intent.getDataString();
                 if (!TextUtils.isEmpty(dataString) && dataString.contains(PbModel.UNIDISPATCH_PB)) {
-                    z = db8.a().b();
+                    z = fb8.a().b();
                     g25.a().a = z;
                 }
             }
             if (TextUtils.equals(str, YunPushProxyActivity.class.getName())) {
                 if (Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(intent.getDataString()).find()) {
-                    z = db8.a().b();
+                    z = fb8.a().b();
                     g25.a().a = z;
                 }
             }

@@ -172,24 +172,24 @@ public class x76 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00df, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e0, (ViewGroup) null);
             this.a = inflate;
             inflate.setPadding(0, (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275), 0, 0);
-            this.e = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090219);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09021a);
-            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090217);
-            this.h = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090216);
-            this.n = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09021d);
-            this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090218);
-            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09021b);
-            this.j = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09092c);
-            this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09092e);
-            this.p = this.a.findViewById(R.id.obfuscated_res_0x7f09021e);
-            this.c = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09021c);
+            this.e = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09021d);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09021e);
+            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09021b);
+            this.h = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09021a);
+            this.n = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090221);
+            this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09021c);
+            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09021f);
+            this.j = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09093a);
+            this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09093c);
+            this.p = this.a.findViewById(R.id.obfuscated_res_0x7f090222);
+            this.c = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f090220);
             s76 s76Var = new s76(this.b, this.s);
             this.d = s76Var;
             this.c.setAdapter((ListAdapter) s76Var);
-            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090936);
+            RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090946);
             this.i = relativeLayout;
             this.c.setEmptyView(relativeLayout);
             this.e.setIsRound(true);

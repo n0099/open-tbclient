@@ -90,9 +90,9 @@ public class EmotionTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) this, true);
-            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090a01);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909ff);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d026b, (ViewGroup) this, true);
+            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090a0f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a0d);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }

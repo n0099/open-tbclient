@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.f09;
 import com.baidu.tieba.hu7;
 import com.baidu.tieba.il5;
+import com.baidu.tieba.j19;
 import com.baidu.tieba.lego.card.model.RankScoreCard;
 import com.baidu.tieba.uu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                f09.c(this.b.i, this.a.getD2Scheme());
+                j19.c(this.b.i, this.a.getD2Scheme());
             }
         }
     }
@@ -306,17 +306,17 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b3, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b4, (ViewGroup) null);
             this.m = linearLayout;
             this.n = (RelativeLayout) l(linearLayout, R.id.rl_content);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091eb2);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907dc);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907dd);
-            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d48);
-            this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091aa4);
-            this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0913a9);
-            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d01);
-            this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f090465);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091ef4);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907e8);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907e9);
+            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d8a);
+            this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091adc);
+            this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0913be);
+            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d43);
+            this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046e);
             return this.m;
         }
         return (View) invokeV.objValue;

@@ -29,7 +29,7 @@ public class e86 extends mc6<w66> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0105 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0106 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -132,13 +132,13 @@ public class e86 extends mc6<w66> {
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090211);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090212);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090210);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020c);
-            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020d);
-            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020e);
-            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09020f);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090215);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090216);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090214);
+            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090210);
+            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090211);
+            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090212);
+            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090213);
         }
     }
 }

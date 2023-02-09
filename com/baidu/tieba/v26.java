@@ -26,7 +26,7 @@ public class v26 extends mc6<a46> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0871 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0883 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -56,9 +56,9 @@ public class v26 extends mc6<a46> {
             }
         }
         this.k = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092495);
-        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f0910e8);
-        this.l = h().findViewById(R.id.obfuscated_res_0x7f090f1b);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f0924df);
+        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f0910fc);
+        this.l = h().findViewById(R.id.obfuscated_res_0x7f090f2c);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -80,11 +80,11 @@ public class v26 extends mc6<a46> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, a46Var) == null) {
             if (a46Var.a == 1) {
-                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0abb));
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ac5));
                 SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
                 return;
             }
-            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0aba));
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ac4));
             SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }

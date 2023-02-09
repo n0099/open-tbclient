@@ -202,7 +202,7 @@ public class p17 extends PriorityOrganizer.Task {
             if (g15.l()) {
                 return false;
             }
-            vz8 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            z09 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
             FrsViewData frsViewData = new FrsViewData();
             frsViewData.receiveData(frsResponseData);
             if (frsViewData.getForum() != null) {
@@ -224,8 +224,8 @@ public class p17 extends PriorityOrganizer.Task {
                 this.p.O("create_success");
                 this.p.P(String.format(t, this.r, this.s));
                 this.p.N(dh.e(this.r, -1));
-                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f1530));
-                this.p.M(this.m.getString(R.string.obfuscated_res_0x7f0f1531));
+                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f1547));
+                this.p.M(this.m.getString(R.string.obfuscated_res_0x7f0f1548));
                 z = this.o.b(this.p, false);
             } else if (this.p.I() == dh.e(this.r, 0)) {
                 z = this.o.b(this.p, false);

@@ -216,7 +216,7 @@ public class mw3 extends Dialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090815);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f090822);
                 this.a.t.setLayoutParams(layoutParams);
             }
         }
@@ -422,16 +422,16 @@ public class mw3 extends Dialog {
             Drawable drawable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-                int color = b().getColor(R.color.obfuscated_res_0x7f060a6b);
-                int color2 = b().getColor(R.color.obfuscated_res_0x7f060a68);
-                int color3 = b().getColor(R.color.obfuscated_res_0x7f060a68);
-                int color4 = b().getColor(R.color.obfuscated_res_0x7f060a67);
-                int color5 = b().getColor(R.color.obfuscated_res_0x7f060a69);
+                int color = b().getColor(R.color.obfuscated_res_0x7f060a6c);
+                int color2 = b().getColor(R.color.obfuscated_res_0x7f060a69);
+                int color3 = b().getColor(R.color.obfuscated_res_0x7f060a69);
+                int color4 = b().getColor(R.color.obfuscated_res_0x7f060a68);
+                int color5 = b().getColor(R.color.obfuscated_res_0x7f060a6a);
                 RelativeLayout relativeLayout = this.a.r;
                 Resources b2 = b();
                 int i = this.a.C;
                 if (i == -1) {
-                    i = R.drawable.obfuscated_res_0x7f08119f;
+                    i = R.drawable.obfuscated_res_0x7f0811b5;
                 }
                 relativeLayout.setBackground(b2.getDrawable(i));
                 this.a.b.setTextColor(color);
@@ -462,13 +462,13 @@ public class mw3 extends Dialog {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f08119d));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f08119c));
-                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f08119b));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0811b3));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0811b2));
+                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0811b1));
                 TextView d = d();
                 if (d != null) {
                     if (this.a.E) {
-                        drawable = b().getDrawable(R.drawable.obfuscated_res_0x7f08119b);
+                        drawable = b().getDrawable(R.drawable.obfuscated_res_0x7f0811b1);
                     } else {
                         drawable = null;
                     }
@@ -535,25 +535,25 @@ public class mw3 extends Dialog {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092334);
-            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09081f);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09082c);
             this.c = (TextView) viewGroup.findViewById(R.id.dialog_message);
-            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090815);
+            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090822);
             this.e = (TextView) viewGroup.findViewById(R.id.positive_button);
             this.f = (TextView) viewGroup.findViewById(R.id.negative_button);
             this.g = (TextView) viewGroup.findViewById(R.id.neutral_button);
-            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090845);
-            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f090846);
+            this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090853);
+            this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f090854);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.dialog_custom_content);
             this.q = (ImageView) viewGroup.findViewById(R.id.dialog_icon);
             this.r = (RelativeLayout) viewGroup.findViewById(R.id.searchbox_alert_dialog);
-            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f090844);
+            this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f090852);
             this.s = (AdScrollView) viewGroup.findViewById(R.id.message_scrollview);
-            this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09045b);
+            this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090464);
             this.u = viewGroup.findViewById(R.id.dialog_customPanel);
             this.A = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f0917b4);
-            int color = this.v.getResources().getColor(R.color.obfuscated_res_0x7f060a68);
+            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f0917cd);
+            int color = this.v.getResources().getColor(R.color.obfuscated_res_0x7f060a69);
             this.w = color;
             this.x = color;
         }
@@ -584,7 +584,7 @@ public class mw3 extends Dialog {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0683);
+            setContentView(R.layout.obfuscated_res_0x7f0d0689);
             Window window = getWindow();
             if (window != null) {
                 window.setLayout(-1, -1);

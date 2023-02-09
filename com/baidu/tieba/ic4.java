@@ -204,7 +204,7 @@ public class ic4 extends dc4 {
             if (z(this.b)) {
                 this.k.a.setAlpha(1.0f);
                 this.k.b.setActualImageResource(R.drawable.obfuscated_res_0x7f080169);
-                this.k.c.setText(R.string.obfuscated_res_0x7f0f1403);
+                this.k.c.setText(R.string.obfuscated_res_0x7f0f141a);
                 super.k();
                 return;
             }

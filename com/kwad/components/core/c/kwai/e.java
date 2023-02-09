@@ -34,7 +34,7 @@ public final class e extends c implements View.OnClickListener {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public b DG;
-    public b.C0599b DH;
+    public b.C0600b DH;
     public Runnable DP;
     public boolean DQ;
     public KsAdWebView bF;
@@ -397,7 +397,7 @@ public final class e extends c implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onCreate();
-            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091189);
+            this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09119d);
         }
     }
 

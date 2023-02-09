@@ -35,9 +35,9 @@ public class jc4 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0863, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0875, (ViewGroup) null);
         this.a = inflate;
-        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0920f5);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f6);
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09213b);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09213c);
     }
 }

@@ -90,22 +90,22 @@ public class fu6 implements qs6.d {
         this.n = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09236b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09071d);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f52);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091faf);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c69);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b5);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090728);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f95);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091ff2);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c7a);
         ImageView imageView = (ImageView) view2.findViewById(R.id.close_button);
         this.j = imageView;
         imageView.setOnClickListener(this.n);
-        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fed);
+        ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ffe);
         this.k = imageView2;
         ViewGroup.LayoutParams layoutParams = imageView2.getLayoutParams();
         int l = ej.l(tbPageContext.getPageActivity()) - (ej.g(tbPageContext.getPageActivity(), R.dimen.tbds49) * 2);
         layoutParams.width = l;
         layoutParams.height = (int) (((l * 364) * 1.0f) / 980.0f);
         this.k.setLayoutParams(layoutParams);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c02);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c43);
         View findViewById = view2.findViewById(R.id.layout_content);
         this.m = findViewById;
         findViewById.setBackground(f());
@@ -153,7 +153,7 @@ public class fu6 implements qs6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.h.setBackground(new ColorDrawable(SkinManager.getColor(R.color.CAM_X0201)));
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f08101c);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f081031);
         }
     }
 
@@ -162,7 +162,7 @@ public class fu6 implements qs6.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.h.setBackground(f());
-            this.k.setImageResource(R.drawable.obfuscated_res_0x7f08101b);
+            this.k.setImageResource(R.drawable.obfuscated_res_0x7f081030);
         }
     }
 

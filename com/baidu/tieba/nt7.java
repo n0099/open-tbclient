@@ -62,7 +62,7 @@ public class nt7 extends mc6<it7> {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b6 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b7 : invokeV.intValue;
     }
 
     /* loaded from: classes5.dex */
@@ -256,17 +256,17 @@ public class nt7 extends mc6<it7> {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View h = h();
             this.x = h;
-            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.i = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f091ad3);
             this.j = (TextView) this.x.findViewById(R.id.user_name);
-            this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090a17);
-            this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091b1e);
-            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f0922df);
-            this.n = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090571);
+            this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090a25);
+            this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091b59);
+            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.n = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09057c);
             this.o = (OriginalThreadCardView) this.x.findViewById(R.id.original_thread_view);
-            this.r = (MessageCardBottomView) this.x.findViewById(R.id.obfuscated_res_0x7f09056d);
+            this.r = (MessageCardBottomView) this.x.findViewById(R.id.obfuscated_res_0x7f090578);
             this.s = this.x.findViewById(R.id.new_message);
-            this.p = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f09177e);
-            this.q = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090572);
+            this.p = (LinearLayout) this.x.findViewById(R.id.obfuscated_res_0x7f091797);
+            this.q = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09057d);
             ViewCommonUtil.setViewPadding(this.o, ej.g(getContext(), R.dimen.M_W_X004), ej.g(getContext(), R.dimen.M_H_X003), ej.g(getContext(), R.dimen.M_W_X004), ej.g(getContext(), R.dimen.M_H_X003));
             this.o.setUsePlaceHolder(false);
             this.i.setOnClickListener(this);
@@ -304,12 +304,12 @@ public class nt7 extends mc6<it7> {
                 if (this.v.getCardType() == 1) {
                     this.l.setVisibility(0);
                     if (u()) {
-                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02b8));
+                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02b9));
                     } else if (v()) {
                         if (this.v.D()) {
-                            this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1097));
+                            this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10ab));
                         } else {
-                            this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1099));
+                            this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10ad));
                         }
                     }
                 } else {
@@ -318,12 +318,12 @@ public class nt7 extends mc6<it7> {
             } else {
                 this.l.setVisibility(0);
                 if (u()) {
-                    this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02b7));
+                    this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f02b8));
                 } else if (v()) {
                     if (this.v.D()) {
-                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1098));
+                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10ac));
                     } else {
-                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f109a));
+                        this.l.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10ae));
                     }
                 }
             }
@@ -334,7 +334,7 @@ public class nt7 extends mc6<it7> {
                 if (m.size() <= 2 && this.n != null) {
                     if (this.v.m().size() > 1 && this.y.get(1) != null) {
                         this.n.setVisibility(0);
-                        this.n.setOnTouchListener(new qd9(xs5.G(this.y.get(1).content)));
+                        this.n.setOnTouchListener(new ue9(xs5.G(this.y.get(1).content)));
                         this.n.setText(xs5.G(this.y.get(1).content));
                         this.z = 2;
                     } else if (this.v.m().size() == 1) {
@@ -367,7 +367,7 @@ public class nt7 extends mc6<it7> {
                 } else {
                     if (this.y.get(2) != null && (textView = this.n) != null) {
                         textView.setVisibility(0);
-                        this.n.setOnTouchListener(new qd9(xs5.G(this.y.get(2).content)));
+                        this.n.setOnTouchListener(new ue9(xs5.G(this.y.get(2).content)));
                         this.n.setText(xs5.G(this.y.get(2).content));
                     }
                     this.z = 3;
@@ -383,7 +383,7 @@ public class nt7 extends mc6<it7> {
                     d6.n(R.string.J_X05);
                     d6.f(R.color.CAM_X0201);
                     if (this.y.get(1) != null) {
-                        this.q.setOnTouchListener(new qd9(xs5.G(this.y.get(1).content)));
+                        this.q.setOnTouchListener(new ue9(xs5.G(this.y.get(1).content)));
                         this.q.setText(xs5.G(this.y.get(1).content));
                         this.v.L(TbRichTextView.c0(this.y.get(1).content, false));
                         if (this.y.get(1).is_floor.intValue() == 1) {

@@ -153,9 +153,9 @@ public class s92 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                w82.f(R.string.obfuscated_res_0x7f0f13df);
+                w82.f(R.string.obfuscated_res_0x7f0f13f6);
             } else {
-                w82.f(R.string.obfuscated_res_0x7f0f13d5);
+                w82.f(R.string.obfuscated_res_0x7f0f13ec);
             }
         }
     }

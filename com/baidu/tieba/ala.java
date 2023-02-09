@@ -1,52 +1,107 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.zma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.activity.PayCommonWebActivity;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes3.dex */
-public class ala {
+public class ala implements IYYPayWayView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public Dialog b;
+    public IYYPayWayView c;
+    public IYYPayWayView.b d;
+    public IPayCallback<CurrencyChargeMessage> e;
+    public yja f;
+    public boolean g;
 
-    public static void a(PayFlowType payFlowType, int i, int i2, PayUIKitConfig payUIKitConfig, Activity activity, String str, String str2) {
-        String str3;
+    public ala(Activity activity, boolean z, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, yja yjaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{payFlowType, Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, activity, str, str2}) == null) {
-            boolean z = false;
-            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
-                if (TextUtils.isEmpty(str)) {
-                    RLog.error("PayWebActivityUtils", "startPayWebActivity error url null", new Object[0]);
-                    return;
-                }
-                if (str2 != null && !str2.isEmpty()) {
-                    str3 = str2;
-                } else {
-                    str3 = "";
-                }
-                Intent intent = new Intent(activity, PayCommonWebActivity.class);
-                intent.putExtra(H5PayConstant.EXTRA_TITLE, str3);
-                intent.putExtra(H5PayConstant.EXTRA_URL, str);
-                intent.putExtra(H5PayConstant.EXTRA_APP_ID, i);
-                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, i2);
-                if (str.equals(nka.e(payUIKitConfig))) {
-                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
-                    z = true;
-                }
-                RLog.info("PayWebActivityUtils", "startPayWebActivity payFlowType:" + payFlowType + " isWalletActivity:" + z);
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = ola.a(str);
-                }
-                PayCommonWebActivity.z(activity, payFlowType, intent, i, i2, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, Boolean.valueOf(z), dialog, iYYPayWayView, bVar, iPayCallback, yjaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            RLog.error("PayWebActivityUtils", "startPayWebActivity error mPayUIKitConfig null", new Object[0]);
+        }
+        RLog.info("PayWayViewCallback", "create PayWayViewCallback");
+        this.a = activity;
+        this.b = dialog;
+        this.c = iYYPayWayView;
+        this.d = bVar;
+        this.e = iPayCallback;
+        this.f = yjaVar;
+        this.g = z;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void a(tla tlaVar, qla qlaVar, AppCustomExpand appCustomExpand) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tlaVar, qlaVar, appCustomExpand) == null) {
+            tla tlaVar2 = new tla(PayType.ALI_PAY_SIGN, tlaVar.b, tlaVar.c, tlaVar.d, tlaVar.e, tlaVar.f);
+            RLog.info("PayWayViewCallback", "onStartSignPay payType=" + tlaVar2.a + ", payAmount=" + qlaVar);
+            this.f.m(this.a, qlaVar, tlaVar2, this.b, this.c, appCustomExpand, this.d, this.e);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void b(tla tlaVar, qla qlaVar, AppCustomExpand appCustomExpand) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tlaVar, qlaVar, appCustomExpand) == null) {
+            RLog.info("PayWayViewCallback", "onStartPay payType=" + tlaVar.a + ", payAmount=" + qlaVar);
+            this.f.f(this.a, tlaVar, qlaVar, this.b, this.c, appCustomExpand, this.d, this.e);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void c(sla slaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, slaVar) == null) {
+            RLog.info("PayWayViewCallback", "showSplitOrderView info:" + slaVar);
+            gma.a(this.b, PayDialogType.PAY_WAY_DIALOG);
+            yja yjaVar = this.f;
+            Activity activity = this.a;
+            zma.b bVar = slaVar.b;
+            yjaVar.a(activity, bVar.a, bVar.d, bVar.e, PaySplitOrderViewSource.SOURCE_FROM_PAY_WAY_DIALOG, bVar.f, this.e);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void onRefreshViewFail(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            PayFinishInfo b = hma.b(PayDialogType.PAY_WAY_DIALOG, i, str, this.g);
+            RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail message:" + b);
+            this.f.j(b);
+            gma.b(this.b, PayDialogType.PAY_WAY_DIALOG);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
+    public void toHelpCenterPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f.u(this.a);
         }
     }
 }

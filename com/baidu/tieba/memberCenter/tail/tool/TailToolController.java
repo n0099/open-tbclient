@@ -485,7 +485,7 @@ public class TailToolController extends NoPressedLinearLayout implements xb5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.e = context;
-            this.b = new k38((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0885, (ViewGroup) this, true));
+            this.b = new k38((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) this, true));
             j38 j38Var = new j38(context);
             this.c = j38Var;
             j38Var.n(this.h);

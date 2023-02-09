@@ -57,16 +57,16 @@ import com.baidu.tieba.c45;
 import com.baidu.tieba.d45;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.e19;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.ft5;
 import com.baidu.tieba.ga5;
 import com.baidu.tieba.h05;
-import com.baidu.tieba.i39;
+import com.baidu.tieba.i29;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.tieba.kn;
 import com.baidu.tieba.kx4;
 import com.baidu.tieba.ky4;
+import com.baidu.tieba.m49;
 import com.baidu.tieba.no5;
 import com.baidu.tieba.nx4;
 import com.baidu.tieba.ox4;
@@ -261,7 +261,7 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
     public sz4 forumData;
     public String forum_name;
     public String from;
-    public e19 funAdData;
+    public i29 funAdData;
     public String funAdId;
     public boolean hasRecommend;
     public int has_commented;
@@ -1726,10 +1726,10 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
                         arrayList.add(new xc6.a((int) R.string.photo_live_tips));
                     }
                     if (getIs_good() == 1) {
-                        arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f0846));
+                        arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f084f));
                     }
                     if (getIs_top() == 1) {
-                        arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f1508));
+                        arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f151f));
                     }
                     if (isInterviewLive() && getTaskInfoData() != null && getTaskInfoStatus() == 2) {
                         arrayList.add(new xc6.a((int) R.string.interview_live));
@@ -3405,9 +3405,9 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048760, this)) == null) {
-            e19 e19Var = this.funAdData;
-            if (e19Var != null) {
-                return e19Var.h();
+            i29 i29Var = this.funAdData;
+            if (i29Var != null) {
+                return i29Var.h();
             }
             return false;
         }
@@ -4294,7 +4294,7 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
             if (!isUgcThreadType() && ((!isFromConcern() || getType() == TYPE_VIDEO_ALA_ONLIVE) && !this.isFromFeedTab && !this.isFromLocal)) {
                 if (getType() != TYPE_VIDEO_ALA_ONLIVE && getType() != TYPE_ALA_FRIEND_ROOM) {
                     if (isVocieRoom() && !TextUtils.isEmpty(this.forum_name)) {
-                        this.threadExtendInfo = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06ad);
+                        this.threadExtendInfo = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06b6);
                         return;
                     }
                     long last_time_int = getLast_time_int() * 1000;
@@ -4323,7 +4323,7 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
                     }
                     String authInfo = UtilHelper.getAuthInfo(this.author, this.isFromHomPage, i);
                     if (isShowForumAndReply()) {
-                        String str = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06ad);
+                        String str = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06b6);
                         if (!TextUtils.isEmpty(authInfo)) {
                             this.threadExtendInfo = authInfo + GlideException.IndentedAppendable.INDENT + str;
                         } else {
@@ -4375,9 +4375,9 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048727, this)) == null) {
-            e19 e19Var = this.funAdData;
-            if (e19Var != null) {
-                if (e19Var.h()) {
+            i29 i29Var = this.funAdData;
+            if (i29Var != null) {
+                if (i29Var.h()) {
                     if (this.funAdData.i()) {
                         return AdvertAppInfo.G;
                     }
@@ -4709,14 +4709,14 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
             StringBuilder sb = new StringBuilder(s);
             if (getAuthor() != null) {
                 if (getAuthor().getGender() == 1) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f08d2));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f08db));
                 } else if (getAuthor().getGender() == 2) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1236));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f124c));
                 } else {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1410));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1427));
                 }
             } else {
-                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1410));
+                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f1427));
             }
             sb.insert(0, "[icon]");
             SpannableString spannableString = new SpannableString(sb.toString());
@@ -5115,10 +5115,10 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
                 i = 0;
             }
             builder.is_vertical = Integer.valueOf(i);
-            if (dj.isEmpty(i39.e())) {
+            if (dj.isEmpty(m49.e())) {
                 e = writeData.getVideoInfo().getThumbPath();
             } else {
-                e = i39.e();
+                e = m49.e();
             }
             builder.thumbnail_url = e;
             builder.video_url = writeData.getVideoInfo().getVideoUrl();

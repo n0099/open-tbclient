@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class c66 extends mc6<oz8> implements jd6 {
+public class c66 extends mc6<s09> implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSkinView i;
@@ -48,7 +48,7 @@ public class c66 extends mc6<oz8> implements jd6 {
     public ParentDisallowInterceptHListView p;
     public s56 q;
     public boolean r;
-    public oz8 s;
+    public s09 s;
     public String t;
     public AdapterView.d u;
 
@@ -56,7 +56,7 @@ public class c66 extends mc6<oz8> implements jd6 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d02f9 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fb : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.jd6
@@ -173,12 +173,12 @@ public class c66 extends mc6<oz8> implements jd6 {
         this.u = new b(this);
         this.o = (ForbidParentSwipeBackRelativeLayout) h().findViewById(R.id.layout_root);
         this.i = (ThreadSkinView) h().findViewById(R.id.frs_thread_skin);
-        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090bee);
-        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090bf0);
-        this.l = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090bf1);
-        this.p = (ParentDisallowInterceptHListView) h().findViewById(R.id.obfuscated_res_0x7f090bef);
-        this.m = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090b8e);
-        this.n = h().findViewById(R.id.obfuscated_res_0x7f090855);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090bff);
+        this.k = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090c01);
+        this.l = (RelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f090c02);
+        this.p = (ParentDisallowInterceptHListView) h().findViewById(R.id.obfuscated_res_0x7f090c00);
+        this.m = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090b9f);
+        this.n = h().findViewById(R.id.obfuscated_res_0x7f090863);
         this.p.setDividerWidth(this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c));
         this.p.setBackgroundResource(R.drawable.transparent_bg);
         this.p.setOnItemClickListener(this.u);
@@ -217,14 +217,14 @@ public class c66 extends mc6<oz8> implements jd6 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.mc6
     /* renamed from: x */
-    public void i(oz8 oz8Var) {
+    public void i(s09 s09Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, oz8Var) != null) || oz8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, s09Var) != null) || s09Var == null) {
             return;
         }
-        this.s = oz8Var;
+        this.s = s09Var;
         v();
-        this.q.b(oz8Var.a);
+        this.q.b(s09Var.a);
         j(g(), TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -293,8 +293,8 @@ public class c66 extends mc6<oz8> implements jd6 {
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            oz8 oz8Var = this.s;
-            if (oz8Var != null && !ListUtils.isEmpty(oz8Var.a)) {
+            s09 s09Var = this.s;
+            if (s09Var != null && !ListUtils.isEmpty(s09Var.a)) {
                 for (ThreadData threadData2 : this.s.a) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(y(threadData2));
                 }

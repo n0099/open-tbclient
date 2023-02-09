@@ -57,7 +57,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void setMoveNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f077a);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0783);
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
             }
@@ -111,10 +111,10 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033f, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c3c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c43);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090c44);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0341, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c4d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c54);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090c55);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             c();
@@ -173,7 +173,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 } else if (this.e == null && getContext() != null) {
                     BdTopToast bdTopToast = new BdTopToast(getContext());
                     bdTopToast.h(false);
-                    bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0778));
+                    bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0781));
                     bdTopToast.i((ViewGroup) getParent());
                 }
             } else {

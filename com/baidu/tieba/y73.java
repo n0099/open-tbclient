@@ -240,16 +240,16 @@ public class y73 extends a83 {
                 }
             }
             n(new eo3());
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082f, e(), false);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0841, e(), false);
             W(viewGroup);
-            this.j = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ed);
-            this.h = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ee);
-            this.i = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ef);
-            this.k = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091125);
-            this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ed2);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ed4);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ed3);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081217), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.j = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902f5);
+            this.h = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902f6);
+            this.i = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902f7);
+            this.k = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091139);
+            this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ee3);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ee5);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090ee4);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08122d), (Drawable) null, (Drawable) null, (Drawable) null);
             this.k.setVisibility(8);
             this.j.setVisibility(0);
             this.l.setVisibility(0);

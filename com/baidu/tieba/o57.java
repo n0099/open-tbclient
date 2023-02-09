@@ -123,13 +123,13 @@ public class o57 {
             imageView.setTag(Boolean.FALSE);
             imageView.setOnClickListener(new a(imageView));
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(tbPageContext.getPageActivity());
-            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0782);
+            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f078b);
             if (frsTabInfo.is_general_tab.intValue() != 0 && frsTabInfo.tab_type.intValue() != 100) {
-                String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0780);
+                String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0789);
                 String str = frsTabInfo.tab_name;
                 format = String.format(string, str, frsTabInfo2.tab_name, str);
             } else {
-                String string2 = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0781);
+                String string2 = tbPageContext.getString(R.string.obfuscated_res_0x7f0f078a);
                 String str2 = frsTabInfo.tab_name;
                 String str3 = frsTabInfo2.tab_name;
                 format = String.format(string2, str2, str3, str2, str3);
@@ -138,7 +138,7 @@ public class o57 {
             tBAlertBuilder.n(3);
             tBAlertBuilder.o(true);
             tBAlertBuilder.k(linearLayout);
-            tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.next_time, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f077f, TBAlertConfig.OperateBtnStyle.MAIN, new b(imageView, frsTabInfo, frsTabInfo2)));
+            tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.next_time, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0788, TBAlertConfig.OperateBtnStyle.MAIN, new b(imageView, frsTabInfo, frsTabInfo2)));
             tBAlertBuilder.i();
             tBAlertBuilder.z();
         }

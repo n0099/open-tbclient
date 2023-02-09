@@ -54,13 +54,13 @@ public class l26 extends qn<p26, LiveTabConcernNotificationViewHolder> {
         public void a(View view2, p26 p26Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, p26Var) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090f1f) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090f30) {
                     if (!this.b.b) {
                         this.b.b = true;
                         AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090f20) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090f31) {
                     s26.b(this.b.a);
                 }
             }

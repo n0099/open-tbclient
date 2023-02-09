@@ -322,14 +322,14 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
-                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0530));
+                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0533));
                     return;
                 }
                 this.e.setProgress(this.f.getProgress());
                 this.e.setText(String.format(getResources().getString(R.string.item_download_progress), Integer.valueOf(this.f.getProgress())));
                 return;
             }
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0648));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0651));
             return;
         }
         this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f00db));

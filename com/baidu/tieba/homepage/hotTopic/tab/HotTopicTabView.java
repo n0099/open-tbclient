@@ -238,7 +238,7 @@ public class HotTopicTabView extends FrameLayout implements y35.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             if (!ListUtils.isEmpty(this.f.a())) {
-                ej.P(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f092b);
+                ej.P(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0935);
             }
             this.f.d(list);
         }
@@ -335,7 +335,7 @@ public class HotTopicTabView extends FrameLayout implements y35.g {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.e.setNextPage(this.l);
             this.l.g();
-            this.l.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.l.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.l.G(getResources().getString(R.string.really_great), ej.g(getContext(), R.dimen.tbds158));
         }
     }
@@ -496,12 +496,12 @@ public class HotTopicTabView extends FrameLayout implements y35.g {
     public final void p(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02dd, (ViewGroup) this, true);
-            this.d = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f090e93);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02df, (ViewGroup) this, true);
+            this.d = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f090ea4);
             z35 z35Var = new z35(this.b);
             this.g = z35Var;
             this.d.setProgressView(z35Var);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090e92);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090ea3);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.e.setFadingEdgeLength(0);

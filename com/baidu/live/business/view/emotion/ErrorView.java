@@ -57,7 +57,7 @@ public class ErrorView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!oa0.f(this.a.getContext())) {
-                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0a9b, 1).show();
+                    Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0aa5, 1).show();
                 } else if (this.a.d != null) {
                     this.a.d.a(view2);
                 }
@@ -126,7 +126,7 @@ public class ErrorView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0553, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0558, this);
         setOrientation(1);
         setGravity(17);
         this.b = (SimpleDraweeView) findViewById(R.id.errorview_img);
@@ -172,14 +172,14 @@ public class ErrorView extends LinearLayout {
                 layoutParams.height = oa0.b(getContext(), EmotionStrategy.getInstance().errorHeight);
                 this.b.setLayoutParams(layoutParams);
                 setImageResource(fd0.f().c(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0a9a);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0aa4);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
                 layoutParams2.width = oa0.b(getContext(), EmotionStrategy.getInstance().networkWidth);
                 layoutParams2.height = oa0.b(getContext(), EmotionStrategy.getInstance().networkHeight);
                 this.b.setLayoutParams(layoutParams2);
                 setImageResource(fd0.f().d(str));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0a9b);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0aa5);
             }
             this.c.setTextColor(fd0.f().a(getContext(), str, "color_8585852"));
             this.a.setTextColor(fd0.f().a(getContext(), str, "color_5252522"));

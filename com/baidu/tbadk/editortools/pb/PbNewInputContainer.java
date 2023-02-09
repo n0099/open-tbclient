@@ -49,13 +49,13 @@ import com.baidu.tieba.fn6;
 import com.baidu.tieba.gc5;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.lb5;
-import com.baidu.tieba.lg9;
 import com.baidu.tieba.md5;
 import com.baidu.tieba.n15;
 import com.baidu.tieba.n45;
 import com.baidu.tieba.p15;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.ph9;
 import com.baidu.tieba.rd5;
 import com.baidu.tieba.ud5;
 import com.baidu.tieba.xb5;
@@ -1228,7 +1228,7 @@ public class PbNewInputContainer extends LinearLayout implements xb5, View.OnCli
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.T_X06));
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0109));
-            lg9.l(this.b, R.drawable.edittext_cursor);
+            ph9.l(this.b, R.drawable.edittext_cursor);
             this.b.setLineSpacing(ej.g(context, R.dimen.M_T_X002), 1.0f);
             this.b.setPadding(ej.g(context, R.dimen.M_W_X006), ej.g(context, R.dimen.M_H_X004), ej.g(context, R.dimen.M_W_X006), ej.g(context, R.dimen.M_H_X004));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
@@ -1251,10 +1251,10 @@ public class PbNewInputContainer extends LinearLayout implements xb5, View.OnCli
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207, i2);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i2);
             if (i2 == 0) {
-                lg9.l(this.b, R.drawable.edittext_cursor);
+                ph9.l(this.b, R.drawable.edittext_cursor);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             } else {
-                lg9.l(this.b, R.drawable.edittext_cursor_1);
+                ph9.l(this.b, R.drawable.edittext_cursor_1);
                 this.b.setHintTextColor(SkinManager.getColor(i2, (int) R.color.CAM_X0109));
             }
             this.c.l(i2);

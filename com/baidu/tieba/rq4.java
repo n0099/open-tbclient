@@ -108,12 +108,12 @@ public class rq4 {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d085d, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d086f, (ViewGroup) null);
             this.b = linearLayout;
             linearLayout.setVisibility(8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920f3);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092139);
             this.d = new DecimalFormat("0.0#");
-            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f13e8);
+            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f13ff);
         }
     }
 

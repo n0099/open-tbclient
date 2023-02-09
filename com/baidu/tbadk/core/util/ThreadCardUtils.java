@@ -44,9 +44,9 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.ez4;
 import com.baidu.tieba.nj;
 import com.baidu.tieba.p15;
-import com.baidu.tieba.qd9;
 import com.baidu.tieba.sw4;
 import com.baidu.tieba.t35;
+import com.baidu.tieba.ue9;
 import com.baidu.tieba.uo5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.xc6;
@@ -388,7 +388,7 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new qd9(spannableStringBuilder));
+                textView.setOnTouchListener(new ue9(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLineForDot(textView, spannableStringBuilder, i2, i);
                 } else {
@@ -504,7 +504,7 @@ public final class ThreadCardUtils {
         if (threadData != null && spannableString != null && !dj.isEmptyStringAfterTrim(spannableString.toString())) {
             textView.setVisibility(0);
             threadData.setShowFullThread(false);
-            textView.setOnTouchListener(new qd9(spannableString));
+            textView.setOnTouchListener(new ue9(spannableString));
             threadData.setShowFullThread(cutAndSetTextByMaxLine(textView, new SpannableStringBuilder(spannableString), 5, (int) f));
             xc6.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             return;
@@ -768,7 +768,7 @@ public final class ThreadCardUtils {
                     ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
                 }
                 textView.setVisibility(0);
-                textView.setOnTouchListener(new qd9(spannableStringBuilder));
+                textView.setOnTouchListener(new ue9(spannableStringBuilder));
                 if (i > 0) {
                     cutAndSetTextByMaxLine(textView, spannableStringBuilder, 5, i);
                 } else {
@@ -794,7 +794,7 @@ public final class ThreadCardUtils {
                         spannableStringBuilder.insert(threadData.getTabName().length(), (CharSequence) TAB_NAME_SPLIT_STRING);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0203)), threadData.getTabName().length(), threadData.getTabName().length() + 5, 33);
                     }
-                    textView.setOnTouchListener(new qd9(spannableStringBuilder));
+                    textView.setOnTouchListener(new ue9(spannableStringBuilder));
                     setAbstractStyleAb(textView);
                     if (textView2.getVisibility() != 8) {
                         i2 = 5 - nj.a(i, textView2.getPaint(), textView2.getText().toString(), 2);
@@ -864,7 +864,7 @@ public final class ThreadCardUtils {
                         setHeadlinesPrefix(spannableStringBuilder);
                     }
                     setAbstractStyleAb(textView);
-                    textView.setOnTouchListener(new qd9(spannableStringBuilder));
+                    textView.setOnTouchListener(new ue9(spannableStringBuilder));
                     textView.setVisibility(0);
                     if (z2) {
                         i2 = 2;

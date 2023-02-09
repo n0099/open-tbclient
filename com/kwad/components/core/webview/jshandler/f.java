@@ -297,7 +297,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                             } else {
                                 adTemplate = bVar.getAdTemplate();
                             }
-                            com.kwad.components.core.c.a.a.a(new a.C0597a(this.Lr.Lk.Gl.getContext()).L(adTemplate).b(this.Lr.s(this.Lq.creativeId)).aj(f.a(this.Lr, this.Lq)).ak(this.Lr.Ln).c(this.Lr.Lk.mReportExtData).ae(this.Lq.Mx).al(this.Lr.Lo || this.Lq.DZ).ag(this.Lr.Lm).a(this.Lr.a(this.Lq, adTemplate)).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.f.1.1
+                            com.kwad.components.core.c.a.a.a(new a.C0598a(this.Lr.Lk.Gl.getContext()).L(adTemplate).b(this.Lr.s(this.Lq.creativeId)).aj(f.a(this.Lr, this.Lq)).ak(this.Lr.Ln).c(this.Lr.Lk.mReportExtData).ae(this.Lq.Mx).al(this.Lr.Lo || this.Lq.DZ).ag(this.Lr.Lm).a(this.Lr.a(this.Lq, adTemplate)).a(new a.b(this) { // from class: com.kwad.components.core.webview.jshandler.f.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass1 Ls;

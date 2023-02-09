@@ -411,7 +411,7 @@ public class l13 implements s13 {
             }
             CallbackHandler callbackHandler = this.f.c;
             String str2 = this.f.i;
-            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.w().getString(R.string.obfuscated_res_0x7f0f1336) + str).toString());
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.w().getString(R.string.obfuscated_res_0x7f0f134d) + str).toString());
         }
 
         @Override // com.baidu.tieba.l13.k
@@ -1150,9 +1150,9 @@ public class l13 implements s13 {
         w83 w83Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (w83Var = this.a) != null) {
-            o83.f(w83Var.w(), R.string.obfuscated_res_0x7f0f13a3).G();
+            o83.f(w83Var.w(), R.string.obfuscated_res_0x7f0f13ba).G();
             if (!TextUtils.isEmpty(this.i)) {
-                this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.w().getString(R.string.obfuscated_res_0x7f0f13a3)).toString());
+                this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.w().getString(R.string.obfuscated_res_0x7f0f13ba)).toString());
             }
         }
     }

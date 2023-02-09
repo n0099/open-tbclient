@@ -226,7 +226,7 @@ public class cd1 extends Dialog {
             ViewGroup viewGroup = null;
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_dialog_menu_new_dislike, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(R.id.tv_bottom);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0913eb);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091400);
             textView.setText(getContext().getString(R.string.nad_dislike_dislike));
             textView.setOnClickListener(new a(this, arrayList, adBaseModel));
             inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.nad_bg_bottom_popup_ffffff));

@@ -126,8 +126,8 @@ public class kx7 extends BaseAdapter {
             }
         }
         this.b = tbPageContext;
-        LocationData b2 = d29.a().b();
-        this.c = !d29.a().c();
+        LocationData b2 = h39.a().b();
+        this.c = !h39.a().c();
         if (b2 == null) {
             return;
         }
@@ -147,11 +147,11 @@ public class kx7 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof c)) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07d2, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e4, (ViewGroup) null);
                 bVar = new b(null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3b);
-                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f39);
-                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f3c);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7e);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f7c);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f7f);
                 view2.setTag(bVar);
             }
             bVar.b.setText(nearByAddressData.getAddr());
@@ -159,7 +159,7 @@ public class kx7 extends BaseAdapter {
                 bVar.c.setVisibility(0);
                 bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_chx__site_ok24, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
                 if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
-                    bVar.b.setText(R.string.obfuscated_res_0x7f0f11af);
+                    bVar.b.setText(R.string.obfuscated_res_0x7f0f11c5);
                 }
             } else {
                 bVar.c.setVisibility(4);
@@ -186,11 +186,11 @@ public class kx7 extends BaseAdapter {
             if (view2 != null && (view2.getTag() instanceof c)) {
                 cVar = (c) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07d3, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e5, (ViewGroup) null);
                 cVar = new c(null);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3d);
-                cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f3c);
-                cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091f3a);
+                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f80);
+                cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f7f);
+                cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091f7d);
                 view2.setTag(cVar);
             }
             if (i == 0 && !this.c) {
@@ -235,7 +235,7 @@ public class kx7 extends BaseAdapter {
             }
             TbPageContext<SelectLocationActivity> tbPageContext = this.b;
             if (tbPageContext != null) {
-                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11b0));
+                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f11c6));
             }
             return arrayList;
         }

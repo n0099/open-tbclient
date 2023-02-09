@@ -28,8 +28,8 @@ import com.baidu.tbadk.widget.horizonalScrollListView.MyHorizontalScrollView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ed6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.f09;
 import com.baidu.tieba.hu7;
+import com.baidu.tieba.j19;
 import com.baidu.tieba.lego.card.model.HorRankCard;
 import com.baidu.tieba.nv7;
 import com.baidu.tieba.pu7;
@@ -103,21 +103,21 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             this.k = null;
             this.l = null;
             this.m = null;
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914eb);
-            this.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a67);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09139e);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913a4);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913a6);
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090df0);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091500);
+            this.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a75);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913b3);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913b9);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913bb);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e01);
             this.f = headImageView;
             headImageView.setGifIconSupport(false);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090df9);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e0a);
             this.h = (TextView) view2.findViewById(R.id.m_forum_name_textview);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914ef);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920b1);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913a9);
-            this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914ec);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090465);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091504);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920f7);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913be);
+            this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091501);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09046e);
         }
     }
 
@@ -155,7 +155,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             }
             ed6.b().d(true);
             pu7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
-            f09.c(this.b.h, this.a.j);
+            j19.c(this.b.h, this.a.j);
         }
     }
 
@@ -327,7 +327,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return View.inflate(this.h.getPageActivity(), R.layout.obfuscated_res_0x7f0d019d, null);
+            return View.inflate(this.h.getPageActivity(), R.layout.obfuscated_res_0x7f0d019e, null);
         }
         return (View) invokeV.objValue;
     }

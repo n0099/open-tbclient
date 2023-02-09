@@ -37,7 +37,7 @@ public class cx6 extends bx6 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0191 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0192 : invokeV.intValue;
     }
 
     /* loaded from: classes4.dex */
@@ -98,10 +98,10 @@ public class cx6 extends bx6 {
             }
         }
         View h = h();
-        this.K = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f091536);
-        this.L = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091539);
-        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091537);
-        this.N = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09152d);
+        this.K = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f09154b);
+        this.L = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09154e);
+        this.M = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09154c);
+        this.N = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091542);
     }
 
     public boolean N() {
@@ -158,9 +158,9 @@ public class cx6 extends bx6 {
         tw4 tw4Var = (tw4) ListUtils.getItem(threadData.getActDatas(), 0);
         if (tw4Var != null) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b23), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(tw4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(tw4Var.c())))));
-            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b1e), String.valueOf(tw4Var.f())));
-            this.N.setText(R.string.obfuscated_res_0x7f0f0b1d);
+            this.L.setText(StringUtils.string(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b2d), GlideException.IndentedAppendable.INDENT, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(tw4Var.b()))), "-", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(tw4Var.c())))));
+            this.M.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0b28), String.valueOf(tw4Var.f())));
+            this.N.setText(R.string.obfuscated_res_0x7f0f0b27);
             this.k.setCommentNumEnable(false);
         }
     }

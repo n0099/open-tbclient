@@ -62,7 +62,7 @@ public class e66 extends lc6<ThreadData> implements jd6, lw5 {
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fa : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? R.layout.obfuscated_res_0x7f0d02fc : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.jd6
@@ -133,22 +133,22 @@ public class e66 extends lc6<ThreadData> implements jd6, lw5 {
         LinearLayout linearLayout = (LinearLayout) h.findViewById(R.id.video_card_content_layout);
         this.v = linearLayout;
         linearLayout.setOnClickListener(this);
-        RelativeLayout relativeLayout2 = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090230);
+        RelativeLayout relativeLayout2 = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f090234);
         this.D = relativeLayout2;
         this.E = (LinearLayout) relativeLayout2.findViewById(R.id.challenge_root);
-        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904e6);
+        CardUserInfoLayout cardUserInfoLayout = (CardUserInfoLayout) h.findViewById(R.id.obfuscated_res_0x7f0904f1);
         this.x = cardUserInfoLayout;
         cardUserInfoLayout.setShowFlag(6141);
-        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f090231);
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.obfuscated_res_0x7f090235);
         this.A = headImageView;
         headImageView.setIsRound(true);
         this.A.setDrawBorder(false);
         this.A.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         this.A.setAutoChangeStyle(false);
-        this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090232);
+        this.B = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090236);
         this.y = (TextView) h.findViewById(R.id.text_title);
-        this.z = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901f1);
-        AlaVideoContainer alaVideoContainer = (AlaVideoContainer) h.findViewById(R.id.obfuscated_res_0x7f090234);
+        this.z = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901f5);
+        AlaVideoContainer alaVideoContainer = (AlaVideoContainer) h.findViewById(R.id.obfuscated_res_0x7f090238);
         this.C = alaVideoContainer;
         alaVideoContainer.setOnVideoClickListener(this);
         View findViewById = h.findViewById(R.id.thread_multi_del_mask_view);
@@ -174,7 +174,7 @@ public class e66 extends lc6<ThreadData> implements jd6, lw5 {
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f092226);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09226c);
         this.F = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.F.b.getCommentContainer().setOnClickListener(this);
@@ -335,8 +335,8 @@ public class e66 extends lc6<ThreadData> implements jd6, lw5 {
                 }
                 if (((ThreadData) this.k).getThreadAlaInfo() != null && ((ThreadData) this.k).getThreadAlaInfo().user_info != null) {
                     String str = ((ThreadData) this.k).getThreadAlaInfo().user_info.user_name;
-                    if (rp5.e(str) > 14) {
-                        str = rp5.m(str, 14) + StringHelper.STRING_MORE;
+                    if (rp5.f(str) > 14) {
+                        str = rp5.n(str, 14) + StringHelper.STRING_MORE;
                     }
                     this.B.setText(str + ":");
                     if (TextUtils.isEmpty(((ThreadData) this.k).getThreadAlaInfo().user_info.portrait)) {

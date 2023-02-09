@@ -22,7 +22,7 @@ public class fb5 {
 
         /* renamed from: com.baidu.tieba.fb5$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0275a implements gb5 {
+        public class C0274a implements gb5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lf0 a;
@@ -37,7 +37,7 @@ public class fb5 {
                 return invokeL.booleanValue;
             }
 
-            public C0275a(a aVar, lf0 lf0Var) {
+            public C0274a(a aVar, lf0 lf0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class fb5 {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setPath(str2 + "/" + str3);
                 downloadData.setUrl(str);
-                downloadData.setCallback(new C0275a(this, lf0Var));
+                downloadData.setCallback(new C0274a(this, lf0Var));
                 hb5.k().l(downloadData);
             }
         }

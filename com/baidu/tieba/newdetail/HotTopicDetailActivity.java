@@ -32,9 +32,9 @@ import com.baidu.tieba.hi7;
 import com.baidu.tieba.ii7;
 import com.baidu.tieba.ji7;
 import com.baidu.tieba.mi7;
-import com.baidu.tieba.s89;
 import com.baidu.tieba.t9;
 import com.baidu.tieba.ty4;
+import com.baidu.tieba.w99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -217,7 +217,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             if ("5".equals(this.i)) {
                 finish();
             } else {
-                s89.b();
+                w99.b();
             }
         }
     }

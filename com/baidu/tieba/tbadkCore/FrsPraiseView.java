@@ -252,10 +252,10 @@ public class FrsPraiseView extends LinearLayout {
                     this.c.setText(this.a.getString(R.string.common_praise_view_text));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0609) + num + this.a.getString(R.string.common_praise_view_text2));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0610) + num + this.a.getString(R.string.common_praise_view_text2));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0609) + "999999+" + this.a.getString(R.string.common_praise_view_text2));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0610) + "999999+" + this.a.getString(R.string.common_praise_view_text2));
                 }
             }
         }

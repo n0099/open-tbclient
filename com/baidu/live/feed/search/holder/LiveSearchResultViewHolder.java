@@ -55,28 +55,28 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
             }
         }
         this.j = str;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09148c);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0914a1);
         Intrinsics.checkExpressionValueIsNotNull(findViewById, "mView.findViewById(R.id.…_search_result_item_name)");
         this.a = (TextView) findViewById;
-        View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f09148d);
+        View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f0914a2);
         Intrinsics.checkExpressionValueIsNotNull(findViewById2, "mView.findViewById(R.id.…rch_result_item_name_mid)");
         this.h = (TextView) findViewById2;
-        View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f09148a);
+        View findViewById3 = view2.findViewById(R.id.obfuscated_res_0x7f09149f);
         Intrinsics.checkExpressionValueIsNotNull(findViewById3, "mView.findViewById(R.id.…earch_result_item_avatar)");
         this.e = (SimpleDraweeView) findViewById3;
-        View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f091487);
+        View findViewById4 = view2.findViewById(R.id.obfuscated_res_0x7f09149c);
         Intrinsics.checkExpressionValueIsNotNull(findViewById4, "mView.findViewById(R.id.…search_result__item_info)");
         this.b = (TextView) findViewById4;
-        View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09148b);
+        View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f0914a0);
         Intrinsics.checkExpressionValueIsNotNull(findViewById5, "mView.findViewById(R.id.…earch_result_item_follow)");
         this.c = (TextView) findViewById5;
-        View findViewById6 = view2.findViewById(R.id.obfuscated_res_0x7f091076);
+        View findViewById6 = view2.findViewById(R.id.obfuscated_res_0x7f091089);
         Intrinsics.checkExpressionValueIsNotNull(findViewById6, "mView.findViewById(R.id.item_contain)");
         this.d = findViewById6;
-        View findViewById7 = view2.findViewById(R.id.obfuscated_res_0x7f091471);
+        View findViewById7 = view2.findViewById(R.id.obfuscated_res_0x7f091486);
         Intrinsics.checkExpressionValueIsNotNull(findViewById7, "mView.findViewById(R.id.…t_item_status_tag_lottie)");
         this.f = (LottieAnimationView) findViewById7;
-        View findViewById8 = view2.findViewById(R.id.obfuscated_res_0x7f091470);
+        View findViewById8 = view2.findViewById(R.id.obfuscated_res_0x7f091485);
         Intrinsics.checkExpressionValueIsNotNull(findViewById8, "mView.findViewById(R.id.…ank_list_item_living_tag)");
         this.g = (TextView) findViewById8;
         this.i = context;
@@ -107,9 +107,9 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r = f3.r();
             if (Intrinsics.areEqual(r, "day")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d96);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080da8);
             } else if (Intrinsics.areEqual(r, "night")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d97);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080da9);
             }
         }
     }

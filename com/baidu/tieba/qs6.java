@@ -38,7 +38,7 @@ public class qs6 {
     public TextView f;
     public TextView g;
     public PermissionJudgePolicy h;
-    public wd8 i;
+    public ee8 i;
     public Bitmap j;
     public e k;
     public View l;
@@ -393,7 +393,7 @@ public class qs6 {
         statisticItem.param("obj_source", this.p);
         TiebaStatic.log(statisticItem);
         if (this.i == null) {
-            this.i = new wd8(this.a);
+            this.i = new ee8(this.a);
         }
         this.i.b(this.m, BitmapHelper.Bitmap2Bytes(bitmap, 100));
     }

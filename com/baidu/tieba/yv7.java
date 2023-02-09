@@ -31,10 +31,10 @@ public class yv7 {
     public Map<String, Integer> g;
     public View h;
     public boolean i;
-    public vn8 j;
-    public eo8 k;
+    public zo8 j;
+    public ip8 k;
     public boolean l;
-    public rn8 m;
+    public vo8 m;
     public final CustomMessageListener n;
     public sv7 o;
 
@@ -103,14 +103,14 @@ public class yv7 {
         this.g = new HashMap();
         this.i = false;
         this.l = true;
-        this.m = new rn8();
+        this.m = new vo8();
         this.n = new a(this, 2000994);
         this.o = new sv7(this);
         this.a = x9Var;
         this.b = ej.j(x9Var.getPageActivity());
         this.d = listView;
         BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.k = new eo8();
+        this.k = new ip8();
         x9Var.registerListener(this.n);
     }
 
@@ -186,8 +186,8 @@ public class yv7 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             for (int i = 0; i < this.d.getChildCount(); i++) {
                 View childAt = this.d.getChildAt(i);
-                if (childAt.getTag() instanceof vn8) {
-                    ((vn8) childAt.getTag()).stopPlay();
+                if (childAt.getTag() instanceof zo8) {
+                    ((zo8) childAt.getTag()).stopPlay();
                 }
             }
         }
@@ -195,12 +195,12 @@ public class yv7 {
 
     public void h(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && !i(view2) && (view2.getTag() instanceof vn8)) {
-            vn8 vn8Var = (vn8) view2.getTag();
-            if (!TextUtils.isEmpty(vn8Var.getPlayUrl()) && vn8Var.getCurrentPosition() > 0) {
-                q(vn8Var.getPlayUrl(), vn8Var.getCurrentPosition());
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && view2 != null && !i(view2) && (view2.getTag() instanceof zo8)) {
+            zo8 zo8Var = (zo8) view2.getTag();
+            if (!TextUtils.isEmpty(zo8Var.getPlayUrl()) && zo8Var.getCurrentPosition() > 0) {
+                q(zo8Var.getPlayUrl(), zo8Var.getCurrentPosition());
             }
-            vn8Var.stopPlay();
+            zo8Var.stopPlay();
         }
     }
 
@@ -244,8 +244,8 @@ public class yv7 {
                     adapter = listView2.getAdapter();
                 }
                 if (adapter != null && adapter.getCount() != 0) {
-                    vn8 vn8Var = this.j;
-                    if (vn8Var != null && !i(vn8Var.getVideoContainer())) {
+                    zo8 zo8Var = this.j;
+                    if (zo8Var != null && !i(zo8Var.getVideoContainer())) {
                         this.j.stopPlay();
                     }
                     int count = adapter.getCount() + this.d.getHeaderViewsCount() + this.d.getFooterViewsCount();
@@ -267,14 +267,14 @@ public class yv7 {
                                 childCount = (this.d.getChildCount() - 1) - i7;
                             }
                             View childAt = this.d.getChildAt(childCount);
-                            if (childAt.getTag() instanceof vn8) {
-                                vn8 vn8Var2 = (vn8) childAt.getTag();
-                                if (!z3 && i(vn8Var2.getVideoContainer())) {
+                            if (childAt.getTag() instanceof zo8) {
+                                zo8 zo8Var2 = (zo8) childAt.getTag();
+                                if (!z3 && i(zo8Var2.getVideoContainer())) {
                                     r(i3, childAt);
                                     z3 = true;
                                 } else {
-                                    if (!TextUtils.isEmpty(vn8Var2.getPlayUrl()) && vn8Var2.getCurrentPosition() > 0) {
-                                        q(vn8Var2.getPlayUrl(), vn8Var2.getCurrentPosition());
+                                    if (!TextUtils.isEmpty(zo8Var2.getPlayUrl()) && zo8Var2.getCurrentPosition() > 0) {
+                                        q(zo8Var2.getPlayUrl(), zo8Var2.getCurrentPosition());
                                     }
                                     u(i3, childAt);
                                 }
@@ -291,9 +291,9 @@ public class yv7 {
                             break;
                         }
                         View childAt2 = this.d.getChildAt(i9);
-                        if (childAt2.getTag() instanceof vn8) {
-                            vn8 vn8Var3 = (vn8) childAt2.getTag();
-                            if (vn8Var3.isPlayStarted() && i(vn8Var3.getVideoContainer())) {
+                        if (childAt2.getTag() instanceof zo8) {
+                            zo8 zo8Var3 = (zo8) childAt2.getTag();
+                            if (zo8Var3.isPlayStarted() && i(zo8Var3.getVideoContainer())) {
                                 i8 = i9;
                                 break;
                             }
@@ -306,10 +306,10 @@ public class yv7 {
                             if (i5 == i8) {
                                 r(i3, childAt3);
                             } else {
-                                if (childAt3.getTag() instanceof vn8) {
-                                    vn8 vn8Var4 = (vn8) childAt3.getTag();
-                                    if (!TextUtils.isEmpty(vn8Var4.getPlayUrl()) && vn8Var4.getCurrentPosition() > 0) {
-                                        q(vn8Var4.getPlayUrl(), vn8Var4.getCurrentPosition());
+                                if (childAt3.getTag() instanceof zo8) {
+                                    zo8 zo8Var4 = (zo8) childAt3.getTag();
+                                    if (!TextUtils.isEmpty(zo8Var4.getPlayUrl()) && zo8Var4.getCurrentPosition() > 0) {
+                                        q(zo8Var4.getPlayUrl(), zo8Var4.getCurrentPosition());
                                     }
                                 }
                                 u(i3, childAt3);
@@ -326,14 +326,14 @@ public class yv7 {
                             i4 = i5;
                         }
                         View childAt4 = this.d.getChildAt(i4);
-                        if (childAt4.getTag() instanceof vn8) {
-                            vn8 vn8Var5 = (vn8) childAt4.getTag();
-                            if (!z4 && i(vn8Var5.getVideoContainer())) {
+                        if (childAt4.getTag() instanceof zo8) {
+                            zo8 zo8Var5 = (zo8) childAt4.getTag();
+                            if (!z4 && i(zo8Var5.getVideoContainer())) {
                                 r(i3, childAt4);
                                 z4 = true;
                             } else {
-                                if (!TextUtils.isEmpty(vn8Var5.getPlayUrl()) && vn8Var5.getCurrentPosition() > 0) {
-                                    q(vn8Var5.getPlayUrl(), vn8Var5.getCurrentPosition());
+                                if (!TextUtils.isEmpty(zo8Var5.getPlayUrl()) && zo8Var5.getCurrentPosition() > 0) {
+                                    q(zo8Var5.getPlayUrl(), zo8Var5.getCurrentPosition());
                                 }
                                 u(i3, childAt4);
                             }
@@ -364,13 +364,13 @@ public class yv7 {
             return;
         }
         View view2 = this.h;
-        if (view2 != null && (view2.getTag() instanceof vn8)) {
-            vn8 vn8Var = (vn8) this.h.getTag();
+        if (view2 != null && (view2.getTag() instanceof zo8)) {
+            zo8 zo8Var = (zo8) this.h.getTag();
             if (this.i) {
-                vn8Var.startPlay();
+                zo8Var.startPlay();
             }
-            if (this.h.getTag() instanceof un8) {
-                ((un8) this.h.getTag()).b();
+            if (this.h.getTag() instanceof yo8) {
+                ((yo8) this.h.getTag()).b();
             }
         }
         this.h = null;
@@ -383,10 +383,10 @@ public class yv7 {
             gh.a().removeCallbacks(this.o);
             for (int i = 0; i < this.d.getChildCount(); i++) {
                 View childAt = this.d.getChildAt(i);
-                if (childAt.getTag() instanceof vn8) {
-                    vn8 vn8Var = (vn8) childAt.getTag();
-                    if (vn8Var.isPlayStarted()) {
-                        vn8Var.stopPlay();
+                if (childAt.getTag() instanceof zo8) {
+                    zo8 zo8Var = (zo8) childAt.getTag();
+                    if (zo8Var.isPlayStarted()) {
+                        zo8Var.stopPlay();
                         return;
                     }
                 }
@@ -399,14 +399,14 @@ public class yv7 {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             for (int i = 0; i < this.d.getChildCount(); i++) {
                 View childAt = this.d.getChildAt(i);
-                if (childAt.getTag() instanceof vn8) {
-                    vn8 vn8Var = (vn8) childAt.getTag();
-                    if (vn8Var.isPlayStarted()) {
-                        p(vn8Var.getCurrentPosition());
-                        o(vn8Var.getPlayUrl());
+                if (childAt.getTag() instanceof zo8) {
+                    zo8 zo8Var = (zo8) childAt.getTag();
+                    if (zo8Var.isPlayStarted()) {
+                        p(zo8Var.getCurrentPosition());
+                        o(zo8Var.getPlayUrl());
                         this.h = childAt;
-                        this.i = vn8Var.isPlaying();
-                        vn8Var.stopPlay();
+                        this.i = zo8Var.isPlaying();
+                        zo8Var.stopPlay();
                         return;
                     }
                 }
@@ -431,10 +431,10 @@ public class yv7 {
     public final void u(int i, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048594, this, i, view2) == null) {
-            if (i == 1 && (view2.getTag() instanceof vn8)) {
-                ((vn8) view2.getTag()).stopPlay();
-            } else if (i == 2 && (view2.getTag() instanceof un8)) {
-                ((un8) view2.getTag()).d();
+            if (i == 1 && (view2.getTag() instanceof zo8)) {
+                ((zo8) view2.getTag()).stopPlay();
+            } else if (i == 2 && (view2.getTag() instanceof yo8)) {
+                ((yo8) view2.getTag()).d();
             }
         }
     }
@@ -445,13 +445,13 @@ public class yv7 {
             return;
         }
         this.h = view2;
-        if (i == 1 && (view2.getTag() instanceof vn8)) {
-            vn8 vn8Var = (vn8) view2.getTag();
-            if (this.l && !vn8Var.isPlayStarted()) {
-                vn8Var.startPlay();
+        if (i == 1 && (view2.getTag() instanceof zo8)) {
+            zo8 zo8Var = (zo8) view2.getTag();
+            if (this.l && !zo8Var.isPlayStarted()) {
+                zo8Var.startPlay();
             }
-        } else if (i == 2 && (view2.getTag() instanceof un8)) {
-            ((un8) view2.getTag()).a();
+        } else if (i == 2 && (view2.getTag() instanceof yo8)) {
+            ((yo8) view2.getTag()).a();
         }
     }
 }

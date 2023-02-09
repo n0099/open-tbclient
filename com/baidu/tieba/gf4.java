@@ -36,8 +36,8 @@ public class gf4 {
         a.put(37, new ef4(37, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800d8, true));
         a.put(38, new ef4(38, R.string.obfuscated_res_0x7f0f00fc, R.drawable.obfuscated_res_0x7f0800d4, true));
         a.put(42, new ef4(42, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800f8, true));
-        a.put(49, new ef4(49, R.string.obfuscated_res_0x7f0f1315, R.drawable.obfuscated_res_0x7f0811ca, true));
-        a.put(50, new ef4(50, R.string.obfuscated_res_0x7f0f1399, R.drawable.obfuscated_res_0x7f0811c9, true));
+        a.put(49, new ef4(49, R.string.obfuscated_res_0x7f0f132c, R.drawable.obfuscated_res_0x7f0811e0, true));
+        a.put(50, new ef4(50, R.string.obfuscated_res_0x7f0f13b0, R.drawable.obfuscated_res_0x7f0811df, true));
         a.put(43, new ef4(43, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800d9, true));
         a.put(9, new ef4(9, R.string.obfuscated_res_0x7f0f00fd, R.drawable.obfuscated_res_0x7f0800e5, true));
         a.put(46, new ef4(46, R.string.obfuscated_res_0x7f0f00f5, R.drawable.obfuscated_res_0x7f0800ea, true));

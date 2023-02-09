@@ -401,19 +401,19 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (view2 = this.a) == null) {
             return;
         }
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901cd);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0901cf);
         this.b = headImageView;
         headImageView.setIsRound(true);
-        this.e = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ce);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d5);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901c8);
-        this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ca);
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0901d4);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09092c);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09092e);
-        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0901d1);
-        this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d2);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090936);
+        this.e = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d0);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d7);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901ca);
+        this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901cc);
+        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0901d6);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09093a);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09093c);
+        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0901d3);
+        this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d4);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f090946);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
         this.g = new a86(getPageContext(), this.f);
@@ -508,7 +508,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) null);
             L1();
             this.h = new y76(getPageContext(), this.r);
             M1();

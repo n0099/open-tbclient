@@ -1,26 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public final class xn9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xn9 {
+    void K0(boolean z);
 
-    public static void a(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
-            return;
-        }
-        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
-    }
+    void h();
 
-    public static void b(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
-            return;
-        }
-        throw new IllegalArgumentException("ByteBuffer is already full.");
-    }
+    void k1(int i, String str);
 }

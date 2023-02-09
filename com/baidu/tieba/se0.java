@@ -107,32 +107,32 @@ public class se0 {
         }
     }
 
-    public boolean b() {
+    public void b() {
+        McnVideoAdView mcnVideoAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.g();
+        }
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             McnVideoAdView mcnVideoAdView = this.a;
             if (mcnVideoAdView != null) {
-                return mcnVideoAdView.h();
+                return mcnVideoAdView.i();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void c() {
+    public void d() {
         McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.j();
-        }
-    }
-
-    public void d(qe0 qe0Var, ViewGroup viewGroup) {
-        McnVideoAdView mcnVideoAdView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, qe0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
-            mcnVideoAdView.k(qe0Var, viewGroup);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.k();
         }
     }
 
@@ -141,6 +141,14 @@ public class se0 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048580, this, qe0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
             mcnVideoAdView.l(qe0Var, viewGroup);
+        }
+    }
+
+    public void f(qe0 qe0Var, ViewGroup viewGroup) {
+        McnVideoAdView mcnVideoAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, qe0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.m(qe0Var, viewGroup);
         }
     }
 }

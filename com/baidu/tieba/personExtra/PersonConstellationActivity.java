@@ -261,7 +261,7 @@ public class PersonConstellationActivity extends BaseActivity {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0ed9);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0eed);
                 return;
             }
             this.a.i.setText(StringHelper.dateToConstellation(date));
@@ -375,36 +375,36 @@ public class PersonConstellationActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d072c);
+            setContentView(R.layout.obfuscated_res_0x7f0d073d);
             initData();
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0919f6);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a2e);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ef5)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0f09)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
             this.c = addCustomView;
             TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
             this.b = textView;
             textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ef1));
+            this.b.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f05));
             SkinManager.setViewTextColor(this.b, R.color.navi_op_text, 1);
             this.c.setOnClickListener(this.q);
-            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d091f, (View.OnClickListener) null);
+            ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0934, (View.OnClickListener) null);
             this.d = imageView;
             imageView.setOnClickListener(this.q);
             SkinManager.setImageResource(this.d, R.drawable.selector_topbar_return_black);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0919f7);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091a2f);
             this.e = bdSwitchView;
             bdSwitchView.setOnSwitchStateChangeListener(this.p);
             ej.b(getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0919f2);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a2a);
             this.g = relativeLayout;
             relativeLayout.setOnClickListener(this.q);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09070b);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090709);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09039b);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0919f5);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0919f8);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090716);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090714);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0903a3);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091a2d);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091a30);
             this.k = textView2;
             if (this.n == 0) {
                 textView2.setVisibility(0);

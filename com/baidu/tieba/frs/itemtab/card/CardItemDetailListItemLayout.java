@@ -244,10 +244,10 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             if (e == null) {
                 e = getContext().getString(R.string.limited_company);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0403, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091710);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0925f3);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090842);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0405, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091727);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092642);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090850);
             this.b.setOnClickListener(new a(this));
         }
     }

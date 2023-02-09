@@ -31,18 +31,18 @@ import com.baidu.tbadk.core.view.PublishProgressView;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ae6;
-import com.baidu.tieba.ag9;
 import com.baidu.tieba.b87;
 import com.baidu.tieba.da;
+import com.baidu.tieba.eh9;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.homepage.concern.view.ConcernNotLoginLayout;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.tieba.homepage.personalize.bigday.BigdaySwipeRefreshLayout;
-import com.baidu.tieba.i39;
 import com.baidu.tieba.kf5;
 import com.baidu.tieba.kw5;
 import com.baidu.tieba.lf5;
+import com.baidu.tieba.m49;
 import com.baidu.tieba.p35;
 import com.baidu.tieba.q97;
 import com.baidu.tieba.ud7;
@@ -81,7 +81,7 @@ public class ConcernPageView extends FrameLayout {
     public int p;
     public boolean q;
     public q97 r;
-    public ag9 s;
+    public eh9 s;
     public RecyclerView.OnScrollListener t;
     public BdListView.p u;
     public ScrollFragmentTabHost.s v;
@@ -367,9 +367,9 @@ public class ConcernPageView extends FrameLayout {
                     return;
                 }
                 if (intValue == 1) {
-                    this.a.k.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0452)));
+                    this.a.k.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0454)));
                 } else {
-                    this.a.k.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0451)));
+                    this.a.k.setTextOption(NoDataViewFactory.e.d(null, this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0453)));
                 }
             }
         }
@@ -407,7 +407,7 @@ public class ConcernPageView extends FrameLayout {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PublishProgressData publishProgressData;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !i39.g() && i39.a() != null && this.a.l != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof PublishProgressData) && (publishProgressData = (PublishProgressData) customResponsedMessage.getData()) != null && !m49.g() && m49.a() != null && this.a.l != null) {
                 this.a.l.c(publishProgressData);
             }
         }
@@ -831,9 +831,9 @@ public class ConcernPageView extends FrameLayout {
                 if (q97Var != null) {
                     q97Var.n();
                 }
-                ag9 ag9Var = this.s;
-                if (ag9Var != null) {
-                    ag9Var.i(2000);
+                eh9 eh9Var = this.s;
+                if (eh9Var != null) {
+                    eh9Var.i(2000);
                 }
             }
             this.n = i2;
@@ -1086,11 +1086,11 @@ public class ConcernPageView extends FrameLayout {
             this.c.setVisibility(0);
             this.r.q(true);
             if (this.g.z()) {
-                this.b.S();
+                this.b.T();
             } else {
                 this.b.h();
             }
-            this.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.v(ej.g(getContext(), R.dimen.tbds150));
         }
     }
@@ -1184,10 +1184,10 @@ public class ConcernPageView extends FrameLayout {
     }
 
     public void O() {
-        ag9 ag9Var;
+        eh9 eh9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (ag9Var = this.s) != null) {
-            ag9Var.i(2000);
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (eh9Var = this.s) != null) {
+            eh9Var.i(2000);
         }
     }
 
@@ -1287,7 +1287,7 @@ public class ConcernPageView extends FrameLayout {
             this.w.setVisibility(0);
             this.c.setVisibility(0);
             this.r.q(true);
-            this.b.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+            this.b.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.b.v(0);
         }
     }
@@ -1379,13 +1379,13 @@ public class ConcernPageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             int n2 = p35.m().n("key_home_concern_all_status", 0);
             if (this.k == null) {
-                this.k = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.e.d(null, getContext().getString(R.string.obfuscated_res_0x7f0f0451)), null);
+                this.k = NoDataViewFactory.a(getContext(), this, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.SINGALL), NoDataViewFactory.e.d(null, getContext().getString(R.string.obfuscated_res_0x7f0f0453)), null);
             }
             if (n2 == 1) {
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getContext().getString(R.string.obfuscated_res_0x7f0f0452)));
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getContext().getString(R.string.obfuscated_res_0x7f0f0454)));
                 this.k.setImgOption(NoDataViewFactory.d.a(NoDataViewFactory.ImgType.GIFT));
             } else {
-                this.k.setTextOption(NoDataViewFactory.e.d(null, getContext().getString(R.string.obfuscated_res_0x7f0f0451)));
+                this.k.setTextOption(NoDataViewFactory.e.d(null, getContext().getString(R.string.obfuscated_res_0x7f0f0453)));
                 this.k.setImgOption(NoDataViewFactory.d.a(NoDataViewFactory.ImgType.SINGALL));
             }
             this.k.f(this.e, TbadkCoreApplication.getInst().getSkinType());
@@ -1449,7 +1449,7 @@ public class ConcernPageView extends FrameLayout {
         this.l.setVisibility(8);
         K(TbadkCoreApplication.getInst().getSkinType());
         if (this.s == null) {
-            this.s = new ag9(this.e, this.c);
+            this.s = new eh9(this.e, this.c);
         }
     }
 }

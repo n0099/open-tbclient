@@ -47,7 +47,7 @@ public class di1 {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
                 ci1.a aVar = new ci1.a();
                 aVar.a = 2;
-                aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037b);
+                aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037c);
                 this.a.a(aVar);
             }
         }
@@ -75,7 +75,7 @@ public class di1 {
                     }
                 } catch (Exception unused) {
                     aVar.a = 2;
-                    aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037b);
+                    aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037c);
                 }
                 this.a.a(aVar);
             }
@@ -112,7 +112,7 @@ public class di1 {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
                 ci1.a aVar = new ci1.a();
                 aVar.a = 2;
-                aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037b);
+                aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037c);
                 this.a.a(aVar);
             }
         }
@@ -142,7 +142,7 @@ public class di1 {
                     }
                 } catch (Exception unused) {
                     aVar.a = 2;
-                    aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037b);
+                    aVar.b = xh1.a().getResources().getString(R.string.obfuscated_res_0x7f0f037c);
                 }
                 this.a.a(aVar);
             }

@@ -5,7 +5,7 @@ import io.reactivex.annotations.NonNull;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Beta
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface FlowableSubscriber<T> extends Subscriber<T> {
     @Override // org.reactivestreams.Subscriber
     void onSubscribe(@NonNull Subscription subscription);

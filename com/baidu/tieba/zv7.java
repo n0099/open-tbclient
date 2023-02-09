@@ -25,7 +25,7 @@ public class zv7 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public View b;
-    public xn8 c;
+    public bp8 c;
     public int d;
     public ImmersiveVideoCardEx.a e;
     public TbImageView f;
@@ -200,7 +200,7 @@ public class zv7 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !this.a.r() && view2.getId() == this.a.b.getId()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    ej.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                    ej.N(this.a.a.getPageActivity(), this.a.a.getString(R.string.obfuscated_res_0x7f0f0d08));
                 }
                 if (this.a.o != null && this.a.c.isPlaying()) {
                     this.a.o.r();
@@ -552,7 +552,7 @@ public class zv7 {
             return;
         }
         o();
-        if (f09.b() && (tv7Var = this.p) != null) {
+        if (j19.b() && (tv7Var = this.p) != null) {
             tv7Var.M0(this.h);
         }
     }

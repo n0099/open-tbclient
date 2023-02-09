@@ -732,7 +732,7 @@ public class NadBrowserContainer extends AbsBrowserContainer implements k81, u91
     public boolean a(String url) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, url)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, url)) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
             return this.r.g(url);
         }
@@ -1118,20 +1118,20 @@ public class NadBrowserContainer extends AbsBrowserContainer implements k81, u91
         return (Window) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u91
-    public void Y0() {
-        u91 u91Var;
+    public final void a0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && (u91Var = this.A) != null) {
-            u91Var.Y0();
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            p0();
+            q0();
         }
     }
 
-    public final void a0() {
+    @Override // com.baidu.tieba.u91
+    public void a1() {
+        u91 u91Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            p0();
-            q0();
+        if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && (u91Var = this.A) != null) {
+            u91Var.a1();
         }
     }
 
@@ -1502,7 +1502,7 @@ public class NadBrowserContainer extends AbsBrowserContainer implements k81, u91
     public final void Z() {
         y61 d2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048604, this) != null) || this.g != null) {
+        if ((interceptable != null && interceptable.invokeV(1048603, this) != null) || this.g != null) {
             return;
         }
         this.g = Y();
@@ -1574,7 +1574,7 @@ public class NadBrowserContainer extends AbsBrowserContainer implements k81, u91
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
             n91.a(this.c, MissionEvent.MESSAGE_DESTROY);
-            Y0();
+            a1();
             this.r.j();
             this.r.p();
             sm0.a().unregister(this.x);

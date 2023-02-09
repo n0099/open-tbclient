@@ -107,7 +107,7 @@ public class mr1 implements ut1 {
                         qm3.a0(new RunnableC0353a(this, file2));
                     } catch (Exception e) {
                         w52.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        o83.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f132c)).G();
+                        o83.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f1343)).G();
                     }
                 }
             }

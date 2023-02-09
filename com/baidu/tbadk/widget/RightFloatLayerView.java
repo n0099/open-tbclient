@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.hv7;
 import com.baidu.tieba.n65;
-import com.baidu.tieba.nr8;
 import com.baidu.tieba.p35;
-import com.baidu.tieba.zs8;
+import com.baidu.tieba.rs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -611,7 +611,7 @@ public class RightFloatLayerView extends RelativeLayout {
             } else {
                 valueOf = String.valueOf(i2);
             }
-            zs8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
+            du8.d("TIEBA_LAYER_DEEPLINK", str, 0, 706, str3, null, valueOf, null, null, null);
         }
     }
 
@@ -774,7 +774,7 @@ public class RightFloatLayerView extends RelativeLayout {
             String str = n65Var.l;
             String str2 = n65Var.o;
             String str3 = n65Var.m;
-            int a2 = nr8.a(getContext(), str, str2, str3, null);
+            int a2 = rs8.a(getContext(), str, str2, str3, null);
             s(str3, 2);
             u(str3, a2);
             w(n65Var);
@@ -958,7 +958,7 @@ public class RightFloatLayerView extends RelativeLayout {
     public final void s(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
-            zs8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
+            du8.d("TIEBA_LAYER", str, 0, i2, "layer", null, null, null, null, null);
         }
     }
 }

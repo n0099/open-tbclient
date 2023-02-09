@@ -458,7 +458,7 @@ public class s05 extends Dialog {
             getWindow().setWindowAnimations(0);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d75);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
             this.d = linearLayout;
             linearLayout.setOnClickListener(new b(this));
             View view2 = this.c;

@@ -269,15 +269,15 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b4, (ViewGroup) null);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b5, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0913a4);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091070);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092434);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092432);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092433);
-            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f090465);
-            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090df0);
+            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0913b9);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091082);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09247e);
+            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09247c);
+            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f09247d);
+            this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046e);
+            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090e01);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

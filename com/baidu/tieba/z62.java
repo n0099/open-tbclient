@@ -52,12 +52,12 @@ public class z62 implements Runnable {
 
         /* renamed from: com.baidu.tieba.z62$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0501a implements Runnable {
+        public class RunnableC0503a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0501a(a aVar) {
+            public RunnableC0503a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public class z62 implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
                 this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0501a(this));
+                this.a.f.postOnJSThread(new RunnableC0503a(this));
             }
         }
 

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.cy9;
+import com.baidu.tieba.gz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ public abstract class BaseFileUploader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract cy9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file);
+    public abstract gz9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file);
 
     public BaseFileUploader() {
         Interceptable interceptable = $ic;

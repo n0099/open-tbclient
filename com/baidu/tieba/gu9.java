@@ -1,100 +1,131 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class gu9 extends du9 {
+public class gu9 implements ou9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tt9 a;
+    public float b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.du9
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 206;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.du9
-    public void j(iu9 iu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iu9Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.du9
-    public void n(iu9 iu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iu9Var) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gu9(au9 au9Var, iu9 iu9Var, xt9.a aVar) {
-        super(au9Var, iu9Var, aVar);
+    public gu9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {au9Var, iu9Var, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((au9) objArr2[0], (iu9) objArr2[1], (xt9.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = 1.0f;
+        this.c = true;
     }
 
-    @Override // com.baidu.tieba.du9
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ou9
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(j);
-            return randomAccessFile;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            tt9 tt9Var = this.a;
+            if (tt9Var == null || !tt9Var.putBytes(bArr, i)) {
+                return 0;
+            }
+            return i;
         }
-        return (RandomAccessFile) invokeCommon.objValue;
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.du9
-    public Map<String, String> f(iu9 iu9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iu9Var)) == null) {
-            HashMap hashMap = new HashMap();
-            long c = iu9Var.c() + iu9Var.b();
-            long a = iu9Var.a();
-            hashMap.put("Range", "bytes=" + c + "-" + a);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.du9
-    public String h() {
+    @Override // com.baidu.tieba.ou9
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return gu9.class.getSimpleName();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ou9
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (tt9) wx9.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+            }
+            tt9 tt9Var = this.a;
+            if (tt9Var != null) {
+                tt9Var.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ou9
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            tt9 tt9Var = this.a;
+            return tt9Var != null ? tt9Var.getOutPutBytes() : new byte[0];
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            tt9 tt9Var = this.a;
+            if (tt9Var != null) {
+                tt9Var.setSpeed(f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ou9
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ou9
+    public void c() {
+        tt9 tt9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (tt9Var = this.a) == null) {
+            return;
+        }
+        tt9Var.flush();
+    }
+
+    @Override // com.baidu.tieba.ou9
+    public void d() {
+        tt9 tt9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (tt9Var = this.a) == null) {
+            return;
+        }
+        tt9Var.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.ou9
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 }

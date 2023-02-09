@@ -1879,7 +1879,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
             }
             w52.b("SwanAppActivity", "SwanAppActivity onCreate() savedInstanceState=", bundle);
             w52.i("SwanApp", "SwanAppActivity onCreate");
-            setContentView(R.layout.obfuscated_res_0x7f0d0092);
+            setContentView(R.layout.obfuscated_res_0x7f0d0093);
             if (R() == 0) {
                 nm3.c(this);
             }

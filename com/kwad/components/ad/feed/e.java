@@ -220,7 +220,7 @@ public final class e {
             boolean a = m.oF().a(ksScene, "loadConfigFeedAd");
             ksScene.setAdStyle(1);
             KsAdLoadManager.ab();
-            KsAdLoadManager.a(new a.C0602a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new AnonymousClass1(feedAdListener, ksScene, z)).oo());
+            KsAdLoadManager.a(new a.C0603a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new AnonymousClass1(feedAdListener, ksScene, z)).oo());
         }
     }
 }

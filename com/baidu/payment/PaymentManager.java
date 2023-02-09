@@ -324,7 +324,7 @@ public class PaymentManager {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                             fi1 fi1Var = this.a;
-                            PaymentManager.g(fi1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f1710) + str);
+                            PaymentManager.g(fi1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f1728) + str);
                         }
                     }
                 }
@@ -361,7 +361,7 @@ public class PaymentManager {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                             fi1 fi1Var = this.a;
-                            PaymentManager.g(fi1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f02e5) + str);
+                            PaymentManager.g(fi1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f02e6) + str);
                         }
                     }
                 }
@@ -398,7 +398,7 @@ public class PaymentManager {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                             fi1 fi1Var = this.a;
-                            PaymentManager.g(fi1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f03e7) + str);
+                            PaymentManager.g(fi1Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f03e8) + str);
                         }
                     }
                 }
@@ -516,13 +516,13 @@ public class PaymentManager {
                                     lf1.f().c(activity2, gi1Var.b, new d(this, fi1Var));
                                     break;
                                 default:
-                                    fi1Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f15cb));
+                                    fi1Var.onResult(3, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f15e2));
                                     break;
                             }
                             activity2.finish();
                             return;
                         }
-                        PaymentManager.g(fi1Var, 6, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f0dca));
+                        PaymentManager.g(fi1Var, 6, this.this$0.a.getString(R.string.obfuscated_res_0x7f0f0dd6));
                     }
                 }
             };
@@ -615,7 +615,7 @@ public class PaymentManager {
         fi1 fi1Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(65543, null, i, str) == null) && (fi1Var = c) != null) {
-            fi1Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1033) + str);
+            fi1Var.onResult(i, AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1047) + str);
             c = null;
         }
     }

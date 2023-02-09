@@ -31,7 +31,7 @@ public class yq1 implements bt1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
-            return new m9a(inputStream);
+            return new qaa(inputStream);
         }
         return (InputStream) invokeL.objValue;
     }

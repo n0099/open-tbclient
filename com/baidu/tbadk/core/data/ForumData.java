@@ -922,7 +922,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
                 BdLog.e(e6.getMessage());
             }
             try {
-                this.news_info.q1(jSONObject.optJSONObject("news_info"));
+                this.news_info.r1(jSONObject.optJSONObject("news_info"));
             } catch (Exception e7) {
                 BdLog.e(e7.getMessage());
             }
@@ -1056,7 +1056,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
             this.mPrefixData.parserProtobuf(forumInfo.post_prefix);
             this.mPostTopicData.parserProtobuf(forumInfo.post_topic);
             this.top_code.j(forumInfo.top_code);
-            this.news_info.r1(forumInfo.news_info);
+            this.news_info.s1(forumInfo.news_info);
             this.mAcrossForumIcon = forumInfo.across_forum_show;
             this.mIsLiveGameForum = forumInfo.is_live_game_forum.intValue();
             this.forumGameLabel = forumInfo.forum_game_label;

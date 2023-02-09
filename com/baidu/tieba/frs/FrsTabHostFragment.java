@@ -43,14 +43,14 @@ import com.baidu.tbadk.widget.FRSRefreshButton;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.at6;
-import com.baidu.tieba.d89;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.ez6;
 import com.baidu.tieba.fz6;
 import com.baidu.tieba.h27;
-import com.baidu.tieba.hg9;
-import com.baidu.tieba.ig9;
+import com.baidu.tieba.h99;
+import com.baidu.tieba.lh9;
+import com.baidu.tieba.mh9;
 import com.baidu.tieba.ot4;
 import com.baidu.tieba.q37;
 import com.baidu.tieba.qf5;
@@ -58,8 +58,8 @@ import com.baidu.tieba.r37;
 import com.baidu.tieba.rf5;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.uj5;
-import com.baidu.tieba.vz8;
 import com.baidu.tieba.y17;
+import com.baidu.tieba.z09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,15 +81,15 @@ public class FrsTabHostFragment extends BaseFragment {
     public FrsFragment d;
     public FragmentTabHost e;
     public FrameLayout f;
-    public vz8 g;
+    public z09 g;
     public int h;
     public int i;
-    public ig9 j;
+    public mh9 j;
     public OvalActionButton k;
     public FRSRefreshButton l;
-    public d89 m;
+    public h99 m;
     public y17 n;
-    public hg9 o;
+    public lh9 o;
     public boolean p;
     public final View.OnClickListener q;
     public y17.d r;
@@ -472,11 +472,11 @@ public class FrsTabHostFragment extends BaseFragment {
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, bundle) == null) {
-            this.m = new d89(this.a.getPageContext());
+            this.m = new h99(this.a.getPageContext());
             y17 y17Var = new y17(this.a.getPageContext());
             this.n = y17Var;
             y17Var.i(this.r);
-            this.o = new hg9(this.a, "frs", 2, "2");
+            this.o = new lh9(this.a, "frs", 2, "2");
             super.onActivityCreated(bundle);
         }
     }
@@ -531,13 +531,13 @@ public class FrsTabHostFragment extends BaseFragment {
             if (fragmentTabHost != null) {
                 fragmentTabHost.s(TbadkCoreApplication.getInst().getSkinType());
             }
-            ig9 ig9Var = this.j;
-            if (ig9Var != null) {
-                ig9Var.d(i);
+            mh9 mh9Var = this.j;
+            if (mh9Var != null) {
+                mh9Var.d(i);
             }
-            hg9 hg9Var = this.o;
-            if (hg9Var != null) {
-                hg9Var.i(i);
+            lh9 lh9Var = this.o;
+            if (lh9Var != null) {
+                lh9Var.i(i);
             }
         }
     }
@@ -673,7 +673,7 @@ public class FrsTabHostFragment extends BaseFragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             FrsFragment frsFragment = this.d;
             if (frsFragment != null && frsFragment.isAdded() && this.d.getPageContext() != null) {
-                fz6.a(this.d.getPageContext(), this.d.Y0());
+                fz6.a(this.d.getPageContext(), this.d.X0());
             }
             return false;
         }
@@ -712,9 +712,9 @@ public class FrsTabHostFragment extends BaseFragment {
     }
 
     public final void R1(qf5 qf5Var, rf5 rf5Var, TbFragmentTabIndicator tbFragmentTabIndicator, String str) {
-        vz8 vz8Var;
+        z09 z09Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048579, this, qf5Var, rf5Var, tbFragmentTabIndicator, str) == null) && rf5Var != null && (vz8Var = this.g) != null && vz8Var.getForum() != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(1048579, this, qf5Var, rf5Var, tbFragmentTabIndicator, str) == null) && rf5Var != null && (z09Var = this.g) != null && z09Var.getForum() != null) {
             ForumData forum = this.g.getForum();
             FragmentTabHost.c cVar = new FragmentTabHost.c();
             cVar.a = rf5Var.e;
@@ -772,7 +772,7 @@ public class FrsTabHostFragment extends BaseFragment {
             int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
             ImageView imageView = new ImageView(this.a);
             imageView.setLayoutParams(new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize));
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08075d);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080768);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             fragmentTabIndicator.setTipPosType(1);
             fragmentTabIndicator.setTipTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c));
@@ -791,11 +791,11 @@ public class FrsTabHostFragment extends BaseFragment {
         if ((interceptable == null || interceptable.invokeI(1048610, this, i) == null) && (frsFragment = this.d) != null) {
             ForumWriteData v3 = frsFragment.v3();
             ItemInfo itemInfo = null;
-            if (this.d.Y0() != null) {
-                itemInfo = this.d.Y0().itemInfo;
+            if (this.d.X0() != null) {
+                itemInfo = this.d.X0().itemInfo;
             }
             if (this.o == null) {
-                this.o = new hg9(this.a, "frs", 2, "2");
+                this.o = new lh9(this.a, "frs", 2, "2");
             }
             this.o.j(v3);
             this.o.l(e2());
@@ -839,23 +839,23 @@ public class FrsTabHostFragment extends BaseFragment {
         return (FragmentTabHost) invokeV.objValue;
     }
 
-    public ig9 d2() {
+    public mh9 d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.j;
         }
-        return (ig9) invokeV.objValue;
+        return (mh9) invokeV.objValue;
     }
 
     public final String e2() {
         InterceptResult invokeV;
-        FrsViewData Y0;
+        FrsViewData X0;
         ActivityConfig activityConfig;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             FrsFragment frsFragment = this.d;
-            if (frsFragment == null || (Y0 = frsFragment.Y0()) == null || (activityConfig = Y0.activityConfig) == null) {
+            if (frsFragment == null || (X0 = frsFragment.X0()) == null || (activityConfig = X0.activityConfig) == null) {
                 return "";
             }
             return activityConfig.addthread_text;
@@ -867,8 +867,8 @@ public class FrsTabHostFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921468, Boolean.FALSE));
-            ig9 ig9Var = this.j;
-            if (ig9Var != null && ig9Var.b()) {
+            mh9 mh9Var = this.j;
+            if (mh9Var != null && mh9Var.b()) {
                 this.j.a(true);
             }
         }
@@ -878,11 +878,11 @@ public class FrsTabHostFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            ig9 ig9Var = this.j;
-            if (ig9Var == null) {
+            mh9 mh9Var = this.j;
+            if (mh9Var == null) {
                 return false;
             }
-            return ig9Var.b();
+            return mh9Var.b();
         }
         return invokeV.booleanValue;
     }
@@ -922,7 +922,7 @@ public class FrsTabHostFragment extends BaseFragment {
         String str11;
         String str12;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || (frsFragment = this.d) == null || frsFragment.Y0() == null || (forum = this.d.Y0().getForum()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || (frsFragment = this.d) == null || frsFragment.X0() == null || (forum = this.d.X0().getForum()) == null) {
             return;
         }
         ThemeColorInfo themeColorInfo = forum.getThemeColorInfo();
@@ -1047,21 +1047,21 @@ public class FrsTabHostFragment extends BaseFragment {
         }
     }
 
-    public void m2(vz8 vz8Var, at6 at6Var) {
+    public void m2(z09 z09Var, at6 at6Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048600, this, vz8Var, at6Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048600, this, z09Var, at6Var) == null) {
             this.p = false;
-            if (vz8Var != null && at6Var != null) {
+            if (z09Var != null && at6Var != null) {
                 FragmentTabHost fragmentTabHost = this.e;
                 if (fragmentTabHost == null) {
-                    this.g = vz8Var;
+                    this.g = z09Var;
                     this.c = at6Var;
                     this.p = true;
                     return;
                 }
-                fragmentTabHost.setForumId(vz8Var.getForum().getId());
-                this.g = vz8Var;
+                fragmentTabHost.setForumId(z09Var.getForum().getId());
+                this.g = z09Var;
                 this.c = at6Var;
                 at6Var.m();
                 if (ListUtils.isEmpty(this.c.g())) {
@@ -1178,8 +1178,8 @@ public class FrsTabHostFragment extends BaseFragment {
         if ((interceptable != null && interceptable.invokeV(1048611, this) != null) || !DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a, LoginDialogData.FRS_PUBLISH_RESULT_PAGE))) {
             return;
         }
-        d89 d89Var = this.m;
-        if ((d89Var != null && d89Var.c()) || Q1()) {
+        h99 h99Var = this.m;
+        if ((h99Var != null && h99Var.c()) || Q1()) {
             return;
         }
         if (this.d.N3().J(502) != null) {

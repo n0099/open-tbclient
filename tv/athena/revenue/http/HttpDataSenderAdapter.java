@@ -6,9 +6,9 @@ import androidx.annotation.Keep;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.vha;
-import com.baidu.tieba.wha;
-import com.baidu.tieba.xha;
+import com.baidu.tieba.aja;
+import com.baidu.tieba.bja;
+import com.baidu.tieba.zia;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,7 +91,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends wha {
+    public class b extends aja {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -128,7 +128,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.baidu.tieba.wha
+        @Override // com.baidu.tieba.aja
         public void a(Request request, boolean z, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{request, Boolean.valueOf(z), exc}) == null) {
@@ -150,7 +150,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             }
         }
 
-        @Override // com.baidu.tieba.wha
+        @Override // com.baidu.tieba.aja
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -300,7 +300,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            vha.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            zia.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(this, i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -309,8 +309,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-            vha.f().d(i, i2);
-            xha.g(this.mPayNetReporter);
+            zia.f().d(i, i2);
+            bja.g(this.mPayNetReporter);
         }
     }
 
@@ -329,7 +329,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.mPayNetReporter = dataSenderConfig.payNetReporter;
             this.sEnableBackupDomain = true ^ Env.instance().isTestEnv();
             if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
-                int h = xha.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
+                int h = bja.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
                 String str = "initHttpDns result " + h;
                 RLog.info("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + dataSenderConfig.gslbAppId + " " + str);
                 this.delayDnsInitReportRunnable = new a(this, h, str);
@@ -346,7 +346,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                 RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
                 return;
             }
-            xha.a(this.mPayNetReporter);
+            bja.a(this.mPayNetReporter);
             synchronized (this.runnableLock) {
                 if (this.delayDnsInitReportRunnable != null) {
                     this.delayDnsInitReportRunnable.run();

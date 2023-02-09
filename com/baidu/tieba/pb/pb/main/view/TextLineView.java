@@ -112,6 +112,7 @@ public class TextLineView extends TextView {
         this.c = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.d = obtainStyledAttributes.getDimensionPixelSize(0, 0);
         this.e = obtainStyledAttributes.getColor(4, SkinManager.getColor(R.color.CAM_X0105));
+        obtainStyledAttributes.getColor(5, SkinManager.getColor(R.color.CAM_X0108));
         setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.c + this.b + this.d);
         setTextColor(this.e);
         this.f = ej.g(context, R.dimen.obfuscated_res_0x7f0702de);
@@ -136,11 +137,21 @@ public class TextLineView extends TextView {
         }
     }
 
-    public void b() {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             setTextSelectedUI(isSelected());
             a();
+            invalidate();
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
+    public void setSelected(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            super.setSelected(z);
+            setTextSelectedUI(z);
             invalidate();
         }
     }
@@ -153,16 +164,6 @@ public class TextLineView extends TextView {
             this.h = i;
             this.i = i2;
             this.j = (i - this.f) / 2;
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void setSelected(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            super.setSelected(z);
-            setTextSelectedUI(z);
-            invalidate();
         }
     }
 }

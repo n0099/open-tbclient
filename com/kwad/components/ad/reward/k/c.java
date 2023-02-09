@@ -132,7 +132,7 @@ public final class c extends com.kwad.sdk.core.download.kwai.a implements com.kw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, z) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f09123b || id == R.id.obfuscated_res_0x7f09123a || id == R.id.obfuscated_res_0x7f09123c) {
+            if (id == R.id.obfuscated_res_0x7f09124f || id == R.id.obfuscated_res_0x7f09124e || id == R.id.obfuscated_res_0x7f091250) {
                 com.kwad.sdk.core.e.b.d("ApkInfoCardViewHelper", "onClick install");
                 this.uw = true;
                 a aVar = this.uv;
@@ -146,14 +146,14 @@ public final class c extends com.kwad.sdk.core.download.kwai.a implements com.kw
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.uo = (Button) this.um.findViewById(R.id.obfuscated_res_0x7f09123a);
-            this.up = (Button) this.um.findViewById(R.id.obfuscated_res_0x7f09123c);
-            this.un = this.um.findViewById(R.id.obfuscated_res_0x7f09123b);
-            this.ll = (ImageView) this.um.findViewById(R.id.obfuscated_res_0x7f091239);
-            this.uq = (TextView) this.um.findViewById(R.id.obfuscated_res_0x7f09123d);
-            this.ur = (TextView) this.um.findViewById(R.id.obfuscated_res_0x7f091237);
-            this.ut = (KSRatingBar) this.um.findViewById(R.id.obfuscated_res_0x7f09123e);
-            this.uu = (KsAppTagsView) this.um.findViewById(R.id.obfuscated_res_0x7f091240);
+            this.uo = (Button) this.um.findViewById(R.id.obfuscated_res_0x7f09124e);
+            this.up = (Button) this.um.findViewById(R.id.obfuscated_res_0x7f091250);
+            this.un = this.um.findViewById(R.id.obfuscated_res_0x7f09124f);
+            this.ll = (ImageView) this.um.findViewById(R.id.obfuscated_res_0x7f09124d);
+            this.uq = (TextView) this.um.findViewById(R.id.obfuscated_res_0x7f091251);
+            this.ur = (TextView) this.um.findViewById(R.id.obfuscated_res_0x7f09124b);
+            this.ut = (KSRatingBar) this.um.findViewById(R.id.obfuscated_res_0x7f091252);
+            this.uu = (KsAppTagsView) this.um.findViewById(R.id.obfuscated_res_0x7f091254);
         }
     }
 
@@ -203,7 +203,7 @@ public final class c extends com.kwad.sdk.core.download.kwai.a implements com.kw
             List<String> list = B.uB;
             if (z && list.size() == 0) {
                 this.ur.setVisibility(8);
-                TextView textView = (TextView) this.um.findViewById(R.id.obfuscated_res_0x7f091238);
+                TextView textView = (TextView) this.um.findViewById(R.id.obfuscated_res_0x7f09124c);
                 this.us = textView;
                 textView.setVisibility(0);
                 this.us.setText(B.np);

@@ -49,7 +49,7 @@ public class vi7 {
             }
         }
         this.b = view2;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090be8);
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090bf9);
         this.c = bdTypeRecyclerView;
         bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
         this.c.setFadingEdgeLength(0);
@@ -63,7 +63,7 @@ public class vi7 {
         this.d.J(R.dimen.tbfontsize33);
         this.d.D(R.color.CAM_X0110);
         this.c.setNextPage(this.d);
-        this.d.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.d.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.d.g();
         this.d.F(tbPageContext.getResources().getString(R.string.list_no_more));
         c();

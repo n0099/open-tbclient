@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes5.dex */
 public interface kt8 {
-    void dispatch(JSONObject jSONObject, Context context);
+    String getImageUrl();
+
+    String getShareLink();
+
+    AdvertAppInfo getThreadData();
+
+    String getTitle();
 }

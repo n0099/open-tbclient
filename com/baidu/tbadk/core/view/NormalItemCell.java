@@ -222,7 +222,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
             this.d = (TextView) findViewById(R.id.sub_title);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902b8);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
         }
     }
 

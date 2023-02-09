@@ -38,16 +38,16 @@ public final class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.bytedance.pangle.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class EnumC0524a {
+    public static final class EnumC0525a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0524a a;
-        public static final EnumC0524a b;
-        public static final EnumC0524a c;
-        public static final EnumC0524a d;
-        public static final EnumC0524a e;
-        public static final EnumC0524a f;
-        public static final EnumC0524a g;
-        public static final /* synthetic */ EnumC0524a[] i;
+        public static final EnumC0525a a;
+        public static final EnumC0525a b;
+        public static final EnumC0525a c;
+        public static final EnumC0525a d;
+        public static final EnumC0525a e;
+        public static final EnumC0525a f;
+        public static final EnumC0525a g;
+        public static final /* synthetic */ EnumC0525a[] i;
         public transient /* synthetic */ FieldHolder $fh;
         public final int h;
 
@@ -64,18 +64,18 @@ public final class a {
                     return;
                 }
             }
-            a = new EnumC0524a(RomUtils.UNKNOWN, 0, -1);
-            b = new EnumC0524a(HlsPlaylistParser.METHOD_NONE, 1, 0);
-            c = new EnumC0524a("MOBILE", 2, 1);
-            d = new EnumC0524a("MOBILE_2G", 3, 2);
-            e = new EnumC0524a("MOBILE_3G", 4, 3);
-            f = new EnumC0524a("WIFI", 5, 4);
-            EnumC0524a enumC0524a = new EnumC0524a("MOBILE_4G", 6, 5);
-            g = enumC0524a;
-            i = new EnumC0524a[]{a, b, c, d, e, f, enumC0524a};
+            a = new EnumC0525a(RomUtils.UNKNOWN, 0, -1);
+            b = new EnumC0525a(HlsPlaylistParser.METHOD_NONE, 1, 0);
+            c = new EnumC0525a("MOBILE", 2, 1);
+            d = new EnumC0525a("MOBILE_2G", 3, 2);
+            e = new EnumC0525a("MOBILE_3G", 4, 3);
+            f = new EnumC0525a("WIFI", 5, 4);
+            EnumC0525a enumC0525a = new EnumC0525a("MOBILE_4G", 6, 5);
+            g = enumC0525a;
+            i = new EnumC0525a[]{a, b, c, d, e, f, enumC0525a};
         }
 
-        public EnumC0524a(String str, int i2, int i3) {
+        public EnumC0525a(String str, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,27 +96,27 @@ public final class a {
             this.h = i3;
         }
 
-        public static EnumC0524a valueOf(String str) {
+        public static EnumC0525a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-                return (EnumC0524a) Enum.valueOf(EnumC0524a.class, str);
+                return (EnumC0525a) Enum.valueOf(EnumC0525a.class, str);
             }
-            return (EnumC0524a) invokeL.objValue;
+            return (EnumC0525a) invokeL.objValue;
         }
 
-        public static EnumC0524a[] values() {
+        public static EnumC0525a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return (EnumC0524a[]) i.clone();
+                return (EnumC0525a[]) i.clone();
             }
-            return (EnumC0524a[]) invokeV.objValue;
+            return (EnumC0525a[]) invokeV.objValue;
         }
     }
 
     @SuppressLint({"MissingPermission"})
-    public static EnumC0524a a(Context context) {
+    public static EnumC0525a a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -125,7 +125,7 @@ public final class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return EnumC0524a.f;
+                        return EnumC0525a.f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -138,23 +138,23 @@ public final class a {
                             case 12:
                             case 14:
                             case 15:
-                                return EnumC0524a.e;
+                                return EnumC0525a.e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return EnumC0524a.c;
+                                return EnumC0525a.c;
                             case 13:
-                                return EnumC0524a.g;
+                                return EnumC0525a.g;
                         }
                     }
-                    return EnumC0524a.c;
+                    return EnumC0525a.c;
                 }
-                return EnumC0524a.b;
+                return EnumC0525a.b;
             } catch (Throwable unused) {
-                return EnumC0524a.c;
+                return EnumC0525a.c;
             }
         }
-        return (EnumC0524a) invokeL.objValue;
+        return (EnumC0525a) invokeL.objValue;
     }
 }

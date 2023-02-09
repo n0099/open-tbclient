@@ -87,7 +87,7 @@ public class sq6 {
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
-                    str = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f05ac);
+                    str = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f05b3);
                 }
                 if (this.a.b != null) {
                     this.a.b.B(str);

@@ -175,7 +175,7 @@ public class BdPlayerSeekBar extends FrameLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.nad_bdvideoplayer_seek_bar_view, this);
             this.b = (BdPlayerProgressView) findViewById(R.id.nad_main_progress_text);
             this.c = (BdPlayerProgressView) findViewById(R.id.nad_main_duration_text);
-            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f091578);
+            BdThumbSeekBarView bdThumbSeekBarView = (BdThumbSeekBarView) findViewById(R.id.obfuscated_res_0x7f09158e);
             this.a = bdThumbSeekBarView;
             if (bdThumbSeekBarView != null) {
                 bdThumbSeekBarView.setOnSeekBarChangeListener(new a(this));

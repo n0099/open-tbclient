@@ -44,7 +44,7 @@ public class b {
 
     /* renamed from: com.ta.utdid2.a.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0726b extends a {
+    public static class C0727b extends a {
         public static /* synthetic */ Interceptable $ic;
         public static final int[] a;
         public static final int[] b;
@@ -70,7 +70,7 @@ public class b {
             b = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         }
 
-        public C0726b(int i, byte[] bArr) {
+        public C0727b(int i, byte[] bArr) {
             int[] iArr;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -621,10 +621,10 @@ public class b {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2, i3)) == null) {
-            C0726b c0726b = new C0726b(i3, new byte[(i2 * 3) / 4]);
-            if (c0726b.a(bArr, i, i2, true)) {
-                int i4 = ((a) c0726b).a;
-                byte[] bArr2 = ((a) c0726b).f11a;
+            C0727b c0727b = new C0727b(i3, new byte[(i2 * 3) / 4]);
+            if (c0727b.a(bArr, i, i2, true)) {
+                int i4 = ((a) c0727b).a;
+                byte[] bArr2 = ((a) c0727b).f11a;
                 if (i4 == bArr2.length) {
                     return bArr2;
                 }
