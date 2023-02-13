@@ -27,8 +27,8 @@ public class ba6 {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            BridgeConfig_tbadkcore.register();
             JsInterfaces_Frames.register();
+            BridgeConfig_tbadkcore.register();
             BridgeConfig_Frames.register();
         }
     }
