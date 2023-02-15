@@ -131,7 +131,7 @@ public class p56 extends BaseAdapter {
                 aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801ce);
                 aVar.a.setDefaultBgResource(R.color.transparent);
                 aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09235b);
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09235a);
                 aVar.b = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
                 view3.setTag(aVar);

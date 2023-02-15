@@ -78,8 +78,8 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092191);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092190);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092190);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09218f);
         view2.setOnClickListener(new a(this, vr7Var));
     }
 

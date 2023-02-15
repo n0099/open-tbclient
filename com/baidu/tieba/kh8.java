@@ -304,7 +304,7 @@ public class kh8 {
             this.b.findViewById(R.id.obfuscated_res_0x7f0926ab).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0919af).setBackgroundResource(R.color.transparent);
             this.b.findViewById(R.id.obfuscated_res_0x7f0902af).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f091f02).setBackgroundResource(R.color.transparent);
+            this.b.findViewById(R.id.obfuscated_res_0x7f091f01).setBackgroundResource(R.color.transparent);
             if (this.b.getChildAt(0) instanceof SwipeBackLayout) {
                 SwipeBackLayout swipeBackLayout = (SwipeBackLayout) this.b.getChildAt(0);
                 this.c = swipeBackLayout;

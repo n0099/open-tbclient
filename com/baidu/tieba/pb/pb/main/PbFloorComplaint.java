@@ -54,9 +54,9 @@ public class PbFloorComplaint extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0715, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cee);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5b);
             this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091cef);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091d1a);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091d19);
             this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090abc);
         }
     }

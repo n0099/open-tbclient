@@ -584,7 +584,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements l68.c, BarInf
             EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f0908cd);
             this.f = editText;
             editText.setFilters(new InputFilter[]{new g(this, 20)});
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924aa);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a9);
             P1();
             this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090da0);
             l68 l68Var = new l68(this.n);

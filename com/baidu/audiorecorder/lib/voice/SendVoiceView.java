@@ -263,7 +263,7 @@ public class SendVoiceView extends LinearLayout implements xb5, ij7, ISendVoiceV
         int i3 = m;
         setPadding(0, i3, 0, i3);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ec, this);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092259);
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091121);
         setFocusable(true);
         setFocusableInTouchMode(true);

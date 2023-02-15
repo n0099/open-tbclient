@@ -306,7 +306,7 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
                     view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d00d1, null);
                     g gVar = new g(this.a);
                     gVar.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f090650);
-                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
                     view2.setTag(gVar);
                 }
                 g gVar2 = (g) view2.getTag();
@@ -605,7 +605,7 @@ public class b82 extends c82 implements AdapterView.OnItemClickListener {
             return;
         }
         boolean isEmpty = this.H0.isEmpty();
-        TextView textView = (TextView) V.findViewById(R.id.obfuscated_res_0x7f092358);
+        TextView textView = (TextView) V.findViewById(R.id.obfuscated_res_0x7f092357);
         int i2 = 8;
         if (isEmpty) {
             i = 8;

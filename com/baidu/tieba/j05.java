@@ -1008,7 +1008,7 @@ public class j05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.dialog_content_with_no_tip_again, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a);
             this.titleTextView = textView;
             textView.setText(this.mTitle);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09106a);

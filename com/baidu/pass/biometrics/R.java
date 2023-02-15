@@ -205,11 +205,11 @@ public final class R {
         public static final int pass_bio_liveness_recog_yy_bottom = 0x7f0918b8;
         public static final int pass_bio_loading_view = 0x7f0918b9;
         public static final int positive_btn = 0x7f091b50;
-        public static final int rim_base_toast_icon = 0x7f091d6c;
-        public static final int rim_base_toast_message = 0x7f091d6d;
-        public static final int sapi_sdk_titlebar_title_tv = 0x7f091ec1;
-        public static final int time_out_dialog_msg = 0x7f092327;
-        public static final int title_text = 0x7f092386;
+        public static final int rim_base_toast_icon = 0x7f091d6b;
+        public static final int rim_base_toast_message = 0x7f091d6c;
+        public static final int sapi_sdk_titlebar_title_tv = 0x7f091ec0;
+        public static final int time_out_dialog_msg = 0x7f092326;
+        public static final int title_text = 0x7f092385;
         public static final int tv_pose_warning_tip = 0x7f09253c;
         public static final int view_switcher = 0x7f09272a;
         public static final int webView = 0x7f0927ac;

@@ -134,7 +134,7 @@ public class om9 extends hm9 {
             }
             navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f9e));
             if (this.p.getProZone() == 1) {
-                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1722));
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1723));
             }
         }
     }

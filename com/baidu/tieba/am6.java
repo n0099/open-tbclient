@@ -118,7 +118,7 @@ public class am6 extends s05 {
             if (z) {
                 i = R.string.cancel_top;
             } else {
-                i = R.string.obfuscated_res_0x7f0f151f;
+                i = R.string.obfuscated_res_0x7f0f1520;
             }
             this.p.add(new q05(1, p(i, new Object[0]), this.n));
             this.p.add(new q05(2, p(R.string.obfuscated_res_0x7f0f04d8, new Object[0]), this.n));

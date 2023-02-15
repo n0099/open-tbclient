@@ -269,7 +269,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     public final void t1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.a = (SusPendedView) findViewById(R.id.obfuscated_res_0x7f091db6);
             x1();
             v1();
             w1();

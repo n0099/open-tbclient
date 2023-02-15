@@ -643,9 +643,9 @@ public class AddLinkActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090125);
             this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090126);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924be);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09256c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c9);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924c8);
             this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090127);
             this.g = (EditText) findViewById(R.id.obfuscated_res_0x7f0909a8);
             this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f6);

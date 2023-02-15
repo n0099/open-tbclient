@@ -641,7 +641,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
             this.l = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f091a97);
             this.b = new int[]{0, 1};
             this.n = new PersonPostAdapter(this);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215e);
             this.m = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.m.setOnPageChangeListener(this);

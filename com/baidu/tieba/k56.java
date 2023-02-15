@@ -122,13 +122,13 @@ public class k56 implements View.OnClickListener {
             }
             this.a = view2;
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fab);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092499);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092498);
-            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d6f);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092498);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092497);
+            this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d6e);
             this.f = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fac);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a6);
-            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d71);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a2);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a5);
+            this.i = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d70);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a1);
             this.k = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0914da);
             this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fad);
             this.l = view2.findViewById(R.id.obfuscated_res_0x7f0914d0);

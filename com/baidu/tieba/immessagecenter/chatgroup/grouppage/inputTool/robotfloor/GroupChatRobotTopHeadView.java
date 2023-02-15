@@ -171,15 +171,15 @@ public class GroupChatRobotTopHeadView extends RelativeLayout {
             return;
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0394, (ViewGroup) this, true);
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092044);
-        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092041);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092042);
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092043);
+        this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092040);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092041);
         this.d = headImageView;
         headImageView.setIsRound(true);
         this.d.setIsBigV(false);
-        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092043);
-        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092040);
-        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09203f);
+        this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092042);
+        this.f = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09203f);
+        this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09203e);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 

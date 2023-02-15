@@ -930,7 +930,7 @@ public class m91 {
             SslCertificate.DName issuedTo = sslCertificate.getIssuedTo();
             if (issuedTo != null) {
                 ((TextView) inflate.findViewById(R.id.to_common)).setText(issuedTo.getCName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b1)).setText(issuedTo.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b0)).setText(issuedTo.getOName());
                 ((TextView) inflate.findViewById(R.id.to_org_unit)).setText(issuedTo.getUName());
             }
             SslCertificate.DName issuedBy = sslCertificate.getIssuedBy();

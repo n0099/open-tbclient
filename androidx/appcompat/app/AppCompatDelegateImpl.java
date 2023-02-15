@@ -2605,7 +2605,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         });
                     }
                     if (this.mDecorContentParent == null) {
-                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09235b);
+                        this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09235a);
                     }
                     ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                     ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09005c);

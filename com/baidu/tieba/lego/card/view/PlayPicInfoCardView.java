@@ -629,16 +629,16 @@ public class PlayPicInfoCardView extends BaseCardView<PlayPicInfoCard> {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.m.getLayoutParams();
             layoutParams.height = (int) ((ej.l(getContext()) * 0.5f) + 0.5f);
             this.m.setLayoutParams(layoutParams);
-            this.q = (TextView) l(this.n, R.id.obfuscated_res_0x7f092365);
+            this.q = (TextView) l(this.n, R.id.obfuscated_res_0x7f092364);
             this.p = (LinearLayout) l(this.n, R.id.obfuscated_res_0x7f0914dc);
-            this.r = (TextView) l(this.n, R.id.obfuscated_res_0x7f09237c);
+            this.r = (TextView) l(this.n, R.id.obfuscated_res_0x7f09237b);
             this.s = (IndicatorView) l(this.n, R.id.obfuscated_res_0x7f091013);
-            this.o = (TextView) l(this.n, R.id.obfuscated_res_0x7f09238a);
+            this.o = (TextView) l(this.n, R.id.obfuscated_res_0x7f092389);
             RelativeLayout relativeLayout = (RelativeLayout) l(this.n, R.id.obfuscated_res_0x7f090407);
             this.u = relativeLayout;
             this.v = (TextView) l(relativeLayout, R.id.forum_name);
             this.w = (TbImageView) l(this.u, R.id.obfuscated_res_0x7f090ef6);
-            this.x = (TextView) l(this.u, R.id.obfuscated_res_0x7f09225c);
+            this.x = (TextView) l(this.u, R.id.obfuscated_res_0x7f09225b);
             this.y = (CommonImageButton) l(this.u, R.id.obfuscated_res_0x7f09180b);
             return this.n;
         }

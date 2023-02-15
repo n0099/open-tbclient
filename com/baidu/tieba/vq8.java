@@ -112,7 +112,7 @@ public class vq8 {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091f46)).inflate();
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091f45)).inflate();
             inflate.setVisibility(0);
             FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091b66);
             this.c = fragmentTabHost;

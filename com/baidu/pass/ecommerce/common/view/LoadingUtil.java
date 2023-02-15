@@ -54,7 +54,7 @@ public class LoadingUtil {
             } else {
                 inflate = from.inflate(R.layout.obfuscated_res_0x7f0d050a, (ViewGroup) null);
             }
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec3)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec2)).setText(str);
             return inflate;
         }
         return (View) invokeLL.objValue;

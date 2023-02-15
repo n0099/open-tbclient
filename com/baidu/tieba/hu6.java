@@ -93,9 +93,9 @@ public class hu6 {
         this.k = new a(this);
         this.b = tbPageContext;
         this.a = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b5);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b4);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090728);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f95);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f94);
         this.f = (TBSpecificationBtn) view2.findViewById(R.id.btn_known);
         o45 o45Var = new o45();
         o45Var.q(R.color.CAM_X0618);

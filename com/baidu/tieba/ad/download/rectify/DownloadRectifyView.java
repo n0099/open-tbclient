@@ -197,13 +197,13 @@ public class DownloadRectifyView extends RelativeLayout {
             this.b = tbImageView;
             tbImageView.setRadius(ej.d(context, 9.0f));
             this.b.setConrers(15);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b4);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b3);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924b5);
             this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092578);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924c8);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924c7);
             this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092543);
             this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092533);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924dc);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924db);
             this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09089c);
         }
     }

@@ -1120,11 +1120,11 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public final void p3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f0920e1);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f0920e0);
             this.x = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setScene(this.e);
             this.x.setOnRefreshListener(this.V);
-            RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f0920e0);
+            RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f0920df);
             this.u = recyclerView;
             recyclerView.setLayoutManager(new FixedStaggeredGridLayoutManager(2, 1));
             this.u.setItemAnimator(null);
@@ -1140,13 +1140,13 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             ma0Var.z(this.e);
             this.x.setProgressView(this.w);
             this.w.y(this.e);
-            LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f0920df);
+            LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f0920de);
             this.y = loadingView;
             loadingView.c(this.e);
-            ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f0920de);
+            ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f0920dd);
             this.z = errorView;
             errorView.c(this.e);
-            EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f0920dd);
+            EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f0920dc);
             this.A = emptyView;
             emptyView.a(this.e);
             this.z.setActionCallback(new i(this));

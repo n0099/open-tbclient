@@ -690,11 +690,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
             this.f = z;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f150c;
+                i = R.string.obfuscated_res_0x7f0f150d;
                 i2 = R.string.obfuscated_res_0x7f0f1307;
                 i3 = R.string.unfriend_del;
             } else {
-                i = R.string.obfuscated_res_0x7f0f150d;
+                i = R.string.obfuscated_res_0x7f0f150e;
                 i2 = R.string.obfuscated_res_0x7f0f130a;
                 i3 = R.string.unfriend_all_read;
             }
@@ -736,7 +736,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.c);
                 bdTopToast.h(false);
-                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150b));
+                bdTopToast.g(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f150c));
                 bdTopToast.i((ViewGroup) findViewById(16908290));
             }
         }

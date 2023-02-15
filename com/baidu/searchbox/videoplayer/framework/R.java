@@ -152,9 +152,9 @@ public final class R {
         public static final int main_view_seekbar = 0x7f09158e;
         public static final int play_error_layout_retry = 0x7f091b0a;
         public static final int progress = 0x7f091bd5;
-        public static final int right = 0x7f091d43;
-        public static final int time = 0x7f092326;
-        public static final int tv_error = 0x7f0924e2;
+        public static final int right = 0x7f091d42;
+        public static final int time = 0x7f092325;
+        public static final int tv_error = 0x7f0924e1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

@@ -650,7 +650,7 @@ public class ry5 implements iz5 {
                 if (viewGroup == null) {
                     return;
                 }
-                this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092075);
+                this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092074);
                 r();
                 this.g = hu4Var.a();
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ej.l(context), (int) (ej.j(this.b.get().getContext()) * 0.85d));
@@ -682,15 +682,15 @@ public class ry5 implements iz5 {
     public final void r() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c != null && FunAdSplashClickRegionSwitch.isOpen()) {
-            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f092074);
+            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f092073);
             this.e = viewGroup;
             p15 d2 = p15.d(this.e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            p15 d3 = p15.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092077));
+            p15 d3 = p15.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092076));
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092076), R.drawable.obfuscated_res_0x7f0809b0, R.color.CAM_X0201, null);
+            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092075), R.drawable.obfuscated_res_0x7f0809b0, R.color.CAM_X0201, null);
         }
     }
 

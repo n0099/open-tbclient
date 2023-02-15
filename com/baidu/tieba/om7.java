@@ -188,7 +188,7 @@ public class om7 {
             return;
         }
         recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d07a3);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091db7);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091db6);
         NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
         this.c = navigationBar;
         navigationBar.showBottomLine();
@@ -208,12 +208,12 @@ public class om7 {
         this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092633);
         this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092604);
         this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09106c);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092146);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092147);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092145);
+        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092146);
         this.l = settingTextSwitchView;
         settingTextSwitchView.setSwitchStateChangeListener(this.a);
-        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092149);
-        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f09214a);
+        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092148);
+        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092149);
         this.m = settingTextSwitchView2;
         settingTextSwitchView2.setSwitchStateChangeListener(this.a);
     }

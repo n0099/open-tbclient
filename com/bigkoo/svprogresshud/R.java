@@ -150,8 +150,8 @@ public final class R {
         public static final int circleProgressBar = 0x7f09067e;
         public static final int ivBigLoading = 0x7f0910e1;
         public static final int ivSmallLoading = 0x7f0910e3;
-        public static final int sv_outmost_container = 0x7f092107;
-        public static final int tvMsg = 0x7f09249b;
+        public static final int sv_outmost_container = 0x7f092106;
+        public static final int tvMsg = 0x7f09249a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

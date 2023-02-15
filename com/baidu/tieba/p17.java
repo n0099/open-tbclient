@@ -224,8 +224,8 @@ public class p17 extends PriorityOrganizer.Task {
                 this.p.O("create_success");
                 this.p.P(String.format(t, this.r, this.s));
                 this.p.N(dh.e(this.r, -1));
-                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f1547));
-                this.p.M(this.m.getString(R.string.obfuscated_res_0x7f0f1548));
+                this.p.setTitle(this.m.getString(R.string.obfuscated_res_0x7f0f1548));
+                this.p.M(this.m.getString(R.string.obfuscated_res_0x7f0f1549));
                 z = this.o.b(this.p, false);
             } else if (this.p.I() == dh.e(this.r, 0)) {
                 z = this.o.b(this.p, false);

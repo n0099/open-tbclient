@@ -127,7 +127,7 @@ public class RefreshView extends FrameLayout implements fr5 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
             this.a = (ImageView) findViewById(R.id.arrow_icon);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09225b);
         }
     }
 

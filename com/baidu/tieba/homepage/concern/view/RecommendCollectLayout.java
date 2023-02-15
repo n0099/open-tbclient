@@ -69,7 +69,7 @@ public class RecommendCollectLayout extends RelativeLayout implements ay {
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0906b3);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906b9);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5d);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d5c);
             this.b = new ContentCollectListAdapter(this.a);
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.c.setAdapter(this.b);

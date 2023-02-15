@@ -154,7 +154,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.a = 3;
         this.b = view2;
         this.P = absVideoPbFragment;
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092302);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092301);
         HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f090e1c);
         this.d = headPendantClickableView;
         headPendantClickableView.setHasPendantStyle();
@@ -175,8 +175,8 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.m = (PbFirstFloorUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090709);
         this.n = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09180c);
         this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092690);
-        this.p = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f09238c);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092377);
+        this.p = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f09238b);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092376);
         this.y = view2.findViewById(R.id.obfuscated_res_0x7f092692);
         this.t = view2.findViewById(R.id.obfuscated_res_0x7f0926e5);
         this.u = view2.findViewById(R.id.obfuscated_res_0x7f092691);

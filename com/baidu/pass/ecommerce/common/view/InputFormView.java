@@ -96,11 +96,11 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0509, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e73);
-            this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e75);
-            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e76);
-            this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e71);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e72);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e72);
+            this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e74);
+            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e75);
+            this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e70);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e71);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -164,7 +164,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091e71) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091e70) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }

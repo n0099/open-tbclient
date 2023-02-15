@@ -311,7 +311,7 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090965);
-            this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092162);
+            this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092161);
             ek6 ek6Var = new ek6(this);
             this.a = ek6Var;
             ek6Var.S(getUniqueId());

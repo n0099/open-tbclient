@@ -58,7 +58,7 @@ public class PbPrivateTitleAdapter extends mc8<ha8, PbPrivateTitleViewHolder> {
                 return;
             }
             this.b = view2.findViewById(R.id.obfuscated_res_0x7f090320);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.pb_private_block_title));
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_barrules_careful12, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
             eMRichTextAnyIconSpan.h(ej.g(tbPageContext.getContext(), R.dimen.tbds31));

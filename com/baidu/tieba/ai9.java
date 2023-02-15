@@ -510,7 +510,7 @@ public class ai9 extends BaseAdapter {
                     gVar2.b.setTagPaddingDis(8, 8);
                     gVar2.b.setGifIconSupport(true);
                     gVar2.b.setLongIconSupport(true);
-                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f77);
+                    gVar2.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f76);
                     gVar2.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09135e);
                     uh9 uh9Var = this.d;
                     if (uh9Var != null && uh9Var.m() != null && this.d.m().isFromQRCode()) {

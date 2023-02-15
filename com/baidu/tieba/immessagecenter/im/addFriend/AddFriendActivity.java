@@ -398,13 +398,13 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f26);
+            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f25);
             this.b = findViewById;
             findViewById.setOnClickListener(new b(this));
             ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904c5);
             this.g = imageView;
             imageView.setOnClickListener(new c(this));
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f25);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f24);
             this.c = navigationBar;
             navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f02ab));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -416,8 +416,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 this.e.setLayoutParams(layoutParams);
             }
             this.e.setOnClickListener(new d(this));
-            this.f = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f27);
-            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f24);
+            this.f = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f26);
+            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091f23);
             this.d = editText;
             editText.setOnFocusChangeListener(new e(this));
             this.d.setOnTouchListener(new f(this));

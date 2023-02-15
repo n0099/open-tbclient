@@ -375,11 +375,11 @@ public class HotUserRankView {
         TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f0942));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092177);
+        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092176);
         this.d = tbTabLayout;
         tbTabLayout.setTabTextSize(ej.g(baseFragmentActivity, R.dimen.tbds46));
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092159);
-        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f09215a);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092158);
+        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f092159);
         CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f092733);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);

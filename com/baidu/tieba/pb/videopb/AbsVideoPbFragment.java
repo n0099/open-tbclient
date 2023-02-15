@@ -5182,7 +5182,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements bt5, Vo
                             return;
                         }
                         vh8 vh8Var2 = this.a.N;
-                        if ((vh8Var2 == null || ((vh8Var2.R() == null || view2 != this.a.N.R().q()) && view2.getId() != R.id.obfuscated_res_0x7f09188c && view2.getId() != R.id.obfuscated_res_0x7f090272)) && view2.getId() != R.id.obfuscated_res_0x7f090aa3 && view2.getId() != R.id.obfuscated_res_0x7f091d1c) {
+                        if ((vh8Var2 == null || ((vh8Var2.R() == null || view2 != this.a.N.R().q()) && view2.getId() != R.id.obfuscated_res_0x7f09188c && view2.getId() != R.id.obfuscated_res_0x7f090272)) && view2.getId() != R.id.obfuscated_res_0x7f090aa3 && view2.getId() != R.id.obfuscated_res_0x7f091d1b) {
                             AbsVideoPbFragment absVideoPbFragment2 = this.a;
                             if (view2 == absVideoPbFragment2.p) {
                                 if (absVideoPbFragment2.M() == null || this.a.M().l1() == null) {
@@ -5400,7 +5400,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements bt5, Vo
                                             }
                                         }
                                         this.a.N.J();
-                                    } else if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f0920e7 && view2.getId() != R.id.obfuscated_res_0x7f09191b && view2.getId() != R.id.obfuscated_res_0x7f0917a5 && view2.getId() != R.id.obfuscated_res_0x7f09197d) {
+                                    } else if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f0920e6 && view2.getId() != R.id.obfuscated_res_0x7f09191b && view2.getId() != R.id.obfuscated_res_0x7f0917a5 && view2.getId() != R.id.obfuscated_res_0x7f09197d) {
                                         if (view2.getId() != R.id.obfuscated_res_0x7f09197b && view2.getId() != R.id.obfuscated_res_0x7f091b5b && view2.getId() != R.id.obfuscated_res_0x7f091915) {
                                             if (view2.getId() != R.id.obfuscated_res_0x7f091902 && view2.getId() != R.id.collect_num_container) {
                                                 if (view2.getId() != R.id.obfuscated_res_0x7f091907 && view2.getId() != R.id.share_more_container) {
@@ -7472,8 +7472,8 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements bt5, Vo
             this.m.getTopCoverBgView().setBackgroundResource(R.drawable.obfuscated_res_0x7f0802cf);
             int i2 = 0;
             this.m.getTopCoverBgView().setVisibility(0);
-            this.n = this.c.findViewById(R.id.obfuscated_res_0x7f0920c9);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0920d0);
+            this.n = this.c.findViewById(R.id.obfuscated_res_0x7f0920c8);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0920cf);
             this.o = findViewById;
             if (this.o1) {
                 ViewGroup.LayoutParams layoutParams = this.n.getLayoutParams();
@@ -8302,7 +8302,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements bt5, Vo
             A4();
             this.i = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0902af);
             this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0919b0);
-            this.U0 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d5f);
+            this.U0 = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d5e);
             this.j = (VideoContainerLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09199e);
             ai8 ai8Var = new ai8(getContext(), this.j);
             this.k = ai8Var;
@@ -8311,7 +8311,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements bt5, Vo
             this.k.X0(this);
             this.k.V0(N().getRootView());
             this.k.W0(this.o);
-            ((RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091f02)).setMinimumHeight(((int) Math.ceil((ej.l(getContext()) * 9) / 16.0d)) + getResources().getDimensionPixelOffset(R.dimen.tbds118));
+            ((RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091f01)).setMinimumHeight(((int) Math.ceil((ej.l(getContext()) * 9) / 16.0d)) + getResources().getDimensionPixelOffset(R.dimen.tbds118));
             this.d = (NewPagerSlidingTabBaseStrip) this.c.findViewById(R.id.obfuscated_res_0x7f0919b4);
             this.v = this.c.findViewById(R.id.obfuscated_res_0x7f0919ab);
             this.e = (CustomViewPager) this.c.findViewById(R.id.obfuscated_res_0x7f0919b6);

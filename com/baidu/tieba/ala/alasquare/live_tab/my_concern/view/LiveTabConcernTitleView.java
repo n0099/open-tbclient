@@ -66,7 +66,7 @@ public class LiveTabConcernTitleView extends mc6<b46> {
             this.a = liveTabConcernTitleView;
             View h = liveTabConcernTitleView.h();
             this.b = h;
-            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092169);
+            this.c = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092168);
         }
     }
 

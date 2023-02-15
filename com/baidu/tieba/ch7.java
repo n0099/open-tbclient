@@ -76,7 +76,7 @@ public class ch7 {
             aVar.a = pkModule.agree.pk_num.longValue();
             a aVar2 = this.d;
             if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1526);
             } else {
                 str = pkModule.agree.pk_desc;
             }
@@ -99,7 +99,7 @@ public class ch7 {
             aVar4.a = pkModule.disagree.pk_num.longValue();
             a aVar5 = this.e;
             if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1524);
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525);
             } else {
                 str2 = pkModule.disagree.pk_desc;
             }
@@ -130,7 +130,7 @@ public class ch7 {
             aVar.a = pkModule.agree.pk_num.longValue();
             a aVar2 = this.d;
             if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1526);
             } else {
                 str = pkModule.agree.pk_desc;
             }
@@ -153,7 +153,7 @@ public class ch7 {
             aVar4.a = pkModule.disagree.pk_num.longValue();
             a aVar5 = this.e;
             if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1524);
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525);
             } else {
                 str2 = pkModule.disagree.pk_desc;
             }
@@ -184,7 +184,7 @@ public class ch7 {
             aVar.a = pkModule.agree.pk_num.longValue();
             a aVar2 = this.d;
             if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1526);
             } else {
                 str = pkModule.agree.pk_desc;
             }
@@ -207,7 +207,7 @@ public class ch7 {
             aVar4.a = pkModule.disagree.pk_num.longValue();
             a aVar5 = this.e;
             if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1524);
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525);
             } else {
                 str2 = pkModule.disagree.pk_desc;
             }

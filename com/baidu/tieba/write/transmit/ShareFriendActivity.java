@@ -945,11 +945,11 @@ public class ShareFriendActivity extends BaseActivity implements AdapterView.OnI
     public final void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = findViewById(R.id.obfuscated_res_0x7f091fdc);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091fdb);
             this.p = NoDataViewFactory.b(getPageContext().getContext(), this.i, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07029f)), NoDataViewFactory.e.d(null, getResources().getString(R.string.no_people_focus)), null, true);
             Y1();
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fea);
-            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091fc6);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fe9);
+            this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091fc5);
             this.k = (BdListView) findViewById(R.id.obfuscated_res_0x7f09141d);
             ni9 ni9Var = new ni9(this);
             this.h = ni9Var;

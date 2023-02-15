@@ -298,7 +298,7 @@ public class HotTopicHeaderView extends LinearLayout {
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setOrientation(0);
-            linearLayout.setId(R.id.obfuscated_res_0x7f092420);
+            linearLayout.setId(R.id.obfuscated_res_0x7f09241f);
             linearLayout.setGravity(17);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
@@ -319,7 +319,7 @@ public class HotTopicHeaderView extends LinearLayout {
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
             d.A(R.string.F_X01);
-            textView.setId(R.id.obfuscated_res_0x7f092421);
+            textView.setId(R.id.obfuscated_res_0x7f092420);
             textView.setPadding(ej.g(getContext(), R.dimen.M_W_X002), 0, 0, 0);
             textView.setText(innerTabInfo.name);
             linearLayout.addView(textView);
@@ -504,7 +504,7 @@ public class HotTopicHeaderView extends LinearLayout {
         }
         if (this.e != null) {
             for (int i2 = 0; i2 < this.e.getChildCount(); i2++) {
-                p15 d3 = p15.d((TextView) ((ViewGroup) this.e.getChildAt(i2)).findViewById(R.id.obfuscated_res_0x7f092421));
+                p15 d3 = p15.d((TextView) ((ViewGroup) this.e.getChildAt(i2)).findViewById(R.id.obfuscated_res_0x7f092420));
                 d3.v(R.color.CAM_X0105);
                 d3.z(R.dimen.T_X06);
                 d3.A(R.string.F_X01);

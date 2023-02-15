@@ -247,7 +247,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f6);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f8);
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914f7);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092500);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ff);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092552);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091037);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091b31);

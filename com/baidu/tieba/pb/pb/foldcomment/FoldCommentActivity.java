@@ -1332,7 +1332,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     }
                 }
             } else if (view2.getId() != R.id.obfuscated_res_0x7f09191d && view2.getId() != R.id.obfuscated_res_0x7f091975) {
-                if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f0920e7 && view2.getId() != R.id.obfuscated_res_0x7f09191b && view2.getId() != R.id.obfuscated_res_0x7f0917a5) {
+                if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f0920e6 && view2.getId() != R.id.obfuscated_res_0x7f09191b && view2.getId() != R.id.obfuscated_res_0x7f0917a5) {
                     if (view2.getId() != R.id.obfuscated_res_0x7f09197b && view2.getId() != R.id.obfuscated_res_0x7f091b5b && view2.getId() != R.id.obfuscated_res_0x7f091915) {
                         if ((view2.getId() == R.id.obfuscated_res_0x7f0907d7 || view2.getId() == R.id.obfuscated_res_0x7f090aa0) && (sparseArray = (SparseArray) view2.getTag()) != null && (sparseArray.get(R.id.tag_load_sub_data) instanceof PostData)) {
                             PostData postData2 = (PostData) sparseArray.get(R.id.tag_load_sub_data);
@@ -1451,7 +1451,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         String O2 = postData5 != null ? postData5.O() : "";
                         int Y = this.a.a.l1() != null ? this.a.a.l1().Y() : 0;
                         this.a.K();
-                        if (view2.getId() != R.id.obfuscated_res_0x7f091d1f) {
+                        if (view2.getId() != R.id.obfuscated_res_0x7f091d1e) {
                             if (view2.getId() != R.id.obfuscated_res_0x7f09191b || !this.a.r) {
                                 TiebaStatic.log("c11742");
                                 AbsPbActivity.e W2 = this.a.W2(O);
@@ -2167,7 +2167,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
                 if (view2 != null) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f091d3d) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f091d3c) {
                         if (this.a.Y2(view2)) {
                             return true;
                         }

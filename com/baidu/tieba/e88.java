@@ -53,11 +53,11 @@ public class e88 extends b88 {
         ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09273a);
         this.p = viewStub2;
         viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092334);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092333);
         this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091853);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092335);
+        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092334);
         this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090167);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092336);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092335);
         this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b9e);
     }
 

@@ -393,8 +393,8 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0905, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091da2);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092162);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091da1);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092161);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);

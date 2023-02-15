@@ -938,7 +938,7 @@ public class b63 extends om4 implements View.OnClickListener, rw2<MediaModel> {
             this.u0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091020);
             this.t0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f090728);
             this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913d9);
-            this.w0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f92);
+            this.w0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f91);
             this.A0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091022);
             this.E0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908ea);
             this.B0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.panel_root);

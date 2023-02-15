@@ -174,8 +174,8 @@ public class PBSplash implements A {
             CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0927f3);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.d.setInCircleColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16cc)));
-            this.d.setProgressColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16cb)));
+            this.d.setInCircleColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16cd)));
+            this.d.setProgressColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16cc)));
             this.d.setProgressLineWidth(this.h);
             this.d.setProgressType(s2.b);
             CircleProgressbar circleProgressbar2 = this.d;

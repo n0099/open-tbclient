@@ -636,13 +636,13 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     this.e.setOnScrollOutListener(this.p);
                     this.e.setOnFlipOutListener(this.p);
                     this.e.setOnPageChangeListener(this.r);
-                    this.g = findViewById(R.id.obfuscated_res_0x7f0920c1);
+                    this.g = findViewById(R.id.obfuscated_res_0x7f0920c0);
                     TBSelector.makeDrawableSelector().setType(2).defaultDrawable(R.drawable.obfuscated_res_0x7f0803c2).pressedDrawable(R.drawable.obfuscated_res_0x7f0803ac).into(this.g);
                     this.m = findViewById(R.id.obfuscated_res_0x7f091854);
                     View findViewById = findViewById(R.id.obfuscated_res_0x7f090ff9);
                     this.n = findViewById;
                     findViewById.setOnClickListener(this.t);
-                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09228f);
+                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09228e);
                     this.o = findViewById2;
                     findViewById2.setOnClickListener(this.q);
                     this.m.setVisibility(8);

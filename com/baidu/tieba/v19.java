@@ -385,8 +385,8 @@ public class v19 {
             j05 j05Var = new j05(tbPageContext.getPageActivity());
             j05Var.setCanceledOnTouchOutside(false);
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092331);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092332);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092330);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092331);
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);
             textView.setText(tbPageContext.getPageActivity().getString(R.string.bubble_ended_tip));

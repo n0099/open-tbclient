@@ -115,8 +115,8 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.h = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092504);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092502);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
             this.d = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090312);
             this.e = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.f = (LinearLayout) view2.findViewById(R.id.right_container);
@@ -179,10 +179,10 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
             }
             this.i = "";
             this.a = (LinearLayout) view2.findViewById(R.id.root_container);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092502);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac1);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092502);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092501);
             this.c = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090312);
             this.d = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090311);
             this.h = (LinearLayout) view2.findViewById(R.id.right_container);
@@ -273,7 +273,7 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<RecyclerVie
                 }
             }
             this.f = "";
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092503);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092502);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
             this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ac1);
             this.b = (LiveBaseLottieView) view2.findViewById(R.id.obfuscated_res_0x7f090312);

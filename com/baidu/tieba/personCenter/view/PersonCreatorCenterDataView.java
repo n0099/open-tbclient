@@ -171,22 +171,22 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String str = (String) ((PersonCreatorCenterDataView) view2).h.getText();
-            if (getContext().getString(R.string.obfuscated_res_0x7f0f1732).equals(str)) {
+            if (getContext().getString(R.string.obfuscated_res_0x7f0f1733).equals(str)) {
                 d("3", "1", "2");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1733).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1734).equals(str)) {
                 d("3", "1", "3");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1731).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1732).equals(str)) {
                 d("3", "1", "1");
                 c(this.a);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1730).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1731).equals(str)) {
                 d("3", "2", "2");
                 c(this.b);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f172f).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f1730).equals(str)) {
                 d("3", "2", "3");
                 c(this.b);
-            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f172e).equals(str)) {
+            } else if (getContext().getString(R.string.obfuscated_res_0x7f0f172f).equals(str)) {
                 d("3", "2", "1");
                 c(this.b);
             }

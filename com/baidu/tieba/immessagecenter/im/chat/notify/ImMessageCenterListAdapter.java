@@ -540,7 +540,7 @@ public class ImMessageCenterListAdapter extends bk7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
             g gVar = new g(this, null);
-            gVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091db8);
+            gVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091db7);
             gVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f51);
             gVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f55);
             gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f56);

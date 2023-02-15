@@ -889,7 +889,7 @@ public class NavigationBar extends RelativeLayout {
             this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.navigation_bar_content_layout);
             this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0913b6);
             this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905fd);
-            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091d46);
+            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091d45);
             this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.absoluteCenterBox);
             this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.center_img_box);
             this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.center_img);

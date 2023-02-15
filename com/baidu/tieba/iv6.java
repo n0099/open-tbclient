@@ -1023,16 +1023,16 @@ public class iv6 extends n57 {
         View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f090e31);
         this.F0 = findViewById;
         findViewById.setVisibility(l2);
-        this.G0 = this.d.findViewById(R.id.obfuscated_res_0x7f091f9d);
+        this.G0 = this.d.findViewById(R.id.obfuscated_res_0x7f091f9c);
         this.H0 = this.d.findViewById(R.id.obfuscated_res_0x7f090326);
-        this.y = (ServiceAreaView) this.d.findViewById(R.id.obfuscated_res_0x7f091f9e);
+        this.y = (ServiceAreaView) this.d.findViewById(R.id.obfuscated_res_0x7f091f9d);
         this.z = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090b73);
         this.F = (FrsVoiceRoomListLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09276b);
         this.B = (FrsTopView) this.d.findViewById(R.id.obfuscated_res_0x7f090cb5);
         this.I0 = this.d.findViewById(R.id.obfuscated_res_0x7f090cac);
         this.C = this.d.findViewById(R.id.obfuscated_res_0x7f090cad);
-        this.D = this.d.findViewById(R.id.obfuscated_res_0x7f091fa2);
-        this.E = this.d.findViewById(R.id.obfuscated_res_0x7f091fa1);
+        this.D = this.d.findViewById(R.id.obfuscated_res_0x7f091fa1);
+        this.E = this.d.findViewById(R.id.obfuscated_res_0x7f091fa0);
         this.h = (List) this.i1.a(LogicField.LIKE_BTN);
         this.i = (List) this.i1.a(LogicField.SIGN_BTN);
         this.N = (ImageView) n1().a(LogicField.SPEED_ICON);
@@ -1420,8 +1420,8 @@ public class iv6 extends n57 {
                 contentView = popupWindow.getContentView();
             }
             SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f0915dd), R.color.CAM_X0101, 1);
-            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f092069), R.color.CAM_X0305, 1);
-            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f09224f), R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f092068), R.color.CAM_X0305, 1);
+            SkinManager.setViewTextColor((TextView) contentView.findViewById(R.id.obfuscated_res_0x7f09224e), R.color.CAM_X0101, 1);
             int[] iArr = new int[2];
             this.N.getLocationOnScreen(iArr);
             PopupWindow popupWindow2 = this.O;
@@ -2397,7 +2397,7 @@ public class iv6 extends n57 {
                     View inflate = LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0693, (ViewGroup) null);
                     TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090790);
                     TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913e9);
-                    TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092071);
+                    TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092070);
                     SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0909ed), R.color.CAM_X0105, 1);
                     SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                     SkinManager.setViewTextColor(textView2, R.color.CAM_X0105, 1);

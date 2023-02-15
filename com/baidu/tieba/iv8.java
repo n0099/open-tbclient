@@ -298,7 +298,7 @@ public class iv8 extends v9<SecretSettingActivity> {
             this.k = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b94);
             this.g = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b95);
             this.h = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091b9c);
-            this.j = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0922fe);
+            this.j = (TbSettingTextTipView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0922fd);
             MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.l.findViewById(R.id.obfuscated_res_0x7f0910da);
             this.v = msgSettingItemView;
             msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0730);
@@ -315,9 +315,9 @@ public class iv8 extends v9<SecretSettingActivity> {
             this.w.setOnSwitchStateChangeListener(this.l);
             this.i = secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f090726);
             this.r = (ScrollView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091583);
-            this.s = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f69);
-            this.t = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f6a);
-            this.u = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f6b);
+            this.s = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f68);
+            this.t = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f69);
+            this.u = (TextView) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091f6a);
             this.c.setOnClickListener(this.F);
             this.d.setOnClickListener(this.F);
             this.k.setOnClickListener(this.F);
@@ -345,30 +345,30 @@ public class iv8 extends v9<SecretSettingActivity> {
                 this.f.setVisibility(8);
             }
             this.x = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f091b9b);
-            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092316);
+            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092315);
             this.y = tbSettingTextTipView4;
             tbSettingTextTipView4.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092315);
+            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092314);
             this.z = tbSettingTextTipView5;
             tbSettingTextTipView5.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView6 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092314);
+            TbSettingTextTipView tbSettingTextTipView6 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092313);
             this.A = tbSettingTextTipView6;
             tbSettingTextTipView6.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092313);
+            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092312);
             this.B = tbSettingTextTipView7;
             tbSettingTextTipView7.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView8 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092317);
+            TbSettingTextTipView tbSettingTextTipView8 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f092316);
             this.C = tbSettingTextTipView8;
             tbSettingTextTipView8.setOnClickListener(this.F);
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                this.C.setText(R.string.obfuscated_res_0x7f0f172c);
+                this.C.setText(R.string.obfuscated_res_0x7f0f172d);
             } else {
-                this.C.setText(R.string.obfuscated_res_0x7f0f1491);
+                this.C.setText(R.string.obfuscated_res_0x7f0f1492);
             }
             TbSettingTextTipView tbSettingTextTipView9 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f091aaf);
             this.D = tbSettingTextTipView9;
             tbSettingTextTipView9.setOnClickListener(this.F);
-            TbSettingTextTipView tbSettingTextTipView10 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922ca);
+            TbSettingTextTipView tbSettingTextTipView10 = (TbSettingTextTipView) this.l.findViewById(R.id.obfuscated_res_0x7f0922c9);
             this.E = tbSettingTextTipView10;
             tbSettingTextTipView10.setOnClickListener(this.F);
             L();

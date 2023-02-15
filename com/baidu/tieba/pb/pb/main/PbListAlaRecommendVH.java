@@ -158,7 +158,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         }
         this.a = 3;
         this.b = absPbActivity;
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091da1);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091da0);
         this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090762);
         TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0901ae);
         this.f = tBLottieAnimationView;
@@ -182,7 +182,7 @@ public class PbListAlaRecommendVH extends TypeAdapter.ViewHolder implements View
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             int id = view2.getId();
             ad8 ad8Var = this.c;
-            if (ad8Var != null && id == R.id.obfuscated_res_0x7f091da1) {
+            if (ad8Var != null && id == R.id.obfuscated_res_0x7f091da0) {
                 d(ad8Var);
                 f(this.c);
             }

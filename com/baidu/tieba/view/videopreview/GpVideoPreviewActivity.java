@@ -310,7 +310,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 this.i.setGifIconSupport(false);
                 this.i.K(this.c.getThumbPath(), 10, false);
             }
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f092231);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f092230);
             this.j = tBLottieAnimationView;
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lotti_video_loading);
             G1();

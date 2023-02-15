@@ -109,15 +109,15 @@ public class TopicDetailHeadView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08cf, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09240d);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09240c);
             this.b = tbImageView;
             tbImageView.setDrawingCacheEnabled(true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09240f);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092411);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092410);
-            this.f = findViewById(R.id.obfuscated_res_0x7f092412);
-            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f092413);
-            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f092414);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09240e);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092410);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09240f);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092411);
+            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f092412);
+            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f092413);
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
             layoutParams.height = ((ej.l(getContext()) - ej.g(getContext(), R.dimen.tbds88)) * 9) / 16;
             this.e.setLayoutParams(layoutParams);

@@ -128,7 +128,7 @@ public class BjhArticleLayout extends RelativeLayout implements zx<sw4>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.bjh_article_layout, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.bjh_content);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
             this.a = textView;
             p15 d = p15.d(textView);
             d.A(R.string.F_X01);

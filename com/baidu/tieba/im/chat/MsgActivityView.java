@@ -234,10 +234,10 @@ public class MsgActivityView extends mj7 {
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0db0);
                         break;
                     case 2:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f15ba);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f15bb);
                         break;
                     case 3:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f14b8);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f14b9);
                         break;
                     case 4:
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f072b);

@@ -152,10 +152,10 @@ public class du7 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d003f);
             this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f092728);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0920ca);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092045);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0920c9);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092044);
             this.e = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920e3);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920e2);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();
             }

@@ -120,7 +120,7 @@ public class fk6 {
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f0a88), 2));
-                arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f15f0), 1));
+                arrayList.add(new yj6(this.a.c.getString(R.string.obfuscated_res_0x7f0f15f1), 1));
                 this.a.d.k(arrayList, this.a.b);
                 this.a.d.n(this.a.a);
             }
@@ -269,7 +269,7 @@ public class fk6 {
                     textView.setText(R.string.obfuscated_res_0x7f0f0a88);
                 }
             } else {
-                textView.setText(R.string.obfuscated_res_0x7f0f15f0);
+                textView.setText(R.string.obfuscated_res_0x7f0f15f1);
             }
             this.a.setOnClickListener(this.i);
             s(this.g);

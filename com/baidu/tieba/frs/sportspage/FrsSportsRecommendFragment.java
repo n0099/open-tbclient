@@ -533,8 +533,8 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             this.a.w(true);
             u2();
             this.T = (CollapsingToolbarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090ba7);
-            this.I = this.c.findViewById(R.id.obfuscated_res_0x7f0920ca);
-            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f0920cb);
+            this.I = this.c.findViewById(R.id.obfuscated_res_0x7f0920c9);
+            this.H = this.c.findViewById(R.id.obfuscated_res_0x7f0920ca);
             AppBarLayout appBarLayout = (AppBarLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090b85);
             this.U = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.d0);

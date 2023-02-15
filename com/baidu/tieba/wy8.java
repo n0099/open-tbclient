@@ -133,7 +133,7 @@ public class wy8 {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092073);
+            ViewGroup viewGroup = (ViewGroup) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f092072);
             if (viewGroup != null) {
                 viewGroup.setVisibility(8);
                 viewGroup.removeAllViews();

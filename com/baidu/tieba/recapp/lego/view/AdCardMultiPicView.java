@@ -160,11 +160,11 @@ public class AdCardMultiPicView extends AdCardBaseView {
     public void U(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7e);
+            this.b0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7d);
             this.c0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090144);
-            this.d0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7d);
+            this.d0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7c);
             this.e0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090143);
-            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7f);
+            this.f0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d7e);
             this.g0 = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f090145);
             this.h0 = P(R.string.J_X05);
             this.c0.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));

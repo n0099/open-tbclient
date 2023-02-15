@@ -622,7 +622,7 @@ public final class NadRewardHalfTailView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f09235b);
+                    View findViewById = this.this$0.findViewById(R.id.obfuscated_res_0x7f09235a);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.title)");
                     return (TextView) findViewById;
                 }

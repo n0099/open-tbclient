@@ -240,10 +240,10 @@ public class SelectTopicListLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07e8, this);
             this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091506);
-            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f092409);
+            this.d = (SelectTopicToolBar) findViewById(R.id.obfuscated_res_0x7f092408);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906e6);
-            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092425);
-            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092428);
+            this.b = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092424);
+            this.c = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092427);
             this.d.setmFromType(2);
             this.d.h(false);
             c();

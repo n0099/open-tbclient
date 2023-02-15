@@ -787,7 +787,7 @@ public class pb9 extends v9 {
             FrameLayout frameLayout = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908c4);
             this.j = frameLayout;
             frameLayout.addView(this.g.q());
-            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f09216c);
+            this.k = (FragmentTabWidget) this.a.findViewById(R.id.obfuscated_res_0x7f09216b);
             E();
             F();
             this.j.addView(this.h.B());

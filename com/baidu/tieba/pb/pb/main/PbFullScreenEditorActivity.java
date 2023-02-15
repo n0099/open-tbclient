@@ -599,7 +599,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements pc8.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.A = new GestureDetector(new g(this));
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f09);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091f08);
             this.z = findViewById;
             findViewById.setOnClickListener(new h(this));
         }
@@ -1118,7 +1118,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements pc8.c, V
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             P1();
             this.b = findViewById(R.id.obfuscated_res_0x7f092718);
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091f07);
             this.f = editorScrollView;
             editorScrollView.setListener(new c(this));
             O1();

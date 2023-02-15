@@ -150,7 +150,7 @@ public class v05 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092292);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092291);
                 bVar.b = (TextView) view2.findViewById(R.id.text_desc);
                 bVar.c = (ImageView) view2.findViewById(R.id.checked_icon);
             } else {

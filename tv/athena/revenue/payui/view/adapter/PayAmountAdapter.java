@@ -94,7 +94,7 @@ public class PayAmountAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             this.d = (TextView) view2.findViewById(R.id.amount_new);
             this.e = view2.findViewById(R.id.ll_dest_amount_container);
             this.f = (TextView) view2.findViewById(R.id.tv_other_amount);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a3);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a2);
             this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092562);
         }
     }

@@ -211,8 +211,8 @@ public final class ij9 {
                 return false;
             }
             p35.m().w("key_write_spring_festival_bless_guide_has_show", true);
-            ((ViewStub) this.a.findViewById(R.id.obfuscated_res_0x7f092083)).inflate();
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092082);
+            ((ViewStub) this.a.findViewById(R.id.obfuscated_res_0x7f092082)).inflate();
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092081);
             this.c = findViewById;
             Intrinsics.checkNotNull(findViewById);
             findViewById.setVisibility(0);
@@ -236,31 +236,31 @@ public final class ij9 {
             d.f(R.color.CAM_X0611);
             View view3 = this.c;
             Intrinsics.checkNotNull(view3);
-            p15 d2 = p15.d(view3.findViewById(R.id.obfuscated_res_0x7f092081));
+            p15 d2 = p15.d(view3.findViewById(R.id.obfuscated_res_0x7f092080));
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
             View view4 = this.c;
             Intrinsics.checkNotNull(view4);
-            p15 d3 = p15.d((TextView) view4.findViewById(R.id.obfuscated_res_0x7f092084));
+            p15 d3 = p15.d((TextView) view4.findViewById(R.id.obfuscated_res_0x7f092083));
             d3.v(R.color.CAM_X0105);
             d3.A(R.string.F_X02);
             View view5 = this.c;
             Intrinsics.checkNotNull(view5);
-            p15.d((TextView) view5.findViewById(R.id.obfuscated_res_0x7f09207e)).v(R.color.CAM_X0107);
+            p15.d((TextView) view5.findViewById(R.id.obfuscated_res_0x7f09207d)).v(R.color.CAM_X0107);
             View view6 = this.c;
             Intrinsics.checkNotNull(view6);
-            p15 d4 = p15.d(view6.findViewById(R.id.obfuscated_res_0x7f092086));
+            p15 d4 = p15.d(view6.findViewById(R.id.obfuscated_res_0x7f092085));
             d4.n(R.string.J_X07);
             d4.e(R.string.A_X10);
             d4.f(R.color.CAM_X0319);
             View view7 = this.c;
             Intrinsics.checkNotNull(view7);
-            p15 d5 = p15.d((TextView) view7.findViewById(R.id.obfuscated_res_0x7f092087));
+            p15 d5 = p15.d((TextView) view7.findViewById(R.id.obfuscated_res_0x7f092086));
             d5.v(R.color.CAM_X0301);
             d5.A(R.string.F_X02);
             View view8 = this.c;
             Intrinsics.checkNotNull(view8);
-            View findViewById2 = view8.findViewById(R.id.obfuscated_res_0x7f09207f);
+            View findViewById2 = view8.findViewById(R.id.obfuscated_res_0x7f09207e);
             if (this.a.k instanceof nm9) {
                 ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
                 if (layoutParams != null) {
@@ -277,10 +277,10 @@ public final class ij9 {
             d6.f(R.color.CAM_X0205);
             View view9 = this.c;
             Intrinsics.checkNotNull(view9);
-            p15.d((TextView) view9.findViewById(R.id.obfuscated_res_0x7f092080)).v(R.color.CAM_X0105);
+            p15.d((TextView) view9.findViewById(R.id.obfuscated_res_0x7f09207f)).v(R.color.CAM_X0105);
             View view10 = this.c;
             Intrinsics.checkNotNull(view10);
-            WebPManager.setPureDrawable((ImageView) view10.findViewById(R.id.obfuscated_res_0x7f092088), R.drawable.icon_pure_post_chosen12, R.color.CAM_X0301, null);
+            WebPManager.setPureDrawable((ImageView) view10.findViewById(R.id.obfuscated_res_0x7f092087), R.drawable.icon_pure_post_chosen12, R.color.CAM_X0301, null);
             View view11 = this.c;
             Intrinsics.checkNotNull(view11);
             view11.postDelayed(new Runnable() { // from class: com.baidu.tieba.dj9

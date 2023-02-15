@@ -979,7 +979,7 @@ public class ReplyFragment extends BaseVideoPBReplyFragment implements gh8, di8.
             this.e.k(J().e4());
             this.e.j(this.f.j());
             this.e.m(this.f.m());
-            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091d18);
+            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091d17);
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.h = pbListView;
             View findViewById = pbListView.c().findViewById(R.id.pb_more_view);

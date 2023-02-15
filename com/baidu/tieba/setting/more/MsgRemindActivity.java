@@ -329,7 +329,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
             }
             if (!a2) {
                 this.a.P(false);
-                showNetRefreshView(this.a.B(), getString(R.string.obfuscated_res_0x7f0f1736), getString(R.string.obfuscated_res_0x7f0f083c), getString(R.string.go_to_open), true, getNetRefreshListener());
+                showNetRefreshView(this.a.B(), getString(R.string.obfuscated_res_0x7f0f1737), getString(R.string.obfuscated_res_0x7f0f083c), getString(R.string.go_to_open), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
                 setNetRefreshViewEmotionMarginTop(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;

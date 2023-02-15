@@ -160,8 +160,8 @@ public class TbSettingTextTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092330);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09225b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09232f);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bf);
         }
     }

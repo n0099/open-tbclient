@@ -291,7 +291,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             this.b.setIsRound(true);
             this.b.setBorderWidth(ej.g(getContext(), R.dimen.tbds1));
             this.c = findViewById(R.id.obfuscated_res_0x7f090e11);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
             this.e = (TextView) findViewById(R.id.user_name);
             this.f = (TextView) findViewById(R.id.audience_count);
             this.g = findViewById(R.id.obfuscated_res_0x7f0903f8);

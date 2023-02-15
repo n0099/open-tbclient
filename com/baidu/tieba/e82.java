@@ -1386,7 +1386,7 @@ public class e82 extends c82 implements d83.a {
             View b2 = s73.b();
             if (b2 != null) {
                 b2.setVisibility(0);
-                b2.findViewById(R.id.obfuscated_res_0x7f092383).setVisibility(8);
+                b2.findViewById(R.id.obfuscated_res_0x7f092382).setVisibility(8);
             }
             SwanAppActionBar K1 = K1();
             if (K1 != null) {

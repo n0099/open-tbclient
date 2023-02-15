@@ -58,7 +58,7 @@ public class H5OpenActivity extends Activity implements B2 {
         if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) && this.e) {
             e1.a(this).a(new f1(this.d), i, str2).a();
             this.e = false;
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f16ce), 0).show();
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f16cf), 0).show();
         }
     }
 

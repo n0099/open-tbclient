@@ -53,7 +53,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 }
             }
             this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090a59);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091f5d);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091f5c);
         }
     }
 

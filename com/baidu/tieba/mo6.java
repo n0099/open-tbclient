@@ -131,7 +131,7 @@ public class mo6 extends PopupWindow implements View.OnClickListener {
             this.d = inflate;
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092557);
             this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09251d);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924be);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924bd);
             this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090f26);
             this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091402);
             this.f = this.d.findViewById(R.id.obfuscated_res_0x7f091403);

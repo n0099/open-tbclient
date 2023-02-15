@@ -124,7 +124,7 @@ public class d66 extends mc6<ThreadData> implements jd6 {
         this.n = h.findViewById(R.id.obfuscated_res_0x7f091cc4);
         this.j = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901e6);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0901ff);
-        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920c2);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0920c1);
         this.r = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f0901c1);
         this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09022f);
     }

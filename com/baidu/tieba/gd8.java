@@ -312,7 +312,7 @@ public class gd8 extends v9 {
             if (z2) {
                 this.j.setText(R.string.obfuscated_res_0x7f0f0e95);
             } else {
-                this.j.setText(R.string.obfuscated_res_0x7f0f151f);
+                this.j.setText(R.string.obfuscated_res_0x7f0f1520);
             }
             V(this.j, z2, R.drawable.obfuscated_res_0x7f0809ff, R.drawable.obfuscated_res_0x7f0809fe);
         }
@@ -387,7 +387,7 @@ public class gd8 extends v9 {
             this.q = eMTextView14;
             eMTextView14.setOnClickListener(this.v);
             this.s = (TextSizeSeekBar) this.b.findViewById(R.id.obfuscated_res_0x7f091956);
-            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09203e);
+            this.r = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09203d);
             EMTextView eMTextView15 = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091952);
             this.t = eMTextView15;
             eMTextView15.setOnClickListener(this.v);

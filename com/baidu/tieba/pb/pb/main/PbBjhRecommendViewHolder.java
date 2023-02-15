@@ -100,7 +100,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f092214) {
+                if (id == R.id.obfuscated_res_0x7f092213) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -231,7 +231,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903b0);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903ae);
         this.r = view2.findViewById(R.id.obfuscated_res_0x7f091351);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092214);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092213);
         this.s = view2.findViewById(R.id.obfuscated_res_0x7f09134f);
         this.t = view2.findViewById(R.id.obfuscated_res_0x7f091350);
         this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903ac);

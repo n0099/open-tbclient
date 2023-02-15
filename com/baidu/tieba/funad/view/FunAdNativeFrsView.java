@@ -380,9 +380,9 @@ public class FunAdNativeFrsView extends FunAdNativePbView {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.g(context);
             this.t = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cd4);
-            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f0923cf);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d0);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.u = (RoundTbImageView) findViewById(R.id.obfuscated_res_0x7f0923ce);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cd);
             this.x = (FunAdAgreeView) findViewById(R.id.obfuscated_res_0x7f090084);
             this.y = findViewById(R.id.share_num_container);
             this.B = findViewById(R.id.thread_info_commont_container);

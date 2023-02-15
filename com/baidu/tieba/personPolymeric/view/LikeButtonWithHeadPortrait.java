@@ -211,7 +211,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements p55 {
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090457);
             this.c = findViewById(R.id.obfuscated_res_0x7f0926fe);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091d57);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091d56);
         }
     }
 

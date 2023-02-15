@@ -562,7 +562,7 @@ public class ForbiddenForumActivity extends BaseActivity {
             this.a.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092268);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092267);
         }
 
         public void a(dv8 dv8Var) {
@@ -736,7 +736,7 @@ public class ForbiddenForumActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0036);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091db6);
             ev8 ev8Var = new ev8(getUniqueId());
             this.c = ev8Var;
             ev8Var.k(this.l);

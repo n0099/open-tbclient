@@ -263,12 +263,12 @@ public class lw8 implements View.OnClickListener {
         this.f = new ArrayList();
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d010b, (ViewGroup) null);
         this.b = inflate;
-        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fbc);
+        this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fbb);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
             this.d.setText(sharePanelText);
         }
-        ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fc0);
+        ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fbf);
         this.e = shareGridLayout;
         ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {

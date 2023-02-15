@@ -107,7 +107,7 @@ public class sn6 extends Dialog {
             this.c = new SpannableString(string);
             this.c.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.common_color_10159)), 5, string.length(), 33);
             setContentView(this.b, new LinearLayout.LayoutParams(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702da), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac)));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09224d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09224c);
             this.d = textView;
             textView.setText(this.c);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09070a);

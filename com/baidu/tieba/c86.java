@@ -99,8 +99,8 @@ public class c86 {
             this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913d0);
             this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091488);
             this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09070c);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092151);
-            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092152);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092150);
+            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092151);
             this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090792);
             this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090791);
             c(alaEnterEffectData);

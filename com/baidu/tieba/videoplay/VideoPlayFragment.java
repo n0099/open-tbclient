@@ -4979,7 +4979,7 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
             }
             int i3 = this.a;
             if (((i3 != 3 && i3 != 4) || !TbSingleton.getInstance().isTipsAutoPlayInVideoChannel()) && BdNetTypeUtil.isMobileNet() && isResumed() && this.f0) {
-                ej.R(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f164a), 3000, false);
+                ej.R(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f164b), 3000, false);
                 int i4 = this.a;
                 if (i4 != 3 && i4 != 4) {
                     TbSingleton.getInstance().setTipsAutoPlayInVideoMiddle(true);
@@ -5629,7 +5629,7 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
                 this.K.setText(l5);
                 ThreadData threadData2 = this.b0.threadData;
                 if (threadData2 != null && !TextUtils.isEmpty(threadData2.getRecomReason())) {
-                    this.K.setText(this.D0 + getActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1655));
+                    this.K.setText(this.D0 + getActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1656));
                 }
                 this.E.setOnClickListener(new n0(this, str));
             }
@@ -5692,7 +5692,7 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
                     EMTextView eMTextView = (EMTextView) this.g.findViewById(R.id.obfuscated_res_0x7f090cc8);
                     WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090cc7), R.drawable.obfuscated_res_0x7f080a8d, R.color.CAM_X0101, null);
                     eMTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0102));
-                    eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f1638));
+                    eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f1639));
                     eMTextView.setGravity(17);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams2.addRule(3, R.id.video_controller_tag);
@@ -6012,11 +6012,11 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
             return;
         }
         if (textView.getId() == R.id.obfuscated_res_0x7f09015a) {
-            str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1646);
-        } else if (textView.getId() == R.id.comment_num) {
             str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1647);
+        } else if (textView.getId() == R.id.comment_num) {
+            str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1648);
         } else if (textView.getId() == R.id.share_num) {
-            str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1649);
+            str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f164a);
         } else {
             str = "";
         }
@@ -6628,9 +6628,9 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
             if (videoItemData.mRichAbstractList == null && threadData.getRichAbstractList() == null) {
                 return false;
             }
-            this.F = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091d42);
-            this.G = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092312);
-            this.H = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092310);
+            this.F = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091d41);
+            this.G = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092311);
+            this.H = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09230f);
             this.E = (LinearLayout) this.f.findViewById(R.id.recommend_layout);
             p15 d2 = p15.d(this.H);
             d2.e(R.string.A_X05);
@@ -7145,9 +7145,9 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
             this.V.setText(getString(R.string.obfuscated_res_0x7f0f02ba));
             this.j0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090152);
             this.L = (ExpandableTextView) this.f.findViewById(R.id.video_title);
-            this.M = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09236f);
-            this.N = this.f.findViewById(R.id.obfuscated_res_0x7f09236e);
-            this.O = this.f.findViewById(R.id.obfuscated_res_0x7f092380);
+            this.M = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09236e);
+            this.N = this.f.findViewById(R.id.obfuscated_res_0x7f09236d);
+            this.O = this.f.findViewById(R.id.obfuscated_res_0x7f09237f);
             this.P = this.f.findViewById(R.id.obfuscated_res_0x7f0926e7);
             this.e0 = (VideoMiddleNiaiControllerView) this.f.findViewById(R.id.media_controller);
             this.W = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092655);
@@ -7156,7 +7156,7 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
             this.r0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f0906cb);
             this.x = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090151);
             this.v = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0914f0);
-            this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091fb9);
+            this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091fb8);
             this.d1 = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092668);
             this.j1 = this.f.findViewById(R.id.obfuscated_res_0x7f0926e8);
             this.k1 = this.f.findViewById(R.id.obfuscated_res_0x7f09266a);
@@ -7191,12 +7191,12 @@ public class VideoPlayFragment extends BaseFragment implements gu5.b, ke9, OnSta
                 layoutParams3.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X007);
             }
             this.R = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f09015a);
-            this.s0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc3);
+            this.s0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc2);
             this.S = (EMTextView) this.f.findViewById(R.id.share_num);
             this.T = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f0908a9);
             this.U = (EMTextView) this.f.findViewById(R.id.obfuscated_res_0x7f0908ab);
-            this.z = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc3);
-            this.A = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc4);
+            this.z = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc2);
+            this.A = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f091fc3);
             C4();
             this.Y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092654);
             this.Z = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f092657);

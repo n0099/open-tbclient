@@ -190,12 +190,12 @@ public class b18 {
         String dateStringDay2 = dj.getDateStringDay(date2);
         String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f036c), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
         View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.bubble_free_dialog_content, (ViewGroup) null);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092331);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092332);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092330);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092331);
         SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
         textView.setText(format);
-        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f150e) + dateStringDay2);
+        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f150f) + dateStringDay2);
         j05Var.setContentView(inflate);
         j05Var.setPositiveButton(R.string.use_immediately, new a(eVar, bubbleData));
         j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(eVar));

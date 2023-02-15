@@ -183,7 +183,7 @@ public class tn6 {
         this.g = this.c.setTitleText("");
         this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.view_no_network);
         this.o = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0909ff);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fc);
         this.p = textView;
         ((LinearLayout.LayoutParams) textView.getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ej.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070282);
         this.e = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090a00);

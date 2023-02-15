@@ -59,7 +59,7 @@ public class c96 extends AlertDialog {
                 window.setDimAmount(0.0f);
                 window.setContentView(R.layout.obfuscated_res_0x7f0d03cd);
                 GreyUtil.grey(window);
-                this.a = window.findViewById(R.id.obfuscated_res_0x7f0923b8);
+                this.a = window.findViewById(R.id.obfuscated_res_0x7f0923b7);
                 this.b = (TextView) window.findViewById(R.id.toast_tv);
                 if (!StringUtils.isNull(this.c)) {
                     this.b.setText(this.c);

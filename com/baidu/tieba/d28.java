@@ -75,7 +75,7 @@ public class d28 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d9f);
             this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090718);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092540);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092542);
@@ -83,7 +83,7 @@ public class d28 extends BaseAdapter {
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092541);
             this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092516);
             this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b91);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091df6);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091df5);
             this.h.setRoundLayoutRadius(new float[]{d28Var.g, d28Var.g, d28Var.g, d28Var.g, d28Var.g, d28Var.g, 0.0f, d28Var.g});
             this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b90);
         }

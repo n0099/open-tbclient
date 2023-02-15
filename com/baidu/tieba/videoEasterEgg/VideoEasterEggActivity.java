@@ -555,7 +555,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090694);
             this.a = imageView;
             imageView.setOnClickListener(new g(this));
-            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fb6);
+            ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fb5);
             this.b = imageView2;
             imageView2.setOnClickListener(new h(this));
         }
@@ -670,7 +670,7 @@ public class VideoEasterEggActivity extends BaseActivity<VideoEasterEggActivity>
     public final void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ScaleVideoView scaleVideoView = (ScaleVideoView) findViewById(R.id.obfuscated_res_0x7f091eee);
+            ScaleVideoView scaleVideoView = (ScaleVideoView) findViewById(R.id.obfuscated_res_0x7f091eed);
             this.c = scaleVideoView;
             scaleVideoView.setOnErrorListener(new i(this));
             this.c.setOnCompletionListener(new j(this));

@@ -470,10 +470,10 @@ public final class zn9 {
             View findViewById6 = this.b.findViewById(R.id.obfuscated_res_0x7f0925d1);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "mRootView.findViewById(R.id.upgrade_has_open)");
             A((EMTextView) findViewById6);
-            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091f84);
+            View findViewById7 = this.b.findViewById(R.id.obfuscated_res_0x7f091f83);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "mRootView.findViewById(R.id.select_office_ckb)");
             y((TbCheckBox) findViewById7);
-            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091f85);
+            View findViewById8 = this.b.findViewById(R.id.obfuscated_res_0x7f091f84);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "mRootView.findViewById(R.id.select_office_number)");
             x((EMTextView) findViewById8);
             View findViewById9 = this.b.findViewById(R.id.obfuscated_res_0x7f0925cf);
@@ -491,7 +491,7 @@ public final class zn9 {
             View findViewById13 = this.b.findViewById(R.id.line_view);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "mRootView.findViewById(R.id.line_view)");
             r((ImageView) findViewById13);
-            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f092364);
+            View findViewById14 = this.b.findViewById(R.id.obfuscated_res_0x7f092363);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "mRootView.findViewById(R.id.title_bar)");
             w((NavigationBar) findViewById14);
             g().addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.vn9

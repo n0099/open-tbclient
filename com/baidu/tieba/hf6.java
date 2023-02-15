@@ -1298,7 +1298,7 @@ public class hf6 implements ff6 {
             this.d.setZOrderMediaOverlay(true);
             this.d.setMultiMediaDataSourceViewAdapter(this.c, true);
             this.e = (NavigationBar) this.a.getPageActivity().findViewById(R.id.navigation_bar);
-            this.f = (FrameLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923c7);
+            this.f = (FrameLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923c6);
             this.g.setPageContext(this.a);
             this.g.setOnlyOneVideo();
             this.g.setLocalAlbumInfoData(this.b, this.p);

@@ -74,8 +74,8 @@ public class TextFormView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d050d, (ViewGroup) this, true);
-            this.mTextView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e58);
-            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e53);
+            this.mTextView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e57);
+            this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091e52);
             this.mTextView.setText(this.mTextStr);
             View view2 = this.mBottomLine;
             if (this.mIsShowBottomLine) {

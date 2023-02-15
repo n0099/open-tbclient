@@ -161,7 +161,7 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     holder.b.setText(R.string.obfuscated_res_0x7f0f088a);
                 }
                 holder.d.setText(R.string.obfuscated_res_0x7f0f0881);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f1667);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f1668);
                 pr7.a("c15095", 2, this.f, this.g, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();

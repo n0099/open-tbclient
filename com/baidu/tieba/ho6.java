@@ -221,7 +221,7 @@ public class ho6 {
         if (inflate == null) {
             return;
         }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f09208b);
+        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f09208a);
         a aVar = new a(this);
         this.d.setDisableParentEvent(false);
         this.d.setCoverFlowFactory(aVar);

@@ -48,7 +48,7 @@ public class pj {
                     if (i != 1) {
                         if (i != 6) {
                             if (pj.d != null) {
-                                pj.d.error(message.what, wj.a(R.string.obfuscated_res_0x7f0f168f));
+                                pj.d.error(message.what, wj.a(R.string.obfuscated_res_0x7f0f1690));
                             }
                         } else {
                             if (pj.d != null) {
@@ -57,7 +57,7 @@ public class pj {
                             return true;
                         }
                     } else if (pj.d != null) {
-                        pj.d.error(message.what, wj.a(R.string.obfuscated_res_0x7f0f168d));
+                        pj.d.error(message.what, wj.a(R.string.obfuscated_res_0x7f0f168e));
                     }
                 } else if (pj.d != null) {
                     pj.d.c(pj.c, message.arg1);

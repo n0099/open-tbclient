@@ -1426,13 +1426,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements a
                 if (this$0.D1(String.valueOf(this$0.K1().getText()).length()) < 5) {
                     BdTopToast bdTopToast = new BdTopToast(this$0);
                     bdTopToast.h(false);
-                    bdTopToast.g(this$0.getString(R.string.obfuscated_res_0x7f0f16e8));
+                    bdTopToast.g(this$0.getString(R.string.obfuscated_res_0x7f0f16e9));
                     bdTopToast.i(this$0.S1());
                 }
                 if (this$0.D1(String.valueOf(this$0.K1().getText()).length()) > this$0.O) {
                     BdTopToast bdTopToast2 = new BdTopToast(this$0);
                     bdTopToast2.h(false);
-                    bdTopToast2.g(this$0.getString(R.string.obfuscated_res_0x7f0f16e7));
+                    bdTopToast2.g(this$0.getString(R.string.obfuscated_res_0x7f0f16e8));
                     bdTopToast2.i(this$0.S1());
                 }
             }
@@ -2141,13 +2141,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements a
             View findViewById7 = findViewById(R.id.obfuscated_res_0x7f0927fe);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.work_publish_container)");
             T2((ViewGroup) findViewById7);
-            View findViewById8 = findViewById(R.id.obfuscated_res_0x7f091f6f);
+            View findViewById8 = findViewById(R.id.obfuscated_res_0x7f091f6e);
             Intrinsics.checkNotNullExpressionValue(findViewById8, "findViewById(R.id.select_bar_view)");
             N2((SelectBarView) findViewById8);
-            View findViewById9 = findViewById(R.id.obfuscated_res_0x7f091f72);
+            View findViewById9 = findViewById(R.id.obfuscated_res_0x7f091f71);
             Intrinsics.checkNotNullExpressionValue(findViewById9, "findViewById(R.id.select_class_view)");
             O2((SelectClassView) findViewById9);
-            View findViewById10 = findViewById(R.id.obfuscated_res_0x7f091f90);
+            View findViewById10 = findViewById(R.id.obfuscated_res_0x7f091f8f);
             Intrinsics.checkNotNullExpressionValue(findViewById10, "findViewById(R.id.select_topic_view)");
             Q2((SelectTopicView) findViewById10);
             if (WorkAddTopicSwitch.isOn()) {
@@ -2155,7 +2155,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements a
             } else {
                 W1().setVisibility(8);
             }
-            View findViewById11 = findViewById(R.id.obfuscated_res_0x7f091f8a);
+            View findViewById11 = findViewById(R.id.obfuscated_res_0x7f091f89);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "findViewById(R.id.select_tag_view)");
             P2((SelectTagView) findViewById11);
             J1().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pn9
@@ -2170,13 +2170,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements a
                     }
                 }
             });
-            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f091f97);
+            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f091f96);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "findViewById(R.id.sep_line_content)");
             setContentBottomLine(findViewById12);
             View findViewById13 = findViewById(R.id.obfuscated_res_0x7f092801);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "findViewById(R.id.work_publish_title_counter)");
             F2((TextView) findViewById13);
-            View findViewById14 = findViewById(R.id.obfuscated_res_0x7f091f8b);
+            View findViewById14 = findViewById(R.id.obfuscated_res_0x7f091f8a);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "findViewById(R.id.select_topic_layout)");
             this.s = (SelectTopicLayout) findViewById14;
             R1().post(new Runnable() { // from class: com.baidu.tieba.on9
@@ -2209,13 +2209,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements a
                     }
                 }
             });
-            View findViewById15 = findViewById(R.id.obfuscated_res_0x7f09245d);
+            View findViewById15 = findViewById(R.id.obfuscated_res_0x7f09245c);
             Intrinsics.checkNotNullExpressionValue(findViewById15, "findViewById(R.id.topic_tool_layout)");
             this.t = findViewById15;
-            View findViewById16 = findViewById(R.id.obfuscated_res_0x7f09245e);
+            View findViewById16 = findViewById(R.id.obfuscated_res_0x7f09245d);
             Intrinsics.checkNotNullExpressionValue(findViewById16, "findViewById(R.id.topic_tool_shadow)");
             this.u = findViewById16;
-            View findViewById17 = findViewById(R.id.obfuscated_res_0x7f09245c);
+            View findViewById17 = findViewById(R.id.obfuscated_res_0x7f09245b);
             Intrinsics.checkNotNullExpressionValue(findViewById17, "findViewById(R.id.topic_tool_bar)");
             SelectTopicToolBar selectTopicToolBar = (SelectTopicToolBar) findViewById17;
             this.v = selectTopicToolBar;
@@ -2656,7 +2656,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements a
                         }
                     }
                 });
-                TextView centerTextTitle = R1().setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f16df));
+                TextView centerTextTitle = R1().setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f16e0));
                 Intrinsics.checkNotNullExpressionValue(centerTextTitle, "navigationBar.setCenterT…g(R.string.work_publish))");
                 K2(centerTextTitle);
                 ViewGroup.LayoutParams layoutParams2 = P1().getLayoutParams();

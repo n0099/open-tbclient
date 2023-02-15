@@ -193,7 +193,7 @@ public final class SelectTagView extends RelativeLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090602);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_card_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091d4f);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091d4e);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow_view)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.obfuscated_res_0x7f090733);

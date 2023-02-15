@@ -169,7 +169,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f09e4));
             this.j.setEnabled(false);
             o45 o45Var = new o45();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091f6d);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091f6c);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
             o45Var.s(R.color.CAM_X0105);

@@ -188,7 +188,7 @@ public class px7 extends BaseAdapter {
                 bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
                 bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b1e);
                 bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b4a);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092049);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092048);
                 bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091829);
                 view2.setTag(bVar);
             } else {

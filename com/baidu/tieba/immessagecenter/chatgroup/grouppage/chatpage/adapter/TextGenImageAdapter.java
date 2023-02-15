@@ -200,7 +200,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
             MaxHeightRecycleView e = nq7.e(this.mContext);
             frameLayout.addView(e);
             Context context = this.mContext;
-            frameLayout.setTag(R.id.obfuscated_res_0x7f0921d1, gr7.c(context, e, ej.g(context, R.dimen.M_W_X004)));
+            frameLayout.setTag(R.id.obfuscated_res_0x7f0921d0, gr7.c(context, e, ej.g(context, R.dimen.M_W_X004)));
         }
     }
 
@@ -279,7 +279,7 @@ public class TextGenImageAdapter extends BaseChatAdapter<TextGenImageMsg, Holder
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), textGenImageMsg, frameLayout, list, Integer.valueOf(i2)}) == null) {
             super.H(i, textGenImageMsg, frameLayout, list, i2);
-            sr7 sr7Var = (sr7) frameLayout.getTag(R.id.obfuscated_res_0x7f0921d1);
+            sr7 sr7Var = (sr7) frameLayout.getTag(R.id.obfuscated_res_0x7f0921d0);
             if (sr7Var != null && textGenImageMsg.getSubSkillConfig() != null && !textGenImageMsg.getSubSkillConfig().a.isEmpty()) {
                 frameLayout.setVisibility(0);
                 ArrayList arrayList = new ArrayList();

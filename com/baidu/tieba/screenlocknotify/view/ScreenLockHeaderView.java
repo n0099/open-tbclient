@@ -66,9 +66,9 @@ public class ScreenLockHeaderView extends LinearLayout {
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(R.drawable.obfuscated_res_0x7f08112e);
         setOrientation(1);
-        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091efc);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091efd);
-        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091efb);
+        this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091efb);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091efc);
+        this.j = (EditText) findViewById(R.id.obfuscated_res_0x7f091efa);
         this.k.setVisibility(8);
     }
 

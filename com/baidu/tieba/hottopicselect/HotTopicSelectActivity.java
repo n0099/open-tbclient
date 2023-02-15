@@ -654,7 +654,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
     public final void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091f3f);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091f3e);
             this.s = editText;
             editText.setCompoundDrawablePadding(ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070303));
             this.s.setOnFocusChangeListener(new e(this));
@@ -669,7 +669,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements kl5, Ho
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.r = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090b66);
             this.t = (TextView) findViewById(R.id.btn_confirm);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092457);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092456);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f090685);
             this.m = findViewById(R.id.obfuscated_res_0x7f090e8a);
             this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090e84);

@@ -149,7 +149,7 @@ public class wq8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d077a);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091f40);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091f3f);
             this.b = findViewById;
             this.c = new qq8(this.a, findViewById);
             this.d = new sq8(this.a, this.b);

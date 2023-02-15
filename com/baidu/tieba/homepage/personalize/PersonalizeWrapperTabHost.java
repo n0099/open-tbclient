@@ -1029,7 +1029,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements u97 
             this.a = getContext();
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c7, (ViewGroup) this, true);
             this.e = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f0902b0);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091f58);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f091f57);
             this.d = pagerSlidingTabStrip;
             pagerSlidingTabStrip.setIsFromSecondtab(true);
             this.d.setTextNormalColor(R.color.CAM_X0107);
@@ -1040,7 +1040,7 @@ public class PersonalizeWrapperTabHost extends CoordinatorLayout implements u97 
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e89);
             this.f = frameLayout;
             u49.c(frameLayout, 4);
-            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091f61);
+            this.g = (NestedNoScrollViewPager) findViewById(R.id.obfuscated_res_0x7f091f60);
             this.h = findViewById(R.id.obfuscated_res_0x7f090870);
             this.i = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0903f7);
             this.d.setOnPageChangeListener(new h(this));

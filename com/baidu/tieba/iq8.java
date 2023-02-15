@@ -153,7 +153,7 @@ public class iq8 extends BaseAdapter {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
                 } else if (id == R.id.obfuscated_res_0x7f09263a) {
                     ((BaseFragmentActivity) this.a.f.getOrignalPage()).finish();
-                } else if ((id == R.id.obfuscated_res_0x7f09109a || id == R.id.obfuscated_res_0x7f09186b || id == R.id.obfuscated_res_0x7f091095 || id == R.id.obfuscated_res_0x7f091d0c) && this.a.b != null && this.a.f != null && this.a.f.getOrignalPage() != null) {
+                } else if ((id == R.id.obfuscated_res_0x7f09109a || id == R.id.obfuscated_res_0x7f09186b || id == R.id.obfuscated_res_0x7f091095 || id == R.id.obfuscated_res_0x7f091d0b) && this.a.b != null && this.a.f != null && this.a.f.getOrignalPage() != null) {
                     PersonPostModel.PostInfoList h = this.a.h(((Integer) view2.getTag()).intValue());
                     if (TextUtils.isEmpty(h.targetScheme) || !UrlManager.getInstance().dealOneLink(((BaseFragmentActivity) this.a.f.getOrignalPage()).getPageContext(), new String[]{h.targetScheme})) {
                         PbActivityConfig createNormalCfg = new PbActivityConfig(this.a.f.getPageActivity()).createNormalCfg(String.valueOf(h.thread_id), String.valueOf(h.post_id), "person_page");

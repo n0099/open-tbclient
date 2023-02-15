@@ -254,7 +254,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                         if (view2 == null || view2.getId() != 1) {
                             View inflate = LayoutInflater.from(this.this$0.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0007, viewGroup, false);
                             inflate.setId(1);
-                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003f));
+                            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a)).setText(this.this$0.getContext().getString(R.string.obfuscated_res_0x7f0f003f));
                             return inflate;
                         }
                         return view2;
@@ -267,7 +267,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
                 ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
                 ((ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ef6)).setImageDrawable(resolveInfo.loadIcon(packageManager));
-                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b)).setText(resolveInfo.loadLabel(packageManager));
+                ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a)).setText(resolveInfo.loadLabel(packageManager));
                 if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view2.setActivated(true);
                 } else {

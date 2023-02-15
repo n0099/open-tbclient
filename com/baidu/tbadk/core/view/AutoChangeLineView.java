@@ -31,8 +31,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class AutoChangeLineView extends ViewGroup implements View.OnClickListener, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int D = 2131304867;
-    public static final int E = 2131304868;
+    public static final int D = 2131304866;
+    public static final int E = 2131304867;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;

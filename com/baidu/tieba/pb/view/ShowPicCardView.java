@@ -108,9 +108,9 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
             this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0767, (ViewGroup) this, true);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ae2);
             this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903fe);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092376);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092375);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0907f0);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092008);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092007);
         }
     }
 

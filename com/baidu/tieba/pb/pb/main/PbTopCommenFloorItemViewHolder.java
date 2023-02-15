@@ -176,7 +176,7 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         if (tbPageContext != null && view2 != null) {
             this.c = view2;
             this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09191a);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0923e1);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0923e0);
             this.f = view2.findViewById(R.id.bottom_divider_line);
             this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091936);
             this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09272e);
@@ -203,17 +203,17 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.B = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b5b);
             this.C = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b5c);
             this.u0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092553);
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8d);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8c);
             this.q0 = relativeLayout;
             p15 d = p15.d(relativeLayout);
             d.n(R.string.J_X04);
             d.f(R.color.CAM_X0204);
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d75);
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d74);
             this.r0 = relativeLayout2;
             p15 d2 = p15.d(relativeLayout2);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0905);
-            this.s0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924da);
+            this.s0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924d9);
             this.t0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092530);
             this.v.setVisibility(8);
             this.A.setVisibility(8);
@@ -234,9 +234,9 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                 this.J.getHeadView().setDrawBorder(true);
                 this.J.getHeadView().setPlaceHolder(1);
             }
-            this.K = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092004);
-            this.L = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092005);
-            this.r = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3d);
+            this.K = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092003);
+            this.L = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092004);
+            this.r = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3c);
             this.s = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b65);
             this.t = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09014b);
             this.u = (ConstrainImageGroup) view2.findViewById(R.id.obfuscated_res_0x7f090a9f);
@@ -294,8 +294,8 @@ public class PbTopCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.l0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f092763);
             this.m0 = (HeadCustomImageView) view2.findViewById(R.id.obfuscated_res_0x7f09274c);
             this.n0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09274d);
-            this.o0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f5b);
-            this.p0 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8f);
+            this.o0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f5a);
+            this.p0 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8e);
             this.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918f5);
             e(tbPageContext);
             this.w0 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091911);

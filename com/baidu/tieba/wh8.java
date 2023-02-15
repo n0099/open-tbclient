@@ -340,7 +340,7 @@ public class wh8 {
                 AbsVideoPbFragment absVideoPbFragment = this.a.b;
                 if (absVideoPbFragment != null && absVideoPbFragment.isAdded()) {
                     if (view2 != null) {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091d3d) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091d3c) {
                             AbsVideoPbFragment absVideoPbFragment2 = this.a.b;
                             if (absVideoPbFragment2 != null && absVideoPbFragment2.l5(view2)) {
                                 return true;

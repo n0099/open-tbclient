@@ -243,7 +243,7 @@ public class lt7 extends mc6<it7> {
             this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090a25);
             this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091b59);
             this.m = h.findViewById(R.id.obfuscated_res_0x7f090858);
-            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092325);
             this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09057c);
             this.p = h.findViewById(R.id.obfuscated_res_0x7f090579);
             this.q = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09057b);

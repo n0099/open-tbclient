@@ -58,7 +58,7 @@ public class c78 implements Object<List<EmotionPackageData>> {
         NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
         this.j = noNetworkView;
         noNetworkView.a(this);
-        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09203c);
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09203b);
         this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f09092c);
         this.d = new y68(this.e.findViewById(R.id.obfuscated_res_0x7f09092b), tbPageContext.getString(R.string.obfuscated_res_0x7f0f058d));
         this.b.setDivider(null);

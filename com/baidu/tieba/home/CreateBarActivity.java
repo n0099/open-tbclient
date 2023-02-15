@@ -520,8 +520,8 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.u.setTitleText(getPageContext().getString(R.string.create_bar));
             this.p = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090718);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fd)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09225b);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fc)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090980);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091015);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090774);
@@ -551,7 +551,7 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             if (this.t) {
                 this.d.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f092006).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f092005).setOnTouchListener(new c(this));
         }
     }
 

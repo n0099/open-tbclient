@@ -72,7 +72,7 @@ public class uu6 extends qn<wu6, CardViewHolder<ru6>> {
                         this.b.b = ru6Var;
                     }
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f09235b) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09235a) {
                     StatisticItem statisticItem = new StatisticItem("c12411");
                     statisticItem.param("fid", wu6Var.a);
                     if (TbadkCoreApplication.isLogin()) {

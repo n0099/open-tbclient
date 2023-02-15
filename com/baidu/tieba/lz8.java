@@ -226,10 +226,10 @@ public class lz8 extends BaseAdapter implements View.OnClickListener {
                 aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
                 aVar.e = (TextView) view2.findViewById(R.id.member_count);
                 aVar.f = (TextView) view2.findViewById(R.id.thread_count);
-                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092049);
+                aVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092048);
                 aVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913f7);
                 aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c63);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d6e);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d6d);
                 view2.setTag(aVar);
             }
             View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090369);

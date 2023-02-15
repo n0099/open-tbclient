@@ -535,7 +535,7 @@ public class mw3 extends Dialog {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237c);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09082c);
             this.c = (TextView) viewGroup.findViewById(R.id.dialog_message);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090822);

@@ -160,25 +160,25 @@ public final class R {
     /* loaded from: classes8.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int win_cancel = 0x7f0f16ca;
-        public static final int win_cyc_process_color = 0x7f0f16cb;
-        public static final int win_cyclecolor = 0x7f0f16cc;
-        public static final int win_jump_title = 0x7f0f16cd;
-        public static final int win_loadp_error = 0x7f0f16ce;
-        public static final int win_store_picture_accept = 0x7f0f16cf;
-        public static final int win_store_picture_decline = 0x7f0f16d0;
-        public static final int win_store_picture_message = 0x7f0f16d1;
-        public static final int win_store_picture_title = 0x7f0f16d2;
-        public static final int win_toast_network_error = 0x7f0f16d3;
-        public static final int win_toast_network_error2 = 0x7f0f16d4;
-        public static final int win_wdownload_download_finish = 0x7f0f16d5;
-        public static final int win_wdownload_failed = 0x7f0f16d6;
-        public static final int win_wdownload_failed_msg = 0x7f0f16d7;
-        public static final int win_wdownload_loading = 0x7f0f16d8;
-        public static final int win_wdownload_no_netwrok = 0x7f0f16d9;
-        public static final int win_wdownload_processing = 0x7f0f16da;
-        public static final int win_wdownload_start = 0x7f0f16db;
-        public static final int win_wdownload_start_load = 0x7f0f16dc;
+        public static final int win_cancel = 0x7f0f16cb;
+        public static final int win_cyc_process_color = 0x7f0f16cc;
+        public static final int win_cyclecolor = 0x7f0f16cd;
+        public static final int win_jump_title = 0x7f0f16ce;
+        public static final int win_loadp_error = 0x7f0f16cf;
+        public static final int win_store_picture_accept = 0x7f0f16d0;
+        public static final int win_store_picture_decline = 0x7f0f16d1;
+        public static final int win_store_picture_message = 0x7f0f16d2;
+        public static final int win_store_picture_title = 0x7f0f16d3;
+        public static final int win_toast_network_error = 0x7f0f16d4;
+        public static final int win_toast_network_error2 = 0x7f0f16d5;
+        public static final int win_wdownload_download_finish = 0x7f0f16d6;
+        public static final int win_wdownload_failed = 0x7f0f16d7;
+        public static final int win_wdownload_failed_msg = 0x7f0f16d8;
+        public static final int win_wdownload_loading = 0x7f0f16d9;
+        public static final int win_wdownload_no_netwrok = 0x7f0f16da;
+        public static final int win_wdownload_processing = 0x7f0f16db;
+        public static final int win_wdownload_start = 0x7f0f16dc;
+        public static final int win_wdownload_start_load = 0x7f0f16dd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

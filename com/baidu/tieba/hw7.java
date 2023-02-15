@@ -187,7 +187,7 @@ public class hw7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d053c, (ViewGroup) null);
-            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091f04);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091f03);
             gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
             gw7 gw7Var = new gw7(context, i);
             this.f = gw7Var;

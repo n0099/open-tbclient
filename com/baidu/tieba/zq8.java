@@ -237,7 +237,7 @@ public class zq8 {
         this.b = (RelativeLayout) inflate.findViewById(R.id.top_mian_view);
         this.c = (EMTextView) this.a.findViewById(R.id.desc_tv);
         this.d = (EMTextView) this.a.findViewById(R.id.title_tv);
-        this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921e1);
+        this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921e0);
         this.h = (TBLottieAnimationView) this.a.findViewById(R.id.avar_lottie);
         this.f = (TbImageView) this.a.findViewById(R.id.avar_image);
         this.g = (TBSpecificationBtn) this.a.findViewById(R.id.right_btn);

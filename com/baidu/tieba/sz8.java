@@ -460,7 +460,7 @@ public class sz8 extends BaseAdapter {
                 inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0829, (ViewGroup) null);
                 h hVar = new h(null);
                 hVar.i = (RelativeLayout) inflate.findViewById(R.id.title_layout);
-                hVar.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092386);
+                hVar.j = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092385);
                 hVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091669);
                 inflate.setTag(hVar);
             } else if (i2 == 3) {
@@ -471,7 +471,7 @@ public class sz8 extends BaseAdapter {
                 hVar2.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b29);
                 hVar2.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b11);
                 hVar2.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913fe);
-                hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922f9);
+                hVar2.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922f8);
                 hVar2.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905c8);
                 hVar2.h = inflate.findViewById(R.id.obfuscated_res_0x7f092649);
                 hVar2.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090959);

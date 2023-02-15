@@ -239,7 +239,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements n68 {
             super.onCreate(bundle);
             this.j = getPageContext().getPageActivity();
             setContentView(R.layout.obfuscated_res_0x7f0d076a);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215e);
             this.e = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.e.setOnPageChangeListener(this.k);

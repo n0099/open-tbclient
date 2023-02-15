@@ -187,16 +187,16 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092481);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092480);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ej.g(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092482);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092481);
             this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092748);
             this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09140c);
             this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09140d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091faa);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092483);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa9);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092482);
             this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090694);
         }
     }

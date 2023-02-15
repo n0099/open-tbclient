@@ -76,7 +76,7 @@ public class NotificationCompat {
                 } else {
                     color = this.mBuilder.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0608d9);
                 }
-                remoteViews.setInt(R.id.obfuscated_res_0x7f0920d1, "setBackgroundColor", color);
+                remoteViews.setInt(R.id.obfuscated_res_0x7f0920d0, "setBackgroundColor", color);
             }
         }
 

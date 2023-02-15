@@ -167,9 +167,9 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         if (view2 == null) {
             return;
         }
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091da1);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0923e1);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092361);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091da0);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f0923e0);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092360);
         this.f = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090abe);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901ae);
         this.h = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090762);
@@ -189,7 +189,7 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             int id = view2.getId();
             yc8 yc8Var = this.b;
-            if (yc8Var != null && id == R.id.obfuscated_res_0x7f091da1) {
+            if (yc8Var != null && id == R.id.obfuscated_res_0x7f091da0) {
                 d(yc8Var);
                 g(this.b);
             }

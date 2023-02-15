@@ -176,7 +176,7 @@ public class yl6 extends ej5<wj6, sj6> implements nj6 {
                         int H = b2.H();
                         if (H != 220012) {
                             if (H == 2121002) {
-                                i95.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f04a0), this.a.b().getString(R.string.obfuscated_res_0x7f0f1510), this.a.b().getString(R.string.obfuscated_res_0x7f0f14a1), new a(this), new b(this)).show();
+                                i95.b(this.a.b(), null, this.a.b().getString(R.string.obfuscated_res_0x7f0f04a0), this.a.b().getString(R.string.obfuscated_res_0x7f0f1511), this.a.b().getString(R.string.obfuscated_res_0x7f0f14a2), new a(this), new b(this)).show();
                             }
                         } else {
                             BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
@@ -317,8 +317,8 @@ public class yl6 extends ej5<wj6, sj6> implements nj6 {
             }
         }
         this.f = view2.findViewById(R.id.obfuscated_res_0x7f0913fa);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092058);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092057);
         RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.recycler_view);
         this.i = recyclerView;
         this.l = enterForumModel;

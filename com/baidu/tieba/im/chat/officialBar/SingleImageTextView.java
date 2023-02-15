@@ -567,17 +567,17 @@ public class SingleImageTextView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09203d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092039);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09203a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09203c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092038);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092039);
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(false);
             this.d.setRadius(ej.g(getContext(), R.dimen.tbds20));
             this.d.setConrers(15);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091c79);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902be);
-            this.e = findViewById(R.id.obfuscated_res_0x7f09203b);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09200b);
+            this.e = findViewById(R.id.obfuscated_res_0x7f09203a);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09200a);
             this.k = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091398);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092547);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f092548);

@@ -332,7 +332,7 @@ public class sl7 extends v9<ForumDetailActivity> {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ef1);
+            this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ef0);
             TextView textView = new TextView(this.a.getActivity());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.c.addView(textView, 0);
@@ -342,7 +342,7 @@ public class sl7 extends v9<ForumDetailActivity> {
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
             this.e = (NoNetworkView) this.a.findViewById(R.id.no_network_view);
-            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091ef0);
+            CustomScrollView customScrollView = (CustomScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091eef);
             this.g = customScrollView;
             customScrollView.setOnTouchListener(new c(this, null));
             this.h = (ItemHeaderView) this.a.findViewById(R.id.obfuscated_res_0x7f09109a);
@@ -353,7 +353,7 @@ public class sl7 extends v9<ForumDetailActivity> {
             ItemFootNavView itemFootNavView = (ItemFootNavView) this.a.findViewById(R.id.obfuscated_res_0x7f091094);
             this.m = itemFootNavView;
             itemFootNavView.setClickable(true);
-            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091db5);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091db4);
             this.j.setMsgOnClickListener(this.a);
             this.k.setEmotionOnClickListener(this.a);
             this.j.setSwitchChangeListener(this.a);

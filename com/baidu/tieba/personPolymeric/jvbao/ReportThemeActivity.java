@@ -613,11 +613,11 @@ public class ReportThemeActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             H1();
-            this.i = findViewById(R.id.obfuscated_res_0x7f091da1);
+            this.i = findViewById(R.id.obfuscated_res_0x7f091da0);
             this.j = findViewById(R.id.obfuscated_res_0x7f091422);
             this.k = findViewById(R.id.obfuscated_res_0x7f091428);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09065e);
-            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091d22);
+            this.f = (BdListView) findViewById(R.id.obfuscated_res_0x7f091d21);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09070e);
             wn8 wn8Var = new wn8(this, this.t);
             this.g = wn8Var;

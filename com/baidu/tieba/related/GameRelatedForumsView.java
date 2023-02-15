@@ -414,7 +414,7 @@ public class GameRelatedForumsView extends FrameLayout implements tu5<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037e, (ViewGroup) this, true);
-            this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f75);
+            this.a = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f74);
             this.b = new SelectForumItemAdapter(this);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             this.c = linearLayoutManager;

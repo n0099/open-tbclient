@@ -183,8 +183,8 @@ public class yq6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.b = (RelativeLayout) this.m.findViewById(R.id.right_container);
-            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091dd3);
-            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091dd5);
+            this.d = (RecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091dd2);
+            this.g = (BdTypeRecyclerView) this.m.findViewById(R.id.obfuscated_res_0x7f091dd4);
         }
     }
 

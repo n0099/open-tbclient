@@ -97,7 +97,7 @@ public class lo8 extends mc6<jn8> {
                 String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0f2e);
                 Object[] objArr = new Object[1];
                 if (jn8Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1734);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1735);
                 } else if (jn8Var.b == 2) {
                     string = this.c.getString(R.string.obfuscated_res_0x7f0f124c);
                 } else {

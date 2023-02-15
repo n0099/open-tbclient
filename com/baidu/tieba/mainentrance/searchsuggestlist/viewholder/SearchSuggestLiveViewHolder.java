@@ -41,12 +41,12 @@ public class SearchSuggestLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091db8);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f44);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f15);
-        this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091f35);
-        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f34);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091db7);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f43);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f14);
+        this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f091f34);
+        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f33);
         this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914d3);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091f45);
+        this.g = view2.findViewById(R.id.obfuscated_res_0x7f091f44);
     }
 }

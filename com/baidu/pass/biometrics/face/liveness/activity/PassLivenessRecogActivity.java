@@ -1736,7 +1736,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             if (passFaceRecogDTO != null && passFaceRecogDTO.needAuthorizeCertInfo) {
                 this.N = passFaceRecogDTO.extraParamsMap.get("yyOrderId");
                 this.M = Boolean.FALSE;
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091ec1)).setText(R.string.obfuscated_res_0x7f0f08f9);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091ec0)).setText(R.string.obfuscated_res_0x7f0f08f9);
                 this.K = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918ad);
                 RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0918b8);
                 this.L = relativeLayout;

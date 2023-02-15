@@ -127,8 +127,8 @@ public class vk8 extends mc6<fk8> {
         this.i = h();
         int g = ej.g(this.c, R.dimen.M_W_X003);
         this.i.setPadding(g, 0, g, 0);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09235b);
-        TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092282);
+        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09235a);
+        TextView textView = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092281);
         this.l = textView;
         textView.setOnClickListener(this.y);
         View findViewById = this.i.findViewById(R.id.obfuscated_res_0x7f0919ff);
@@ -138,7 +138,7 @@ public class vk8 extends mc6<fk8> {
         this.n = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f090450);
         this.o = this.i.findViewById(R.id.obfuscated_res_0x7f09094e);
         this.p = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09094f);
-        this.q = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0923f9);
+        this.q = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0923f8);
         this.r = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09040f);
         this.s = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09027b);
         this.t = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0903e1);

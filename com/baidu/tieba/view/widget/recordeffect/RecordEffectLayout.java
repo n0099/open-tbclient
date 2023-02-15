@@ -1010,7 +1010,7 @@ public class RecordEffectLayout extends RelativeLayout {
             hListView.setDividerWidth(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
             this.b.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X007), 0);
             this.b.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
-            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f0920d5);
+            HListView hListView2 = (HListView) findViewById(R.id.obfuscated_res_0x7f0920d4);
             this.c = hListView2;
             hListView2.setSelector(getResources().getDrawable(R.drawable.transparent_bg));
             yg9 yg9Var = new yg9();

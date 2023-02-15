@@ -1947,7 +1947,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, imMessageCenterShowItemData)) == null) {
             String string = this.a.getPageContext().getPageActivity().getString(R.string.delete_user_chat);
-            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f151f);
+            String string2 = this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1520);
             String string3 = this.a.getPageContext().getPageActivity().getString(R.string.cancel_top);
             String string4 = this.a.getPageContext().getPageActivity().getString(R.string.im_chat_no_tip);
             String string5 = this.a.getPageContext().getPageActivity().getString(R.string.im_chat_no_tip_cancel);
@@ -2379,7 +2379,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
         }
         TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
         this.h0 = tBAlertBuilder;
-        tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f150c);
+        tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f150d);
         tBAlertBuilder.m(i2);
         tBAlertBuilder.o(true);
         tBAlertBuilder.u(aVar2, aVar);
@@ -2431,15 +2431,15 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
             this.A = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090153);
             this.B = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090158);
             this.C = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090155);
-            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091d13);
-            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091d12);
-            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091d16);
-            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091d14);
+            this.D = this.u.findViewById(R.id.obfuscated_res_0x7f091d12);
+            this.E = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f091d11);
+            this.F = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f091d15);
+            this.G = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f091d13);
             this.H = this.u.findViewById(R.id.obfuscated_res_0x7f090a22);
             this.I = (ImageView) this.u.findViewById(R.id.obfuscated_res_0x7f090a21);
             this.J = (TextView) this.u.findViewById(R.id.obfuscated_res_0x7f090a26);
             this.K = (MessageRedDotView) this.u.findViewById(R.id.obfuscated_res_0x7f090a23);
-            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091f96);
+            this.L = this.u.findViewById(R.id.obfuscated_res_0x7f091f95);
             RelativeLayout relativeLayout = (RelativeLayout) this.u.findViewById(R.id.obfuscated_res_0x7f09107a);
             this.N = relativeLayout;
             relativeLayout.setOnClickListener(this.B0);
@@ -2466,7 +2466,7 @@ public class us7 extends v9<ChatAggregationFragment> implements y35.g, View.OnCl
             this.H.setOnClickListener(this);
             this.f.addHeaderView(this.u);
             d0();
-            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d15);
+            this.d = (BdSwipeRefreshLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d14);
             if (this.e == null) {
                 z35 z35Var = new z35(this.a.getPageContext());
                 this.e = z35Var;

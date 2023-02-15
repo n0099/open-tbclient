@@ -138,7 +138,7 @@ public class al8 extends mc6<hk8> {
         personCreatorCenterFunView.a(R.drawable.obfuscated_res_0x7f08088b, this.j.getString(R.string.obfuscated_res_0x7f0f04a2));
         PersonCreatorCenterFunView personCreatorCenterFunView2 = (PersonCreatorCenterFunView) this.L.findViewById(R.id.obfuscated_res_0x7f091a40);
         this.q = personCreatorCenterFunView2;
-        personCreatorCenterFunView2.a(R.drawable.obfuscated_res_0x7f080884, this.j.getString(R.string.obfuscated_res_0x7f0f163d));
+        personCreatorCenterFunView2.a(R.drawable.obfuscated_res_0x7f080884, this.j.getString(R.string.obfuscated_res_0x7f0f163e));
         PersonCreatorCenterFunView personCreatorCenterFunView3 = (PersonCreatorCenterFunView) this.L.findViewById(R.id.obfuscated_res_0x7f091a3e);
         this.r = personCreatorCenterFunView3;
         personCreatorCenterFunView3.a(R.drawable.obfuscated_res_0x7f080887, this.j.getString(R.string.video_data));
@@ -291,9 +291,9 @@ public class al8 extends mc6<hk8> {
             } else {
                 this.l.setVisibility(0);
                 this.m.setVisibility(8);
-                this.s.a(f.view_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1731), f.view_count_trend.intValue());
-                this.t.a(f.valid_play_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1732), f.valid_play_count_trend.intValue());
-                this.u.a(f.agree_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1733), f.agree_count_trend.intValue());
+                this.s.a(f.view_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1732), f.view_count_trend.intValue());
+                this.t.a(f.valid_play_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1733), f.valid_play_count_trend.intValue());
+                this.u.a(f.agree_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1734), f.agree_count_trend.intValue());
             }
             if (TbSingleton.getInstance().getNewGodData() != null) {
                 NewGodData newGodData = TbSingleton.getInstance().getNewGodData();
@@ -310,9 +310,9 @@ public class al8 extends mc6<hk8> {
             }
             CreationData c = hk8Var.c();
             if (c != null) {
-                this.y.a(c.view_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f172e), c.view_count_trend.intValue());
-                this.z.a(c.agree_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1730), c.agree_count_trend.intValue());
-                this.A.a(c.comment_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f172f), c.comment_trend.intValue());
+                this.y.a(c.view_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f172f), c.view_count_trend.intValue());
+                this.z.a(c.agree_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1731), c.agree_count_trend.intValue());
+                this.A.a(c.comment_count.intValue(), this.j.getString(R.string.obfuscated_res_0x7f0f1730), c.comment_trend.intValue());
             }
             j(this.j, this.a);
         }

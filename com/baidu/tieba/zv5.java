@@ -110,7 +110,7 @@ public final class zv5 {
             Intrinsics.checkNotNullParameter(listener, "listener");
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0785, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(tbPageContext.pageA…olicy_guide_dialog, null)");
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a);
             eMTextView.setText(R.string.secret_hint_head);
             p15 d = p15.d(eMTextView);
             d.A(R.string.F_X02);

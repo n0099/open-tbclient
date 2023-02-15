@@ -496,7 +496,7 @@ public class TailEditActivity extends BaseActivity<TailEditActivity> {
             setSwipeBackEnabled(false);
             this.b = new r28(this, this.f, this.g);
             this.a = new q28(getPageContext());
-            this.c = findViewById(R.id.obfuscated_res_0x7f0921f5);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0921f4);
             J1();
             K1();
             I1();

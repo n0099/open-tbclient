@@ -282,7 +282,7 @@ public class e77 extends BaseAdapter {
                 bVar.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5d);
                 bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d6b);
                 bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d5c);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092326);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092325);
                 bVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09189b);
                 view2.setTag(R.id.tag_first, bVar);
             }

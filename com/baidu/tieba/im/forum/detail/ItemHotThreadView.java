@@ -179,7 +179,7 @@ public class ItemHotThreadView extends LinearLayout {
         if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
             view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02ad, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922f4);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922f3);
             bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee9);
             bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee7);
             bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee8);

@@ -189,13 +189,13 @@ public class MediaTipStateLayer implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d086d, (ViewGroup) null, false);
             this.c = inflate;
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09212d);
-            this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092126);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092115);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092116);
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f092135);
-            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092134);
-            this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092136);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09212c);
+            this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092125);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092114);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092115);
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f092134);
+            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092133);
+            this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092135);
             h(TipState.NORMAL);
         }
     }
@@ -246,8 +246,8 @@ public class MediaTipStateLayer implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f092115 && id != R.id.obfuscated_res_0x7f092135) {
-                if (id == R.id.obfuscated_res_0x7f092126 && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
+            if (id != R.id.obfuscated_res_0x7f092114 && id != R.id.obfuscated_res_0x7f092134) {
+                if (id == R.id.obfuscated_res_0x7f092125 && (swanVideoView = this.b) != null && swanVideoView.getVideoPlayerCallback() != null) {
                     this.b.getVideoPlayerCallback().d(!this.l);
                     return;
                 }

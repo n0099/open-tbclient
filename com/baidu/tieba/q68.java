@@ -93,8 +93,8 @@ public class q68 extends BaseAdapter {
             if (view2 == null) {
                 return;
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092479);
-            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092476);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092478);
+            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092475);
             this.c = (BarImageView) view2.findViewById(R.id.forum_avatar);
         }
 

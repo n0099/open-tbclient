@@ -138,7 +138,7 @@ public class vp8 extends xp8 {
         int id = view2.getId();
         if (id == R.id.video_mute) {
             W();
-        } else if (id == R.id.obfuscated_res_0x7f091d2a) {
+        } else if (id == R.id.obfuscated_res_0x7f091d29) {
             o0(this.b);
             startPlay();
         } else {

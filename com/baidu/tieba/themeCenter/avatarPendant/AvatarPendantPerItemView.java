@@ -188,7 +188,7 @@ public class AvatarPendantPerItemView extends LinearLayout {
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09065f);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092288);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092287);
             this.c.setHasPendantStyle();
             if (this.c.getHeadView() != null) {
                 this.c.getHeadView().setIsRound(true);

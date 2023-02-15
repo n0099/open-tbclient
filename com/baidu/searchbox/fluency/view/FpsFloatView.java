@@ -168,7 +168,7 @@ public final class FpsFloatView extends LinearLayout {
             View findViewById11 = findViewById(R.id.obfuscated_res_0x7f0908b7);
             Intrinsics.checkNotNullExpressionValue(findViewById11, "findViewById(R.id.drop_expect)");
             this.dropExpectView = (TextView) findViewById11;
-            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f0923f4);
+            View findViewById12 = findViewById(R.id.obfuscated_res_0x7f0923f3);
             Intrinsics.checkNotNullExpressionValue(findViewById12, "findViewById(R.id.top_page)");
             this.topPageView = (TextView) findViewById12;
         }

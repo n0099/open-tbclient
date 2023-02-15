@@ -554,10 +554,10 @@ public class EditorInfoContainer extends LinearLayout implements xb5 {
                     j05Var.setNegativeButton((String) null, (j05.e) null);
                     j05Var.setContentViewSize(6);
                     CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-                    customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f1701));
+                    customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f1702));
                     customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-                    customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f16ff));
-                    customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f1700));
+                    customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f1700));
+                    customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f1701));
                     customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new b(this, jVar, j05Var));
                     customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new c(this, jVar, j05Var));
                     j05Var.setContentView(customPrivacyDialogView);

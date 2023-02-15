@@ -346,16 +346,16 @@ public class GroupChatRobotFloorView extends RelativeLayout {
             return;
         }
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) this, true);
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d99);
-        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d92);
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0923d3);
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d9f);
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d91);
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d98);
+        this.d = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d91);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0923d2);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d9e);
+        HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d90);
         this.g = headImageView;
         headImageView.setIsRound(true);
         this.g.setIsBigV(false);
-        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d98);
-        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091d97);
+        this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d97);
+        this.i = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091d96);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b.getPageActivity());
         this.m = linearLayoutManager;
         this.i.setLayoutManager(linearLayoutManager);

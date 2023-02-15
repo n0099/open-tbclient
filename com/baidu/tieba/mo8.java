@@ -109,7 +109,7 @@ public class mo8 extends mc6<kn8> implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             this.i = view2.findViewById(R.id.obfuscated_res_0x7f090592);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f0923e1);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f0923e0);
             this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091538);
             this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091847);
             this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090559);

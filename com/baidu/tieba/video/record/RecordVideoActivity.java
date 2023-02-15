@@ -1108,7 +1108,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             if (this.i == null) {
                 j05 j05Var = new j05(getPageContext().getPageActivity());
                 this.i = j05Var;
-                j05Var.setMessageId(R.string.obfuscated_res_0x7f0f1654);
+                j05Var.setMessageId(R.string.obfuscated_res_0x7f0f1655);
                 this.i.setPositiveButton(R.string.obfuscated_res_0x7f0f0520, new l(this));
                 this.i.setNegativeButton(R.string.obfuscated_res_0x7f0f0518, new m(this));
                 this.i.setCancelable(true);
@@ -1586,7 +1586,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             videoControllerLayout.setRecordController(this.b);
             this.c.setRecordControlListener(this);
             this.c.setEffectChoosedListener(this);
-            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923df);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923de);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906a4);
             this.e = imageView;
             imageView.setOnClickListener(this);
@@ -1610,7 +1610,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             videoEffectButtonLayout.setListener(this);
             this.b.c(this.m);
             this.m.setViewChoosed(2, true);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d1);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d0);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090d3e);
             int j2 = ((ej.j(this.x) - ej.g(this.x, R.dimen.obfuscated_res_0x7f0702a5)) / 2) - ej.g(this.x, R.dimen.obfuscated_res_0x7f07024e);
             if (this.l.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
@@ -1627,7 +1627,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) textView.getLayoutParams();
             layoutParams.leftMargin = ((int) (ej.l(this.x) * 0.2d)) - ej.g(this.x, R.dimen.obfuscated_res_0x7f07021d);
             this.r.setLayoutParams(layoutParams);
-            this.J = (RecordTabLayout) findViewById(R.id.obfuscated_res_0x7f092162);
+            this.J = (RecordTabLayout) findViewById(R.id.obfuscated_res_0x7f092161);
             WriteImagesInfo writeImagesInfo = this.B;
             if (writeImagesInfo != null && !ListUtils.isEmpty(writeImagesInfo.getChosedFiles())) {
                 S1(1);

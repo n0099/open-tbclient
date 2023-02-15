@@ -377,7 +377,7 @@ public class tx6 {
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09108e);
             this.i = (EditText) this.b.findViewById(R.id.item_title);
             this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910d2);
-            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f09235a);
+            this.d = this.b.findViewById(R.id.obfuscated_res_0x7f092359);
             this.j = (SpanGroupEditText) this.b.findViewById(R.id.obfuscated_res_0x7f09108b);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09108c);
             sx6.P(this.e, 0, 30);

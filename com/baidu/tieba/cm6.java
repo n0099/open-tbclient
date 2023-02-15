@@ -758,7 +758,7 @@ public class cm6 {
             this.c = inflate;
             this.d = inflate.findViewById(R.id.obfuscated_res_0x7f091c94);
             this.e = this.c.findViewById(R.id.title_container);
-            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09235a);
             ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0909f0);
             this.i = imageView;
             imageView.setOnClickListener(new c(this));

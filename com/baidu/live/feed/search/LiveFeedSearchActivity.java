@@ -1954,7 +1954,7 @@ public final class LiveFeedSearchActivity extends AppCompatActivity implements e
             this.f = (Button) findViewById(R.id.obfuscated_res_0x7f091474);
             this.g = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091472);
             this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09147a);
-            this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f091f06);
+            this.l = (LiveCustomNestedScrollView) findViewById(R.id.obfuscated_res_0x7f091f05);
             this.m = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091470);
             this.n = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091471);
             this.c = (LiveSearchPanel) findViewById(R.id.obfuscated_res_0x7f091478);

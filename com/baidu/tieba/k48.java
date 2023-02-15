@@ -441,7 +441,7 @@ public class k48 extends i48 {
                     SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
                     j((UserData) ListUtils.getItem(this.a, i), dVar, i);
                     dVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091015);
-                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921f1);
+                    dVar.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921f0);
                     EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091727);
                     dVar.d = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, dVar));

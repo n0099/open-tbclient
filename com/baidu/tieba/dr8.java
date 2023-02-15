@@ -146,7 +146,7 @@ public class dr8 implements View.OnClickListener {
         this.u = false;
         this.a = pushDialogActivity;
         pushDialogActivity.setContentView(i);
-        this.d = d(R.id.obfuscated_res_0x7f091db7);
+        this.d = d(R.id.obfuscated_res_0x7f091db6);
         this.c = d(R.id.obfuscated_res_0x7f090830);
         EditorScrollView editorScrollView = (EditorScrollView) d(R.id.obfuscated_res_0x7f091c27);
         this.e = editorScrollView;

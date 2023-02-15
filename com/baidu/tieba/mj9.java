@@ -187,7 +187,7 @@ public class mj9 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0768, (ViewGroup) null);
                 cVar = new c();
-                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f6);
+                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
                 cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090409);
                 view2.setTag(cVar);
             } else {

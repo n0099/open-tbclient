@@ -389,8 +389,8 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
         this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff3);
         this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc1);
         this.k = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f0916a5);
-        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f092038);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924de);
+        this.l = (VideoClipLayout) findViewById(R.id.obfuscated_res_0x7f092037);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924dd);
         this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092551);
         this.i = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090f97);
         ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc0);
@@ -598,10 +598,10 @@ public class MultiMediaEditLayout extends FrameLayout implements MultiMediaAdapt
                 } else {
                     this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
                 }
-                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15be, Float.valueOf(f)));
+                this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15bf, Float.valueOf(f)));
                 return;
             }
-            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c1, Float.valueOf(f)));
+            this.h.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c2, Float.valueOf(f)));
             this.h.setTextColor(getResources().getColor(R.color.CAM_X0201));
         }
     }

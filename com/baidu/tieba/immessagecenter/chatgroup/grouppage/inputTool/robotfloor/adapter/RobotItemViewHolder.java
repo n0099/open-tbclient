@@ -49,11 +49,11 @@ public class RobotItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d96);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d94);
-        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d93);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d95);
-        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091d9e);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d95);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d93);
+        this.f = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d92);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d94);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091d9d);
         this.h = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(view2.getContext()));
         this.h.setFocusable(false);

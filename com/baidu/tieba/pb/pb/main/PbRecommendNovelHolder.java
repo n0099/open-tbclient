@@ -127,8 +127,8 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b2);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b0);
         this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091818);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091825);
         this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091817);

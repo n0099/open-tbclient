@@ -478,8 +478,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public final void X1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = findViewById(R.id.obfuscated_res_0x7f091db7);
-            this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092478);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091db6);
+            this.h = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092477);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f038c));
@@ -495,11 +495,11 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f09);
             this.k = imageView;
             imageView.setOnClickListener(this.E);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b3);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922b2);
             this.l = textView;
             textView.setOnClickListener(this.E);
             this.i = findViewById(R.id.view_divider);
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09247b);
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09247a);
             this.a = bdListView;
             bdListView.setOnItemClickListener(this.F);
             mi9 mi9Var = new mi9(getActivity());

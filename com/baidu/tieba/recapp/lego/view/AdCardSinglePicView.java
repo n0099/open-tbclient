@@ -121,7 +121,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
             if (view2 instanceof XfremodeRoundLayout) {
                 ((XfremodeRoundLayout) view2).setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
             }
-            this.b0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d73);
+            this.b0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d72);
             AdImageView adImageView = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f091701);
             this.c0 = adImageView;
             adImageView.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));

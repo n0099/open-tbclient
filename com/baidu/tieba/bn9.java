@@ -308,7 +308,7 @@ public class bn9 implements kl5, View.OnClickListener {
             if (!StringUtils.isNull(obj)) {
                 String replace = obj.replace(" ", "");
                 if (rp5.f(replace) > 40) {
-                    this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f171c), 20));
+                    this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f171d), 20));
                 }
                 String n = rp5.n(replace, 40);
                 if (!n.equals(editable.toString())) {
@@ -399,7 +399,7 @@ public class bn9 implements kl5, View.OnClickListener {
                     if (!hashMap.containsKey(writeVoteItemData.getText())) {
                         hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
                     } else {
-                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f171a), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
+                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f171b), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
                         return;
                     }
                 }
@@ -587,7 +587,7 @@ public class bn9 implements kl5, View.OnClickListener {
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f16ed));
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f16ee));
             TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f052f));
             this.v = addTextButton;
             addTextButton.setTextSize(0, ej.g(this.a.getPageActivity(), R.dimen.tbds44));

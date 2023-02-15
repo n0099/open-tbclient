@@ -178,8 +178,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d6, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092459);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092458);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092458);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092457);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);

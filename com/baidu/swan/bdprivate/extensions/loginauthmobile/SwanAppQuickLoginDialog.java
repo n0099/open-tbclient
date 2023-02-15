@@ -234,7 +234,7 @@ public class SwanAppQuickLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0850, viewGroup, false);
             this.d = linearLayout;
             this.j = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090694);
-            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.k = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235a);
             this.m = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091ad2);
             this.l = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092615);
             this.n = (Button) this.d.findViewById(R.id.obfuscated_res_0x7f09261a);

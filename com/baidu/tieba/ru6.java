@@ -442,7 +442,7 @@ public class ru6 extends mc6<wu6> implements su6 {
         xo8 xo8Var = new xo8(tbPageContext, frameLayout, false);
         this.y = xo8Var;
         xo8Var.z1("2005");
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09235a);
         this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0908b9);
         this.m = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f091643);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091645);
@@ -453,9 +453,9 @@ public class ru6 extends mc6<wu6> implements su6 {
         this.w = (LinearLayout) h.findViewById(R.id.thread_info_commont_container);
         this.x = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09015e);
         this.s = (TextView) h.findViewById(R.id.thread_info_commont_num);
-        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922f2);
+        this.t = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922f1);
         this.u = (ImageView) h.findViewById(R.id.thread_info_commont_img);
-        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0922f1);
+        this.v = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f0922f0);
         this.w.setOnClickListener(this);
         this.x.setOnClickListener(this);
         this.k.setOnClickListener(this);
@@ -643,9 +643,9 @@ public class ru6 extends mc6<wu6> implements su6 {
             this.l.setText(StringHelper.stringForVideoTime(wu6Var.n.e * 1000));
             long j = wu6Var.n.h;
             if (j == 0) {
-                format = this.z.getString(R.string.obfuscated_res_0x7f0f1645);
+                format = this.z.getString(R.string.obfuscated_res_0x7f0f1646);
             } else {
-                format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f1644), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
+                format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f1645), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
             }
             this.n.setText(format);
             this.m.setVisibility(8);

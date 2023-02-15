@@ -136,9 +136,9 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.b = view2.findViewById(R.id.obfuscated_res_0x7f09194c);
         this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091999);
         this.d = (TbImageView) view2.findViewById(R.id.top_code_img);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d9);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d8);
         this.f = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d6);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d5);
         this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917b4);
         this.i = (ImageView) view2.findViewById(R.id.news_info_img);
         this.j = (TextView) view2.findViewById(R.id.news_info_text);

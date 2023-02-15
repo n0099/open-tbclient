@@ -296,7 +296,7 @@ public class wn8 extends BaseAdapter {
                 cVar.a = inflate;
                 cVar.b = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091423);
                 cVar.c = (TbImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f090762);
-                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f092361);
+                cVar.d = (TextView) cVar.a.findViewById(R.id.obfuscated_res_0x7f092360);
                 cVar.e = (ImageView) cVar.a.findViewById(R.id.obfuscated_res_0x7f090650);
                 cVar.f = (LinearLayout) cVar.a.findViewById(R.id.obfuscated_res_0x7f090651);
                 p15.d(cVar.a).k(R.color.CAM_X0101);

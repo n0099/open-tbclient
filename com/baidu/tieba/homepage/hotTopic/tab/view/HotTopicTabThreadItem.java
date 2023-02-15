@@ -169,7 +169,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
                 this.d.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
                 layoutParams.addRule(8, 0);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092361);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f092360);
                 this.i.setLayoutParams(layoutParams);
             } else {
                 this.b.K(jb7Var.d, 10, false);
@@ -231,12 +231,12 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09264e);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09264f);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091012);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092361);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09217d);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092360);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09217c);
             this.b.setPlaceHolder(2);
             this.b.setRadius(ej.g(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091da1);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091da0);
             this.j = findViewById;
             findViewById.setOnClickListener(new a(this));
         }

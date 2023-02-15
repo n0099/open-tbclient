@@ -55,8 +55,8 @@ public class g38 {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0898, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092212);
-            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092211);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092211);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092210);
             return this.a;
         }
         return (View) invokeL.objValue;

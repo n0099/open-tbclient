@@ -630,7 +630,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048634, this, view2) == null) {
             super.w(view2);
-            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091db8);
+            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091db7);
             this.f = (LinearLayout) view2.findViewById(R.id.webview_container);
         }
     }
@@ -1012,7 +1012,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (this.b) {
                 a0();
             } else {
-                this.e.findViewById(R.id.obfuscated_res_0x7f092391).setVisibility(8);
+                this.e.findViewById(R.id.obfuscated_res_0x7f092390).setVisibility(8);
             }
         }
     }
@@ -1086,7 +1086,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         int[] c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.e.findViewById(R.id.obfuscated_res_0x7f092391).setVisibility(0);
+            this.e.findViewById(R.id.obfuscated_res_0x7f092390).setVisibility(0);
             LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.titlebar_left_layout);
             for (int i : ma1.h().b()) {
                 ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);

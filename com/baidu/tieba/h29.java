@@ -275,7 +275,7 @@ public class h29 {
                             if (!this.b.endsWith(" ")) {
                                 this.b += " ";
                             }
-                            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1626);
+                            String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1627);
                             String str = string + this.b;
                             SpannableString spannableString = new SpannableString(str);
                             spannableString.setSpan(new a(this), string.length(), str.length() - 1, 33);

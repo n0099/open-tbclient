@@ -1176,15 +1176,15 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092167) {
+            if (id == R.id.obfuscated_res_0x7f092166) {
                 this.v.d.setCurrentItem(0);
                 this.m = 0;
                 TiebaStatic.eventStat(view2.getContext(), "recommend_list_click", "click", 1, new Object[0]);
-            } else if (id == R.id.obfuscated_res_0x7f092160) {
+            } else if (id == R.id.obfuscated_res_0x7f09215f) {
                 this.v.d.setCurrentItem(1);
                 this.m = 1;
                 TiebaStatic.eventStat(view2.getContext(), "hot_list_click", "click", 1, new Object[0]);
-            } else if (id == R.id.obfuscated_res_0x7f092378) {
+            } else if (id == R.id.obfuscated_res_0x7f092377) {
                 this.v.f(this.F);
             }
         }

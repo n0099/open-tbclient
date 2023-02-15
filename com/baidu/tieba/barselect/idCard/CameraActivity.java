@@ -941,7 +941,7 @@ public class CameraActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d014d);
-            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f092225);
+            this.d = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f092224);
             this.f = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090710);
             CameraView cameraView = (CameraView) findViewById(R.id.obfuscated_res_0x7f0904b7);
             this.h = cameraView;
@@ -949,13 +949,13 @@ public class CameraActivity extends BaseActivity {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913f3);
             this.g = imageView;
             imageView.setOnClickListener(this.p);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f092224);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f092223);
             findViewById(R.id.obfuscated_res_0x7f09023c).setOnClickListener(this.o);
             this.m.setOnClickListener(this.q);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09083c);
             this.f.findViewById(R.id.obfuscated_res_0x7f09070b).setOnClickListener(this.v);
             this.f.findViewById(R.id.obfuscated_res_0x7f0904ba).setOnClickListener(this.w);
-            findViewById(R.id.obfuscated_res_0x7f091dbb).setOnClickListener(this.x);
+            findViewById(R.id.obfuscated_res_0x7f091dba).setOnClickListener(this.x);
             this.j = (CropView) findViewById(R.id.obfuscated_res_0x7f090787);
             this.e = (OCRCameraLayout) findViewById(R.id.obfuscated_res_0x7f090785);
             this.k = (FrameOverlayView) findViewById(R.id.obfuscated_res_0x7f09188a);

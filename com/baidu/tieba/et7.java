@@ -1390,10 +1390,10 @@ public class et7 extends v9 {
             this.b.H(SkinManager.getColor(R.color.CAM_X0109));
             this.b.D(R.color.CAM_X0110);
             this.b.E(this.p);
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091d15);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091d14);
             this.e = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setProgressView(this.i);
-            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f091d21);
+            this.f = (BdTypeRecyclerView) this.h.findViewById(R.id.obfuscated_res_0x7f091d20);
             ot7 ot7Var = new ot7(this.a.getPageContext(), this.f);
             this.d = ot7Var;
             ot7Var.h(new m(this));

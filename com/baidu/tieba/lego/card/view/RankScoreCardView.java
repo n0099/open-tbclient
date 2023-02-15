@@ -309,13 +309,13 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b4, (ViewGroup) null);
             this.m = linearLayout;
             this.n = (RelativeLayout) l(linearLayout, R.id.rl_content);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091ef4);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091ef3);
             this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907e8);
             this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f0907e9);
-            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d8a);
+            this.r = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d89);
             this.s = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091adc);
             this.t = (TextView) l(this.m, R.id.obfuscated_res_0x7f0913be);
-            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d43);
+            this.u = (TextView) l(this.m, R.id.obfuscated_res_0x7f091d42);
             this.v = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046e);
             return this.m;
         }

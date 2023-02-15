@@ -346,16 +346,16 @@ public class d99 implements View.OnClickListener, a99 {
             ShareItem shareItem2 = shareDialogConfig.shareItem;
             if (!shareItem2.o0) {
                 if (shareItem2.p0) {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f1539);
-                } else {
                     this.c.setText(R.string.obfuscated_res_0x7f0f153a);
+                } else {
+                    this.c.setText(R.string.obfuscated_res_0x7f0f153b);
                 }
             } else {
                 String sharePanelText = TbSingleton.getInstance().getSharePanelText();
                 if (!TextUtils.isEmpty(sharePanelText)) {
                     this.c.setText(sharePanelText);
                 } else {
-                    this.c.setText(R.string.obfuscated_res_0x7f0f153b);
+                    this.c.setText(R.string.obfuscated_res_0x7f0f153c);
                 }
             }
             if (shareDialogConfig.isShowNovelMask()) {

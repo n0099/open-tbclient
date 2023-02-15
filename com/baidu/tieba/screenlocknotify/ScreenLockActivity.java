@@ -600,7 +600,7 @@ public class ScreenLockActivity extends BaseActivity<ScreenLockActivity> {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e06);
             this.b = imageView;
             imageView.setOnClickListener(new b(this));
-            this.d = (DynamicHeightListView) findViewById(R.id.obfuscated_res_0x7f091efa);
+            this.d = (DynamicHeightListView) findViewById(R.id.obfuscated_res_0x7f091ef9);
             tu8 tu8Var = new tu8(getPageContext().getPageActivity());
             this.e = tu8Var;
             this.d.setAdapter((ListAdapter) tu8Var);

@@ -308,7 +308,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0282);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fd)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ej.g(getActivity(), R.dimen.obfuscated_res_0x7f070282);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fc)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + ej.g(getActivity(), R.dimen.obfuscated_res_0x7f070282);
             this.a = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0927b2);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;

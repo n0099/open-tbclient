@@ -77,7 +77,7 @@ public class e59 {
             SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
             this.a = new WeakReference<>(splashAdView);
             mainTabActivity.getWindow().setFlags(1024, 1024);
-            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092073);
+            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092072);
             if (viewGroup != null) {
                 viewGroup.setVisibility(0);
                 viewGroup.addView(splashAdView);

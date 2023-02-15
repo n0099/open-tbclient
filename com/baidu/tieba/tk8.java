@@ -121,14 +121,14 @@ public class tk8 extends mc6<dk8> {
         View h = h();
         this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902dc);
         this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902dd);
-        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922f8);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0922f7);
         this.l = (TextView) h.findViewById(R.id.thread_title);
         this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090e5c);
         this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090e5d);
         this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0906b0);
         this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0906b1);
         this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0902db);
-        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0922cb);
+        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0922ca);
         this.t = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090e5b);
         this.s = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0906af);
     }
@@ -175,7 +175,7 @@ public class tk8 extends mc6<dk8> {
         } else if (view2.getId() == R.id.obfuscated_res_0x7f0902db) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f0922cb) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0922ca) {
             TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
         } else if (view2.getId() == R.id.obfuscated_res_0x7f0906af) {

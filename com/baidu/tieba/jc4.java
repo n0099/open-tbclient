@@ -37,7 +37,7 @@ public class jc4 {
         }
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0875, (ViewGroup) null);
         this.a = inflate;
-        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09213b);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09213c);
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09213a);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09213b);
     }
 }

@@ -135,8 +135,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09246a);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09214b);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092469);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f09214a);
             this.b = button;
             button.setOnClickListener(this);
             this.d = new HashSet();
@@ -154,7 +154,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public void onClick(View view2) {
         List<un4> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09214b && (list = this.c) != null && list.size() > 0) {
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09214a && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }

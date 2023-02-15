@@ -240,7 +240,7 @@ public class kk9 extends pk9<kl9> implements vk9 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ej.Q(TbadkCoreApplication.getInst(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f16fe), 31));
+                ej.Q(TbadkCoreApplication.getInst(), String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f16ff), 31));
             }
         }
     }
@@ -485,7 +485,7 @@ public class kk9 extends pk9<kl9> implements vk9 {
                     if (14 == this.e.getType()) {
                         string = this.a.getString(R.string.obfuscated_res_0x7f0f1046);
                     } else {
-                        string = this.a.getString(R.string.obfuscated_res_0x7f0f1509);
+                        string = this.a.getString(R.string.obfuscated_res_0x7f0f150a);
                     }
                     this.b.f(string);
                 }
@@ -535,7 +535,7 @@ public class kk9 extends pk9<kl9> implements vk9 {
             this.g = inflate;
             this.h = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f091b73);
             this.i = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091c51);
-            this.j = this.g.findViewById(R.id.obfuscated_res_0x7f09238e);
+            this.j = this.g.findViewById(R.id.obfuscated_res_0x7f09238d);
             EditText editText = this.h;
             if (editText != null) {
                 editText.addTextChangedListener(this.p);
@@ -554,9 +554,9 @@ public class kk9 extends pk9<kl9> implements vk9 {
                     } else {
                         this.h.setFilters(new InputFilter[]{new qi9.b(this.h, 31, new d(this))});
                         if (13 == this.e.getType()) {
-                            this.h.setHint(R.string.obfuscated_res_0x7f0f1508);
+                            this.h.setHint(R.string.obfuscated_res_0x7f0f1509);
                         } else {
-                            this.h.setHint(R.string.obfuscated_res_0x7f0f1507);
+                            this.h.setHint(R.string.obfuscated_res_0x7f0f1508);
                         }
                     }
                     if (this.e.getTitle() != null) {

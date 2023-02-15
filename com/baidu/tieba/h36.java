@@ -324,12 +324,12 @@ public class h36 implements t16 {
         this.e.setDrawBorder(true);
         this.e.setPlaceHolder(2);
         this.e.setBorderWidth(ej.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.f = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092498);
-        this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924a6);
-        this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092497);
+        this.f = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092497);
+        this.g = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0924a5);
+        this.i = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092496);
         this.j = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f09147f);
         this.k = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f0914a9);
-        this.h = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f09249a);
+        this.h = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f092499);
         this.d.setOnClickListener(this.r);
         this.q = ((ej.l(TbadkCoreApplication.getInst()) - u) - (v * 2)) / 2;
     }

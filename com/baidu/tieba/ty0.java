@@ -115,7 +115,7 @@ public class ty0 extends qy0 implements View.OnClickListener {
         if (this.f == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_net_error, null);
             this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924e2);
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0924e1);
             Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090427);
             this.h = button;
             button.setOnClickListener(this);

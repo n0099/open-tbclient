@@ -55,7 +55,7 @@ public class vz8 extends v9<Object> {
         this.f = null;
         this.a = tbPageContext;
         this.b = view2;
-        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0920a1);
+        BdListView bdListView = (BdListView) view2.findViewById(R.id.obfuscated_res_0x7f0920a0);
         this.c = bdListView;
         bdListView.setOnKeyListener(onKeyListener);
         if (this.a.getOrignalPage() instanceof SquareActivity) {

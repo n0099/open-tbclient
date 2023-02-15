@@ -446,7 +446,7 @@ public class RecommendForumView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
             this.b = (RecommendForumInfoView) findViewById(R.id.obfuscated_res_0x7f091cb2);
-            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0922fd);
+            this.c = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0922fc);
         }
     }
 

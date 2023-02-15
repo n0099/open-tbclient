@@ -110,7 +110,7 @@ public class bl8 extends mc6<ik8> {
         this.l = (TextView) this.y.findViewById(R.id.obfuscated_res_0x7f090cf4);
         this.m = (ImageView) this.y.findViewById(R.id.obfuscated_res_0x7f090cf2);
         this.n = (TextView) this.y.findViewById(R.id.function_desc);
-        this.p = (TextView) this.y.findViewById(R.id.obfuscated_res_0x7f091d65);
+        this.p = (TextView) this.y.findViewById(R.id.obfuscated_res_0x7f091d64);
         this.q = (TextView) this.y.findViewById(R.id.obfuscated_res_0x7f090cf5);
         this.r = (TextView) this.y.findViewById(R.id.obfuscated_res_0x7f09059a);
         this.x = (LinearLayout) this.y.findViewById(R.id.obfuscated_res_0x7f09059b);

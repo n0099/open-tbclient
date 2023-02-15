@@ -97,8 +97,8 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09245a);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092419);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092459);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092418);
         this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090edb);
         this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091826);
     }
@@ -156,10 +156,10 @@ public class HotNormalViewHolder extends RecyclerView.ViewHolder {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1530));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1531));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f152f));
+            textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f1530));
         } else {
             textView.setVisibility(8);
         }

@@ -246,7 +246,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 if (this.a.m != null) {
                     this.a.i.e();
                 } else if (BdNetTypeUtil.isMobileNet() && this.a.h != null && this.a.h.e()) {
-                    this.a.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f1645);
+                    this.a.getPageContext().showToast((int) R.string.obfuscated_res_0x7f0f1646);
                 }
             }
         }
@@ -452,9 +452,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (VideoAggregationActivityConfig.TYPE_FROM_FRS.equals(this.b)) {
-                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f162c));
+                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f162d));
             } else {
-                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f163e));
+                this.j.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f163f));
             }
             this.j.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
         }
@@ -467,7 +467,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 if (z) {
                     this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), view2, NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_08, 0, ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702cd), ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702ab)), NoDataViewFactory.e.d(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0d08), getPageContext().getPageActivity().getString(R.string.refresh_view_title_text)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getPageContext().getPageActivity().getString(R.string.refresh_view_button_text), new c(this))));
                 } else {
-                    this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07027b)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1648), null);
+                    this.m = NoDataViewFactory.a(getPageContext().getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07027b)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1649), null);
                 }
             }
             this.m.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

@@ -724,15 +724,15 @@ public class xm9 implements kl5, no {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d04ea, (ViewGroup) this.a, true);
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f1c);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f2d);
-            this.f = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f091f47);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f1b);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091f2c);
+            this.f = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f091f46);
             this.g = (NestedScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f09177e);
             this.h = (ConstraintLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090781);
-            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921b3);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921b2);
             this.j = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090780);
-            this.k = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f39);
-            this.l = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091f41);
+            this.k = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f38);
+            this.l = (BdTypeRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f091f40);
             A();
             C();
             y();

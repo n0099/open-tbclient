@@ -45,7 +45,7 @@ public class m69 extends CustomMessageListener {
             }
             if (qc5Var != null && qc5Var.b() == 0) {
                 MainTabActivity mainTabActivity = this.a;
-                new pc5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09215f), qc5Var).m();
+                new pc5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09215e), qc5Var).m();
             }
         }
     }

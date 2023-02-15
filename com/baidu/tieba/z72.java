@@ -1722,7 +1722,7 @@ public class z72 extends c82 implements View.OnClickListener {
                 j3("click", com.xiaomi.mipush.sdk.Constants.PHONE_BRAND);
             } else if (id == R.id.obfuscated_res_0x7f090161) {
                 d3();
-            } else if (id == R.id.obfuscated_res_0x7f091fbf) {
+            } else if (id == R.id.obfuscated_res_0x7f091fbe) {
                 M2();
             } else if (id == R.id.obfuscated_res_0x7f09011b) {
                 r3();
@@ -1827,7 +1827,7 @@ public class z72 extends c82 implements View.OnClickListener {
             j23.h().l().f(textView);
             TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090191);
             textView2.setText(W.e1());
-            Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091fbf);
+            Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091fbe);
             button.setOnClickListener(this);
             Button button2 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09011b);
             this.O0 = button2;
@@ -1849,8 +1849,8 @@ public class z72 extends c82 implements View.OnClickListener {
                 this.O0.setVisibility(8);
             }
             vn4.b().a(textView2);
-            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa0)).setText(W.s1());
-            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ef)).setText(W.t1());
+            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9f)).setText(W.s1());
+            ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ee)).setText(W.t1());
             String G = ds2.o().G();
             this.N0 = G;
             if (!TextUtils.isEmpty(G)) {

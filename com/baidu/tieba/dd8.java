@@ -106,7 +106,7 @@ public class dd8 extends mc8<da8, PbLoadPreReplyViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0709, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09250b).setOnClickListener(new a(this, inflate));
+            inflate.findViewById(R.id.obfuscated_res_0x7f09250a).setOnClickListener(new a(this, inflate));
             return new PbLoadPreReplyViewHolder(this.mContext, inflate);
         }
         return (PbLoadPreReplyViewHolder) invokeL.objValue;

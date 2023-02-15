@@ -289,7 +289,7 @@ public class qp6 extends BaseAdapter {
                 } else {
                     view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0147, viewGroup, false);
                     fVar = new f(this);
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a0);
+                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229f);
                     view2.setTag(fVar);
                 }
                 fVar.a.setText(((lp6) getItem(i)).b());
@@ -307,9 +307,9 @@ public class qp6 extends BaseAdapter {
                     eVar = new e(this);
                     eVar.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090358);
                     eVar.b = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0913cb);
-                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d61);
+                    eVar.c = (BawuMemberInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d60);
                     eVar.d = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f0913ca);
-                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d60);
+                    eVar.e = (BawuManagerApplyInfoView) view2.findViewById(R.id.obfuscated_res_0x7f091d5f);
                     view2.setTag(eVar);
                 }
                 kp6 kp6Var = (kp6) getItem(i);

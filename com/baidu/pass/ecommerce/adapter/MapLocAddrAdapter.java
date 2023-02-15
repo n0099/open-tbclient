@@ -76,12 +76,12 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
             }
             this.this$0 = mapLocAddrAdapter;
             view2.setOnClickListener(this);
-            this.itemIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e26);
-            this.nameTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e28);
-            this.distanceTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e25);
-            this.addressTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e23);
-            this.checkedIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e24);
-            this.bottomLine = view2.findViewById(R.id.obfuscated_res_0x7f091e27);
+            this.itemIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e25);
+            this.nameTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e27);
+            this.distanceTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e24);
+            this.addressTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e22);
+            this.checkedIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e23);
+            this.bottomLine = view2.findViewById(R.id.obfuscated_res_0x7f091e26);
             Resources resources = view2.getContext().getResources();
             if (mapLocAddrAdapter.isDarkMode) {
                 view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060999));

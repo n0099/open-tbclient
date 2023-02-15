@@ -133,7 +133,7 @@ public class nz8 extends BaseAdapter {
                             TiebaStatic.log(new StatisticItem("c10587").param("fid", str));
                         }
                     }
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09208d) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09208c) {
                     if (view2.getTag(R.id.obfuscated_res_0x7f090b4d) == null) {
                         valueOf = "";
                     } else {

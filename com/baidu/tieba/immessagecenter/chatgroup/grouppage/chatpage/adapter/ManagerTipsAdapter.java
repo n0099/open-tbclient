@@ -55,7 +55,7 @@ public class ManagerTipsAdapter extends BaseSysAdapter<ManagerTipsSysMsg, Holder
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092357);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092356);
             this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09159c);
         }
     }

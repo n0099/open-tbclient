@@ -212,7 +212,7 @@ public class i88 implements h88, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14a3), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14a4), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.M1();
             }
         }
@@ -330,13 +330,13 @@ public class i88 implements h88, View.OnClickListener {
             this.s = inflate.findViewById(R.id.obfuscated_res_0x7f091666);
             this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090650);
             this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09064c);
-            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092334);
+            this.t = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092333);
             this.u = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091853);
-            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092335);
+            this.v = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092334);
             this.w = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090167);
-            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092336);
+            this.x = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092335);
             this.y = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b9e);
-            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092337);
+            this.z = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092336);
             this.b.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);

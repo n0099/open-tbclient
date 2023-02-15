@@ -105,11 +105,11 @@ public final class MemberPayPrivilegeResultActivityBinding implements ViewBindin
                                     i = R.id.obfuscated_res_0x7f091763;
                                     TbImageView tbImageView3 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091763);
                                     if (tbImageView3 != null) {
-                                        i = R.id.obfuscated_res_0x7f0923e7;
-                                        TbImageView tbImageView4 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
+                                        i = R.id.obfuscated_res_0x7f0923e6;
+                                        TbImageView tbImageView4 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923e6);
                                         if (tbImageView4 != null) {
-                                            i = R.id.obfuscated_res_0x7f0924fc;
-                                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924fc);
+                                            i = R.id.obfuscated_res_0x7f0924fb;
+                                            ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924fb);
                                             if (imageView2 != null) {
                                                 i = R.id.obfuscated_res_0x7f092513;
                                                 TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092513);

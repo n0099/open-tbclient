@@ -58,7 +58,7 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3d);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3c);
         this.c = view2.findViewById(R.id.obfuscated_res_0x7f091942);
         this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091943);
         this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091941);

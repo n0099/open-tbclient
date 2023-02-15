@@ -68,12 +68,12 @@ public class ns7 {
         this.b = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f144f));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa4);
+        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa3);
         this.n = personalTalkSettingViewSettingView;
         personalTalkSettingViewSettingView.b.setSwitchStateChangeListener(this.a);
         this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092602);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b1);
-        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b2);
+        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b0);
+        this.j = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0920b1);
         this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09012d);
         this.i.setOnClickListener(this.a);
         this.j.setOnClickListener(this.a);

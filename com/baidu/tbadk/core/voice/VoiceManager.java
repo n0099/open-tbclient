@@ -550,7 +550,7 @@ public class VoiceManager extends BroadcastReceiver {
                                 if (intExtra2 == 2) {
                                     a = wj.a(R.string.voice_err_io);
                                 } else {
-                                    a = wj.a(R.string.obfuscated_res_0x7f0f168f);
+                                    a = wj.a(R.string.obfuscated_res_0x7f0f1690);
                                 }
                                 playView3.onShowErr(5, a);
                             }
@@ -1667,7 +1667,7 @@ public class VoiceManager extends BroadcastReceiver {
                     if (this.mPlayCall == null) {
                         this.mPlayCall = new k(this, null);
                     }
-                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f168d));
+                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f168e));
                     FieldBuilder fieldBuilder = new FieldBuilder();
                     if (voiceModel != null) {
                         fieldBuilder.append("id", voiceModel.getId());
@@ -1812,7 +1812,7 @@ public class VoiceManager extends BroadcastReceiver {
                     this.mPlayCall = new k(this, null);
                 }
                 if (!new File(str).exists()) {
-                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f168d));
+                    this.mPlayCall.error(5, wj.a(R.string.obfuscated_res_0x7f0f168e));
                     return;
                 }
                 registSensor();

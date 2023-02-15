@@ -627,7 +627,7 @@ public class gk6 extends v9 implements NoNetworkView.b {
             this.c = forumHeaderView;
             forumHeaderView.setFrom(0);
             this.c.b();
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f092162);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) this.b.findViewById(R.id.obfuscated_res_0x7f092161);
             this.d = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
             this.d.setRectPaintColor(R.color.CAM_X0302);

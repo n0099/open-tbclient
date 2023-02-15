@@ -268,7 +268,7 @@ public class BdTimePicker extends LinearLayout {
             this.m = nm3.f(context, 16.0f);
             this.n = nm3.f(context, 14.0f);
             j();
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09232e);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09232d);
             WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f0927cd);
             this.c = wheelView3d;
             wheelView3d.setLineSpacingMultiplier(3.0f);

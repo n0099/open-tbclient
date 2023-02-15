@@ -878,7 +878,7 @@ public class TabWebFragment extends BaseWebViewFragment implements gt6 {
                 this.i = inflate;
                 this.j = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f0927b2);
                 this.k = (FrameLayout) this.i.findViewById(R.id.load_state_container);
-                this.l = (ViewGroup) this.i.findViewById(R.id.obfuscated_res_0x7f092227);
+                this.l = (ViewGroup) this.i.findViewById(R.id.obfuscated_res_0x7f092226);
                 g2();
             }
             NestedScrollWebView nestedScrollWebView = this.j;

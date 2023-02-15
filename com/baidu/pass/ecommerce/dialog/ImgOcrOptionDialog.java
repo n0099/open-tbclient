@@ -64,9 +64,9 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.optionOnClickListener != null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091ebc) {
+                if (id == R.id.obfuscated_res_0x7f091ebb) {
                     this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091e48) {
+                } else if (id == R.id.obfuscated_res_0x7f091e47) {
                     this.optionOnClickListener.onOptionClick(1002);
                 }
             }
@@ -79,16 +79,16 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ebc);
-            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e48);
-            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea6);
+            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ebb);
+            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e47);
+            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea5);
             if (this.isDarkMode) {
                 this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081119);
                 this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
-                view2.findViewById(R.id.obfuscated_res_0x7f091ebd).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06097f));
+                view2.findViewById(R.id.obfuscated_res_0x7f091ebc).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06097f));
                 this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081117);
                 this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
-                view2.findViewById(R.id.obfuscated_res_0x7f091e49).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a9));
+                view2.findViewById(R.id.obfuscated_res_0x7f091e48).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a9));
                 this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081117);
                 this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609fe));
             }

@@ -1421,7 +1421,7 @@ public class z49 {
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(R.id.obfuscated_res_0x7f09215f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) this.a.findViewById(R.id.obfuscated_res_0x7f09215e);
             this.b = fragmentTabHost;
             fragmentTabHost.setVisibility(8);
             u49.b(new p(this), 1);

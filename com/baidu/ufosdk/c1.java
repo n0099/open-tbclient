@@ -266,7 +266,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.j.setVisibility(8);
-            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8b)).addView(this.j, layoutParams);
+            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d8a)).addView(this.j, layoutParams);
             window.setLayout(-1, -2);
             Button button = (Button) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09047a);
             this.l = button;
@@ -331,7 +331,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             }
             if (!TextUtils.isEmpty(this.d)) {
                 this.c = 0;
-                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d80);
+                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091d7f);
                 relativeLayout.setVisibility(0);
                 this.k.setHint(this.d);
                 this.k.clearFocus();

@@ -125,7 +125,7 @@ public class l07 extends sw4 {
                     this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04ad), itemInfo.apk_detail.version, null));
                 }
                 if (!dj.isEmpty(itemInfo.apk_detail.update_time)) {
-                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15f1), itemInfo.apk_detail.update_time, null));
+                    this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15f2), itemInfo.apk_detail.update_time, null));
                 }
                 if (dh.g(itemInfo.apk_detail.size, 0L) > 0) {
                     this.a.add(new q07(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f066f), StringHelper.getFormatSize(dh.g(itemInfo.apk_detail.size, 0L)), null));

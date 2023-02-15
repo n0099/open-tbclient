@@ -382,8 +382,8 @@ public class qq8 {
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d077d, (View.OnClickListener) null);
             this.d = addCustomView;
-            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091f47);
-            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091f1d);
+            this.e = (EditText) addCustomView.findViewById(R.id.obfuscated_res_0x7f091f46);
+            ImageView imageView = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f091f1c);
             this.f = imageView;
             imageView.setVisibility(8);
             this.e.requestFocus();

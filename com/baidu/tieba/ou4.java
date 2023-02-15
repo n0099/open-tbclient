@@ -1057,7 +1057,7 @@ public class ou4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             this.a.setContentView(R.layout.base_webview_activity_new);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091db6);
             this.c = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
             this.B = this.a.findViewById(R.id.night_mode_overlay);
             this.s = (FrameLayout) this.b.findViewById(R.id.webview_progress_container);

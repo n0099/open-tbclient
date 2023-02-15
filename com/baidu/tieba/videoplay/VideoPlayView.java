@@ -541,7 +541,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         AlaRecommendLayout alaRecommendLayout = (AlaRecommendLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f0926c1);
         this.g = alaRecommendLayout;
         alaRecommendLayout.setDarkMode(true);
-        SecondFloorPullView secondFloorPullView = (SecondFloorPullView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091f55);
+        SecondFloorPullView secondFloorPullView = (SecondFloorPullView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091f54);
         this.f = secondFloorPullView;
         secondFloorPullView.setOnStatusChange(new f(this, str2));
         this.f.setHideButton(this.h);

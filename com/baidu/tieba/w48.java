@@ -50,12 +50,12 @@ public class w48 extends ej5<v48, zi5> {
             }
         }
         this.f = view2;
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
         TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090728);
         this.h = textView;
         textView.setSingleLine();
         this.h.setEllipsize(TextUtils.TruncateAt.END);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092326);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092325);
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914a8);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f091400);
     }

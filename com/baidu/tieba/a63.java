@@ -977,7 +977,7 @@ public class a63 extends c82 implements View.OnClickListener, rw2<MediaModel>, v
             } else {
                 view2.findViewById(R.id.obfuscated_res_0x7f091b70).setVisibility(8);
             }
-            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092285);
+            this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092284);
             EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f091b55);
             this.I0 = emojiEditText;
             emojiEditText.setOnKeyListener(new g(this));

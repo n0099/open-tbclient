@@ -1729,7 +1729,7 @@ public class ThreadData extends sw4 implements PreLoadImageProvider, Cdo, IVideo
                         arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f084f));
                     }
                     if (getIs_top() == 1) {
-                        arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f151f));
+                        arrayList.add(new xc6.a((int) R.string.obfuscated_res_0x7f0f1520));
                     }
                     if (isInterviewLive() && getTaskInfoData() != null && getTaskInfoStatus() == 2) {
                         arrayList.add(new xc6.a((int) R.string.interview_live));

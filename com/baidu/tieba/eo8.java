@@ -337,7 +337,7 @@ public class eo8 {
             alignTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
             this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a76);
             this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091a7c);
-            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f092061);
+            this.t = this.b.findViewById(R.id.obfuscated_res_0x7f092060);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a78);
             this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a77);
             this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091a79);

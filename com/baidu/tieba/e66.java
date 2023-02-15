@@ -174,7 +174,7 @@ public class e66 extends lc6<ThreadData> implements jd6, lw5 {
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09226c);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09226b);
         this.F = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.F.b.getCommentContainer().setOnClickListener(this);

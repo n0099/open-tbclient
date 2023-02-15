@@ -128,7 +128,7 @@ public class w89 extends BaseAdapter {
                 headImageView.setDefaultResource(R.drawable.img_default_100);
                 aVar.a.setDefaultBgResource(R.color.CAM_X0204);
                 aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908b2);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092357);
+                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092356);
                 aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090863);
                 view2.setTag(aVar);
             }

@@ -2100,7 +2100,7 @@ public class xp8 implements up8 {
             } else if (id == R.id.obfuscated_res_0x7f091b02) {
                 o0(this.b);
                 startPlay();
-            } else if (id == R.id.obfuscated_res_0x7f091d2a) {
+            } else if (id == R.id.obfuscated_res_0x7f091d29) {
                 o0(this.b);
                 startPlay();
             }

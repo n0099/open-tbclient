@@ -133,7 +133,7 @@ public class o68 extends BaseAdapter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f77);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f76);
                 view2.setOnClickListener(new a(this));
             }
         }

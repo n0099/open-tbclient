@@ -150,9 +150,9 @@ public class z18 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d05a6, (ViewGroup) null);
                 aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092229);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09222a);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09222b);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092228);
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092229);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09222a);
                 aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f090863);
             }
             w18 item = getItem(i);

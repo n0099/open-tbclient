@@ -156,7 +156,7 @@ public class b57 extends v9<BaseFragmentActivity> {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
             int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f09250e && logicField != LogicField.LIKE_BTN) {
+            if (id != R.id.obfuscated_res_0x7f09250d && logicField != LogicField.LIKE_BTN) {
                 if (id != R.id.obfuscated_res_0x7f092555 && logicField != LogicField.SIGN_BTN) {
                     if (id == R.id.obfuscated_res_0x7f090bed) {
                         if (ViewHelper.checkUpIsLogin(this.a.mContext.getPageActivity()) && X0 != null && X0.getGameUrl() != null) {

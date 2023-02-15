@@ -248,7 +248,7 @@ public class ni9 extends BaseAdapter {
                 } else {
                     view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f3, (ViewGroup) null);
                     cVar = new c(this);
-                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fbd);
+                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fbc);
                     cVar.b = view2.findViewById(R.id.obfuscated_res_0x7f090318);
                     view2.setTag(cVar);
                 }
@@ -275,9 +275,9 @@ public class ni9 extends BaseAdapter {
                 } else {
                     view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07f0, (ViewGroup) null);
                     b bVar2 = new b(this);
-                    bVar2.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc7);
-                    bVar2.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fd8);
-                    bVar2.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fbd);
+                    bVar2.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc6);
+                    bVar2.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fd7);
+                    bVar2.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fbc);
                     view2.setTag(bVar2);
                     bVar = bVar2;
                 }

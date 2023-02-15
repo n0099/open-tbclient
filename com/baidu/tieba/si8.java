@@ -103,7 +103,7 @@ public class si8 extends Dialog {
             getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d6);
             setCanceledOnTouchOutside(true);
             setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db6);
             this.c = linearLayout;
             linearLayout.setOnClickListener(new a(this));
             if (this.b == null) {

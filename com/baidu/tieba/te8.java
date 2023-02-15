@@ -1448,8 +1448,8 @@ public class te8 {
                 this.p.getHeadView().setDrawBorder(true);
                 this.p.getHeadView().setPlaceHolder(1);
             }
-            this.r = (UserIconBox) this.j.findViewById(R.id.obfuscated_res_0x7f092004);
-            this.s = (UserIconBox) this.j.findViewById(R.id.obfuscated_res_0x7f092005);
+            this.r = (UserIconBox) this.j.findViewById(R.id.obfuscated_res_0x7f092003);
+            this.s = (UserIconBox) this.j.findViewById(R.id.obfuscated_res_0x7f092004);
             this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091936);
             this.x = (LinearLayout) this.j.findViewById(R.id.obfuscated_res_0x7f09190d);
             this.z = (PbFirstFloorUserLikeButton) this.j.findViewById(R.id.obfuscated_res_0x7f091948);

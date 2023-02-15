@@ -289,7 +289,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
                 for (int i = 0; i < count; i++) {
                     this.a.s.getItem(i).C1(bool);
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f14fd);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f14fe);
             }
         }
     }
@@ -629,9 +629,9 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
             if (i2 != 2) {
-                return getResources().getString(R.string.obfuscated_res_0x7f0f1479);
+                return getResources().getString(R.string.obfuscated_res_0x7f0f147a);
             }
-            return getResources().getString(R.string.obfuscated_res_0x7f0f147c);
+            return getResources().getString(R.string.obfuscated_res_0x7f0f147d);
         }
         return (String) invokeI.objValue;
     }
@@ -880,10 +880,10 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             j05Var.setCancelable(true);
             j05Var.setTitleShowCenter(true);
             j05Var.setMessageShowCenter(true);
-            j05Var.setTitle(getString(R.string.obfuscated_res_0x7f0f1474));
-            j05Var.setMessage(getString(R.string.obfuscated_res_0x7f0f1472));
+            j05Var.setTitle(getString(R.string.obfuscated_res_0x7f0f1475));
+            j05Var.setMessage(getString(R.string.obfuscated_res_0x7f0f1473));
             j05Var.setPositiveButton(getString(R.string.obfuscated_res_0x7f0f0831), new h(this));
-            j05Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f1473), new i(this));
+            j05Var.setNegativeButton(getString(R.string.obfuscated_res_0x7f0f1474), new i(this));
             j05Var.create(getPageContext()).show();
         }
     }
@@ -893,7 +893,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d059e);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923fb);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923fa);
             this.l = findViewById;
             findViewById.setOnClickListener(new d(this));
             this.j = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09157a);
@@ -902,16 +902,16 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.j.setRoundLayoutRadius(new float[]{g2, g2, g2, g2, 0.0f, 0.0f, 0.0f, 0.0f});
             this.k = (RelativeLayout) findViewById(R.id.navigation_bar);
             this.E = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091763);
-            this.H = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923e7);
+            this.H = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923e6);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09042c);
             this.m = imageView;
             imageView.setOnClickListener(new e(this));
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f092496);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a4);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f092495);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a3);
             this.B = (VipAdFreeGuideLayout) findViewById(R.id.obfuscated_res_0x7f092740);
             this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091014);
             this.q = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f0915fc);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f09215e);
             this.r = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.r.setOnPageChangeListener(this);
@@ -922,7 +922,7 @@ public class MemberPayFragmentActivity extends BaseFragmentActivity implements V
             this.r.getFragmentTabWidget().setDviderRectHeight(ej.g(getActivity(), R.dimen.obfuscated_res_0x7f070224));
             this.E.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0923e7);
+            layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0923e6);
             this.r.setLayoutParams(layoutParams2);
             if (this.A) {
                 this.B.setGuideContent(sw5.e().h(), sw5.e().g());

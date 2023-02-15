@@ -808,7 +808,7 @@ public class oc9 {
             return;
         }
         j05 j05Var = new j05(recordVideoActivity.getPageContext().getPageActivity());
-        j05Var.setMessageId(R.string.obfuscated_res_0x7f0f1654);
+        j05Var.setMessageId(R.string.obfuscated_res_0x7f0f1655);
         j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0520, new g(this));
         j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0518, new h(this));
         j05Var.setCancelable(true);

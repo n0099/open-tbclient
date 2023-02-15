@@ -129,16 +129,16 @@ public class qv8 extends v9<SystemHelpSettingActivity> {
         this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f0910c5);
         ej.b(this.a.getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
         this.e.setOnSwitchStateChangeListener(this.a);
-        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa5);
+        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f091fa4);
         ej.b(this.a.getPageContext().getPageActivity(), this.f, 10, 10, 10, 10);
         this.f.setOnSwitchStateChangeListener(this.a);
         this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0907c5);
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09214d);
-        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09214f);
-        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09214e);
+        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09214c);
+        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09214e);
+        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09214d);
         this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910a9);
         this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910aa);
-        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09214c);
+        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09214b);
         if (sv4.h()) {
             this.i.setVisibility(0);
         } else {
@@ -152,7 +152,7 @@ public class qv8 extends v9<SystemHelpSettingActivity> {
         } else {
             this.d.setVisibility(8);
         }
-        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f092109);
+        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f092108);
         this.g = tbSettingTextNewDotView;
         tbSettingTextNewDotView.setOnClickListener(this.a);
         this.g.setVisibility(0);

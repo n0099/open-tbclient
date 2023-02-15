@@ -318,7 +318,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
                     Object obj = lb5Var.c;
                     if (obj instanceof VoiceData.VoiceModel) {
                         this.h = (VoiceData.VoiceModel) obj;
-                        this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f169a));
+                        this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f169b));
                         return;
                     }
                     h();
@@ -367,7 +367,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.h = null;
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1694));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1695));
             this.d.setText("");
             this.d.setVisibility(4);
         }
@@ -392,7 +392,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
             recordingAnimView.setCertainColumnCount(8);
             this.c.setColumnColor(R.color.CAM_X0111);
             this.c.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924dd);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924dc);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092569);
             this.a.setOnTouchListener(new a(this));
             b49 recorderManager = getRecorderManager();
@@ -409,7 +409,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
             if (this.j == null) {
                 j05 j05Var = new j05(da.a(getContext()).getPageActivity());
                 this.j = j05Var;
-                j05Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f169b)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f169a), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f038c), new b(this)).create(da.a(getContext()));
+                j05Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f169c)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f169b), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f038c), new b(this)).create(da.a(getContext()));
             }
             this.j.show();
         }
@@ -465,7 +465,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
             this.b.setVisibility(0);
             this.c.g();
             this.c.setVisibility(4);
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1694));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1695));
             this.d.setVisibility(4);
             b49 recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
@@ -487,7 +487,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
             voiceModel2.isLocal = true;
             voiceModel2.setVoiceId(str);
             this.h.voice_status = 1;
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f169a));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f169b));
             J(new lb5(10, -1, this.h));
         }
     }
@@ -499,7 +499,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, xb5 {
             this.b.setVisibility(4);
             this.c.setVisibility(0);
             this.c.h();
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1695));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1696));
         }
     }
 

@@ -796,7 +796,7 @@ public class ts7 extends v9 {
                                 if (it7Var.m().size() > 1 && it7Var.m().get(1) != null) {
                                     str2 = xs5.G(it7Var.m().get(1).content).toString();
                                 } else {
-                                    str2 = this.b.mContext.getString(R.string.obfuscated_res_0x7f0f149c);
+                                    str2 = this.b.mContext.getString(R.string.obfuscated_res_0x7f0f149d);
                                     i2 = 1;
                                 }
                             } else if (it7Var.m().get(2) != null) {
@@ -804,7 +804,7 @@ public class ts7 extends v9 {
                             } else {
                                 str2 = null;
                             }
-                            this.b.u.q(this.b.mContext.getString(R.string.obfuscated_res_0x7f0f10b6) + userName + this.b.mContext.getString(R.string.obfuscated_res_0x7f0f149a) + str2);
+                            this.b.u.q(this.b.mContext.getString(R.string.obfuscated_res_0x7f0f10b6) + userName + this.b.mContext.getString(R.string.obfuscated_res_0x7f0f149b) + str2);
                         }
                         this.b.u.U(this.b.v.q());
                         sd5 sd5Var = this.b.u;

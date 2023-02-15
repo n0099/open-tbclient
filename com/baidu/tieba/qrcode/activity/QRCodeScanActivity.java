@@ -478,7 +478,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.h.setOutsideTouchable(true);
             this.h.setFocusable(false);
             this.h.setTouchable(true);
-            gh.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f092338)));
+            gh.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f092337)));
         }
     }
 

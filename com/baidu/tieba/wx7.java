@@ -166,9 +166,9 @@ public class wx7 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07d6, (ViewGroup) null);
                 bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091db8);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f11);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091f10);
+                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091db7);
+                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f10);
+                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091f0f);
                 view2.setTag(bVar);
             } else {
                 bVar = (b) view2.getTag();

@@ -146,7 +146,7 @@ public class RecommendForumInfoView extends LinearLayout {
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091cb6);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f7);
             this.e = (FollowUserButton) findViewById(R.id.like_button);
             e();
         }

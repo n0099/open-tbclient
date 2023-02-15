@@ -892,7 +892,7 @@ public class ImageListFragment extends BaseFragment implements vh9.d, AbsListVie
                 int firstVisiblePosition = transparentHeadGridView.getFirstVisiblePosition();
                 int lastVisiblePosition = this.l.getLastVisiblePosition();
                 if (i2 >= firstVisiblePosition && i2 <= lastVisiblePosition && (childAt = this.l.getChildAt(i2 - firstVisiblePosition)) != null && this.m != null) {
-                    this.m.u((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091f77), z);
+                    this.m.u((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091f76), z);
                 } else {
                     return;
                 }

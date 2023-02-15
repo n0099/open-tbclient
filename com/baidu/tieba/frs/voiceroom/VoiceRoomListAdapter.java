@@ -151,7 +151,7 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                     View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f092774);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.voicing_text)");
                     TextView textView = (TextView) findViewById2;
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f09235b);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f09235a);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.title)");
                     TextView textView2 = (TextView) findViewById3;
                     View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f090e3a);

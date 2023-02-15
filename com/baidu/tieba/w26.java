@@ -239,10 +239,10 @@ public class w26 {
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0885, (ViewGroup) null, false);
         this.c = inflate;
         this.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fab);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092498);
-        this.f = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d6f);
-        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924a6);
-        this.h = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924a7);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092497);
+        this.f = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091d6e);
+        this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0924a5);
+        this.h = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0924a6);
         HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0910e4);
         this.i = headImageView;
         headImageView.setIsRound(true);

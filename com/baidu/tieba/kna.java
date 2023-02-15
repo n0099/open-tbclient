@@ -663,7 +663,7 @@ public final class kna {
             attributes.width = -1;
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.findViewById(R.id.obfuscated_res_0x7f091d8b).setOnClickListener(new d(payDialogType, fnaVar, iViewEventListener, jnaVar));
+            window.findViewById(R.id.obfuscated_res_0x7f091d8a).setOnClickListener(new d(payDialogType, fnaVar, iViewEventListener, jnaVar));
             TextView textView = (TextView) window.findViewById(R.id.tv_amount_hint);
             TextView textView2 = (TextView) window.findViewById(R.id.tv_input_amount);
             EditText etInput = (EditText) window.findViewById(R.id.et_input_text);

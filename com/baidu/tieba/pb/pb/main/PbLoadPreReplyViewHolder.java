@@ -43,7 +43,7 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09250b);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09250a);
         this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd9);
     }
 

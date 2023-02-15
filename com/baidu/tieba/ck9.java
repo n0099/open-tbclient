@@ -248,7 +248,7 @@ public class ck9 extends pk9<dl9> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04bf, viewGroup, false);
             this.c = inflate;
-            ForumSelectedView forumSelectedView = (ForumSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f091f74);
+            ForumSelectedView forumSelectedView = (ForumSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f091f73);
             this.g = forumSelectedView;
             WriteData writeData = this.e;
             if (writeData != null && forumSelectedView != null) {

@@ -653,8 +653,8 @@ public abstract class ry3 {
             } else {
                 View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d068f, (ViewGroup) null);
                 this.a.addView(inflate, new RelativeLayout.LayoutParams(-1, -1));
-                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091d37)).setImageUrl(this.q.getIconUrl());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b)).setText(this.q.getTitle());
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091d36)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a)).setText(this.q.getTitle());
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907e8)).setText(this.q.getDescription());
                 Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090887);
                 if (this.q.getActionType() == 1) {
@@ -675,14 +675,14 @@ public abstract class ry3 {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             this.b = u();
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
-            this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d3b);
+            this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d3a);
             RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.video_view);
             this.c = rewardVideoView;
             rewardVideoView.setVolumeChangeListener(o());
             if (this.y) {
                 this.c.setOnClickListener(this.F);
             }
-            this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f09213a);
+            this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f092139);
             this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092775);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092776);
             if (this.c.d()) {
@@ -700,8 +700,8 @@ public abstract class ry3 {
             } else {
                 View inflate = LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d068e, (ViewGroup) null);
                 this.m.addView(inflate);
-                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091d37)).setImageUrl(this.q.getIconUrl());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b)).setText(this.q.getTitle());
+                ((AdImageVIew) inflate.findViewById(R.id.obfuscated_res_0x7f091d36)).setImageUrl(this.q.getIconUrl());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a)).setText(this.q.getTitle());
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0907e8)).setText(this.q.getDescription());
                 Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090887);
                 if (this.q.getActionType() == 1) {

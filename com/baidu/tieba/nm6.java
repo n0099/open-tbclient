@@ -673,7 +673,7 @@ public class nm6 implements km6, PreViewPickCoverView.c, vg9, OnChangeStickerLis
             if (this.k == null) {
                 MultiMediaData multiMediaData = new MultiMediaData();
                 this.k = multiMediaData;
-                multiMediaData.setExt("text", xx9.l(R.string.obfuscated_res_0x7f0f15c0));
+                multiMediaData.setExt("text", xx9.l(R.string.obfuscated_res_0x7f0f15c1));
                 this.i.add(this.k);
                 this.j.f(-1);
             } else {
@@ -758,7 +758,7 @@ public class nm6 implements km6, PreViewPickCoverView.c, vg9, OnChangeStickerLis
         if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{multiMediaData, Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
             MultiMediaData multiMediaData2 = this.k;
             if (multiMediaData2 != null) {
-                multiMediaData2.setExt("text", xx9.l(R.string.obfuscated_res_0x7f0f15c0));
+                multiMediaData2.setExt("text", xx9.l(R.string.obfuscated_res_0x7f0f15c1));
             }
             this.k = null;
             this.e.h();

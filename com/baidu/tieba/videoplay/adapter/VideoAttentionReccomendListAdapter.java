@@ -71,7 +71,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091003);
             this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b0e);
             this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091b10);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092289);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092288);
             this.f = (EMTextView) view2.findViewById(R.id.text_title);
             this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fec);
             this.h = view2.findViewById(R.id.obfuscated_res_0x7f090fdb);

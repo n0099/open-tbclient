@@ -359,10 +359,10 @@ public class FixedAppBarLayout extends AppBarLayout {
                 eVar.b = (AlaLiveTipView) view2.findViewById(R.id.obfuscated_res_0x7f0914a6);
                 eVar.c = (HomeTabBarView) view2.findViewById(R.id.obfuscated_res_0x7f090e8b);
                 eVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907c3);
-                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f2e);
-                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f42);
-                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f49);
-                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f0f);
+                eVar.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f2d);
+                eVar.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f41);
+                eVar.g = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f48);
+                eVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f0e);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fb4);
                 eVar.i = tbImageView;
                 tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);

@@ -212,11 +212,11 @@ public class pq6 extends v9<TbTitleActivity> {
                 for (int i = 1; i <= list.size(); i++) {
                     LevelInfo levelInfo = list.get(i - 1);
                     View inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a6, (ViewGroup) null);
-                    LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092179);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09217b);
-                    TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09217c);
-                    View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092249);
-                    ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09217a);
+                    LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092178);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09217a);
+                    TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09217b);
+                    View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092248);
+                    ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092179);
                     if (i % 2 != 0) {
                         SkinManager.setBackgroundResource(linearLayout, R.color.CAM_X0205);
                     }
@@ -280,8 +280,8 @@ public class pq6 extends v9<TbTitleActivity> {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f148a);
-            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f148b);
+            String string = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f148b);
+            String string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f148c);
             int length = string2.length();
             int indexOf = string.indexOf(string2);
             SpannableString spannableString = new SpannableString(string);
@@ -301,10 +301,10 @@ public class pq6 extends v9<TbTitleActivity> {
             this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c62);
             this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0909e9);
             this.p = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ac9);
-            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092358);
+            this.q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092357);
             this.r = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0927a8);
             this.s = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092742);
-            this.l = this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.l = this.b.findViewById(R.id.obfuscated_res_0x7f0923fc);
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 this.l.getLayoutParams().height = UtilHelper.getLightStatusBarHeight() + ej.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07025b);
             } else {
@@ -312,16 +312,16 @@ public class pq6 extends v9<TbTitleActivity> {
             }
             NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
             this.d = navigationBar;
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f148d));
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f148e));
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.showBottomLine();
-            this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f09224b);
+            this.e = (ScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f09224a);
             this.k = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a58);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224a);
-            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092178);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092249);
+            this.f = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092177);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092608);
             this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e2e);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224c);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09224b);
             this.c = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
             p();
             t();

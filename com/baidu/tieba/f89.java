@@ -126,7 +126,7 @@ public class f89 extends BaseAdapter {
             } else {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0134, viewGroup, false);
                 aVar = new a(this);
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0923fe);
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0923fd);
                 aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090390);
                 aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090391);
                 aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090392);

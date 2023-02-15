@@ -174,13 +174,13 @@ public class AdVideoFlowView extends RelativeLayout implements fs8, View.OnClick
         this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09031b);
         this.m = (ImageView) this.a.findViewById(R.id.play_btn);
         this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913ff);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091feb);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091fea);
         this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906ce);
         this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0913fd);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091fc3);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091fc2);
         this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0906cb);
         this.i = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0913fa);
-        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091fb9);
+        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091fb8);
         this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906c1);
         this.n = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0925f5);
         this.o = (TextView) this.a.findViewById(R.id.user_name);
@@ -703,7 +703,7 @@ public class AdVideoFlowView extends RelativeLayout implements fs8, View.OnClick
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             if (view2.getId() == R.id.obfuscated_res_0x7f0913fa) {
                 t();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091fb9) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091fb8) {
                 u();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f09031b) {
                 TbPageContext<BaseFragmentActivity> tbPageContext = this.z;

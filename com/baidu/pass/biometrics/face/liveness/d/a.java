@@ -70,7 +70,7 @@ public class a extends Dialog {
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09177a);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09178a);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092327);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092326);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918af);
             CommonViewUtility.setViewClickAlpha(this.j, 0.2f);
             CommonViewUtility.setViewClickAlpha(this.k, 0.2f);

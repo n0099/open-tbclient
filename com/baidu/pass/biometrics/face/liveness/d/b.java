@@ -56,7 +56,7 @@ public class b extends Dialog {
             setCanceledOnTouchOutside(false);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0918ae);
             this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f09272a);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092386);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092385);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09168f);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091b50);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09177a);

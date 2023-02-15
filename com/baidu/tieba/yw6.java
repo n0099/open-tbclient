@@ -118,8 +118,8 @@ public class yw6 {
             View inflate = LayoutInflater.from(frsFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0354, relativeLayout);
             this.a = inflate;
             inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092059);
-            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f09205a);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092058);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f092059);
             this.d = frsTabSortSwitchButton;
             frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
             this.f = this.d.getState();

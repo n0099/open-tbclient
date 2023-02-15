@@ -246,7 +246,7 @@ public class ub8 {
                 linearLayout.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), 0, 0);
                 linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 TextView textView = new TextView(this.a.a);
-                textView.setText(R.string.obfuscated_res_0x7f0f1672);
+                textView.setText(R.string.obfuscated_res_0x7f0f1673);
                 textView.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
                 textView.setOnClickListener(new b(this));

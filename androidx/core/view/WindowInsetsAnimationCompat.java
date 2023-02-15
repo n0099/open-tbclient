@@ -289,7 +289,7 @@ public final class WindowInsetsAnimationCompat {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view2, windowInsets)) == null) {
-                if (view2.getTag(R.id.obfuscated_res_0x7f0921b5) != null) {
+                if (view2.getTag(R.id.obfuscated_res_0x7f0921b4) != null) {
                     return windowInsets;
                 }
                 return view2.onApplyWindowInsets(windowInsets);
@@ -331,9 +331,9 @@ public final class WindowInsetsAnimationCompat {
         public static void setCallback(@NonNull View view2, @Nullable Callback callback) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65547, null, view2, callback) == null) {
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f0921b5);
+                Object tag = view2.getTag(R.id.obfuscated_res_0x7f0921b4);
                 if (callback == null) {
-                    view2.setTag(R.id.obfuscated_res_0x7f0921f0, null);
+                    view2.setTag(R.id.obfuscated_res_0x7f0921ef, null);
                     if (tag == null) {
                         view2.setOnApplyWindowInsetsListener(null);
                         return;
@@ -341,7 +341,7 @@ public final class WindowInsetsAnimationCompat {
                     return;
                 }
                 View.OnApplyWindowInsetsListener createProxyListener = createProxyListener(view2, callback);
-                view2.setTag(R.id.obfuscated_res_0x7f0921f0, createProxyListener);
+                view2.setTag(R.id.obfuscated_res_0x7f0921ef, createProxyListener);
                 if (tag == null) {
                     view2.setOnApplyWindowInsetsListener(createProxyListener);
                 }
@@ -415,7 +415,7 @@ public final class WindowInsetsAnimationCompat {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) {
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f0921f0);
+                Object tag = view2.getTag(R.id.obfuscated_res_0x7f0921ef);
                 if (tag instanceof Impl21OnApplyWindowInsetsListener) {
                     return ((Impl21OnApplyWindowInsetsListener) tag).mCallback;
                 }

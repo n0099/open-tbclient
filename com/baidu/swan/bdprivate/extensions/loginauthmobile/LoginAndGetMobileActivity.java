@@ -180,7 +180,7 @@ public class LoginAndGetMobileActivity extends FragmentActivity implements SwanA
     public final void q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091da0);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d9f);
             this.a = linearLayout;
             linearLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060b50));
             this.a.getBackground().mutate().setAlpha(0);

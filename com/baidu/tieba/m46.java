@@ -346,7 +346,7 @@ public class m46 {
         this.e = (LinearLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d067a, (ViewGroup) null);
         this.k = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) null);
         this.f = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091439);
-        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f0920e4);
+        View findViewById = this.e.findViewById(R.id.obfuscated_res_0x7f0920e3);
         this.g = findViewById;
         b bVar = new b(this, findViewById);
         this.r = bVar;

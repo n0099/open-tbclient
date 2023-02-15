@@ -68,13 +68,13 @@ public class ni1 extends BaseAdapter {
             }
             this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09075e);
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09075d);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f77);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f76);
             this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905ba);
             this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09075f);
             this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09075b);
             this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090758);
             this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09075c);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f81);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f80);
         }
     }
 

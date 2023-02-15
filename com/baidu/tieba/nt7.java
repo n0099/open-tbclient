@@ -260,7 +260,7 @@ public class nt7 extends mc6<it7> {
             this.j = (TextView) this.x.findViewById(R.id.user_name);
             this.k = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f090a25);
             this.l = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f091b59);
-            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.m = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f092325);
             this.n = (TextView) this.x.findViewById(R.id.obfuscated_res_0x7f09057c);
             this.o = (OriginalThreadCardView) this.x.findViewById(R.id.original_thread_view);
             this.r = (MessageCardBottomView) this.x.findViewById(R.id.obfuscated_res_0x7f090578);

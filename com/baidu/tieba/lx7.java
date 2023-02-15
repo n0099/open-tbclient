@@ -74,7 +74,7 @@ public class lx7 implements kl5, View.OnClickListener, AdapterView.OnItemClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07e3, (ViewGroup) this.d, true);
-            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091f86);
+            this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091f85);
             kx7 kx7Var = new kx7(this.a);
             this.f = kx7Var;
             this.e.setAdapter((ListAdapter) kx7Var);

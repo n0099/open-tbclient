@@ -159,7 +159,7 @@ public class mw8 extends ow8 {
         this.Y = eVar5;
         this.Z = onClickListener;
         this.N = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a57);
-        this.O = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f5b);
+        this.O = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f5a);
         z0();
     }
 

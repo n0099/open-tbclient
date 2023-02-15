@@ -147,7 +147,7 @@ public class yv4 implements Application.ActivityLifecycleCallbacks {
                 DrawableCompat.setTintList(drawable, colorListByResourceType);
             }
             imageView.setImageDrawable(drawable);
-            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f091ede);
+            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f091edd);
             if (relativeLayout == null) {
                 return;
             }

@@ -152,9 +152,9 @@ public class wk8 extends mc6<mk8> {
         int g = ej.g(this.c, R.dimen.M_W_X003);
         this.l.setPadding(g, 0, g, 0);
         this.q = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f09156b);
-        this.p = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092050);
+        this.p = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f09204f);
         this.k = (BdBaseViewPager) this.l.findViewById(R.id.obfuscated_res_0x7f0927a7);
-        this.o = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f092051);
+        this.o = (LinearLayout) this.l.findViewById(R.id.obfuscated_res_0x7f092050);
         ArrayList arrayList = new ArrayList();
         this.j = arrayList;
         a aVar = new a(this, arrayList);

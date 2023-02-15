@@ -181,9 +181,9 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
                         this.t.get(i).setVisibility(8);
                     }
                     TextView textView = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f090aac);
-                    TextView textView2 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f0920f7);
-                    TextView textView3 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f091d43);
-                    ImageView imageView = (ImageView) l(this.s.get(i), R.id.obfuscated_res_0x7f091d49);
+                    TextView textView2 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f0920f6);
+                    TextView textView3 = (TextView) l(this.s.get(i), R.id.obfuscated_res_0x7f091d42);
+                    ImageView imageView = (ImageView) l(this.s.get(i), R.id.obfuscated_res_0x7f091d48);
                     D(textView, textView2, textView3, focusListCard.getFocusItemList().get(i));
                     textView.setText(focusListCard.getFocusItemList().get(i).a);
                     textView2.setText(focusListCard.getFocusItemList().get(i).b);
@@ -219,20 +219,20 @@ public class FocusListCardView extends BaseCardView<FocusListCard> {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0184, (ViewGroup) null);
             this.m = inflate;
             this.n = (TextView) l(inflate, R.id.obfuscated_res_0x7f0913d2);
-            this.o = (View) l(this.m, R.id.obfuscated_res_0x7f0923cd);
+            this.o = (View) l(this.m, R.id.obfuscated_res_0x7f0923cc);
             this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0903e6);
-            this.q = (View) l(this.m, R.id.obfuscated_res_0x7f091d4c);
+            this.q = (View) l(this.m, R.id.obfuscated_res_0x7f091d4b);
             this.r = (LinearLayout) l(this.m, R.id.obfuscated_res_0x7f090718);
             this.s = new ArrayList();
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f091842));
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f092582));
-            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f09230c));
+            this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f09230b));
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090b5b));
             this.s.add((LinearLayout) l(this.r, R.id.obfuscated_res_0x7f090a6e));
             this.t = new ArrayList();
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f091843));
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f092584));
-            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f09230d));
+            this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f09230c));
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090b5c));
             this.t.add((View) l(this.r, R.id.obfuscated_res_0x7f090a6f));
             return this.m;

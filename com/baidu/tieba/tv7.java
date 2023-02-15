@@ -1031,7 +1031,7 @@ public class tv7 {
         this.o = imageView3;
         imageView3.setOnClickListener(this.i0);
         this.p = this.d.findViewById(R.id.obfuscated_res_0x7f090576);
-        this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091d7a);
+        this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091d79);
         this.f.getControl().setOperableVideoContainer(this.e0);
         this.f.getControl().setOnSurfaceDestroyedListener(this.h0);
         ImageView imageView4 = (ImageView) this.d.findViewById(R.id.img_play);

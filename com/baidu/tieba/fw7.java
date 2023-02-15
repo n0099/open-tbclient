@@ -88,9 +88,9 @@ public class fw7 {
         this.i = new a(this);
         this.b = view2;
         this.e = context;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092170);
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09216e);
-        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f09216f);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09216f);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09216d);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f09216e);
     }
 
     public void h(View.OnClickListener onClickListener) {

@@ -229,7 +229,7 @@ public class BubbleItemView extends LinearLayout {
             this.f = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.f.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920c7);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920c6);
             this.g = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.g.setDefaultBgResource(R.drawable.transparent_bg);

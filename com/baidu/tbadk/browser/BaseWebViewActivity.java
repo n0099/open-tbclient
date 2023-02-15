@@ -1315,7 +1315,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeL(1048606, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091db7) {
+            if (id == R.id.obfuscated_res_0x7f091db6) {
                 if (isTranslucent()) {
                     finish();
                 }

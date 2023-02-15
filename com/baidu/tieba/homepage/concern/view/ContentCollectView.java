@@ -261,7 +261,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.n = ej.g(getContext(), R.dimen.tbds115);
             this.m = ej.g(getContext(), R.dimen.tbds3);
             u = (((ej.l(getContext()) - (ej.g(getContext(), R.dimen.M_W_X004) * 5)) - ej.g(getContext(), R.dimen.M_W_X006)) - ej.g(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09235a);
             this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090728);
             this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091665);
             this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090335);

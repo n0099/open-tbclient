@@ -372,19 +372,19 @@ public class q48 extends BaseAdapter {
                     return;
                 }
             }
-            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc8);
-            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091fc9);
-            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fce);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fcf);
-            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091fcd);
+            this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc7);
+            this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f091fc8);
+            this.b = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fcd);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fce);
+            this.d = (CommonUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091fcc);
             this.l = new q55(q48Var.a, this.d);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fca);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fee);
-            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091fd7);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fcc);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fd3);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fcb);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091fec);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fc9);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.n = (OriginalThreadCardView) view2.findViewById(R.id.obfuscated_res_0x7f091fd6);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fcb);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fd2);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fca);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f091feb);
             b(this.b);
         }
 
@@ -444,7 +444,7 @@ public class q48 extends BaseAdapter {
             this.a = (ImageButton) view2.findViewById(R.id.obfuscated_res_0x7f090e80);
             this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091794);
             this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915bb);
-            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092276);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092275);
             b(this.b);
             this.n.setPlaceHolder(1);
         }

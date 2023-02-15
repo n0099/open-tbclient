@@ -369,7 +369,7 @@ public class wg7 extends mc6<og7> {
             ts5Var.x(ej.g(getContext(), R.dimen.tbds44));
             ts5Var.p(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds7), 1.0f);
             this.r.setLayoutStrategy(ts5Var);
-            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f092415);
+            this.t = (RelativeLayout) h.findViewById(R.id.obfuscated_res_0x7f092414);
             this.s = (ConstrainImageGroup) h.findViewById(R.id.obfuscated_res_0x7f0905a0);
             this.s.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
             qr5 qr5Var = new qr5(3);
@@ -378,8 +378,8 @@ public class wg7 extends mc6<og7> {
             AgreeView agreeView = (AgreeView) h.findViewById(R.id.obfuscated_res_0x7f09059c);
             this.o = agreeView;
             agreeView.z();
-            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092407);
-            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092408);
+            this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f092406);
+            this.q = (ImageView) h.findViewById(R.id.obfuscated_res_0x7f092407);
             this.u = h.findViewById(R.id.obfuscated_res_0x7f09059e);
             TbImageView tbImageView = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905a7);
             this.v = tbImageView;

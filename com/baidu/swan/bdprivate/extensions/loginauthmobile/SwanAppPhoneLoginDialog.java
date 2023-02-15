@@ -470,7 +470,7 @@ public class SwanAppPhoneLoginDialog extends SwanAppLoginAndGetMobileDialog impl
             this.n = (CheckBox) this.d.findViewById(R.id.obfuscated_res_0x7f091ad2);
             this.m = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09153c);
             this.t = new View(getContext());
-            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.o = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09235a);
             this.s = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092628);
             U1();
             this.j.setOnClickListener(new b(this));

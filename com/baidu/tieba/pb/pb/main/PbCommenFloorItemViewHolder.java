@@ -193,7 +193,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         if (tbPageContext != null && view2 != null) {
             this.c = view2;
             this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091987);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0923e1);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0923e0);
             this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091936);
             this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09272e);
             this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09272f);
@@ -223,17 +223,17 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.I.setNormalColorResourceId(R.color.CAM_X0109);
             this.I.y(true);
             this.C0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092553);
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8d);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d8c);
             this.D0 = relativeLayout;
             p15 d = p15.d(relativeLayout);
             d.n(R.string.J_X04);
             d.f(R.color.CAM_X0204);
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d75);
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d74);
             this.E0 = relativeLayout2;
             p15 d2 = p15.d(relativeLayout2);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0905);
-            this.F0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924da);
+            this.F0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924d9);
             this.A.setVisibility(8);
             this.u.setVisibility(0);
             this.y.setVisibility(0);
@@ -256,9 +256,9 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                 this.L.getHeadView().setDrawBorder(true);
                 this.L.getHeadView().setPlaceHolder(1);
             }
-            this.M = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092004);
-            this.N = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092005);
-            this.q = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3d);
+            this.M = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092003);
+            this.N = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f092004);
+            this.q = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3c);
             this.r = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b65);
             this.s = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09014b);
             this.v = (SubPbLayout) view2.findViewById(R.id.obfuscated_res_0x7f091973);
@@ -331,7 +331,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
             this.y0 = (VirtualImageStatusTip) view2.findViewById(R.id.obfuscated_res_0x7f092763);
             this.z0 = (HeadCustomImageView) view2.findViewById(R.id.obfuscated_res_0x7f09274c);
             this.A0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09274d);
-            this.B0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f5b);
+            this.B0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f5a);
             this.j = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918f5);
             e(tbPageContext);
             this.H0 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091911);

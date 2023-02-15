@@ -255,22 +255,22 @@ public final class R {
         public static final int notification_main_column_container = 0x7f091815;
         public static final int play_error_layout_retry = 0x7f091b0a;
         public static final int progress = 0x7f091bd5;
-        public static final int right = 0x7f091d43;
-        public static final int right_icon = 0x7f091d5c;
-        public static final int right_side = 0x7f091d63;
-        public static final int tag_accessibility_actions = 0x7f09217e;
-        public static final int tag_accessibility_clickable_spans = 0x7f09217f;
-        public static final int tag_accessibility_heading = 0x7f092180;
-        public static final int tag_accessibility_pane_title = 0x7f092181;
-        public static final int tag_screen_reader_focusable = 0x7f0921d0;
-        public static final int tag_transition_group = 0x7f0921e0;
-        public static final int tag_unhandled_key_event_manager = 0x7f0921e2;
-        public static final int tag_unhandled_key_listeners = 0x7f0921e3;
-        public static final int text = 0x7f09225c;
-        public static final int text2 = 0x7f09225d;
-        public static final int time = 0x7f092326;
-        public static final int title = 0x7f09235b;
-        public static final int tv_error = 0x7f0924e2;
+        public static final int right = 0x7f091d42;
+        public static final int right_icon = 0x7f091d5b;
+        public static final int right_side = 0x7f091d62;
+        public static final int tag_accessibility_actions = 0x7f09217d;
+        public static final int tag_accessibility_clickable_spans = 0x7f09217e;
+        public static final int tag_accessibility_heading = 0x7f09217f;
+        public static final int tag_accessibility_pane_title = 0x7f092180;
+        public static final int tag_screen_reader_focusable = 0x7f0921cf;
+        public static final int tag_transition_group = 0x7f0921df;
+        public static final int tag_unhandled_key_event_manager = 0x7f0921e1;
+        public static final int tag_unhandled_key_listeners = 0x7f0921e2;
+        public static final int text = 0x7f09225b;
+        public static final int text2 = 0x7f09225c;
+        public static final int time = 0x7f092325;
+        public static final int title = 0x7f09235a;
+        public static final int tv_error = 0x7f0924e1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

@@ -190,7 +190,7 @@ public class nq7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             MaxHeightRecycleView maxHeightRecycleView = new MaxHeightRecycleView(context);
-            maxHeightRecycleView.setId(R.id.obfuscated_res_0x7f091f50);
+            maxHeightRecycleView.setId(R.id.obfuscated_res_0x7f091f4f);
             maxHeightRecycleView.setLayoutParams(new FrameLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds782), -2));
             return maxHeightRecycleView;
         }

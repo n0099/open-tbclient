@@ -111,7 +111,7 @@ public class SpecialTopicLayout extends LinearLayout implements ay, zx<SpecialCo
                 this.i = horizontalAdapter;
                 this.a = 3;
                 this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926b5);
-                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092294);
+                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092293);
                 this.d = (TextView) view2.findViewById(R.id.tv_content);
                 TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091104);
                 this.b = tbImageView;

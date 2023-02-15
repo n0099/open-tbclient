@@ -1904,7 +1904,7 @@ public class SwanAppAdLandingFragment extends k82 implements hx3 {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048610, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
             U1(inflate);
-            this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f092113);
+            this.p1 = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f092112);
             this.R0 = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901aa);
             l4();
             n4();

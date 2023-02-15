@@ -233,13 +233,13 @@ public class SelectCoverModel extends BdBaseModel {
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1663);
+                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1664);
                     }
                     this.a.a.h0(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1635);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1636);
                     }
                     this.a.a.h0(errorString);
                     if (this.a.d != null) {

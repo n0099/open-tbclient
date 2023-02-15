@@ -100,11 +100,11 @@ public class em6 {
         this.a = tbPageContext;
         View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02d1, (ViewGroup) null);
         this.b = inflate;
-        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09208a);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a0);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a6);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a8);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09208c);
+        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092089);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09209f);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a5);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920a7);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09208b);
         this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09111f);
         this.g.setText(R.string.forum_square_title);
         this.h.setText(R.string.forum_square_desc);

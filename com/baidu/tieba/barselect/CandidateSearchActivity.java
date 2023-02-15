@@ -400,7 +400,7 @@ public class CandidateSearchActivity extends BaseActivity {
             navigationBar.showBottomLine();
             View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0173, (View.OnClickListener) null);
             this.g = addCustomView;
-            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091f15);
+            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091f14);
             this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090e7b);
             ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090e6b);
             this.j = imageView;
@@ -442,7 +442,7 @@ public class CandidateSearchActivity extends BaseActivity {
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f092284);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092283);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
             this.c = candidateSearchAdapter;
             this.b.setAdapter(candidateSearchAdapter);

@@ -298,10 +298,10 @@ public class SingleLineCardView extends BaseCardView<SingleLineCard> {
             this.m = linearLayout;
             this.n = (View) l(linearLayout, R.id.obfuscated_res_0x7f0913ba);
             this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f0913b9);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09235b);
-            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f092381);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09235a);
+            this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f092380);
             this.r = (MoreButton) l(this.m, R.id.obfuscated_res_0x7f091652);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091d49);
+            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091d48);
             return this.m;
         }
         return (View) invokeV.objValue;

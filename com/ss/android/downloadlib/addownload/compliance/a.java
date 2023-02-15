@@ -39,12 +39,12 @@ public class a extends Dialog {
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b4);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b7);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b3);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b2);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b5);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f4);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b3);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b2);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b1);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b4);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f3);
         this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f0910e7);
         this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0914ef);
         this.a.setText(l.a(this.l.e, "--"));

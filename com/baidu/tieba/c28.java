@@ -67,14 +67,14 @@ public class c28 {
     public View b;
     public RelativeLayout c;
     public HListView d;
-    public ImageView e;
+    public TextView e;
     public TextView f;
-    public TextView g;
-    public ImageView h;
-    public GridView i;
-    public LinearLayout j;
-    public TextView k;
-    public NoNetworkView l;
+    public ImageView g;
+    public GridView h;
+    public LinearLayout i;
+    public TextView j;
+    public NoNetworkView k;
+    public TextView l;
     public TextView m;
     public LinearLayout n;
     public d28 o;
@@ -208,7 +208,7 @@ public class c28 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int i2 = 0;
-                if (view2 == this.a.k) {
+                if (view2 == this.a.j) {
                     this.a.o();
                     if (this.a.D == 1) {
                         i = 2;
@@ -234,9 +234,9 @@ public class c28 {
                         }
                     }
                     TiebaStatic.log(new StatisticItem("c13200").param("obj_type", i).param("obj_locate", i2));
-                } else if (view2 == this.a.e) {
+                } else if (view2 == this.a.m) {
                     UrlManager.getInstance().dealOneLink(this.a.a, new String[]{c28.R});
-                } else if (view2 == this.a.g) {
+                } else if (view2 == this.a.f) {
                     Bundle bundle = new Bundle();
                     bundle.putBoolean(WebViewActivityConfig.TAG_TEXT_AUTO_SIZE, true);
                     UrlManager.getInstance().dealOneLink(this.a.a, new String[]{c28.Q}, false, bundle);
@@ -295,9 +295,9 @@ public class c28 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             if (i == 1) {
-                this.j.setVisibility(0);
+                this.i.setVisibility(0);
             } else {
-                this.j.setVisibility(8);
+                this.i.setVisibility(8);
             }
         }
     }
@@ -305,7 +305,7 @@ public class c28 {
     public final void A(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.k.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1475, "" + (j / 100)));
+            this.j.setText(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1476, "" + (j / 100)));
         }
     }
 
@@ -347,11 +347,11 @@ public class c28 {
         }
         MemberPayResult.e c2 = d28Var.c();
         if (c2 == null) {
-            ej.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1477);
+            ej.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1478);
         } else if (c2.j == 1 && BdBaseApplication.getInst().isDebugMode() && hk5.a) {
             UrlManager.getInstance().dealOneLink(this.a, new String[]{"tieba.baidu.com/mo/q/tbeanrights?from=autopay"}, true);
         } else if (c2.j == 1 && c2.k) {
-            ej.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f14fd);
+            ej.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f14fe);
         } else {
             w(c2.e, c2.f / 100, c2.h, c2.j);
             if (this.H == 26) {
@@ -452,48 +452,48 @@ public class c28 {
             this.p = e28Var;
             e28Var.i(new a(this));
             this.p.h(arrayList);
-            this.i.setAdapter((ListAdapter) this.p);
+            this.h.setAdapter((ListAdapter) this.p);
         }
     }
 
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.c = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091d9f);
             this.d = (HListView) this.b.findViewById(R.id.obfuscated_res_0x7f091b8f);
-            this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091cf1);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091cf2);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091bbe);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091bb6);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091dca);
-            this.i = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f091bac);
-            this.l = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-            this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915f4);
+            this.i = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091cf1);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091bbe);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091bb6);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091dc9);
+            this.h = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f091bac);
+            this.k = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915f4);
             this.n = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0915f5);
+            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092511);
             this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092512);
             this.w = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a50);
-            this.x = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f52);
-            this.y = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0922c3);
+            this.x = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f51);
+            this.y = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0922c2);
             this.d.setBackgroundResource(R.drawable.transparent_bg);
             this.d.setOnItemClickListener(this.O);
             this.d.setSelector(this.a.getPageActivity().getResources().getDrawable(R.drawable.transparent_bg));
-            this.i.setVerticalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
-            this.k.setOnClickListener(this.P);
-            this.e.setOnClickListener(this.P);
-            this.g.setOnClickListener(this.P);
+            this.h.setVerticalSpacing(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds58));
+            this.j.setOnClickListener(this.P);
+            this.m.setOnClickListener(this.P);
+            this.f.setOnClickListener(this.P);
         }
     }
 
     public void r(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.l.d(this.a, i);
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
-            WebPManager.setPureDrawable(this.h, R.drawable.icon_tbvip_arrow_right, R.color.CAM_X0109, null);
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080b1b);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0311);
+            this.k.d(this.a, i);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0320);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
+            WebPManager.setPureDrawable(this.g, R.drawable.icon_tbvip_arrow_right, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);
             TBSelector.makeDrawableSelector().setShape(0).radius((float) R.dimen.tbds31).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.obfuscated_res_0x7f0607d7, R.color.CAM_X0335).into(this.n);
             p15 d = p15.d(this.w);
             d.n(R.string.J_X06);
@@ -540,7 +540,7 @@ public class c28 {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) && (i = this.J) >= 100200 && i <= 100299 && this.N < 1 && StringUtils.isNotNull(this.M) && !this.M.equals(eVar.a)) {
-            BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1478));
+            BdToast b2 = BdToast.b(this.a.getPageActivity(), this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f1479));
             b2.g(BdToast.ToastIcon.FAILURE);
             b2.k();
             this.N++;

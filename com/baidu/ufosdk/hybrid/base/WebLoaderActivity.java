@@ -429,7 +429,7 @@ public class WebLoaderActivity extends FeedbackBrowserActivity implements View.O
             this.I = aVar;
             registerReceiver(aVar, new IntentFilter("com.baidu.ufosdk.ACTION_SIGN"));
             setContentView(R.layout.obfuscated_res_0x7f0d08e7);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091db6);
             this.m = relativeLayout;
             boolean z2 = this.b;
             int i10 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;

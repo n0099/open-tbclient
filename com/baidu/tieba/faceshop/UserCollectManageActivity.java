@@ -483,7 +483,7 @@ public class UserCollectManageActivity extends BaseActivity<UserCollectManageAct
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091671);
             this.f = textView;
             textView.setOnClickListener(this.q);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee7);
             this.g = textView2;
             textView2.setOnClickListener(this.q);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f092648);

@@ -473,7 +473,7 @@ public class YYPaySplitOrderView extends LinearLayout implements zma {
             PaySplitOrderAdapter paySplitOrderAdapter = new PaySplitOrderAdapter(this.a, this.p, this.d);
             this.o = paySplitOrderAdapter;
             paySplitOrderAdapter.e(new a(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a5);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924a4);
             this.l = textView;
             textView.getPaint().setFlags(8);
             this.l.setOnClickListener(new b(this));

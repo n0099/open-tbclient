@@ -147,7 +147,7 @@ public class m48 {
         this.h = false;
         this.j = new b(this);
         this.g = collectTabActivity;
-        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f09215f);
+        FragmentTabHost fragmentTabHost = (FragmentTabHost) collectTabActivity.findViewById(R.id.obfuscated_res_0x7f09215e);
         this.b = fragmentTabHost;
         fragmentTabHost.setup(this.g.getSupportFragmentManager());
         this.b.setOnPageChangeListener(this.j);

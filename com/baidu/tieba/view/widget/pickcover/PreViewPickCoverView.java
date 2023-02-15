@@ -809,7 +809,7 @@ public class PreViewPickCoverView extends FrameLayout implements View.OnClickLis
             f(i);
         } else if (!styleBackgroudInfoEntity.isNeedDown() && !styleBackgroudInfoEntity.isLoaded()) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ox9.a(R.string.obfuscated_res_0x7f0f15bf);
+                ox9.a(R.string.obfuscated_res_0x7f0f15c0);
                 return;
             }
             String str = styleBackgroudInfoEntity.mBackgroudImageUrl;

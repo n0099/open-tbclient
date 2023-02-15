@@ -114,7 +114,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e0a);
             this.h = (TextView) view2.findViewById(R.id.m_forum_name_textview);
             this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091504);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920f7);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920f6);
             this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913be);
             this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091501);
             this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09046e);

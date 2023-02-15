@@ -233,7 +233,7 @@ public class im6 {
         this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090348);
         this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0907e8);
         this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ac6);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092325);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092324);
         this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090b15);
         this.b.setOnClickListener(new a(this));
         this.h.setOnClickListener(new b(this));

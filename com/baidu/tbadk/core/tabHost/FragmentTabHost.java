@@ -579,7 +579,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048618, this, fragmentManager) == null) {
             this.f = fragmentManager;
-            this.b = (FragmentTabWidget) findViewById(R.id.obfuscated_res_0x7f092172);
+            this.b = (FragmentTabWidget) findViewById(R.id.obfuscated_res_0x7f092171);
             this.c = (TbImageView) findViewById(R.id.tabcontainer_dynamic_bg_img);
             this.b.setTabSelectionListener(this);
         }
@@ -806,7 +806,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             if (this.m == null) {
-                this.m = findViewById(R.id.obfuscated_res_0x7f0923cb);
+                this.m = findViewById(R.id.obfuscated_res_0x7f0923ca);
             }
             if (!z) {
                 this.m.setVisibility(8);

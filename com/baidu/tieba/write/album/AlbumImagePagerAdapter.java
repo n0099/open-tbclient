@@ -114,7 +114,7 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09230f);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09230e);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);

@@ -133,7 +133,7 @@ public class pp6 {
         View inflate = LayoutInflater.from(bawuTeamInfoActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d014a, (ViewGroup) null);
         this.e = inflate;
         this.a.setContentView(inflate);
-        this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091da3);
+        this.h = this.e.findViewById(R.id.obfuscated_res_0x7f091da2);
         NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.view_navigation_bar);
         this.d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0308));

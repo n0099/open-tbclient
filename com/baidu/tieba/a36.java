@@ -91,10 +91,10 @@ public class a36 {
         this.a = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0888, (ViewGroup) null);
         this.b = inflate;
-        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09216a);
+        this.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092169);
         this.c = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0910e5);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924af);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09250a);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924ae);
+        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092509);
         this.b.setOnClickListener(this.i);
         this.c.setBorderWidth(ej.g(tbPageContext.getPageActivity(), R.dimen.tbds1));
         this.c.setIsRound(true);

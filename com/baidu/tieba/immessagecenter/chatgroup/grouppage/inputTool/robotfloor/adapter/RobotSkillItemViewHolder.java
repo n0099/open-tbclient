@@ -83,10 +83,10 @@ public class RobotSkillItemViewHolder extends BaseItemViewHolder {
             }
         }
         this.i = zq7Var;
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d9c);
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d9a);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d9d);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d9b);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d9b);
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d99);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d9c);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d9a);
         this.d.setOnClickListener(new a(this));
     }
 

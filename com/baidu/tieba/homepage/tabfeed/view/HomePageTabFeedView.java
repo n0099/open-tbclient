@@ -490,7 +490,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
             this.c = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215e);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215d);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.e.setFadingEdgeLength(0);
@@ -517,7 +517,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
             this.f.u();
             this.f.E(this.t);
             if (this.d == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215d);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215c);
                 this.d = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.g);
             }
@@ -527,7 +527,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 fp8Var.p(2);
                 this.j.u(this.a.getUniqueId());
             }
-            this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f092227);
+            this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f092226);
             this.k = (PostAnimateFloatView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091b54);
         }
     }

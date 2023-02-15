@@ -506,7 +506,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             if (i != 1) {
                 z = false;
             }
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091da0);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d9f);
             getLayoutMode().l(z);
             getLayoutMode().k(findViewById);
             this.a.onChangeSkinType(getPageContext(), i);

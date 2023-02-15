@@ -372,7 +372,7 @@ public class fk7 extends v9<OfficialBarTipActivity> {
             navigationBar.setCenterTextTitle(officialBarTipActivity.getPageContext().getString(R.string.subscribe_forum_list));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this, officialBarTipActivity));
             this.c.showBottomLine();
-            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091db7);
+            ViewGroup viewGroup = (ViewGroup) officialBarTipActivity.findViewById(R.id.obfuscated_res_0x7f091db6);
             this.g = viewGroup;
             this.e = (NoNetworkView) viewGroup.findViewById(R.id.no_network_view);
             View inflate = LayoutInflater.from(this.f.getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) null);

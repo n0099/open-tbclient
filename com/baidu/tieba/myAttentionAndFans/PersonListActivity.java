@@ -403,7 +403,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     return;
                 }
                 this.a.H = AttentionMode.TIEBA;
-                this.a.s.setText(R.string.obfuscated_res_0x7f0f14c6);
+                this.a.s.setText(R.string.obfuscated_res_0x7f0f14c7);
                 this.a.n2(2);
             }
         }
@@ -1379,7 +1379,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                         str2 = getString(R.string.obfuscated_res_0x7f0f109c);
                         spannableStringBuilder.append((CharSequence) "，");
                         spannableStringBuilder.append((CharSequence) str3);
-                        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f14f7));
+                        spannableStringBuilder.append((CharSequence) getString(R.string.obfuscated_res_0x7f0f14f8));
                         spannableStringBuilder.append((CharSequence) str2);
                     }
                 } else {
@@ -1513,14 +1513,14 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.q = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f09174a);
             this.r = (NavigationBarShadowView) findViewById(R.id.obfuscated_res_0x7f09174d);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920ed);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0920ec);
             this.d = findViewById;
             this.e = findViewById.findViewById(R.id.obfuscated_res_0x7f0917b2);
             this.d.setVisibility(8);
             this.d.setClickable(false);
             this.d.setEnabled(false);
             this.f = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091a8c);
-            this.A = (ConcernSelectView) findViewById(R.id.obfuscated_res_0x7f091f7b);
+            this.A = (ConcernSelectView) findViewById(R.id.obfuscated_res_0x7f091f7a);
             this.p = (NavigationBarCoverTip) findViewById(R.id.obfuscated_res_0x7f09173c);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             String id = this.j.getId();
@@ -1653,7 +1653,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 z = !ListUtils.isEmpty(az4Var.a());
                 if (!z) {
                     textView.setVisibility(0);
-                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f16bd));
+                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f16be));
                     return;
                 }
                 textView.setText(string + StringHelper.numberUniformFormat(az4Var.e) + string2);
@@ -1849,7 +1849,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 }
                 this.H = AttentionMode.TIEBA;
                 this.u.setVisibility(0);
-                this.s.setText(R.string.obfuscated_res_0x7f0f14c6);
+                this.s.setText(R.string.obfuscated_res_0x7f0f14c7);
                 return;
             }
             this.H = AttentionMode.ALL;

@@ -484,7 +484,7 @@ public class tl6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
             this.d = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215e);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215d);
             this.f = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.f.setFadingEdgeLength(0);
@@ -507,7 +507,7 @@ public class tl6 {
             this.g.u();
             this.g.E(this.t);
             if (this.e == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215d);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215c);
                 this.e = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.h);
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.e.getLayoutParams();

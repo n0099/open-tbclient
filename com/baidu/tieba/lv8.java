@@ -342,11 +342,11 @@ public class lv8 extends v9<BrowseSettingActivity> {
             this.f = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090acb);
             this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092666);
             if (RichTextGifViewSwitch.isOn()) {
-                this.g.setText(R.string.obfuscated_res_0x7f0f1639);
+                this.g.setText(R.string.obfuscated_res_0x7f0f163a);
             } else {
-                this.g.setText(R.string.obfuscated_res_0x7f0f162e);
+                this.g.setText(R.string.obfuscated_res_0x7f0f162f);
             }
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f092048);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f092047);
             this.h = msgSettingItemView;
             msgSettingItemView.setText(R.string.slide_anim_switch);
             this.h.setSwitchStateNoCallback(TbSingleton.getInstance().isSlideAnimLocalSwitchOn());
@@ -364,7 +364,7 @@ public class lv8 extends v9<BrowseSettingActivity> {
             this.p = new ArrayList<>();
             int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
             ArrayList<w05> arrayList = this.p;
-            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f162f);
+            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1630);
             boolean z3 = false;
             if (autoPlaySwitch == 2) {
                 z = true;
@@ -373,7 +373,7 @@ public class lv8 extends v9<BrowseSettingActivity> {
             }
             arrayList.add(new w05(string, (String) null, z));
             ArrayList<w05> arrayList2 = this.p;
-            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1630);
+            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1631);
             if (autoPlaySwitch == 1) {
                 z2 = true;
             } else {
@@ -387,9 +387,9 @@ public class lv8 extends v9<BrowseSettingActivity> {
             }
             arrayList3.add(new w05(string3, (String) null, z3));
             if (RichTextGifViewSwitch.isOn()) {
-                this.l.l(R.string.obfuscated_res_0x7f0f1639);
+                this.l.l(R.string.obfuscated_res_0x7f0f163a);
             } else {
-                this.l.l(R.string.obfuscated_res_0x7f0f162e);
+                this.l.l(R.string.obfuscated_res_0x7f0f162f);
             }
             this.l.k(this.p, this.u);
             this.l.c();
@@ -451,8 +451,8 @@ public class lv8 extends v9<BrowseSettingActivity> {
             int e2 = aw4.c().e();
             boolean g = aw4.c().g();
             ArrayList<w05> arrayList = this.n;
-            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166b);
-            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166c);
+            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166c);
+            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166d);
             boolean z3 = false;
             if (g && e2 == 0) {
                 z = true;
@@ -461,8 +461,8 @@ public class lv8 extends v9<BrowseSettingActivity> {
             }
             arrayList.add(new w05(string, string2, z));
             ArrayList<w05> arrayList2 = this.n;
-            String string3 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1668);
-            String string4 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166d);
+            String string3 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1669);
+            String string4 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166e);
             if (g && e2 == 1) {
                 z2 = true;
             } else {
@@ -470,8 +470,8 @@ public class lv8 extends v9<BrowseSettingActivity> {
             }
             arrayList2.add(new w05(string3, string4, z2));
             ArrayList<w05> arrayList3 = this.n;
-            String string5 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166f);
-            String string6 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166e);
+            String string5 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1670);
+            String string6 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f166f);
             if (g && e2 == 2) {
                 z3 = true;
             }
@@ -615,11 +615,11 @@ public class lv8 extends v9<BrowseSettingActivity> {
             if (!aw4.c().g()) {
                 this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f041d));
             } else if (aw4.c().e() == 1) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1668));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1669));
             } else if (aw4.c().e() == 2) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f166f));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1670));
             } else {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f166b));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f166c));
             }
         }
     }
@@ -684,11 +684,11 @@ public class lv8 extends v9<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 1) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1630));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1631));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 3) {
                 this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f041d));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f162f));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1630));
             }
         }
     }

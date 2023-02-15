@@ -173,7 +173,7 @@ public class jk6 {
         TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c6a);
         this.e = textView;
         textView.getPaint().setFakeBoldText(true);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923fc);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923fb);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c64);
         this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd8);
         this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd7);
@@ -188,7 +188,7 @@ public class jk6 {
         this.j.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0811ae, 1, false));
         this.k.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0811ad, 1, false));
         this.l.setImageDrawable(SvgManager.getInstance().getDrawable(R.drawable.obfuscated_res_0x7f0811af, 1, false));
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226f);
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226e);
         this.n = textView2;
         textView2.setText(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0940));
         RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ea8);

@@ -671,7 +671,7 @@ public class GodRecommendLayout extends LinearLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.recommend_god_layout, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090614);
             this.d = (RecyclerView) findViewById(R.id.thread_card_list);
             GodRecommendListAdapter godRecommendListAdapter = new GodRecommendListAdapter(this, this.a);

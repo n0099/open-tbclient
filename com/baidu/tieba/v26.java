@@ -56,7 +56,7 @@ public class v26 extends mc6<a46> {
             }
         }
         this.k = h();
-        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f0924df);
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f0924de);
         this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f0910fc);
         this.l = h().findViewById(R.id.obfuscated_res_0x7f090f2c);
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());

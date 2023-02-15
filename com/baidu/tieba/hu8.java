@@ -222,7 +222,7 @@ public class hu8 extends ju8 {
             this.i = (RoundTbImageView) a(R.id.user_head);
             this.j = (TextView) a(R.id.user_name);
             this.k = (TextView) a(R.id.obfuscated_res_0x7f0925e3);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f09246e);
+            this.l = (TextView) a(R.id.obfuscated_res_0x7f09246d);
             this.m = (TextView) a(R.id.replay_btn);
             this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f090755);
         }

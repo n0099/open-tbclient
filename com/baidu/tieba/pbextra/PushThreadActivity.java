@@ -155,7 +155,7 @@ public class PushThreadActivity extends BaseActivity {
                 View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0792, (ViewGroup) null);
                 TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091107);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091106);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092505);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092504);
                 PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.a.g, i);
                 if (pushTypeData != null) {
                     tbImageView.K(pushTypeData.getIcon(), 10, false);
@@ -258,7 +258,7 @@ public class PushThreadActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091106);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092505);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092504);
             this.d.setEnabled(true);
             PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.g, i);
             if (pushTypeData != null) {
@@ -271,7 +271,7 @@ public class PushThreadActivity extends BaseActivity {
                 PushTypeData pushTypeData2 = this.c;
                 if (pushTypeData2 != null && (childAt = adapterView.getChildAt(ListUtils.getPosition(this.g, pushTypeData2))) != null) {
                     ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091106)).setImageDrawable(null);
-                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092505), (int) R.color.CAM_X0105);
+                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092504), (int) R.color.CAM_X0105);
                 }
                 SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);
@@ -286,7 +286,7 @@ public class PushThreadActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0793);
             SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f091c39), R.drawable.dialog_background);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091f76), (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091f75), (int) R.color.CAM_X0105);
             this.a = (GridView) findViewById(R.id.obfuscated_res_0x7f090df2);
             this.a.setAdapter((ListAdapter) new b(this));
             this.a.setOnItemClickListener(this);

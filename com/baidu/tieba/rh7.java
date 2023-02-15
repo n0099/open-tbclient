@@ -668,7 +668,7 @@ public class rh7 {
                 this.d.setNextPage(this.i);
             }
             this.i.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f165d));
+            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f165e));
             this.i.E(onClickListener);
             this.i.g();
         }
@@ -800,7 +800,7 @@ public class rh7 {
                 this.d.setNextPage(this.i);
             }
             this.i.v(ej.g(this.b.getPageActivity(), R.dimen.tbds178));
-            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1660));
+            this.i.F(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1661));
             this.i.E(null);
             this.i.g();
         }

@@ -151,7 +151,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     Intent intent = this.a.a.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f15fa, false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f15fb, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -254,7 +254,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 oe5Var.n(this.a.z);
                 oe5Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f15fc));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f15fd));
             }
         }
     }
@@ -871,7 +871,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EditHeadActivity editHeadActivity = this.b;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f15f8));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f15f9));
             }
         }
 
@@ -1121,7 +1121,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.c.setOnSizeChangedListener(new b(this));
             this.c.setOnImageScrollListener(new c(this));
             this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092003);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092002);
             this.l = button;
             button.setOnClickListener(new e(this));
             Button button2 = (Button) findViewById(R.id.hide_button);
@@ -1132,7 +1132,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.j = addCustomView;
             addCustomView.setOnClickListener(new g(this));
             this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091ee1);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091ee0);
             this.E = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f052f);
             if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
@@ -1142,7 +1142,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.u.setText(R.string.obfuscated_res_0x7f0f03f3);
             }
             this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09037e);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db9);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db8);
             this.p = (RadioButton) findViewById(R.id.beautify_btn);
             this.q = (RadioButton) findViewById(R.id.rotate_btn);
             h hVar = new h(this);

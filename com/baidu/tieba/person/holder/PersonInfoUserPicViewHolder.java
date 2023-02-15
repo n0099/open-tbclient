@@ -50,7 +50,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
         this.c = view2.findViewById(R.id.obfuscated_res_0x7f091802);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233e);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09233d);
     }
 
     public void a(Cdo cdo) {

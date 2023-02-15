@@ -438,7 +438,7 @@ public class wl6 implements EnterForumAdView.c {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(this.a.q);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092357)).setText(this.a.q);
                 this.a.b.getPageContext().getLayoutMode().k(inflate);
                 return inflate;
             }

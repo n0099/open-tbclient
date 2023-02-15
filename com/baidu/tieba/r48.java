@@ -50,19 +50,19 @@ public class r48 {
     public int g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fc9 : R.id.obfuscated_res_0x7f090e80 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fc8 : R.id.obfuscated_res_0x7f090e80 : invokeZ.intValue;
     }
 
     public int h(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fcb : R.id.obfuscated_res_0x7f0915bb : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fca : R.id.obfuscated_res_0x7f0915bb : invokeZ.intValue;
     }
 
     public int i(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fca : R.id.obfuscated_res_0x7f090e82 : invokeZ.intValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) ? z ? R.id.obfuscated_res_0x7f091fc9 : R.id.obfuscated_res_0x7f090e82 : invokeZ.intValue;
     }
 
     /* loaded from: classes6.dex */

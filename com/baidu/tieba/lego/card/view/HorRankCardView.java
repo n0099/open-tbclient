@@ -204,11 +204,11 @@ public class HorRankCardView extends BaseCardView<HorRankCard> {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) null, false);
             this.m = linearLayout;
             this.n = (HorizontalScrollListView) l(linearLayout, R.id.obfuscated_res_0x7f090e97);
-            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d72);
+            this.o = (RelativeLayout) l(this.m, R.id.obfuscated_res_0x7f091d71);
             this.p = (View) l(this.m, R.id.obfuscated_res_0x7f0913b2);
             this.q = (TextView) l(this.m, R.id.obfuscated_res_0x7f090e92);
             this.r = (MoreButton) l(this.m, R.id.right_textview);
-            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091d49);
+            this.s = (ImageView) l(this.m, R.id.obfuscated_res_0x7f091d48);
             this.t = (ImageView) l(this.m, R.id.obfuscated_res_0x7f090850);
             return this.m;
         }

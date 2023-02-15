@@ -747,11 +747,11 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.J = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090f26);
             this.E = inflate.findViewById(R.id.obfuscated_res_0x7f091402);
             this.F = inflate.findViewById(R.id.obfuscated_res_0x7f091403);
-            this.G = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d3);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d4);
+            this.G = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d2);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924d3);
             this.H = textView;
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924be);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0924bd);
             this.I = textView2;
             textView2.setOnClickListener(this);
             this.D.setContentView(inflate);
@@ -862,15 +862,15 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090922);
             this.i = tbImageView;
             tbImageView.setGifIconSupport(false);
-            this.u = findViewById(R.id.obfuscated_res_0x7f091d5b);
+            this.u = findViewById(R.id.obfuscated_res_0x7f091d5a);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0913c6);
             this.v = findViewById2;
             findViewById2.setOnClickListener(this);
             this.u.setOnClickListener(this);
             this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090114);
             this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090117);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee9);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091eea);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee8);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee9);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f6);
             this.l = textView;
             textView.setOnClickListener(null);
@@ -898,7 +898,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             if (pckInfo != null && !StringUtils.isNull(pckInfo.pck_name)) {
                 shareItem.v = this.A.pck_info.pck_name;
             } else {
-                shareItem.v = getString(R.string.obfuscated_res_0x7f0f14c9);
+                shareItem.v = getString(R.string.obfuscated_res_0x7f0f14ca);
             }
             shareItem.w = getString(R.string.obfuscated_res_0x7f0f0dfb);
             shareItem.x = this.a + this.w + "/" + this.A.pic_info.pic_id;

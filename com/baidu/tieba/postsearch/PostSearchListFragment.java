@@ -94,7 +94,7 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public final void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091d29);
+            this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091d28);
         }
     }
 

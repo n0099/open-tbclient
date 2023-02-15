@@ -329,14 +329,14 @@ public class xk8 extends mc6<gk8> {
                 }
                 c0490b.b.K(item.f(), 10, false);
                 c0490b.c.setText(item.c());
-                c0490b.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160c), Integer.valueOf(item.g())));
+                c0490b.d.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160d), Integer.valueOf(item.g())));
                 c0490b.e.setText(item.b());
                 if (item.d() == 2) {
-                    c0490b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160e));
+                    c0490b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160f));
                     c0490b.f.setEnabled(false);
                     c0490b.f.setOnClickListener(null);
                 } else {
-                    c0490b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160d));
+                    c0490b.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160e));
                     c0490b.f.setEnabled(true);
                     c0490b.f.setOnClickListener(new a(this, item));
                 }
@@ -386,11 +386,11 @@ public class xk8 extends mc6<gk8> {
         this.q = findViewById4;
         findViewById4.setOnClickListener(this);
         this.r = this.i.findViewById(R.id.obfuscated_res_0x7f0925e8);
-        this.u = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09235b);
-        this.v = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092282);
+        this.u = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09235a);
+        this.v = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092281);
         this.w = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090ddd);
         this.x = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09258e);
-        this.y = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0923ab);
+        this.y = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0923aa);
         this.z = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092597);
         this.A = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092598);
         this.B = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0925f1);
@@ -447,13 +447,13 @@ public class xk8 extends mc6<gk8> {
                 long b2 = this.I.c().b();
                 long c = this.I.c().c();
                 long j = c - b2;
-                SpannableString spannableString2 = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160a), Long.valueOf(b2), Long.valueOf(c)));
+                SpannableString spannableString2 = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160b), Long.valueOf(b2), Long.valueOf(c)));
                 spannableString2.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), 4, String.valueOf(b2).length() + 4, 18);
                 this.z.setText(spannableString2);
                 if (this.I.c().a() == 10) {
-                    spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1609));
+                    spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160a));
                 } else {
-                    spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160b), Long.valueOf(j)));
+                    spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160c), Long.valueOf(j)));
                     spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), 9, String.valueOf(j).length() + 9, 18);
                 }
                 this.A.setText(spannableString);
@@ -515,13 +515,13 @@ public class xk8 extends mc6<gk8> {
             long b2 = gk8Var.c().b();
             long c = gk8Var.c().c();
             long j = c - b2;
-            SpannableString spannableString2 = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160a), Long.valueOf(b2), Long.valueOf(c)));
+            SpannableString spannableString2 = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160b), Long.valueOf(b2), Long.valueOf(c)));
             spannableString2.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), 4, String.valueOf(b2).length() + 4, 18);
             this.z.setText(spannableString2);
             if (this.I.c().a() == 10) {
-                spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1609));
+                spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160a));
             } else {
-                spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160b), Long.valueOf(j)));
+                spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f160c), Long.valueOf(j)));
                 spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0105)), 9, String.valueOf(j).length() + 9, 18);
             }
             this.A.setText(spannableString);

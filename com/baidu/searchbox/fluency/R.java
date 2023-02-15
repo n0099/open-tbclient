@@ -51,8 +51,8 @@ public final class R {
         public static final int level_middles = 0x7f0913e1;
         public static final int level_normal = 0x7f0913e5;
         public static final int level_normals = 0x7f0913e6;
-        public static final int scene_view = 0x7f091eef;
-        public static final int top_page = 0x7f0923f4;
+        public static final int scene_view = 0x7f091eee;
+        public static final int top_page = 0x7f0923f3;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

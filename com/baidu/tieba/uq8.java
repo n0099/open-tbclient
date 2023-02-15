@@ -263,11 +263,11 @@ public class uq8 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d077c, (ViewGroup) null);
                 b bVar = new b(null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092386);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092385);
                 bVar.b = (TextView) view2.findViewById(R.id.content_text);
                 bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091345);
                 bVar.d = (TextView) view2.findViewById(R.id.user_name);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232b);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09232a);
                 view2.setTag(bVar);
             }
             b bVar2 = (b) view2.getTag();

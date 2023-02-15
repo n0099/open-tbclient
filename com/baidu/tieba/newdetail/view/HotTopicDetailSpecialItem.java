@@ -176,7 +176,7 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ba, (ViewGroup) this, true);
-            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091da1);
+            ViewGroup viewGroup = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091da0);
             this.b = viewGroup;
             viewGroup.setOnClickListener(this);
             this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090762);
@@ -185,7 +185,7 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09264e);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09264f);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0907eb);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09217d);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09217c);
             this.c.setPlaceHolder(2);
             this.c.setRadius(ej.g(getContext(), R.dimen.tbds10));
             this.c.setConrers(15);

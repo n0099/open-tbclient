@@ -195,7 +195,7 @@ public class ConcernRecommendLayout extends LinearLayout implements ay {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f3, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
             this.d = (RecyclerView) findViewById(R.id.thread_card_list);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;

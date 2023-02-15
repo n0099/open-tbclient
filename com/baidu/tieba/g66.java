@@ -202,7 +202,7 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
         t(threadCommentAndPraiseInfoLayout2);
         this.m.setFrom(2);
         this.m.setShareReportFrom(1);
-        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09226c);
+        ThreadSourceShareAndPraiseLayout threadSourceShareAndPraiseLayout = (ThreadSourceShareAndPraiseLayout) h.findViewById(R.id.obfuscated_res_0x7f09226b);
         this.w = threadSourceShareAndPraiseLayout;
         threadSourceShareAndPraiseLayout.b.setOnClickListener(this);
         this.w.b.getCommentContainer().setOnClickListener(this);
@@ -219,7 +219,7 @@ public class g66 extends lc6<ThreadData> implements jd6, lw5 {
         z56 z56Var = new z56(tbPageContext, this.v.getSuffixContainer());
         this.T = z56Var;
         z56Var.d(f());
-        this.G = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09226d);
+        this.G = (FrameLayout) h.findViewById(R.id.obfuscated_res_0x7f09226c);
         this.H = (LinearLayout) h.findViewById(R.id.forum_friends_now_looking);
         this.I = (TextView) h.findViewById(R.id.tv_forum_friends_now_looking);
         this.J = (ImageView) h.findViewById(R.id.image_forum_friends_now_looking);

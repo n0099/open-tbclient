@@ -97,7 +97,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 super.d(str);
                 if (!TextUtils.isEmpty(str)) {
-                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09235b)).setText(str);
+                    ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09235a)).setText(str);
                 }
             }
         }

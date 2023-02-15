@@ -111,7 +111,7 @@ public class rq4 {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d086f, (ViewGroup) null);
             this.b = linearLayout;
             linearLayout.setVisibility(8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092139);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092138);
             this.d = new DecimalFormat("0.0#");
             this.e = this.a.getString(R.string.obfuscated_res_0x7f0f13ff);
         }

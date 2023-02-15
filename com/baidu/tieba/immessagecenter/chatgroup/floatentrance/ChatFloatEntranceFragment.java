@@ -777,14 +777,14 @@ public class ChatFloatEntranceFragment extends BaseFragment implements tg5.b {
                 mVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063a);
                 mVar.i = view2.findViewById(R.id.obfuscated_res_0x7f0913ce);
                 mVar.b = (BaseAdapterViewFlipper) view2.findViewById(R.id.obfuscated_res_0x7f090634);
-                mVar.j = view2.findViewById(R.id.obfuscated_res_0x7f091d64);
+                mVar.j = view2.findViewById(R.id.obfuscated_res_0x7f091d63);
                 mVar.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090640);
                 mVar.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063d);
                 mVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090642);
                 mVar.m = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062a);
                 mVar.o = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09062d);
                 mVar.p = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a81);
-                mVar.l = view2.findViewById(R.id.obfuscated_res_0x7f091fb5);
+                mVar.l = view2.findViewById(R.id.obfuscated_res_0x7f091fb4);
                 mVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902d8);
                 mVar.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cdb);
                 mVar.u = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090636);

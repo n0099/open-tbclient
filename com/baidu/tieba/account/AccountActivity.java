@@ -263,7 +263,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0070, TBAlertConfig.OperateBtnStyle.MAIN);
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getActivity());
                 tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0071);
-                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f151d);
+                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f151e);
                 tBAlertBuilder.u(aVar);
                 tBAlertBuilder.j(false);
                 aVar.a(new a(this, tBAlertBuilder.z()));

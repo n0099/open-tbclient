@@ -1110,12 +1110,12 @@ public class t44 extends c82 implements h94, d83.a {
     public final void A3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09239f);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09239e);
             this.H0 = findViewById;
             findViewById.post(new e(this));
-            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923a1);
-            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923a0);
+            this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923a0);
+            this.J0 = view2.findViewById(R.id.obfuscated_res_0x7f0923a1);
+            this.K0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09239f);
             this.I0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080124));
             this.K0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08010f));
             this.J0.setBackgroundResource(R.color.obfuscated_res_0x7f060391);

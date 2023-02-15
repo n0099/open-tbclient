@@ -1267,7 +1267,7 @@ public class DetailInfoAndReplyFragment extends BaseVideoPBReplyFragment impleme
             this.f.y(J().e4());
             this.f.x(this.g.j());
             this.f.E(this.g.m());
-            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091d18);
+            this.k = this.c.findViewById(R.id.obfuscated_res_0x7f091d17);
             PbListView pbListView = new PbListView(getPageContext().getPageActivity());
             this.h = pbListView;
             View findViewById = pbListView.c().findViewById(R.id.pb_more_view);

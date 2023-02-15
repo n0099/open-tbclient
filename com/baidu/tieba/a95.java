@@ -140,7 +140,7 @@ public class a95 {
                 }
                 return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f1031));
             }
-            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f16c3));
+            return String.format(context.getString(R.string.command_share_paste), context.getString(R.string.obfuscated_res_0x7f0f16c4));
         }
         return (String) invokeIL.objValue;
     }

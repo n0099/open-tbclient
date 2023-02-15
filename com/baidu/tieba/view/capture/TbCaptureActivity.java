@@ -1715,7 +1715,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
         if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (d96Var = this.H) != null) {
             d96Var.setShowDeleteLastTip(false);
             this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a9f));
-            this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c7));
+            this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c8));
         }
     }
 
@@ -1824,7 +1824,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
     public final void n2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.e = findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091db6);
             this.C = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0904e8);
             this.D = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904d8);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904e7);
@@ -1963,7 +1963,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                 if (this.H.b()) {
                     i4 = R.string.obfuscated_res_0x7f0f04d8;
                 } else {
-                    i4 = R.string.obfuscated_res_0x7f0f15c7;
+                    i4 = R.string.obfuscated_res_0x7f0f15c8;
                 }
                 textView.setText(resources2.getString(i4));
             }
@@ -2110,7 +2110,7 @@ public class TbCaptureActivity extends BaseActivity<TbCaptureActivity> {
                     if (d96Var.b()) {
                         this.H.a();
                         this.b.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080a9f));
-                        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c7));
+                        this.r.setText(getResources().getString(R.string.obfuscated_res_0x7f0f15c8));
                         return;
                     }
                     this.H.setShowDeleteLastTip(true);

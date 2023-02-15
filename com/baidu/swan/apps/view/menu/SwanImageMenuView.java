@@ -206,7 +206,7 @@ public class SwanImageMenuView extends FrameLayout implements g83.g {
                     ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091727)).setText(item.e());
                 } else {
                     inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00ce, null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09225c);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09225b);
                     textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f060396));
                     textView.setText(item.e());
                 }

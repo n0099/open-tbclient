@@ -155,11 +155,11 @@ public class o77 {
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setTitleText(R.string.create_bar);
         this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092279);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092278);
-        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920d2);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092278);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092277);
+        this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920d1);
         this.g.setOnClickListener(new b(this));
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092273);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092272);
         this.j = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091779);
         MessageManager.getInstance().registerListener(this.n);
     }

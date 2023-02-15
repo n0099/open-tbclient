@@ -189,7 +189,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                     }
                     this.a.a.setVisibility(8);
                     ForumRankActivity forumRankActivity = this.a;
-                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091db7), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
+                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091db6), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
                     this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                     NewErrorData newErrorData = forumRankData.error;
                     if (newErrorData != null) {
@@ -202,7 +202,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 }
                 this.a.a.setVisibility(8);
                 ForumRankActivity forumRankActivity2 = this.a;
-                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091db7), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
+                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091db6), this.a.getResources().getString(R.string.recommend_pb_no_net_text), true);
                 this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                 this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
             }
@@ -334,7 +334,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 this.a.setBackgroundColor(getResources().getColor(R.color.common_color_10150));
                 this.c.d(true);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091db7), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091db6), i);
             this.h.H(i);
             this.c.i(R.drawable.btn_add_end, R.drawable.btn_add);
             SkinManager.setBackgroundResource(this.g, R.drawable.bg_black_banner_down);
@@ -375,7 +375,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (forumRankModel = this.b) != null) {
             forumRankModel.loadData();
-            hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091db7));
+            hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091db6));
         }
     }
 

@@ -1956,7 +1956,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout implements u97 {
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e89);
             this.m = frameLayout;
             u49.c(frameLayout, 4);
-            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092171);
+            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f092170);
             this.n = customViewPager;
             customViewPager.setForm(1);
             this.o = findViewById(R.id.obfuscated_res_0x7f090863);

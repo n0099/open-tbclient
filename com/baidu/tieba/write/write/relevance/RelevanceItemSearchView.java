@@ -403,9 +403,9 @@ public class RelevanceItemSearchView implements kl5, ViewPager.OnPageChangeListe
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091f1c);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f2d);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091f47);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091f1b);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091f2c);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091f46);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -414,7 +414,7 @@ public class RelevanceItemSearchView implements kl5, ViewPager.OnPageChangeListe
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092177);
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092176);
             this.e = tbTabLayout;
             tbTabLayout.setTabTextSize(ej.g(this.d, R.dimen.tbds46));
             this.e.setSelectedTabTextSize(ej.g(this.d, R.dimen.tbds52));

@@ -152,8 +152,8 @@ public class CategoryView extends LinearLayout {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03eb, this);
             this.b = inflate;
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090682);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09207d);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09207b);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09207c);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09207a);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

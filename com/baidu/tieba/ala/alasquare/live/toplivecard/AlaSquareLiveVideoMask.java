@@ -131,8 +131,8 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e99);
             this.e.setIsRound(true);
             this.e.setAutoChangeStyle(false);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a2);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092498);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0924a1);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092497);
             this.j = (ImageView) this.b.findViewById(R.id.image_video_play);
             NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090226);
             this.k = noActiveStopAlaPlayAnimationView;

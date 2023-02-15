@@ -344,7 +344,7 @@ public class f77 extends v9<MyGiftListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d05f2);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091da0);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091d9f);
             this.f = findViewById;
             this.e = (BdListView) findViewById.findViewById(R.id.obfuscated_res_0x7f091429);
             NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.navigation_bar);
@@ -369,9 +369,9 @@ public class f77 extends v9<MyGiftListActivity> {
             this.g = inflate2;
             inflate2.setVisibility(8);
             this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f092719);
-            this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922ae);
-            this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922b4);
-            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922b5);
+            this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922ad);
+            this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922b3);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922b4);
             this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092714);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.my_ybean);
@@ -380,7 +380,7 @@ public class f77 extends v9<MyGiftListActivity> {
                 this.p.setText(R.string.my_tdou);
                 this.o.setText(R.string.get_tdou);
             }
-            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922ad);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0922ac);
             this.o.setOnClickListener(this.z);
             View inflate3 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05f3, (ViewGroup) null, false);
             this.i = inflate3;

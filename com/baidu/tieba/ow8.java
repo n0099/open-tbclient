@@ -724,16 +724,16 @@ public class ow8 implements View.OnClickListener {
         this.h = new ArrayList();
         View B = B();
         this.b = B;
-        this.c = B.findViewById(R.id.obfuscated_res_0x7f091fbb);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fbc);
+        this.c = B.findViewById(R.id.obfuscated_res_0x7f091fba);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fbb);
         String sharePanelText = TbSingleton.getInstance().getSharePanelText();
         if (!TextUtils.isEmpty(sharePanelText)) {
             this.d.setText(sharePanelText);
         }
-        ShareScrollableLayout shareScrollableLayout = (ShareScrollableLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fdd);
+        ShareScrollableLayout shareScrollableLayout = (ShareScrollableLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fdc);
         this.e = shareScrollableLayout;
         if (shareScrollableLayout == null) {
-            ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fc0);
+            ShareGridLayout shareGridLayout = (ShareGridLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091fbf);
             this.f = shareGridLayout;
             ViewGroup.LayoutParams layoutParams = shareGridLayout.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {

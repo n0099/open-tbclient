@@ -240,10 +240,10 @@ public class aj7 extends BaseExpandableListAdapter {
         }
         if (i == 10) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1530));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1531));
         } else if (i == 11) {
             textView.setVisibility(0);
-            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f152f));
+            textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1530));
         } else {
             textView.setVisibility(8);
         }

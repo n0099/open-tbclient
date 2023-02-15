@@ -517,8 +517,8 @@ public class q57 extends BaseAdapter implements d37 {
                     gVar.b = view2;
                     gVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bf2);
                     gVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf3);
-                    gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ec);
-                    gVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ea);
+                    gVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923eb);
+                    gVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e9);
                     view2.setTag(gVar);
                 }
                 m(gVar, (Cdo) ListUtils.getItem(this.a, i));
@@ -529,10 +529,10 @@ public class q57 extends BaseAdapter implements d37 {
                     fVar = new f(this);
                     view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0325, (ViewGroup) null, false);
                     fVar.b = view2;
-                    fVar.f = view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
-                    fVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ec);
-                    fVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923eb);
-                    fVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ea);
+                    fVar.f = view2.findViewById(R.id.obfuscated_res_0x7f0923ec);
+                    fVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923eb);
+                    fVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ea);
+                    fVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e9);
                     view2.setTag(fVar);
                 }
                 Cdo cdo = (Cdo) ListUtils.getItem(this.a, i);
@@ -579,7 +579,7 @@ public class q57 extends BaseAdapter implements d37 {
     public final void j(f fVar, ThreadData threadData, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLI(1048583, this, fVar, threadData, i) == null) && fVar != null && threadData != null) {
-            fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f151f));
+            fVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1520));
             u27.b(fVar.d, this.h);
             threadData.parserTitleFrsForTop();
             SpannableStringBuilder span_str = threadData.getSpan_str();
@@ -643,7 +643,7 @@ public class q57 extends BaseAdapter implements d37 {
                     span_str = new SpannableStringBuilder(threadData.getAbstractText());
                     TiePlusEventController.i(threadData.getTiePlusLinkOriginData());
                 }
-                gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f151f));
+                gVar.d.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1520));
                 gVar.c.setOnTouchListener(new ue9(span_str));
                 gVar.c.setText(span_str);
                 if (StringUtils.isNull(this.i)) {

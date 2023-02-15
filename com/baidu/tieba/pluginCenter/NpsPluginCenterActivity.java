@@ -145,7 +145,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f03);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f02);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");

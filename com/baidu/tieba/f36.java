@@ -80,7 +80,7 @@ public class f36 extends mc6<d26> {
             int[] b = u16.b(getContext());
             int i = b[0];
             int i2 = b[1];
-            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f0920b3);
+            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f0920b2);
             this.j = tabLiveStageLiveView;
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
             if (layoutParams == null) {

@@ -54,7 +54,7 @@ public class ConcernEmotionTipAdapter extends qn<h97, ConcernEmotionTipViewHolde
             this.d = 3;
             this.a = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0914e7);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910ef);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924ca);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c9);
         }
 
         public void a(int i, int i2) {

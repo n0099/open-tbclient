@@ -1444,7 +1444,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091b4a);
             this.E = findViewById(R.id.obfuscated_res_0x7f0918c7);
             this.F = findViewById(R.id.obfuscated_res_0x7f09061b);
-            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092357);
+            this.d = (TipView) findViewById(R.id.obfuscated_res_0x7f092356);
             this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09061c);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c8);
             DigitalBankPayView digitalBankPayView = (DigitalBankPayView) findViewById(R.id.obfuscated_res_0x7f091b2d);

@@ -65,7 +65,7 @@ public class PersonTabView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (view2.getId() == R.id.obfuscated_res_0x7f091587) {
                     this.a.setCurrentTab(0);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d05) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d04) {
                     this.a.setCurrentTab(1);
                 }
                 if (this.a.k != null) {
@@ -108,13 +108,13 @@ public class PersonTabView extends LinearLayout {
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091587);
             this.b = textView;
             textView.setOnClickListener(this.l);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d05);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d04);
             this.c = textView2;
             textView2.setOnClickListener(this.l);
             this.d = findViewById(R.id.obfuscated_res_0x7f091588);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091d07);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091d06);
             this.f = findViewById(R.id.obfuscated_res_0x7f091586);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091d06);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091d05);
             setCurrentTab(0);
         }
     }

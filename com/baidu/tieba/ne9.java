@@ -246,7 +246,7 @@ public class ne9 {
         View inflate = LayoutInflater.from(context).inflate(R.layout.bottom_up_list_dialog_view, (ViewGroup) null);
         this.b = inflate;
         this.c = (LinearLayout) inflate.findViewById(R.id.content_view);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235a);
         this.e = this.b.findViewById(R.id.title_divide_line);
         this.h = new ArrayList();
         this.f = (TextView) this.b.findViewById(R.id.dialog_bottom_cancel_button);

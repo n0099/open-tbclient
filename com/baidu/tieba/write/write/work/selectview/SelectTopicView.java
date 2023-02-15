@@ -212,7 +212,7 @@ public class SelectTopicView extends LinearLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090603);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091d4e);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091d4d);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);

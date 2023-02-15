@@ -178,7 +178,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09235b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09235a);
             this.a = textView;
             if (textView != null) {
                 p15 d = p15.d(textView);

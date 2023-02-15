@@ -487,7 +487,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r.size() >= this.a.C) {
                 BdTopToast bdTopToast = new BdTopToast(this.a.getPageContext().getPageActivity());
                 bdTopToast.h(false);
-                bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f1528));
+                bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f1529));
                 bdTopToast.i((ViewGroup) this.a.getPageContext().getPageActivity().findViewById(R.id.suspend_root_view));
             }
         }
@@ -563,7 +563,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     public final void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091f3f);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091f3e);
             this.t = editText;
             editText.setCompoundDrawablePadding(ej.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070303));
             this.t.setOnFocusChangeListener(new h(this));
@@ -681,7 +681,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             } else if (this.r.size() >= this.C) {
                 BdTopToast bdTopToast2 = new BdTopToast(this);
                 bdTopToast2.h(false);
-                bdTopToast2.g(getString(R.string.obfuscated_res_0x7f0f1528));
+                bdTopToast2.g(getString(R.string.obfuscated_res_0x7f0f1529));
                 bdTopToast2.i((ViewGroup) findViewById(R.id.suspend_root_view));
             } else {
                 this.r.add(str);
@@ -877,11 +877,11 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090b66);
             this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09271b);
-            this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f092443);
+            this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f092442);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926fa);
             this.B = textView;
             textView.setText(String.format("(%d/%d)", Integer.valueOf(this.r.size()), Integer.valueOf(this.C)));
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092457);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092456);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f090685);
             this.m = findViewById(R.id.obfuscated_res_0x7f090e8a);
             this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090e84);
@@ -929,7 +929,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, linearLayout, navigationBar)) == null) {
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f16e9));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f16ea));
             this.y = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f052f));
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03b4, (ViewGroup) linearLayout, true);
             return this;

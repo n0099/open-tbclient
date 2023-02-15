@@ -358,7 +358,7 @@ public class BarFolderFirstDirActivity extends BaseActivity<BarFolderFirstDirAct
             if (viewGroup != null) {
                 ViewHelper.processSkin(viewGroup, i);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091db7), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091db6), i);
         }
     }
 

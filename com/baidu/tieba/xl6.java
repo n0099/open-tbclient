@@ -107,7 +107,7 @@ public class xl6 extends ej5<qj6, sj6> {
         }
         this.m = false;
         this.f = tbPageContext;
-        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09235b);
+        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09235a);
         this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c4);
         this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904b4);
         RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.recycler_view);

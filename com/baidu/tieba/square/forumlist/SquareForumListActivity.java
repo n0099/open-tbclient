@@ -424,7 +424,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0821);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f09208e);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f09208d);
             if (this.mPageType == 1) {
                 i = R.string.obfuscated_res_0x7f0f12ae;
             } else {

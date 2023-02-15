@@ -514,7 +514,7 @@ public class jk9 extends xj9<jl9> implements rk9, sk9 {
             this.c = inflate;
             this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091b56);
             this.h = (TbAlphaVideo) this.c.findViewById(R.id.obfuscated_res_0x7f09014b);
-            RichTextEditor richTextEditor = (RichTextEditor) this.c.findViewById(R.id.obfuscated_res_0x7f091d3f);
+            RichTextEditor richTextEditor = (RichTextEditor) this.c.findViewById(R.id.obfuscated_res_0x7f091d3e);
             this.t = richTextEditor;
             richTextEditor.setWriteImagesInfo(this.v.g());
             this.t.setOutImageOperateListener(this.w);

@@ -261,7 +261,7 @@ public class BottomSheetDialog extends AppCompatDialog {
             } else {
                 frameLayout.addView(view2, layoutParams);
             }
-            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f092469).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+            coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f092468).setOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BottomSheetDialog this$0;

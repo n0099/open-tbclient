@@ -185,7 +185,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                         String address = reverseGeoCodeResult.getAddress();
                         de4 de4Var = this.a;
                         if (address == null) {
-                            address = de4Var.getResources().getString(R.string.obfuscated_res_0x7f0f15e4);
+                            address = de4Var.getResources().getString(R.string.obfuscated_res_0x7f0f15e5);
                         }
                         de4Var.L0 = address;
                         this.a.O0.setText(this.a.L0);
@@ -194,7 +194,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                         String sematicDescription = reverseGeoCodeResult.getSematicDescription();
                         de4 de4Var2 = this.a;
                         if (sematicDescription == null) {
-                            sematicDescription = de4Var2.getResources().getString(R.string.obfuscated_res_0x7f0f15e4);
+                            sematicDescription = de4Var2.getResources().getString(R.string.obfuscated_res_0x7f0f15e5);
                         }
                         de4Var2.K0 = sematicDescription;
                         this.a.N0.setText(this.a.K0);
@@ -202,7 +202,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                     w52.i("map", "mAddress +" + this.a.L0 + " mName" + this.a.K0);
                     return;
                 }
-                this.a.N0.setText(R.string.obfuscated_res_0x7f0f15e4);
+                this.a.N0.setText(R.string.obfuscated_res_0x7f0f15e5);
             }
         }
     }
@@ -620,7 +620,7 @@ public class de4 extends c82 implements BaiduMap.OnMapLoadedCallback, BaiduMap.O
                 if (TextUtils.isEmpty(this.L0)) {
                     q3(latLng);
                 } else {
-                    this.K0 = getResources().getString(R.string.obfuscated_res_0x7f0f15e3);
+                    this.K0 = getResources().getString(R.string.obfuscated_res_0x7f0f15e4);
                 }
             }
             this.H0.setMapStatus(MapStatusUpdateFactory.newLatLng(latLng));

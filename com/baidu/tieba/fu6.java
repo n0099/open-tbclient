@@ -90,10 +90,10 @@ public class fu6 implements qs6.d {
         this.n = new a(this);
         this.a = tbPageContext;
         this.b = view2;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b5);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b4);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090728);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f95);
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091ff2);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f94);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091ff1);
         this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c7a);
         ImageView imageView = (ImageView) view2.findViewById(R.id.close_button);
         this.j = imageView;

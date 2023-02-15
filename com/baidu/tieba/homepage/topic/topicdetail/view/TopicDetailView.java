@@ -831,13 +831,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.y = i2;
             this.r.setVisibility(0);
             if (i2 == 1) {
-                this.r.setText(R.string.obfuscated_res_0x7f0f1525);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1526);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_support_bg);
             } else if (i2 == 2) {
-                this.r.setText(R.string.obfuscated_res_0x7f0f1524);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1525);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_oppose_bg);
             } else {
-                this.r.setText(R.string.obfuscated_res_0x7f0f1523);
+                this.r.setText(R.string.obfuscated_res_0x7f0f1524);
                 SkinManager.setBackgroundResource(this.r, R.drawable.topic_discuss_opinion_bg);
             }
             int i3 = this.a;
@@ -889,7 +889,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.s.b().setBarBackgroundColorId(R.color.CAM_X0207);
             this.s.v((BaseActivity) getContext(), bundle);
             this.s.u();
-            this.s.b().setId(R.id.obfuscated_res_0x7f092417);
+            this.s.b().setId(R.id.obfuscated_res_0x7f092416);
             EditText g2 = this.s.o().g();
             this.v = g2;
             g2.addTextChangedListener(new e(this));
@@ -991,7 +991,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.l = noNetworkView;
             noNetworkView.a(this.D);
             this.p = findViewById(R.id.obfuscated_res_0x7f091903);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092418);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092417);
             this.q = textView;
             textView.setOnClickListener(new c(this));
             this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0908e2);

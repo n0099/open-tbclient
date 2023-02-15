@@ -936,7 +936,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
             }
             B(false);
             this.c.getLayer1().setVisibility(8);
-            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f1656));
+            this.c.getTvTip().setText(getResources().getText(R.string.obfuscated_res_0x7f0f1657));
             this.c.getTvTip().setVisibility(0);
             f fVar = this.k;
             if (fVar != null) {
@@ -953,7 +953,7 @@ public class VideoControllerLayout extends RelativeLayout implements View.OnClic
                 this.c.setAlpha(1.0f);
                 this.a.setVisibility(8);
                 this.d.setVisibility(8);
-                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f1657));
+                this.c.getTvTip().setText(getResources().getString(R.string.obfuscated_res_0x7f0f1658));
                 pc9 pc9Var = this.e;
                 if (pc9Var != null) {
                     pc9Var.n();

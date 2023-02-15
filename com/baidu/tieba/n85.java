@@ -241,7 +241,7 @@ public class n85 implements j85 {
                 p15.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f090edf)).f(R.color.CAM_X0208);
                 p15.d((WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091632)).f(R.color.CAM_X0208);
                 SkinManager.setBackgroundColor(findViewById4, R.color.CAM_X0208);
-                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232d), R.color.CAM_X0306);
+                SkinManager.setBackgroundColor((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09232c), R.color.CAM_X0306);
                 p15 d = p15.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X05);

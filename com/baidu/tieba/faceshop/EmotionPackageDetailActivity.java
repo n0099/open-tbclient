@@ -1373,7 +1373,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             findViewById.setOnClickListener(this);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913c9);
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d4);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091d5b);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091d5a);
             this.A = findViewById2;
             findViewById2.setOnClickListener(this);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f091898);

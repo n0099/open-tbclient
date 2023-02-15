@@ -281,9 +281,9 @@ public class v79 {
             return;
         }
         j05 j05Var = new j05(tbPageContext.getPageActivity());
-        j05Var.setMessageId(R.string.obfuscated_res_0x7f0f14ef);
+        j05Var.setMessageId(R.string.obfuscated_res_0x7f0f14f0);
         j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new d(j05Var));
-        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14ee, new e(j05Var, str, tbPageContext));
+        j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14ef, new e(j05Var, str, tbPageContext));
         j05Var.create(tbPageContext);
         j05Var.show();
     }

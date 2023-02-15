@@ -466,7 +466,7 @@ public class ff8 {
         this.h = view2;
         this.i = view3;
         this.j = view4;
-        this.k = view4.findViewById(R.id.obfuscated_res_0x7f0920d7);
+        this.k = view4.findViewById(R.id.obfuscated_res_0x7f0920d6);
         this.n = UtilHelper.canUseStyleImmersiveSticky();
         j();
         v(false);

@@ -138,10 +138,10 @@ public class m57 extends ef5 {
                 if (view2 == null) {
                     view2 = LayoutInflater.from(this.b.e.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07af, (ViewGroup) null);
                     bVar = new b();
-                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091db7);
+                    bVar.f = view2.findViewById(R.id.obfuscated_res_0x7f091db6);
                     bVar.a = (TextView) view2.findViewById(R.id.forum_name);
                     bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac9);
-                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092304);
+                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092303);
                     bVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c5);
                     bVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e4e);
                     bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ac8);

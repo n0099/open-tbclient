@@ -111,7 +111,7 @@ public class f78 extends e78 {
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09104a);
             this.b = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091040);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09104c);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f89);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f88);
             this.e = view2.findViewById(R.id.obfuscated_res_0x7f091041);
             int l = ej.l(TbadkCoreApplication.getInst()) / 5;
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l, l);

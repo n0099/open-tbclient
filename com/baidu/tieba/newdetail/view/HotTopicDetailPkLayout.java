@@ -469,8 +469,8 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 this.b = (TbPageContext) a2;
             }
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03b9, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09217d);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092361);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09217c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092360);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0907eb);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091af3);
             this.f = textView;

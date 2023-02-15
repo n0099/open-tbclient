@@ -125,8 +125,8 @@ public class z28 {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0896, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09220e);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09220d);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09220d);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09220c);
             this.d = textView;
             textView.setTag(this);
             return this.a;

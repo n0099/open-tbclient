@@ -794,11 +794,11 @@ public class tb9 extends v9 {
             this.i = z;
             if (z) {
                 this.g.setSelected(false);
-                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1666));
+                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1667));
                 return;
             }
             this.g.setSelected(true);
-            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1665));
+            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1666));
         }
     }
 

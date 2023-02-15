@@ -75,13 +75,13 @@ public class AddrPagerListAdapter extends RecyclerView.Adapter<AddressSelectorHo
                 }
             }
             this.mItemView = view2;
-            this.mLlAddressItem = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ea9);
-            this.mTvCityCategory = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec4);
-            this.mTvAddressPy = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec8);
-            this.mTvAddressName = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec7);
-            this.mTvAddressHot = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec6);
-            this.mLlHotGroup = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e86);
-            this.mTvAddressChecked = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
+            this.mLlAddressItem = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ea8);
+            this.mTvCityCategory = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec3);
+            this.mTvAddressPy = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec7);
+            this.mTvAddressName = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec6);
+            this.mTvAddressHot = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
+            this.mLlHotGroup = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e85);
+            this.mTvAddressChecked = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ec4);
             Resources resources = view2.getContext().getResources();
             if (z) {
                 this.mTvAddressHot.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a17));

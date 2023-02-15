@@ -338,7 +338,7 @@ public final class hna {
             View findViewById = window.findViewById(R.id.tv_title);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "window.findViewById<TextView>(R.id.tv_title)");
             ((TextView) findViewById).setText(str);
-            window.findViewById(R.id.obfuscated_res_0x7f091d8b).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, inaVar));
+            window.findViewById(R.id.obfuscated_res_0x7f091d8a).setOnClickListener(new a(payDialogType, dialog, iViewEventListener, inaVar));
             ((Button) window.findViewById(R.id.btn_close)).setOnClickListener(new b(payDialogType, dialog, iViewEventListener, inaVar));
             ((ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f090718)).addView(view2);
         }

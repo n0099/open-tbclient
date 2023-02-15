@@ -197,12 +197,12 @@ public class rc9 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d054d, (ViewGroup) null);
                 cVar = new c(this);
-                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f6);
+                cVar.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
                 cVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090409);
                 cVar.a = (RelativeLayout) view2.findViewById(R.id.top_container);
                 cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917ed);
                 cVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0903ef);
-                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
+                cVar.e = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f0923f4);
                 cVar.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f090405);
                 view2.setTag(cVar);
             } else {

@@ -119,7 +119,7 @@ public class j48 extends i48 {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z) {
-                ej.P(this.a.d.getPageActivity(), R.string.obfuscated_res_0x7f0f15c9);
+                ej.P(this.a.d.getPageActivity(), R.string.obfuscated_res_0x7f0f15ca);
             }
         }
     }
@@ -380,7 +380,7 @@ public class j48 extends i48 {
                     cVar.b.setClickable(false);
                     ((ViewGroup.MarginLayoutParams) cVar.b.getLayoutParams()).setMargins(ej.g(this.d.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, 0, 0);
                     cVar.f = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091015);
-                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921f1);
+                    cVar.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0921f0);
                     EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091727);
                     cVar.c = eMTextView;
                     eMTextView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, cVar));

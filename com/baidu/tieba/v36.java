@@ -340,8 +340,8 @@ public class v36 {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d082e, (ViewGroup) null);
             this.c = inflate;
             inflate.setPadding(0, (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275), 0, 0);
-            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0920a3);
-            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a4);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0920a2);
+            this.e = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a3);
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 colorDrawable = new ColorDrawable(this.a.getPageContext().getResources().getColor(R.color.CAM_X0204_1));
             } else {
@@ -349,7 +349,7 @@ public class v36 {
             }
             this.e.setDivider(colorDrawable);
             this.e.setDividerHeight(this.a.getActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a5);
+            this.f = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0920a4);
             z35 z35Var = new z35(this.b);
             this.h = z35Var;
             z35Var.a0(this.a.getUniqueId());

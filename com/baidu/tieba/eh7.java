@@ -223,7 +223,7 @@ public class eh7 extends mc6<bh7> {
             if (bh7Var.V == 0) {
                 this.n.setText(MemberPayResult.VipPayPrivilegeData.NEW_TIP_TEXT);
             } else {
-                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f1529), StringHelper.numberUniformFormat(bh7Var.V)));
+                this.n.setText(String.format(this.b.getString(R.string.obfuscated_res_0x7f0f152a), StringHelper.numberUniformFormat(bh7Var.V)));
             }
             if (bh7Var.Y == null) {
                 this.t.setVisibility(8);

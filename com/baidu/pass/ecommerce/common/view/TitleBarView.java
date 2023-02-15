@@ -111,10 +111,10 @@ public class TitleBarView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04ef, (ViewGroup) this, true);
-            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ebf);
-            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ebe);
-            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec1);
-            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec0);
+            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ebe);
+            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ebd);
+            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ec0);
+            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ebf);
         }
     }
 

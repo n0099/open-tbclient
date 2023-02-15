@@ -209,7 +209,7 @@ public class ms6 {
             j05Var2.setContentViewSize(1);
             this.a.setNegativeTextColor(R.color.CAM_X0105);
             View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.call_fans_dialog_content, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a);
             this.b = textView;
             textView.setText(R.string.frs_recommend_thread_sure_title);
             this.c = (TextView) inflate.findViewById(R.id.call_fans_intro);

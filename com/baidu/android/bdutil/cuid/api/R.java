@@ -187,13 +187,13 @@ public final class R {
         public static final int notification_background = 0x7f091812;
         public static final int notification_main_column = 0x7f091814;
         public static final int notification_main_column_container = 0x7f091815;
-        public static final int right_icon = 0x7f091d5c;
-        public static final int right_side = 0x7f091d63;
-        public static final int status_bar_latest_event_content = 0x7f0920d1;
-        public static final int text = 0x7f09225c;
-        public static final int text2 = 0x7f09225d;
-        public static final int time = 0x7f092326;
-        public static final int title = 0x7f09235b;
+        public static final int right_icon = 0x7f091d5b;
+        public static final int right_side = 0x7f091d62;
+        public static final int status_bar_latest_event_content = 0x7f0920d0;
+        public static final int text = 0x7f09225b;
+        public static final int text2 = 0x7f09225c;
+        public static final int time = 0x7f092325;
+        public static final int title = 0x7f09235a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

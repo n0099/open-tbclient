@@ -288,7 +288,7 @@ public class b83 extends v73 {
             }
             this.l = viewGroup;
             this.j = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237e);
+            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09237d);
             this.a = (TextView) viewGroup.findViewById(R.id.positive_button);
             this.b = (TextView) viewGroup.findViewById(R.id.negative_button);
             this.d = viewGroup.findViewById(R.id.dialog_customPanel);

@@ -335,7 +335,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 g58.f(this.a.c, "c14389");
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f152d);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f152e);
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004011));
@@ -1053,7 +1053,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d003b, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923ca);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923c9);
             this.e = findViewById;
             findViewById.setAlpha(0.0f);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0926f5);
@@ -1063,7 +1063,7 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
             ImageView imageView = (ImageView) this.f.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03c4, new e(this));
             this.g = imageView;
             imageView.setVisibility(4);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0920cf);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0920ce);
             ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
             layoutParams.height = this.b;
             findViewById2.setLayoutParams(layoutParams);
@@ -1091,13 +1091,13 @@ public class HotTopicDetailView extends RelativeLayout implements f58 {
             this.y = hotTopicDetailPagerAdapter;
             hotTopicDetailPagerAdapter.q(this.B);
             this.x.setAdapter(this.y);
-            TbTabLayout tbTabLayout = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092154);
+            TbTabLayout tbTabLayout = (TbTabLayout) findViewById(R.id.obfuscated_res_0x7f092153);
             this.z = tbTabLayout;
             tbTabLayout.setSelectedTabTextBlod(true);
             this.z.setTabTextSize(ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds46));
             this.z.setupWithViewPager(this.x);
             this.A = findViewById(R.id.obfuscated_res_0x7f090855);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09243d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09243c);
             this.n = textView;
             this.w = new di7(textView, this.c);
             int skinType = TbadkCoreApplication.getInst().getSkinType();

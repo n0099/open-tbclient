@@ -73,9 +73,9 @@ public class i89 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0132, (ViewGroup) null);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09226a);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092269);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09038d);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092269);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092268);
             c();
         }
     }

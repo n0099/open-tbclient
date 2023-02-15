@@ -429,7 +429,7 @@ public class ne4 extends c82 implements ie4, OnGetPoiSearchResultListener, View.
                 }
                 this.U0 = string;
             }
-            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091f47);
+            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091f46);
             this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f09152f);
             this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f0917ec);
             this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904c1);

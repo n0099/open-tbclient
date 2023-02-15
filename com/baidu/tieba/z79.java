@@ -64,7 +64,7 @@ public class z79 extends v9<AvatarPendantActivity> {
         this.f = 0;
         this.i = avatarPendantActivity;
         avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d0129);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091db7);
+        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091db6);
         this.f = ej.g(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029f);
         this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090314);
         this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);

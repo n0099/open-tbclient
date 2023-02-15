@@ -1717,7 +1717,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091db6);
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0908cc);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0904dd);

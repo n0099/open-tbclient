@@ -97,7 +97,7 @@ public class FeedbackTitleBar extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d01ec, (ViewGroup) this, true);
-            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092394);
+            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092393);
             this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091739);
             ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091738);
             TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09173a);

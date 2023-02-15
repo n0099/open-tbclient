@@ -430,7 +430,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db6);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -448,7 +448,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f76);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092271);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092270);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
             findViewById(R.id.obfuscated_res_0x7f0903c3).setOnTouchListener(new b(this));

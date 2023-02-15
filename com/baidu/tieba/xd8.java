@@ -318,7 +318,7 @@ public class xd8 {
                 return null;
             }
             if (threadData.getBJHContentTag() == 1) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1768);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1769);
             } else if (threadData.getBJHContentTag() == 2) {
                 str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1253);
             } else {

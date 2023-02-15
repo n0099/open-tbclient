@@ -443,7 +443,7 @@ public final class gna {
             ((TextView) findViewById).setText(str);
             ViewGroup viewGroup = (ViewGroup) window.findViewById(R.id.obfuscated_res_0x7f090718);
             Button button = (Button) window.findViewById(R.id.btn_close);
-            View findViewById2 = window.findViewById(R.id.obfuscated_res_0x7f091d8b);
+            View findViewById2 = window.findViewById(R.id.obfuscated_res_0x7f091d8a);
             View findViewById3 = window.findViewById(R.id.ll_content);
             if (payUIKitConfig != null) {
                 if (rma.a.b(payUIKitConfig)) {

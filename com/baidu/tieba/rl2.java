@@ -250,7 +250,7 @@ public final class rl2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{activity, w83Var, str, list, fVar, onCancelListener})) == null) {
             View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d0855, null);
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09210d);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09210c);
             Resources resources = activity.getResources();
             if (swanAppRoundedImageView != null) {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, qm3.i(w83Var.W(), "SwanSubscribeMsgDialog", false)));
@@ -258,9 +258,9 @@ public final class rl2 {
             }
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f6);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f7);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09210f)).setText(w83Var.Z());
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(str);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09224e);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09210e)).setText(w83Var.Z());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092357)).setText(str);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09224d);
             ArrayList arrayList = new ArrayList(list);
             if (list.size() > 0) {
                 for (sl2 sl2Var : list) {

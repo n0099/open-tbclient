@@ -275,7 +275,7 @@ public class jy8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             View inflate = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fc, (ViewGroup) null);
-            NoDataView a2 = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09200e), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, this.c.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.e.d(null, this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0d1e)), null);
+            NoDataView a2 = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09200d), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, this.c.getResources().getDimensionPixelSize(R.dimen.tbds90)), NoDataViewFactory.e.d(null, this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0d1e)), null);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             qv4 layoutMode = this.c.getLayoutMode();
             boolean z = true;
@@ -299,29 +299,29 @@ public class jy8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
             if (i == 0) {
                 View inflate = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ff, (ViewGroup) null);
                 c cVar = new c(this);
-                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092021);
+                BarImageView barImageView = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092020);
                 cVar.a = barImageView;
                 barImageView.setIsRound(false);
                 cVar.a.setGifIconSupport(false);
-                cVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092028);
-                cVar.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092026);
-                cVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092024);
-                cVar.f = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092029);
-                cVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092022);
-                cVar.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09202a);
-                cVar.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09202b);
-                cVar.j = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f09202d);
-                cVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09202e);
-                cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092023);
-                cVar.b = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092027);
-                cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092025);
+                cVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092027);
+                cVar.d = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092025);
+                cVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092023);
+                cVar.f = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092028);
+                cVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092021);
+                cVar.h = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092029);
+                cVar.i = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09202a);
+                cVar.j = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f09202c);
+                cVar.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09202d);
+                cVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092022);
+                cVar.b = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092026);
+                cVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092024);
                 inflate.setTag(cVar);
                 return inflate;
             }
             View inflate2 = LayoutInflater.from(this.c.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fe, (ViewGroup) null);
             b bVar = new b(this);
-            bVar.a = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09201f);
-            bVar.b = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09201e);
+            bVar.a = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09201e);
+            bVar.b = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09201d);
             inflate2.setTag(bVar);
             return inflate2;
         }
@@ -461,7 +461,7 @@ public class jy8 extends BaseAdapter implements AbsListView.OnScrollListener, Si
                     z = false;
                 }
                 layoutMode.l(z);
-                this.c.getLayoutMode().k(view2.findViewById(R.id.obfuscated_res_0x7f092010));
+                this.c.getLayoutMode().k(view2.findViewById(R.id.obfuscated_res_0x7f09200f));
                 bVar.a.setText(((ey8) getItem(i)).x());
                 j(bVar.b, i);
             } else {

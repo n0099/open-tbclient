@@ -380,7 +380,7 @@ public class MessageCardBottomView extends LinearLayout {
             d.v(R.color.CAM_X0301);
             return;
         }
-        this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1513));
+        this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1514));
         p15 d2 = p15.d(this.g);
         d2.A(R.string.F_X01);
         d2.z(R.dimen.T_X08);

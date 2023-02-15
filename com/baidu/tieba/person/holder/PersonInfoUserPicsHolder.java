@@ -56,7 +56,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.a = view2;
         this.g = tbPageContext;
         this.b = view2.findViewById(R.id.obfuscated_res_0x7f090879);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229f);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229e);
         HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091436);
         this.d = hTypeListView;
         this.e = new zi8(this.g, hTypeListView);

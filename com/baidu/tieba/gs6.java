@@ -338,7 +338,7 @@ public class gs6 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
                 View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358)).setText(R.string.obfuscated_res_0x7f0f07c2);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092357)).setText(R.string.obfuscated_res_0x7f0f07c2);
                 this.a.a.getPageContext().getLayoutMode().k(inflate);
                 return inflate;
             }
@@ -1968,7 +1968,7 @@ public class gs6 {
         }
         View L3 = this.a.L3();
         this.O = (GifView) L3.findViewById(R.id.obfuscated_res_0x7f090d47);
-        TbImageView tbImageView = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f092248);
+        TbImageView tbImageView = (TbImageView) L3.findViewById(R.id.obfuscated_res_0x7f092247);
         this.P = tbImageView;
         tbImageView.setPageId(this.a.getUniqueId());
         this.O.setLayerType(1, null);
@@ -2114,7 +2114,7 @@ public class gs6 {
                 this.W = observedChangeLinearLayout;
                 observedChangeLinearLayout.setOnSizeChangeListener(new j(this));
                 if (this.X == null) {
-                    this.X = (FrsTopBarGroupEntranceGuideView) this.W.findViewById(R.id.obfuscated_res_0x7f092406);
+                    this.X = (FrsTopBarGroupEntranceGuideView) this.W.findViewById(R.id.obfuscated_res_0x7f092405);
                 }
             }
             this.C.h(this.a, L3, this.y);
@@ -2238,10 +2238,10 @@ public class gs6 {
                 t1(true);
             }
             if (this.U == null) {
-                this.U = L3.findViewById(R.id.obfuscated_res_0x7f0920ca);
+                this.U = L3.findViewById(R.id.obfuscated_res_0x7f0920c9);
             }
             if (this.V == null) {
-                this.V = L3.findViewById(R.id.obfuscated_res_0x7f0920cb);
+                this.V = L3.findViewById(R.id.obfuscated_res_0x7f0920ca);
             }
             if (this.R == null) {
                 this.R = new fp8(this.a.getPageContext(), this.u);

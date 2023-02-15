@@ -277,7 +277,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, qm9.b, BdL
                 this.b.getActivity().finish();
                 return;
             }
-            ej.P(this.b.getContext(), R.string.obfuscated_res_0x7f0f16f8);
+            ej.P(this.b.getContext(), R.string.obfuscated_res_0x7f0f16f9);
         }
     }
 

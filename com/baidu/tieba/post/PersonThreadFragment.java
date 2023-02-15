@@ -893,7 +893,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0760, viewGroup, false);
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091db6);
             jq8 jq8Var = new jq8(getActivity(), inflate);
             this.b = jq8Var;
             if (jq8Var.g() == null) {

@@ -1684,7 +1684,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 i2 = 0;
             }
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(getActivity());
-            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f1622);
+            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f1623);
             tBAlertBuilder.q(String.format(getString(R.string.obfuscated_res_0x7f0f0d1a), Integer.valueOf(i2)));
             tBAlertBuilder.u(aVar);
             tBAlertBuilder.j(true);
@@ -2424,7 +2424,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                             return;
                         } else if (view2 == this.w0) {
                             if (this.u0 != null && this.r0 != null) {
-                                ui.a(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1514), TbadkCoreApplication.getCurrentAccountNameShow(), this.u0.getText().toString()));
+                                ui.a(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f1515), TbadkCoreApplication.getCurrentAccountNameShow(), this.u0.getText().toString()));
                                 BdTopToast bdTopToast = new BdTopToast(this, 3000);
                                 bdTopToast.h(true);
                                 bdTopToast.g(getResources().getString(R.string.copy_success));
@@ -2543,7 +2543,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
                 this.w0.setVisibility(8);
             }
             if (StringUtils.isNull(this.B.K().getName())) {
-                this.r0.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f14f0));
+                this.r0.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f14f1));
                 this.P.setClickable(true);
                 this.Q.setVisibility(0);
             } else {
@@ -2612,7 +2612,7 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09189e);
             this.k = (ManualObservableScrollView) findViewById(R.id.obfuscated_res_0x7f091a22);
             this.w = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a98);
-            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091faf);
+            this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f091fae);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, this.H0);
@@ -2621,8 +2621,8 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.V = imageView;
             imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f041d));
             this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090adb);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e6);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e7);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e5);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e6);
             this.w.setOnClickListener(this);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09106b);
             this.x = linearLayout;
@@ -2634,12 +2634,12 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0917c6);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091522);
             this.C = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091ad9);
-            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb0);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fac);
+            this.q = (TextView) findViewById(R.id.obfuscated_res_0x7f091faf);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fab);
             this.x0 = (InterestForumTagLayout) findViewById(R.id.obfuscated_res_0x7f09103f);
-            this.y0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920c4);
-            this.z0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c3);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c5);
+            this.y0 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0920c3);
+            this.z0 = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c2);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c4);
             this.A0 = textView;
             textView.setOnClickListener(this);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09106d);

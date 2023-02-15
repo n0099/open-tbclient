@@ -43,9 +43,9 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         this.a = view2;
         this.b = context;
         this.f = str;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092002);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092001);
         this.d = view2.findViewById(R.id.obfuscated_res_0x7f0914cd);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092009);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092008);
     }
 
     public void a(int i) {

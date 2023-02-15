@@ -69,7 +69,7 @@ public class ep implements b49 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     ep epVar = this.a.c;
-                    epVar.a.onShowErr(4, epVar.g.getString(R.string.obfuscated_res_0x7f0f1691));
+                    epVar.a.onShowErr(4, epVar.g.getString(R.string.obfuscated_res_0x7f0f1692));
                     wj.a = 1;
                 }
             }
@@ -273,7 +273,7 @@ public class ep implements b49 {
                         return;
                     }
                     if (i <= 1000) {
-                        ujVar.onShowErr(2, wj.a(R.string.obfuscated_res_0x7f0f1696));
+                        ujVar.onShowErr(2, wj.a(R.string.obfuscated_res_0x7f0f1697));
                         FieldBuilder fieldBuilder = new FieldBuilder();
                         fieldBuilder.append("file", str);
                         fieldBuilder.append("dur", Integer.valueOf(i));
@@ -329,13 +329,13 @@ public class ep implements b49 {
                         this.a.c = null;
                         if (this.a.d == sj.b) {
                             ep epVar3 = this.a;
-                            epVar3.a.onShowErr(3, epVar3.g.getString(R.string.obfuscated_res_0x7f0f1698));
+                            epVar3.a.onShowErr(3, epVar3.g.getString(R.string.obfuscated_res_0x7f0f1699));
                         } else if (this.a.d == sj.c) {
                             ep epVar4 = this.a;
-                            epVar4.a.onShowErr(3, epVar4.g.getString(R.string.obfuscated_res_0x7f0f1697));
+                            epVar4.a.onShowErr(3, epVar4.g.getString(R.string.obfuscated_res_0x7f0f1698));
                         } else {
                             ep epVar5 = this.a;
-                            epVar5.a.onShowErr(3, epVar5.g.getString(R.string.obfuscated_res_0x7f0f1699));
+                            epVar5.a.onShowErr(3, epVar5.g.getString(R.string.obfuscated_res_0x7f0f169a));
                         }
                     }
                 } else {

@@ -94,9 +94,9 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09245a);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09241c);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09240a);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092459);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09241b);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092409);
         this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0926ea);
         this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0926e9);
         this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09108b);

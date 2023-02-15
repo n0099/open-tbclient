@@ -250,7 +250,7 @@ public class kc4 extends dc4 {
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             view2.setOnClickListener(new a(this));
             this.p.f(new b(this));
-            this.k.findViewById(R.id.obfuscated_res_0x7f09213f).setOnClickListener(new c(this));
+            this.k.findViewById(R.id.obfuscated_res_0x7f09213e).setOnClickListener(new c(this));
             this.m.setOnClickListener(new d(this));
         }
     }
@@ -330,11 +330,11 @@ public class kc4 extends dc4 {
             View i = super.i();
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0876, (ViewGroup) null);
             this.k = inflate;
-            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f09213e);
-            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f092141);
-            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f09213d);
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f09213d);
+            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f092140);
+            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f09213c);
             z();
-            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f092140);
+            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f09213f);
             this.o = recyclerView;
             recyclerView.setItemAnimator(null);
             this.o.setLayoutManager(new LinearLayoutManager(this.a));

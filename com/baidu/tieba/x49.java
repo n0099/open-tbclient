@@ -165,7 +165,7 @@ public class x49 {
         this.j = new b(this);
         this.k = new c(this);
         this.a = mainTabActivity;
-        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09215f);
+        this.c = (FragmentTabHost) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09215e);
     }
 
     public void g() {
@@ -199,7 +199,7 @@ public class x49 {
             if (this.f == null) {
                 View inflate = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
                 this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358);
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092357);
                 this.h = (TextView) this.f.findViewById(R.id.tips_content);
                 this.f.setOnClickListener(this.k);
             }

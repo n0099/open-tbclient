@@ -544,7 +544,7 @@ public class my7 {
             if (!z) {
                 this.c.u();
                 if (BdNetTypeUtil.isNetWorkAvailable()) {
-                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1495);
+                    a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1496);
                 } else {
                     a2 = NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0d08);
                 }

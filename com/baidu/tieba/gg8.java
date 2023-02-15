@@ -200,7 +200,7 @@ public class gg8 extends BaseAdapter {
             b bVar = new b();
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0681, (ViewGroup) null);
             bVar.b = inflate;
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920e8);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0920e7);
             bVar.c = linearLayout;
             if (this.h) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();

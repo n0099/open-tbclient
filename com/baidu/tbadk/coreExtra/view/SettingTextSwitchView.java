@@ -194,11 +194,11 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.setting_text_switch_view, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090718);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09225c);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09225b);
             BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0904a1);
             this.e = bdSwitchView;
             bdSwitchView.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092330);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09232f);
             this.d = textView;
             if (textView != null) {
                 textView.setVisibility(8);

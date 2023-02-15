@@ -273,9 +273,9 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
             this.m = linearLayout;
             this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f0913b9);
             this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f091082);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09247e);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09247c);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f09247d);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f09247d);
+            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f09247b);
+            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f09247c);
             this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f09046e);
             HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090e01);
             this.t = headImageView;

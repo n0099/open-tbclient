@@ -119,8 +119,8 @@ public class dz3 extends Dialog {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924be);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0924bd);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0924df);
             sc4.a(textView);
             sc4.a(textView2);
             textView.setOnClickListener(new a(this));

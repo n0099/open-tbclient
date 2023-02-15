@@ -631,7 +631,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         ArrayList<MediaModel> e2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09230e);
+            this.p = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09230d);
             this.q = findViewById(R.id.obfuscated_res_0x7f090261);
             a aVar = new a(this, this);
             aVar.setOrientation(0);

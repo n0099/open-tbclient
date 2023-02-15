@@ -287,10 +287,10 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
             this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090eba);
             this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f0914fb);
             this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090ef7);
-            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f09225f);
+            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f09225e);
             this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f091502);
             this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090ef8);
-            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f092260);
+            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f09225f);
             return this.m;
         }
         return (View) invokeV.objValue;

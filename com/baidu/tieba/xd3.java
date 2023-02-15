@@ -728,7 +728,7 @@ public class xd3 implements xs1 {
             } else {
                 z = false;
             }
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f09210d);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f09210c);
             if (swanAppRoundedImageView != null) {
                 if (z) {
                     i2 = qm3.j(this.d.q, "SwanAppAuthDialog", false);
@@ -738,7 +738,7 @@ public class xd3 implements xs1 {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), i2));
                 swanAppRoundedImageView.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a7a));
             }
-            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09210f);
+            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09210e);
             if (z) {
                 Z = this.d.p;
             } else {
@@ -749,7 +749,7 @@ public class xd3 implements xs1 {
             this.h = textView2;
             if (textView2 != null) {
                 if (u(this.d)) {
-                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f09210c);
+                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f09210b);
                     if (findViewById != null) {
                         findViewById.setVisibility(8);
                     }

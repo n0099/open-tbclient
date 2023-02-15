@@ -833,7 +833,7 @@ public class md6 extends s05 {
                 if (z) {
                     i2 = R.string.cancel_top;
                 } else {
-                    i2 = R.string.obfuscated_res_0x7f0f151f;
+                    i2 = R.string.obfuscated_res_0x7f0f1520;
                 }
                 this.r.add(new q05(3, Z(i2, new Object[0]), this.m));
             }

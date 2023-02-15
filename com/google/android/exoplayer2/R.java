@@ -160,8 +160,8 @@ public final class R {
         public static final int fixed_height = 0x7f090a71;
         public static final int fixed_width = 0x7f090a72;
         public static final int none = 0x7f0917f4;
-        public static final int surface_view = 0x7f092102;
-        public static final int texture_view = 0x7f0922a9;
+        public static final int surface_view = 0x7f092101;
+        public static final int texture_view = 0x7f0922a8;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

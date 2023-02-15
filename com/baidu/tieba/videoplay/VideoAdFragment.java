@@ -901,7 +901,7 @@ public class VideoAdFragment extends BaseFragment implements gu5.b, ke9 {
         }
         this.D.setText(e2);
         if (dj.isEmpty(va9Var.d())) {
-            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f162a), false, null);
+            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f162b), false, null);
         } else {
             this.E.setData(va9Var.d(), false, null);
         }
@@ -967,7 +967,7 @@ public class VideoAdFragment extends BaseFragment implements gu5.b, ke9 {
         imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08088f, WebPManager.ResourceStateType.NORMAL_DISABLE));
         EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.comment_num);
         this.x = eMTextView;
-        eMTextView.setText(R.string.obfuscated_res_0x7f0f1629);
+        eMTextView.setText(R.string.obfuscated_res_0x7f0f162a);
         p15 d3 = p15.d(this.x);
         d3.z(R.dimen.T_X09);
         d3.A(R.string.F_X01);
@@ -981,7 +981,7 @@ public class VideoAdFragment extends BaseFragment implements gu5.b, ke9 {
         imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08088e, WebPManager.ResourceStateType.NORMAL));
         EMTextView eMTextView2 = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091669);
         this.A = eMTextView2;
-        eMTextView2.setText(R.string.obfuscated_res_0x7f0f162b);
+        eMTextView2.setText(R.string.obfuscated_res_0x7f0f162c);
         p15 d4 = p15.d(this.A);
         d4.z(R.dimen.T_X09);
         d4.A(R.string.F_X01);
@@ -1018,7 +1018,7 @@ public class VideoAdFragment extends BaseFragment implements gu5.b, ke9 {
         this.G = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0900ab);
         TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0900ac);
         this.H = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f1628);
+        textView2.setText(R.string.obfuscated_res_0x7f0f1629);
         p15 d7 = p15.d(this.H);
         d7.z(R.dimen.T_X09);
         d7.v(R.color.CAM_X0621);

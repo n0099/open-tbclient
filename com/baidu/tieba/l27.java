@@ -101,7 +101,7 @@ public class l27 extends i27 {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             n();
             o();
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09206d);
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f09206c);
         }
     }
 
@@ -180,7 +180,7 @@ public class l27 extends i27 {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09250e);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f09250d);
             this.d = tBSpecificationBtn;
             tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02ba));
             this.d.setTextSize(R.dimen.T_X08);

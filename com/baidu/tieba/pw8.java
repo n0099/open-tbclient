@@ -65,12 +65,12 @@ public class pw8 extends ow8 {
     public final void A0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.O = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0920b6);
-            this.P = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b5);
+            this.O = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0920b5);
+            this.P = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b4);
             this.S = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09139f);
-            this.T = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b9);
-            this.Q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b8);
-            this.R = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.T = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b8);
+            this.Q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b7);
+            this.R = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b6);
             this.U = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09255f);
             this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09255e);
             this.W = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ff8);

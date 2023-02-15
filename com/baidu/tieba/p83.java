@@ -570,9 +570,9 @@ public class p83 {
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913c8);
         TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0913d3);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d67);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d68);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d69);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d66);
+        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d67);
+        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d68);
         if (!TextUtils.isEmpty(charSequence)) {
             textView.setTextColor(l83.a);
             if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
@@ -601,7 +601,7 @@ public class p83 {
                     if (!TextUtils.isEmpty(charSequence2)) {
                         linearLayout2.setVisibility(8);
                     } else {
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d5e)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
+                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091d5d)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
                         toastLocation2 = ToastLocation.BOTTOM;
                         linearLayout2.setVisibility(0);
                         textView2.setText(charSequence2);
@@ -677,7 +677,7 @@ public class p83 {
         linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
         boolean z2 = true;
         linearLayout.setClickable(true);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f092265);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f092264);
         SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.left_icon);
         simpleDraweeView.setVisibility(0);
         if (view2 != null) {
@@ -692,7 +692,7 @@ public class p83 {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(q83.a(activity, 15.0f), 0, 0, 0);
             linearLayout2.setLayoutParams(layoutParams);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09235b);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09235a);
             TextView textView2 = (TextView) linearLayout.findViewById(R.id.sub_title);
             TextView textView3 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091844);
             if (TextUtils.isEmpty(charSequence)) {
@@ -724,7 +724,7 @@ public class p83 {
                 textView4.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c3));
                 TextView textView5 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09112b);
                 ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09112e);
-                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d69);
+                View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091d68);
                 if (!TextUtils.isEmpty(charSequence3)) {
                     if (toastRightAreaStyle == ToastRightAreaStyle.BUTTON) {
                         frameLayout.setVisibility(0);
@@ -758,7 +758,7 @@ public class p83 {
             return;
         }
         z2 = false;
-        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09235b);
+        TextView textView6 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09235a);
         TextView textView22 = (TextView) linearLayout.findViewById(R.id.sub_title);
         TextView textView32 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091844);
         if (TextUtils.isEmpty(charSequence)) {

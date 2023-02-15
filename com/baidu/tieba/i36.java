@@ -349,14 +349,14 @@ public class i36 implements t16 {
             this.d.setRadiusById(R.string.J_X13);
             this.d.setPlaceHolder(2);
             this.e = this.c.findViewById(R.id.obfuscated_res_0x7f090fdb);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092283);
-            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092266);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092282);
+            this.g = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f092265);
             EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.text_title);
             this.h = eMTextView;
             p15.d(eMTextView).A(R.string.F_X02);
-            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09227d);
+            this.i = (EMTextView) this.c.findViewById(R.id.obfuscated_res_0x7f09227c);
             this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092067);
+            TbImageView tbImageView2 = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092066);
             this.j = tbImageView2;
             tbImageView2.setDrawCorner(true);
             this.j.setConrers(1);

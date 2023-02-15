@@ -446,10 +446,10 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
             this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0915c8);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092232);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092231);
             this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916c4);
-            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ff0);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ff1);
+            this.f = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091fef);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ff0);
             this.g = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916c3);
             MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0915d1);
             this.q = maxureLayerView;
@@ -459,7 +459,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.q.f(p09.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), n15.b(R.string.A_X05)));
             this.q.e(p09.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.q.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4e);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4d);
             this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090077);
             this.d.setAutoChangeStyle(false);
             this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);

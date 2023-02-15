@@ -2163,7 +2163,7 @@ public class NewSubPbActivity extends BaseActivity<NewSubPbActivity> implements 
                                                 return;
                                             }
                                             return;
-                                        } else if (view2.getId() == R.id.obfuscated_res_0x7f091d3d && (view2.getTag() instanceof SparseArray)) {
+                                        } else if (view2.getId() == R.id.obfuscated_res_0x7f091d3c && (view2.getTag() instanceof SparseArray)) {
                                             Object obj = ((SparseArray) view2.getTag()).get(R.id.tag_clip_board);
                                             if (obj instanceof PostData) {
                                                 PostData postData = (PostData) obj;

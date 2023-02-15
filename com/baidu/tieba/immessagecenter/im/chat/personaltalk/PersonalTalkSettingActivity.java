@@ -539,11 +539,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.e), this.b.R().name)));
                     ls7.a("c14629");
                 }
-            } else if (id == R.id.obfuscated_res_0x7f0920b1) {
+            } else if (id == R.id.obfuscated_res_0x7f0920b0) {
                 j05 j05Var = new j05(getPageContext().getPageActivity());
                 j05Var.setMessage(getPageContext().getContext().getString(R.string.obfuscated_res_0x7f0f10a6)).setPositiveButton(R.string.alert_yes_button, new c(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this)).create(getPageContext());
                 j05Var.show();
-            } else if (id == R.id.obfuscated_res_0x7f0920b2) {
+            } else if (id == R.id.obfuscated_res_0x7f0920b1) {
                 if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921343, e99.class, getPageContext().getPageActivity())) != null) {
                     this.c = (e99) runTask.getData();
                 }

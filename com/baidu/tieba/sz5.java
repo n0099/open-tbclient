@@ -159,9 +159,9 @@ public final class sz5 {
             View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00da, (ViewGroup) null, true);
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d72);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090d71);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c5);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c4);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c6);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c4);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c3);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923c5);
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0812a3);
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);

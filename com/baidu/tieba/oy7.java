@@ -845,7 +845,7 @@ public class oy7 implements ly7 {
             HotSearchInfoData hotSearchInfoData = this.e;
             if (hotSearchInfoData == null) {
                 BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f16fb));
+                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f16fc));
                 return;
             }
             int i2 = 1;

@@ -362,7 +362,7 @@ public class qj9 {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f09216c);
+            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f09216b);
             Resources resources = this.i.getResources();
             String[] stringArray = resources.getStringArray(R.array.obfuscated_res_0x7f03000f);
             this.p.clear();
@@ -387,7 +387,7 @@ public class qj9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f092815);
-            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0920d6);
+            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0920d5);
             if (this.i.getResources() == null) {
                 resources = TbadkCoreApplication.getInst().getResources();
             } else {

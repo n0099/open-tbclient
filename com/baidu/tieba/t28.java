@@ -49,7 +49,7 @@ public class t28 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) null);
             this.a = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0921f4);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0921f3);
             this.a.setTag(this);
             return this.a;
         }

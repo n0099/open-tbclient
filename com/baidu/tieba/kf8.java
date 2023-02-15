@@ -49,7 +49,7 @@ public class kf8 extends hf8 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.delete_original_thread_view, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09225c);
+            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09225b);
             return this.f;
         }
         return (View) invokeV.objValue;

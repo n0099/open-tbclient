@@ -237,7 +237,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, xx9.l(R.string.obfuscated_res_0x7f0f15c0))) {
+        if (!TextUtils.equals(str, xx9.l(R.string.obfuscated_res_0x7f0f15c1))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -274,7 +274,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         p15 d = p15.d(findViewById);
         d.n(R.string.J_X01);
         d.f(R.color.CAM_X0106);
-        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092286);
+        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092285);
         n45 n45Var = new n45();
         n45Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
         this.f.setConfig(n45Var);

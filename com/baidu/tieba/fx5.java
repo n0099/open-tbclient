@@ -371,7 +371,7 @@ public class fx5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c.setContentView(R.layout.obfuscated_res_0x7f0d0141);
-            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091db6);
             this.d = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
             u("");
             this.j = (LinearLayout) this.c.findViewById(R.id.webview_container);

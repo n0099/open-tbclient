@@ -156,13 +156,13 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f0922aa);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f0922a9);
             this.j = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.j.setTextSize(AbsFloorImageTextView.i);
             this.j.setTextColor(SkinManager.getColor(R.color.white_alpha83));
             this.j.S = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091f0d);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091f0c);
             this.k = editorScrollView;
             editorScrollView.setPadding(0, ej.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
             this.k.setOnTouchListener(this.c);

@@ -69,9 +69,9 @@ public class h38 {
             this.a = inflate;
             this.b = context;
             inflate.setTag(this);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09221d);
-            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09221c);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09221b);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09221c);
+            this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09221b);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09221a);
             this.f = findViewById;
             findViewById.setTag(this);
             return this.a;

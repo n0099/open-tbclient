@@ -745,8 +745,8 @@ public class sx6 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, str) == null) {
             this.g = view2;
             this.y = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091744);
-            this.w = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dcb);
-            this.D = (EditorScrollView) view2.findViewById(R.id.obfuscated_res_0x7f091f0e);
+            this.w = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dca);
+            this.D = (EditorScrollView) view2.findViewById(R.id.obfuscated_res_0x7f091f0d);
             this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090aea);
             this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090b51);
             this.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ae9);
@@ -754,7 +754,7 @@ public class sx6 implements View.OnClickListener {
             this.h = view2.findViewById(R.id.obfuscated_res_0x7f090b50);
             this.u = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09098b);
             this.p = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092576);
-            this.q = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09237a);
+            this.q = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092379);
             this.i = view2.findViewById(R.id.obfuscated_res_0x7f090b4e);
             this.r = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091b7e);
             this.v = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091b7c);

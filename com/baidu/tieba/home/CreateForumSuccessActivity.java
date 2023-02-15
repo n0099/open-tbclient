@@ -146,7 +146,7 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public final void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091db6);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -156,14 +156,14 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
             NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090906), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, g), null, null);
             this.e = a2;
             a2.setVisibility(0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092291);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092290);
             this.f.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0d5c) + this.a + getActivity().getString(R.string.obfuscated_res_0x7f0f0d5d));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092267);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092266);
             String string = getResources().getString(R.string.obfuscated_res_0x7f0f0d58);
             if (!StringUtils.isNull(string) && this.g != null) {
                 this.g.setText(string.replace("%s", this.a));
             }
-            findViewById(R.id.obfuscated_res_0x7f092274).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f092273).setOnClickListener(new a(this));
         }
     }
 }

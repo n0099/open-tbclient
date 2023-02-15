@@ -53,7 +53,7 @@ public class b28 {
         }
         this.i = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d05a4);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091db7);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091db6);
         this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.view_no_network);
         NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.view_navigation_bar);
         this.b = navigationBar;

@@ -145,7 +145,7 @@ public class j88 implements h88, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
                 this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14a3), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
+                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14a4), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
                 this.b.a.M1();
             }
         }

@@ -1038,19 +1038,19 @@ public class fg8 implements KeyboardEventLayout.a {
         this.a = (SubPbView) LayoutInflater.from(newSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d067f, (ViewGroup) null);
         this.c = LayoutInflater.from(this.f.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d067e, (ViewGroup) null);
         this.b = (LinearLayout) this.a.findViewById(R.id.navigation_bar_group);
-        this.W = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920f2);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f3);
+        this.W = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920f1);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f2);
         this.V = textView;
         textView.setOnClickListener(this.L);
-        this.X = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f5);
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f4);
+        this.X = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f4);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0920f3);
         this.Y = imageView;
         imageView.setOnClickListener(this.L);
         this.X.setOnClickListener(this.L);
         this.g = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
         P();
         N();
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920e5);
+        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0920e4);
         this.d = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0917a4);
         ThreadSkinView threadSkinView = (ThreadSkinView) LayoutInflater.from(this.f.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08c1, (ViewGroup) null);
         this.z = threadSkinView;
@@ -1242,7 +1242,7 @@ public class fg8 implements KeyboardEventLayout.a {
         if (view3 != null) {
             view3.setVisibility(0);
         }
-        this.n.setText(R.string.obfuscated_res_0x7f0f1671);
+        this.n.setText(R.string.obfuscated_res_0x7f0f1672);
         if (la8Var.i() != null) {
             int F = la8Var.i().F();
             this.S = F;
@@ -1535,7 +1535,7 @@ public class fg8 implements KeyboardEventLayout.a {
     public void N() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0920f6);
+            LinearLayout linearLayout = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f0920f5);
             this.o = linearLayout;
             linearLayout.setOnClickListener(this.L);
             HeadImageView headImageView = (HeadImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091ad3);
@@ -1547,14 +1547,14 @@ public class fg8 implements KeyboardEventLayout.a {
             this.s = imageView;
             imageView.setVisibility(8);
             this.t = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090aa2);
-            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092326);
+            this.u = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092325);
             EllipsizeRichTextView ellipsizeRichTextView = (EllipsizeRichTextView) this.c.findViewById(R.id.content_text);
             this.v = ellipsizeRichTextView;
             ellipsizeRichTextView.setOnClickListener(this.L);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0105);
             this.v.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             this.v.setLineSpacing(0.0f, 1.25f);
-            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0920e6);
+            TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0920e5);
             this.w = tbImageView;
             tbImageView.setOnClickListener(this.L);
             this.y = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090141);

@@ -397,7 +397,7 @@ public class nv8 extends v9<MoreActivity> {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             View.OnClickListener D = D();
             this.u = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09189e);
-            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f091efe);
+            this.v = this.a.findViewById(R.id.obfuscated_res_0x7f091efd);
             this.a.findViewById(R.id.obfuscated_res_0x7f090e1a).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
@@ -411,12 +411,12 @@ public class nv8 extends v9<MoreActivity> {
             this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090420);
             this.n = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090083);
             this.o = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091615);
-            SettingTextRedDotView settingTextRedDotView = (SettingTextRedDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091f68);
+            SettingTextRedDotView settingTextRedDotView = (SettingTextRedDotView) this.a.findViewById(R.id.obfuscated_res_0x7f091f67);
             this.p = settingTextRedDotView;
             settingTextRedDotView.i();
             this.q = (SettingTextVersionView) this.a.findViewById(R.id.obfuscated_res_0x7f092646);
             this.r = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090a2f);
-            this.s = (TbSettingTextNewDotView) this.a.findViewById(R.id.obfuscated_res_0x7f092150);
+            this.s = (TbSettingTextNewDotView) this.a.findViewById(R.id.obfuscated_res_0x7f09214f);
             this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091c5b);
             int i = 8;
             if (!TbadkCoreApplication.isLogin()) {

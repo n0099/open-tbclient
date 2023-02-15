@@ -298,12 +298,12 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09039f);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0919d3);
             this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f0910c6);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092329);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092328);
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0909c4);
             this.k = (HeadImageView) findViewById(R.id.user_head);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09068a);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0920bc);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4e);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f0920bb);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4d);
             this.o = findViewById(R.id.bottom_line);
             this.b.setText(R.string.obfuscated_res_0x7f0f0738);
             this.l.setText(R.string.obfuscated_res_0x7f0f0736);

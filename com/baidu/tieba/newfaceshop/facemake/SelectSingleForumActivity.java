@@ -118,7 +118,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092476);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092475);
                 if (!checkBox.isChecked()) {
                     if (this.a.C1() != null && this.a.C1().isChecked) {
                         this.a.C1().isChecked = false;
@@ -193,7 +193,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d07e6);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091db6);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -206,11 +206,11 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0592));
             this.d.setOnClickListener(this.k);
             this.i = findViewById(R.id.view_divider);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092477);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092476);
             this.a = textView;
             textView.setOnClickListener(this.k);
             this.j = findViewById(R.id.obfuscated_res_0x7f091377);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f09247b);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f09247a);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {

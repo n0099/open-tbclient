@@ -152,7 +152,7 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0927a1);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0927a2);
             this.x = findViewById(R.id.obfuscated_res_0x7f090874);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092379);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f092378);
             this.z = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091807);
         }
     }

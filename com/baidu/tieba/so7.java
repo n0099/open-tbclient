@@ -131,7 +131,7 @@ public class so7 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e1, (ViewGroup) null);
                 this.b = inflate;
-                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235b);
+                this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09235a);
                 ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c3b);
                 this.d = imageView;
                 imageView.setImageDrawable(this.a.getDrawable(R.drawable.icon_mask_share_qq40_svg));

@@ -364,7 +364,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0784);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091db7);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091db6);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             navigationBar.showBottomLine();

@@ -197,9 +197,9 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092020);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09201b);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09201a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09201f);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09201a);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f092019);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             zg.h().m(this.a, 10, new a(this), null);
             this.d.K(this.a, 10, false);

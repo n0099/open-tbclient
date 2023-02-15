@@ -1064,7 +1064,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
             String name2;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && this.a.isAdded()) {
-                if (this.a.s0 && (view2 == this.a.G0.h.c || view2 == this.a.G0.h.d || view2.getId() == R.id.obfuscated_res_0x7f09196a || view2.getId() == R.id.obfuscated_res_0x7f090aa3 || view2.getId() == R.id.obfuscated_res_0x7f091d1c || view2.getId() == R.id.obfuscated_res_0x7f091907)) {
+                if (this.a.s0 && (view2 == this.a.G0.h.c || view2 == this.a.G0.h.d || view2.getId() == R.id.obfuscated_res_0x7f09196a || view2.getId() == R.id.obfuscated_res_0x7f090aa3 || view2.getId() == R.id.obfuscated_res_0x7f091d1b || view2.getId() == R.id.obfuscated_res_0x7f091907)) {
                     return;
                 }
                 if (!(view2 instanceof TbListTextView) || !(view2.getParent() instanceof TbRichTextView)) {
@@ -1231,7 +1231,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                                 this.a.U = view2;
                                 return;
                             }
-                        } else if ((this.a.G0.h.o() != null && view2 == this.a.G0.h.o().q()) || view2.getId() == R.id.obfuscated_res_0x7f090aa3 || view2.getId() == R.id.obfuscated_res_0x7f091d1c) {
+                        } else if ((this.a.G0.h.o() != null && view2 == this.a.G0.h.o().q()) || view2.getId() == R.id.obfuscated_res_0x7f090aa3 || view2.getId() == R.id.obfuscated_res_0x7f091d1b) {
                             if (!BdNetTypeUtil.isNetWorkAvailable()) {
                                 this.a.showToast(R.string.network_not_available);
                                 view2.setTag(Boolean.FALSE);
@@ -1247,7 +1247,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                             }
                             this.a.l7();
                             this.a.G0.z3();
-                            boolean h3 = view2.getId() == R.id.obfuscated_res_0x7f090aa3 ? this.a.y0.h3(true, this.a.x5()) : view2.getId() == R.id.obfuscated_res_0x7f091d1c ? this.a.y0.h3(false, this.a.x5()) : this.a.y0.g3(this.a.x5());
+                            boolean h3 = view2.getId() == R.id.obfuscated_res_0x7f090aa3 ? this.a.y0.h3(true, this.a.x5()) : view2.getId() == R.id.obfuscated_res_0x7f091d1b ? this.a.y0.h3(false, this.a.x5()) : this.a.y0.g3(this.a.x5());
                             view2.setTag(Boolean.valueOf(h3));
                             if (h3) {
                                 i7 = 1;
@@ -1504,7 +1504,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                                                 }
                                             }
                                             this.a.G0.h.k();
-                                        } else if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f0920e7 && view2.getId() != R.id.obfuscated_res_0x7f09191b && view2.getId() != R.id.obfuscated_res_0x7f0917a5) {
+                                        } else if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f0920e6 && view2.getId() != R.id.obfuscated_res_0x7f09191b && view2.getId() != R.id.obfuscated_res_0x7f0917a5) {
                                             if (view2.getId() != R.id.obfuscated_res_0x7f09197d) {
                                                 if (view2.getId() != R.id.obfuscated_res_0x7f09197b && view2.getId() != R.id.obfuscated_res_0x7f091b5b && view2.getId() != R.id.obfuscated_res_0x7f091915) {
                                                     if (view2.getId() == R.id.obfuscated_res_0x7f091919) {
@@ -1664,7 +1664,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                                                                 }
                                                                 TiebaStatic.eventStat(this.a.getPageContext().getPageActivity(), "info_click", "click", 1, "page", "pb");
                                                                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{zz4Var.p1()});
-                                                            } else if (id3 == R.id.obfuscated_res_0x7f091d1f || id3 == R.id.cover_reply_content || id3 == R.id.replybtn_top_right || id3 == R.id.cover_reply_content_top_right) {
+                                                            } else if (id3 == R.id.obfuscated_res_0x7f091d1e || id3 == R.id.cover_reply_content || id3 == R.id.replybtn_top_right || id3 == R.id.cover_reply_content_top_right) {
                                                                 if (!this.a.checkUpIsLogin()) {
                                                                     return;
                                                                 }
@@ -2345,7 +2345,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                                                     String O3 = postData7 != null ? postData7.O() : "";
                                                     int Y2 = this.a.y0.l1() != null ? this.a.y0.l1().Y() : 0;
                                                     this.a.l7();
-                                                    if (view2.getId() != R.id.obfuscated_res_0x7f091d1f) {
+                                                    if (view2.getId() != R.id.obfuscated_res_0x7f091d1e) {
                                                         TiebaStatic.log("c11742");
                                                         AbsPbActivity.e A62 = this.a.A6(O2);
                                                         if (postData6 == null || this.a.y0 == null || this.a.y0.l1() == null || A62 == null) {
@@ -2454,7 +2454,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                             this.a.v1.d(3, i13, this.a.M().l1().S());
                         }
                     }
-                    if (this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e9f).equals(view2.getTag()) && view2.getId() == R.id.obfuscated_res_0x7f091d0f) {
+                    if (this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e9f).equals(view2.getTag()) && view2.getId() == R.id.obfuscated_res_0x7f091d0e) {
                         String w5 = this.a.w5();
                         if (TextUtils.isEmpty(w5)) {
                             return;
@@ -4209,7 +4209,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
                 if (StringUtils.isNull(str)) {
                     if (i == 0) {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f15f6);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f15f7);
                     } else {
                         this.a.showToast(R.string.obfuscated_res_0x7f0f0d08);
                     }
@@ -6898,7 +6898,7 @@ public class PbFragment extends BaseFragment implements bt5, VoiceManager.j, Use
                     return true;
                 }
                 if (view2 != null) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f091d3d) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f091d3c) {
                         if (this.a.J6(view2)) {
                             return true;
                         }

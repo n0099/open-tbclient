@@ -565,17 +565,17 @@ public class SwanAppActionBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0090, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f092397);
+            this.a = findViewById(R.id.obfuscated_res_0x7f092396);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c4);
             this.b = textView;
             textView.setCompoundDrawables(c(R.drawable.obfuscated_res_0x7f080102), null, null, null);
             this.b.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a74));
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913cd);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092395);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092394);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913c5);
-            this.f = findViewById(R.id.obfuscated_res_0x7f092392);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092391);
             this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0901a1);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092387);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092386);
             float f = this.k;
             if (f != -1.0f) {
                 float f2 = this.l;
@@ -586,11 +586,11 @@ public class SwanAppActionBar extends RelativeLayout {
                     }
                 }
             }
-            this.n = findViewById(R.id.obfuscated_res_0x7f09239f);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923a1);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923a3);
-            this.q = findViewById(R.id.obfuscated_res_0x7f0923a2);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923a0);
+            this.n = findViewById(R.id.obfuscated_res_0x7f09239e);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923a0);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923a2);
+            this.q = findViewById(R.id.obfuscated_res_0x7f0923a1);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f09239f);
             setTitle(this.i);
             setTitleColor(-16777216);
             setRightMenuImageSrc(R.drawable.obfuscated_res_0x7f08011b);

@@ -66,9 +66,9 @@ public class cq8 implements View.OnClickListener {
         this.h = (LinearLayout) view2.findViewById(R.id.top_line);
         this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b4c);
         this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09263a);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d1b);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d1a);
         this.l = (TextView) view2.findViewById(R.id.forum_name);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d0c);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d0b);
         this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09108b);
         this.d = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09109a);
         this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091095);

@@ -167,7 +167,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0291));
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fd)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0923fc)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
             BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0927b3);
             this.mWebView = baseWebView;
             baseWebView.setOnJsPromptCallback(this.jsCallback);

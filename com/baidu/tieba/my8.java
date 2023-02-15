@@ -105,13 +105,13 @@ public class my8 extends v9<SignAllForumActivity> {
         this.g = null;
         this.a = signAllForumActivity;
         signAllForumActivity.setContentView(R.layout.obfuscated_res_0x7f0d0802);
-        this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09200f);
+        this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09200e);
         NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
         this.b = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.signallforum));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         this.b.showBottomLine();
-        BdListView bdListView = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09202f);
+        BdListView bdListView = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f09202e);
         this.f = bdListView;
         bdListView.setOnItemClickListener(signAllForumActivity);
         z35 z35Var = new z35(signAllForumActivity.getPageContext());

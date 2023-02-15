@@ -256,7 +256,7 @@ public class wj9 extends pk9<yk9> implements rk9 {
             return;
         }
         if (!writeData.canAddItem()) {
-            ej.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f171f);
+            ej.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1720);
             return;
         }
         RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(this.a.getPageActivity(), 0);

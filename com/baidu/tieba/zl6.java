@@ -224,18 +224,18 @@ public class zl6 extends ej5<qx4, sj6> {
             }
         }
         this.q = viewEventCenter;
-        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091db8);
+        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091db7);
         this.f = findViewById;
         this.g = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f091727);
         this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09147f);
         this.i = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091af2);
-        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09247f);
+        this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09247e);
         this.k = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0908c3);
-        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09200d);
+        this.l = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09200c);
         this.m = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090d8e);
         this.n = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09188b);
         this.r = this.f.findViewById(R.id.obfuscated_res_0x7f090966);
-        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0924a9);
+        this.s = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0924a8);
         this.o = (BarImageView) this.f.findViewById(R.id.forum_avatar);
         this.t = this.f.findViewById(R.id.obfuscated_res_0x7f090b52);
         this.p = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090b11);

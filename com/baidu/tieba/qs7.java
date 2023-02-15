@@ -419,7 +419,7 @@ public class qs7 extends v9<StrangerListActivity> {
             this.p = imageView2;
             WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080a70, R.color.CAM_X0105, null);
             WebPManager.setPureDrawable(this.q, R.drawable.obfuscated_res_0x7f080a6a, R.color.CAM_X0105, null);
-            LinearLayout linearLayout = (LinearLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f091db7);
+            LinearLayout linearLayout = (LinearLayout) strangerListActivity.findViewById(R.id.obfuscated_res_0x7f091db6);
             this.f = linearLayout;
             this.g = (NoNetworkView) linearLayout.findViewById(R.id.no_network_view);
         }

@@ -35,8 +35,8 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
                 return;
             }
         }
-        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091e89);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e8a);
+        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091e88);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e89);
         this.mFootTv = textView;
         this.isDarkMode = z;
         if (z) {

@@ -1170,7 +1170,7 @@ public abstract class AbsVideoChannelFragment extends LazyBaseFragment implement
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09031d);
             this.k = imageView;
             imageView.setOnClickListener(new b(this));
-            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f092227);
+            ViewGroup viewGroup = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f092226);
             this.l = viewGroup;
             ((RelativeLayout.LayoutParams) viewGroup.getLayoutParams()).topMargin = ys4.c + UtilHelper.getStatusBarHeight();
             a2();

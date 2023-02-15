@@ -793,8 +793,8 @@ public class SelectTagListView extends LinearLayout implements kl5, View.OnClick
     public final void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f0921d3);
-            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f0921c5);
+            this.l = (AutoChangeLineView) this.e.findViewById(R.id.obfuscated_res_0x7f0921d2);
+            ScrollView scrollView = (ScrollView) this.e.findViewById(R.id.obfuscated_res_0x7f0921c4);
             this.k = scrollView;
             scrollView.setOnTouchListener(new i(this));
             this.l.setOnLabelClickListener(new j(this));

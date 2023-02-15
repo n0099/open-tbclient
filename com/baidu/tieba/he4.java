@@ -499,7 +499,7 @@ public class he4 extends c82 implements OnGetGeoCoderResultListener, BaiduMap.On
             this.I0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a80);
             this.H0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a82);
             this.L0 = view2.findViewById(R.id.obfuscated_res_0x7f0904b8);
-            this.M0 = view2.findViewById(R.id.obfuscated_res_0x7f091f0f);
+            this.M0 = view2.findViewById(R.id.obfuscated_res_0x7f091f0e);
             this.N0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a4c);
             this.O0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090607);
             this.J0 = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091422);
@@ -666,7 +666,7 @@ public class he4 extends c82 implements OnGetGeoCoderResultListener, BaiduMap.On
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090a4c) {
                 e3(16);
                 W2();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f0f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091f0e) {
                 k3(this.V0);
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0904b8) {
                 e3(17);

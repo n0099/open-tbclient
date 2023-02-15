@@ -557,7 +557,7 @@ public class xt5 {
             wheelView4.setAdapter(new it5(0, 59));
             this.f.setCurrentItem(i5);
             this.f.setGravity(this.h);
-            WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091f51);
+            WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091f50);
             this.g = wheelView5;
             wheelView5.setAdapter(new it5(0, 59));
             this.g.setCurrentItem(i5);
@@ -845,7 +845,7 @@ public class xt5 {
             wheelView4.setAdapter(new it5(0, 59));
             this.f.setCurrentItem(i5);
             this.f.setGravity(this.h);
-            WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091f51);
+            WheelView wheelView5 = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f091f50);
             this.g = wheelView5;
             wheelView5.setAdapter(new it5(0, 59));
             this.g.setCurrentItem(i6);

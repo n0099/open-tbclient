@@ -157,7 +157,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         matrix.postTranslate(0.0f, -xd8.t());
         this.d.setImageMatrix(matrix);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f0903b7);
-        this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3d);
+        this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d3c);
         this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09190c);
         this.h = (TbAlphaVideo) view2.findViewById(R.id.obfuscated_res_0x7f09014b);
         this.c = view2;

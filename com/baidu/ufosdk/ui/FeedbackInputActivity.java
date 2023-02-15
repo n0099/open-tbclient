@@ -4297,10 +4297,10 @@ public class FeedbackInputActivity extends Activity {
                             g1Var.b.findViewById(R.id.obfuscated_res_0x7f0914e2).setVisibility(8);
                         }
                         if (!TextUtils.isEmpty(str)) {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091d8c).setVisibility(0);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091d8b).setVisibility(0);
                             ((TextView) g1Var.b.findViewById(R.id.obfuscated_res_0x7f092554)).setText(str);
                         } else {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091d8c).setVisibility(8);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091d8b).setVisibility(8);
                         }
                         feedbackInputActivity.G.show();
                         return;

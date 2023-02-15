@@ -207,7 +207,7 @@ public class mm9 extends hm9 {
             } else if ("2".equals(this.p.getCallFrom())) {
                 navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0fb4));
                 if (this.p.getProZone() == 1) {
-                    navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1722));
+                    navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1723));
                 }
             } else if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.p.getFrom())) {
                 navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1239) + this.p.getForumName() + this.a.getString(R.string.obfuscated_res_0x7f0f02e8));

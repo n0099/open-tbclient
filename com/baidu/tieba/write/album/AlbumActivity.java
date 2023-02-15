@@ -174,7 +174,7 @@ public class AlbumActivity extends BaseFragmentActivity implements View.OnClickL
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setContentView(R.layout.obfuscated_res_0x7f0d0115);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0920ca);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0920c9);
             this.c = UtilHelper.canUseStyleImmersiveSticky();
             p1();
             this.a = new wh9(this, bundle, R.id.obfuscated_res_0x7f090b5f, R.id.obfuscated_res_0x7f090b5f);

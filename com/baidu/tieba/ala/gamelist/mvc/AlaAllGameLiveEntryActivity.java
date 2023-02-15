@@ -175,12 +175,12 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0202));
-            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f1c);
+            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091f1b);
             this.c = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091f47);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091f46);
             this.d = textView;
             textView.setClickable(false);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091f2d);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091f2c);
             this.c.setOnClickListener(new a(this));
             if (this.j == 1) {
                 this.c.setVisibility(0);
@@ -188,7 +188,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 this.c.setVisibility(8);
             }
             this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00e7, (ViewGroup) null);
-            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091f05);
+            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091f04);
             this.i = new p56(getPageContext());
             NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901e8);
             this.f = noScrollGridView;

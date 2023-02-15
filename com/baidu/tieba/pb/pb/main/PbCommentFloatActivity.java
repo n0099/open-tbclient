@@ -518,7 +518,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public final void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092105);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f092104);
             this.y = noNetworkView;
             noNetworkView.a(this.M);
         }
@@ -648,9 +648,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.v.setTranView(this.w);
             this.v.setContentView(this.B);
             this.v.s();
-            this.E = (TextView) findViewById(R.id.obfuscated_res_0x7f091d42);
-            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f092312);
-            this.G = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092310);
+            this.E = (TextView) findViewById(R.id.obfuscated_res_0x7f091d41);
+            this.F = (ImageView) findViewById(R.id.obfuscated_res_0x7f092311);
+            this.G = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09230f);
             this.H = new TiePlusEventController(this, TiePlusStat.Locate.VIDEO_COMMENT_TOP);
             registerListener(this.N);
         }

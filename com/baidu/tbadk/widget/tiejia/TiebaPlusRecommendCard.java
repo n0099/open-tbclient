@@ -616,7 +616,7 @@ public class TiebaPlusRecommendCard extends RelativeLayout implements View.OnCli
                 this.b.setVisibility(8);
             } else if (tiebaPlusInfo.jump_type.intValue() != 7 && tiebaPlusInfo.jump_type.intValue() != 3) {
                 this.b.setTag(null);
-                this.b.setText(this.m.getString(R.string.obfuscated_res_0x7f0f1667));
+                this.b.setText(this.m.getString(R.string.obfuscated_res_0x7f0f1668));
                 this.b.e();
                 this.j.setVisibility(0);
                 this.b.setVisibility(8);

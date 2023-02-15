@@ -60,8 +60,8 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c5);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f092508);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c4);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f092507);
         }
     }
 

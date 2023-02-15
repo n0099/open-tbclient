@@ -212,8 +212,8 @@ public class RightLeftListView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.mRightContainer = (RelativeLayout) this.mRoot.findViewById(R.id.right_container);
-            this.mRvLeft = (RecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f091dd3);
-            this.mRvRight = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f091dd5);
+            this.mRvLeft = (RecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f091dd2);
+            this.mRvRight = (BdTypeRecyclerView) this.mRoot.findViewById(R.id.obfuscated_res_0x7f091dd4);
         }
     }
 

@@ -297,8 +297,8 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             this.d = view2.findViewById(R.id.obfuscated_res_0x7f090e27);
-            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f09210d);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092111);
+            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f09210c);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092110);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090452);
             this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902b9);
             tt2.a W = v83.K().q().W();

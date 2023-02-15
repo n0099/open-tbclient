@@ -96,7 +96,7 @@ public class e36 extends mc6<a26> {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f0920b3);
+                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f0920b2);
                     this.a = view2.findViewById(R.id.obfuscated_res_0x7f091c98);
                     this.b = view2.findViewById(R.id.obfuscated_res_0x7f091c99);
                 }

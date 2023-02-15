@@ -179,7 +179,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f0, (ViewGroup) this, true);
             this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
             this.b = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092307);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092306);
             this.d = (TextView) inflate.findViewById(R.id.thread_info_address);
             this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090850);
             setGravity(16);

@@ -343,7 +343,7 @@ public class lk9 extends pk9<ll9> implements rk9, nh9.a, PopupWindow.OnDismissLi
         bf6 bf6Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (bf6Var = this.l) != null) {
-            bf6Var.U(this.a.getString(R.string.obfuscated_res_0x7f0f1713), "write_title_prefix_tip_key", true);
+            bf6Var.U(this.a.getString(R.string.obfuscated_res_0x7f0f1714), "write_title_prefix_tip_key", true);
         }
     }
 

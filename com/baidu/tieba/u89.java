@@ -93,7 +93,7 @@ public class u89 {
         this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aac);
         this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aac);
         this.c = this.b.findViewById(R.id.content_view);
-        this.s = this.b.findViewById(R.id.obfuscated_res_0x7f0923e2);
+        this.s = this.b.findViewById(R.id.obfuscated_res_0x7f0923e1);
         TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090572);
         this.f = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
@@ -316,7 +316,7 @@ public class u89 {
         } else if (f == 0) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f1601);
+            this.j.setText(R.string.obfuscated_res_0x7f0f1602);
         } else if (f == 100) {
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
             SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);

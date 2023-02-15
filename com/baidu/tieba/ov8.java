@@ -582,7 +582,7 @@ public class ov8 extends v9<MsgRemindActivity> {
             navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1020));
             this.k.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.l = msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f090b71);
-            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d09);
+            MsgSettingItemView msgSettingItemView = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091d08);
             this.a = msgSettingItemView;
             msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f10b1);
             MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09284b);
@@ -595,19 +595,19 @@ public class ov8 extends v9<MsgRemindActivity> {
             MsgSettingItemView msgSettingItemView4 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f09178f);
             this.d = msgSettingItemView4;
             msgSettingItemView4.setText(R.string.obfuscated_res_0x7f0f0d0c);
-            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092015);
+            MsgSettingItemView msgSettingItemView5 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092014);
             this.e = msgSettingItemView5;
             msgSettingItemView5.setText(R.string.obfuscated_res_0x7f0f125f);
-            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092013);
-            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092016);
-            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092018);
+            this.f = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092012);
+            this.g = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092015);
+            this.h = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092017);
             MsgSettingItemView msgSettingItemView6 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0917da);
             this.i = msgSettingItemView6;
             msgSettingItemView6.setText(R.string.obfuscated_res_0x7f0f0d26);
             this.i.setTipText(R.string.obfuscated_res_0x7f0f0d27);
-            this.u = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0924fd);
+            this.u = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0924fc);
             this.v = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f092556);
-            this.w = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0924d0);
+            this.w = (TextView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0924cf);
             MsgSettingItemView msgSettingItemView7 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0916ca);
             this.s = msgSettingItemView7;
             msgSettingItemView7.setText(R.string.obfuscated_res_0x7f0f0bfb);
@@ -725,7 +725,7 @@ public class ov8 extends v9<MsgRemindActivity> {
             this.s.c(this.n.getPageContext(), i);
             this.i.c(this.n.getPageContext(), i);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(null, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092014), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f092013), R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 }

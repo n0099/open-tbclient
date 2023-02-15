@@ -503,7 +503,7 @@ public class cg8 {
             }
             View inflate = LayoutInflater.from(this.p.getContext()).inflate(R.layout.tips_blue_right_up, (ViewGroup) null);
             View findViewById = inflate.findViewById(R.id.arrow_up);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092358);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092357);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
             layoutParams.gravity = 5;
             if (!TbadkCoreApplication.isLogin()) {

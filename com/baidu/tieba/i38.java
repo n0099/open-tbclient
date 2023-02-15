@@ -52,8 +52,8 @@ public class i38 {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089a, (ViewGroup) null);
             this.a = inflate;
             inflate.setTag(this);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092220);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092221);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09221f);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092220);
             return this.a;
         }
         return (View) invokeL.objValue;

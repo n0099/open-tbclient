@@ -303,7 +303,7 @@ public class te6 extends BaseAdapter {
             } else if (i4 == 3) {
                 String string = this.b.getString(R.string.obfuscated_res_0x7f0f1060);
                 if (CurrencySwitchUtil.isYyIsConvert(re6Var.e())) {
-                    l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f172d), g(Double.valueOf(re6Var.i())));
+                    l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f172e), g(Double.valueOf(re6Var.i())));
                 } else {
                     l = re6Var.l();
                 }

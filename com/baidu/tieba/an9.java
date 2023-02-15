@@ -129,9 +129,9 @@ public class an9 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 j05 j05Var = new j05(this.a.a.getPageActivity());
-                j05Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f16a6));
+                j05Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f16a7));
                 j05Var.setTitleShowCenter(true);
-                j05Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f16a5));
+                j05Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f16a6));
                 j05Var.setMessageShowCenter(true);
                 j05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04d8, new C0227a(this));
                 j05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038c, new b(this));

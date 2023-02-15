@@ -79,12 +79,12 @@ public class ad6 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a5, (ViewGroup) null);
             this.b = inflate;
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091db7);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091db6);
             this.c = findViewById;
             findViewById.setOnClickListener(this);
             this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ffc);
             this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092725);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09236b);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f09236a);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090694);
             this.g = imageView;
             imageView.setClickable(true);

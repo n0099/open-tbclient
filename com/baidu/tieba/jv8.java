@@ -321,35 +321,35 @@ public class jv8 extends v9<AboutActivity> {
             NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1625));
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092297);
+            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1626));
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092296);
             this.f = (SettingTextTestNewView) this.a.findViewById(R.id.obfuscated_res_0x7f090026);
             TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090024);
             this.h = tbSettingTextTipView;
             tbSettingTextTipView.c();
-            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092316);
+            TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092315);
             this.i = tbSettingTextTipView2;
             tbSettingTextTipView2.c();
-            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092315);
+            TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092314);
             this.j = tbSettingTextTipView3;
             tbSettingTextTipView3.c();
-            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092314);
+            TbSettingTextTipView tbSettingTextTipView4 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092313);
             this.k = tbSettingTextTipView4;
             tbSettingTextTipView4.c();
-            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092313);
+            TbSettingTextTipView tbSettingTextTipView5 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092312);
             this.l = tbSettingTextTipView5;
             tbSettingTextTipView5.c();
-            this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092317);
+            this.m = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092316);
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                this.m.setText(R.string.obfuscated_res_0x7f0f172c);
+                this.m.setText(R.string.obfuscated_res_0x7f0f172d);
             } else {
-                this.m.setText(R.string.obfuscated_res_0x7f0f1491);
+                this.m.setText(R.string.obfuscated_res_0x7f0f1492);
             }
             this.m.c();
             TbSettingTextTipView tbSettingTextTipView6 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091aaf);
             this.n = tbSettingTextTipView6;
             tbSettingTextTipView6.c();
-            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0922ca);
+            TbSettingTextTipView tbSettingTextTipView7 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0922c9);
             this.o = tbSettingTextTipView7;
             tbSettingTextTipView7.c();
             TbSettingTextTipView tbSettingTextTipView8 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091ae1);
@@ -385,7 +385,7 @@ public class jv8 extends v9<AboutActivity> {
             } else {
                 this.e.setText(str3);
             }
-            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092296);
+            this.q = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092295);
             M(TbadkCoreApplication.getInst().getSkinType());
             this.h.setVisibility(8);
             if (p35.m().i("debug_plugin_switcher", false)) {

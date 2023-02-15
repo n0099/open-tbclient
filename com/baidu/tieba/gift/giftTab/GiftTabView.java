@@ -875,8 +875,8 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             if (i2 >= 0 && i2 < childCount) {
                 for (int i3 = 0; i3 < childCount; i3++) {
                     LinearLayout linearLayout = (LinearLayout) this.t.getChildAt(i3);
-                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09229a);
-                    View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f092277);
+                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092299);
+                    View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f092276);
                     if (i3 != i2) {
                         SkinManager.setViewTextColor(textView, R.color.gift_tab_textcolor_normal, 1);
                         SkinManager.setBackgroundColor(findViewById, R.color.common_color_10022);
@@ -1078,10 +1078,10 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             this.g.addTextChangedListener(new l(this, null));
             this.g.setOnClickListener(new d(this));
             this.g.setOnFocusChangeListener(new e(this));
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091d3a);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d36);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d38);
-            this.k = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d39);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091d39);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d35);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d37);
+            this.k = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d38);
             this.h.setOnClickListener(this.Y);
             this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d53);
             TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d50);
@@ -1094,7 +1094,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d40);
             this.o = textView3;
             textView3.setOnClickListener(this.W);
-            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09229e);
+            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09229d);
             this.p = textView4;
             textView4.setOnClickListener(this.Z);
             this.u = this.b.findViewById(R.id.obfuscated_res_0x7f090d5b);
@@ -1110,7 +1110,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             ListView listView = (ListView) this.b.findViewById(R.id.obfuscated_res_0x7f090d5f);
             this.y = listView;
             listView.setOnItemClickListener(new k(this, null));
-            this.w = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092157);
+            this.w = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092156);
             View D = D(false);
             this.v = D;
             D.setVisibility(8);
@@ -1447,7 +1447,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                 w67 w67Var = arrayList.get(i3);
                 if (!TextUtils.isEmpty(w67Var.b()) && w67Var.c() != null && w67Var.c().size() > 0) {
                     LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d038a, (ViewGroup) null);
-                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09229a);
+                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092299);
                     textView.setText(w67Var.b());
                     linearLayout.setOnClickListener(new m(this, i3));
                     textView.setSingleLine();

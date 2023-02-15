@@ -59,8 +59,8 @@ public abstract class b88 {
         TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getString(R.string.obfuscated_res_0x7f0f127c));
         this.e = addTextButton;
         addTextButton.setId(R.id.btn_skip);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f9);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f7);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f8);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923f6);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fda);
         this.f = imageView;
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();

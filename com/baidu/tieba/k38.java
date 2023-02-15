@@ -109,14 +109,14 @@ public class k38 {
         }
         this.j = new a(this);
         this.h = viewGroup.getContext();
-        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221e);
-        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221f);
-        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092218);
-        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092219);
-        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221a);
-        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092215);
-        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092217);
-        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092216);
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221d);
+        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09221e);
+        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092217);
+        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092218);
+        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092219);
+        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092214);
+        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092216);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092215);
         this.b.setOnClickListener(this.j);
         this.c.setOnClickListener(this.j);
     }
